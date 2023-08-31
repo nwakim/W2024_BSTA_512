@@ -1,0 +1,112 @@
+---
+title: "Chapter 3: Independent Events"
+author: "Meike Niederhausen"
+date: "10/02/2023"
+categories: ["Day 3"]
+format: 
+  revealjs:
+    theme: [default, simple_NW.scss]
+    toc: true
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1600
+    height: 1100
+    footer: Chapter 3 Slides
+---
+
+## Slide 1
+
+**Question:** Which of the following sequences of coin tosses of heads ($H$) and tails ($T$) is more likely to happen, assuming the coin is fair?
+
+$$HTTHHHTHTHHTTTH$$ or $$HTTTTTTTTHTTTTT$$
+
+## Slide 2
+
+::: definition
+::: def-title
+Definition: Independence
+:::
+
+::: def-cont
+*Events* $A$ and $B$ are **independent** if $$\mathbb{P}(A \cap B) = \mathbb{P}(A) \cdot  \mathbb{P}(B).$$
+:::
+:::
+
+**Notation:** For shorthand, we sometimes write $$A \mathrel{\unicode{x2AEB}} B,$$ to denote that $A$ and $B$ are independent events.
+
+## da
+
+::: example
+::: ex-title
+Example 2
+:::
+
+::: ex-cont
+*Two dice (red and blue) are rolled. Let* $A =$ event a total of 7 appears, and $B =$ event first die is a six. Are events $A$ and $B$ independent?
+:::
+:::
+
+**Solution:**
+
+## fsf
+
+::: definition
+::: def-title
+Definition: Independence of 3 Events
+:::
+
+::: def-cont
+*Events* $A$, $B$, and $C$ are **independent** if
+
+1.  
+
+    -   $\mathbb{P}(A \cap B) = \mathbb{P}(A) \cdot \mathbb{P}(B)$
+
+    -   $\mathbb{P}(A \cap C) = \mathbb{P}(A) \cdot \mathbb{P}(C)$
+
+    -   $\mathbb{P}(B \cap C) = \mathbb{P}(B) \cdot \mathbb{P}(C)$
+
+2.  $\mathbb{P}(A \cap B \cap C) = \mathbb{P}(A) \cdot \mathbb{P}(B) \cdot \mathbb{P}(C)$
+:::
+:::
+
+**Remark:**
+
+On your homework you will show that $(1) \not \Rightarrow (2)$ and $(2) \not \Rightarrow (1)$.
+
+## fafs
+
+::: example
+::: ex-title
+Example 4
+:::
+
+::: ex-cont
+*Suppose you take a random sample of* $n$ people, of which people are smokers and non-smokers independently of each other. Let
+
+-   $A_i =$ event person $i$ is a smoker, for $i=1, \ldots ,n$, and
+
+-   $p_i =$ probability person $i$ is a smoker, for $i=1, \ldots ,n$. Find the probability that at least one person in the random sample is a smoker.
+:::
+:::
+
+**Solution:**
+
+## faf
+
+::: example
+::: ex-title
+Example 5
+:::
+
+::: ex-cont
+$A, B,$ and $C$ toss a fair coin in order. The first to throw heads wins. What are their respective chances of winning?
+:::
+:::
+
+**Solution:** Let
+
+-   $A_H$ and $A_T$ be the events player A tosses heads and tails, respectively.
+
+-   Similarly define $B_H$, $B_T$, $C_H$, and $C_T$.

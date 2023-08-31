@@ -1,0 +1,43 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "BSTA 550"
+  image: "/images/N_Wakim.jpg"
+  navbar:
+    background: primary
+    search: true
+    left:
+      - syllabus.qmd
+      - schedule1.qmd
+      - readings.qmd
+      - homeworks.qmd
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - href: index.qmd
+        text: Home
+      - section: "Course Info"
+        contents:
+          - href: instructors.qmd
+            text: Instructors
+          - syllabus.qmd
+          - schedule1.qmd
+      - section: "Course Materials"
+        contents:
+          - class_slides.qmd
+          - homeworks.qmd
+          
+execute:
+  freeze: auto
+
+format:
+  html:
+    theme:
+      - sandstone_NW.scss
+    toc: true
+
+editor: visual
+

@@ -1,0 +1,43 @@
+---
+title: "Week 3"
+description: "RVs, PMFs and CDFs, and Independence and Conditioning"
+date: "10/09/2023"
+date-modified: "8/22/2023"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+## Resources
+
++-------------------+-------------------------------------------+
+| Resource          | Information and Links                     |
++===================+===========================================+
+| Readings and Code | Random Variables (Chapter 7)              |
+|                   |                                           |
+|                   | PMF and CDF (Chapter 8)                   |
+|                   |                                           |
+|                   | Independence and Conditioning (Chapter 9) |
++-------------------+-------------------------------------------+
+| Slides            |                                           |
++-------------------+-------------------------------------------+
+| Class Notes       |                                           |
++-------------------+-------------------------------------------+
+| Data              |                                           |
++-------------------+-------------------------------------------+
+| Homework          |                                           |
++-------------------+-------------------------------------------+
+
+## Post Class
+
+Survey link!!
+
+## Muddiest Points
+
+## Clearest Points
+
+## Additional Information

@@ -1,0 +1,119 @@
+%\documentclass[12pt,letterpaper]{article}
+\documentclass[12pt]{amsart}
+
+\usepackage[left=1in, right=1in, top=.5in, bottom=.5in]{geometry}
+\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx, lmodern}
+%\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx}
+
+
+
+\newcommand{\vs}{\vskip.5cm}
+\newcommand{\hs}{\hskip1cm}
+\newcommand{\ds}{\displaystyle}
+\setlength{\parindent}{0pt}
+
+\usepackage{hyperref}  % links, urls
+\urlstyle{same}
+
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\renewcommand*\familydefault{\sfdefault}  %% Only if the base font of the document is to be sans serif
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\newcommand\Pbb{\mathbb{P}}
+\newcommand\Ebb{\mathbb{E}}
+\newcommand\gl{\lambda}
+\newcommand\ga{\alpha}
+\newcommand\gb{\beta}
+\newcommand\pdfX{f_X(x)}
+\newcommand\pdfY{f_Y(y)}
+\newcommand\pdfXY{f_{X,Y}(x,y)}
+\newcommand\cdfX{F_X(x)}
+\newcommand\cdfY{F_Y(y)}
+\newcommand\cdfXY{F_{X,Y}(x,y)}
+\newcommand\pdfXgY{f_{X|Y}(x|y)}
+\newcommand\pdfYgX{f_{Y|X}(y|x)}
+
+\newcommand\intd{\displaystyle\int}
+\newcommand\intinft{\int_{-\infty}^{\infty}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{}
+%\fancyhead{} % clear all header fields
+%\fancyhf{}
+\rhead{BSTA 550 Ch 33}   % from fancyhdr package
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+
+\begin{document}
+
+
+%----------------------------------------------------------------------------
+\setcounter{section}{33}
+{\huge  
+\section*{Chapter 33: Gamma Random Variables}
+}
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+{\large % begin large font
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+%\vspace{18cm}
+%\hrule
+%\vspace{1cm}
+
+
+
+\vspace{.5cm}
+
+\textbf{Scenario:} Modeling the time until the $r^{th}$ event.
+
+\vspace{.5cm}
+\hrule
+\vspace{.5cm}
+
+
+\textbf{Properties of gamma r.v.'s}
+
+
+%****************************************************************************************
+\newpage
+
+\textbf{Remarks} 
+
+\begin{enumerate}
+\item The parameter $r$ in a Gamma($r$,$\gl$) distribution doesn't have to be a positive integer ($\mathbb{Z}^{+}$).
+
+\item When $r\in \mathbb{Z}^{+}$, the distribution is sometimes called an Erlang($r$,$\gl$) distribution.
+
+\item When $r$ is any positive real number, we have a general gamma distribution that is usually instead parameterized by $\ga >0 $ and $\gb >0 $, where:
+
+	\begin{enumerate}
+	\item[$\ga$] = shape parameter
+	\item[$\gb$] = scale parameter
+	\end{enumerate}
+\end{enumerate}
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+}  % end large font
+%----------------------------------------------------------------------------
+
+
+
+\end{document}
+

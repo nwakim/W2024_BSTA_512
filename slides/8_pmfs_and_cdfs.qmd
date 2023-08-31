@@ -1,0 +1,112 @@
+---
+title: "Chapter 8: Probability Mass Functions (pmf's) and Cumulative Distribution Functions (cdf's)"
+author: "Meike Niederhausen"
+date: "10/06/2023"
+categories: ["Day 5"]
+format: 
+  revealjs:
+    theme: [default, simple_NW.scss]
+    toc: true
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1600
+    height: 1100
+    footer: Chapter 8 Slides
+---
+
+## Slide 1
+
+::: {#Coins3p .example}
+**Example 1**. *Suppose we toss 3 coins with probability of heads* $p$. If $X$ is the random variable counting the number of heads, what are the probabilities of each value of $X$?
+:::
+
+**Solution:**
+
+::: definition
+**Definition 2**. *The **probability distribution** or **probability mass function** (**pmf**) of a discrete r.v.* $X$ is defined for every number $x$ by $$p_X(x) = \mathbb{P}(X=x) = \mathbb{P}(\mathrm{all }\ \omega\in S:X(\omega) = x)$$
+:::
+
+## Slide 2
+
+**Remarks:**
+
+-   A pmf $p_X(x)$ must satisfy the following properties:
+
+    -   $p_X(x)\geq 0$ for all $x$.
+
+    -   $\sum \limits_{\{all\ x\}}p_X(x)=1$.
+
+-   Some distributions depend on parameters.
+
+    -   Each value of a parameter gives a different pmf.
+
+    -   The collection of all pmf's for different values of the parameters is called a *family* of pmf's.
+
+
+## Slide 3 
+
+::: example
+**Example 3** (Binomial family of r.v.'s). *Suppose you toss* $n$ coins, each with probability of heads $p$. If $X$ is the number of heads, what is the pmf of $X$?
+:::
+
+**Solution:**
+
+## Slide 4
+
+::: example
+**Example 4** (Bernoulli family of r.v.'s). *Suppose you toss 1 coin, with probability of heads* $p$. If $X$ is the number of heads, what is the pmf of $X$?
+:::
+
+**Solution:**
+
+
+## Slide 5
+
+::: example
+**Example 5** (Household size). *The table below shows household sizes in 2019. Data are from <https://www.census.gov/data/tables/time-series/demo/families/households.html>.*
+
+::: center
+|  *Size*   |  *1*  |  *2*  |  *3*  |  *4*  | *5 or more* |     |
+|:---------:|:-----:|:-----:|:-----:|:-----:|:-----------:|-----|
+| *Percent* | *28%* | *35%* | *15%* | *13%* |    *9%*     |     |
+:::
+
+1.  *What is the sample space for household sizes?*
+
+2.  *Define the random variable for household sizes.*
+
+3.  *Do the values in the table create a pmf? Why or why not?*
+
+4.  *Make a plot of the pmf.*
+:::
+
+**Solution:**
+
+## Slide 6
+
+::: definition
+**Definition 6**. *The **cumulative distribution function** (**cdf**) of a discrete r.v.* $X$ with pmf $p_X(x)$, is defined for every value $x$ by $$F_X(x) = \mathbb{P}(X \leq x) = \sum \limits_{\{all\ y:\ y\leq x\}}p_X(y)$$
+:::
+
+## Slide 7
+
+::: example
+**Example 7** (Household size cont'd).
+
+::: center
+|  *Size*   |  *1*  |  *2*  |  *3*  |  *4*  | *5 or more* |     |
+|:---------:|:-----:|:-----:|:-----:|:-----:|:-----------:|-----|
+| *Percent* | *28%* | *35%* | *15%* | *13%* |    *9%*     |     |
+:::
+
+1.  *Graph the cdf of household sizes in 2019.*
+
+2.  *Write the cdf as a function.*
+:::
+
+**Solution:**
+
+## Slide 8
+
+**Properties of discrete cdf's:**

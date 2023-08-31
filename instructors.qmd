@@ -1,0 +1,50 @@
+---
+title: "Instructors"
+---
+
+## Instructor: Nicole (Nicky) Wakim, PhD
+
+::: columns
+::: {.column width="68%"}
+-   **Email:** [wakim\@ohsu.edu](mailto:wakim@ohsu.edu)
+
+-   **Office:** VPT 622A
+
+**Pronouns:** she/her/hers
+
+*You are welcome to address me as Nicky (pronounced "nik-EE"), Dr. Wakim (pronounced "wah-KEEM"), Dr. W, Dr. Nicky, Professor, Professor Wakim, or any combination of the prior.*
+
+**Best method to contact:** Office hours or Slack for general course questions or E-mail/Calendly appointments for private communication.
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="30%"}
+![](images/N_Wakim.jpg){fig-align="right" width="256"}
+:::
+:::
+
+**Brief professor statement:** As a professor, my main goal is to instill a growth mindset into my students. Growth mindset means we are NOT stuck in our abilities or knowledge, and that we all can and will grow! This course aims to be as transparent as possible. I want you to understand my motivation for assessments, questions, and lessons. I also want those assessments to be clear, so please ask for clarification whenever needed.
+
+### Office Hours
+
+-   Tuesday, 3:00 PM to 5:00 PM, Webex
+    -   [Link to Webex](https://ohsu.webex.com/meet/wakim)
+-   Wednesday, 11:00 PM to 12:30 PM, RLSB 3A001
+
+## Teaching Assistants
+
+### Name of TA
+
+-   **Email:**
+-   Office Hours
+    -   Monday, Thursday, 6:00 PM to 7:00 PM, Webex
+    -   [Link to Webex](https://ohsu.webex.com/ohsu/j.php?MTID=m52c0e8d81fe95b2d5d878852e9e76714)
+
+### Name of TA
+
+-   **Email:**
+-   Office Hours
+    -   Monday, Thursday, 6:00 PM to 7:00 PM, Webex
+    -   [Link to Webex](https://ohsu.webex.com/ohsu/j.php?MTID=m52c0e8d81fe95b2d5d878852e9e76714)

@@ -1,0 +1,41 @@
+---
+title: "Week 5"
+description: "Week 5"
+date: "10/23/2023"
+date-modified: "8/22/2023"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+## Resources
+
++-------------------+---------------------------------------------------------------+
+| Resource          | Information and Links                                         |
++===================+===============================================================+
+| Readings and Code | Variance of discrete random variables (Chapter 12-16)         |
+|                   |                                                               |
+|                   | Common families of discrete distributions (Chapter 19 and 20) |
++-------------------+---------------------------------------------------------------+
+| Slides            |                                                               |
++-------------------+---------------------------------------------------------------+
+| Class Notes       |                                                               |
++-------------------+---------------------------------------------------------------+
+| Data              |                                                               |
++-------------------+---------------------------------------------------------------+
+| Homework          |                                                               |
++-------------------+---------------------------------------------------------------+
+
+## Post Class
+
+Survey link!!
+
+## Muddiest Points
+
+## Clearest Points
+
+## Additional Information

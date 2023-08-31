@@ -1,0 +1,43 @@
+---
+title: "Week 10"
+description: "Week 10"
+date: "11/27/2023"
+date-modified: "8/22/2023"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+## Resources
+
++-------------------+----------------------------------------------------------+
+| Resource          | Information and Links                                    |
++===================+==========================================================+
+| Readings and Code | Moment generating functions (Chapter 43)                 |
+|                   |                                                          |
+|                   | Sums of independent normal random variables (Chapter 36) |
+|                   |                                                          |
+|                   | Central limit theorem (Chapter 37)                       |
++-------------------+----------------------------------------------------------+
+| Slides            |                                                          |
++-------------------+----------------------------------------------------------+
+| Class Notes       |                                                          |
++-------------------+----------------------------------------------------------+
+| Data              |                                                          |
++-------------------+----------------------------------------------------------+
+| Homework          |                                                          |
++-------------------+----------------------------------------------------------+
+
+## Post Class
+
+Survey link!!
+
+## Muddiest Points
+
+## Clearest Points
+
+## Additional Information

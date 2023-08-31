@@ -1,0 +1,13 @@
+---
+title: "Class Slides"
+format:
+  html:
+    listing: 
+      contents: slides
+      type: table
+      fields: [date, title, categories, reading-time]
+      table-hover: true
+      sort: "date asc"
+      date-format: "short"
+    link-external-newwindow: true
+---

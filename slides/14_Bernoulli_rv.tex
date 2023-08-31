@@ -1,0 +1,138 @@
+%\documentclass[12pt,letterpaper]{article}
+\documentclass[12pt]{amsart}
+
+\usepackage[left=1in, right=1in, top=.5in, bottom=.5in]{geometry}
+\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx, lmodern}
+%\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx}
+\newcommand{\vs}{\vskip.5cm}
+\newcommand{\hs}{\hskip1cm}
+\newcommand{\ds}{\displaystyle}
+\setlength{\parindent}{0pt}
+
+\usepackage{hyperref}  % links, urls
+\urlstyle{same}
+
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\renewcommand*\familydefault{\sfdefault}  %% Only if the base font of the document is to be sans serif
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{}
+%\fancyhead{} % clear all header fields
+%\fancyhf{}
+\rhead{BSTA 550 Ch 14}   % from fancyhdr package
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+
+\begin{document}
+
+
+%----------------------------------------------------------------------------
+\setcounter{section}{14}
+{\huge  
+\section*{Chapter 14: Bernoulli r.v.'s}
+}
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+{\large 
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+%\vspace{18cm}
+%\hrule
+%\vspace{1cm}
+
+
+
+\vspace{.5cm}
+
+\textbf{Scenario:} One trial, with outcome success or failure.
+
+%----------------------------------------------------------------------------
+\vspace{.5cm}
+\hrule
+\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+%\begin{example}
+%Examples of discrete uniform r.v.'s.\end{example}
+
+
+
+
+%----------------------------------------------------------------------------
+%\vspace{8cm}
+%\hrule
+%\vspace{.5cm}
+
+\textbf{Properties of Bernoulli r.v.'s}
+%\begin{center}
+% \begin{tabular}{| c | c | c | c | c | c | c} 
+% \hline
+%X  & 1 \\ [0.5ex] 
+% \hline
+%Parameter & $N$ = number of possible outcomes \\ [0.5ex] 
+% \hline
+%pmf & $p_X(x) = \frac{1}{N}$ \\ [0.5ex] 
+% \hline
+%\end{tabular}
+%\end{center}
+
+
+
+%****************************************************************************************
+\newpage
+
+%----------------------------------------------------------------------------
+\begin{example}\ %\newline
+\begin{itemize}
+\item We roll a fair 6-sided die. 
+\item We get \$1 if we roll a 5, and nothing otherwise.
+\item Let $X$ be how much money we get.
+\item Find the mean and variance of $X$.
+\end{itemize}
+
+\end{example}
+\textbf{Solution:}
+%----------------------------------------------------------------------------
+\vspace{5cm}
+\hrule
+\vspace{.5cm}
+
+
+
+%----------------------------------------------------------------------------
+\begin{example}\ %\newline
+\begin{itemize}
+\item Suppose we roll a fair 6-sided die 50 times. 
+\item We get \$1 every time we roll a 5, and nothing otherwise.
+\item Let $X$ be how much money we get on the 50 rolls.
+\item Find the mean and variance of $X$.
+\end{itemize}
+
+\end{example}
+\textbf{Solution:}
+
+
+%----------------------------------------------------------------------------
+}  % end large font
+%----------------------------------------------------------------------------
+
+
+
+\end{document}
+

@@ -1,0 +1,274 @@
+%\documentclass[12pt,letterpaper]{article}
+\documentclass[12pt]{amsart}
+
+\usepackage[left=1in, right=1in, top=.5in, bottom=.5in]{geometry}
+\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx, lmodern}
+%\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx}
+\newcommand{\vs}{\vskip.5cm}
+\newcommand{\hs}{\hskip1cm}
+\newcommand{\ds}{\displaystyle}
+\setlength{\parindent}{0pt}
+
+\usepackage{hyperref}  % links, urls
+\urlstyle{same}
+
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\renewcommand*\familydefault{\sfdefault}  %% Only if the base font of the document is to be sans serif
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\newcommand\Pbb{\mathbb{P}}
+\newcommand\Ebb{\mathbb{E}}
+\newcommand\pdfX{f_X(x)}
+\newcommand\pdfY{f_Y(y)}
+\newcommand\cdfX{F_X(x)}
+\newcommand\cdfY{F_Y(y)}
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{}
+%\fancyhead{} % clear all header fields
+%\fancyhf{}
+\rhead{BSTA 550 Ch 24}   % from fancyhdr package
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+
+\begin{document}
+
+
+%----------------------------------------------------------------------------
+\setcounter{section}{24}
+{\huge  
+\section*{Chapter 24: Continuous r.v.'s and pdf's }
+}
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+{\large 
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+%\vspace{18cm}
+%\hrule
+%\vspace{1cm}
+
+
+
+\vspace{.5cm}
+
+Recall from Chapter 7:
+
+\textbf{Discrete vs. Continuous r.v.'s}
+\begin{itemize}
+\item For a \textbf{discrete} r.v., the set of possible values is either finite or can be put into a countably infinite list.
+\item \textbf{Continuous} r.v.'s take on values from continuous \textit{intervals}, or unions of continuous intervals.
+\end{itemize}
+
+%----------------------------------------------------------------------------
+\vspace{.5cm}
+\hrule
+\vspace{.5cm}
+
+
+\textbf{How to define probabilities for continuous r.v.'s?}
+
+%----------------------------------------------------------------------------
+\vspace{9cm}
+%\hrule
+%\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+\begin{definition}[Probability density function]\ \newline
+The probability distribution, or \textbf{probability density function (pdf)}, of a continuous random variable $X$ is a function $f_X(x)$, such that for all real values $a,b$ with $a \leq b$,
+
+$$
+\mathbb{P}(a \leq X \leq b) = \int_a^b f_X(x)dx
+$$
+
+
+\end{definition}
+%----------------------------------------------------------------------------
+\vspace{.5cm}
+\hrule
+\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+\textbf{Remarks:}
+\begin{enumerate}
+\item Note that $f_X(x) \neq \mathbb{P}(X=x)$!!!
+\vspace{.5cm}
+\item In order for $f_X(x)$ to be a pdf, it needs to satisfy the properties 
+	\begin{itemize}
+	\item $f_X(x) \geq 0$ for all $x$
+	\item $\int_{-\infty}^{\infty} f_X(x)dx=1$
+	\end{itemize}
+\end{enumerate}
+
+
+%****************************************************************************************
+\newpage
+
+%----------------------------------------------------------------------------
+\begin{example}\ %\newline
+Let $\pdfX = 2$, for $a \leq x \leq 3$.
+
+\begin{enumerate}
+
+\item Find the value of $a$ so that $\pdfX$ is a pdf.
+
+%	\textbf{Solution:}
+\vspace{5cm}
+
+\item Find $\Pbb(2.7 \leq X \leq 2.9)$.
+
+%\textbf{Solution:}
+\vspace{5cm}
+
+\item Find $\Pbb(2.7 < X \leq 2.9)$.
+
+%\textbf{Solution:}
+\vspace{4cm}
+
+\item Find $\Pbb(X = 2.9)$.
+
+%\textbf{Solution:}
+\vspace{4cm}
+
+\item Find $\Pbb(X \leq 2.8)$.
+
+%\textbf{Solution:}
+%\vspace{3cm}
+\end{enumerate}
+
+\end{example}
+%----------------------------------------------------------------------------
+
+
+%****************************************************************************************
+\newpage
+
+
+%----------------------------------------------------------------------------
+\begin{definition}[Cumulative distribution function]\ \newline
+The \textbf{cumulative distribution function (cdf)} of a continuous random variable $X$, is the function $F_X(x)$, such that for all real values of $x$,
+$$
+\cdfX = \mathbb{P}(X \leq x) = \int_{-\infty}^x f_X(s)ds
+$$
+\end{definition}
+
+%----------------------------------------------------------------------------
+\vspace{.5cm}
+\hrule
+\vspace{.5cm}
+%----------------------------------------------------------------------------
+\begin{example}\ %\newline
+Let $\pdfX = 2$, for $2.5 \leq x \leq 3$. Find $\cdfX$.
+
+\end{example}
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+\vspace{7cm}
+\hrule
+\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+\textbf{Remarks:} \newline
+In general, $F_X(x)$ is increasing and
+\begin{itemize}
+\item  $\lim_{x\rightarrow -\infty} \cdfX = 0$
+\item  $\lim_{x\rightarrow \infty} \cdfX = 1$
+\end{itemize}
+
+%----------------------------------------------------------------------------
+\vspace{7cm}
+%\hrule
+%\vspace{.5cm}
+%----------------------------------------------------------------------------
+\begin{theorem}\ \newline
+If $X$ is a continuous random variable with pdf $\pdfX$ and cdf $F_X(x)$, then for all real values of $x$ at which $F'_X(x)$ exists,
+$$
+\frac{d}{dx} \cdfX = F'_X(x) = f_X(x)
+$$
+\end{theorem}
+
+
+%****************************************************************************************
+\newpage
+
+
+%----------------------------------------------------------------------------
+\begin{example}\ %\newline
+Let $X$ be a r.v. with cdf
+$$
+\cdfX = \left\{
+        \begin{array}{ll}
+            0 & \quad x < 2.5 \\
+            2x-5 & \quad 2.5 \leq x \leq 3 \\
+            1 & \quad x > 3
+        \end{array}
+    \right.
+$$
+Find the pdf $\pdfX$.
+\end{example}
+\textbf{Solution:}
+\vspace{6cm}
+
+
+
+
+%----------------------------------------------------------------------------
+\begin{example}\ %\newline
+Let $X$ be a r.v. with pdf $\pdfX = 2e^{-2x}$, for $x>0$.
+
+\begin{enumerate}
+\item Show $\pdfX$ is a pdf.
+\vspace{6cm}
+
+\item Find $\Pbb(1 \leq X \leq 3)$.
+\vspace{4cm}
+
+%****************************************************************************************
+\newpage
+\item Find $\cdfX$.
+\vspace{5cm}
+
+\item Given $\cdfX$, find $\pdfX$.
+\vspace{5cm}
+
+\item Find $\Pbb(X \geq 1 | X \leq 3)$.
+\vspace{6cm}
+
+\item Find the median of the distribution of $X$.
+\end{enumerate}
+
+
+
+
+\end{example}
+%\textbf{Solution:}
+%\vspace{4cm}
+
+
+
+
+%----------------------------------------------------------------------------
+}  % end large font
+%----------------------------------------------------------------------------
+
+
+
+\end{document}
+

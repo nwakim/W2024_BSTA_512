@@ -1,0 +1,70 @@
+---
+title: "Chapter 7: Discrete vs. Continuous Random Variables"
+author: "Meike Niederhausen"
+date: "10/04/2023"
+categories: ["Day 5"]
+format: 
+  revealjs:
+    theme: [default, simple_NW.scss]
+    toc: true
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1600
+    height: 1100
+    footer: Chapter 7 Slides
+---
+
+## Example 
+
+::: {#Coins3 .example}
+**Example 1**. *Suppose we toss 3 fair coins.*
+
+1.  *What is the sample space?*
+
+2.  *What are the probabilities for each of the elements in the sample space?*
+:::
+
+**Solution:**
+
+## Definition
+
+::: definition
+**Definition 2**. *For a given sample space* $S$, a **random variable** (r.v.) is a function whose domain is $S$ and whose range is the set of real numbers $\mathbb{R}$.
+:::
+
+::: example
+**Example 3**. *List some other random variables we could consider in Example [1](#Coins3){reference-type="ref" reference="Coins3"}.*
+:::
+
+**Solution:**
+
+## Slide 3
+
+**Remarks:**
+
+-   A random variable's value is completely determined by the outcome $\omega$, where $\omega \in S$. What is *random* is the outcome $\omega$.
+
+-   We typically write $X$ instead of $X(\omega)$.
+
+## Slide 4
+
+::: example
+**Example 4**. *Let* $X =$ how many hours you slept last night.
+
+-   *What is the sample space* $S$?
+
+-   *What is the range of possible values for* $X$?
+
+-   *What is* $X(\omega)$?
+:::
+
+**Solution:**
+
+## Discrete vs. Continuous r.v.'s
+
+**Discrete vs. Continuous r.v.'s**
+
+-   For a **discrete** r.v., the set of possible values is either finite or can be put into a countably infinite list.
+
+-   **Continuous** r.v.'s take on values from continuous *intervals*, or unions of continuous intervals.

@@ -1,0 +1,239 @@
+%\documentclass[12pt,letterpaper]{article}
+\documentclass[12pt]{amsart}
+
+\usepackage[left=1in, right=1in, top=.5in, bottom=.5in]{geometry}
+\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx, lmodern}
+%\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx}
+\newcommand{\vs}{\vskip.5cm}
+\newcommand{\hs}{\hskip1cm}
+\newcommand{\ds}{\displaystyle}
+\setlength{\parindent}{0pt}
+
+\usepackage{hyperref}  % links, urls
+\urlstyle{same}
+
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\renewcommand*\familydefault{\sfdefault}  %% Only if the base font of the document is to be sans serif
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{}
+%\fancyhead{} % clear all header fields
+%\fancyhf{}
+\rhead{BSTA 550 Ch 10}   % from fancyhdr package
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+
+\begin{document}
+
+
+%----------------------------------------------------------------------------
+\setcounter{section}{10}
+{\huge  
+\section*{Chapter 10 \newline Expected Values of Discrete r.v.'s}
+}
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+{\large 
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+%\vspace{18cm}
+%\hrule
+\vspace{1cm}
+
+
+%----------------------------------------------------------------------------
+\begin{example}\label{Die expected outcome}
+Suppose you roll a fair 6-sided die. \newline
+What value do you expect to get?
+
+\end{example}
+
+\textbf{Solution:}
+
+
+%----------------------------------------------------------------------------
+\vspace{8cm}
+\hrule
+\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+\begin{example}\label{Die expected outcome}
+Suppose the die is 6-sided, but not fair. \newline
+What value do you expect to get on a roll?
+
+\end{example}
+
+\textbf{Solution:}
+
+
+
+
+
+%****************************************************************************************
+\newpage
+
+\textbf{Remark:} Expected vs. actual outcomes%\newline
+
+%----------------------------------------------------------------------------
+\vspace{4cm}
+\hrule
+\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------
+\begin{definition}[Expected value]
+The \textbf{expected value} of a discrete r.v. $X$ that takes on values $x_1,  x_2, \ldots, x_n$ is
+$$
+\mathbb{E}[X] = \sum_{i=1}^n x_ip_X(x_i).
+$$ 
+\end{definition}
+
+%----------------------------------------------------------------------------
+\vspace{.5cm}
+
+
+%----------------------------------------------------------------------------
+\textbf{Remarks:} %\newline
+\begin{itemize}
+\item 
+The definition holds if the r.v. $X$ takes on countably infinitely many values $x_1,  x_2, \ldots$, as well:
+$$
+\mathbb{E}[X] = \sum_{i=1}^{\infty} x_ip_X(x_i).
+$$
+%\item The (finite) expected value exists only if 
+%$$
+%\sum_{i=1}^{\infty} |x_i|p_X(x_i) < \infty
+%$$
+\item Another way to define the expected value of a discrete r.v. is to do so at the $\omega$ level, where the $\omega$'s are outcomes in the sample space:
+	\begin{itemize}
+	\item Suppose $\omega_1, \omega_2, \ldots, \omega_n$ are the possible outcomes of a random phenomenon. If outcome $\omega_i$ causes the r.v. X to take on value $x_i$ (meaning $X(\omega_i)=x_i$), then  
+	$$
+		\mathbb{E}[X] = \sum_{i=1}^{\infty} x_i\mathbb{P}(\{\omega_i\}).
+	$$
+	\end{itemize}
+\end{itemize}
+
+ 
+
+%%----------------------------------------------------------------------------
+%\vspace{.5cm}
+%\hrule
+%\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+
+%****************************************************************************************
+\newpage
+
+%----------------------------------------------------------------------------
+\begin{example}\label{Bernoulli_E}
+Suppose
+$$
+X = \left\{
+        \begin{array}{ll}
+            1 & \quad \mathrm{with\ probability}\ p \quad\mathrm{(success)}\\
+            0 & \quad \mathrm{with\ probability}\ 1-p \quad\mathrm{(failure)}
+        \end{array}
+    \right.
+$$
+Find the expected value of $X$.
+\end{example}
+
+\textbf{Solution:}
+
+%----------------------------------------------------------------------------
+\vspace{8cm}
+\hrule
+\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+\begin{example}
+Suppose
+$$
+X = \left\{
+        \begin{array}{ll}
+            1 & \quad \mathrm{with\ probability}\ p \\
+            -1 & \quad \mathrm{with\ probability}\ 1-p 
+        \end{array}
+    \right.
+$$
+Find the expected value of $X$.
+\end{example}
+
+\textbf{Solution:}
+
+
+
+%****************************************************************************************
+\newpage
+
+%----------------------------------------------------------------------------
+\begin{example}\label{Bullseye}
+Suppose I throw darts at a dartboard until I hit the bullseye, and that my probability of hitting the bullseye is $p$. Suppose further that all of my throws are independent, and that the probability of a bullseye never changes, no matter how many times I throw a dart. \newline
+How many times should I expect to have to throw the dart until I hit the bullseye?
+
+\end{example}
+
+\textbf{Solution:}
+
+
+%----------------------------------------------------------------------------
+
+
+
+%****************************************************************************************
+\newpage
+
+%----------------------------------------------------------------------------
+\begin{example}\label{GhostUniformTrickTreat}
+A ghost is trick-or-treating. It comes to a house where it is known that there are 30 candies in the bag and only one is a watermelon Jolly Rancher, which is the ghost's favorite. The ghost takes pieces of candy without replacement until it gets the watermelon Jolly Rancher. \newline
+How many pieces of candy do we expect the ghost to take?
+\end{example}
+
+\textbf{Solution:}
+
+
+%----------------------------------------------------------------------------
+
+
+%****************************************************************************************
+\newpage
+
+%----------------------------------------------------------------------------
+\textbf{Remark:} Both examples are repeated random processes. They are fundamentally different though: \newline
+\begin{itemize}
+\item The bullseye example (\ref{Bullseye}) is "\textit{with replacement}" since the probability of success remains constant.
+\item The ghost trick-or-treating example (\ref{GhostUniformTrickTreat}) is \textit{without replacement}, and thus the probability of success changes with each trial.
+\end{itemize}
+
+ 
+
+
+%----------------------------------------------------------------------------
+}  % end large font
+%----------------------------------------------------------------------------
+
+
+
+\end{document}
+

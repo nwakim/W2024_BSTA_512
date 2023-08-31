@@ -1,0 +1,161 @@
+%\documentclass[12pt,letterpaper]{article}
+\documentclass[12pt]{amsart}
+
+\usepackage[left=1in, right=1in, top=.5in, bottom=.5in]{geometry}
+\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx, lmodern}
+%\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx}
+\newcommand{\vs}{\vskip.5cm}
+\newcommand{\hs}{\hskip1cm}
+\newcommand{\ds}{\displaystyle}
+\setlength{\parindent}{0pt}
+
+\usepackage{hyperref}  % links, urls
+\urlstyle{same}
+
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\renewcommand*\familydefault{\sfdefault}  %% Only if the base font of the document is to be sans serif
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{}
+%\fancyhead{} % clear all header fields
+%\fancyhf{}
+\rhead{BSTA 550 Ch 19}   % from fancyhdr package
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+
+\begin{document}
+
+
+%----------------------------------------------------------------------------
+\setcounter{section}{19}
+{\huge  
+\section*{Chapter 19: Hypergeometric r.v.'s}
+}
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+{\large 
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+%\vspace{18cm}
+%\hrule
+%\vspace{1cm}
+
+
+
+\vspace{.5cm}
+
+\textbf{Scenario:} There are a fixed number of successes and failures (which are known in advance), from which we make $n$ draws without replacement. We are counting the number of successes from the $n$ trials.
+
+%----------------------------------------------------------------------------
+\vspace{.5cm}
+\hrule
+\vspace{.5cm}
+
+
+%----------------------------------------------------------------------------
+\begin{example}\ %\newline
+A wildlife biologist is using mark-recapture to research a wolf population. Suppose a specific study region is known to have 24 wolves,  of which 11 have already been tagged. If 5 wolves are randomly captured, 
+what is the probability that 3 of them have already been tagged?
+
+%\begin{itemize}
+%\item Suppose a specific study region is known to have 24 wolves, 
+%\item of which 11 have already been tagged. 
+%\item If 5 wolves are randomly captured, 
+%\item what is the probability that 3 of them have already been tagged?
+%\end{itemize}
+
+\textbf{Solution:}
+
+\end{example}
+%----------------------------------------------------------------------------
+\vspace{4cm}
+\hrule
+\vspace{.5cm}
+
+
+
+\textbf{Properties of Hypergeometric r.v.'s}
+
+\begin{itemize}
+\item There is a finite population of $N$ items. 
+\item Each item in the population is either a success or a failure, and there are $M$ successes total.
+\item We randomly select (sample) $n$ items from the population. 
+\end{itemize}
+
+%****************************************************************************************
+\newpage
+
+
+
+\textbf{Hypergeometric vs. Binomial r.v.'s}
+%----------------------------------------------------------------------------
+\vspace{.5cm}
+
+Suppose a hypergeometric r.v. $X$ has the following properties:
+\begin{itemize}
+\item the population size $N$ is really big,
+\item the number of successes $M$ in the population is relatively large,
+	\begin{itemize}
+	\item $\frac{M}{N}$ shouldn't be close to 0 or 1
+	\end{itemize}
+\item and the number of items $n$ selected is small.
+\end{itemize}
+%----------------------------------------------------------------------------
+\vspace{.5cm}
+Then, in this case, making $n$ draws from the population doesn't change the probability of success much, and the hypergeometric r.v. can be approximated by a binomial r.v.
+
+%----------------------------------------------------------------------------
+\vspace{.5cm}
+%\textbf{Rule of Thumb}
+
+%----------------------------------------------------------------------------
+\vspace{5cm}
+%\hrule
+%\vspace{.5cm}
+
+
+
+%----------------------------------------------------------------------------
+\begin{example}\ %\newline
+Suppose a specific study region is known to have 2400 wolves,  of which 1100 have already been tagged. 
+
+\begin{enumerate}
+\item If 50 wolves are randomly captured, what is the probability that 20 of them have already been tagged?
+\item Approximate the probability in part (1) using the binomial distribution.
+\end{enumerate}
+\textbf{Solution:}
+
+\end{example}
+%----------------------------------------------------------------------------
+%\vspace{4cm}
+%\hrule
+%\vspace{.5cm}
+
+
+%****************************************************************************************
+\newpage
+
+%----------------------------------------------------------------------------
+}  % end large font
+%----------------------------------------------------------------------------
+
+
+
+\end{document}
+

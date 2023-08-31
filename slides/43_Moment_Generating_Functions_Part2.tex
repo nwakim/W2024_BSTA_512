@@ -1,0 +1,246 @@
+%\documentclass[12pt,letterpaper]{article}
+\documentclass[12pt]{amsart}
+
+\usepackage[left=1in, right=1in, top=.5in, bottom=.5in]{geometry}
+\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx, lmodern}
+%\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx}
+
+
+
+\newcommand{\vs}{\vskip.5cm}
+\newcommand{\hs}{\hskip1cm}
+\newcommand{\ds}{\displaystyle}
+\setlength{\parindent}{0pt}
+
+\usepackage{hyperref}  % links, urls
+\urlstyle{same}
+
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\renewcommand*\familydefault{\sfdefault}  %% Only if the base font of the document is to be sans serif
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\newcommand\Pbb{\mathbb{P}}
+\newcommand\Ebb{\mathbb{E}}
+\newcommand\gs{\sigma}
+\newcommand\gl{\lambda}
+\newcommand\ga{\alpha}
+\newcommand\gb{\beta}
+\newcommand\pmfX{p_X(x)}
+\newcommand\pmfY{p_Y(y)}
+\newcommand\pdfX{f_X(x)}
+\newcommand\pdfY{f_Y(y)}
+\newcommand\pdfXY{f_{X,Y}(x,y)}
+\newcommand\cdfX{F_X(x)}
+\newcommand\cdfY{F_Y(y)}
+\newcommand\cdfXY{F_{X,Y}(x,y)}
+\newcommand\pdfXgY{f_{X|Y}(x|y)}
+\newcommand\pdfYgX{f_{Y|X}(y|x)}
+\newcommand\mgfX{M_X(t)}
+\newcommand\mgfY{M_Y(t)}
+
+
+\newcommand\intd{\displaystyle\int}
+\newcommand\intinft{\int_{-\infty}^{\infty}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{}
+%\fancyhead{} % clear all header fields
+%\fancyhf{}
+\rhead{BSTA 550 Ch 43 Part 2}   % from fancyhdr package
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+
+\begin{document}
+
+
+%----------------------------------------------------------------------------
+\setcounter{section}{43}
+{\huge  
+\section*{Chapter 43: Moment Generating Functions \newline
+Part 2}
+}
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+{\large % begin large font
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+%\vspace{18cm}
+%\hrule
+%\vspace{1cm}
+
+
+\vspace{.5cm}
+%----------------------------------------------------------------------------
+\textbf{Recap: What is an mgf?} 
+
+
+
+\vspace{5cm}
+
+%----------------------------------------------------------------------------
+\begin{example} \ \  Let $X$ be a random variable with mgf
+$$
+\mgfX = \frac{1}{5}e^t + \frac{3}{10}e^{2t} + \frac{1}{2}e^{3t}.
+$$
+Find the pmf or pdf of $X$.
+
+\end{example}
+
+
+%----------------------------------------------------------------------------
+%\textbf{Where did Part 1 end?} 
+
+%----------------------------------------------------------------------------
+%\vspace{.5cm}
+
+%****************************************************************************************
+\newpage
+
+%----------------------------------------------------------------------------
+\begin{example} \ \  Let $X$ be a normal random variable with mean $\mu$ and variance $\gs^2$, i.e. $X \sim N(\mu,\gs^2)$. 
+
+\begin{enumerate}
+\item Find the mgf of $X$.
+
+\vspace{6cm}
+
+\item Find $\Ebb[X]$.
+
+\vspace{4cm}
+
+\item Find $Var(X)$.
+
+\vspace{3cm}
+\end{enumerate}
+
+\end{example}
+
+%----------------------------------------------------------------------------
+\vspace{.5cm}
+\hrule
+\vspace{.5cm}
+
+
+%----------------------------------------------------------------------------
+\begin{theorem} \ \  Let $X$ have mgf $\mgfX$, and let $Y=aX+b$, where $a$ and $b$ are constants. Then
+$$
+\mgfY = 
+$$
+\end{theorem}
+
+\begin{proof}
+\end{proof}
+
+
+%****************************************************************************************
+\newpage
+
+%----------------------------------------------------------------------------
+\textbf{Question:}\textit{ Do linear transformations always preserve the distribution type?} \newline
+
+\vspace{.2cm}
+I.e., if $X$ has a certain probability distribution, does $aX+b$  always have the same distribution type?
+
+%----------------------------------------------------------------------------
+\vspace{.5cm}
+\hrule
+\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+\begin{example} \ \  Let $X \sim U[0,1]$, and $Y = 2X+3$. \newline Is $Y$ also a uniform rv? If so, what are its parameters? 
+
+
+\end{example}
+
+\vfill
+%\vspace{5cm}
+
+%----------------------------------------------------------------------------
+\begin{example} \ \  Let $X \sim Exp(\gl=5)$, and $Y = 2X+3$. \newline Is $Y$ also an exponential rv? If so, what is its parameter? 
+
+
+\end{example}
+
+\vfill
+%----------------------------------------------------------------------------
+%\vspace{5cm}
+%\hrule
+%\vspace{.5cm}
+
+%****************************************************************************************
+\newpage
+%----------------------------------------------------------------------------
+\textbf{Mgf's of Sums of Independent rv's} 
+
+%----------------------------------------------------------------------------
+\vspace{.5cm}
+\hrule
+\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+\begin{theorem} \ \  Let $X_1, X_2, \ldots, X_n$ be independent rv's with respective mgf's $M_{X_i}(t)$, for $i=1,2,\ldots,n$. Let $Y=\sum_{i=1}^n a_iX_i$, where $a_i$ are constants. Then
+$$
+\mgfY = %\Pi_{i=1}^n M_{X_i}(a_it).
+$$
+\end{theorem}
+
+\begin{proof}
+\end{proof}
+
+%%****************************************************************************************
+%\newpage
+
+%----------------------------------------------------------------------------
+\vspace{6cm}
+\hrule
+\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+\begin{example} \ \  Let $X_i \sim N(\mu_i, \gs_i^2)$ be independent normal rv's. \newline 
+What is the distribution of\ \  $Y=\sum_{i=1}^n X_i$?
+\end{example}
+
+
+%----------------------------------------------------------------------------
+\vspace{6cm}
+\hrule
+\vspace{.5cm}
+%----------------------------------------------------------------------------
+\begin{example} \ \  Let $X_i \sim N(\mu, \gs^2)$ be iid normal rv's, for $i=1,2,\ldots,n$. \newline 
+ What is the distribution of\ \  $\bar{X}=\frac{\sum_{i=1}^n X_i}{n}$?
+
+\end{example}
+
+%****************************************************************************************
+\newpage
+
+%----------------------------------------------------------------------------
+\begin{example} \ \  Let $Z$ be a standard normal random variable, i.e. $Z \sim N(0,1)$. \newline
+Show that $Z^2 \sim \chi_1^2$, i.e. is a chi-squared rv with 1 degree of freedom.
+\end{example}
+
+
+
+%----------------------------------------------------------------------------
+}  % end large font
+%----------------------------------------------------------------------------
+
+
+
+\end{document}
+

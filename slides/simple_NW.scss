@@ -1,0 +1,250 @@
+/*-- scss:defaults --*/
+
+@import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+@import url('https://fonts.googleapis.com/css?family=Signika:400light,700light');
+
+// fonts
+$font-family-sans-serif: Lato, sans-serif !default;
+
+// colors
+$body-bg: #fff !default;
+$body-color: #000 !default;
+$link-color: #00008b !default;
+$selection-bg: rgba(0, 0, 0, 0.99);
+
+// headings
+$presentation-heading-font: Signika, sans-serif !default;
+
+// My added divs
+
+// Definitions 
+.definition{
+  margin: 1em 0;
+  border: 2px solid gray;
+  border-left: 10px solid #29abe0; 
+  border-radius: 10px;
+}
+.def-title {
+  margin-left: 0em;
+  padding-left:  15px;
+  padding-top:  5px;
+  padding-bottom: 0.1em;
+  color: black;
+  background-color: #5ab6db;
+  border-top-right-radius: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  //background-image: url("goal.png");
+}
+.def-cont {
+  margin-left: 0em;
+  padding-top: 5px;
+  padding-left: 15px;
+  color: black;
+  background-color: white;
+  border-bottom-right-radius: 10px;
+}
+
+// Theorem
+.theorem{
+  margin: 1em 0;
+  border: 2px solid gray;
+  border-left: 10px solid #20c997; 
+  border-radius: 10px;
+}
+.thm-title {
+  margin-left: 0em;
+  padding-left:  15px;
+  padding-top:  5px;
+  padding-bottom: 0.1em;
+  color: black;
+  background-color: #69d1b2;
+  border-top-right-radius: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  //background-image: url("goal.png");
+}
+.thm-cont {
+  margin-left: 0em;
+  padding-top: 5px;
+  padding-left: 15px;
+  color: black;
+  background-color: white;
+  border-bottom-right-radius: 10px;
+}
+
+// Proposition
+.proposition{
+  margin: 1em 0;
+  border: 2px solid gray;
+  border-left: 10px solid #e83e8c; 
+  border-radius: 10px;
+}
+
+.prop-title {
+  margin-left: 0em;
+  padding-left:  15px;
+  padding-top:  5px;
+  padding-bottom: 0.1em;
+  color: black;
+  background-color: #ff75b4;
+  border-top-right-radius: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  //background-image: url("goal.png");
+}
+
+.prop-cont {
+  margin-left: 0em;
+  padding-top: 5px;
+  padding-left: 15px;
+  color: black;
+  background-color: white;
+  border-bottom-right-radius: 10px;
+}
+
+// Axiom
+.axiom{
+  margin: 1em 0;
+  border: 2px solid gray;
+  border-left: 10px solid #d9534f; 
+  border-radius: 10px;
+}
+
+.axiom-title {
+  margin-left: 0em;
+  padding-left:  15px;
+  padding-top:  5px;
+  padding-bottom: 0.1em;
+  color: black;
+  background-color: #fc7f7c;
+  border-top-right-radius: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  //background-image: url("goal.png");
+}
+
+.axiom-cont {
+  margin-left: 0em;
+  padding-top: 5px;
+  padding-left: 15px;
+  color: black;
+  background-color: white;
+  border-bottom-right-radius: 10px;
+}
+
+// Proof
+.proof1{
+  margin: 1em 0;
+  border: 2px solid gray;
+  border-left: 10px solid #f47c3c; 
+  border-radius: 10px;
+}
+
+.proof-title {
+  margin-left: 0em;
+  padding-left:  15px;
+  padding-top:  5px;
+  padding-bottom: 0.1em;
+  color: black;
+  background-color: #fa9864;
+  border-top-right-radius: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  //background-image: url("goal.png");
+}
+
+.proof-cont {
+  margin-left: 0em;
+  padding-top: 5px;
+  padding-left: 15px;
+  color: black;
+  background-color: white;
+  border-bottom-right-radius: 10px;
+}
+
+// Example
+.example{
+  margin: 1em 0;
+  border: 2px solid gray;
+  border-left: 10px solid #ffc107; 
+  border-radius: 10px;
+}
+
+.ex-title {
+  margin-left: 0em;
+  padding-left:  15px;
+  padding-top:  5px;
+  padding-bottom: 0.1em;
+  color: black;
+  background-color: #fcd768;
+  border-top-right-radius: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  //background-image: url("goal.png");
+}
+
+.ex-cont {
+  margin-left: 0em;
+  padding-top: 5px;
+  padding-left: 15px;
+  color: black;
+  background-color: white;
+  border-bottom-right-radius: 10px;
+}
+
+// Fact
+.fact{
+  margin: 1em 0;
+  border: 2px solid gray;
+  border-left: 10px solid #93c54b; 
+  border-radius: 10px;
+}
+
+.fact-title {
+  margin-left: 0em;
+  padding-left:  15px;
+  padding-top:  5px;
+  padding-bottom: 0.1em;
+  color: black;
+  background-color: #add672;
+  border-top-right-radius: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  //background-image: url("goal.png");
+}
+
+.fact-cont {
+  margin-left: 0em;
+  padding-top: 5px;
+  padding-left: 15px;
+  color: black;
+  background-color: white;
+  border-bottom-right-radius: 10px;
+}
+
+
+
+

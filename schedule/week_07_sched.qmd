@@ -1,0 +1,41 @@
+---
+title: "Week 7"
+description: "Week 7"
+date: "11/06/2023"
+date-modified: "8/22/2023"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+## Resources
+
++-------------------+---------------------------------------------------+
+| Resource          | Information and Links                             |
++===================+===================================================+
+| Readings and Code | Continuous random variables and PDFs (Chapter 24) |
+|                   |                                                   |
+|                   | Joint Densities (Chapter 25)                      |
++-------------------+---------------------------------------------------+
+| Slides            |                                                   |
++-------------------+---------------------------------------------------+
+| Class Notes       |                                                   |
++-------------------+---------------------------------------------------+
+| Data              |                                                   |
++-------------------+---------------------------------------------------+
+| Homework          |                                                   |
++-------------------+---------------------------------------------------+
+
+## Post Class
+
+Survey link!!
+
+## Muddiest Points
+
+## Clearest Points
+
+## Additional Information
