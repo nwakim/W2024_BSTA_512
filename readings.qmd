@@ -1,0 +1,10 @@
+---
+title: "Readings"
+format: 
+  html:
+    listing: 
+      contents: readings
+      type: table
+      fields: [date, title, categories, reading-time]
+      table-hover: true
+---

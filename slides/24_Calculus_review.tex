@@ -1,0 +1,259 @@
+%\documentclass[12pt,letterpaper]{article}
+\documentclass[12pt]{amsart}
+
+\usepackage[left=1in, right=1in, top=.5in, bottom=.5in]{geometry}
+\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx, lmodern}
+%\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx}
+\newcommand{\vs}{\vskip.5cm}
+\newcommand{\hs}{\hskip1cm}
+\newcommand{\ds}{\displaystyle}
+\setlength{\parindent}{0pt}
+
+\usepackage{hyperref}  % links, urls
+\urlstyle{same}
+
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\renewcommand*\familydefault{\sfdefault}  %% Only if the base font of the document is to be sans serif
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\newcommand\Pbb{\mathbb{P}}
+\newcommand\Ebb{\mathbb{E}}
+\newcommand\pdfX{f_X(x)}
+\newcommand\pdfY{f_Y(y)}
+\newcommand\cdfX{F_X(x)}
+\newcommand\cdfY{F_Y(y)}
+
+\newcommand\intd{\displaystyle\int}
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{}
+%\fancyhead{} % clear all header fields
+%\fancyhf{}
+\rhead{BSTA 550 Calculus Review}   % from fancyhdr package
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+
+\begin{document}
+
+
+%----------------------------------------------------------------------------
+%\setcounter{section}{24}
+{\huge  
+\section*{Calculus Review }
+}
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+{\large 
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+%\vspace{18cm}
+%\hrule
+%\vspace{1cm}
+
+
+
+\vspace{.5cm}
+
+
+
+\subsection{Differentiation}
+
+%----------------------------------------------------------------------------
+\begin{example} Find the derivatives of the following functions.
+
+\begin{enumerate}
+
+\item $f(x) = 2$
+
+%	\textbf{Solution:}
+\vspace{3cm}
+
+\item $f(x) = 2x$
+
+%\textbf{Solution:}
+\vspace{3cm}
+
+\item $f(x) = 2x+2$
+
+%\textbf{Solution:}
+\vspace{3cm}
+
+\item $f(x) = x^2$
+
+%\textbf{Solution:}
+\vspace{3cm}
+
+
+\item $f(x) = 3\sqrt{x}+\frac2x+5$
+
+%\textbf{Solution:}
+\vspace{3cm}
+
+\item $f(x) = e^x$
+
+%\textbf{Solution:}
+\vspace{3cm}
+
+\item $f(x) = \ln(x)$
+
+%\textbf{Solution:}
+\vspace{3cm}
+
+
+
+\item $f(x) = x^2 e^x$
+
+%\textbf{Solution:}
+\vspace{5cm}
+
+
+\item $f(x) = \frac{x^5}{2x+7}$
+
+%\textbf{Solution:}
+\vspace{5cm}
+
+
+
+\item $f(x) = e^{-2x+7}$
+
+%\textbf{Solution:}
+\vspace{5cm}
+
+
+\item $f(x) = \ln(x^2)$
+
+%\textbf{Solution:}
+\vspace{5cm}
+
+\end{enumerate}
+
+\end{example}
+%----------------------------------------------------------------------------
+
+
+%****************************************************************************************
+\newpage
+\subsection{Integration}
+%\vspace{.1cm}
+\subsubsection{Antidifferentiation}
+%\vspace{.1cm}
+%----------------------------------------------------------------------------
+\begin{example} Find the antiderivatives of the following functions.
+\begin{enumerate}
+\item $f(x) = 2$
+%	\textbf{Solution:}
+%\vspace{2cm}
+\item $f(x) = x$
+%\textbf{Solution:}
+\vspace{2cm}
+\item $f(x) = \frac1x$
+
+%\textbf{Solution:}
+\vspace{3cm}
+
+\item $f(x) = x^{3/2}$
+
+%\textbf{Solution:}
+\vspace{3cm}
+
+
+\item $f(x) = e^x$
+
+%\textbf{Solution:}
+\vspace{3cm}
+
+\item $f(x) = e^{-x}$
+
+%\textbf{Solution:}
+\vspace{3cm}
+
+\item $f(x) = e^{-2x}$
+
+%\textbf{Solution:}
+\vspace{3cm}
+
+
+\end{enumerate}
+
+\end{example}
+%----------------------------------------------------------------------------
+
+
+%****************************************************************************************
+\newpage
+\subsubsection{Definite Integrals}
+%\vspace{.1cm}
+%----------------------------------------------------------------------------
+\begin{example} Solve the following integrals.
+\begin{enumerate}
+\item $\intd_0^1 (2x+x^5)dx$
+%	\textbf{Solution:}
+\vspace{3cm}
+
+\item $\intd_2^3 e^{-x}dx$
+%	\textbf{Solution:}
+\vspace{5cm}
+
+%\item $\intd_0^x \lambda e^{-\lambda t}dt$
+%%	\textbf{Solution:}
+%\vspace{5cm}
+
+
+\item $\intd_2^3 x e^{x^2}dx$
+%	\textbf{Solution:}
+\vspace{5cm}
+
+
+
+
+\item $\intd_0^{\infty} x e^{-x}dx$
+%	\textbf{Solution:}
+\vspace{6cm}
+
+
+%****************************************************************************************
+\newpage
+\item $\intd_1^2 x^2 \ln(x)dx$
+%	\textbf{Solution:}
+\vspace{7cm}
+
+\item $\intd_1^2 \ln(x)dx$
+%	\textbf{Solution:}
+\vspace{7cm}
+
+\item $\intd_1^2 x^2 e^{x}dx$
+%	\textbf{Solution:}
+\vspace{6cm}
+\end{enumerate}
+
+\end{example}
+%----------------------------------------------------------------------------
+
+
+
+
+
+%----------------------------------------------------------------------------
+}  % end large font
+%----------------------------------------------------------------------------
+
+
+
+\end{document}
+

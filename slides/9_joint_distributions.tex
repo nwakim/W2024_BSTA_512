@@ -1,0 +1,318 @@
+%\documentclass[12pt,letterpaper]{article}
+\documentclass[12pt]{amsart}
+
+\usepackage[left=1in, right=1in, top=.5in, bottom=.5in]{geometry}
+\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx, lmodern}
+%\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx}
+\newcommand{\vs}{\vskip.5cm}
+\newcommand{\hs}{\hskip1cm}
+\newcommand{\ds}{\displaystyle}
+\setlength{\parindent}{0pt}
+
+\usepackage{hyperref}  % links, urls
+\urlstyle{same}
+
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\renewcommand*\familydefault{\sfdefault}  %% Only if the base font of the document is to be sans serif
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{}
+%\fancyhead{} % clear all header fields
+%\fancyhf{}
+\rhead{BSTA 550 Ch 9 }   % from fancyhdr package
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+
+\begin{document}
+
+
+%----------------------------------------------------------------------------
+\setcounter{section}{9}
+{\huge  
+\section*{Chapter 9: Independence and Conditioning - or, Joint Distributions}
+}
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+{\large 
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+%\vspace{18cm}
+%\hrule
+\vspace{1cm}
+
+%----------------------------------------------------------------------------
+\begin{definition}
+The \textbf{joint pmf} of a pair of discrete r.v.'s $X$ and $Y$ is 
+$$
+p_{X,Y}(x,y) = \mathbb{P}(X=x\ and\ Y=y) = \mathbb{P}(X=x, Y=y)
+$$ 
+\end{definition}
+
+%----------------------------------------------------------------------------
+
+\vspace{1cm}
+
+%----------------------------------------------------------------------------
+\begin{example}\label{DrawsBox}
+Let $X$ and $Y$ be two random draws from a box containing balls labelled 1, 2, and 3 without replacement. 
+
+\begin{enumerate}
+\item Find $p_{X,Y}(x,y)$.
+\item Find $\mathbb{P}(X+Y=3).$
+\item Find $\mathbb{P}(Y = 1).$
+\item Find $\mathbb{P}(Y \leq 2).$
+\end{enumerate}
+
+\end{example}
+
+\textbf{Solution:}
+
+
+%----------------------------------------------------------------------------
+%\vspace{18cm}
+%\hrule
+%\vspace{.5cm}
+
+
+
+
+
+%****************************************************************************************
+\newpage
+
+\textbf{Remarks:} Some properties of joint pmf's:%\newline
+
+\begin{itemize}
+\item A joint pmf $p_{X,Y}(x,y)$ must satisfy the following properties:
+	\begin{itemize}
+	\item $p_{X,Y}(x,y)\geq 0$ for all $x, y$.
+	\item $\sum \limits_{\{all\ x\}} \sum \limits_{\{all\ y\}} p_{X,Y}(x,y)=1$.
+	\end{itemize}
+\vspace{1cm}
+\item Marginal pmf's:
+	\begin{itemize}
+	\item $p_X(x) = \sum \limits_{\{all\ y\}} p_{X,Y}(x,y)$
+	\item $p_Y(y) = \sum \limits_{\{all\ x\}} p_{X,Y}(x,y)$	
+	\end{itemize}
+\end{itemize}
+
+
+%----------------------------------------------------------------------------
+%\vspace{1cm}
+%\hrule
+%\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+
+%****************************************************************************************
+\newpage
+
+%----------------------------------------------------------------------------
+\begin{definition}
+The \textbf{joint cdf} of a pair of discrete r.v.'s $X$ and $Y$ is 
+$$
+F_{X,Y}(x,y) = \mathbb{P}(X \leq x\ and\ Y \leq y) = \mathbb{P}(X \leq x, Y \leq y)
+$$ 
+\end{definition}
+
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+\vspace{.5cm}
+\hrule
+\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------
+\begin{example}\label{DrawsBoxCDF}
+Find the joint cdf $F_{X,Y}(x,y)$ for the joint pmf $p_{X,Y}(x,y)$ in Example \ref{DrawsBox}.
+
+\end{example}
+
+\textbf{Solution:}
+
+
+
+
+%****************************************************************************************
+\newpage
+%----------------------------------------------------------------------------
+\begin{example}
+Find the marginal cdfs $F_{X}(x)$ and $F_{Y}(y)$ for Example \ref{DrawsBoxCDF}.
+
+\end{example}
+
+\textbf{Solution:}
+
+
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+\vspace{14cm}
+\hrule
+\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+\textbf{Remark:} Some properties of joint cdf's:%\newline
+
+
+
+%----------------------------------------------------------------------------
+%\vspace{1cm}
+%\hrule
+%\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+
+
+%****************************************************************************************
+\newpage
+
+\textbf{Independence and Conditioning}
+\vspace{.5cm}
+
+Recall that for \textit{events} $A$ and $B$,
+\begin{itemize}
+\item $\mathbb{P}(A|B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}$
+\item $A$ and $B$ are independent if and only if 
+	\begin{itemize}
+	\item $\mathbb{P}(A|B) = \mathbb{P}(A)$ 
+	\item$\mathbb{P}(A \cap B) = \mathbb{P}(A)\cdot\mathbb{P}(B)$
+	\end{itemize}
+\end{itemize}
+
+\vspace{1cm}
+
+Independence and conditioning are defined similarly for r.v.'s, since% \newline
+ $$p_X(x) = \mathbb{P}(X=x)\ \mathrm{and}\ \ p_{X,Y}(x,y) = \mathbb{P}(X = x ,Y = y).$$
+
+\vspace{1cm}
+%----------------------------------------------------------------------------
+\begin{definition}
+The \textbf{conditional pmf} of a pair of discrete r.v.'s $X$ and $Y$ is defined as
+$$
+p_{X|Y}(x|y) = \mathbb{P}(X = x |Y = y) = \frac{\mathbb{P}(X = x\ and\ Y = y)}{\mathbb{P}(Y = y)}
+=\frac{p_{X,Y}(x,y) }{p_{Y}(y) }
+$$ 
+if $p_{Y}(y)  > 0$.
+\end{definition}
+
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+\vspace{1cm}
+%\hrule
+%\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+
+
+\textbf{Remark:} The following properties follow from the conditional pmf definition:%\newline
+
+
+
+
+%****************************************************************************************
+\newpage
+
+
+%----------------------------------------------------------------------------
+\begin{example}
+Using $X$ and $Y$ from Example \ref{DrawsBox}:
+\begin{enumerate}
+\item Find $p_{X|Y}(x|y)$.
+\item Are $X$ and $Y$ independent? Why or why not?
+\end{enumerate}
+
+
+\end{example}
+
+\textbf{Solution:}
+
+
+%----------------------------------------------------------------------------
+\vspace{18cm}
+\hrule
+\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+
+
+\textbf{Remark:} 
+\begin{itemize}
+\item To show that $X$ and $Y$ are \textit{not} independent, we just need to find one counterexample. 
+\item However, to show that they are independent, we need to verify this for all possible pairs of $x$ and $y$.
+\end{itemize}
+
+
+
+
+%****************************************************************************************
+\newpage
+
+
+%----------------------------------------------------------------------------
+\begin{example}\label{Die4sided} \textbf{Hypothetical 4-sided die}
+\begin{itemize} 
+\item Suppose you have a 4-sided die, and you roll the 4-sided die until the first 4 appears.
+\item Let $X$ be the number of rolls required until (and including) the first 4.
+\item After the first 4, you keep rolling it again until you roll a 3. 
+\item Let $Y$ be the number of rolls, after the first 4, required until (and including) the 3.
+\end{itemize}
+
+\begin{enumerate}
+\item Find $p_{X,Y}(x,y)$.
+\item Using $p_{X,Y}(x,y)$, find $p_{Y}(y)$.
+\item Find $p_{X}(x)$.
+\item Are $X$ and $Y$ are independent? Why or why not?
+\item Find $F_{X,Y}(x,y)$.
+\end{enumerate}
+
+
+\end{example}
+
+\textbf{Solution:}
+
+%****************************************************************************************
+\newpage
+    
+Example \ref{Die4sided} cont'd.    
+%----------------------------------------------------------------------------
+%\vspace{20cm}
+%\hrule
+%\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+
+
+
+%----------------------------------------------------------------------------
+
+
+
+%----------------------------------------------------------------------------
+}  % end large font
+%----------------------------------------------------------------------------
+
+
+
+\end{document}
+

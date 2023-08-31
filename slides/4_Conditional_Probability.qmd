@@ -1,0 +1,86 @@
+---
+title: "Chapter 4: Conditional Probability"
+author: "Meike Niederhausen"
+date: "10/04/2023"
+categories: ["Day 4"]
+format: 
+  revealjs:
+    theme: [default, simple_NW.scss]
+    toc: true
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1600
+    height: 1100
+    footer: Chapter 4 Slides
+---
+
+## Example
+
+::: example
+::: ex-title
+Example 4.1
+:::
+
+::: ex-cont
+Suppose we randomly draw 2 cards from a standard deck of cards. What is the probability that both cards are spades?
+:::
+:::
+
+**Solution:** Let
+
+-   Let $A =$ event $1^{st}$ card is spades
+
+-   Let $B =$ event $2^{nd}$ card is spades
+
+## Conditional Probability facts (1/2)
+
+::: columns
+::: column
+
+::: fact
+::: fact-title
+Fact 1: General Multiplication Rule
+:::
+
+::: fact-cont
+$$\mathbb{P}(A\cap B)=\mathbb{P}(A)\cdot\mathbb{P}(B|A)$$ 
+
+:::
+:::
+:::
+
+::: column
+
+::: fact
+::: fact-title
+Fact 2: Conditional Probability Definition
+:::
+
+::: fact-cont
+$$\mathbb{P}(A|B)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}$$
+:::
+:::
+
+:::
+:::
+
+## Conditional Probability facts (2/2)
+
+3.  If $A$ and $B$ are independent events ($A \unicode{x2AEB}B$), then $$\mathbb{P}(A|B) = \mathbb{P}(A)$$
+
+4.  $\mathbb{P}(A|B)$ is a probability, meaning that it satisfies the probability axioms. In particular, $$\mathbb{P}(A|B) + \mathbb{P}(A^C|B) = 1$$
+
+## Example
+
+::: example
+::: ex-title
+Example 4.2
+:::
+
+::: ex-cont
+Two dice (red and blue) are rolled. If the dice do not show the same face, what is the probability that one of the dice is a 1?
+:::
+:::
+
+**Solution:**

@@ -1,0 +1,33 @@
+---
+title: "Week 6"
+description: "Week 6"
+date: "10/30/2023"
+date-modified: "8/22/2023"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+## Resources
+
+| Resource          | Information and Links                                         |
+|---------------------|--------------------------------------------|
+| Readings and Code | Common families of discrete distributions (Chapter 17 and 18) |
+| Slides            |                                                               |
+| Class Notes       |                                                               |
+| Data              |                                                               |
+| Homework          |                                                               |
+
+## Post Class
+
+Survey link!!
+
+## Muddiest Points
+
+## Clearest Points
+
+## Additional Information

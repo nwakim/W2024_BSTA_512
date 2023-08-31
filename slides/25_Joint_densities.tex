@@ -1,0 +1,289 @@
+%\documentclass[12pt,letterpaper]{article}
+\documentclass[12pt]{amsart}
+
+\usepackage[left=1in, right=1in, top=.5in, bottom=.5in]{geometry}
+\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx, lmodern}
+%\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx}
+\newcommand{\vs}{\vskip.5cm}
+\newcommand{\hs}{\hskip1cm}
+\newcommand{\ds}{\displaystyle}
+\setlength{\parindent}{0pt}
+
+\usepackage{hyperref}  % links, urls
+\urlstyle{same}
+
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\renewcommand*\familydefault{\sfdefault}  %% Only if the base font of the document is to be sans serif
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\newcommand\Pbb{\mathbb{P}}
+\newcommand\Ebb{\mathbb{E}}
+\newcommand\pdfX{f_X(x)}
+\newcommand\pdfY{f_Y(y)}
+\newcommand\pdfXY{f_{X,Y}(x,y)}
+\newcommand\cdfX{F_X(x)}
+\newcommand\cdfY{F_Y(y)}
+\newcommand\cdfXY{F_{X,Y}(x,y)}
+
+\newcommand\intd{\displaystyle\int}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{}
+%\fancyhead{} % clear all header fields
+%\fancyhf{}
+\rhead{BSTA 550 Ch 25}   % from fancyhdr package
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+
+\begin{document}
+
+
+%----------------------------------------------------------------------------
+\setcounter{section}{25}
+{\huge  
+\section*{Chapter 25: Joint densities}
+}
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+{\large % begin large font
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+%\vspace{18cm}
+%\hrule
+%\vspace{1cm}
+
+
+
+\vspace{.5cm}
+
+Recall from Chapter 24, that the probability distribution, or \textbf{probability density function (pdf)}, of a continuous random variable $X$ is a function $f_X(x)$, such that for all real values $a,b$ with $a \leq b$,
+$$
+\mathbb{P}(a \leq X \leq b) = \int_a^b f_X(x)dx.
+$$
+
+%----------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------
+\vspace{.5cm}
+\hrule
+\vspace{.5cm}
+
+
+\textbf{How to define the joint pdf for continuous r.v.'s?}
+
+%----------------------------------------------------------------------------
+\vspace{9cm}
+%\hrule
+%\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+\vspace{.5cm}
+\hrule
+\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+\textbf{Remarks:}
+\begin{enumerate}
+\item Note that $\pdfXY \neq \mathbb{P}(X=x, Y=y)$!!!
+\vspace{.5cm}
+\item In order for $\pdfXY$ to be a pdf, it needs to satisfy the properties 
+	\begin{itemize}
+	\item $\pdfXY \geq 0$ for all $x,y$
+	\item $\intd_{-\infty}^{\infty}\intd_{-\infty}^{\infty} \pdfXY dxdy=1$
+	\end{itemize}
+\end{enumerate}
+
+
+%****************************************************************************************
+\newpage
+
+
+
+\textbf{Double Integrals Mini Lesson}
+
+%----------------------------------------------------------------------------
+\begin{example}\ Solve the following integrals.
+\begin{enumerate}
+
+\item $\intd_{2}^{3}\intd_{0}^{1} xy dydx$
+
+%	\textbf{Solution:}
+%\vspace{5cm}
+\vfill
+
+\item $\intd_{2}^{3}\intd_{0}^{1} (x+y) dydx$
+
+%\textbf{Solution:}
+\vfill
+
+\item $\intd_{2}^{3}\intd_{0}^{1} e^{x+y} dydx$
+\vfill
+
+\end{enumerate}
+
+\end{example}
+%----------------------------------------------------------------------------
+
+
+%****************************************************************************************
+\newpage
+
+%\textbf{Joint cdf's}
+%----------------------------------------------------------------------------
+\begin{definition}[Joint cumulative distribution function]\ \newline
+The \textbf{joint cumulative distribution function (cdf)} of continuous random variables $X$ and $Y$, is the function $\cdfXY$, such that for all real values of $x$ and $y$,
+$$
+\cdfXY = \mathbb{P}(X \leq x, Y \leq y) = \int_{-\infty}^x\int_{-\infty}^y f_{X,Y}(s,t)dtds
+$$
+\end{definition}
+
+%----------------------------------------------------------------------------
+\textbf{Remarks:} \newline
+
+\begin{itemize}
+\item The definition above for $\cdfXY$ is a \textbf{function} of $x$ and $y$.
+\item  The joint cdf at the point $(a,b)$, is 
+$$
+F_{X,Y}(a,b) = \mathbb{P}(X \leq a, Y \leq b) = \int_{-\infty}^a\int_{-\infty}^b f_{X,Y}(s,t)dtds
+$$
+\end{itemize}
+
+%----------------------------------------------------------------------------
+\vspace{.5cm}
+\hrule
+\vspace{.5cm}
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+%\textbf{Marginal pdf's} \newline
+
+%----------------------------------------------------------------------------
+\begin{definition}[Marginal pdf's]\ \newline
+Suppose $X$ and $Y$ are continuous r.v.'s, with joint pdf $\pdfXY$. Then the \textbf{marginal probability density functions} are
+\begin{eqnarray*}
+\pdfX&=& \int_{-\infty}^{\infty} \pdfXY dy\\
+\pdfY&=& \int_{-\infty}^{\infty} \pdfXY dx
+\end{eqnarray*}
+
+\end{definition}
+
+
+%****************************************************************************************
+\newpage
+
+\begin{example}\ %\newline
+Let $\pdfXY = \frac32 y^2$, for $0 \leq x \leq 2, \ 0 \leq y \leq 1$.
+
+\vspace{.5cm}
+
+\begin{enumerate}
+\item Find $\Pbb(0 \leq X \leq 1, 0 \leq Y \leq \frac12)$.
+\vspace{10cm}
+
+
+
+\item Find $\pdfX$ and $\pdfY$.
+\vspace{6cm}
+
+\end{enumerate}
+
+\end{example}
+
+%****************************************************************************************
+\newpage
+
+\begin{example}\ %\newline
+Let $\pdfXY = 2 e^{-(x+y)}$, for $0 \leq x \leq y$.
+
+\vspace{.5cm}
+
+\begin{enumerate}
+\item Find $\pdfX$ and $\pdfY$.
+
+\vspace{10cm}
+
+
+
+\item Find $\Pbb(Y < 3)$.
+\vspace{6cm}
+
+\end{enumerate}
+
+
+\end{example}
+%----------------------------------------------------------------------------
+
+
+%****************************************************************************************
+\newpage
+% Exercise 25.14 with different probability
+\begin{example}\label{joint_absolute_diff}\ %\newline   
+Let $X$ and $Y$ have constant density on the square $0 \leq X \leq 4, 0 \leq Y \leq 4$.
+
+\vspace{.5cm}
+
+\begin{enumerate}
+\item Find $\Pbb(|X-Y| < 2)$.
+
+%\vspace{10cm}
+
+%****************************************************************************************
+\newpage
+\textit{Example \ref{joint_absolute_diff} continued.}
+
+\item Let $M = \max(X,Y)$. Find the pdf for $M$, that is $f_M(m)$.
+\vspace{10cm}
+
+
+\item Let $Z = \min(X,Y)$. Find the pdf for $Z$, that is $f_Z(z)$.
+%\vspace{6cm}
+
+\end{enumerate}
+
+
+\end{example}
+%----------------------------------------------------------------------------
+
+
+
+
+%****************************************************************************************
+\newpage
+
+\begin{example}\label{XY_pdf}\ %\newline   
+Let $X$ and $Y$ have joint density $\pdfXY = \frac85(x+y)$ in the region $0 < x < 1,\ \frac12 < y <1$.
+Find the pdf of the r.v. $Z$, where $Z=XY$.
+
+\end{example}
+
+
+%****************************************************************************************
+\newpage
+\textit{Example \ref{XY_pdf} solution continued.}
+
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+}  % end large font
+%----------------------------------------------------------------------------
+
+
+
+\end{document}
+

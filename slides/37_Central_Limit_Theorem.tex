@@ -1,0 +1,208 @@
+%\documentclass[12pt,letterpaper]{article}
+\documentclass[12pt]{amsart}
+
+\usepackage[left=1in, right=1in, top=.5in, bottom=.5in]{geometry}
+\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx, lmodern}
+%\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx}
+
+
+
+\newcommand{\vs}{\vskip.5cm}
+\newcommand{\hs}{\hskip1cm}
+\newcommand{\ds}{\displaystyle}
+\setlength{\parindent}{0pt}
+
+\usepackage{hyperref}  % links, urls
+\urlstyle{same}
+
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\renewcommand*\familydefault{\sfdefault}  %% Only if the base font of the document is to be sans serif
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\newcommand\Pbb{\mathbb{P}}
+\newcommand\Ebb{\mathbb{E}}
+\newcommand\gs{\sigma}
+\newcommand\gl{\lambda}
+\newcommand\ga{\alpha}
+\newcommand\gb{\beta}
+\newcommand\pmfX{p_X(x)}
+\newcommand\pmfY{p_Y(y)}
+\newcommand\pdfX{f_X(x)}
+\newcommand\pdfY{f_Y(y)}
+\newcommand\pdfXY{f_{X,Y}(x,y)}
+\newcommand\cdfX{F_X(x)}
+\newcommand\cdfY{F_Y(y)}
+\newcommand\cdfXY{F_{X,Y}(x,y)}
+\newcommand\pdfXgY{f_{X|Y}(x|y)}
+\newcommand\pdfYgX{f_{Y|X}(y|x)}
+\newcommand\mgfX{M_X(t)}
+\newcommand\mgfY{M_Y(t)}
+
+
+\newcommand\intd{\displaystyle\int}
+\newcommand\intinft{\int_{-\infty}^{\infty}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{}
+%\fancyhead{} % clear all header fields
+%\fancyhf{}
+\rhead{BSTA 550 Ch 37}   % from fancyhdr package
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+
+\begin{document}
+
+
+%----------------------------------------------------------------------------
+\setcounter{section}{37}
+{\huge  
+\section*{Ch 37: The Central Limit Theorem (CLT)}
+}
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+{\large % begin large font
+%----------------------------------------------------------------------------
+
+\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+\begin{theorem}[Central Limit Theorem (CLT)] \ Let $X_i$ be iid rv's with common mean $\mu$ and variance $\gs^2$, for $i=1,2,\ldots,n$. Then
+$$
+\hspace{-12cm} \sum_{i=1}^n X_i \rightarrow
+$$\end{theorem}
+
+%----------------------------------------------------------------------------
+\vspace{12cm}
+\hrule
+\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+\begin{corollary} \ \  Let $X_i$ be iid rv's with common mean $\mu$ and variance $\gs^2$, for $i=1,2,\ldots,n$. Then
+$$
+\hspace{-12cm} \bar{X}=\frac{\sum_{i=1}^n X_i}{n}  \rightarrow
+$$\end{corollary}
+
+
+
+
+
+%****************************************************************************************
+\newpage
+
+%----------------------------------------------------------------------------
+\begin{example} \ \  According to a large US study, the mean resting heart rate of adult women is about 74 beats per minutes (bpm), with standard deviation 13 bpm (NHANES 2003-2004).
+
+\begin{enumerate}
+\item Find the probability that the average resting heart rate for a random sample of 36 adult women is more than 3 bpm away from the mean. 
+
+\vspace{12cm}
+
+\item Repeat the previous question for a single adult woman. 
+
+
+\end{enumerate}
+\end{example}
+
+
+
+%****************************************************************************************
+\newpage
+
+
+%----------------------------------------------------------------------------
+\begin{example} \ \  Let $X_i \sim Exp(\gl)$ be iid r.v.'s for $i=1,2,\ldots,n$. Then
+$$
+\hspace{-12cm} \sum_{i=1}^n X_i \rightarrow
+$$
+\end{example}
+
+
+%----------------------------------------------------------------------------
+\vspace{5cm}
+\hrule
+\vspace{.5cm}
+
+
+
+\textbf{CLT for Discrete rv's}
+
+\begin{enumerate}
+\item \textbf{Binomial rv's}: Let $X \sim Bin(n,p)$. 
+
+\vspace{8cm}
+
+\item \textbf{Poisson rv's}: Let $X \sim Poisson(\gl)$. 
+
+\end{enumerate}
+%----------------------------------------------------------------------------
+
+
+
+%****************************************************************************************
+\newpage
+
+%----------------------------------------------------------------------------
+\begin{example} \ \  Suppose that the probability of developing a specific type of breast cancer in women aged 40-49 is 0.001. Assume the occurrences of cancer are independent. Suppose you have data from a random sample of 20,000 women aged 40-49.
+
+\begin{enumerate}
+\item How many of the 20,000 women would you expect to develop this type of breast cancer, and what is the standard deviation?
+
+\vspace{3cm}
+
+\item Find the \textbf{exact} probability that more than 15 of the 20,000 women will develop this type of breast cancer.
+
+\vspace{8cm}
+
+\item Use the CLT to find the \textbf{approximate} probability that more than 15 of the 20,000 women will develop this type of breast cancer.
+
+\vspace{5cm}
+
+%****************************************************************************************
+\newpage
+
+\item Use the CLT to approximate the following probabilities, where $X$ is the number of women that will develop this type of breast cancer.
+	\begin{enumerate}
+	\item $\Pbb(15 \leq X \leq 22)$
+%\vspace{3cm}
+	\item $\Pbb(X > 20)$
+%\vspace{3cm}
+	\item $\Pbb(X < 20)$
+%\vspace{3cm}
+	\end{enumerate}
+
+\vspace{8cm}
+
+
+\item Find the \textbf{approximate} probability that more than 15 of the 20,000 women will develop this type of breast cancer - not using the CLT!
+
+\vspace{7cm}
+
+\item Use the CLT to approximate the approximate probability in the previous question!
+
+\vspace{5cm}
+
+\end{enumerate}
+\end{example}
+
+
+
+%----------------------------------------------------------------------------
+}  % end large font
+%----------------------------------------------------------------------------
+
+\end{document}
+

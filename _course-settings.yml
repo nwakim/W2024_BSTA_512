@@ -1,0 +1,116 @@
+
+schedule:
+  - unit: "Summarizing Data"
+    materials:
+      - href: schedule/week_01_sched.qmd
+        date: 09/25/23
+        calendar-color: "#49A3D1"
+        calendar-color2: "#FFFFFF"
+      - href: schedule/week_02_sched.qmd
+        date: 10/2/23
+        calendar-color: "#49A3D1"
+        calendar-color2: "#FFFFFF"
+      - href: homework/HW1.qmd
+        title: "HW 1 due"
+        date: 10/5/23
+        calendar-color: "#4EA627"
+        calendar-color2: "#FFFFFF"
+      - href: schedule/week_03_sched.qmd
+        date: 10/9/23
+        calendar-color: "#49A3D1"
+        calendar-color2: "#FFFFFF"
+      - title: "HW 2 due"
+        date: 10/12/23
+        calendar-color: "#4EA627"
+        calendar-color2: "#FFFFFF"      
+      - href: schedule/week_04_sched.qmd
+        date: 10/16/23
+        calendar-color: "#49A3D1"
+        calendar-color2: "#FFFFFF"
+      - title: "HW 3 due"
+        date: 10/19/23
+        calendar-color: "#4EA627"
+        calendar-color2: "#FFFFFF" 
+      - href: schedule/week_05_sched.qmd
+        date: 10/23/23
+        calendar-color: "#49A3D1"
+        calendar-color2: "#FFFFFF"
+      - title: "Virtual Class"
+        date: 10/25/23
+        calendar-color: "#193D78"
+        calendar-color2: "#FFFFFF" 
+      - title: "HW 4 due"
+        date: 10/26/23
+        calendar-color: "#4EA627"
+        calendar-color2: "#FFFFFF" 
+      - href: schedule/week_06_sched.qmd
+        date: 10/30/23
+        calendar-color: "#49A3D1"
+        calendar-color2: "#FFFFFF"
+      - title: "Midterm"
+        date: 11/01/23        
+        calendar-color: "#F7CB25"
+        calendar-color2: "#FFFFFF" 
+      - title: "HW 5 due"
+        date: 11/2/23
+        calendar-color: "#4EA627"
+        calendar-color2: "#FFFFFF" 
+      - href: schedule/week_07_sched.qmd
+        date: 11/06/23
+        calendar-color: "#49A3D1"
+        calendar-color2: "#FFFFFF"
+      - href: schedule/week_08_sched.qmd
+        date: 11/13/23
+        calendar-color: "#49A3D1"
+        calendar-color2: "#FFFFFF"
+      - title: "HW 6 due"
+        date: 11/16/23
+        calendar-color: "#4EA627"
+        calendar-color2: "#FFFFFF" 
+      - href: schedule/week_09_sched.qmd
+        date: 11/20/23
+        calendar-color: "#49A3D1"
+        calendar-color2: "#FFFFFF"
+      - title: "No Class"
+        date: 11/22/23
+        calendar-color: "#193D78"
+        calendar-color2: "#FFFFFF" 
+      - href: schedule/week_10_sched.qmd
+        date: 11/27/23
+        calendar-color: "#49A3D1"
+        calendar-color2: "#FFFFFF"
+      - title: "HW 7 due"
+        date: 11/30/23
+        calendar-color: "#4EA627"
+        calendar-color2: "#FFFFFF" 
+      - title: "Final"
+        date: 12/04/23        
+        calendar-color: "#F7CB25"
+        calendar-color2: "#FFFFFF" 
+
+        
+auto-publish:
+  timezone: "America/Los_Angeles"
+  live-as-of: "Sys.time()"
+  notes-1-release: "Friday, 17:00" # for Tu/Weds notes
+  notes-2-release: "Friday, 17:00" # for Thu/Fri notes
+
+instructors:
+  - name: Andrew Bray
+    email: "andrewbray@berkeley.edu"
+    quartopub-name: andrew
+  - name: Iain Carmichael
+    email: "iain@berkeley.edu"
+    quartopub-name: iainc
+  - name: Silas Gifford
+    email: "silascs@berkeley.edu"
+    quartopub-name: silas
+  - name: Jeremy Sanchez
+    email: "jeremysanchez@berkeley.edu"
+    quartopub-name: sanchez
+  - name: Shobhana Stoyanov
+    email: "shobhana@berkeley.edu"
+    quartopub-name: shobhana
+    
+semester: "Fall, 2023"
+

@@ -1,0 +1,17 @@
+---
+title: "Schedule"
+format: 
+  html:
+    listing: 
+      contents: schedule
+      type: table
+      table-hover: true
+      fields: [date, title, description, categories]
+      sort: "date asc"
+      date-format: "short"
+    link-external-newwindow: true
+---
+
+Overall schedule:
+
+Put an image of the 10 weeks here!!

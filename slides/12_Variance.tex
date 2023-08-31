@@ -1,0 +1,295 @@
+%\documentclass[12pt,letterpaper]{article}
+\documentclass[12pt]{amsart}
+
+\usepackage[left=1in, right=1in, top=.5in, bottom=.5in]{geometry}
+\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx, lmodern}
+%\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx}
+\newcommand{\vs}{\vskip.5cm}
+\newcommand{\hs}{\hskip1cm}
+\newcommand{\ds}{\displaystyle}
+\setlength{\parindent}{0pt}
+
+\usepackage{hyperref}  % links, urls
+\urlstyle{same}
+
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\renewcommand*\familydefault{\sfdefault}  %% Only if the base font of the document is to be sans serif
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{}
+%\fancyhead{} % clear all header fields
+%\fancyhf{}
+\rhead{BSTA 550 Ch 12}   % from fancyhdr package
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+
+\begin{document}
+
+
+%----------------------------------------------------------------------------
+\setcounter{section}{12}
+{\huge  
+\section*{Chapter 12: Variance of Discrete r.v.'s - \newline
+or, Expected Values of Functions of r.v.'s}
+}
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+{\large 
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+%\vspace{18cm}
+%\hrule
+%\vspace{1cm}
+
+\subsection{Expected Values of Functions of r.v.'s}\ \newline
+
+\vspace{.5cm}
+
+\textbf{Question:} What is $\mathbb{E}[g(X)]$ for a function $g$ and discrete r.v. $X$?
+
+%----------------------------------------------------------------------------
+\vspace{.5cm}
+\hrule
+\vspace{.5cm}
+
+%----------------------------------------------------------------------------
+\begin{example}
+Let $g(x) = ax+b$, for real-valued constants $a$ and $b$. \newline
+What is $\mathbb{E}[g(X)]$?
+\end{example}
+
+\textbf{Solution:}
+
+
+%----------------------------------------------------------------------------
+\vspace{8cm}
+\hrule
+\vspace{.5cm}
+
+
+
+
+%----------------------------------------------------------------------------
+\begin{definition}[Expected value of a function of a r.v.]\label{EfcnX}\ \newline
+For any function $g$ and discrete r.v. $X$, the expected value of $g(X)$ is
+$$
+\mathbb{E}[g(X)] = \sum_{\{all\ x\}}\ g(x) p_X(x).
+$$ 
+\end{definition}
+
+
+
+
+
+
+%****************************************************************************************
+\newpage
+
+
+%----------------------------------------------------------------------------
+\begin{example}\label{Draw2Cards_gX}
+Suppose you draw 2 cards from a standard deck of cards \textit{with} replacement. %\newline
+Let $X$ be the number of hearts you draw. 
+
+\begin{enumerate}
+\item Find $\mathbb{E}[X^2]$.
+
+\textbf{Solution:}
+
+\vspace{8cm}
+\item Find $\mathbb{E}\big[\big(X-\frac{1}{2}\big)^2\big]$.
+
+\textbf{Solution:}
+\vspace{8cm}
+
+\end{enumerate}
+\end{example}
+
+
+
+%****************************************************************************************
+\newpage
+
+\subsection{Variance of a r.v.}%\ \newline
+%----------------------------------------------------------------------------
+\begin{definition}[Variance of a r.v.]\label{DefVar}\ \newline
+The variance of a r.v. $X$, with (finite) expected value $\mu_X=\mathbb{E}[X]$ is
+$$
+\sigma_X^2=Var(X)=\mathbb{E}[(X-\mu_X)^2] = \mathbb{E}[(X-\mathbb{E}[X])^2].
+$$ 
+\end{definition}
+
+%----------------------------------------------------------------------------
+\vspace{3cm}
+%----------------------------------------------------------------------------
+\begin{definition}[Standard deviation of a r.v.]\label{DefSD}\ \newline
+The standard deviation of a r.v. $X$ is
+$$
+\sigma_X = SD(X) = \sqrt{\sigma_X^2}=\sqrt{Var(X)}.
+$$ 
+\end{definition}
+%----------------------------------------------------------------------------
+\vspace{.5cm}
+\hrule
+\vspace{.5cm}
+
+
+\textbf{Questions:} \newline
+Why do we square the difference in the variance definition? $(X-\mu_X)^2$
+\begin{itemize}
+\item Why not define the measure of spread as $\mathbb{E}[X-\mu_X] = \mathbb{E}[X-\mathbb{E}[X]]$?
+
+\vspace{9cm}
+\item  Why not use $\mathbb{E}[|X-\mu_X|]$?
+
+\end{itemize}
+
+
+%****************************************************************************************
+\newpage
+
+
+
+%----------------------------------------------------------------------------
+\begin{lemma}["Computation formula" for Variance]\label{DefVar_Comp}\ \newline
+The variance of a r.v. $X$, can be computed as
+$$
+\sigma_X^2=Var(X)=\mathbb{E}[X^2]-\mu_X^2 = \mathbb{E}[X^2] - (\mathbb{E}[X])^2.
+$$ 
+\end{lemma}
+
+%----------------------------------------------------------------------------
+\begin{proof}
+\end{proof}
+
+
+%----------------------------------------------------------------------------
+%\vspace{5cm}
+
+
+%****************************************************************************************
+\newpage
+
+\subsection{Some Important Variance and Expected Values Results}
+
+
+%----------------------------------------------------------------------------
+\begin{lemma}\ \newline
+For a r.v. $X$ and constants $a$ and $b$,
+$$Var(aX+b) = a^2Var(X).$$
+\end{lemma}
+
+\begin{proof} See homework.
+\end{proof}
+
+%----------------------------------------------------------------------------
+\vspace{.5cm}
+\hrule
+
+\subsubsection{Important Results for Independent r.v.'s}
+
+%----------------------------------------------------------------------------
+\begin{theorem}\label{E_indep_gXhY}\ \newline
+For independent r.v.'s $X$ and $Y$, and functions $g$ and $h$,
+$$
+\mathbb{E}[g(X)h(Y)] = \mathbb{E}[g(X)]\mathbb{E}[h(Y)].
+$$ \end{theorem}
+
+%----------------------------------------------------------------------------
+\vspace{.1cm}
+%----------------------------------------------------------------------------
+\begin{corollary}\ \newline
+For independent r.v.'s $X$ and $Y$,
+$$
+\mathbb{E}[XY] = \mathbb{E}[X]\mathbb{E}[Y].
+$$ \end{corollary}
+
+%----------------------------------------------------------------------------
+\vspace{.1cm}
+%----------------------------------------------------------------------------
+\begin{proof}[Proof of Theorem \ref{E_indep_gXhY}] 
+\end{proof}
+
+
+
+
+%****************************************************************************************
+\newpage
+
+%----------------------------------------------------------------------------
+\begin{theorem}[Variance of sum of independent discrete r.v.'s]\label{ThmVarSum}\ \newline
+For independent discrete r.v.'s $X_i$ and constants $a_i$, $i=1,2,\dots, n$, 
+$$
+Var\Big(\sum_{i=1}^n a_iX_i\Big) = \sum_{i=1}^n a_i^2Var(X_i).
+$$ 
+\end{theorem}
+
+%----------------------------------------------------------------------------
+\vspace{.1cm}
+%----------------------------------------------------------------------------
+\begin{corollary}\ \newline
+For independent discrete r.v.'s $X_i$, $i=1,2,\dots, n$, 
+$$
+Var\Big(\sum_{i=1}^n X_i\Big) = \sum_{i=1}^n Var(X_i).
+$$ 
+\end{corollary}
+
+
+%----------------------------------------------------------------------------
+\vspace{.1cm}
+%----------------------------------------------------------------------------
+\begin{corollary}\ \newline
+For independent identically (i.i.d.) discrete r.v.'s $X_i$, $i=1,2,\dots, n$, 
+$$
+Var\Big(\sum_{i=1}^n X_i\Big) = n Var(X_1).
+$$ 
+\end{corollary}
+
+%----------------------------------------------------------------------------
+\vspace{.1cm}
+%----------------------------------------------------------------------------
+\begin{proof}[Proof to Theorem \ref{ThmVarSum}]
+\end{proof}
+
+
+
+%****************************************************************************************
+\newpage
+
+ 
+%----------------------------------------------------------------------------
+\begin{example}\label{LandportHotels}
+A tour group is planning a visit to the city of Landport and needs to book 30 hotel rooms. 
+The average price of a room is \$200 \textbf{with standard deviation \$10}. In addition, there is a 10\% tourism tax for each room.
+\newline
+What is the \textbf{standard deviation} of the cost for the 30 hotel rooms?
+\end{example}
+
+\textbf{Solution:}
+
+
+
+%----------------------------------------------------------------------------
+}  % end large font
+%----------------------------------------------------------------------------
+
+
+
+\end{document}
+

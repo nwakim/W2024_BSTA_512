@@ -1,0 +1,159 @@
+%\documentclass[12pt,letterpaper]{article}
+\documentclass[12pt]{amsart}
+
+\usepackage[left=1in, right=1in, top=.5in, bottom=.5in]{geometry}
+\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx, lmodern}
+%\usepackage{latexsym,amssymb,amsmath,amsthm,amsopn,verbatim, mathpazo, graphicx}
+
+
+
+\newcommand{\vs}{\vskip.5cm}
+\newcommand{\hs}{\hskip1cm}
+\newcommand{\ds}{\displaystyle}
+\setlength{\parindent}{0pt}
+
+\usepackage{hyperref}  % links, urls
+\urlstyle{same}
+
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\renewcommand*\familydefault{\sfdefault}  %% Only if the base font of the document is to be sans serif
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\newcommand\Pbb{\mathbb{P}}
+\newcommand\Ebb{\mathbb{E}}
+\newcommand\gl{\lambda}
+\newcommand\pdfX{f_X(x)}
+\newcommand\pdfY{f_Y(y)}
+\newcommand\pdfXY{f_{X,Y}(x,y)}
+\newcommand\cdfX{F_X(x)}
+\newcommand\cdfY{F_Y(y)}
+\newcommand\cdfXY{F_{X,Y}(x,y)}
+\newcommand\pdfXgY{f_{X|Y}(x|y)}
+\newcommand\pdfYgX{f_{Y|X}(y|x)}
+
+\newcommand\intd{\displaystyle\int}
+\newcommand\intinft{\int_{-\infty}^{\infty}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{}
+%\fancyhead{} % clear all header fields
+%\fancyhf{}
+\rhead{BSTA 550 Ch 28}   % from fancyhdr package
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+
+\begin{document}
+
+
+%----------------------------------------------------------------------------
+\setcounter{section}{28}
+{\huge  
+\section*{Chapter 28: Expected Values \newline of Continuous Random Variables}
+}
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+{\large % begin large font
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+%\vspace{18cm}
+%\hrule
+%\vspace{1cm}
+
+
+
+\vspace{.5cm}
+
+
+%----------------------------------------------------------------------------
+\textbf{How do we calculate expected values of discrete r.v.'s?}
+
+%----------------------------------------------------------------------------
+\vspace{5cm}
+\hrule
+\vspace{.5cm}
+
+
+
+%----------------------------------------------------------------------------
+\textbf{How do we calculate expected values of continuous r.v.'s?}
+
+%----------------------------------------------------------------------------
+\vspace{5cm}
+\hrule
+\vspace{.5cm}
+
+
+%----------------------------------------------------------------------------
+\begin{example}\label{28_E_Uab}\ \newline
+Let $\pdfX = \frac{1}{b-a}$, for $a \leq x \leq b$. Find $\Ebb[X]$.
+
+\end{example}
+
+%****************************************************************************************
+\newpage
+%----------------------------------------------------------------------------
+\begin{example}\label{28_E_Exp}\ \newline
+Let $\pdfX = \gl e^{-\gl x}$, for $x > 0$ and $\gl > 0$. Find $\Ebb[X]$.
+
+\end{example}
+
+
+
+
+%****************************************************************************************
+\newpage
+
+% Moved remark to Ch 29
+%%----------------------------------------------------------------------------
+%\textbf{Remark}
+%
+%If you are given $\pdfXY$ and want to calculate $\Ebb[X]$, you have two options:
+%\begin{enumerate}
+%\item Find $\pdfX$ and use it to calculate $\Ebb[X]$.
+%\item Or, calculate $\Ebb[X]$ using the joint density:
+%$$
+%\Ebb[X] = \intinft\intinft x \pdfXY dydx.
+%$$
+%\end{enumerate}
+%
+%%----------------------------------------------------------------------------
+%\vspace{2cm}
+%\hrule
+%\vspace{.5cm}
+
+
+
+%----------------------------------------------------------------------------
+\begin{example}\label{28_E_joint}\ \newline
+Let $\pdfXY = 2e^{-(x+y)}$, for $0 \leq x \leq y$. Find $\Ebb[X]$.
+
+\end{example}
+
+
+%****************************************************************************************
+\newpage
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+}  % end large font
+%----------------------------------------------------------------------------
+
+
+
+\end{document}
+
