@@ -1,7 +1,7 @@
 ---
 title: "BSTA 550: Introduction to Probability"
 description: "Welcome to Biostatistics and Probability!"
-title-block-banner: "#4EA627"
+title-block-banner: "#6B8CC4"
 title-block-banner-color: white
 ---
 
