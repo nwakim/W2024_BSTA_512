@@ -24,24 +24,32 @@ $OHSU-yellow:   #F7CB25 !default;
 $OHSU-blue:     #49A3D1 !default;
 $OHSU-green:    #4EA627 !default;
 
-$blue:          #325d88 !default;
-$indigo:        #6610f2 !default;
-$purple:        #6f42c1 !default;
-$pink:          #e83e8c !default;
-$red:           #d9534f !default;
-$orange:        #f47c3c !default;
-$yellow:        #ffc107 !default;
-$green:         #93c54b !default;
-$teal:          #20c997 !default;
-$cyan:          #29abe0 !default;
+$blue:        #6B8CC4 !default;
+$pink:        #F08897 !default;
+$orange:      #E25D3B !default;
+$yellow:      #F1CF58 !default;
+$slate-grey:  #6C757D !default;
+$green:       #00A572 !default;
+$ivory:       #F2EFEA !default;
+
+//$blue:          #325d88 !default;
+//$indigo:        #6610f2 !default;
+//$purple:        #6f42c1 !default;
+//$pink:          #e83e8c !default;
+//$red:           #d9534f !default;
+//$orange:        #f47c3c !default;
+//$yellow:        #ffc107 !default;
+//$green:         #93c54b !default;
+//$teal:          #20c997 !default;
+//$cyan:          #29abe0 !default;
 
 // $primary:       $blue !default;
-$primary:       $PSU-green !default;
+$primary:       $blue !default;
 $secondary:     $gray-600 !default;
-$success:       $OHSU-blue !default;
-$info:          $cyan !default;
-$warning:       $orange !default;
-$danger:        $red !default;
+$success:       $green !default;
+$info:          $pink !default;
+$warning:       $yellow !default;
+$danger:        $orange !default;
 $light:         $gray-200 !default;
 $dark:          $gray-800 !default;
 
