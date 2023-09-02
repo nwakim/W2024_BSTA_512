@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "BSTA 550: Introduction to Probability",
     "section": "",
-    "text": "Quick references:"
+    "text": "Instructor\n\n\nCourse details\n\n\nContacting me\nE-mail or Slack is the best way to get in contact with me. I will try to respond to all course-related e-mails within 1 business day."
   },
   {
     "objectID": "schedule.html",
@@ -18,7 +18,7 @@
     "href": "syllabus.html",
     "title": "Syllabus",
     "section": "",
-    "text": "```{css, echo=FALSE} .title{ font-size: 40px; color: #fff; background-color: #4EA627; padding: 10px; }\n.description{ font-size: 20px; color: #fff; background-color: #49A3D1; padding: 10px; } ```"
+    "text": "This course is designed to introduce history, concepts and distributions in probability, Monte Carlo simulation techniques, and Markov chains. Students will also learn how to write R codes for various statistical computations and plots. Previous experience in R is not required. R is free software available from http://www.r-project.org."
   },
   {
     "objectID": "syllabus.html#textbook",
@@ -711,7 +711,7 @@
     "href": "schedule/week_01_sched.html#resources",
     "title": "Week 1",
     "section": "Resources",
-    "text": "Resources\nBelow is a table with links to resources. Icons in blue mean there is an available file link.\n\n\n\nChapter\nTopic\nSlides\nAnnotated Slides\nRecording\n\n\n\n\n1\nOutcomes, Events, and Sample Space\n\n\n\n\n\n2\nProbability\n\n\n\n\n\n22\nCounting\n\n\n\n\n\n23\nCase Study on Counting\n\n\n\n\n\n\nFor the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:\n\nClick on the icon with three horizontal bars on the bottom left of the browser.\nClick on “Tools” with the gear icon at the top of the sidebar.\nClick on “PDF Export Mode.”\nFrom there, you can print or save the PDF as you would normally from your internet browser."
+    "text": "Resources\nBelow is a table with links to resources. Icons in orange mean there is an available file link.\n\n\n\nChapter\nTopic\nSlides\nAnnotated Slides\nRecording\n\n\n\n\n1\nOutcomes, Events, and Sample Space\n\n\n\n\n\n2\nProbability\n\n\n\n\n\n22\nCounting\n\n\n\n\n\n23\nCase Study on Counting\n\n\n\n\n\n\nFor the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:\n\nClick on the icon with three horizontal bars on the bottom left of the browser.\nClick on “Tools” with the gear icon at the top of the sidebar.\nClick on “PDF Export Mode.”\nFrom there, you can print or save the PDF as you would normally from your internet browser."
   },
   {
     "objectID": "schedule/week_01_sched.html#homework",
@@ -1095,8 +1095,8 @@
     "objectID": "slides/1_Outcomes_Events_Sample_space-solutions.html#overview",
     "href": "slides/1_Outcomes_Events_Sample_space-solutions.html#overview",
     "title": "Chapter 1: Outcomes, Events, and Sample Spaces",
-    "section": "",
-    "text": "Outcomes, Events, and Sample Space\n\nTossing one coin\nTossing two coins\n\nSet Theory"
+    "section": "Overview",
+    "text": "Overview\n\nOutcomes, Events, and Sample Space\n\nTossing one coin\nTossing two coins\n\nSet Theory"
   },
   {
     "objectID": "slides/1_Outcomes_Events_Sample_space-solutions.html#coin-toss-example-1-coin-13",
@@ -1194,7 +1194,7 @@
     "href": "slides/1_Outcomes_Events_Sample_space-solutions.html#remarks-on-de-morgans-laws",
     "title": "Chapter 1: Outcomes, Events, and Sample Spaces",
     "section": "Remarks on De Morgan’s Laws",
-    "text": "Remarks on De Morgan’s Laws\n\nThese laws also hold for infinite collections of events.\nDraw Venn diagrams to convince yourself that these are true!\nThese laws are very useful when calculating probabilities.\n\nThis is because calculating the probability of the intersection of events is often much easier than the union of events.\nThis is not obvious right now, but we will see in the coming chapters why."
+    "text": "Remarks on De Morgan’s Laws\n\nThese laws also hold for infinite collections of events.\nDraw Venn diagrams to convince yourself that these are true!\nThese laws are very useful when calculating probabilities.\n\nThis is because calculating the probability of the intersection of events is often much easier than the union of events.\nThis is not obvious right now, but we will see in the coming chapters why.\n\n\n\n\nChapter 1 Slides"
   },
   {
     "objectID": "slides/2_Probability-solutions.html#what-do-you-know-about-probabilities",
@@ -1271,7 +1271,7 @@
     "href": "slides/2_Probability-solutions.html#venn-diagram-probabilities-1",
     "title": "Chapter 2: Probability",
     "section": "Venn Diagram Probabilities",
-    "text": "Venn Diagram Probabilities\n\n\n\nExample 3\n\n\nIf a subject has an\n\n80% chance of taking their medication this week,\n70% chance of taking their medication next week, and\n10% chance of not taking their medication either week,\n\nthen find the probability of them taking their medication exactly one of the two weeks.\n\nHint: Draw a Venn diagram labelling each of the parts to find the probability.Answer: \\(\\mathbb{P}(A \\cap B) = 0.6\\)."
+    "text": "Venn Diagram Probabilities\n\n\n\nExample 3\n\n\nIf a subject has an\n\n80% chance of taking their medication this week,\n70% chance of taking their medication next week, and\n10% chance of not taking their medication either week,\n\nthen find the probability of them taking their medication exactly one of the two weeks.\n\nHint: Draw a Venn diagram labelling each of the parts to find the probability.Answer: \\(\\mathbb{P}(A \\cap B) = 0.6\\).\n\n\n\nChapter 2 Slides"
   },
   {
     "objectID": "slides/11_Expected_Values_of_Sums_of_rvs.html",
@@ -1482,5 +1482,19 @@
     "title": "Schedule",
     "section": "",
     "text": "ScheduleImportant timesCredit to\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSeptember\n\n\n\n\n\nMON\n\n\nTUE\n\n\nWED\n\n\nTHU\n\n\nFRI\n\n\n\n\n\n\n\n\n\n25\n\n\n\n\n\n\n26\n\n\n\n\n\n\n27\n\n\n\n\n\n\n28\n\n\n\n\n\n\n29\n\n\n\n\n\n\n\n\nWeek 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOctober\n\n\n\n\n\nMON\n\n\nTUE\n\n\nWED\n\n\nTHU\n\n\nFRI\n\n\n\n\n\n\n\n\n\n2\n\n\n\n\n\n\n3\n\n\n\n\n\n\n4\n\n\n\n\n\n\n5\n\n\n\n\n\n\n6\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 1 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\n\n\n\n\n\n\n10\n\n\n\n\n\n\n11\n\n\n\n\n\n\n12\n\n\n\n\n\n\n13\n\n\n\n\n\n\n\n\nWeek 3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 2 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\n\n\n\n\n\n\n17\n\n\n\n\n\n\n18\n\n\n\n\n\n\n19\n\n\n\n\n\n\n20\n\n\n\n\n\n\n\n\nWeek 4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 3 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n23\n\n\n\n\n\n\n24\n\n\n\n\n\n\n25\n\n\n\n\n\n\n26\n\n\n\n\n\n\n27\n\n\n\n\n\n\n\n\nWeek 5\n\n\n\n\n\n\n\n\n\n\n\nVirtual Class\n\n\n\n\n\n\nHW 4 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n30\n\n\n\n\n\n\n31\n\n\n\n\n\n\n1\n\n\n\n\n\n\n2\n\n\n\n\n\n\n3\n\n\n\n\n\n\n\n\nWeek 6\n\n\n\n\n\n\n\n\n\n\n\nMidterm\n\n\n\n\n\n\nHW 5 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNovember\n\n\n\n\n\nMON\n\n\nTUE\n\n\nWED\n\n\nTHU\n\n\nFRI\n\n\n\n\n\n\n\n\n\n30\n\n\n\n\n\n\n31\n\n\n\n\n\n\n1\n\n\n\n\n\n\n2\n\n\n\n\n\n\n3\n\n\n\n\n\n\n\n\nWeek 6\n\n\n\n\n\n\n\n\n\n\n\nMidterm\n\n\n\n\n\n\nHW 5 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\n\n\n\n\n\n\n7\n\n\n\n\n\n\n8\n\n\n\n\n\n\n9\n\n\n\n\n\n\n10\n\n\n\n\n\n\n\n\nWeek 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\n\n\n\n\n\n\n14\n\n\n\n\n\n\n15\n\n\n\n\n\n\n16\n\n\n\n\n\n\n17\n\n\n\n\n\n\n\n\nWeek 8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 6 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n20\n\n\n\n\n\n\n21\n\n\n\n\n\n\n22\n\n\n\n\n\n\n23\n\n\n\n\n\n\n24\n\n\n\n\n\n\n\n\nWeek 9\n\n\n\n\n\n\n\n\n\n\n\nNo Class\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n27\n\n\n\n\n\n\n28\n\n\n\n\n\n\n29\n\n\n\n\n\n\n30\n\n\n\n\n\n\n1\n\n\n\n\n\n\n\n\nWeek 10\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 7 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDecember\n\n\n\n\n\nMON\n\n\nTUE\n\n\nWED\n\n\nTHU\n\n\nFRI\n\n\n\n\n\n\n\n\n\n27\n\n\n\n\n\n\n28\n\n\n\n\n\n\n29\n\n\n\n\n\n\n30\n\n\n\n\n\n\n1\n\n\n\n\n\n\n\n\nWeek 10\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 7 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\n\n\n\n\n\n\n5\n\n\n\n\n\n\n6\n\n\n\n\n\n\n7\n\n\n\n\n\n\n8\n\n\n\n\n\n\n\n\nFinal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHere is a tentative list of important, recurring times:\n\nHomeworks are always due at 11pm on the specified day\nClass surveys are due at 11pm the day of class\nOffice hours\n\nNicky\nTA\n\nClass meets on Mondays and Wednesdays at 10:30am - 12pm\n\n\n\nSpecial thank you to Andrew Bray, who taught the Quarto workshop I attended. This schedule page was mostly taken from the Schedule on his STAT 20 course page. You can find the .qmd file for Andrew’s schedule page on his Github."
+  },
+  {
+    "objectID": "slides/2_Probability-solutions.html#overview",
+    "href": "slides/2_Probability-solutions.html#overview",
+    "title": "Chapter 2: Probability",
+    "section": "Overview",
+    "text": "Overview"
+  },
+  {
+    "objectID": "schedule/week_01_sched.html#post-class-surveys",
+    "href": "schedule/week_01_sched.html#post-class-surveys",
+    "title": "Week 1",
+    "section": "Post-Class Surveys",
+    "text": "Post-Class Surveys\nSurvey link!!"
   }
 ]

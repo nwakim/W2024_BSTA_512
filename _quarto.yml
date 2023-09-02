@@ -3,12 +3,14 @@ project:
   output-dir: docs
 
 website:
-  title: "BSTA 550"
+  title: "Introduction to Probability"
   image: "/images/N_Wakim.jpg"
   navbar:
     background: primary
     search: true
-    left:
+    foreground: "#fff"
+    collapse-below: sm
+    right:
       - syllabus.qmd
       - schedule1.qmd
       - readings.qmd

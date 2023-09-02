@@ -4,88 +4,88 @@ schedule:
     materials:
       - href: schedule/week_01_sched.qmd
         date: 09/25/23
-        calendar-color: "#49A3D1"
+        calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
       - href: schedule/week_02_sched.qmd
         date: 10/2/23
-        calendar-color: "#49A3D1"
+        calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
       - href: homework/HW1.qmd
         title: "HW 1 due"
         date: 10/5/23
-        calendar-color: "#4EA627"
+        calendar-color: "#F08897"
         calendar-color2: "#FFFFFF"
       - href: schedule/week_03_sched.qmd
         date: 10/9/23
-        calendar-color: "#49A3D1"
+        calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
       - title: "HW 2 due"
         date: 10/12/23
-        calendar-color: "#4EA627"
+        calendar-color: "#F08897"
         calendar-color2: "#FFFFFF"      
       - href: schedule/week_04_sched.qmd
         date: 10/16/23
-        calendar-color: "#49A3D1"
+        calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
       - title: "HW 3 due"
         date: 10/19/23
-        calendar-color: "#4EA627"
+        calendar-color: "#F08897"
         calendar-color2: "#FFFFFF" 
       - href: schedule/week_05_sched.qmd
         date: 10/23/23
-        calendar-color: "#49A3D1"
+        calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
       - title: "Virtual Class"
         date: 10/25/23
-        calendar-color: "#193D78"
+        calendar-color: "#006a4e"
         calendar-color2: "#FFFFFF" 
       - title: "HW 4 due"
         date: 10/26/23
-        calendar-color: "#4EA627"
+        calendar-color: "#F08897"
         calendar-color2: "#FFFFFF" 
       - href: schedule/week_06_sched.qmd
         date: 10/30/23
-        calendar-color: "#49A3D1"
+        calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
       - title: "Midterm"
         date: 11/01/23        
-        calendar-color: "#F7CB25"
+        calendar-color: "#F1CF58"
         calendar-color2: "#FFFFFF" 
       - title: "HW 5 due"
         date: 11/2/23
-        calendar-color: "#4EA627"
+        calendar-color: "#F08897"
         calendar-color2: "#FFFFFF" 
       - href: schedule/week_07_sched.qmd
         date: 11/06/23
-        calendar-color: "#49A3D1"
+        calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
       - href: schedule/week_08_sched.qmd
         date: 11/13/23
-        calendar-color: "#49A3D1"
+        calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
       - title: "HW 6 due"
         date: 11/16/23
-        calendar-color: "#4EA627"
+        calendar-color: "#F08897"
         calendar-color2: "#FFFFFF" 
       - href: schedule/week_09_sched.qmd
         date: 11/20/23
-        calendar-color: "#49A3D1"
+        calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
       - title: "No Class"
         date: 11/22/23
-        calendar-color: "#193D78"
+        calendar-color: "#006a4e"
         calendar-color2: "#FFFFFF" 
       - href: schedule/week_10_sched.qmd
         date: 11/27/23
-        calendar-color: "#49A3D1"
+        calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
       - title: "HW 7 due"
         date: 11/30/23
-        calendar-color: "#4EA627"
+        calendar-color: "#F08897"
         calendar-color2: "#FFFFFF" 
       - title: "Final"
         date: 12/04/23        
-        calendar-color: "#F7CB25"
+        calendar-color: "#F1CF58"
         calendar-color2: "#FFFFFF" 
 
         

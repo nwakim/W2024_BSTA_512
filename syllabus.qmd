@@ -1,27 +1,20 @@
 ---
 title: "Syllabus"
 description: "Below is pertinent information for our course."
+date: "09/25/2023"
+date-modified: "08/22/2023"
+format: 
+  html:
+    toc: true
+editor_options: 
+  chunk_output_type: console
+execute: 
+  echo: false
 ---
-
-```{css, echo=FALSE}
-.title{
-  font-size: 40px;
-  color: #fff;
-  background-color: #4EA627;
-  padding: 10px;
-}
-
-.description{
-  font-size: 20px;
-  color: #fff;
-  background-color: #49A3D1;
-  padding: 10px;
-}
-```
 
 # Description
 
-This course is designed to introduce histroy, concepts and distributions in probability, Monte Carlo simulation techinques, and Markov chains. Students will also learn how to write R codes for various statistical computations and plots. Previous experience in R is not required. R is free software available from http://www.r-project.org.
+This course is designed to introduce history, concepts and distributions in probability, Monte Carlo simulation techniques, and Markov chains. Students will also learn how to write R codes for various statistical computations and plots. Previous experience in R is not required. R is free software available from http://www.r-project.org.
 
 # Instructors
 
@@ -33,7 +26,7 @@ Mondays         10:30 AM -- 12:00 PM PST in room RLSB 1S008
 
 Wednesdays   10:30 AM -- 12:00 PM PST in room RLSB 1S008
 
-### **Known Exceptions:**
+### Known Exceptions:
 
 Wednesday, October 25       10:30 AM -- 12:00 PM PST on Webex OR pre-recorded
 
@@ -123,7 +116,7 @@ You will need to download the following three things:
 
 Your learning and practicing of R will hopefully not be limited to this course. One of the best aspects of programming in R is that many resources are freely available online. Here are just a few additional resources you may explore beyond this class to continue your training in R.
 
-#### **Useful online R resources**
+#### Useful online R resources
 
 -   [R for the rest of us](https://rfortherestofus.com/)
 
@@ -147,7 +140,7 @@ Your learning and practicing of R will hopefully not be limited to this course. 
 
 -   [Learning Machines](https://blog.ephorie.de/learning-r-the-ultimate-introduction-incl-machine-learning)
 
-#### **Online R courses to complement or refresh material from class**
+#### Online R courses to complement or refresh material from class
 
 -   [R for the rest of us](https://rfortherestofus.com/)
 
@@ -191,7 +184,7 @@ The course is structured around the following four components:
 | Final Exam    | In person    | Once          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 +---------------+--------------+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-## **Types of assessments**
+## Types of assessments
 
 This class will use a combination of formative and summative assessments to build and test our knowledge. Below I define each of these types of assessments:
 
@@ -203,7 +196,7 @@ Students will *always* have the opportunity to **redo formative assessments unti
 
 ## Breakdown
 
-### **Grading & Requirements**
+### Grading & Requirements
 
 Letter grades will be assigned roughly according to the following scheme: A (\>=93%), A- (90-92%), B+ (88-89%), B(83-87%), B- (82-80%), C+(78-79%), C(73-77%), C- (70-72%), D (60 -- 69%), F(\<60%).
 
@@ -223,17 +216,17 @@ Grades will be based on homework assignments, midterm exam, class "attendance", 
 
 ### Criteria
 
-#### **Homework grading**
+#### Homework grading
 
 No student has the same amount of time available to dedicate to homework. This class may not be a priority to you, you may be taking several other courses, or you may need to dedicate time to other activities. Homeworks are **formative assessments**, meaning its purpose is to help you learn and practice. To reduce the pressure on you to have perfect or complete homework, I have a very simple grading policy: Your homework will be given a check mark if you turn something in (whether it is incomplete, complete, correct, or wrong). I highly encourage you to stay up-to-date with the homeworks and put in as much effort as you can. This will be the most helpful work in this class!
 
 After the due date, either the TA or myself will post the solutions.
 
-#### **Viewing Grades in Sakai**
+#### Viewing Grades in Sakai
 
 Points you receive for graded activities will be posted to the Sakai Gradebook. Click on the Gradebook link on the left navigation to view your points.
 
-#### **Late Work Policy**
+#### Late Work Policy
 
 I encourage you to make your best effort to submit all assignments on time, but I understand circumstances arise that are beyond our control. Please see this [Swansea University's page on extenuating circumstances](https://myuni.swansea.ac.uk/academic-life/extenuating-circumstances/#how-can-the-university-support-me-and-what-should-i-do=is-expanded&what-are-extenuating-circumstances=is-expanded&what-isnt-an-extenuating-circumstance=is-expanded&what-supporting-evidence-is-required=is-expanded&who-should-i-contact-to-make-an-extenuating-circumstances-application=is-expanded&who-will-make-a-decision-on-my-application=is-expanded) for some examples. Not all circumstances are covered here, so please reach out if you have questions. 
 
@@ -249,17 +242,17 @@ I encourage you to make your best effort to submit all assignments on time, but 
 
 -   If you have a emergency involving your self, family, pet, friend, classmate, or anything/one deemed important to you, please do not worry about immediately contacting me. We can work something out after your emergency. If I contact you during an emergency, it is only because I am worried, and you do NOT need to respond until you are able. 
 
-#### **Regrade Policy**
+#### Regrade Policy
 
 If you think a question was incorrectly graded, first compare your answer to the answer key. If you believe a re-grade would be appropriate, write an email to me containing the question and a short explanation as to why the question(s) was/were incorrectly graded. Deadline: One week after assignments were returned to class (late requests will not be considered).
 
-#### **Attendance Policy**
+#### Attendance Policy
 
 You are expected to attend class and participate in class polls and the exit ticket. For students who miss class or need a review, I will make video and audio recordings of lectures available. There are no guarantees against technical or other challenges for the recording availability or quality. For students who are unable to attend the class in-person and synchronously, **viewing the recording within 7 days** is acceptable. Make sure to complete the exit ticket to demonstrate attendance.
 
 # Course & Instructor Evaluations
 
-## **Ongoing Course Feedback**
+## Ongoing Course Feedback
 
 Throughout the duration of the course, you are also welcome to informally and anonymously submit your feedback through [this Microsoft Form](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUMjBOMVdVODIxTkQ2NkhQN1ZMM0dHVjUzSy4u) or Class Exit Tickets. This form will be available on Sakai. Students can submit feedback at any time and this form will be reviewed regularly by me. Your responses will be anonymous unless you elect to leave your email address. If I have done anything to make you feel uncomfortable, please give me feedback so I can change my behavior. Ultimately, this class is for you, and my individual social identity/behavior should not inhibit your learning. Thank you for your help making BSTA 513/613 a more successful class! Examples of ongoing feedback are:
 
@@ -271,11 +264,11 @@ Throughout the duration of the course, you are also welcome to informally and an
 
 -   The in-class examples do not make me more interested in the material.
 
-## **Midterm Feedback**
+## Midterm Feedback
 
 During the middle of the quarter, I will ask you to submit guided, anonymous feedback. Completion of feedback will be count towards your midterm exam grade. To insure anonymity, I will ask you to sign a separate, written statement that you completed the feedback.
 
-## **Final Course Feedback**
+## Final Course Feedback
 
 At the conclusion of the course, you will be asked to complete a formal online review of the course and the instructor. Your feedback on this University evaluation is critical to improving future student learning in this course as well as providing metrics relevant to the instructor's career advancement.
 
@@ -589,7 +582,7 @@ The [OHSU ITG Help Desk](http://www.ohsu.edu/xd/about/services/information-tech
 
 # OHSU Competencies
 
-#### **List of OHSU Graduation Core Competencies**
+#### List of OHSU Graduation Core Competencies
 
 -   Professional Knowledge and Skills
 

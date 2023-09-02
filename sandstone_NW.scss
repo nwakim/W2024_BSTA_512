@@ -29,8 +29,9 @@ $pink:        #F08897 !default;
 $orange:      #E25D3B !default;
 $yellow:      #F1CF58 !default;
 $slate-grey:  #6C757D !default;
-$green:       #00A572 !default;
+$green:       #006a4e !default;
 $ivory:       #F2EFEA !default;
+$green2:      #006a4e !default;
 
 //$blue:          #325d88 !default;
 //$indigo:        #6610f2 !default;
@@ -44,9 +45,9 @@ $ivory:       #F2EFEA !default;
 //$cyan:          #29abe0 !default;
 
 // $primary:       $blue !default;
-$primary:       $blue !default;
+$primary:       $green !default;
 $secondary:     $gray-600 !default;
-$success:       $green !default;
+$success:       $orange !default;
 $info:          $pink !default;
 $warning:       $yellow !default;
 $danger:        $orange !default;
@@ -265,9 +266,9 @@ input,
 
   .nav-link.disabled,
   .nav-link.disabled:hover {
-    background-color: transparent;
+    background-color: $white;
     border-color: transparent;
-    color: $gray-300;
+    color: $orange;
   }
 }
 

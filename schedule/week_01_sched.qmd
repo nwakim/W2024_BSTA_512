@@ -15,27 +15,27 @@ editor_options:
 ```{css, echo=FALSE}
 .title{
   font-size: 40px;
-  color: #fff;
-  background-color: #4EA627;
+  color: #006a4e;
+  background-color: #fff;
   padding: 10px;
 }
 
 .description{
   font-size: 20px;
   color: #fff;
-  background-color: #49A3D1;
+  background-color: #006a4e;
   padding: 10px;
 }
 ```
 
 ## Resources
 
-Below is a table with links to resources. Icons in [blue]{style="color:#49A3D1;"} mean there is an available file link.
+Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
 | Chapter | Topic                              |                                                             Slides                                                              |                                  Annotated Slides                                  |                           Recording                           |
-|---------|------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:-------------------------------------------------------------:|
+|---------------|---------------|:-------------:|:-------------:|:-------------:|
 | 1       | Outcomes, Events, and Sample Space | [[{{< iconify ri slideshow-fill size=30px >}}](../slides/1_Outcomes_Events_Sample_space-solutions.qmd)]{style="color:#49A3D1;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 2       | Probability                        |                              [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                              | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 2       | Probability                        |         [[{{< iconify ri slideshow-fill size=30px >}}](../slides/2_Probability-solutions.qmd)]{style="color:#f8f5f0;"}          | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 22      | Counting                           |                              [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                              | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 23      | Case Study on Counting             |                              [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                              | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
@@ -53,7 +53,7 @@ For the slides, once they are opened, if you would like to print or save them as
 
 [Homework 1 due 10/1](../homework/HW1.qmd)
 
-## Post Class
+## Post-Class Surveys
 
 Survey link!!
 
