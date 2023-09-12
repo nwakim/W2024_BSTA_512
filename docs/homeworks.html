@@ -71,9 +71,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-categories','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-title","listing-author"],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -100,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-sm navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
@@ -283,148 +283,70 @@ ul.task-list li input[type="checkbox"] {
 <th>
 <a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
 </th>
-<th>
-Categories
-</th>
-<th>
-Reading Time
-</th>
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-file-modified-sort="1693611064517" data-listing-reading-time-sort="9" data-listing-filename-sort="HW3.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="0" data-categories="" data-listing-date-sort="1696489200000" data-listing-file-modified-sort="1694475699634" data-listing-date-modified-sort="1694415600000" data-listing-reading-time-sort="4" data-listing-title-sort="Homework 1" data-listing-filename-sort="HW1.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<span class="listing-date">undefined</span>
-</td>
-<td>
-<span class="listing-title">undefined</span>
-</td>
-<td>
-<span class="listing-categories">undefined</span>
-</td>
-<td>
-<span class="listing-reading-time">9 min</span>
-</td>
-</tr>
-<tr data-index="1" data-listing-file-modified-sort="1693611064518" data-listing-reading-time-sort="7" data-listing-filename-sort="HW7.md" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">undefined</span>
-</td>
-<td>
-<span class="listing-title">undefined</span>
-</td>
-<td>
-<span class="listing-categories">undefined</span>
-</td>
-<td>
-<span class="listing-reading-time">7 min</span>
-</td>
-</tr>
-<tr data-index="2" data-listing-file-modified-sort="1693611064518" data-listing-reading-time-sort="6" data-listing-filename-sort="HW6.md" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">undefined</span>
-</td>
-<td>
-<span class="listing-title">undefined</span>
-</td>
-<td>
-<span class="listing-categories">undefined</span>
-</td>
-<td>
-<span class="listing-reading-time">6 min</span>
-</td>
-</tr>
-<tr data-index="3" data-listing-file-modified-sort="1693611064516" data-listing-reading-time-sort="8" data-listing-filename-sort="HW2.md" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">undefined</span>
-</td>
-<td>
-<span class="listing-title">undefined</span>
-</td>
-<td>
-<span class="listing-categories">undefined</span>
-</td>
-<td>
-<span class="listing-reading-time">8 min</span>
-</td>
-</tr>
-<tr data-index="4" data-listing-file-modified-sort="1693611064519" data-listing-reading-time-sort="4" data-listing-filename-sort="HW9.md" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">undefined</span>
-</td>
-<td>
-<span class="listing-title">undefined</span>
-</td>
-<td>
-<span class="listing-categories">undefined</span>
-</td>
-<td>
-<span class="listing-reading-time">4 min</span>
-</td>
-</tr>
-<tr data-index="5" data-listing-file-modified-sort="1693611064519" data-listing-reading-time-sort="12" data-listing-filename-sort="HW8.md" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">undefined</span>
-</td>
-<td>
-<span class="listing-title">undefined</span>
-</td>
-<td>
-<span class="listing-categories">undefined</span>
-</td>
-<td>
-<span class="listing-reading-time">12 min</span>
-</td>
-</tr>
-<tr data-index="6" data-categories="" data-listing-file-modified-sort="1693611064516" data-listing-reading-time-sort="4" data-listing-title-sort="Homework 1" data-listing-filename-sort="HW1.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">undefined</span>
+<span class="listing-date">10/5/23</span>
 </td>
 <td>
 <a href="./homework/HW1.html" class="title listing-title">Homework 1</a>
 </td>
-<td>
-<span class="listing-categories"></span>
-</td>
-<td>
-<span class="listing-reading-time">4 min</span>
-</td>
 </tr>
-<tr data-index="7" data-listing-file-modified-sort="1693611064518" data-listing-reading-time-sort="14" data-listing-filename-sort="HW5.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="1" data-categories="" data-listing-date-sort="1697094000000" data-listing-file-modified-sort="1694475694098" data-listing-date-modified-sort="1694415600000" data-listing-reading-time-sort="5" data-listing-title-sort="Homework 2" data-listing-filename-sort="HW2.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<span class="listing-date">undefined</span>
+<span class="listing-date">10/12/23</span>
 </td>
 <td>
-<span class="listing-title">undefined</span>
-</td>
-<td>
-<span class="listing-categories">undefined</span>
-</td>
-<td>
-<span class="listing-reading-time">14 min</span>
+<a href="./homework/HW2.html" class="title listing-title">Homework 2</a>
 </td>
 </tr>
-<tr data-index="8" data-listing-file-modified-sort="1693611064517" data-listing-reading-time-sort="6" data-listing-filename-sort="HW4.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="2" data-categories="" data-listing-date-sort="1697698800000" data-listing-file-modified-sort="1694477354067" data-listing-date-modified-sort="1694415600000" data-listing-reading-time-sort="5" data-listing-title-sort="Homework 3" data-listing-filename-sort="HW3.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<span class="listing-date">undefined</span>
+<span class="listing-date">10/19/23</span>
 </td>
 <td>
-<span class="listing-title">undefined</span>
+<a href="./homework/HW3.html" class="title listing-title">Homework 3</a>
+</td>
+</tr>
+<tr data-index="3" data-categories="" data-listing-date-sort="1698303600000" data-listing-file-modified-sort="1694478252739" data-listing-date-modified-sort="1692687600000" data-listing-reading-time-sort="3" data-listing-title-sort="Homework 4" data-listing-filename-sort="HW4.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">10/26/23</span>
 </td>
 <td>
-<span class="listing-categories">undefined</span>
+<a href="./homework/HW4.html" class="title listing-title">Homework 4</a>
+</td>
+</tr>
+<tr data-index="4" data-categories="" data-listing-date-sort="1698908400000" data-listing-file-modified-sort="1694478701605" data-listing-date-modified-sort="1694415600000" data-listing-reading-time-sort="5" data-listing-title-sort="Homework 5" data-listing-filename-sort="HW5.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">11/2/23</span>
 </td>
 <td>
-<span class="listing-reading-time">6 min</span>
+<a href="./homework/HW5.html" class="title listing-title">Homework 5</a>
+</td>
+</tr>
+<tr data-index="5" data-categories="" data-listing-date-sort="1700121600000" data-listing-file-modified-sort="1694479904767" data-listing-date-modified-sort="1692687600000" data-listing-reading-time-sort="7" data-listing-title-sort="Homework 6" data-listing-filename-sort="HW6.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">11/16/23</span>
+</td>
+<td>
+<a href="./homework/HW6.html" class="title listing-title">Homework 6</a>
+</td>
+</tr>
+<tr data-index="6" data-categories="" data-listing-date-sort="1701331200000" data-listing-file-modified-sort="1694481609633" data-listing-date-modified-sort="1694415600000" data-listing-reading-time-sort="11" data-listing-title-sort="Homework 7" data-listing-filename-sort="HW7.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">11/30/23</span>
+</td>
+<td>
+<a href="./homework/HW7.html" class="title listing-title">Homework 7</a>
 </td>
 </tr>
 </tbody>

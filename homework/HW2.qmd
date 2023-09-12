@@ -1,0 +1,93 @@
+---
+title: "Homework 2"
+subtitle: "BSTA 550"
+description: "Due: Thursday October 12, 2023"
+date-modified: "09/11/2023"
+date: "10/12/2023"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+Complete all of the problems listed below. Only turn in the ones listed in the "Turn In" column. Please submit problems in the order they are listed.
+
+*You must show all of your work to receive credit.*
+
+::: center
+| Chapter |        Turn In        | Extra Problems  |
+|:-------:|:---------------------:|:---------------:|
+|    3    | TB \# 10, NTB \# 1, 2 | \# 4, 9, 12, 13 |
+|    4    |       TB \# 12        | \# 1, 4, 11, 13 |
+|    5    | TB \# 17, NTB \# 3, 4 |   \# 1, 9, 11   |
+:::
+
+See also the handout *Conditional Probability Practice* posted in Week 2 Course Materials on Sakai for more practice.
+
+\* For #3.13, mathematically solve for the sample size instead of plugging in numbers and guessing.
+
+## Non-textbook problems (NTB)
+
+1.  Deep in the depths of a student's backpack is a collection of pens in different colors. There are 5 black, 4 blue, 3 green, and 2 purple pens.
+
+    a.  If the student randomly selects 8 pens from the backpack [without]{.underline} replacement, what is the probability that they took 2 black, 3 blue, 2 green, and 1 purple pens?
+
+    b.  If the student randomly selects 8 pens from the backpack [with]{.underline} replacement (returning the selected pen after each draw), what is the probability that they took a purple pen 3 times?
+
+    c.  If the student randomly selects pens from the backpack [with]{.underline} replacement (returning the selected pen after each draw) until they get the $3^{rd}$ green pen, what is the probability that they get the $3^{rd}$ green pen on the $10^{th}$ draw?
+
+2.  Recall from class, that we defined events $A,B,$ and $C$ to mutually independent if both (1) and (2) below hold. This point of this exercise is to show that $(1)\nRightarrow (2),$ and $(2)\nRightarrow (1).$ $$\begin{array}{cc}
+        (1) & \mathbb{P}(A\cap B\cap C)=\mathbb{P}(A)\mathbb{P(}B)\mathbb{P(}C) \\ 
+        (2) & \mathbb{P}(A\cap B)=\mathbb{P}(A)\mathbb{P(}B) \\ 
+        & \mathbb{P}(A\cap C)=\mathbb{P}(A)\mathbb{P(}C) \\ 
+        & \mathbb{P}(B\cap C)=\mathbb{P}(B)\mathbb{P(}C)%
+        \end{array}%$$
+
+    a.  Suppose two different fair dice are rolled. Let events $A,B,$ and $C$ be defined in the following way: $$\begin{array}{cl}
+        A: & \text{Roll a total of 7} \\ 
+        B: & \text{First die is a 6} \\ 
+        C: & \text{Second die is a 2}%
+        \end{array}%$$
+
+        Show that condition $(2)$ holds, but that condition $(1)$ does not.
+
+    b.  Suppose two different fair dice are rolled. Let events $A,B,$ and $C$ be defined in the following way: $$\begin{array}{cl}
+        A: & \text{Roll a 1 or 2 on the first die} \\ 
+        B: & \text{Roll a 3, 4, or 5 on the second die} \\ 
+        C: & \text{Roll a total of 4, 11, or 12}%
+        \end{array}%$$
+
+        Show that condition $(1)$ holds, but that condition $(2)$ does not.
+
+3.  A new drug is packaged to contain 30 pills in a bottle. Suppose that 98% of all bottles contain no defective pills, 1.5% contain one defective pill, and 0.5% contain two defective pills. Two pills from a bottle are randomly selected and tested. What is the probability that there are 2 defective pills in the bottle given that one of the two tested pills is defective?
+
+4.  Suppose you are taking a multiple choice exam with 20 questions, where each question has five choices for an answer. Some of the questions you know the answer to and the others you guess by choosing one of the five choices randomly. Suppose that the probability of your knowing the correct answer to a randomly selected question given that you got it right is 0.88. How many of the 20 questions were you prepared for?
+
+## Some select answers
+
+Selected answers (or hints) not provided at the end the book:
+
+-   Chapter 3
+
+    -   \# 4: (a) 0.111328    (b) 0.004872    0.995128
+
+    -   \# 10: (c) 0.384 If you have the right answer to (c), then you should be able to figure out the rest (see (e)).
+
+    -   \# 12: No.
+
+    -   NTB #1: (a) 0.0799     (b) 0.07553     (c) 0.0655
+
+-   Chapter 4
+
+    -   #4: 0.25
+
+    -   \# 12: (a) 0.4285714     (b) 0.4285714     (c) 0.1428571
+
+-   Chapter 5
+
+    -   NTB #3: 0.392
+
+    -   NTB #4: 11.89 (rounds to about 12)

@@ -20,6 +20,7 @@ schedule:
         calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
       - title: "HW 2 due"
+        href: homework/HW2.qmd
         date: 10/12/23
         calendar-color: "#F08897"
         calendar-color2: "#FFFFFF"      
@@ -28,6 +29,7 @@ schedule:
         calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
       - title: "HW 3 due"
+        href: homework/HW3.qmd
         date: 10/19/23
         calendar-color: "#F08897"
         calendar-color2: "#FFFFFF" 
@@ -40,6 +42,7 @@ schedule:
         calendar-color: "#006a4e"
         calendar-color2: "#FFFFFF" 
       - title: "HW 4 due"
+        href: homework/HW4.qmd
         date: 10/26/23
         calendar-color: "#F08897"
         calendar-color2: "#FFFFFF" 
@@ -52,6 +55,7 @@ schedule:
         calendar-color: "#F1CF58"
         calendar-color2: "#FFFFFF" 
       - title: "HW 5 due"
+        href: homework/HW5.qmd
         date: 11/2/23
         calendar-color: "#F08897"
         calendar-color2: "#FFFFFF" 
@@ -64,6 +68,7 @@ schedule:
         calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
       - title: "HW 6 due"
+        href: homework/HW6.qmd
         date: 11/16/23
         calendar-color: "#F08897"
         calendar-color2: "#FFFFFF" 
@@ -80,6 +85,7 @@ schedule:
         calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
       - title: "HW 7 due"
+        href: homework/HW7.qmd
         date: 11/30/23
         calendar-color: "#F08897"
         calendar-color2: "#FFFFFF" 

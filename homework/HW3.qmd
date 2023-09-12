@@ -1,0 +1,110 @@
+---
+title: "Homework 3"
+subtitle: "BSTA 550"
+description: "Due: Thursday October 19, 2023"
+date-modified: "09/11/2023"
+date: "10/19/2023"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+Complete all of the problems listed below. Only turn in the ones listed in the "Turn In" column. Please submit problems in the order they are listed.
+
+*You must show all of your work to receive credit.*
+
+::: center
+| Chapter |           Turn In           |    Extra Problems    |
+|:-------:|:---------------------------:|:--------------------:|
+|    7    |                             | \# 2, 10, 16, 17, 18 |
+|    8    |       TB \# 8\*, 18\*       |    \# 2, 5, 7, 10    |
+|    9    | TB \# 2, 8\*\*, NTB \# 1, 2 |    \# 1, 4, 9, 10    |
+:::
+
+\* In addition to the graphs, include piecewise defined functions for the pmf and cdf.
+
+\*\* Break up your solution to Chapter 9 #8 into the following 5 parts:
+
+1.  Make a table of the joint probabilities for $X$ and $Y$.
+
+2.  Using the table in the previous part, write down the piecewise-defined equation for $p_{X,Y}(x,y)$. There should be only 3 pieces (cases) for $p_{X,Y}(x,y)$.
+
+3.  Express $p_Y(y)$ as a formula (i.e. a function in terms of $y$).
+
+4.  Find the conditional pmf $p_{X|Y}(x|y)$ and express your answer as a piecewise-defined equation. There should be only 3 pieces (cases) for $p_{X|Y}(x|y)$.
+
+5.  Make a table of the joint cdf $F_{X,Y}(x,y)$ values.
+
+## Non-textbook problems (NTB)
+
+1.  The following table shows the results of a survey in which the subjects were a sample of 300 adults residing in a certain metropolitan area. Each subject was asked to indicate which of three policies they favored with respect to smoking in public places. (Table is from *Biostatistics: A Foundation for Analysis in the Health Sciences*, 10th Edition, Daniel, Wayne W.; Cross, Chad L., pg. 630)
+
+    ![](Table_Smoking_vs_Education_Level.png){fig-align="center" width="6in"}
+
+    Let $X=$ highest education level and $Y=$ policy favored. We can let $X=1$ for college graduate, $X=2$ for high-school graduate, etc., and similarly for $Y$, or just keep the category names for the different levels of $X$ and $Y$
+
+    a.  Make a table for the joint pmf $p_{X,Y}(x,y)$ and briefly describe in words what the values are the probability of.
+
+    b.  Find the marginal pmf $p_{X}(x)$ and briefly describe in words what the values are the probability of.
+
+    c.  Find the marginal pmf $p_{Y}(y)$ and briefly describe in words what the values are the probability of.
+
+    d.  Make a table for the joint cdf $F_{X,Y}(x,y)$ and briefly describe in words what the values are the probability of.
+
+    e.  Find the marginal cdf $F_{X}(x)$ and briefly describe in words what the values are the probability of.
+
+    f.  Find the marginal cdf $F_{Y}(y)$ and briefly describe in words what the values are the probability of.
+
+    g.  Make a table for the conditional pmf $p_{X|Y}(x|y)$ and briefly describe in words what the values are the probability of.
+
+    h.  Make a table for the conditional pmf $p_{Y|X}(y|x)$ and briefly describe in words what the values are the probability of.
+
+2.  **Forgetful mornings revisited**. Using the joint pmf you found in Chapter 9 #2, complete the following questions:
+
+    a.  Find the joint cdf of $X$ and $Y$ and briefly explain what $F_{X,Y}(x,y)$ represents in the context of the problem.
+
+    b.  Find the conditional pmf $p_{Y|X}(y|x)$.
+
+## Some select answers
+
+Selected answers (or hints) not provided at the end the book:
+
+-   Chapter 7
+
+    -   \# 2: $X\in(0,\infty)$, continuous; $Y\in\{0,1,2,\ldots\}$, discrete
+
+    -   \# 10: $X_j\in[0,\infty),j=1,\ldots,100$; $Y\in[0,\infty)$; both continuous
+
+    -   \# 16: $Y$ could be 0
+
+    -   \# 18: Yes, a r.v. can be both. Give an example!
+
+-   Chapter 8
+
+    -   \# 2: (a) $p(x)=\binom{7}{x}(.5)^7$ for $x=0,1,2,\ldots,7$
+
+    -   \# 9: (a) $c = \frac{1}{8}$
+
+    -   \# 10:
+
+        ::: center
+        |  $x$   |  2   |  4  |  6   |  8   |
+        |:------:|:----:|:---:|:----:|:----:|
+        | $p(x)$ | 3/10 | 1/2 | 3/20 | 1/20 |
+        :::
+
+-   Chapter 9
+
+    -   NTB # 1 Partial answers:
+
+        -   
+
+            (g) $p_{X|Y}(X=\text{high school}| Y=\text{no smoking at all}) = 0.476$
+
+        -   
+
+            (h) $p_{Y|X}( Y=\text{no smoking at all}|X=\text{high school}) = 0.200$

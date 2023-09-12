@@ -1,8 +1,9 @@
 ---
 title: "Homework 1"
 subtitle: "BSTA 550"
-description: "Due: Friday October 1, 2023"
-date-modified: "08/22/2023"
+description: "Due: Thursday October 5, 2023"
+date-modified: "09/11/2023"
+date: "10/5/2023"
 categories: [""]
 format: 
   html:
@@ -79,24 +80,24 @@ Selected answers (or hints) not provided at the end the book:
 
 -   Chapter 2
 
-    -   \# 4. 0.35
+    -   \# 4:  0.35
 
-    -   \# 8. 0.03125
+    -   \# 8: 0.03125
 
-    -   \# 16 0.48
+    -   \# 16: 0.48
 
-    -   \# 30 (a) 0.189     (b) 0.811     (c) 0.189
+    -   \# 30: (a) 0.189     (b) 0.811     (c) 0.189
 
 -   Chapter 22
 
-    -   \# 30. (a) 2,835     (b) 405     (c) 10,780     (d) 7,980
+    -   \# 30: (a) 2,835     (b) 405     (c) 10,780     (d) 7,980
 
-    -   \# 40. 0.6666667
+    -   \# 40: 0.6666667
 
-    -   \# 42. 0.002116402 (This is the answer when $n=5$. Your answer needs to be in terms of $n$.)
+    -   \# 42: 0.002116402 (This is the answer when $n=5$. Your answer needs to be in terms of $n$.)
 
-    -   \# 44. 0.3
+    -   \# 44: 0.3
 
-    -   \# 46. 0.3333333
+    -   \# 46: 0.3333333
 
-    -   \# 48. 0.007936508 (This is the answer when $n=5$. Your answer needs to be in terms of $n$.)
+    -   \# 48: 0.007936508 (This is the answer when $n=5$. Your answer needs to be in terms of $n$.)

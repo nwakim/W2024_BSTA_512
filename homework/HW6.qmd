@@ -1,0 +1,148 @@
+---
+title: "Homework 6"
+subtitle: "BSTA 550"
+description: "Due: Thursday November 16, 2023"
+date-modified: "08/22/2023"
+date: "11/16/2023"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+Complete all of the problems listed below. Only turn in the ones listed in the "Turn In" column. Please submit problems in the order they are listed.
+
+*You must show all of your work to receive credit. Don't forget to define every r.v. you use!* *In particular, **if a similar problem was done in class or an example in the book, make sure to still show every step in the solution and not just cite the examples' results**.*
+
+::: center
+|     Chapter     |        Turn In        |       Extra Problems       |
+|:---------------:|:---------------------:|:--------------------------:|
+|       19        |        TB \# 6        |        \# 1, 18, 19        |
+|       18        |       TB \# 24        |        \# 1, 26, 27        |
+| Calculus Review |                       |          NTB \# 1          |
+|       24        |    TB \# 19, 20\*     | \# 2, 3, 7, 17, 18, 22, 23 |
+|       25        |  TB \# 18, NTB \# 2   |   \# 1, 4, 8, 17, 23, 24   |
+|     26\*\*      | TB \# 12, NTB \# 3, 4 |      \# 7, 9, 19, 20       |
+|       27        |    TB \# 12\*\*\*     |      \# 6, 8, 13, 17       |
+:::
+
+\* (Ch 24) Also find the cdf $F_X(x)$
+
+\*\* Although within Chapter 26, these exercises are primarily practicing the material from Chapter 25.
+
+\*\* For Ch 27 \# 12, in order to find the conditional densities in parts (a) and (b), you will need to calculate $f_Y(y)$ for the specific regions of $y$ specified. After finding the conditional densities in parts (a) and (b), also calculate the conditional probabilities below. Please submit these together with your other work in parts (a) and (b):
+
+-   Find $\mathbb{P}[0.5 < X < 3 | Y = 4]$.
+
+-   Find $\mathbb{P}[0.5 < X < 3 | Y = 7]$.
+
+------------------------------------------------------------------------
+
+Non-textbook problems (NTB):
+
+1.  Calculus Review
+
+    a.  $$\int_0^yc(x+y)dx$$
+    b.  $$\frac{d}{dx}\bigg(\frac{4}{9}x^2y^2+\frac{5}{9}xy^4\bigg)$$
+    c.  $$\frac{d}{dy}\bigg(\frac{4}{9}x^2y^2+\frac{5}{9}xy^4\bigg)$$
+    d.  $$\int_0^y2e^{-x}e^{-y}dx$$
+    e.  $$\int_0^\infty xye^{-(x+y)}dy$$
+    f.  $$\int_x^{2x} 2e^{-(x+3y)}dy$$
+    g.  Find the area of the region bounded by the graphs of $f(x)=2-x^2$ and $g(x)=x$ by integrating with respect to $x$.
+    h.  Find the area of the region bounded by the graphs of $f(x)=2-x^2$ and $g(x)=x$ by integrating with respect to $y$.
+    i.  Find the area of the region bounded by the graphs of $x=3-y^2$ and $y=x-1$ by integrating with respect to $x$.
+    j.  Find the area of the region bounded by the graphs of $x=3-y^2$ and $y=x-1$ by integrating with respect to $y$.
+
+2.  Let $X_1, X_2, \ldots, X_n$ be i.i.d. random variables with common pdf $f_X(x)$ and cdf $F_X(x)$. Find the pdf for the random variable $Z$, where $Z = max(X_1, X_2, \ldots, X_n)$.
+
+3.  Let $X$ and $Y$ be independent random variables with respective pdf's $f_X(x)=\frac{1}{5}$, for $0\leq x\leq 5$, and $f_Y(y)=2e^{-2y}$, for $y>0$.
+
+    a.  Find the joint distribution $f_{X,Y}(x,y)$.
+    b.  Find the probability that $X$ is less than $Y$.
+    c.  Let $Z$ be the random variable that is the smaller of $X$ and $Y$. Find the cumulative distribution function for $Z$.
+    d.  Find the pdf for Z.
+
+4.  Suppose that the random variables $X$ and $Y$ have joint density $f_{X,Y}(x,y)$, for $0<x<1$, and $\frac{1}{2}<y<1$. Set up the equation for the cdf of $Z$, where $Z=X/Y$.
+
+    *Hint: First determine what the possible values for* $Z$ are. Then make a sketch of the domain of the joint pdf and shade in the region representing the cdf of Z for different values of $z$. Make sure to pay close attention to how the region we need to integrate over changes as $z$ changes. The cdf has two different cases depending on the value of $z$. Plug in specific values of $z$ and shade in the region representing the cdf to see why two different cases are needed.
+
+## Some select answers
+
+Selected answers (or hints) not provided at the end the book:
+
+-   Chapter 19
+
+    -   \# 6:  (c) 15.625     (d) 0.0486     (f) 0.0488
+
+    -   \# 18:   100
+
+-   Chapter 18
+
+    -   \# 24  (c) 0.8571
+
+    -   \# 26  162,754.8
+
+-   Calculus Review
+
+    -   (a)  $c(\frac{y^{2}}{2}+y^{2})$
+
+    -   (b)  $\frac{8}{9}xy^{2}+\frac{5}{9}y^{4}$
+
+    -   (c)  $\frac{8}{9}x^{2}y+\frac{20}{9}xy^{3}$
+
+    -   (d)  $-2e^{-2y}+2e^{-y}$
+
+    -   (e)  $xe^{-x}$
+
+    -   (f)  $-\frac{2}{3}(e^{-7x}-e^{-4x})$
+
+    -   (g)  $\frac{9}{2}$
+
+    -   (h)  $\frac{9}{2}$
+
+    -   (i)  $\frac{9}{2}$
+
+    -   (j)  $\frac{9}{2}$
+
+-   Chapter 24
+
+    -   \# 2: (a) Discrete     (b) Discrete     (c) Continuous
+
+    -   \# 22: $$f_X(x) = \left\{
+                \begin{array}{ll}
+                    0 & \quad x <0 \\
+                    \frac{7x}{4} & \quad 0\leq x\leq 1 \\
+                    0 & \quad 1< x< 7 \\
+                    \frac{1}{8} & \quad 7\leq x\leq 8 \\
+                    0 & \quad  x>8 \\
+                \end{array}
+            \right.$$
+
+-   Chapter 25
+
+    -   \# 4:   7/16
+
+    -   \# 8:  (a) $\frac{25}{228}$     (b) $f_X(x)=\frac{1}{12}(x+1)$, for $0\leq x\leq 4$     (c) $f_Y(y)=\frac{3}{76}(y^2+1)$, for $0\leq y\leq 4$
+
+    -   \# 18:  5/6
+
+    -   \# 24:  (a) $f_X(x)=-2e^{-2x}+2e^{-x}$, for $x\geq 0$     (b) $f_Y(y)=2e^{-2y}$, for $y\geq 0$
+
+-   Chapter 26
+
+    -   \# 12:  (b) $\frac{233}{256}$     (c) $\frac{65}{256}$     (d) $\frac{1}{512}$
+
+    -   \# 20:  (a) Yes.     (b) $\frac{15}{16}$
+
+    -   NTB \# 3: (b) 0.09999546   (d) $f_Z(z) =\Big(\frac{11}{5} - \frac{2z}{5}\Big)e^{-2z}$, for what values of $z$?
+
+-   Chapter 27
+
+    -   \# 6: $f_{X|Y}(x|y)=\frac{e^{-x/4-y/5}}{4(e^{-y/5}-e^{-9y/20})}$, for $0< x< y$
+
+    -   \# 8: $f_{X|Y}(x|y)=\frac{1-x^2}{1-y-\frac{(1-y)^3}{3}}$, for $0\leq x, 0\leq y, x+y\leq 1$
+
+    -   \# 12: \(a\) $f_{X|Y}(x|y)=\frac{1}{2}$    (c) $\frac{4}{7}$

@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2023-12-04">
+<meta name="description" content="Due: Friday October 1, 2023">
 
-<title>BSTA 550 – hw9</title>
+<title>Introduction to Probability - Homework 9</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,11 +71,11 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-sm navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">BSTA 550</span>
+    <span class="navbar-title">Introduction to Probability</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -81,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link active" href="../syllabus.html" rel="" target="" aria-current="page">
  <span class="menu-text">Syllabus</span></a>
@@ -99,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Homeworks</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+            <div class="quarto-navbar-tools">
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -109,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Homework 9</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -198,14 +200,42 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-
-
-<div class="center">
-<p>Homework #9</p>
-<p>BSTA 550</p>
-<p>Due: Saturday, December 4, 2021</p>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Homework 9</h1>
+<p class="subtitle lead">BSTA 550</p>
 </div>
-<p>Complete all of the problems listed below. Only turn in the ones listed in the “Turn In" column. Please submit problems in the order they are listed.</p>
+
+<div>
+  <div class="description">
+    Due: Friday October 1, 2023
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 4, 2023</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">August 22, 2023</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<p>Complete all of the problems listed below. Only turn in the ones listed in the “Turn In” column. Please submit problems in the order they are listed.</p>
 <p><em>You must show all of your work to receive credit. Don’t forget to define every r.v. you use!</em> <em>In particular, <strong>if a similar problem was done in class or an example in the book, make sure to still show every step in the solution and not just cite the examples’ results</strong>.</em></p>
 <div class="center">
 
@@ -219,37 +249,37 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>*** Assume the distances between the cars are independent.</p>
 <hr>
-<p>Non-textbook problems (NTB): <span id="NTB" label="NTB"></span></p>
+<p>Non-textbook problems (NTB):</p>
 <ol type="1">
-<li><p><span id="Ch43_R_Var" label="Ch43_R_Var"></span> Let <span class="math inline">\(R_X(t)=\ln(M_X(t))\)</span>. Show that Var<span class="math inline">\((X)=R''_X(0)\)</span>.</p></li>
-<li><p><span id="Ch43_SumExpGamma" label="Ch43_SumExpGamma"></span> The mgf for a Gamma distribution is <span class="math inline">\(M_X(t)=\frac{1}{(1-t/\lambda)^r}\)</span>. Use the mgf of an Exponential distribution (from #43.9), to show that the sum of <span class="math inline">\(n\)</span> i.i.d. Exponential(<span class="math inline">\(\lambda)\)</span> random variables has a Gamma(<span class="math inline">\(r,\lambda\)</span>) distribution.</p></li>
-<li><p><span id="Ch43_SumPoisson" label="Ch43_SumPoisson"></span> Use the mgf of a Poisson distribution to find the mgf of the following distributions. If the mgf is that of a common named distribution, then name the distribution and state its parameter(s).</p>
-<ol type="1">
-<li><p>The distribution of <span class="math inline">\(\sum_{i=1}^nX_i\)</span>, if <span class="math inline">\(X_i\sim\)</span>Poisson<span class="math inline">\((\lambda_i)\)</span> and are independent.</p></li>
-<li><p>The distribution of <span class="math inline">\(\sum_{i=1}^3X_i\)</span>, if <span class="math inline">\(X_i\sim\)</span>Poisson<span class="math inline">\((\lambda)\)</span> and are independent (i.i.d. in this case).</p></li>
-<li><p>The distribution of <span class="math inline">\(3X\)</span>, if <span class="math inline">\(X\sim\)</span>Poisson<span class="math inline">\((\lambda)\)</span>.</p></li>
-<li><p>Why are the answers to (b) and (c) different?</p></li>
-</ol></li>
-<li><p><span id="Ch43_SumChiSquareOneDF" label="Ch43_SumChiSquareOneDF"></span> Using mgf’s, show that the sum of <span class="math inline">\(n\)</span> i.i.d. Chi Square random variables with one degree of freedom (<span class="math inline">\(\chi^2_{(1)}\)</span>) r.v.’s has a Chi Square with <span class="math inline">\(n\)</span> degrees of freedom (<span class="math inline">\(\chi^2_{(n)}\)</span>) distribution.</p>
-<p><em>Hint:</em> First, look up the pdf of a <span class="math inline">\(\chi^2_{(n)}\)</span>. This is a special case of the Gamma distribution with what parameters? Based on that and the information from # <a href="#Ch43_SumExpGamma" data-reference-type="ref" data-reference="Ch43_SumExpGamma">[Ch43_SumExpGamma]</a> above, you can determine what the mgf of a <span class="math inline">\(\chi^2_{(n)}\)</span> is, which will help you determine whether the mgf of the sum of <span class="math inline">\(n\)</span> i.i.d. <span class="math inline">\(\chi^2_{(1)}\)</span> r.v.’s has a <span class="math inline">\(\chi^2_{(n)}\)</span> distribution.</p></li>
+<li><p>Let <span class="math inline">\(R_X(t)=\ln(M_X(t))\)</span>. Show that Var<span class="math inline">\((X)=R''_X(0)\)</span>.</p></li>
+<li><p>The mgf for a Gamma distribution is <span class="math inline">\(M_X(t)=\frac{1}{(1-t/\lambda)^r}\)</span>. Use the mgf of an Exponential distribution (from #43.9), to show that the sum of <span class="math inline">\(n\)</span> i.i.d. Exponential(<span class="math inline">\(\lambda)\)</span> random variables has a Gamma(<span class="math inline">\(r,\lambda\)</span>) distribution.</p></li>
+<li><p>Use the mgf of a Poisson distribution to find the mgf of the following distributions. If the mgf is that of a common named distribution, then name the distribution and state its parameter(s).</p></li>
 </ol>
+<pre><code>1.  The distribution of $\sum_{i=1}^nX_i$, if $X_i\sim$Poisson$(\lambda_i)$ and are independent.
+
+2.  The distribution of $\sum_{i=1}^3X_i$, if $X_i\sim$Poisson$(\lambda)$ and are independent (i.i.d. in this case).
+
+3.  The distribution of $3X$, if $X\sim$Poisson$(\lambda)$.
+
+4.  Why are the answers to (b) and (c) different?</code></pre>
+<ol start="4" type="1">
+<li>Using mgf’s, show that the sum of <span class="math inline">\(n\)</span> i.i.d. Chi Square random variables with one degree of freedom (<span class="math inline">\(\chi^2_{(1)}\)</span>) r.v.’s has a Chi Square with <span class="math inline">\(n\)</span> degrees of freedom (<span class="math inline">\(\chi^2_{(n)}\)</span>) distribution.</li>
+</ol>
+<pre><code>*Hint:* First, look up the pdf of a $\chi^2_{(n)}$. This is a special case of the Gamma distribution with what parameters? Based on that and the information from \# [\[Ch43_SumExpGamma\]](#Ch43_SumExpGamma){reference-type="ref" reference="Ch43_SumExpGamma"} above, you can determine what the mgf of a $\chi^2_{(n)}$ is, which will help you determine whether the mgf of the sum of $n$ i.i.d. $\chi^2_{(1)}$ r.v.'s has a $\chi^2_{(n)}$ distribution.</code></pre>
 <hr>
 <p>Selected answers (or hints) not provided at the end the book:</p>
 <ul>
-<li><p><span id="ANS_43" label="ANS_43"></span></p>
-<ul>
+<li><ul>
 <li></li>
 <li>(a) Poisson<span class="math inline">\((\sum_{i=1}^n \lambda_i)\)</span> &nbsp;&nbsp;&nbsp;&nbsp;(b) Poisson<span class="math inline">\((3\lambda)\)</span> &nbsp;&nbsp;&nbsp;&nbsp; (c) <span class="math inline">\(M_{3X}(t)=e{\lambda(e^{3t}-1)}\)</span> This is not an mgf of a common probability distribution. &nbsp;&nbsp;&nbsp;&nbsp; (d) In (b) we are adding independent r.v.’s <span class="math inline">\(X_i\)</span>, while in (c) we are adding dependent r.v.’s (<span class="math inline">\(3X=X+X+X\)</span>; <span class="math inline">\(X\)</span> is dependent with itself).</li>
 </ul></li>
-<li><p><span id="ANS_36" label="ANS_36"></span></p>
-<ul>
+<li><ul>
 <li><p>0.0044</p></li>
 <li><p>(a) 0.9525 &nbsp;&nbsp;&nbsp;&nbsp;(b) 0.7939 &nbsp;&nbsp;&nbsp;&nbsp;(c) 0.7939</p></li>
 <li><p>0.5911</p></li>
 <li><p>(a) <span class="math inline">\(R=8.225\sigma+25\mu\)</span> &nbsp;&nbsp;&nbsp;&nbsp;(b) <span class="math inline">\(R=16.45\sigma+100\mu\)</span> &nbsp;&nbsp;&nbsp;&nbsp;(c) <span class="math inline">\(R=164.5\sigma+10,000\mu\)</span> &nbsp;&nbsp;&nbsp;&nbsp;(d) <span class="math inline">\(R=1.645\sqrt{n}\sigma+n\mu\)</span></p></li>
 </ul></li>
-<li><p><span id="ANS_37" label="ANS_37"></span></p>
-<ul>
+<li><ul>
 <li><p>0.8869</p></li>
 <li><p>0.0023</p></li>
 <li><p>0.3936</p></li>
@@ -492,6 +522,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script>
 </div> <!-- /content -->

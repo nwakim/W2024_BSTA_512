@@ -4,10 +4,10 @@ subtitle: "Fall 2023"
 description: "Welcome to Biostatistics and Probability! This course is designed to introduce history, concepts and distributions in probability, Monte Carlo simulation techniques, and Markov chains. Students will also learn how to write R codes for various statistical computations and plots. Previous experience in R is not required. R is free software available from http://www.r-project.org."
 title-block-banner: "#006a4e"
 title-block-banner-color: white
+image: "/images/website_image"
 toc: false
 sidebar: false
 page-layout: full
-image: images/N_Wakim.jpg
 ---
 
 ::: grid
@@ -25,3 +25,5 @@ image: images/N_Wakim.jpg
 E-mail or Slack is the best way to get in contact with me. I will try to respond to all course-related e-mails within 1 business day.
 :::
 :::
+
+Image of probability???
