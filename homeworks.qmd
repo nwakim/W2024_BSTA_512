@@ -1,13 +1,31 @@
 ---
-title: "Homeworks"
+title: "Homework Assignments and Solutions"
 format: 
   html:
     listing: 
-      contents: homework
-      type: table
-      fields: [date, title]
-      table-hover: true
-      sort: "date asc"
-      date-format: "short"
+      - id: homework
+        contents: homework
+        type: table
+        fields: [date, title, reading-time]
+        table-hover: true
+        sort: "date asc"
+        date-format: "short"
+      - id: homework_solns
+        contents: homework_solns
+        type: table
+        fields: [date, title, reading-time]
+        table-hover: true
+        sort: "date asc"
+        date-format: "short"
     link-external-newwindow: true
 ---
+
+## Assignments
+
+:::{#homework}
+:::
+
+## Solutions
+
+:::{#homework_solns}
+:::

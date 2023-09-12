@@ -1,8 +1,8 @@
 ---
 title: "Week 2"
-description: "Independent Events, Conditional Probability, and Bayes' Theorem"
-date: "10/02/2023"
-date-modified: "8/22/2023"
+description: "Independent Events; Conditional Probability; and Bayes' Theorem"
+date: "09/25/2023"
+date-modified: "08/22/2023"
 categories: [""]
 format: 
   html:
@@ -12,29 +12,85 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{css, echo=FALSE}
+.title{
+  font-size: 40px;
+  color: #006a4e;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.description{
+  font-size: 20px;
+  color: #fff;
+  background-color: #006a4e;
+  padding: 10px;
+}
+```
+
 ## Resources
 
-+-------------------+-------------------------------------+
-| Resource          | Information and Links               |
-+===================+=====================================+
-| Readings and Code | Independent Events (Chapter 3)      |
-|                   |                                     |
-|                   | Conditional Probability (Chapter 4) |
-|                   |                                     |
-|                   | Bayes' Theorem (Chapter 6)          |
-+-------------------+-------------------------------------+
-| Slides            |                                     |
-+-------------------+-------------------------------------+
-| Class Notes       |                                     |
-+-------------------+-------------------------------------+
-| Data              |                                     |
-+-------------------+-------------------------------------+
-| Homework          |                                     |
-+-------------------+-------------------------------------+
+Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
-## Post Class
+| Chapter | Topic                   |                                                             Slides                                                              |                                  Annotated Slides                                  |                           Recording                           |
+|---------------|---------------|:-------------:|:-------------:|:-------------:|
+| 3       | Independent Events      | [[{{< iconify ri slideshow-fill size=30px >}}](../slides/1_Outcomes_Events_Sample_space-solutions.qmd)]{style="color:#49A3D1;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 4       | Conditional Probability |         [[{{< iconify ri slideshow-fill size=30px >}}](../slides/2_Probability-solutions.qmd)]{style="color:#f8f5f0;"}          | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 6       | Bayes' Theorem          |                              [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                              | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+
+For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
+
+1.  Click on the icon with three horizontal bars on the bottom left of the browser.
+
+2.  Click on "Tools" with the gear icon at the top of the sidebar.
+
+3.  Click on "PDF Export Mode."
+
+4.  From there, you can print or save the PDF as you would normally from your internet browser.
+
+## Homework
+
+[Homework 1 due 10/1](../homework/HW1.qmd)
+
+## Post-Class Surveys
 
 Survey link!!
+
+## Statistician of the Week: Regina Nuzzo
+
+::: grid
+::: g-col-4
+```{r fig.cap = "Regina Nuzzo", fig.alt = "Image credit: Regina Nuzzo https://www.reginanuzzo.com/", preview = TRUE, echo = FALSE}
+knitr::include_graphics("../images/stat_of_week/nuzzo.jpg")
+```
+:::
+
+::: g-col-8
+Dr. Nuzzo received her PhD in Statistics from Stanford University and is now Professor of Science, Technology, & Mathematics at <a href = "https://gallaudet.edu/" target = "_blank">Gallaudet University</a>. Gallaudet University, federally funded and located in Washington, DC, is the only higher education institution where all programs are designed for the education of the deaf and hard of hearing. Dr. Nuzzo teaches statistics using American Sign Language.\
+She is the <a href = "https://www.amstat.org/news-listing/2021/10/08/asa-welcomes-regina-nuzzo-as-senior-advisor-for-statistics-communication-and-media-innovation" target = "_blank">Senior Advisor for Statistics Communication and Media Innovation at the American Statistical Association</a> and a freelance writer.
+:::
+:::
+
+#### Topics covered
+
+Dr. Nuzzo is a statistician and a science journalist. Her work has appeared in *Nature*, *Los Angeles Times*, *New York Times*, *Reader's Digest*, *New Scientist*, and *Scientific American*. Most of her work is in the "Health" or "Science" sections of the aforementioned outlets. Primarily, she works to help lay-audiences understand science and statistics in particular. She earned the American Statistical Association's 2014 Excellence in Statistical Reporting Award for her article on p-values in *Nature*. Her work led to the <a href = "https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108" target = "_blank">ASA's statement on p-values</a>.
+
+#### Relevant work
+
+-   Nuzzo, R. <a href = "https://doi.org/10.1038/506150a" target = "_blank">"Scientific method: Statistical errors."</a> Nature 506, 150--152 (2014).
+
+-   Nuzzo, R. <a href = "https://www.nih.gov/about-nih/what-we-do/science-health-public-trust/perspectives/science-health-public-trust/tips-communicating-statistical-significance" target = "_blank">"Tips for Communicating Statistical Significance."</a> Science, Health, and Public Trust, National Institutes of Health, 2018.
+
+-   Nuzzo, R. <a href = "https://www.latimes.com/health/la-he-mating8-2008dec08-story.html" target = "_blank">"Vying for a soul mate? Psych out the competition with science."</a> Health: Features. Los Angeles Times, 2008.
+
+#### Outside links
+
+-   [Wikipedia](https://en.wikipedia.org/wiki/Regina_Nuzzo)
+-   [academic](https://gallaudet.edu/personnel/regina-nuzzo/)
+-   [Linkedin](https://www.linkedin.com/in/reginanuzzo/)
+-   [personal](https://www.reginanuzzo.com/)
+
+**Please note the statisticians of the week are taken directly from the [CURV project by Jo Hardin](https://hardin47.github.io/CURV/).** I also invite you to check out this [youtube video](https://www.youtube.com/watch?v=L9GUgL0f_Bc) of her Women Rise Keynote address where she discusses her hearing impairment, career growth, and her work with p-values.
 
 ## Muddiest Points
 

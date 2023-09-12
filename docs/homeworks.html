@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to Probability - Homeworks</title>
+<title>Introduction to Probability - Homework Assignments and Solutions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,20 +64,48 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-homework .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-homework'] = new List('listing-homework', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-homework_solns .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-reading-time',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: [],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-homework_solns'] = new List('listing-homework_solns', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -122,12 +150,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./readings.html" rel="" target="">
- <span class="menu-text">Readings</span></a>
+    <a class="nav-link" href="./class_slides.html" rel="" target="">
+ <span class="menu-text">Slides</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./homeworks.html" rel="" target="">
- <span class="menu-text">Homeworks</span></a>
+ <span class="menu-text">Homework</span></a>
   </li>  
 </ul>
             <div class="quarto-navbar-tools">
@@ -140,7 +168,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./class_slides.html">Course Materials</a></li><li class="breadcrumb-item"><a href="./homeworks.html">Homeworks</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./class_slides.html">Course Materials</a></li><li class="breadcrumb-item"><a href="./homeworks.html">Homework</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -213,7 +241,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./homeworks.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Homeworks</span></a>
+ <span class="menu-text">Homework</span></a>
   </div>
 </li>
       </ul>
@@ -224,14 +252,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#assignments" id="toc-assignments" class="nav-link active" data-scroll-target="#assignments">Assignments</a></li>
+  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Homeworks</h1>
+<h1 class="title">Homework Assignments and Solutions</h1>
 </div>
 
 
@@ -246,15 +281,13 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-
-
-
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<section id="assignments" class="level2">
+<h2 class="anchored" data-anchor-id="assignments">Assignments</h2>
+<div id="listing-homework" class="quarto-listing quarto-listing-container-table">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
      <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+     <select id="listing-homework-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-homework'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
        <option value="" disabled="" selected="" hidden="">Order By</option>
        <option value="index" data-direction="asc">Default</option>
          <option value="listing-date-sort" data-direction="asc">
@@ -283,6 +316,9 @@ ul.task-list li input[type="checkbox"] {
 <th>
 <a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
 </th>
+<th>
+Reading Time
+</th>
 </tr>
 </thead>
 <tbody class="list">
@@ -294,6 +330,9 @@ ul.task-list li input[type="checkbox"] {
 <td>
 <a href="./homework/HW1.html" class="title listing-title">Homework 1</a>
 </td>
+<td>
+<span class="listing-reading-time">4 min</span>
+</td>
 </tr>
 <tr data-index="1" data-categories="" data-listing-date-sort="1697094000000" data-listing-file-modified-sort="1694475694098" data-listing-date-modified-sort="1694415600000" data-listing-reading-time-sort="5" data-listing-title-sort="Homework 2" data-listing-filename-sort="HW2.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
@@ -302,6 +341,9 @@ ul.task-list li input[type="checkbox"] {
 </td>
 <td>
 <a href="./homework/HW2.html" class="title listing-title">Homework 2</a>
+</td>
+<td>
+<span class="listing-reading-time">5 min</span>
 </td>
 </tr>
 <tr data-index="2" data-categories="" data-listing-date-sort="1697698800000" data-listing-file-modified-sort="1694477354067" data-listing-date-modified-sort="1694415600000" data-listing-reading-time-sort="5" data-listing-title-sort="Homework 3" data-listing-filename-sort="HW3.qmd" onclick="href = this.querySelector('a').getAttribute('href');
@@ -312,6 +354,9 @@ ul.task-list li input[type="checkbox"] {
 <td>
 <a href="./homework/HW3.html" class="title listing-title">Homework 3</a>
 </td>
+<td>
+<span class="listing-reading-time">5 min</span>
+</td>
 </tr>
 <tr data-index="3" data-categories="" data-listing-date-sort="1698303600000" data-listing-file-modified-sort="1694478252739" data-listing-date-modified-sort="1692687600000" data-listing-reading-time-sort="3" data-listing-title-sort="Homework 4" data-listing-filename-sort="HW4.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
@@ -320,6 +365,9 @@ ul.task-list li input[type="checkbox"] {
 </td>
 <td>
 <a href="./homework/HW4.html" class="title listing-title">Homework 4</a>
+</td>
+<td>
+<span class="listing-reading-time">3 min</span>
 </td>
 </tr>
 <tr data-index="4" data-categories="" data-listing-date-sort="1698908400000" data-listing-file-modified-sort="1694478701605" data-listing-date-modified-sort="1694415600000" data-listing-reading-time-sort="5" data-listing-title-sort="Homework 5" data-listing-filename-sort="HW5.qmd" onclick="href = this.querySelector('a').getAttribute('href');
@@ -330,6 +378,9 @@ ul.task-list li input[type="checkbox"] {
 <td>
 <a href="./homework/HW5.html" class="title listing-title">Homework 5</a>
 </td>
+<td>
+<span class="listing-reading-time">5 min</span>
+</td>
 </tr>
 <tr data-index="5" data-categories="" data-listing-date-sort="1700121600000" data-listing-file-modified-sort="1694479904767" data-listing-date-modified-sort="1692687600000" data-listing-reading-time-sort="7" data-listing-title-sort="Homework 6" data-listing-filename-sort="HW6.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
@@ -338,6 +389,9 @@ ul.task-list li input[type="checkbox"] {
 </td>
 <td>
 <a href="./homework/HW6.html" class="title listing-title">Homework 6</a>
+</td>
+<td>
+<span class="listing-reading-time">7 min</span>
 </td>
 </tr>
 <tr data-index="6" data-categories="" data-listing-date-sort="1701331200000" data-listing-file-modified-sort="1694481609633" data-listing-date-modified-sort="1694415600000" data-listing-reading-time-sort="11" data-listing-title-sort="Homework 7" data-listing-filename-sort="HW7.qmd" onclick="href = this.querySelector('a').getAttribute('href');
@@ -348,6 +402,9 @@ ul.task-list li input[type="checkbox"] {
 <td>
 <a href="./homework/HW7.html" class="title listing-title">Homework 7</a>
 </td>
+<td>
+<span class="listing-reading-time">11 min</span>
+</td>
 </tr>
 </tbody>
 
@@ -355,7 +412,46 @@ ul.task-list li input[type="checkbox"] {
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div></main> <!-- /main -->
+</div>
+</section>
+<section id="solutions" class="level2">
+<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
+<div id="listing-homework_solns" class="quarto-listing quarto-listing-container-table">
+<div class="listing-actions-group">
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+
+<table class="quarto-listing-table table table-hover">
+<thead>
+<tr>
+<th>
+Date
+</th>
+<th>
+Title
+</th>
+<th>
+Reading Time
+</th>
+</tr>
+</thead>
+<tbody class="list">
+</tbody>
+
+</table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

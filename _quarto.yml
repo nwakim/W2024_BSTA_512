@@ -13,8 +13,10 @@ website:
     right:
       - syllabus.qmd
       - schedule1.qmd
-      - readings.qmd
-      - homeworks.qmd
+      - href: class_slides.qmd
+        text: Slides
+      - href: homeworks.qmd
+        text: Homework
   sidebar:
     style: "docked"
     search: true
@@ -30,7 +32,8 @@ website:
       - section: "Course Materials"
         contents:
           - class_slides.qmd
-          - homeworks.qmd
+          - href: homeworks.qmd
+            text: Homework
           
 execute:
   freeze: auto
