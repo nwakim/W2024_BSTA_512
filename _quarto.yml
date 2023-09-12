@@ -4,7 +4,7 @@ project:
 
 website:
   title: "Introduction to Probability"
-  image: "/images/N_Wakim.jpg"
+  image: /images/N_Wakim.jpg
   navbar:
     background: primary
     search: true
@@ -34,6 +34,8 @@ website:
           - class_slides.qmd
           - href: homeworks.qmd
             text: Homework
+          - href: schedule.qmd
+            text: Weekly pages
           
 execute:
   freeze: auto

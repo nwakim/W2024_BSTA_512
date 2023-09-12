@@ -4,7 +4,7 @@ subtitle: "Fall 2023"
 description: "Welcome to Biostatistics and Probability! This course is designed to introduce history, concepts and distributions in probability, Monte Carlo simulation techniques, and Markov chains. Students will also learn how to write R codes for various statistical computations and plots. Previous experience in R is not required. R is free software available from http://www.r-project.org."
 title-block-banner: "#006a4e"
 title-block-banner-color: white
-image: "/images/website_image"
+image: /images/N_Wakim.jpg
 toc: false
 sidebar: false
 page-layout: full
@@ -13,10 +13,24 @@ page-layout: full
 ::: grid
 ::: g-col-4
 ### Instructor
+
+{{< iconify fluent person-24-filled size=24px >}} Dr. Nicky Wakim
+
+{{< iconify bi building-fill size=24px >}} Vanport 622A
+
+{{< iconify tabler mail-filled size=24px >}} wakim\@ohsu.edu
 :::
 
 ::: g-col-4
 ### Course details
+
+{{< iconify fa6-solid calendar-days size=24px >}} Mondays, Wednesdays
+
+{{< iconify fa6-solid calendar size=24px >}} Sept 25 - Dec 4
+
+{{< iconify icon-park-solid time size=24px >}} 10:30 AM - 12 PM
+
+{{< iconify fa6-solid person-chalkboard size=24px >}} In-person
 :::
 
 ::: g-col-4
@@ -25,5 +39,3 @@ page-layout: full
 E-mail or Slack is the best way to get in contact with me. I will try to respond to all course-related e-mails within 1 business day.
 :::
 :::
-
-Image of probability???

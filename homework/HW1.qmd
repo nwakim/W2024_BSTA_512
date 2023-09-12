@@ -6,9 +6,10 @@ date-modified: "09/11/2023"
 date: "10/5/2023"
 categories: [""]
 format: 
-  html:
+  html: 
     link-external-newwindow: true
     toc: true
+  pdf: default 
 editor_options: 
   chunk_output_type: console
 ---
@@ -35,7 +36,7 @@ Complete all of the problems listed below. Only turn in the ones listed in the "
 
 -   I *highly* recommend reading Chapter 23, which is a series of case studies in counting: poker hands and Yahtzee.
 
-## Non-textbook problems (NTB):
+## Non-textbook problems (NTB)
 
 1.  Suppose the following are the percentage of US adults with the following conditions:
 
@@ -80,7 +81,7 @@ Selected answers (or hints) not provided at the end the book:
 
 -   Chapter 2
 
-    -   \# 4:  0.35
+    -   \# 4: 0.35
 
     -   \# 8: 0.03125
 
