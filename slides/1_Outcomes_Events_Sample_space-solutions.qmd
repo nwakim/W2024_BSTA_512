@@ -1,12 +1,16 @@
 ---
 title: "Chapter 1: Outcomes, Events, and Sample Spaces"
 author: "Meike Niederhausen"
+title-slide-attributes:
+    data-background-color: "#006a4e"
 date: "09/25/2023"
 categories: ["Week 1", "Day 1"]
 format: 
   revealjs:
     theme: [default, simple_NW.scss]
     toc: true
+    toc-depth: 1
+    toc-title: Class Overview
     chalkboard: true
     slide-number: true
     show-slide-number: all

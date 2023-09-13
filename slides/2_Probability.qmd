@@ -1,6 +1,8 @@
 ---
 title: "Chapter 2: Probability"
 author: "Meike Niederhausen and Nicky Wakim"
+title-slide-attributes:
+    data-background-color: "#006a4e"
 date: "09/25/2023"
 categories: ["Day 1"]
 format: 
@@ -19,7 +21,7 @@ format:
 
 # Probabilities of equally likely events
 
-## Probabilities of equally likely events (1/2)
+## Pick an *equally likely* card, any *equally likely* card
 
 ::: example
 ::: ex-title
@@ -34,20 +36,12 @@ Suppose you have a regular well-shuffled deck of cards. What's the probability o
 2.  the queen of hearts
 
 3.  any queen
-
-**Solution:**
-
-1.  any heart = 13/52 = 1/4
-
-2.  the queen of hearts = 1/52
-
-3.  any queen = 4/52 = 1/13
 :::
 :::
 
-## Probabilities of equally likely events (2/2)
+## Let's break down this probability
 
-If $S$ is a finite sample space, with equally likely outcomes, then
+If $S$ is a finite sample space, with **equally likely outcomes**, then
 
 $$\mathbb{P}(A) = \frac{|A|}{|S|}.$$
 
@@ -55,15 +49,18 @@ $$\mathbb{P}(A) = \frac{|A|}{|S|}.$$
 
 $\mathbb{P}(A)$ is a function with
 
--   input: event $A$ from the sample space $S$, ($A \subseteq S$)
+-   **Input:** event $A$ from the sample space $S$, ($A \subseteq S$)
 
--   output: a number between 0 and 1 (inclusive)
+-   **Output:** a number between 0 and 1 (inclusive)
 
 $$\mathbb{P}(A): S \rightarrow [0,1]$$
 
 A function that follows some specific rules though!
 
-See Probability Axioms on next slide.
+ 
+
+*See Probability Axioms on next slide.*
+
 
 # Probability Axioms
 
@@ -163,10 +160,6 @@ $\mathbb{P}(A \cup B \cup C) = \mathbb{P}(A) + \mathbb{P}(B) + \\ \mathbb{P}(C) 
 
 ## Proposition 1 Proof
 
-```{r}
-countdown::countdown(1, top = 0)
-```
-
 ::: proposition
 ::: prop-title
 Proposition 1
@@ -174,20 +167,6 @@ Proposition 1
 
 ::: prop-cont
 For any event $A$, $\mathbb{P}(A)= 1 - \mathbb{P}(A^C)$
-:::
-:::
-
-::: proof1
-::: proof-title
-Proposition 1 Proof
-:::
-
-::: proof-cont
-Since $A$ and $A^C$ are disjoint, we know from Axiom 3 that $\mathbb{P}(A \cup A^C) = \mathbb{P}(A) + \mathbb{P}(A^C)$.
-
-However, $S = A \cup A^C$, and by Axiom 2, $\mathbb{P}(S) = 1$, implying $\mathbb{P}(A \cup A^C) = \mathbb{P}(S) = 1$.
-
-Thus, $\mathbb{P}(A) + \mathbb{P}(A^C) = 1$, or $\mathbb{P}(A) = 1 - \mathbb{P}(A^C)$
 :::
 :::
 
@@ -203,21 +182,6 @@ $\mathbb{P}(\emptyset)=0$
 :::
 :::
 
-::: proof1
-::: proof-title
-Proposition 2 Proof (different from book)
-:::
-
-::: proof-cont
-We know $\emptyset = S^C$.
-
-Thus by Prop 1,
-
-$$\mathbb{P}(\emptyset) = \mathbb{P}(S^C) = 1- \mathbb{P}(S) = 1-1 =0
-.$$
-:::
-:::
-
 ## Proposition 3 Proof
 
 ::: proposition
@@ -230,27 +194,38 @@ If $A \subseteq B$, then $\mathbb{P}(A) \leq \mathbb{P}(B)$
 :::
 :::
 
-::: proof1
-::: proof-title
-Proposition 3 Proof
+## Proposition 4 Visual Proof
+
+::: proposition
+::: prop-title
+Proposition 4
 :::
 
-::: proof-cont
-Create a partition! Make a Venn diagram.
+::: prop-cont
+$\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(A \cap B)$
+:::
+:::
 
-$$%\left(
-\begin{array}{ccl}
-B &=& A \cup (B \cap A^C) \\
-\mathbb{P}(B) &=& \mathbb{P}(A) + \mathbb{P}(B \cap A^C) \\
-\mathbb{P}(B)  & \geq &   \mathbb{P}(A),
-\end{array}
-%\right)$$ since $\mathbb{P}(B \cap A^C) \geq 0$.
+## Proposition 5 Visual Proof
+
+::: proposition
+::: prop-title
+Proposition 5
+:::
+
+::: prop-cont
+$$\begin{align}
+\mathbb{P}(A \cup B \cup C) =  & \mathbb{P}(A) + \mathbb{P}(B) + \mathbb{P}(C) - \mathbb{P}(A \cap B) - \mathbb{P}(A \cap C) - \mathbb{P}(B \cap C) + \\ & \mathbb{P}(A \cap B \cap C) 
+\end{align}$$
 :::
 :::
 
 # Partitions
 
 ## Partitions
+
+::: columns
+::: {.column width="60%"}
 
 ::: definition
 ::: def-title
@@ -274,7 +249,12 @@ Example 2
 ::: ex-cont
 -   If $A \subset B$, then $\{A, B \cap A^C\}$ is a partition of $B$.
 
--   If $S = \bigcup \limits_{i=1}^n A_i$, then the $A_i$'s are a partition of the sample space.
+-   If $S = \bigcup \limits_{i=1}^n A_i$, and the $A_i$'s are disjoint, then the $A_i$'s are a partition of the sample space.
+:::
+:::
+:::
+
+::: {.column width="40%"}
 :::
 :::
 
@@ -282,9 +262,10 @@ Creating partitions is sometimes used to help calculate probabilities, since by 
 
 # Venn Diagram Probabilities
 
-## Venn Diagram Probabilities
+## Weekly medications
 
 ::: columns
+::: {.column width="40%"}
 ::: example
 ::: ex-title
 Example 3
@@ -302,8 +283,11 @@ If a subject has an
 then find the probability of them taking their medication exactly one of the two weeks.
 :::
 :::
+:::
+
+::: {.column width="60%"}
 
 *Hint: Draw a Venn diagram labelling each of the parts to find the probability.*
 
-Answer: $\mathbb{P}(A \cap B) = 0.6$.
+:::
 :::

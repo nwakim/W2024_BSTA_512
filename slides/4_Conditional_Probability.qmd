@@ -37,21 +37,18 @@ Suppose we randomly draw 2 cards from a standard deck of cards. What is the prob
 
 ::: columns
 ::: column
-
 ::: fact
 ::: fact-title
 Fact 1: General Multiplication Rule
 :::
 
 ::: fact-cont
-$$\mathbb{P}(A\cap B)=\mathbb{P}(A)\cdot\mathbb{P}(B|A)$$ 
-
+$$\mathbb{P}(A\cap B)=\mathbb{P}(A)\cdot\mathbb{P}(B|A)$$
 :::
 :::
 :::
 
 ::: column
-
 ::: fact
 ::: fact-title
 Fact 2: Conditional Probability Definition
@@ -61,7 +58,6 @@ Fact 2: Conditional Probability Definition
 $$\mathbb{P}(A|B)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}$$
 :::
 :::
-
 :::
 :::
 
