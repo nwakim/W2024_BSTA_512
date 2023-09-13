@@ -9,6 +9,7 @@ format:
   html:
     link-external-newwindow: true
     toc: true
+  pdf: default 
 editor_options: 
   chunk_output_type: console
 ---
@@ -99,7 +100,7 @@ Selected answers (or hints) not provided at the end the book:
 
 -   Chapter 9
 
-    -   NTB # 1 Partial answers:
+    -   NTB \# 1 Partial answers:
 
         -   
 
