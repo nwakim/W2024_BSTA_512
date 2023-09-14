@@ -33,7 +33,8 @@ editor_options:
 Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
 | Chapter | Topic                              |                                                      Slides                                                      |                                  Annotated Slides                                  |                           Recording                           |
-|---------|------------------------------------|:----------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:-------------------------------------------------------------:|
+|-------------|-------------|:-------------------:|:------------:|:-----------:|
+|         | Intro                              |          [[{{< iconify ri slideshow-fill size=30px >}}](../slides/0_Intro.qmd)]{style="color:#49A3D1;"}          |                                                                                    | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 1       | Outcomes, Events, and Sample Space | [[{{< iconify ri slideshow-fill size=30px >}}](../slides/1_Outcomes_Events_Sample.qmd)]{style="color:#49A3D1;"}  | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 2       | Probability                        |       [[{{< iconify ri slideshow-fill size=30px >}}](../slides/2_Probability.qmd)]{style="color:#f8f5f0;"}       | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 22      | Counting                           | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/22_Counting_Intro-solutions.qmd)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
@@ -42,11 +43,8 @@ Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B
 For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
 
 1.  Click on the icon with three horizontal bars on the bottom left of the browser.
-
 2.  Click on "Tools" with the gear icon at the top of the sidebar.
-
 3.  Click on "PDF Export Mode."
-
 4.  From there, you can print or save the PDF as you would normally from your internet browser.
 
 ## On the Horizon
@@ -56,7 +54,7 @@ For the slides, once they are opened, if you would like to print or save them as
 ## Class Exit Tickets
 
 |                  |                                                                                                                                                                                                                                     |
-|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-------------|-----------------------------------------------------------|
 | Monday (9/25)    | [[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUMkNKRDJMUk5DVVNZOEZXNVNXMzZHVjZSOC4u)]{style="color:#f8f5f0;"} |
 | Wednesday (9/27) | [{{< iconify healthicons health-worker-form-negative size=30px >}}]{style="color:#f8f5f0;"}                                                                                                                                         |
 
@@ -67,33 +65,21 @@ For the slides, once they are opened, if you would like to print or save them as
 As we start the course, here are some administrative items that we need to do:
 
 -   Please join the Slack page
-
 -   Please read the syllabus on your own time
 
 ### Extra Practice/Learning
 
 -   Combinatorics practice problems
-
     -   [handout](/schedule/week_01/Ch22-combinatorics-practice-B550.pdf) (& [answers](/schedule/week_01/Ch22-combinatorics-practice-B550-ANSWERS.pdf))
-
     -   Try to complete as many of these as you can before class on Wednesday.
-
     -   We will discuss some of them Wednesday in class.
-
 -   Pixar has a [series of videos](https://www.khanacademy.org/partner-content/pixar/crowds) explaining how they use combinatorics in making animations
-
     -   This is a great & fun introduction to the basic principles of counting
-
     -   I highly recommend looking at them, especially if you have not studied permutations and combinations before.
-
 -   There is a table on p. 277 of the book with formulas for 4 different common counting cases (does order matter (y/n) vs. sampling with replacement (y/n).
-
     -   In class we covered all cases except "order does not matter and sampling with replacement."
-
         -   This case is often referred to as the "stars and bars" problem.
-
         -   See [this page](https://brilliant.org/wiki/integer-equations-star-and-bars/) for a proof to the Stars and Bars Theorem.
-
             -   Note: *Their notation is opposite of what our textbook uses. The website uses k instead of n and n instead of r.*
 
 ## Statistician of the Week: Regina Nuzzo
@@ -118,9 +104,7 @@ Dr. Nuzzo is a statistician and a science journalist. Her work has appeared in *
 #### Relevant work
 
 -   Nuzzo, R. <a href = "https://doi.org/10.1038/506150a" target = "_blank">"Scientific method: Statistical errors."</a> Nature 506, 150--152 (2014).
-
 -   Nuzzo, R. <a href = "https://www.nih.gov/about-nih/what-we-do/science-health-public-trust/perspectives/science-health-public-trust/tips-communicating-statistical-significance" target = "_blank">"Tips for Communicating Statistical Significance."</a> Science, Health, and Public Trust, National Institutes of Health, 2018.
-
 -   Nuzzo, R. <a href = "https://www.latimes.com/health/la-he-mating8-2008dec08-story.html" target = "_blank">"Vying for a soul mate? Psych out the competition with science."</a> Health: Features. Los Angeles Times, 2008.
 
 #### Outside links

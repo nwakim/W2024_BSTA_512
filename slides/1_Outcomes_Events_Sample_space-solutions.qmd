@@ -73,7 +73,6 @@ An **event** is a collection of *some* possible outcomes.
 :::
 
 ::: {.column width="65%"}
-    
 -   What is the sample space?
 
     -   $S = \{H, T\}$
@@ -87,7 +86,7 @@ An **event** is a collection of *some* possible outcomes.
     -   $\{H, T\}$
 
     -   $\emptyset$
-    
+
      
 
     When thinking about events, think about outcomes that you might be asking the probability of.

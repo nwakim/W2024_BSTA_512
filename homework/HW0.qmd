@@ -1,0 +1,77 @@
+---
+title: "Homework 0"
+subtitle: "BSTA 550"
+description: "Due: Thursday September 28, 2023"
+date-modified: "09/14/2023"
+date: "9/28/2023"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+  pdf: default 
+editor_options: 
+  chunk_output_type: console
+---
+
+## Directions
+
+### Purpose
+
+This homework is meant to introduce yourself to me and your peers. In the first class, we will all briefly introduce ourselves, but we don't have enough time in-depth introductions. Thus, I'd like you to share some information with the class over Slack.
+
+### Grading
+
+Grading will be done as a check/no check for turning in your work. If you are stressed about time, please give yourself an extension.
+
+## Questions
+
+### Question 1
+
+Please upload a picture of yourself to Slack. Please follow the below steps to add a picture of yourself in Slack:
+
+1.  Go to the top right corner in Slack and click your profile picture.
+2.  Click "Profile."
+3.  In the picture of the clip art person, click "Upload Photo" in top right corner.
+4.  Upload a picture file of yourself.
+
+### Question 2
+
+Provide a pronunciation of your name: Please follow the below steps to add an audio and written pronunciation of your name in Slack:
+
+1.  Go to the top right corner in Slack and click your profile picture.
+2.  Click "Profile."
+3.  To the right of your name, click "Edit."
+4.  Under "Name Recording," click "Record Audio Clip."
+5.  Please say your name once at a normal pace then once slowly. Please listen to my audio for an example.
+6.  You may also edit the written pronunciation of your name. This is optional. I realize that doing this is may require a lot of time researching phonetics.
+
+### Question 3
+
+Please complete the [following whenisgood poll](https://whenisgood.net/BSTA_550_OH) so that we can schedule office hours. Please use a unique identifier (does not have to be your name), so that I can make sure each student can attend at least one office hour.
+
+### Question 4
+
+Completion of this question is optional. If you are comfortable sharing your pronouns, please edit your name in Slack to include them. For example, I have changed my name to be "Nicky Wakim (she/her)". If you prefer to not share your pronouns, then I will refer to you using they/them pronouns.
+
+### Question 5
+
+Please post an introduction in the `#random` channel on Slack. You ***do not need*** to include all of the below items, but your introduction ***may*** include information like:
+
+-   Preferred name
+-   Pronouns
+-   Are you new to Portland?
+-   Career interests
+-   Hobbies
+-   Family, children, and/or fur babies
+-   Favorite/recent adventures, restaurants, TV shows, books, podcasts, etc.
+-   Willingness to join a study group
+-   Astrology sign
+-   Motivation for taking the course
+-   Anticipated Fall trip/activity
+
+Please feel free to get creative with what you share! You don't need to adhere to this list.
+
+### Question 6
+
+Completion of this question is only necessary if you have accommodations. If you have any learning accommodations, please email me about your needs. I should receive a direct email from the Office of Student Access, but it is important that we discuss how accommodations will translate to our class. **Since this is the first quarter for a lot of you, please let me know if you need help setting up accommodations!**

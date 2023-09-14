@@ -18,6 +18,7 @@
   {
     "listing": "/class_slides.html",
     "items": [
+      "/slides/0_Intro.html",
       "/slides/1_Outcomes_Events_Sample.html",
       "/slides/2_Probability.html",
       "/slides/1_Outcomes_Events_Sample_space-solutions.html",
@@ -59,6 +60,7 @@
   {
     "listing": "/homeworks.html",
     "items": [
+      "/homework/HW0.html",
       "/homework/HW1.html",
       "/homework/HW2.html",
       "/homework/HW3.html",

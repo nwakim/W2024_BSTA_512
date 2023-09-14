@@ -1,0 +1,69 @@
+---
+title: "Welcome to BSTA 550!"
+author: "Nicky Wakim"
+title-slide-attributes:
+    data-background-color: "#006a4e"
+date: "09/25/2023"
+categories: ["Week 1", "Day 1"]
+format: 
+  revealjs:
+    theme: [default, simple_NW.scss]
+    toc: true
+    toc-depth: 1
+    toc-title: Class Overview
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1600
+    height: 1100
+    footer: Chapter 1 Slides
+---
+
+## Nicky Wakim (she/her)
+
+::: columns
+::: {.column width="45%"}
+-   **Call me "Nicky," "Dr. W," "Professor Wakim," or any combo!**
+
+-   Assistant Professor of Biostatistics
+
+     
+
+-   Originally from DC area (Virginia side!)
+
+-   Two kitties
+
+-   Volleyball, biking, spikeball, pickleball
+
+-   But also sleeping, TV, and reading
+
+-   Just started taking a couple classes at PCC (French, ceramics, yoga)
+
+-   Slowly regrowing my plant collection after moving from Michigan
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="25%"}
+![](/images/Intro_slides/bike.JPG){width="450"} ![](/images/Intro_slides/cats.mov){width="450"} ![](/images/Intro_slides/crater_lake.jpeg){width="450"}
+:::
+
+::: {.column width="25%"}
+![](/images/Intro_slides/Narrows.JPG){width="450"}
+:::
+:::
+
+## Some important tasks
+
+-   [Join the Slack page!](https://join.slack.com/t/bsta550f23/shared_invite/zt-234443trn-SJOPMHIuUdZaVgSuFBHHIQ)
+
+-   Star the class website: <https://nwakim.github.io/F2023_BSTA_550/>
+
+-   Complete the [WhenIsGood](https://whenisgood.net/BSTA_550_OH) for office hours
+
+-   Complete Homework 0 by this Thursday at 11pm!
+
+## Let's go through the syllabus!
+
+[Syllabus page](https://nwakim.github.io/F2023_BSTA_550/syllabus.html)
