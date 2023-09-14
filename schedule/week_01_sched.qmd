@@ -33,7 +33,7 @@ editor_options:
 Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
 | Chapter | Topic                              |                                                             Slides                                                              |                                  Annotated Slides                                  |                           Recording                           |
-|--------------|--------------|:----------------:|:------------:|:------------:|
+|---------------|---------------|:-------------:|:-------------:|:-------------:|
 | 1       | Outcomes, Events, and Sample Space | [[{{< iconify ri slideshow-fill size=30px >}}](../slides/1_Outcomes_Events_Sample_space-solutions.qmd)]{style="color:#49A3D1;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 2       | Probability                        |              [[{{< iconify ri slideshow-fill size=30px >}}](../slides/2_Probability.qmd)]{style="color:#f8f5f0;"}               | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 22      | Counting                           |        [[{{< iconify ri slideshow-fill size=30px >}}](/slides/22_Counting_Intro-solutions.qmd)]{style="color:#f8f5f0;"}         | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
@@ -49,20 +49,28 @@ For the slides, once they are opened, if you would like to print or save them as
 
 4.  From there, you can print or save the PDF as you would normally from your internet browser.
 
-## Homework
+## On the Horizon
 
 [Homework 1 due 10/5](../homework/HW1.qmd)
 
 ## Class Exit Tickets
 
 |                  |                                                                                                                                                                                                                                     |
-|-------------|-----------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | Monday (9/25)    | [[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUMkNKRDJMUk5DVVNZOEZXNVNXMzZHVjZSOC4u)]{style="color:#f8f5f0;"} |
 | Wednesday (9/27) | [{{< iconify healthicons health-worker-form-negative size=30px >}}]{style="color:#f8f5f0;"}                                                                                                                                         |
 
 : {tbl-colwidths="\[30,70\]"}
 
 ## Additional Information
+
+As we start the course, here are some administrative items that we need to do:
+
+-   Please join the Slack page
+
+-   Please read the syllabus on your own time
+
+### Extra Practice/Learning
 
 -   Combinatorics practice problems
 

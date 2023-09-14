@@ -11,7 +11,8 @@ website:
     foreground: "#fff"
     collapse-below: sm
     right:
-      - syllabus.qmd
+      - href: syllabus.qmd
+        text: Syllabus
       - schedule1.qmd
       - href: class_slides.qmd
         text: Slides
@@ -27,7 +28,8 @@ website:
         contents:
           - href: instructors.qmd
             text: Instructors
-          - syllabus.qmd
+          - href: syllabus.qmd
+            text: Syllabus
           - schedule1.qmd
       - section: "Course Materials"
         contents:

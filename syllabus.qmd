@@ -1,5 +1,5 @@
 ---
-title: "Syllabus"
+title: "BSTA 550 Syllabus"
 date: "09/12/2023"
 date-modified: "09/12/2023"
 categories: [""]
@@ -10,6 +10,22 @@ format:
 editor_options: 
   chunk_output_type: console
 ---
+
+```{css, echo=FALSE}
+.title{
+  font-size: 40px;
+  color: #006a4e;
+  background-color: #fff;
+  padding: 8px;
+}
+
+.description{
+  font-size: 20px;
+  color: #fff;
+  background-color: #006a4e;
+  padding: 10px;
+}
+```
 
 ## Description
 
@@ -42,6 +58,11 @@ Wednesdays   10:30 AM -- 12:00 PM PST in room RLSB 1S008
 Wednesday, October 25       10:30 AM -- 12:00 PM PST on Webex OR pre-recorded
 
 Wednesday, November 22    No class
+
+```{r}
+#| echo: false
+g=3
+```
 
 ## Materials
 
