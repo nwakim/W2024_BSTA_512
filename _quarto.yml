@@ -4,10 +4,10 @@ project:
 
 website:
   title: "Introduction to Probability"
-  image: /images/N_Wakim.jpg
   navbar:
     background: primary
     search: true
+    logo: "images/bsta_550_hex.png"
     foreground: "#fff"
     collapse-below: sm
     right:
