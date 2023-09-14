@@ -9,6 +9,7 @@ format:
   html:
     link-external-newwindow: true
     toc: true
+  pdf: default 
 editor_options: 
   chunk_output_type: console
 ---
@@ -145,4 +146,4 @@ Selected answers (or hints) not provided at the end the book:
 
     -   \# 8: $f_{X|Y}(x|y)=\frac{1-x^2}{1-y-\frac{(1-y)^3}{3}}$, for $0\leq x, 0\leq y, x+y\leq 1$
 
-    -   \# 12: \(a\) $f_{X|Y}(x|y)=\frac{1}{2}$    (c) $\frac{4}{7}$
+    -   \# 12: (a) $f_{X|Y}(x|y)=\frac{1}{2}$    (c) $\frac{4}{7}$

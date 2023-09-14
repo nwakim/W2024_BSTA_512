@@ -142,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="grid">
 <section id="instructor" class="level3 g-col-3">
 <h3 class="anchored" data-anchor-id="instructor">Instructor</h3>
-<p><iconify-icon inline="" icon="fluent:person-24-filled" style="font-size: 24px;"></iconify-icon> Dr.&nbsp;Nicky Wakim</p>
+<p><iconify-icon inline="" icon="fluent:person-24-filled" style="font-size: 24px;"></iconify-icon> <a href="https://ohsu-psu-sph.org/our-school/faculty-directory/name/nicky-wakim/">Dr.&nbsp;Nicky Wakim</a></p>
 <p><iconify-icon inline="" icon="bi:building-fill" style="font-size: 24px;"></iconify-icon> Vanport 622A</p>
 <p><iconify-icon inline="" icon="tabler:mail-filled" style="font-size: 24px;"></iconify-icon> wakim@ohsu.edu</p>
 </section>
@@ -162,6 +162,15 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="contacting-me">Contacting me</h3>
 <p>E-mail or Slack is the best way to get in contact with me. I will try to respond to all course-related e-mails within 1 business day.</p>
 </section>
+</div>
+<hr>
+<div class="grid">
+<div class="g-col-9">
+
+</div>
+<div class="g-col-3">
+<p><a href="https://github.com/nwakim/F2023_BSTA_550"><iconify-icon inline="" icon="icomoon-free:github" style="font-size: 24px;"></iconify-icon> View the source on GitHub</a></p>
+</div>
 </div>
 
 
@@ -398,6 +407,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script>
 </div> <!-- /content -->

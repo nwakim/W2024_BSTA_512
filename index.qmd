@@ -3,13 +3,13 @@ title: ""
 toc: false
 sidebar: false
 page-layout: full
+link-external-newwindow: true
 ---
 
 ::: {style="background-color: #006a4e"}
 ::: {style="color: #FFFFFF"}
 ::: grid
 ::: g-col-4
-
 ![](images/bsta_550_hex.png){fig-align="center" width="337"}
 :::
 
@@ -17,6 +17,7 @@ page-layout: full
 # BSTA 550: Introduction to Probability
 
 ### Fall 2023
+
  
 
 Welcome to Biostatistics and Probability! This course is designed to introduce history, concepts and distributions in probability, Monte Carlo simulation techniques, and Markov chains. Students will also learn how to write R codes for various statistical computations and plots. Previous experience in R is not required. R is free software available from http://www.r-project.org.
@@ -31,7 +32,7 @@ Welcome to Biostatistics and Probability! This course is designed to introduce h
 ::: g-col-3
 ### Instructor
 
-{{< iconify fluent person-24-filled size=24px >}} Dr. Nicky Wakim
+{{< iconify fluent person-24-filled size=24px >}} [Dr. Nicky Wakim](https://ohsu-psu-sph.org/our-school/faculty-directory/name/nicky-wakim/)
 
 {{< iconify bi building-fill size=24px >}} Vanport 622A
 
@@ -62,5 +63,16 @@ Welcome to Biostatistics and Probability! This course is designed to introduce h
 ### Contacting me
 
 E-mail or Slack is the best way to get in contact with me. I will try to respond to all course-related e-mails within 1 business day.
+:::
+:::
+
+------------------------------------------------------------------------
+
+::: grid
+::: g-col-9
+:::
+
+::: g-col-3
+[{{< iconify icomoon-free github size=24px >}} View the source on GitHub](https://github.com/nwakim/F2023_BSTA_550)
 :::
 :::

@@ -9,6 +9,7 @@ format:
   html:
     link-external-newwindow: true
     toc: true
+  pdf: default 
 editor_options: 
   chunk_output_type: console
 ---
@@ -55,11 +56,6 @@ Complete all of the problems listed below. Only turn in the ones listed in the "
     -   Which method did you prefer? Why?
 
 [^6]: Assume the distances between the cars are independent.
-
-    				
-    			
-    		
-    	
 
 ## Non-textbook problems (NTB)
 
