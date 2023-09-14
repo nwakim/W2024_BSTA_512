@@ -1,14 +1,31 @@
 ---
-title: "BSTA 550: Introduction to Probability"
-subtitle: "Fall 2023"
-description: "Welcome to Biostatistics and Probability! This course is designed to introduce history, concepts and distributions in probability, Monte Carlo simulation techniques, and Markov chains. Students will also learn how to write R codes for various statistical computations and plots. Previous experience in R is not required. R is free software available from http://www.r-project.org."
-title-block-banner: "#006a4e"
-title-block-banner-color: white
-image: /images/N_Wakim.jpg
+title: ""
 toc: false
 sidebar: false
 page-layout: full
 ---
+
+::: {style="background-color: #006a4e"}
+::: {style="color: #FFFFFF"}
+::: grid
+::: g-col-4
+ 
+
+![](images/original.png){fig-align="center" width="337"}
+:::
+
+::: g-col-7
+# BSTA 550: Introduction to Probability
+
+### Fall 2023
+
+Welcome to Biostatistics and Probability! This course is designed to introduce history, concepts and distributions in probability, Monte Carlo simulation techniques, and Markov chains. Students will also learn how to write R codes for various statistical computations and plots. Previous experience in R is not required. R is free software available from http://www.r-project.org.
+
+ 
+:::
+:::
+:::
+:::
 
 ::: grid
 ::: g-col-3
@@ -27,7 +44,6 @@ page-layout: full
 {{< iconify fa6-solid calendar-days size=24px >}} TBD
 
 {{< iconify icon-park-solid time size=24px >}} TBD
-
 :::
 
 ::: g-col-3

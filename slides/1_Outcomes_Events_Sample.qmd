@@ -1,6 +1,6 @@
 ---
 title: "Chapter 1: Outcomes, Events, and Sample Spaces"
-author: "Meike Niederhausen"
+author: "Meike Niederhausen and Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#006a4e"
 date: "09/25/2023"
@@ -45,7 +45,17 @@ format:
 
     -   Tails ($T$)
 
-    **Note:** When something happens at random, such as a coin toss, there are several possible outcomes, and *exactly one* of the outcomes will occur.
+ 
+
+::: fact
+::: fact-title
+Note
+:::
+
+::: fact-cont
+When something happens at random, such as a coin toss, there are several possible outcomes, and *exactly one* of the outcomes will occur.
+:::
+:::
 
 ## Coin Toss Example: 1 coin (3/3)
 
@@ -73,21 +83,22 @@ An **event** is a collection of *some* possible outcomes.
 :::
 
 ::: {.column width="65%"}
-    
 -   What is the sample space?
 
-    -   $S = \{H, T\}$
+    -   $S =$
+
+ 
 
 -   What are the possible events?
 
-    -   $\{H\}$
+    -   
 
-    -   $\{T\}$
+    -   
 
-    -   $\{H, T\}$
+    -   
 
-    -   $\emptyset$
-    
+    -   
+
      
 
     When thinking about events, think about outcomes that you might be asking the probability of.
@@ -102,13 +113,15 @@ An **event** is a collection of *some* possible outcomes.
 
 -   What is the sample space? *Assume the coins are distinguishable*
 
-    -   $S =$ $$S = \{HH, TT, HT, TH\}$$
+    -   $S =$
+
+ 
 
 -   What are some possible events?
 
-    -   $A$ = exactly one $H$ = $\{HT, TH\}$
+    -   $A =$ exactly one $H =$
 
-    -   $B$ = at least one $H$ = $\{HH, HT, TH\}$
+    -   $B =$ at least one $H =$
 
     -   
 
@@ -118,30 +131,42 @@ An **event** is a collection of *some* possible outcomes.
 
 -   We usually use capital letters from the beginning of the alphabet to denote events. However, other letters might be chosen to be more descriptive.
 
+ 
+
 -   We use the notation $|S|$ to denote the **size** of the sample space.
 
+ 
+
 -   The total number of possible events is $2^{|S|}$, which is the total number of possible subsets of $S$. We will prove this later in the course.
+
+ 
 
 -   The **empty set**, denoted by $\emptyset$, is the set containing no outcomes.
 
 ## Example: Keep sampling until...
 
-**Suppose you keep sampling people until you have someone with high blood pressure (BP). What is the sample space?**
+**Suppose you keep sampling people until you have someone with high blood pressure (BP)**
+
+ 
+
+**What is the sample space?**
 
 -   Let $H =$ denote someone with high BP.
 
 -   Let $H^C =$ denote someone with not high blood pressure, such as low or regular BP.
 
--   Then, $S =$
+ 
 
-$$S = \{H, (H, H^C), (H, H, H^C), (H, H, H, H^C), \ldots$$
+-   Then, $S =$
 
 # Set Theory
 
 ## Set Theory (1/2)
 
 ::: columns
-::: column
+::: {.column width="40%"}
+ 
+
 ::: definition
 ::: def-title
 Definition: Union
@@ -163,7 +188,7 @@ The **intersection** of events $A$ and $B$, denoted by $A \cap B$, contains all 
 :::
 :::
 
-::: column
+::: {.column width="60%"}
 Venn diagrams
 :::
 :::
@@ -171,7 +196,9 @@ Venn diagrams
 ## Set Theory (2/2)
 
 ::: columns
-::: column
+::: {.column width="40%"}
+ 
+
 ::: definition
 ::: def-title
 Definition: Complement
@@ -193,7 +220,7 @@ Events $A$ and $B$ are **mutually exclusive**, or disjoint, if they have no outc
 :::
 :::
 
-::: column
+::: {.column width="60%"}
 Venn diagrams
 :::
 :::
@@ -204,7 +231,9 @@ Venn diagrams
 
 -   Let $H_i$ be the event that person $i$ has high BP, for $i=1\ldots n$.
 
-Use set theory notation to denote the following events:
+ 
+
+*Use set theory notation to denote the following events:*
 
 1.  Event subject $i$ does not have high BP
 
@@ -222,29 +251,31 @@ Use set theory notation to denote the following events:
 
 -   Let $H_i$ be the event that person $i$ has high BP, for $i=1\ldots n$.
 
-Use set theory notation to denote the following events:
+*Use set theory notation to denote the following events:*
 
 1.  Event subject $i$ does not have high BP
 
-    $$H_i^C$$
+     
 
 2.  Event all $n$ subjects have high BP
 
-    $$H_1 \textrm{ and } H_2 \textrm{ and } \ldots = \bigcap\limits_{i=1}^{n}H_i$$
+     
+
+     
 
 3.  Event at least one subject has high BP
-
-    $$H_1 \textrm{ or } H_2 \textrm{ or } \ldots = \bigcup\limits_{i=1}^{n}H_i$$
 
 ## BP example variation (3/3)
 
 4.  Event all of them do not have high BP
 
-    $H_1^C$ and $H_2^C$ and\... $$\bigcap\limits_{i=1}^{n}H_i^C = \Big(\bigcup\limits_{i=1}^{n}H_i\Big)^C$$ = complement of at least one person having high BP
+     
+
+     
+
+     
 
 5.  Event at least one subject does not have high BP
-
-    $H_1^C$ or $H_2^C$ or\... $$\bigcup\limits_{i=1}^{n}H_i^C = \Big(\bigcap\limits_{i=1}^{n}H_i\Big)^C$$ = complement of all having high BP
 
 ## De Morgan's Laws
 
@@ -280,10 +311,14 @@ $$\bigcup\limits_{i=1}^{n}A_i^C = \Big(\bigcap\limits_{i=1}^{n}A_i\Big)^C$$
 
 -   These laws also hold for infinite collections of events.
 
+     
+
 -   Draw Venn diagrams to convince yourself that these are true!
+
+     
 
 -   These laws are *very* useful when calculating probabilities.
 
-    -   This is because calculating the probability of the intersection of events is often much easier than the union of events.
+    -   This is because calculating the probability of the **intersection of events is often much easier than the union of events**.
 
     -   This is not obvious right now, but we will see in the coming chapters why.
