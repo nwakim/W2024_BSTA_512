@@ -29,7 +29,7 @@ At the end of this course, students should be able to...
 
 ## Instructors
 
-[Here is the instructor page.](instructors.qmd)
+[Here is the instructor page.](instructors.qmd) This also has office hours!
 
 ## Meeting Times
 

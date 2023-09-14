@@ -11,7 +11,7 @@ page-layout: full
 ---
 
 ::: grid
-::: g-col-4
+::: g-col-3
 ### Instructor
 
 {{< iconify fluent person-24-filled size=24px >}} Dr. Nicky Wakim
@@ -21,7 +21,16 @@ page-layout: full
 {{< iconify tabler mail-filled size=24px >}} wakim\@ohsu.edu
 :::
 
-::: g-col-4
+::: g-col-3
+### Office Hours
+
+{{< iconify fa6-solid calendar-days size=24px >}} TBD
+
+{{< iconify icon-park-solid time size=24px >}} TBD
+
+:::
+
+::: g-col-3
 ### Course details
 
 {{< iconify fa6-solid calendar-days size=24px >}} Mondays, Wednesdays
@@ -33,7 +42,7 @@ page-layout: full
 {{< iconify fa6-solid person-chalkboard size=24px >}} In-person
 :::
 
-::: g-col-4
+::: g-col-3
 ### Contacting me
 
 E-mail or Slack is the best way to get in contact with me. I will try to respond to all course-related e-mails within 1 business day.

@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "BSTA 550: Introduction to Probability",
     "section": "",
-    "text": "Instructor\n Dr. Nicky Wakim\n Vanport 622A\n wakim@ohsu.edu\n\n\nCourse details\n Mondays, Wednesdays\n Sept 25 - Dec 4\n 10:30 AM - 12 PM\n In-person\n\n\nContacting me\nE-mail or Slack is the best way to get in contact with me. I will try to respond to all course-related e-mails within 1 business day."
+    "text": "Instructor\n Dr. Nicky Wakim\n Vanport 622A\n wakim@ohsu.edu\n\n\nOffice Hours\n TBD\n TBD\n\n\nCourse details\n Mondays, Wednesdays\n Sept 25 - Dec 4\n 10:30 AM - 12 PM\n In-person\n\n\nContacting me\nE-mail or Slack is the best way to get in contact with me. I will try to respond to all course-related e-mails within 1 business day."
   },
   {
     "objectID": "schedule.html",
@@ -718,7 +718,7 @@
     "href": "schedule/week_01_sched.html#homework",
     "title": "Week 1",
     "section": "Homework",
-    "text": "Homework\nHomework 1 due 10/1"
+    "text": "Homework\nHomework 1 due 10/5"
   },
   {
     "objectID": "schedule/week_01_sched.html#post-class",
@@ -739,21 +739,21 @@
     "href": "schedule/week_01_sched.html#muddiest-points",
     "title": "Week 1",
     "section": "Muddiest Points",
-    "text": "Muddiest Points"
+    "text": "Muddiest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_01_sched.html#clearest-points",
     "href": "schedule/week_01_sched.html#clearest-points",
     "title": "Week 1",
     "section": "Clearest Points",
-    "text": "Clearest Points"
+    "text": "Clearest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_01_sched.html#additional-information",
     "href": "schedule/week_01_sched.html#additional-information",
     "title": "Week 1",
     "section": "Additional Information",
-    "text": "Additional Information"
+    "text": "Additional Information\n\nCombinatorics practice problems\n\nhandout (& answers)\nTry to complete as many of these as you can before class on Wednesday.\nWe will discuss some of them Wednesday in class.\n\nPixar has a series of videos explaining how they use combinatorics in making animations\n\nThis is a great & fun introduction to the basic principles of counting\nI highly recommend looking at them, especially if you have not studied permutations and combinations before.\n\nThere is a table on p. 277 of the book with formulas for 4 different common counting cases (does order matter (y/n) vs. sampling with replacement (y/n).\n\nIn class we covered all cases except “order does not matter and sampling with replacement.”\n\nThis case is often referred to as the “stars and bars” problem.\nSee this page for a proof to the Stars and Bars Theorem.\n\nNote: Their notation is opposite of what our textbook uses. The website uses k instead of n and n instead of r."
   },
   {
     "objectID": "schedule/week_08_sched.html",
@@ -1873,7 +1873,7 @@
     "href": "syllabus.html#instructors",
     "title": "Syllabus",
     "section": "Instructors",
-    "text": "Instructors\nHere is the instructor page."
+    "text": "Instructors\nHere is the instructor page. This also has office hours!"
   },
   {
     "objectID": "syllabus.html#meeting-times",
@@ -2077,5 +2077,12 @@
     "title": "Chapter 2: Probability",
     "section": "Weekly medications",
     "text": "Weekly medications\n\n\n\n\nExample 3\n\n\nIf a subject has an\n\n80% chance of taking their medication this week,\n70% chance of taking their medication next week, and\n10% chance of not taking their medication either week,\n\nthen find the probability of them taking their medication exactly one of the two weeks.\n\n\n\nHint: Draw a Venn diagram labelling each of the parts to find the probability.\n\n\n\n\nChapter 2 Slides"
+  },
+  {
+    "objectID": "schedule/week_01_sched.html#class-exit-tickets",
+    "href": "schedule/week_01_sched.html#class-exit-tickets",
+    "title": "Week 1",
+    "section": "Class Exit Tickets",
+    "text": "Class Exit Tickets\n\n\n\n\n\n\n\nMonday (9/25)\n\n\n\nWednesday (9/27)"
   }
 ]
