@@ -368,6 +368,26 @@ If you think a question was incorrectly graded, first compare your answer to the
 
 You are expected to attend class and participate in-class polls and the exit ticket. For students who miss class or need a review, I will make video and audio recordings of lectures available. There are no guarantees against technical or other challenges for the recording availability or quality. For students who are unable to attend the class in-person and synchronously, **viewing the recording within 7 days** is acceptable. This is meant to keep you on track within the course and prevent a pile up of material. Make sure to complete the exit ticket to demonstrate attendance.
 
+### Plagiarism and Attribution
+
+Please note that this section has been motivated by [Dr. Steven Bedrick's Course Policies and Grading site](https://dmice.ohsu.edu/bedricks/courses/bmi525/policies.html) for BMI 525. (Note that this is a good example of informal attribution of someone else's work.)
+
+In this class, it is easy to use ChatGPT or other AI tools to solve your homework for you. Many problems follow a basic structure that is especially easy for ChatGPT to solve. In this class, you may use ChatGPT to help with your homework. You may even ask for direct answers. However, there are a few things I do not want you to do:
+
+-   **Do not copy ChatGPT's answer directly into your homework.** Your homework is graded for full credit if you turn it in, in any state, so turning in ChatGPT's answers is unacceptable. I rather see half-written answers that show what you're thinking than see a correct answer from ChatGPT.
+
+-   **Do not stop once ChatGPT answered a question.** If it gives an explanation, interact with it! Make sure you understand the thought process of ChatGPT. Check the answer with what we learn in class.
+
+-   **Do not use ChatGPT on our exams!** Hence, you need to really understand how to solve these problems even if you use ChatGPT on the homework.
+
+At the end of the day, ChatGPT is a resource that will be available to you in a job and outside of school. Thus, we should use it as a tool in school as well!
+
+::: callout-important
+You can think of this class as assembling a toolbox. When a handyperson starts working for the first time, they need to buy their tools. For their first few jobs, they might need help finding their tools or remembering which tool is best used for what action. Eventually, they get to know their tools well and using them appropriately becomes second nature.
+
+**For now, ChatGPT can help us find and use our tools, but we need to work towards using them as second nature!**
+:::
+
 ### Instructor Expectations
 
 [*Commitment to your learning and your success\
