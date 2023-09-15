@@ -36,7 +36,7 @@ Welcome to Biostatistics and Probability! This course is designed to introduce h
 
 {{< iconify bi building-fill size=24px >}} Vanport 622A
 
-{{< iconify tabler mail-filled size=24px >}} wakim\@ohsu.edu
+{{< iconify tabler mail-filled size=24px >}} [wakim\@ohsu.edu](mailto:wakim@ohsu.edu)
 :::
 
 ::: g-col-3
@@ -62,7 +62,7 @@ Welcome to Biostatistics and Probability! This course is designed to introduce h
 ::: g-col-3
 ### Contacting me
 
-E-mail or Slack is the best way to get in contact with me. I will try to respond to all course-related e-mails within 1 business day.
+E-mail or Slack is the best way to get in contact with me. I will try to respond to all course-related e-mails within 24 hours Monday-Friday.
 :::
 :::
 
