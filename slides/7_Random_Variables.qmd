@@ -2,7 +2,7 @@
 title: "Chapter 7: Discrete vs. Continuous Random Variables"
 author: "Meike Niederhausen"
 date: "10/04/2023"
-categories: ["Day 5"]
+categories: ["Week 3"]
 format: 
   revealjs:
     theme: [default, simple_NW.scss]
@@ -15,7 +15,7 @@ format:
     footer: Chapter 7 Slides
 ---
 
-## Example 
+## Example
 
 ::: {#Coins3 .example}
 **Example 1**. *Suppose we toss 3 fair coins.*

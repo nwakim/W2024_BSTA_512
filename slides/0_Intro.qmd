@@ -4,7 +4,7 @@ author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#006a4e"
 date: "09/25/2023"
-categories: ["Week 1", "Day 1"]
+categories: ["Week 1"]
 format: 
   revealjs:
     theme: [default, simple_NW.scss]

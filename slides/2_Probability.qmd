@@ -4,7 +4,7 @@ author: "Meike Niederhausen and Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#006a4e"
 date: "09/25/2023"
-categories: ["Day 1"]
+categories: ["Week 1"]
 format: 
   revealjs:
     theme: [default, simple_NW.scss]
@@ -60,7 +60,6 @@ A function that follows some specific rules though!
  
 
 *See Probability Axioms on next slide.*
-
 
 # Probability Axioms
 
@@ -226,7 +225,6 @@ $$\begin{align}
 
 ::: columns
 ::: {.column width="60%"}
-
 ::: definition
 ::: def-title
 Definition: Partition
@@ -286,8 +284,6 @@ then find the probability of them taking their medication exactly one of the two
 :::
 
 ::: {.column width="60%"}
-
 *Hint: Draw a Venn diagram labelling each of the parts to find the probability.*
-
 :::
 :::

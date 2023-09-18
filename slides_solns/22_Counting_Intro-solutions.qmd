@@ -1,12 +1,16 @@
 ---
 title: "Chapter 22: Counting"
-author: "Meike Niederhausen"
+author: "Meike Niederhausen and Nicky Wakim"
 date: "09/27/2023"
-categories: ["Day 2"]
+title-slide-attributes:
+    data-background-color: "#006a4e"
+categories: ["Week 1", "Day 2"]
 format: 
   revealjs:
     theme: [default, simple_NW.scss]
     toc: true
+    toc-depth: 1
+    toc-title: Class Overview
     chalkboard: true
     slide-number: true
     show-slide-number: all
@@ -57,7 +61,6 @@ How many possible ways are there to order them?
 
 $10!$
 
-
 ::: example
 ::: ex-title
 Example 1.2
@@ -80,7 +83,6 @@ How many ways to order them if we can reuse the same subject and
 
     -   $10^6$
 
-
 ## Basic Counting Examples (3/3)
 
 Suppose we have 10 (distinguishable) subjects for study.
@@ -96,7 +98,6 @@ How many ways to order them if without replacements and only need 6?
 :::
 
 $$\frac{10!}{4!}=151,200$$
-
 
 ::: example
 ::: ex-title

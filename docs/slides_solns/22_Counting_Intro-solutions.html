@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-10-16">
-<meta name="description" content="Expected values of discrete random variables">
+<meta name="author" content="Meike Niederhausen and Nicky Wakim">
+<meta name="dcterms.date" content="2023-09-27">
 
-<title>Introduction to Probability - Week 4</title>
+<title>Introduction to Probability - Chapter 22: Counting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -41,7 +41,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/iconify-1.0.0-beta.2/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -63,6 +62,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -113,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../class_slides.html">Course Materials</a></li><li class="breadcrumb-item"><a href="../schedule.html">Weekly Pages</a></li><li class="breadcrumb-item"><a href="../schedule/week_01_sched.html">Schedule</a></li><li class="breadcrumb-item"><a href="../schedule/week_04_sched.html">Week 4</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Chapter 22: Counting</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -227,7 +228,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../schedule/week_04_sched.html" class="sidebar-item-text sidebar-link active">
+  <a href="../schedule/week_04_sched.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 4</span></a>
   </div>
 </li>
@@ -289,181 +290,243 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#resources" id="toc-resources" class="nav-link active" data-scroll-target="#resources">Resources</a></li>
-  <li><a href="#on-the-horizon" id="toc-on-the-horizon" class="nav-link" data-scroll-target="#on-the-horizon">On the Horizon</a></li>
-  <li><a href="#class-exit-tickets" id="toc-class-exit-tickets" class="nav-link" data-scroll-target="#class-exit-tickets">Class Exit Tickets</a></li>
-  <li><a href="#additional-information" id="toc-additional-information" class="nav-link" data-scroll-target="#additional-information">Additional Information</a></li>
-  <li><a href="#statistician-of-the-week-joy-buolamwini" id="toc-statistician-of-the-week-joy-buolamwini" class="nav-link" data-scroll-target="#statistician-of-the-week-joy-buolamwini">Statistician of the Week: Joy Buolamwini</a></li>
-  <li><a href="#muddiest-points" id="toc-muddiest-points" class="nav-link" data-scroll-target="#muddiest-points">Muddiest Points</a></li>
-  <li><a href="#clearest-points" id="toc-clearest-points" class="nav-link" data-scroll-target="#clearest-points">Clearest Points</a></li>
+  <li><a href="#basic-counting-examples" id="toc-basic-counting-examples" class="nav-link active" data-scroll-target="#basic-counting-examples">Basic Counting Examples</a>
+  <ul class="collapse">
+  <li><a href="#basic-counting-examples-13" id="toc-basic-counting-examples-13" class="nav-link" data-scroll-target="#basic-counting-examples-13">Basic Counting Examples (1/3)</a></li>
+  <li><a href="#basic-counting-examples-23" id="toc-basic-counting-examples-23" class="nav-link" data-scroll-target="#basic-counting-examples-23">Basic Counting Examples (2/3)</a></li>
+  <li><a href="#basic-counting-examples-33" id="toc-basic-counting-examples-33" class="nav-link" data-scroll-target="#basic-counting-examples-33">Basic Counting Examples (3/3)</a></li>
+  </ul></li>
+  <li><a href="#permutations-and-combinations" id="toc-permutations-and-combinations" class="nav-link" data-scroll-target="#permutations-and-combinations">Permutations and Combinations</a>
+  <ul class="collapse">
+  <li><a href="#permutations-and-combinations-1" id="toc-permutations-and-combinations-1" class="nav-link" data-scroll-target="#permutations-and-combinations-1">Permutations and Combinations</a></li>
+  <li><a href="#some-combinations-properties" id="toc-some-combinations-properties" class="nav-link" data-scroll-target="#some-combinations-properties">Some combinations properties</a></li>
+  </ul></li>
+  <li><a href="#more-examples-order-matters-vs.-not" id="toc-more-examples-order-matters-vs.-not" class="nav-link" data-scroll-target="#more-examples-order-matters-vs.-not">More Examples: order matters vs.&nbsp;not</a>
+  <ul class="collapse">
+  <li><a href="#more-examples-order-matters-vs.-not-12" id="toc-more-examples-order-matters-vs.-not-12" class="nav-link" data-scroll-target="#more-examples-order-matters-vs.-not-12">More examples: order matters vs.&nbsp;not (1/2)</a></li>
+  <li><a href="#more-examples-order-matters-vs.-not-22" id="toc-more-examples-order-matters-vs.-not-22" class="nav-link" data-scroll-target="#more-examples-order-matters-vs.-not-22">More examples: order matters vs.&nbsp;not (2/2)</a></li>
+  <li><a href="#table-of-different-cases" id="toc-table-of-different-cases" class="nav-link" data-scroll-target="#table-of-different-cases">Table of different cases</a></li>
+  </ul></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="22_Counting_Intro-solutions.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 4</h1>
-</div>
-
-<div>
-  <div class="description">
-    Expected values of discrete random variables
+<h1 class="title">Chapter 22: Counting</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Week 1</div>
+    <div class="quarto-category">Day 2</div>
   </div>
-</div>
+  </div>
+
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Meike Niederhausen and Nicky Wakim </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 16, 2023</p>
+      <p class="date">September 27, 2023</p>
     </div>
   </div>
   
-    <div>
-    <div class="quarto-title-meta-heading">Modified</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 22, 2023</p>
-    </div>
-  </div>
     
   </div>
   
 
 </header>
 
-<div class="cell">
-<style type="text/css">
-.title{
-  font-size: 40px;
-  color: #006a4e;
-  background-color: #fff;
-  padding: 10px;
-}
-
-.description{
-  font-size: 20px;
-  color: #fff;
-  background-color: #006a4e;
-  padding: 10px;
-}
-</style>
+<section id="basic-counting-examples" class="level1">
+<h1>Basic Counting Examples</h1>
+<section id="basic-counting-examples-13" class="level2">
+<h2 class="anchored" data-anchor-id="basic-counting-examples-13">Basic Counting Examples (1/3)</h2>
+<div class="example">
+<div class="ex-title">
+<p>Example 1</p>
 </div>
-<section id="resources" class="level2">
-<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<div class="ex-cont">
+<p>Suppose we have 10 (distinguishable) subjects for study.</p>
+<ol type="1">
+<li><p>How many possible ways are there to order them?</p></li>
+<li><p>How many ways to order them if we can reuse the same subject and</p>
+<ul>
+<li><p>need 10 total?</p></li>
+<li><p>need 6 total?</p></li>
+</ul></li>
+<li><p>How many ways to order them if without replacements and only need 6?</p></li>
+<li><p>How many ways to choose 6 subjects without replacement if the order doesn’t matter?</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="basic-counting-examples-23" class="level2">
+<h2 class="anchored" data-anchor-id="basic-counting-examples-23">Basic Counting Examples (2/3)</h2>
+<p>Suppose we have 10 (distinguishable) subjects for study.</p>
+<div class="example">
+<div class="ex-title">
+<p>Example 1.1</p>
+</div>
+<div class="ex-cont">
+<p>How many possible ways are there to order them?</p>
+</div>
+</div>
+<p><span class="math inline">\(10!\)</span></p>
+<div class="example">
+<div class="ex-title">
+<p>Example 1.2</p>
+</div>
+<div class="ex-cont">
+<p>How many ways to order them if we can reuse the same subject and</p>
+<ul>
+<li><p>need 10 total?</p></li>
+<li><p>need 6 total?</p></li>
+</ul>
+</div>
+</div>
+<ol type="1">
+<li><p>need 10 total?</p>
+<ul>
+<li><span class="math inline">\(10^{10}\)</span></li>
+</ul></li>
+<li><p>need 6 total?</p>
+<ul>
+<li><span class="math inline">\(10^6\)</span></li>
+</ul></li>
+</ol>
+</section>
+<section id="basic-counting-examples-33" class="level2">
+<h2 class="anchored" data-anchor-id="basic-counting-examples-33">Basic Counting Examples (3/3)</h2>
+<p>Suppose we have 10 (distinguishable) subjects for study.</p>
+<div class="example">
+<div class="ex-title">
+<p>Example 1.3</p>
+</div>
+<div class="ex-cont">
+<p>How many ways to order them if without replacements and only need 6?</p>
+</div>
+</div>
+<p><span class="math display">\[\frac{10!}{4!}=151,200\]</span></p>
+<div class="example">
+<div class="ex-title">
+<p>Example 1.4</p>
+</div>
+<div class="ex-cont">
+<p>How many ways to choose 6 subjects without replacement if the order doesn’t matter?</p>
+</div>
+</div>
+<p><span class="math display">\[\frac{\frac{10!}{4!}}{6!} = \frac{10!}{4!6!}=210\]</span></p>
+<p>There are <span class="math inline">\(6!\)</span> ways to order the 6 subjects.</p>
+</section>
+</section>
+<section id="permutations-and-combinations" class="level1">
+<h1>Permutations and Combinations</h1>
+<section id="permutations-and-combinations-1" class="level2">
+<h2 class="anchored" data-anchor-id="permutations-and-combinations-1">Permutations and Combinations</h2>
+<div class="definition">
+<div class="def-title">
+<p>Definition: Permutations</p>
+</div>
+<div class="def-cont">
+<p><strong>Permutations</strong> are the number of ways to arrange in order <span class="math inline">\(r\)</span> distinct objects when there are <span class="math inline">\(n\)</span> total.</p>
+<p><span class="math display">\[nPr = \frac{n!}{(n-r)!}\]</span></p>
+</div>
+</div>
+<div class="definition">
+<div class="def-title">
+<p>Definition: Combinations</p>
+</div>
+<div class="def-cont">
+<p><strong>Combinations</strong> are the number of ways to choose (order doesn’t matter) <span class="math inline">\(r\)</span> objects from <span class="math inline">\(n\)</span> without replacement.</p>
+<p><span class="math display">\[nCr = \textrm{"n choose r"} = \binom{n}{r} = \frac{n!}{r!(n-r)!}\]</span></p>
+</div>
+</div>
+</section>
+<section id="some-combinations-properties" class="level2">
+<h2 class="anchored" data-anchor-id="some-combinations-properties">Some combinations properties</h2>
+<ul>
+<li><p><span class="math display">\[\binom{n}{r} = \binom{n}{n-r}\]</span></p></li>
+<li><p><span class="math display">\[\binom{n}{1} = n\]</span></p></li>
+<li><p><span class="math display">\[\binom{n}{0} = 1\]</span></p></li>
+</ul>
+</section>
+</section>
+<section id="more-examples-order-matters-vs.-not" class="level1">
+<h1>More Examples: order matters vs.&nbsp;not</h1>
+<section id="more-examples-order-matters-vs.-not-12" class="level2">
+<h2 class="anchored" data-anchor-id="more-examples-order-matters-vs.-not-12">More examples: order matters vs.&nbsp;not (1/2)</h2>
+<div class="example">
+<div class="ex-title">
+<p>Example 2</p>
+</div>
+<div class="ex-cont">
+<p>Suppose we draw 2 cards from a standard deck without replacement. What is the probability that both are spades when</p>
+<ol type="1">
+<li><p>order matters?</p></li>
+<li><p>order doesn’t matter?</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="more-examples-order-matters-vs.-not-22" class="level2">
+<h2 class="anchored" data-anchor-id="more-examples-order-matters-vs.-not-22">More examples: order matters vs.&nbsp;not (2/2)</h2>
+<p>Suppose we draw 2 cards from a standard deck without replacement. What is the probability that both are spades when</p>
+<ol type="1">
+<li><p>order matters?</p>
+<ul>
+<li><span class="math display">\[\frac{13P2}{52P2} = \frac{\frac{13!}{11!}}{\frac{52!}{50!}} = \frac{13\cdot12}{52\cdot51}\]</span></li>
+</ul></li>
+<li><p>order doesn’t matter?</p>
+<ul>
+<li><span class="math display">\[\frac{\binom{13}{2}}{\binom{52}{2}} = \frac{\frac{13!}{2!11!}}{\frac{52!}{2!50!}} = \frac{13\cdot12}{52\cdot51}\]</span></li>
+</ul></li>
+</ol>
+</section>
+<section id="table-of-different-cases" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-different-cases">Table of different cases</h2>
+<p>See table on pg. 277 of textbook</p>
+<ul>
+<li><p><span class="math inline">\(n\)</span> = total number of objects</p></li>
+<li><p><span class="math inline">\(r\)</span> = number objects needed</p>
 <table class="table">
 <colgroup>
-<col style="width: 3%">
-<col style="width: 15%">
-<col style="width: 26%">
-<col style="width: 31%">
-<col style="width: 23%">
+<col style="width: 27%">
+<col style="width: 33%">
+<col style="width: 38%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Chapter</th>
-<th>Topic</th>
-<th style="text-align: center;">Slides</th>
-<th style="text-align: center;">Annotated Slides</th>
-<th style="text-align: center;">Recording</th>
+<th style="text-align: right;"></th>
+<th>with replacement</th>
+<th style="text-align: left;">without replacement</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>10</td>
-<td>Expected Values of discrete RVs</td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
+<td style="text-align: right;"><strong>order matters</strong></td>
+<td><span class="math inline">\(n^r\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(nPr = \frac{n!}{(n-r)!}\)</span></td>
 </tr>
 <tr class="even">
-<td>11</td>
-<td>Expected Values of <em>sums of</em> discrete RVs</td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
+<td style="text-align: right;"><strong>order doesn’t matter</strong></td>
+<td><span class="math inline">\(\binom{n+r-1}{r}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(nCr = \binom{n}{r} = \frac{n!}{r!(n-r)!}\)</span></td>
 </tr>
 </tbody>
-</table>
-<p>For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:</p>
-<ol type="1">
-<li>Click on the icon with three horizontal bars on the bottom left of the browser.</li>
-<li>Click on “Tools” with the gear icon at the top of the sidebar.</li>
-<li>Click on “PDF Export Mode.”</li>
-<li>From there, you can print or save the PDF as you would normally from your internet browser.</li>
-</ol>
-</section>
-<section id="on-the-horizon" class="level2">
-<h2 class="anchored" data-anchor-id="on-the-horizon">On the Horizon</h2>
-</section>
-<section id="class-exit-tickets" class="level2">
-<h2 class="anchored" data-anchor-id="class-exit-tickets">Class Exit Tickets</h2>
-<p><span style="color:#f8f5f0;"><iconify-icon inline="" icon="healthicons:health-worker-form-negative" style="font-size: 30px;"></iconify-icon></span> Monday (10/16)</p>
-<p><span style="color:#f8f5f0;"><iconify-icon inline="" icon="healthicons:health-worker-form-negative" style="font-size: 30px;"></iconify-icon></span> Wednesday (10/18)</p>
-</section>
-<section id="additional-information" class="level2">
-<h2 class="anchored" data-anchor-id="additional-information">Additional Information</h2>
-</section>
-<section id="statistician-of-the-week-joy-buolamwini" class="level2">
-<h2 class="anchored" data-anchor-id="statistician-of-the-week-joy-buolamwini">Statistician of the Week: Joy Buolamwini</h2>
-<div class="grid">
-<div class="g-col-4">
-<div class="cell" data-preview="true">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/stat_of_week/buolamwini.jpg" class="img-fluid figure-img" alt="Image credit: Joy Buolamwini"></p>
-<figcaption class="figure-caption">Joy Buolamwini</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="g-col-8">
-<p>Dr.&nbsp;Buolamwini earned a BS in Computer Science from Georgia Institute of Technology, an Master’s from University of Oxford, and MS and PhD (2022) degrees in Media Arts &amp; Sciences from Massachusetts Institute of Technology. While a graduate student, Dr.&nbsp;Buolamwini was part of the <a href="https://www.media.mit.edu/" target="_blank">MIT Media Lab</a>. Additionally, she is the founder of the <a href="https://www.ajl.org/" target="_blank">Algorithmic Justice League</a>.</p>
-</div>
-</div>
-<section id="topics-covered" class="level4">
-<h4 class="anchored" data-anchor-id="topics-covered">Topics covered</h4>
-<p>Dr.&nbsp;Buolamwini has done substantial work demonstrating how algorithms can encode bias. Her undergraduate senior project was to create a inspired “mask” mirror as a way to raise spirits for the person who looked into the mirror. The project relied on off the shelf facial recognition software that could not recognize Dr.&nbsp;Buolamwini’s face.</p>
-<p>Since then, she has focused her work on demonstrating bias across racial and gender spectra in off the shelf software. Her work has been <a href="https://www.biometricupdate.com/202003/tech-giants-pressured-to-follow-google-in-removing-gender-labels-from-computer-vision-services" target="_blank">cited</a> as directly influencing Microsoft and Google’s changes to their algorithms.</p>
-<p>Among many other aspects, a big focus of Dr.&nbsp;Buolamwini’s work is pointing out the biased data which directly impacts how algorithms learn how to do tasks.</p>
-</section>
-<section id="relevant-work" class="level4">
-<h4 class="anchored" data-anchor-id="relevant-work">Relevant work</h4>
-<ul>
-<li><p>Buolamwini, J., Gebru, T. <a href="https://proceedings.mlr.press/v81/buolamwini18a/buolamwini18a.pdf" target="_blank">Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification.</a> Proceedings of Machine Learning Research 81:1–15, 2018 Conference on Fairness, Accountability, and Transparency.</p></li>
-<li><p>Raji, I &amp; Buolamwini, J. <a href="https://doi.org/10.1145/3306618.3314244" target="_blank">Actionable Auditing: Investigating the Impact of Publicly Naming Biased Performance Results of Commercial AI Products.</a> Conference on Artificial Intelligence, Ethics, and Society, 2019</p></li>
+</table></li>
 </ul>
-</section>
-<section id="outside-links" class="level4">
-<h4 class="anchored" data-anchor-id="outside-links">Outside links</h4>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Joy_Buolamwini">Wikipedia</a></li>
-<li><a href="https://www.linkedin.com/in/buolamwini/">Linkedin</a></li>
-<li><a href="https://www.poetofcode.com/">personal</a></li>
-</ul>
-</section>
-<section id="other" class="level4">
-<h4 class="anchored" data-anchor-id="other">Other</h4>
-<p>Dr.&nbsp;Buolamwini has done a lot of work on how data propagates through systems to encode the same types of bias into different algorithms. In her video <a href="https://www.youtube.com/watch?v=QxuyfWoVV98" target="_blank">AI, Ain’t I a Woman?</a> she demonstrates how systems designed to determine gender are particularly poor when using dark skinned faces.</p>
-<p>Her work was featured in a recent documentary <a href="https://www.codedbias.com/" target="_blank">Coded Bias</a>.</p>
-<p><strong>Please note the statisticians of the week are taken directly from the <a href="https://hardin47.github.io/CURV/">CURV project by Jo Hardin</a>.</strong></p>
-</section>
-</section>
-<section id="muddiest-points" class="level2">
-<h2 class="anchored" data-anchor-id="muddiest-points">Muddiest Points</h2>
-<p>This will be filled in with your Exit Ticket responses.</p>
-</section>
-<section id="clearest-points" class="level2">
-<h2 class="anchored" data-anchor-id="clearest-points">Clearest Points</h2>
-<p>This will be filled in with your Exit Ticket responses.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -698,20 +761,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-      }
-    }
 });
 </script>
 </div> <!-- /content -->

@@ -5,9 +5,10 @@ format:
     listing: 
       contents: slides
       type: table
-      fields: [date, title, categories, reading-time]
+      fields: [date, title, categories]
       table-hover: true
       sort: "date asc"
       date-format: "short"
+      categories: true
     link-external-newwindow: true
 ---

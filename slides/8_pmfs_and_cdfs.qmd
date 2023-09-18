@@ -2,7 +2,7 @@
 title: "Chapter 8: Probability Mass Functions (pmf's) and Cumulative Distribution Functions (cdf's)"
 author: "Meike Niederhausen"
 date: "10/06/2023"
-categories: ["Day 5"]
+categories: ["Week 3"]
 format: 
   revealjs:
     theme: [default, simple_NW.scss]
@@ -43,8 +43,7 @@ format:
 
     -   The collection of all pmf's for different values of the parameters is called a *family* of pmf's.
 
-
-## Slide 3 
+## Slide 3
 
 ::: example
 **Example 3** (Binomial family of r.v.'s). *Suppose you toss* $n$ coins, each with probability of heads $p$. If $X$ is the number of heads, what is the pmf of $X$?
@@ -59,7 +58,6 @@ format:
 :::
 
 **Solution:**
-
 
 ## Slide 5
 

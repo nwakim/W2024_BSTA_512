@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-10-16">
-<meta name="description" content="Expected values of discrete random variables">
+<meta name="author" content="Meike Niederhausen">
+<meta name="dcterms.date" content="2023-09-25">
 
-<title>Introduction to Probability - Week 4</title>
+<title>Introduction to Probability - Chapter 1: Outcomes, Events, and Sample Spaces</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -41,7 +41,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/iconify-1.0.0-beta.2/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -63,6 +62,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -113,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../class_slides.html">Course Materials</a></li><li class="breadcrumb-item"><a href="../schedule.html">Weekly Pages</a></li><li class="breadcrumb-item"><a href="../schedule/week_01_sched.html">Schedule</a></li><li class="breadcrumb-item"><a href="../schedule/week_04_sched.html">Week 4</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Chapter 1: Outcomes, Events, and Sample Spaces</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -227,7 +228,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../schedule/week_04_sched.html" class="sidebar-item-text sidebar-link active">
+  <a href="../schedule/week_04_sched.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 4</span></a>
   </div>
 </li>
@@ -289,181 +290,300 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#resources" id="toc-resources" class="nav-link active" data-scroll-target="#resources">Resources</a></li>
-  <li><a href="#on-the-horizon" id="toc-on-the-horizon" class="nav-link" data-scroll-target="#on-the-horizon">On the Horizon</a></li>
-  <li><a href="#class-exit-tickets" id="toc-class-exit-tickets" class="nav-link" data-scroll-target="#class-exit-tickets">Class Exit Tickets</a></li>
-  <li><a href="#additional-information" id="toc-additional-information" class="nav-link" data-scroll-target="#additional-information">Additional Information</a></li>
-  <li><a href="#statistician-of-the-week-joy-buolamwini" id="toc-statistician-of-the-week-joy-buolamwini" class="nav-link" data-scroll-target="#statistician-of-the-week-joy-buolamwini">Statistician of the Week: Joy Buolamwini</a></li>
-  <li><a href="#muddiest-points" id="toc-muddiest-points" class="nav-link" data-scroll-target="#muddiest-points">Muddiest Points</a></li>
-  <li><a href="#clearest-points" id="toc-clearest-points" class="nav-link" data-scroll-target="#clearest-points">Clearest Points</a></li>
+  <li><a href="#tossing-one-coin-outcomes-events-and-sample-space" id="toc-tossing-one-coin-outcomes-events-and-sample-space" class="nav-link active" data-scroll-target="#tossing-one-coin-outcomes-events-and-sample-space">Tossing One Coin (Outcomes, Events, and Sample Space)</a>
+  <ul class="collapse">
+  <li><a href="#coin-toss-example-1-coin-13" id="toc-coin-toss-example-1-coin-13" class="nav-link" data-scroll-target="#coin-toss-example-1-coin-13">Coin Toss Example: 1 coin (1/3)</a></li>
+  <li><a href="#coin-toss-example-1-coin-23" id="toc-coin-toss-example-1-coin-23" class="nav-link" data-scroll-target="#coin-toss-example-1-coin-23">Coin Toss Example: 1 coin (2/3)</a></li>
+  <li><a href="#coin-toss-example-1-coin-33" id="toc-coin-toss-example-1-coin-33" class="nav-link" data-scroll-target="#coin-toss-example-1-coin-33">Coin Toss Example: 1 coin (3/3)</a></li>
+  </ul></li>
+  <li><a href="#tossing-two-coins-outcomes-events-and-sample-space" id="toc-tossing-two-coins-outcomes-events-and-sample-space" class="nav-link" data-scroll-target="#tossing-two-coins-outcomes-events-and-sample-space">Tossing Two Coins (Outcomes, Events, and Sample Space)</a>
+  <ul class="collapse">
+  <li><a href="#coin-toss-example-2-coins" id="toc-coin-toss-example-2-coins" class="nav-link" data-scroll-target="#coin-toss-example-2-coins">Coin Toss Example: 2 coins</a></li>
+  <li><a href="#more-info-on-events-and-sample-spaces" id="toc-more-info-on-events-and-sample-spaces" class="nav-link" data-scroll-target="#more-info-on-events-and-sample-spaces">More info on events and sample spaces</a></li>
+  <li><a href="#example-keep-sampling-until" id="toc-example-keep-sampling-until" class="nav-link" data-scroll-target="#example-keep-sampling-until">Example: Keep sampling until…</a></li>
+  </ul></li>
+  <li><a href="#set-theory" id="toc-set-theory" class="nav-link" data-scroll-target="#set-theory">Set Theory</a>
+  <ul class="collapse">
+  <li><a href="#set-theory-12" id="toc-set-theory-12" class="nav-link" data-scroll-target="#set-theory-12">Set Theory (1/2)</a></li>
+  <li><a href="#set-theory-22" id="toc-set-theory-22" class="nav-link" data-scroll-target="#set-theory-22">Set Theory (2/2)</a></li>
+  <li><a href="#bp-example-variation-13" id="toc-bp-example-variation-13" class="nav-link" data-scroll-target="#bp-example-variation-13">BP example variation (1/3)</a></li>
+  <li><a href="#bp-example-variation-23" id="toc-bp-example-variation-23" class="nav-link" data-scroll-target="#bp-example-variation-23">BP example variation (2/3)</a></li>
+  <li><a href="#bp-example-variation-33" id="toc-bp-example-variation-33" class="nav-link" data-scroll-target="#bp-example-variation-33">BP example variation (3/3)</a></li>
+  <li><a href="#de-morgans-laws" id="toc-de-morgans-laws" class="nav-link" data-scroll-target="#de-morgans-laws">De Morgan’s Laws</a></li>
+  <li><a href="#remarks-on-de-morgans-laws" id="toc-remarks-on-de-morgans-laws" class="nav-link" data-scroll-target="#remarks-on-de-morgans-laws">Remarks on De Morgan’s Laws</a></li>
+  </ul></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="1_Outcomes_Events_Sample_space-solutions.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 4</h1>
-</div>
-
-<div>
-  <div class="description">
-    Expected values of discrete random variables
+<h1 class="title">Chapter 1: Outcomes, Events, and Sample Spaces</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Week 1</div>
+    <div class="quarto-category">Day 1</div>
   </div>
-</div>
+  </div>
+
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Meike Niederhausen </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 16, 2023</p>
+      <p class="date">September 25, 2023</p>
     </div>
   </div>
   
-    <div>
-    <div class="quarto-title-meta-heading">Modified</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 22, 2023</p>
-    </div>
-  </div>
     
   </div>
   
 
 </header>
 
-<div class="cell">
-<style type="text/css">
-.title{
-  font-size: 40px;
-  color: #006a4e;
-  background-color: #fff;
-  padding: 10px;
-}
-
-.description{
-  font-size: 20px;
-  color: #fff;
-  background-color: #006a4e;
-  padding: 10px;
-}
-</style>
+<section id="tossing-one-coin-outcomes-events-and-sample-space" class="level1">
+<h1>Tossing One Coin (Outcomes, Events, and Sample Space)</h1>
+<section id="coin-toss-example-1-coin-13" class="level2">
+<h2 class="anchored" data-anchor-id="coin-toss-example-1-coin-13">Coin Toss Example: 1 coin (1/3)</h2>
+<p><strong>Suppose you toss one coin.</strong></p>
+<ul>
+<li><p>What are the possible outcomes?</p>
+<p>&nbsp;</p></li>
+<li><p>What is the sample space?</p>
+<p>&nbsp;</p></li>
+<li><p>What are the possible events?</p></li>
+</ul>
+</section>
+<section id="coin-toss-example-1-coin-23" class="level2">
+<h2 class="anchored" data-anchor-id="coin-toss-example-1-coin-23">Coin Toss Example: 1 coin (2/3)</h2>
+<p><strong>Suppose you toss one coin.</strong></p>
+<ul>
+<li><p>What are the possible outcomes?</p>
+<ul>
+<li><p>Heads (<span class="math inline">\(H\)</span>)</p></li>
+<li><p>Tails (<span class="math inline">\(T\)</span>)</p></li>
+</ul>
+<p><strong>Note:</strong> When something happens at random, such as a coin toss, there are several possible outcomes, and <em>exactly one</em> of the outcomes will occur.</p></li>
+</ul>
+</section>
+<section id="coin-toss-example-1-coin-33" class="level2">
+<h2 class="anchored" data-anchor-id="coin-toss-example-1-coin-33">Coin Toss Example: 1 coin (3/3)</h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="definition">
+<div class="def-title">
+<p>Definition: Sample Space</p>
 </div>
-<section id="resources" class="level2">
-<h2 class="anchored" data-anchor-id="resources">Resources</h2>
-<table class="table">
-<colgroup>
-<col style="width: 3%">
-<col style="width: 15%">
-<col style="width: 26%">
-<col style="width: 31%">
-<col style="width: 23%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Chapter</th>
-<th>Topic</th>
-<th style="text-align: center;">Slides</th>
-<th style="text-align: center;">Annotated Slides</th>
-<th style="text-align: center;">Recording</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>10</td>
-<td>Expected Values of discrete RVs</td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
-</tr>
-<tr class="even">
-<td>11</td>
-<td>Expected Values of <em>sums of</em> discrete RVs</td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
-</tr>
-</tbody>
-</table>
-<p>For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:</p>
+<div class="def-cont">
+<p>The <strong>sample space</strong> <span class="math inline">\(S\)</span> is the set of <em>all</em> possible outcomes.</p>
+</div>
+</div>
+<div class="definition">
+<div class="def-title">
+<p>Definition: Event</p>
+</div>
+<div class="def-cont">
+<p>An <strong>event</strong> is a collection of <em>some</em> possible outcomes.</p>
+</div>
+</div>
+</div><div class="column" style="width:65%;">
+<ul>
+<li><p>What is the sample space?</p>
+<ul>
+<li><span class="math inline">\(S = \{H, T\}\)</span></li>
+</ul></li>
+<li><p>What are the possible events?</p>
+<ul>
+<li><p><span class="math inline">\(\{H\}\)</span></p></li>
+<li><p><span class="math inline">\(\{T\}\)</span></p></li>
+<li><p><span class="math inline">\(\{H, T\}\)</span></p></li>
+<li><p><span class="math inline">\(\emptyset\)</span></p></li>
+</ul>
+<p>&nbsp;</p>
+<p>When thinking about events, think about outcomes that you might be asking the probability of.</p></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="tossing-two-coins-outcomes-events-and-sample-space" class="level1">
+<h1>Tossing Two Coins (Outcomes, Events, and Sample Space)</h1>
+<section id="coin-toss-example-2-coins" class="level2">
+<h2 class="anchored" data-anchor-id="coin-toss-example-2-coins">Coin Toss Example: 2 coins</h2>
+<p><strong>Suppose you toss two coins.</strong></p>
+<ul>
+<li><p>What is the sample space? <em>Assume the coins are distinguishable</em></p>
+<ul>
+<li><span class="math inline">\(S =\)</span> <span class="math display">\[S = \{HH, TT, HT, TH\}\]</span></li>
+</ul></li>
+<li><p>What are some possible events?</p>
+<ul>
+<li><p><span class="math inline">\(A\)</span> = exactly one <span class="math inline">\(H\)</span> = <span class="math inline">\(\{HT, TH\}\)</span></p></li>
+<li><p><span class="math inline">\(B\)</span> = at least one <span class="math inline">\(H\)</span> = <span class="math inline">\(\{HH, HT, TH\}\)</span></p></li>
+<li></li>
+<li></li>
+</ul></li>
+</ul>
+</section>
+<section id="more-info-on-events-and-sample-spaces" class="level2">
+<h2 class="anchored" data-anchor-id="more-info-on-events-and-sample-spaces">More info on events and sample spaces</h2>
+<ul>
+<li><p>We usually use capital letters from the beginning of the alphabet to denote events. However, other letters might be chosen to be more descriptive.</p></li>
+<li><p>We use the notation <span class="math inline">\(|S|\)</span> to denote the <strong>size</strong> of the sample space.</p></li>
+<li><p>The total number of possible events is <span class="math inline">\(2^{|S|}\)</span>, which is the total number of possible subsets of <span class="math inline">\(S\)</span>. We will prove this later in the course.</p></li>
+<li><p>The <strong>empty set</strong>, denoted by <span class="math inline">\(\emptyset\)</span>, is the set containing no outcomes.</p></li>
+</ul>
+</section>
+<section id="example-keep-sampling-until" class="level2">
+<h2 class="anchored" data-anchor-id="example-keep-sampling-until">Example: Keep sampling until…</h2>
+<p><strong>Suppose you keep sampling people until you have someone with high blood pressure (BP). What is the sample space?</strong></p>
+<ul>
+<li><p>Let <span class="math inline">\(H =\)</span> denote someone with high BP.</p></li>
+<li><p>Let <span class="math inline">\(H^C =\)</span> denote someone with not high blood pressure, such as low or regular BP.</p></li>
+<li><p>Then, <span class="math inline">\(S =\)</span></p></li>
+</ul>
+<p><span class="math display">\[S = \{H, (H, H^C), (H, H, H^C), (H, H, H, H^C), \ldots\]</span></p>
+</section>
+</section>
+<section id="set-theory" class="level1">
+<h1>Set Theory</h1>
+<section id="set-theory-12" class="level2">
+<h2 class="anchored" data-anchor-id="set-theory-12">Set Theory (1/2)</h2>
+<div class="columns">
+<div class="column">
+<div class="definition">
+<div class="def-title">
+<p>Definition: Union</p>
+</div>
+<div class="def-cont">
+<p>The <strong>union</strong> of events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, denoted by <span class="math inline">\(A \cup B\)</span>, contains all outcomes that are in <span class="math inline">\(A\)</span> <em>or</em> <span class="math inline">\(B\)</span>.</p>
+</div>
+</div>
+<div class="definition">
+<div class="def-title">
+<p>Definition: Intersection</p>
+</div>
+<div class="def-cont">
+<p>The <strong>intersection</strong> of events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, denoted by <span class="math inline">\(A \cap B\)</span>, contains all outcomes that are both in <span class="math inline">\(A\)</span> <em>and</em> <span class="math inline">\(B\)</span>.</p>
+</div>
+</div>
+</div><div class="column">
+<p>Venn diagrams</p>
+</div>
+</div>
+</section>
+<section id="set-theory-22" class="level2">
+<h2 class="anchored" data-anchor-id="set-theory-22">Set Theory (2/2)</h2>
+<div class="columns">
+<div class="column">
+<div class="definition">
+<div class="def-title">
+<p>Definition: Complement</p>
+</div>
+<div class="def-cont">
+<p>The <strong>complement</strong> of event <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(A^C\)</span> or <span class="math inline">\(A'\)</span>, contains all outcomes in the sample space <span class="math inline">\(S\)</span> that are <em>not</em> in <span class="math inline">\(A\)</span> .</p>
+</div>
+</div>
+<div class="definition">
+<div class="def-title">
+<p>Definition: Mutually Exclusive</p>
+</div>
+<div class="def-cont">
+<p>Events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <strong>mutually exclusive</strong>, or disjoint, if they have no outcomes in common. In this case <span class="math inline">\(A \cap B = \emptyset\)</span>, where <span class="math inline">\(\emptyset\)</span> is the empty set.</p>
+</div>
+</div>
+</div><div class="column">
+<p>Venn diagrams</p>
+</div>
+</div>
+</section>
+<section id="bp-example-variation-13" class="level2">
+<h2 class="anchored" data-anchor-id="bp-example-variation-13">BP example variation (1/3)</h2>
+<ul>
+<li><p>Suppose you have <span class="math inline">\(n\)</span> subjects in a study.</p></li>
+<li><p>Let <span class="math inline">\(H_i\)</span> be the event that person <span class="math inline">\(i\)</span> has high BP, for <span class="math inline">\(i=1\ldots n\)</span>.</p></li>
+</ul>
+<p>Use set theory notation to denote the following events:</p>
 <ol type="1">
-<li>Click on the icon with three horizontal bars on the bottom left of the browser.</li>
-<li>Click on “Tools” with the gear icon at the top of the sidebar.</li>
-<li>Click on “PDF Export Mode.”</li>
-<li>From there, you can print or save the PDF as you would normally from your internet browser.</li>
+<li><p>Event subject <span class="math inline">\(i\)</span> does not have high BP</p></li>
+<li><p>Event all <span class="math inline">\(n\)</span> subjects have high BP</p></li>
+<li><p>Event at least one subject has high BP</p></li>
+<li><p>Event all of them do not have high BP</p></li>
+<li><p>Event at least one subject does not have high BP</p></li>
 </ol>
 </section>
-<section id="on-the-horizon" class="level2">
-<h2 class="anchored" data-anchor-id="on-the-horizon">On the Horizon</h2>
-</section>
-<section id="class-exit-tickets" class="level2">
-<h2 class="anchored" data-anchor-id="class-exit-tickets">Class Exit Tickets</h2>
-<p><span style="color:#f8f5f0;"><iconify-icon inline="" icon="healthicons:health-worker-form-negative" style="font-size: 30px;"></iconify-icon></span> Monday (10/16)</p>
-<p><span style="color:#f8f5f0;"><iconify-icon inline="" icon="healthicons:health-worker-form-negative" style="font-size: 30px;"></iconify-icon></span> Wednesday (10/18)</p>
-</section>
-<section id="additional-information" class="level2">
-<h2 class="anchored" data-anchor-id="additional-information">Additional Information</h2>
-</section>
-<section id="statistician-of-the-week-joy-buolamwini" class="level2">
-<h2 class="anchored" data-anchor-id="statistician-of-the-week-joy-buolamwini">Statistician of the Week: Joy Buolamwini</h2>
-<div class="grid">
-<div class="g-col-4">
-<div class="cell" data-preview="true">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/stat_of_week/buolamwini.jpg" class="img-fluid figure-img" alt="Image credit: Joy Buolamwini"></p>
-<figcaption class="figure-caption">Joy Buolamwini</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="g-col-8">
-<p>Dr.&nbsp;Buolamwini earned a BS in Computer Science from Georgia Institute of Technology, an Master’s from University of Oxford, and MS and PhD (2022) degrees in Media Arts &amp; Sciences from Massachusetts Institute of Technology. While a graduate student, Dr.&nbsp;Buolamwini was part of the <a href="https://www.media.mit.edu/" target="_blank">MIT Media Lab</a>. Additionally, she is the founder of the <a href="https://www.ajl.org/" target="_blank">Algorithmic Justice League</a>.</p>
-</div>
-</div>
-<section id="topics-covered" class="level4">
-<h4 class="anchored" data-anchor-id="topics-covered">Topics covered</h4>
-<p>Dr.&nbsp;Buolamwini has done substantial work demonstrating how algorithms can encode bias. Her undergraduate senior project was to create a inspired “mask” mirror as a way to raise spirits for the person who looked into the mirror. The project relied on off the shelf facial recognition software that could not recognize Dr.&nbsp;Buolamwini’s face.</p>
-<p>Since then, she has focused her work on demonstrating bias across racial and gender spectra in off the shelf software. Her work has been <a href="https://www.biometricupdate.com/202003/tech-giants-pressured-to-follow-google-in-removing-gender-labels-from-computer-vision-services" target="_blank">cited</a> as directly influencing Microsoft and Google’s changes to their algorithms.</p>
-<p>Among many other aspects, a big focus of Dr.&nbsp;Buolamwini’s work is pointing out the biased data which directly impacts how algorithms learn how to do tasks.</p>
-</section>
-<section id="relevant-work" class="level4">
-<h4 class="anchored" data-anchor-id="relevant-work">Relevant work</h4>
+<section id="bp-example-variation-23" class="level2">
+<h2 class="anchored" data-anchor-id="bp-example-variation-23">BP example variation (2/3)</h2>
 <ul>
-<li><p>Buolamwini, J., Gebru, T. <a href="https://proceedings.mlr.press/v81/buolamwini18a/buolamwini18a.pdf" target="_blank">Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification.</a> Proceedings of Machine Learning Research 81:1–15, 2018 Conference on Fairness, Accountability, and Transparency.</p></li>
-<li><p>Raji, I &amp; Buolamwini, J. <a href="https://doi.org/10.1145/3306618.3314244" target="_blank">Actionable Auditing: Investigating the Impact of Publicly Naming Biased Performance Results of Commercial AI Products.</a> Conference on Artificial Intelligence, Ethics, and Society, 2019</p></li>
+<li><p>Suppose you have <span class="math inline">\(n\)</span> subjects in a study.</p></li>
+<li><p>Let <span class="math inline">\(H_i\)</span> be the event that person <span class="math inline">\(i\)</span> has high BP, for <span class="math inline">\(i=1\ldots n\)</span>.</p></li>
 </ul>
+<p>Use set theory notation to denote the following events:</p>
+<ol type="1">
+<li><p>Event subject <span class="math inline">\(i\)</span> does not have high BP</p>
+<p><span class="math display">\[H_i^C\]</span></p></li>
+<li><p>Event all <span class="math inline">\(n\)</span> subjects have high BP</p>
+<p><span class="math display">\[H_1 \textrm{ and } H_2 \textrm{ and } \ldots = \bigcap\limits_{i=1}^{n}H_i\]</span></p></li>
+<li><p>Event at least one subject has high BP</p>
+<p><span class="math display">\[H_1 \textrm{ or } H_2 \textrm{ or } \ldots = \bigcup\limits_{i=1}^{n}H_i\]</span></p></li>
+</ol>
 </section>
-<section id="outside-links" class="level4">
-<h4 class="anchored" data-anchor-id="outside-links">Outside links</h4>
+<section id="bp-example-variation-33" class="level2">
+<h2 class="anchored" data-anchor-id="bp-example-variation-33">BP example variation (3/3)</h2>
+<ol start="4" type="1">
+<li><p>Event all of them do not have high BP</p>
+<p><span class="math inline">\(H_1^C\)</span> and <span class="math inline">\(H_2^C\)</span> and... <span class="math display">\[\bigcap\limits_{i=1}^{n}H_i^C = \Big(\bigcup\limits_{i=1}^{n}H_i\Big)^C\]</span> = complement of at least one person having high BP</p></li>
+<li><p>Event at least one subject does not have high BP</p>
+<p><span class="math inline">\(H_1^C\)</span> or <span class="math inline">\(H_2^C\)</span> or... <span class="math display">\[\bigcup\limits_{i=1}^{n}H_i^C = \Big(\bigcap\limits_{i=1}^{n}H_i\Big)^C\]</span> = complement of all having high BP</p></li>
+</ol>
+</section>
+<section id="de-morgans-laws" class="level2">
+<h2 class="anchored" data-anchor-id="de-morgans-laws">De Morgan’s Laws</h2>
+<div class="theorem">
+<div class="thm-title">
+<p>Theorem: De Morgan’s 1st Law</p>
+</div>
+<div class="thm-cont">
+<p>For a collection of events (sets) <span class="math inline">\(A_1, A_2, A_3, \ldots\)</span></p>
+<p><span class="math display">\[\bigcap\limits_{i=1}^{n}A_i^C = \Big(\bigcup\limits_{i=1}^{n}A_i\Big)^C\]</span></p>
+</div>
+</div>
+<p>“all not A = <span class="math inline">\((\)</span>at least one event A<span class="math inline">\()^C\)</span>”</p>
+<div class="theorem">
+<div class="thm-title">
+<p>Theorem: De Morgan’s 2nd Law</p>
+</div>
+<div class="thm-cont">
+<p>For a collection of events (sets) <span class="math inline">\(A_1, A_2, A_3, \ldots\)</span></p>
+<p><span class="math display">\[\bigcup\limits_{i=1}^{n}A_i^C = \Big(\bigcap\limits_{i=1}^{n}A_i\Big)^C\]</span></p>
+</div>
+</div>
+<p>“at least one event not A = <span class="math inline">\((\)</span>all A<span class="math inline">\()^C\)</span>”</p>
+</section>
+<section id="remarks-on-de-morgans-laws" class="level2">
+<h2 class="anchored" data-anchor-id="remarks-on-de-morgans-laws">Remarks on De Morgan’s Laws</h2>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Joy_Buolamwini">Wikipedia</a></li>
-<li><a href="https://www.linkedin.com/in/buolamwini/">Linkedin</a></li>
-<li><a href="https://www.poetofcode.com/">personal</a></li>
+<li><p>These laws also hold for infinite collections of events.</p></li>
+<li><p>Draw Venn diagrams to convince yourself that these are true!</p></li>
+<li><p>These laws are <em>very</em> useful when calculating probabilities.</p>
+<ul>
+<li><p>This is because calculating the probability of the intersection of events is often much easier than the union of events.</p></li>
+<li><p>This is not obvious right now, but we will see in the coming chapters why.</p></li>
+</ul></li>
 </ul>
-</section>
-<section id="other" class="level4">
-<h4 class="anchored" data-anchor-id="other">Other</h4>
-<p>Dr.&nbsp;Buolamwini has done a lot of work on how data propagates through systems to encode the same types of bias into different algorithms. In her video <a href="https://www.youtube.com/watch?v=QxuyfWoVV98" target="_blank">AI, Ain’t I a Woman?</a> she demonstrates how systems designed to determine gender are particularly poor when using dark skinned faces.</p>
-<p>Her work was featured in a recent documentary <a href="https://www.codedbias.com/" target="_blank">Coded Bias</a>.</p>
-<p><strong>Please note the statisticians of the week are taken directly from the <a href="https://hardin47.github.io/CURV/">CURV project by Jo Hardin</a>.</strong></p>
-</section>
-</section>
-<section id="muddiest-points" class="level2">
-<h2 class="anchored" data-anchor-id="muddiest-points">Muddiest Points</h2>
-<p>This will be filled in with your Exit Ticket responses.</p>
-</section>
-<section id="clearest-points" class="level2">
-<h2 class="anchored" data-anchor-id="clearest-points">Clearest Points</h2>
-<p>This will be filled in with your Exit Ticket responses.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -698,20 +818,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-      }
-    }
 });
 </script>
 </div> <!-- /content -->

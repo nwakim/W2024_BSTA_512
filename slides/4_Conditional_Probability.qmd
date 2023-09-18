@@ -2,7 +2,7 @@
 title: "Chapter 4: Conditional Probability"
 author: "Meike Niederhausen"
 date: "10/04/2023"
-categories: ["Day 4"]
+categories: ["Week 2"]
 format: 
   revealjs:
     theme: [default, simple_NW.scss]

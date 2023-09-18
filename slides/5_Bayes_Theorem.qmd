@@ -2,7 +2,7 @@
 title: "Chapter 5: Bayes' Theorem"
 author: "Meike Niederhausen"
 date: "10/04/2023"
-categories: ["Week 2", " Day 4"]
+categories: ["Week 2"]
 format: 
   revealjs:
     theme: [default, simple_NW.scss]

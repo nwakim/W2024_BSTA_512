@@ -31,7 +31,7 @@ editor_options:
 ## Resources
 
 | Chapter | Topic                    |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
-|---------------|---------------|:-------------:|:-------------:|:-------------:|
+|---------|--------------------------|:---------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:-------------------------------------------------------------:|
 | 12      | Variance of discrete RVs | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 13      |                          | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 14      | Bernoulli RV             | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
@@ -59,48 +59,41 @@ For the slides, once they are opened, if you would like to print or save them as
 
 ## Statistician of the Week: Liz Hare
 
-::: {.grid}
-
-::: {.g-col-4}
+::: grid
+::: g-col-4
 ```{r fig.cap = "Liz Hare", fig.alt = "Image credit: ", preview = TRUE, echo = FALSE}
 knitr::include_graphics("../images/stat_of_week/hare.jpg")
 ```
 :::
 
-:::{.g-col-8}
-
+::: g-col-8
 Dr. Hare got her BA from Bryn Mawr College and her PhD in Genetics (1998) from The George Washington University. She works primarily in dog / animal genetics; although, as a quantitative geneticist her statistical and computational methodology is quite sophisticated.
 
 Dr. Hare is active in the <a href = "https://mircommunity.com/about/" target = "_blank">MiR (Minorities in R) Community</a> which aims to support historically underrepresented R users around the world.
-
 :::
-
 :::
-
 
 #### Topics covered
 
-Her computational language of choice is `R`, and much of her work has focused on open science with an eye toward inclusion and equity.  In many software programs, the user has the ability to include **alt text**: text descriptions
-that convey the content and meaning to blind and low-vision
-readers.
+Her computational language of choice is `R`, and much of her work has focused on open science with an eye toward inclusion and equity. In many software programs, the user has the ability to include **alt text**: text descriptions that convey the content and meaning to blind and low-vision readers.
 
->you really need to tell us what the data is saying and why you included it.
+> you really need to tell us what the data is saying and why you included it.
 
-1. What kind of graph or chart is it?
-2. What variables are on the axes?
-3. What are the ranges of the variables?
-4. What does the appearance tell you about the relationships between the variables?
+1.  What kind of graph or chart is it?
+2.  What variables are on the axes?
+3.  What are the ranges of the variables?
+4.  What does the appearance tell you about the relationships between the variables?
 
 #### Relevant work
 
-* L. Hare, <a href = "https://www.urban.org/sites/default/files/2022-12/Do%20No%20Harm%20Guide%20Centering%20Accessibility%20in%20Data%20Visualization.pdf#page=31&zoom=100,0,0" target = "_blank">Writing Alt Text to Communicate the Meaning in Data Visualizations</a>, **Do No Harm Guide: centering accessibility in data visualization**, eds Schwabish, Popkin, Feng, Chapter 4, 2022.
+-   L. Hare, <a href = "https://www.urban.org/sites/default/files/2022-12/Do%20No%20Harm%20Guide%20Centering%20Accessibility%20in%20Data%20Visualization.pdf#page=31&zoom=100,0,0" target = "_blank">Writing Alt Text to Communicate the Meaning in Data Visualizations</a>, **Do No Harm Guide: centering accessibility in data visualization**, eds Schwabish, Popkin, Feng, Chapter 4, 2022.
 
 #### Outside links
 
-* [Google Scholar](https://scholar.google.com/citations?hl=en&user=a324TmAAAAAJ&view_op=list_works&sortby=pubdate)
-* [Linkedin](https://www.linkedin.com/in/liz-hare-phd-1a50925/)
-* [professional](http://www.doggenetics.com/)
-* [fosstodon](https://fosstodon.org/@lizhare)
+-   [Google Scholar](https://scholar.google.com/citations?hl=en&user=a324TmAAAAAJ&view_op=list_works&sortby=pubdate)
+-   [Linkedin](https://www.linkedin.com/in/liz-hare-phd-1a50925/)
+-   [professional](http://www.doggenetics.com/)
+-   [fosstodon](https://fosstodon.org/@lizhare)
 
 ## Muddiest Points
 

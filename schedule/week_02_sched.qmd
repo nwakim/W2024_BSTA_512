@@ -32,11 +32,11 @@ editor_options:
 
 Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
-| Chapter | Topic                   |                                                      Slides                                                      |                                  Annotated Slides                                  |                           Recording                           |
+| Chapter | Topic                   |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
 |---------------|---------------|:-------------:|:-------------:|:-------------:|
-| 3       | Independent Events      |    [[{{< iconify ri slideshow-fill size=30px >}}](../slides/3_IndependentEvents.qmd)]{style="color:#49A3D1;"}    | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 4       | Conditional Probability | [[{{< iconify ri slideshow-fill size=30px >}}](../slides/4_Conditional_Probability.qmd)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 6       | Bayes' Theorem          |       [[{{< iconify ri slideshow-fill size=30px >}}](/slides/5_Bayes_Theorem.qmd)]{style="color:#f8f5f0;"}       | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 3       | Independent Events      | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#49A3D1;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 4       | Conditional Probability | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 6       | Bayes' Theorem          | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
 For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
 

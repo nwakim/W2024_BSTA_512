@@ -2,7 +2,7 @@
 title: "Chapter 3: Independent Events"
 author: "Meike Niederhausen"
 date: "10/02/2023"
-categories: ["Day 3"]
+categories: ["Week 2"]
 format: 
   revealjs:
     theme: [default, simple_NW.scss]
