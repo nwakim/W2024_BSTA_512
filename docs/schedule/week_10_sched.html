@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2023-11-27">
-<meta name="description" content="Week 10">
+<meta name="description" content="mgf’s; Sum of Normal RV’s; and Central Limit Theorem">
 
 <title>Introduction to Probability - Week 10</title>
 <style>
@@ -41,6 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/iconify-1.0.0-beta.2/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -112,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Week 10</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../class_slides.html">Course Materials</a></li><li class="breadcrumb-item"><a href="../schedule.html">Weekly Pages</a></li><li class="breadcrumb-item"><a href="../schedule/week_01_sched.html">Schedule</a></li><li class="breadcrumb-item"><a href="../schedule/week_10_sched.html">Week 10</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -188,12 +189,94 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Homework</span></a>
   </div>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weekly Pages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Schedule</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Weekly pages</span></a>
+  <a href="../schedule/week_01_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule/week_02_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule/week_03_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule/week_04_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule/week_05_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule/week_06_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule/week_07_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule/week_08_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule/week_09_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule/week_10_sched.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule/week_11_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
       </ul>
   </li>
     </ul>
@@ -207,10 +290,12 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#resources" id="toc-resources" class="nav-link active" data-scroll-target="#resources">Resources</a></li>
-  <li><a href="#post-class" id="toc-post-class" class="nav-link" data-scroll-target="#post-class">Post Class</a></li>
+  <li><a href="#on-the-horizon" id="toc-on-the-horizon" class="nav-link" data-scroll-target="#on-the-horizon">On the Horizon</a></li>
+  <li><a href="#class-exit-tickets" id="toc-class-exit-tickets" class="nav-link" data-scroll-target="#class-exit-tickets">Class Exit Tickets</a></li>
+  <li><a href="#additional-information" id="toc-additional-information" class="nav-link" data-scroll-target="#additional-information">Additional Information</a></li>
+  <li><a href="#statistician-of-the-week-florence-nightingale" id="toc-statistician-of-the-week-florence-nightingale" class="nav-link" data-scroll-target="#statistician-of-the-week-florence-nightingale">Statistician of the Week: Florence Nightingale</a></li>
   <li><a href="#muddiest-points" id="toc-muddiest-points" class="nav-link" data-scroll-target="#muddiest-points">Muddiest Points</a></li>
   <li><a href="#clearest-points" id="toc-clearest-points" class="nav-link" data-scroll-target="#clearest-points">Clearest Points</a></li>
-  <li><a href="#additional-information" id="toc-additional-information" class="nav-link" data-scroll-target="#additional-information">Additional Information</a></li>
   </ul>
 </nav>
     </div>
@@ -224,7 +309,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Week 10
+    mgf’s; Sum of Normal RV’s; and Central Limit Theorem
   </div>
 </div>
 
@@ -242,7 +327,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 22, 2023</p>
+      <p class="date-modified">September 15, 2023</p>
     </div>
   </div>
     
@@ -251,57 +336,141 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<div class="cell">
+<style type="text/css">
+.title{
+  font-size: 40px;
+  color: #006a4e;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.description{
+  font-size: 20px;
+  color: #fff;
+  background-color: #006a4e;
+  padding: 10px;
+}
+</style>
+</div>
 <section id="resources" class="level2">
 <h2 class="anchored" data-anchor-id="resources">Resources</h2>
 <table class="table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 74%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Resource</th>
-<th>Information and Links</th>
+<th>Chapter</th>
+<th>Topic</th>
+<th style="text-align: center;">Slides</th>
+<th style="text-align: center;">Annotated Slides</th>
+<th style="text-align: center;">Recording</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Readings and Code</td>
-<td><p>Moment generating functions (Chapter 43)</p>
-<p>Sums of independent normal random variables (Chapter 36)</p>
-<p>Central limit theorem (Chapter 37)</p></td>
+<td>43</td>
+<td>Moment generating functions</td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
 </tr>
 <tr class="even">
-<td>Slides</td>
-<td></td>
+<td>36</td>
+<td>Sums of independent normal random variables</td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
 </tr>
 <tr class="odd">
-<td>Class Notes</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Data</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Homework</td>
-<td></td>
+<td>37</td>
+<td>Central limit theorem</td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
 </tr>
 </tbody>
 </table>
+<p>For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:</p>
+<ol type="1">
+<li>Click on the icon with three horizontal bars on the bottom left of the browser.</li>
+<li>Click on “Tools” with the gear icon at the top of the sidebar.</li>
+<li>Click on “PDF Export Mode.”</li>
+<li>From there, you can print or save the PDF as you would normally from your internet browser.</li>
+</ol>
 </section>
-<section id="post-class" class="level2">
-<h2 class="anchored" data-anchor-id="post-class">Post Class</h2>
-<p>Survey link!!</p>
+<section id="on-the-horizon" class="level2">
+<h2 class="anchored" data-anchor-id="on-the-horizon">On the Horizon</h2>
 </section>
-<section id="muddiest-points" class="level2">
-<h2 class="anchored" data-anchor-id="muddiest-points">Muddiest Points</h2>
-</section>
-<section id="clearest-points" class="level2">
-<h2 class="anchored" data-anchor-id="clearest-points">Clearest Points</h2>
+<section id="class-exit-tickets" class="level2">
+<h2 class="anchored" data-anchor-id="class-exit-tickets">Class Exit Tickets</h2>
+<p><span style="color:#f8f5f0;"><iconify-icon inline="" icon="healthicons:health-worker-form-negative" style="font-size: 30px;"></iconify-icon></span> Monday (11/27)</p>
+<p><span style="color:#f8f5f0;"><iconify-icon inline="" icon="healthicons:health-worker-form-negative" style="font-size: 30px;"></iconify-icon></span> Wednesday (11/29)</p>
 </section>
 <section id="additional-information" class="level2">
 <h2 class="anchored" data-anchor-id="additional-information">Additional Information</h2>
+</section>
+<section id="statistician-of-the-week-florence-nightingale" class="level2">
+<h2 class="anchored" data-anchor-id="statistician-of-the-week-florence-nightingale">Statistician of the Week: Florence Nightingale</h2>
+<div class="grid">
+<div class="g-col-4">
+<div class="cell" data-preview="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/stat_of_week/nightingale.jpg" class="img-fluid figure-img" alt="Image credit: Henry Hering (1814-1893) - National Portrait Gallery, London"></p>
+<figcaption class="figure-caption">Florence Nightingale</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-8">
+<p>Nightingale was a nurse who is considered to be the founder of modern nursing. In particular, she was admant about the importance of hygiene and sanitary conditions. She was born into a wealthy and well-connected family and had a large amount of privilege. Educated by her father, she showed an ability toward making analytic arguments at an early age. For her work, she was awarded the Royal Red Cross, the Lady of Grace of the Order of St John, and the Order of Merit.</p>
+</div>
+</div>
+<section id="topics-covered" class="level4">
+<h4 class="anchored" data-anchor-id="topics-covered">Topics covered</h4>
+<p>Nightingale was a nurse and statistician who used her analytic abilities to better understand and improve public health. She served in the Crimean War where Britain and France fought against the Russian invasion of the Ottoman Empire. Nightingale worked to convince Queen Victoria that poor sanitation and overcrowding were causing unnecessary death. She was able to show, for example, that peacetime soldiers (who lived in poorly kept barracks) were dying in much higher number than comparable civilian men. Her genius was to collect data meticulously and to display it in ways that were accessible to the general public. Her visualizations are lauded as pioneering and the first of their kind to tell effective stories of important issues.</p>
+</section>
+<section id="relevant-work" class="level4">
+<h4 class="anchored" data-anchor-id="relevant-work">Relevant work</h4>
+<ul>
+<li>RJ Andrews, <a href="https://www.scientificamerican.com/article/how-florence-nightingale-changed-data-visualization-forever/" target="_blank">“Florence Nightingale’s Data Revolution”</a> in Scientific American 327, 2, 78-85, 2022. doi:10.1038/scientificamerican0822-78,</li>
+</ul>
+<div class="cell" data-preview="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/stat_of_week/Nightingale-mortality.jpg" class="img-fluid figure-img" alt="Image credit: Florence Nightingale, work is in the public domain "></p>
+<figcaption class="figure-caption">“Diagram of the causes of mortality in the army in the East” was published in Notes on Matters Affecting the Health, Efficiency, and Hospital Administration of the British Army and sent to Queen Victoria in 1858.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>S Julious, <a href="https://www.sheffieldtribune.co.uk/p/on-the-battlefields-of-the-crimean" target="_blank">“On the battlefields of the Crimean War and in the hills of Sheffield, Florence Nightingale’s legacy lives on”</a>, The Tribune, Feb 17, 2023.</li>
+</ul>
+</section>
+<section id="outside-links" class="level4">
+<h4 class="anchored" data-anchor-id="outside-links">Outside links</h4>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Florence_Nightingale">Wikipedia</a></li>
+</ul>
+</section>
+</section>
+<section id="muddiest-points" class="level2">
+<h2 class="anchored" data-anchor-id="muddiest-points">Muddiest Points</h2>
+<p>This will be filled in with your Exit Ticket responses.</p>
+</section>
+<section id="clearest-points" class="level2">
+<h2 class="anchored" data-anchor-id="clearest-points">Clearest Points</h2>
+<p>This will be filled in with your Exit Ticket responses.</p>
 
 
 </section>

@@ -89,6 +89,10 @@ schedule:
         date: 11/30/23
         calendar-color: "#F08897"
         calendar-color2: "#FFFFFF" 
+      - href: schedule/week_11_sched.qmd
+        date: 12/04/23
+        calendar-color: "#E25D3B"
+        calendar-color2: "#FFFFFF"
       - title: "Final"
         date: 12/04/23        
         calendar-color: "#F1CF58"

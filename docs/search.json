@@ -11,7 +11,7 @@
     "href": "schedule.html",
     "title": "Weekly Pages",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nDescription\n\n\n\n\n\n\n9/25/23\n\n\nWeek 1\n\n\nOutcomes, Events, and Sample Space; Probability; and Counting\n\n\n\n\n9/25/23\n\n\nWeek 2\n\n\nIndependent Events; Conditional Probability; and Bayes’ Theorem\n\n\n\n\n10/9/23\n\n\nWeek 3\n\n\nRVs; PMFs and CDFs; and Independence and Conditioning\n\n\n\n\n10/16/23\n\n\nWeek 4\n\n\nWeek 4\n\n\n\n\n10/23/23\n\n\nWeek 5\n\n\nWeek 5\n\n\n\n\n10/30/23\n\n\nWeek 6\n\n\nWeek 6\n\n\n\n\n11/6/23\n\n\nWeek 7\n\n\nWeek 7\n\n\n\n\n11/13/23\n\n\nWeek 8\n\n\nJoint PDFs, Independent continuous RVs, and Conditional distributions\n\n\n\n\n11/20/23\n\n\nWeek 9\n\n\nExpected values, variance, and continuous distributions\n\n\n\n\n11/27/23\n\n\nWeek 10\n\n\nWeek 10\n\n\n\n\n12/4/23\n\n\nWeek 11\n\n\nFinal Exam\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nDescription\n\n\n\n\n\n\n9/25/23\n\n\nWeek 1\n\n\nOutcomes, Events, and Sample Space; Probability; and Counting\n\n\n\n\n10/2/23\n\n\nWeek 2\n\n\nIndependent Events; Conditional Probability; and Bayes’ Theorem\n\n\n\n\n10/9/23\n\n\nWeek 3\n\n\nRVs; PMFs and CDFs; and Independence and Conditioning\n\n\n\n\n10/16/23\n\n\nWeek 4\n\n\nExpected values of discrete random variables\n\n\n\n\n10/23/23\n\n\nWeek 5\n\n\nDiscrete random variables: variance and common families\n\n\n\n\n10/30/23\n\n\nWeek 6\n\n\nCommon families of discrete distributions cont.\n\n\n\n\n11/6/23\n\n\nWeek 7\n\n\nContinuous RVs; PDFs; and Joint densities\n\n\n\n\n11/13/23\n\n\nWeek 8\n\n\nJoint PDFs, Independent continuous RVs, and Conditional distributions\n\n\n\n\n11/20/23\n\n\nWeek 9\n\n\nExpected values, variance, and continuous distributions\n\n\n\n\n11/27/23\n\n\nWeek 10\n\n\nmgf’s; Sum of Normal RV’s; and Central Limit Theorem\n\n\n\n\n12/4/23\n\n\nWeek 11\n\n\nFinal Exam\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "syllabus.html",
@@ -493,8 +493,8 @@
     "objectID": "schedule/week_04_sched.html#resources",
     "href": "schedule/week_04_sched.html#resources",
     "title": "Week 4",
-    "section": "",
-    "text": "Resource\nInformation and Links\n\n\n\n\nReadings and Code\nExpected values of discrete random variables (Chapter 10 and 11)\n\n\nSlides\n\n\n\nClass Notes\n\n\n\nData\n\n\n\nHomework"
+    "section": "Resources",
+    "text": "Resources\n\n\n\n\n\n\n\n\n\n\nChapter\nTopic\nSlides\nAnnotated Slides\nRecording\n\n\n\n\n10\nExpected Values of discrete RVs\n\n\n\n\n\n11\nExpected Values of sums of discrete RVs\n\n\n\n\n\n\nFor the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:\n\nClick on the icon with three horizontal bars on the bottom left of the browser.\nClick on “Tools” with the gear icon at the top of the sidebar.\nClick on “PDF Export Mode.”\nFrom there, you can print or save the PDF as you would normally from your internet browser."
   },
   {
     "objectID": "schedule/week_04_sched.html#post-class",
@@ -508,14 +508,14 @@
     "href": "schedule/week_04_sched.html#muddiest-points",
     "title": "Week 4",
     "section": "Muddiest Points",
-    "text": "Muddiest Points"
+    "text": "Muddiest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_04_sched.html#clearest-points",
     "href": "schedule/week_04_sched.html#clearest-points",
     "title": "Week 4",
     "section": "Clearest Points",
-    "text": "Clearest Points"
+    "text": "Clearest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_04_sched.html#additional-information",
@@ -550,14 +550,14 @@
     "href": "schedule/week_03_sched.html#muddiest-points",
     "title": "Week 3",
     "section": "Muddiest Points",
-    "text": "Muddiest Points"
+    "text": "Muddiest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_03_sched.html#clearest-points",
     "href": "schedule/week_03_sched.html#clearest-points",
     "title": "Week 3",
     "section": "Clearest Points",
-    "text": "Clearest Points"
+    "text": "Clearest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_03_sched.html#additional-information",
@@ -577,8 +577,8 @@
     "objectID": "schedule/week_11_sched.html#resources",
     "href": "schedule/week_11_sched.html#resources",
     "title": "Week 11",
-    "section": "",
-    "text": "Resource\nInformation and Links\n\n\n\n\nReadings and Code\nFinal Exam!! (12/6)\n\n\nSlides\n\n\n\nClass Notes\n\n\n\nData\n\n\n\nHomework"
+    "section": "Resources",
+    "text": "Resources\nFinal exam week!"
   },
   {
     "objectID": "schedule/week_11_sched.html#post-class",
@@ -592,14 +592,14 @@
     "href": "schedule/week_11_sched.html#muddiest-points",
     "title": "Week 11",
     "section": "Muddiest Points",
-    "text": "Muddiest Points"
+    "text": "Muddiest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_11_sched.html#clearest-points",
     "href": "schedule/week_11_sched.html#clearest-points",
     "title": "Week 11",
     "section": "Clearest Points",
-    "text": "Clearest Points"
+    "text": "Clearest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_11_sched.html#additional-information",
@@ -619,8 +619,8 @@
     "objectID": "schedule/week_06_sched.html#resources",
     "href": "schedule/week_06_sched.html#resources",
     "title": "Week 6",
-    "section": "",
-    "text": "Resource\nInformation and Links\n\n\n\n\nReadings and Code\nCommon families of discrete distributions (Chapter 17 and 18)\n\n\nSlides\n\n\n\nClass Notes\n\n\n\nData\n\n\n\nHomework"
+    "section": "Resources",
+    "text": "Resources\n\n\n\n\n\n\n\n\n\n\nChapter\nTopic\nSlides\nAnnotated Slides\nRecording\n\n\n\n\n17\nNegative Binomial RV\n\n\n\n\n\n18\nPoisson RV\n\n\n\n\n\n\nFor the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:\n\nClick on the icon with three horizontal bars on the bottom left of the browser.\nClick on “Tools” with the gear icon at the top of the sidebar.\nClick on “PDF Export Mode.”\nFrom there, you can print or save the PDF as you would normally from your internet browser."
   },
   {
     "objectID": "schedule/week_06_sched.html#post-class",
@@ -634,14 +634,14 @@
     "href": "schedule/week_06_sched.html#muddiest-points",
     "title": "Week 6",
     "section": "Muddiest Points",
-    "text": "Muddiest Points"
+    "text": "Muddiest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_06_sched.html#clearest-points",
     "href": "schedule/week_06_sched.html#clearest-points",
     "title": "Week 6",
     "section": "Clearest Points",
-    "text": "Clearest Points"
+    "text": "Clearest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_06_sched.html#additional-information",
@@ -661,8 +661,8 @@
     "objectID": "schedule/week_07_sched.html#resources",
     "href": "schedule/week_07_sched.html#resources",
     "title": "Week 7",
-    "section": "",
-    "text": "Resource\nInformation and Links\n\n\n\n\nReadings and Code\nContinuous random variables and PDFs (Chapter 24)\nJoint Densities (Chapter 25)\n\n\nSlides\n\n\n\nClass Notes\n\n\n\nData\n\n\n\nHomework"
+    "section": "Resources",
+    "text": "Resources\n\n\n\n\n\n\n\n\n\n\nChapter\nTopic\nSlides\nAnnotated Slides\nRecording\n\n\n\n\n24\nContinuous RVs and PDFs\n\n\n\n\n\n25\nJoint Densities\n\n\n\n\n\n\nFor the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:\n\nClick on the icon with three horizontal bars on the bottom left of the browser.\nClick on “Tools” with the gear icon at the top of the sidebar.\nClick on “PDF Export Mode.”\nFrom there, you can print or save the PDF as you would normally from your internet browser."
   },
   {
     "objectID": "schedule/week_07_sched.html#post-class",
@@ -676,14 +676,14 @@
     "href": "schedule/week_07_sched.html#muddiest-points",
     "title": "Week 7",
     "section": "Muddiest Points",
-    "text": "Muddiest Points"
+    "text": "Muddiest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_07_sched.html#clearest-points",
     "href": "schedule/week_07_sched.html#clearest-points",
     "title": "Week 7",
     "section": "Clearest Points",
-    "text": "Clearest Points"
+    "text": "Clearest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_07_sched.html#additional-information",
@@ -760,14 +760,14 @@
     "href": "schedule/week_08_sched.html",
     "title": "Week 8",
     "section": "",
-    "text": "Resource\nInformation and Links\n\n\n\n\nReadings and Code\nJoint PDFs (Chapter 25)\nIndependent continuous random variables (Chapter 26)\nConditional distributions (Chapter 27)\n\n\nSlides\n\n\n\nClass Notes\n\n\n\nData\n\n\n\nHomework"
+    "text": "```{css, echo=FALSE} .title{ font-size: 40px; color: #006a4e; background-color: #fff; padding: 10px; }\n.description{ font-size: 20px; color: #fff; background-color: #006a4e; padding: 10px; } ```"
   },
   {
     "objectID": "schedule/week_08_sched.html#resources",
     "href": "schedule/week_08_sched.html#resources",
     "title": "Week 8",
-    "section": "",
-    "text": "Resource\nInformation and Links\n\n\n\n\nReadings and Code\nJoint PDFs (Chapter 25)\nIndependent continuous random variables (Chapter 26)\nConditional distributions (Chapter 27)\n\n\nSlides\n\n\n\nClass Notes\n\n\n\nData\n\n\n\nHomework"
+    "section": "Resources",
+    "text": "Resources\n\n\n\n\n\n\n\n\n\n\nChapter\nTopic\nSlides\nAnnotated Slides\nRecording\n\n\n\n\n25\nJoint PDFs\n\n\n\n\n\n26\nIndependent continuous random variables\n\n\n\n\n\n27\nConditional distributions\n\n\n\n\n\n\nFor the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:\n\nClick on the icon with three horizontal bars on the bottom left of the browser.\nClick on “Tools” with the gear icon at the top of the sidebar.\nClick on “PDF Export Mode.”\nFrom there, you can print or save the PDF as you would normally from your internet browser."
   },
   {
     "objectID": "schedule/week_08_sched.html#post-class",
@@ -781,21 +781,21 @@
     "href": "schedule/week_08_sched.html#muddiest-points",
     "title": "Week 8",
     "section": "Muddiest Points",
-    "text": "Muddiest Points"
+    "text": "Muddiest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_08_sched.html#clearest-points",
     "href": "schedule/week_08_sched.html#clearest-points",
     "title": "Week 8",
     "section": "Clearest Points",
-    "text": "Clearest Points"
+    "text": "Clearest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_08_sched.html#additional-information",
     "href": "schedule/week_08_sched.html#additional-information",
     "title": "Week 8",
     "section": "Additional Information",
-    "text": "Additional Information"
+    "text": "Additional Information\n\nExtra Practice/Learning"
   },
   {
     "objectID": "schedule/week_05_sched.html",
@@ -808,8 +808,8 @@
     "objectID": "schedule/week_05_sched.html#resources",
     "href": "schedule/week_05_sched.html#resources",
     "title": "Week 5",
-    "section": "",
-    "text": "Resource\nInformation and Links\n\n\n\n\nReadings and Code\nVariance of discrete random variables (Chapter 12-16)\nCommon families of discrete distributions (Chapter 19 and 20)\n\n\nSlides\n\n\n\nClass Notes\n\n\n\nData\n\n\n\nHomework"
+    "section": "Resources",
+    "text": "Resources\n\n\n\n\n\n\n\n\n\n\nChapter\nTopic\nSlides\nAnnotated Slides\nRecording\n\n\n\n\n12\nVariance of discrete RVs\n\n\n\n\n\n13\n\n\n\n\n\n\n14\nBernoulli RV\n\n\n\n\n\n15\nBinomial RV\n\n\n\n\n\n16\nGeometric RV\n\n\n\n\n\n19\nHypergeometric RV\n\n\n\n\n\n20\nDiscrete Uniform RV\n\n\n\n\n\n\nFor the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:\n\nClick on the icon with three horizontal bars on the bottom left of the browser.\nClick on “Tools” with the gear icon at the top of the sidebar.\nClick on “PDF Export Mode.”\nFrom there, you can print or save the PDF as you would normally from your internet browser."
   },
   {
     "objectID": "schedule/week_05_sched.html#post-class",
@@ -823,14 +823,14 @@
     "href": "schedule/week_05_sched.html#muddiest-points",
     "title": "Week 5",
     "section": "Muddiest Points",
-    "text": "Muddiest Points"
+    "text": "Muddiest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_05_sched.html#clearest-points",
     "href": "schedule/week_05_sched.html#clearest-points",
     "title": "Week 5",
     "section": "Clearest Points",
-    "text": "Clearest Points"
+    "text": "Clearest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_05_sched.html#additional-information",
@@ -850,8 +850,8 @@
     "objectID": "schedule/week_09_sched.html#resources",
     "href": "schedule/week_09_sched.html#resources",
     "title": "Week 9",
-    "section": "",
-    "text": "Resource\nInformation and Links\n\n\n\n\nReadings and Code\nExpect value and variance of continuous random variables (Chapter 28-30)\nCommon families of continuous distributions (Chapter 31-33, 35)\n\n\nSlides\n\n\n\nClass Notes\n\n\n\nData\n\n\n\nHomework"
+    "section": "Resources",
+    "text": "Resources\n\n\n\nChapter\nTopic\nSlides\nAnnotated Slides\nRecording\n\n\n\n\n28\nExpected value of continuous RVs\n\n\n\n\n\n29\nVariance of continuous RVs\n\n\n\n\n\n31\nUniform RV\n\n\n\n\n\n32\nExponential RV\n\n\n\n\n\n33\nGamma RV\n\n\n\n\n\n35\nNormal RV\n\n\n\n\n\n\nFor the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:\n\nClick on the icon with three horizontal bars on the bottom left of the browser.\nClick on “Tools” with the gear icon at the top of the sidebar.\nClick on “PDF Export Mode.”\nFrom there, you can print or save the PDF as you would normally from your internet browser."
   },
   {
     "objectID": "schedule/week_09_sched.html#post-class",
@@ -865,14 +865,14 @@
     "href": "schedule/week_09_sched.html#muddiest-points",
     "title": "Week 9",
     "section": "Muddiest Points",
-    "text": "Muddiest Points"
+    "text": "Muddiest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_09_sched.html#clearest-points",
     "href": "schedule/week_09_sched.html#clearest-points",
     "title": "Week 9",
     "section": "Clearest Points",
-    "text": "Clearest Points"
+    "text": "Clearest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_09_sched.html#additional-information",
@@ -892,8 +892,8 @@
     "objectID": "schedule/week_10_sched.html#resources",
     "href": "schedule/week_10_sched.html#resources",
     "title": "Week 10",
-    "section": "",
-    "text": "Resource\nInformation and Links\n\n\n\n\nReadings and Code\nMoment generating functions (Chapter 43)\nSums of independent normal random variables (Chapter 36)\nCentral limit theorem (Chapter 37)\n\n\nSlides\n\n\n\nClass Notes\n\n\n\nData\n\n\n\nHomework"
+    "section": "Resources",
+    "text": "Resources\n\n\n\n\n\n\n\n\n\n\nChapter\nTopic\nSlides\nAnnotated Slides\nRecording\n\n\n\n\n43\nMoment generating functions\n\n\n\n\n\n36\nSums of independent normal random variables\n\n\n\n\n\n37\nCentral limit theorem\n\n\n\n\n\n\nFor the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:\n\nClick on the icon with three horizontal bars on the bottom left of the browser.\nClick on “Tools” with the gear icon at the top of the sidebar.\nClick on “PDF Export Mode.”\nFrom there, you can print or save the PDF as you would normally from your internet browser."
   },
   {
     "objectID": "schedule/week_10_sched.html#post-class",
@@ -907,14 +907,14 @@
     "href": "schedule/week_10_sched.html#muddiest-points",
     "title": "Week 10",
     "section": "Muddiest Points",
-    "text": "Muddiest Points"
+    "text": "Muddiest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_10_sched.html#clearest-points",
     "href": "schedule/week_10_sched.html#clearest-points",
     "title": "Week 10",
     "section": "Clearest Points",
-    "text": "Clearest Points"
+    "text": "Clearest Points\nThis will be filled in with your Exit Ticket responses."
   },
   {
     "objectID": "schedule/week_10_sched.html#additional-information",
@@ -1291,8 +1291,8 @@
     "objectID": "slides/3_IndependentEvents.html#slide-1",
     "href": "slides/3_IndependentEvents.html#slide-1",
     "title": "Chapter 3: Independent Events",
-    "section": "",
-    "text": "Question: Which of the following sequences of coin tosses of heads (\\(H\\)) and tails (\\(T\\)) is more likely to happen, assuming the coin is fair?\n\\[HTTHHHTHTHHTTTH\\] or \\[HTTTTTTTTHTTTTT\\]"
+    "section": "Slide 1",
+    "text": "Slide 1\nQuestion: Which of the following sequences of coin tosses of heads (\\(H\\)) and tails (\\(T\\)) is more likely to happen, assuming the coin is fair?\n\\[HTTHHHTHTHHTTTH\\] or \\[HTTTTTTTTHTTTTT\\]"
   },
   {
     "objectID": "slides/3_IndependentEvents.html#slide-2",
@@ -1327,7 +1327,7 @@
     "href": "slides/3_IndependentEvents.html#faf",
     "title": "Chapter 3: Independent Events",
     "section": "faf",
-    "text": "faf\n\n\nExample 5\n\n\n\\(A, B,\\) and \\(C\\) toss a fair coin in order. The first to throw heads wins. What are their respective chances of winning?\n\n\nSolution: Let\n\n\\(A_H\\) and \\(A_T\\) be the events player A tosses heads and tails, respectively.\nSimilarly define \\(B_H\\), \\(B_T\\), \\(C_H\\), and \\(C_T\\)."
+    "text": "faf\n\n\nExample 5\n\n\n\\(A, B,\\) and \\(C\\) toss a fair coin in order. The first to throw heads wins. What are their respective chances of winning?\n\n\nSolution: Let\n\n\\(A_H\\) and \\(A_T\\) be the events player A tosses heads and tails, respectively.\nSimilarly define \\(B_H\\), \\(B_T\\), \\(C_H\\), and \\(C_T\\).\n\n\n\nChapter 3 Slides"
   },
   {
     "objectID": "slides/8_pmfs_and_cdfs.html",
@@ -1481,7 +1481,7 @@
     "href": "schedule1.html",
     "title": "Schedule",
     "section": "",
-    "text": "ScheduleImportant timesCredit to\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSeptember\n\n\n\n\n\nMON\n\n\nTUE\n\n\nWED\n\n\nTHU\n\n\nFRI\n\n\n\n\n\n\n\n\n\n25\n\n\n\n\n\n\n26\n\n\n\n\n\n\n27\n\n\n\n\n\n\n28\n\n\n\n\n\n\n29\n\n\n\n\n\n\n\n\nWeek 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOctober\n\n\n\n\n\nMON\n\n\nTUE\n\n\nWED\n\n\nTHU\n\n\nFRI\n\n\n\n\n\n\n\n\n\n2\n\n\n\n\n\n\n3\n\n\n\n\n\n\n4\n\n\n\n\n\n\n5\n\n\n\n\n\n\n6\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 1 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\n\n\n\n\n\n\n10\n\n\n\n\n\n\n11\n\n\n\n\n\n\n12\n\n\n\n\n\n\n13\n\n\n\n\n\n\n\n\nWeek 3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 2 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\n\n\n\n\n\n\n17\n\n\n\n\n\n\n18\n\n\n\n\n\n\n19\n\n\n\n\n\n\n20\n\n\n\n\n\n\n\n\nWeek 4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 3 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n23\n\n\n\n\n\n\n24\n\n\n\n\n\n\n25\n\n\n\n\n\n\n26\n\n\n\n\n\n\n27\n\n\n\n\n\n\n\n\nWeek 5\n\n\n\n\n\n\n\n\n\n\n\nVirtual Class\n\n\n\n\n\n\nHW 4 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n30\n\n\n\n\n\n\n31\n\n\n\n\n\n\n1\n\n\n\n\n\n\n2\n\n\n\n\n\n\n3\n\n\n\n\n\n\n\n\nWeek 6\n\n\n\n\n\n\n\n\n\n\n\nMidterm\n\n\n\n\n\n\nHW 5 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNovember\n\n\n\n\n\nMON\n\n\nTUE\n\n\nWED\n\n\nTHU\n\n\nFRI\n\n\n\n\n\n\n\n\n\n30\n\n\n\n\n\n\n31\n\n\n\n\n\n\n1\n\n\n\n\n\n\n2\n\n\n\n\n\n\n3\n\n\n\n\n\n\n\n\nWeek 6\n\n\n\n\n\n\n\n\n\n\n\nMidterm\n\n\n\n\n\n\nHW 5 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\n\n\n\n\n\n\n7\n\n\n\n\n\n\n8\n\n\n\n\n\n\n9\n\n\n\n\n\n\n10\n\n\n\n\n\n\n\n\nWeek 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\n\n\n\n\n\n\n14\n\n\n\n\n\n\n15\n\n\n\n\n\n\n16\n\n\n\n\n\n\n17\n\n\n\n\n\n\n\n\nWeek 8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 6 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n20\n\n\n\n\n\n\n21\n\n\n\n\n\n\n22\n\n\n\n\n\n\n23\n\n\n\n\n\n\n24\n\n\n\n\n\n\n\n\nWeek 9\n\n\n\n\n\n\n\n\n\n\n\nNo Class\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n27\n\n\n\n\n\n\n28\n\n\n\n\n\n\n29\n\n\n\n\n\n\n30\n\n\n\n\n\n\n1\n\n\n\n\n\n\n\n\nWeek 10\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 7 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDecember\n\n\n\n\n\nMON\n\n\nTUE\n\n\nWED\n\n\nTHU\n\n\nFRI\n\n\n\n\n\n\n\n\n\n27\n\n\n\n\n\n\n28\n\n\n\n\n\n\n29\n\n\n\n\n\n\n30\n\n\n\n\n\n\n1\n\n\n\n\n\n\n\n\nWeek 10\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 7 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\n\n\n\n\n\n\n5\n\n\n\n\n\n\n6\n\n\n\n\n\n\n7\n\n\n\n\n\n\n8\n\n\n\n\n\n\n\n\nFinal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHere is a tentative list of important, recurring times:\n\nHomeworks are always due at 11pm on the specified day\nClass surveys are due at 11pm the day of class\nOffice hours\n\nNicky\nTA\n\nClass meets on Mondays and Wednesdays at 10:30am - 12pm\n\n\n\nSpecial thank you to Andrew Bray, who taught the Quarto workshop I attended. This schedule page was mostly taken from the Schedule on his STAT 20 course page. You can find the .qmd file for Andrew’s schedule page on his Github."
+    "text": "ScheduleImportant timesCredit to\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSeptember\n\n\n\n\n\nMON\n\n\nTUE\n\n\nWED\n\n\nTHU\n\n\nFRI\n\n\n\n\n\n\n\n\n\n25\n\n\n\n\n\n\n26\n\n\n\n\n\n\n27\n\n\n\n\n\n\n28\n\n\n\n\n\n\n29\n\n\n\n\n\n\n\n\nWeek 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOctober\n\n\n\n\n\nMON\n\n\nTUE\n\n\nWED\n\n\nTHU\n\n\nFRI\n\n\n\n\n\n\n\n\n\n2\n\n\n\n\n\n\n3\n\n\n\n\n\n\n4\n\n\n\n\n\n\n5\n\n\n\n\n\n\n6\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 1 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\n\n\n\n\n\n\n10\n\n\n\n\n\n\n11\n\n\n\n\n\n\n12\n\n\n\n\n\n\n13\n\n\n\n\n\n\n\n\nWeek 3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 2 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\n\n\n\n\n\n\n17\n\n\n\n\n\n\n18\n\n\n\n\n\n\n19\n\n\n\n\n\n\n20\n\n\n\n\n\n\n\n\nWeek 4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 3 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n23\n\n\n\n\n\n\n24\n\n\n\n\n\n\n25\n\n\n\n\n\n\n26\n\n\n\n\n\n\n27\n\n\n\n\n\n\n\n\nWeek 5\n\n\n\n\n\n\n\n\n\n\n\nVirtual Class\n\n\n\n\n\n\nHW 4 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n30\n\n\n\n\n\n\n31\n\n\n\n\n\n\n1\n\n\n\n\n\n\n2\n\n\n\n\n\n\n3\n\n\n\n\n\n\n\n\nWeek 6\n\n\n\n\n\n\n\n\n\n\n\nMidterm\n\n\n\n\n\n\nHW 5 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNovember\n\n\n\n\n\nMON\n\n\nTUE\n\n\nWED\n\n\nTHU\n\n\nFRI\n\n\n\n\n\n\n\n\n\n30\n\n\n\n\n\n\n31\n\n\n\n\n\n\n1\n\n\n\n\n\n\n2\n\n\n\n\n\n\n3\n\n\n\n\n\n\n\n\nWeek 6\n\n\n\n\n\n\n\n\n\n\n\nMidterm\n\n\n\n\n\n\nHW 5 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\n\n\n\n\n\n\n7\n\n\n\n\n\n\n8\n\n\n\n\n\n\n9\n\n\n\n\n\n\n10\n\n\n\n\n\n\n\n\nWeek 7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\n\n\n\n\n\n\n14\n\n\n\n\n\n\n15\n\n\n\n\n\n\n16\n\n\n\n\n\n\n17\n\n\n\n\n\n\n\n\nWeek 8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 6 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n20\n\n\n\n\n\n\n21\n\n\n\n\n\n\n22\n\n\n\n\n\n\n23\n\n\n\n\n\n\n24\n\n\n\n\n\n\n\n\nWeek 9\n\n\n\n\n\n\n\n\n\n\n\nNo Class\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n27\n\n\n\n\n\n\n28\n\n\n\n\n\n\n29\n\n\n\n\n\n\n30\n\n\n\n\n\n\n1\n\n\n\n\n\n\n\n\nWeek 10\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 7 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDecember\n\n\n\n\n\nMON\n\n\nTUE\n\n\nWED\n\n\nTHU\n\n\nFRI\n\n\n\n\n\n\n\n\n\n27\n\n\n\n\n\n\n28\n\n\n\n\n\n\n29\n\n\n\n\n\n\n30\n\n\n\n\n\n\n1\n\n\n\n\n\n\n\n\nWeek 10\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 7 due\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\n\n\n\n\n\n\n5\n\n\n\n\n\n\n6\n\n\n\n\n\n\n7\n\n\n\n\n\n\n8\n\n\n\n\n\n\n\n\nWeek 11Final\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHere is a tentative list of important, recurring times:\n\nHomeworks are always due at 11pm on the specified day\nClass surveys are due at 11pm the day of class\nOffice hours\n\nNicky\nTA\n\nClass meets on Mondays and Wednesdays at 10:30am - 12pm\n\n\n\nSpecial thank you to Andrew Bray, who taught the Quarto workshop I attended. This schedule page was mostly taken from the Schedule on his STAT 20 course page. You can find the .qmd file for Andrew’s schedule page on his Github."
   },
   {
     "objectID": "slides/2_Probability-solutions.html#overview",
@@ -2090,7 +2090,7 @@
     "href": "schedule/week_02_sched.html#class-exit-tickets",
     "title": "Week 2",
     "section": "Class Exit Tickets",
-    "text": "Class Exit Tickets\n\n\n\n\n\n\n\nMonday (10/2)\n\n\n\nWednesday (10/4)"
+    "text": "Class Exit Tickets\n Monday (10/2)\n Wednesday (10/4)"
   },
   {
     "objectID": "schedule/week_02_sched.html#statistician-of-the-week",
@@ -2315,5 +2315,271 @@
     "title": "BSTA 550 Syllabus",
     "section": "Course Expectations",
     "text": "Course Expectations\n\nInstructor Expectations\nCommitment to your learning and your success\nI believe that everyone has the ability to be successful in this course and I have put a lot of effort into designing the course in a way that maximizes your learning to ensure your success. Please talk to me before or after class or stop by my office if there is anything you want to discuss or about which you are unclear. I want to be supportive of your learning and growth.\nInclusive & supportive learning community\nI believe that learning happens best when we all learn together, as a community. This means creating a space characterized by generous listening, civility, humility, patience, and hospitality. I will attempt to promote a safe climate where we examine content from multiple cultural perspectives, and I will strive to create and maintain a classroom atmosphere in which you feel free to both listen to others and express your views and ask questions to increase your learning.\nOpenness to feedback\nI appreciate straightforward feedback from you regarding how well the class is meeting your needs. Let me know if material is not clear or when its relevance to the student learning outcomes for the course is not apparent. In particular, let me know if you identify bias or stereotyping in my teaching materials as I will seek to continuously improve. Please also let me know if there’s an aspect of the class you find particularly interesting, helpful, or enjoyable!\nResponsiveness\nI will monitor email as well as the discussion board daily and try respond to all messages within 24 hours Monday-Friday.\nClear guidelines and prompt feedback on assignments\nI will provide clear instructions for all assignments, and a grading rubric when applicable. I will provide detailed feedback on your submissions and will update grades promptly in Sakai.\n\n\nStudent Expectations and Resources\nAttend class\nYou are expected to attend all scheduled class meetings synchronously or watch the recording within 7 days. Attendance is taken through exit tickets. If you have issues accessing the poll on a specific day, please let me know. \nParticipate\nI encourage you to participate actively in class and online discussions. I will expect all students, and all instructors, to be respectful of each other’s contributions, whether I agree with them or not. Professional interactions are expected.\nBuild rapport\nIf you find that you have any trouble keeping up with assignments or other aspects of the course, make sure you let me know as early as possible. As you will find, building rapport and effective relationships are key to becoming an effective professional. Make sure that you are proactive in informing me when difficulties arise during the quarter so that I can help you find a solution.\nComplete assignments\nAll assignments for this course will be submitted electronically through Sakai unless otherwise instructed.  I encourage you to make your best effort to submit all assignments on time, but I understand that sometimes circumstances arise that are beyond our control. If you need an extension, please contact me in congruence with the Late Policy.\nSeek help if you need it\nI believe it is important to support the physical and emotional well‐being of my students. If you are experiencing physical or mental health issues, I encourage you to use the resources on campus such as those listed below. If you have a health issue that is affecting your performance or participation in the course, and/or if you need help connecting with these resources, please contact me.\n\nStudent Health and Wellness Center (SHW), Website, 503-494-8665 (OHSU Students only)\nStudent Health and Counseling (SHAC), Website, 503-725-2800\n\nInform your instructor of any accommodations needed\nYou should speak with or email me before or during the first week of classes regarding any special needs. Students seeking academic accommodations should register with the appropriate service under the School policies below.\nSome religious holidays may occur on regularly scheduled class days. Because available class hours are so limited in number, we will have to hold class on all such days. Class video recordings will be available and you are encouraged to engage with the material outside of the regular class time. You are also encouraged to come to office hours with questions from the session.\nCommit to integrity\nAs a student in this course (and at PSU or OHSU) you are expected to maintain high degrees of professionalism, commitment to active learning and participation in this class and also integrity in your behavior in and out of the classroom.\nCheating and other forms of academic misconduct will not be tolerated in this course and will be dealt with firmly. Student academic misconduct refers to behavior that includes plagiarism, cheating on assignments, fabrication of data, falsification of records or official documents, intentional misuse of equipment or materials (including library materials), or aiding and abetting the perpetration of such acts. Preparation of exams, assigned on an individual basis, must represent each student’s own individual effort. When used, resource materials should be cited in conventional reference format."
+  },
+  {
+    "objectID": "schedule/week_08_sched.html#on-the-horizon",
+    "href": "schedule/week_08_sched.html#on-the-horizon",
+    "title": "Week 8",
+    "section": "On the Horizon",
+    "text": "On the Horizon"
+  },
+  {
+    "objectID": "schedule/week_08_sched.html#class-exit-tickets",
+    "href": "schedule/week_08_sched.html#class-exit-tickets",
+    "title": "Week 8",
+    "section": "Class Exit Tickets",
+    "text": "Class Exit Tickets\n Monday (11/13)\n Wednesday (11/15)"
+  },
+  {
+    "objectID": "schedule/week_08_sched.html#statistician-of-the-week-name",
+    "href": "schedule/week_08_sched.html#statistician-of-the-week-name",
+    "title": "Week 8",
+    "section": "Statistician of the Week: Name",
+    "text": "Statistician of the Week: Name"
+  },
+  {
+    "objectID": "schedule/week_03_sched.html#on-the-horizon",
+    "href": "schedule/week_03_sched.html#on-the-horizon",
+    "title": "Week 3",
+    "section": "On the Horizon",
+    "text": "On the Horizon"
+  },
+  {
+    "objectID": "schedule/week_03_sched.html#class-exit-tickets",
+    "href": "schedule/week_03_sched.html#class-exit-tickets",
+    "title": "Week 3",
+    "section": "Class Exit Tickets",
+    "text": "Class Exit Tickets\n Monday (9/25)\n Wednesday (9/27)"
+  },
+  {
+    "objectID": "schedule/week_03_sched.html#statistician-of-the-week",
+    "href": "schedule/week_03_sched.html#statistician-of-the-week",
+    "title": "Week 3",
+    "section": "Statistician of the Week:",
+    "text": "Statistician of the Week:\n\n\n\n\n\n\n\nDavid Blackwell\n\n\n\n\n\n\nBlackwell was the first black person to receive a PhD in statistics (from University of Illinois at Urbana-Champaign, in 1941 at the age of 22) in the US and the first black scholar to be admitted to the National Academy of Sciences. He was a statistician at UC Berkeley for more than 50 years. He was hired in 1954 after the department almost made him an offer in 1942 (but declined to do so when one faculty member’s wife said she didn’t want Blackwell hired because she wouldn’t feel comfortable having faculty events in her home with a black man). Hear Blackwell tell the story in his own words.\n\n\n\nTopics covered\nBlackwell contributed to game theory, probability theory, information science, and Bayesian statistics. The Rao-Blackwell theorem (often seen in a senior level undergraduate class on statistical theory) is named after him.\n\n\nRelevant work\n\nBlackwell, D. (1947). “Conditional expectation and unbiased sequential estimation”. Annals of Mathematical Statistics. 18 (1): 105–110. doi:10.1214/aoms/1177730497.\n\n\n\nOutside links\n\nWikipedia\nMAD\n\nPlease note the statisticians of the week are taken directly from the CURV project by Jo Hardin."
+  },
+  {
+    "objectID": "schedule/week_09_sched.html#on-the-horizon",
+    "href": "schedule/week_09_sched.html#on-the-horizon",
+    "title": "Week 9",
+    "section": "On the Horizon",
+    "text": "On the Horizon"
+  },
+  {
+    "objectID": "schedule/week_09_sched.html#class-exit-tickets",
+    "href": "schedule/week_09_sched.html#class-exit-tickets",
+    "title": "Week 9",
+    "section": "Class Exit Tickets",
+    "text": "Class Exit Tickets\n Monday (11/20)"
+  },
+  {
+    "objectID": "schedule/week_09_sched.html#statistician-of-the-week",
+    "href": "schedule/week_09_sched.html#statistician-of-the-week",
+    "title": "Week 9",
+    "section": "Statistician of the Week:",
+    "text": "Statistician of the Week:"
+  },
+  {
+    "objectID": "schedule/week_10_sched.html#on-the-horizon",
+    "href": "schedule/week_10_sched.html#on-the-horizon",
+    "title": "Week 10",
+    "section": "On the Horizon",
+    "text": "On the Horizon"
+  },
+  {
+    "objectID": "schedule/week_10_sched.html#class-exit-tickets",
+    "href": "schedule/week_10_sched.html#class-exit-tickets",
+    "title": "Week 10",
+    "section": "Class Exit Tickets",
+    "text": "Class Exit Tickets\n Monday (11/27)\n Wednesday (11/29)"
+  },
+  {
+    "objectID": "schedule/week_10_sched.html#statistician-of-the-week",
+    "href": "schedule/week_10_sched.html#statistician-of-the-week",
+    "title": "Week 10",
+    "section": "Statistician of the Week:",
+    "text": "Statistician of the Week:"
+  },
+  {
+    "objectID": "schedule/week_11_sched.html#on-the-horizon",
+    "href": "schedule/week_11_sched.html#on-the-horizon",
+    "title": "Week 11",
+    "section": "On the Horizon",
+    "text": "On the Horizon"
+  },
+  {
+    "objectID": "schedule/week_11_sched.html#end-of-quarter-feedback",
+    "href": "schedule/week_11_sched.html#end-of-quarter-feedback",
+    "title": "Week 11",
+    "section": "End of quarter feedback!",
+    "text": "End of quarter feedback!"
+  },
+  {
+    "objectID": "schedule/week_11_sched.html#statistician-of-the-week",
+    "href": "schedule/week_11_sched.html#statistician-of-the-week",
+    "title": "Week 11",
+    "section": "Statistician of the Week:",
+    "text": "Statistician of the Week:"
+  },
+  {
+    "objectID": "schedule/week_07_sched.html#on-the-horizon",
+    "href": "schedule/week_07_sched.html#on-the-horizon",
+    "title": "Week 7",
+    "section": "On the Horizon",
+    "text": "On the Horizon"
+  },
+  {
+    "objectID": "schedule/week_07_sched.html#class-exit-tickets",
+    "href": "schedule/week_07_sched.html#class-exit-tickets",
+    "title": "Week 7",
+    "section": "Class Exit Tickets",
+    "text": "Class Exit Tickets\n Monday (11/6)\n Wednesday (11/8)"
+  },
+  {
+    "objectID": "schedule/week_07_sched.html#statistician-of-the-week",
+    "href": "schedule/week_07_sched.html#statistician-of-the-week",
+    "title": "Week 7",
+    "section": "Statistician of the Week:",
+    "text": "Statistician of the Week:"
+  },
+  {
+    "objectID": "schedule/week_06_sched.html#on-the-horizon",
+    "href": "schedule/week_06_sched.html#on-the-horizon",
+    "title": "Week 6",
+    "section": "On the Horizon",
+    "text": "On the Horizon"
+  },
+  {
+    "objectID": "schedule/week_06_sched.html#class-exit-tickets",
+    "href": "schedule/week_06_sched.html#class-exit-tickets",
+    "title": "Week 6",
+    "section": "Class Exit Tickets",
+    "text": "Class Exit Tickets\n Monday (10/30)"
+  },
+  {
+    "objectID": "schedule/week_06_sched.html#statistician-of-the-week",
+    "href": "schedule/week_06_sched.html#statistician-of-the-week",
+    "title": "Week 6",
+    "section": "Statistician of the Week:",
+    "text": "Statistician of the Week:"
+  },
+  {
+    "objectID": "schedule/week_05_sched.html#on-the-horizon",
+    "href": "schedule/week_05_sched.html#on-the-horizon",
+    "title": "Week 5",
+    "section": "On the Horizon",
+    "text": "On the Horizon"
+  },
+  {
+    "objectID": "schedule/week_05_sched.html#class-exit-tickets",
+    "href": "schedule/week_05_sched.html#class-exit-tickets",
+    "title": "Week 5",
+    "section": "Class Exit Tickets",
+    "text": "Class Exit Tickets\n Monday (10/23)\n Wednesday (10/25)"
+  },
+  {
+    "objectID": "schedule/week_05_sched.html#statistician-of-the-week",
+    "href": "schedule/week_05_sched.html#statistician-of-the-week",
+    "title": "Week 5",
+    "section": "Statistician of the Week:",
+    "text": "Statistician of the Week:"
+  },
+  {
+    "objectID": "schedule/week_04_sched.html#on-the-horizon",
+    "href": "schedule/week_04_sched.html#on-the-horizon",
+    "title": "Week 4",
+    "section": "On the Horizon",
+    "text": "On the Horizon"
+  },
+  {
+    "objectID": "schedule/week_04_sched.html#class-exit-tickets",
+    "href": "schedule/week_04_sched.html#class-exit-tickets",
+    "title": "Week 4",
+    "section": "Class Exit Tickets",
+    "text": "Class Exit Tickets\n Monday (10/16)\n Wednesday (10/18)"
+  },
+  {
+    "objectID": "schedule/week_04_sched.html#statistician-of-the-week",
+    "href": "schedule/week_04_sched.html#statistician-of-the-week",
+    "title": "Week 4",
+    "section": "Statistician of the Week:",
+    "text": "Statistician of the Week:"
+  },
+  {
+    "objectID": "schedule/week_02_sched.html#statistician-of-the-week-talithia-williams",
+    "href": "schedule/week_02_sched.html#statistician-of-the-week-talithia-williams",
+    "title": "Week 2",
+    "section": "Statistician of the Week: Talithia Williams",
+    "text": "Statistician of the Week: Talithia Williams\n\n\n\n\n\n\n\nTalithia Williams\n\n\n\n\n\n\nDr. Williams earned a BS in Mathematics from Spelman College, an MS in Mathematics from Howard University, and a PhD (2008) in Statistics from Rice University. Dr. Williams is Associate Professor and Director of the Clinic Program at Harvey Mudd College. She has also served as Associate Dean for Faculty Development and Diversity at Harvey Mudd.\n\n\n\nTopics covered\nDr. Williams works on statistical models which describe spatial and temporal aspects of data. Some of her most important work has focused on developing models to predict cataract surgical rates for countries in Africa.\n\n\nRelevant work\n\nDray, A. and Williams, T. An incidence estimation model for multi-stage diseases with differential mortality. Statistics in Medicine, 2012.\nLewallen, S., Courtright, P., Etya’ale, D., Mathenge, W., Schmidt, E., Oye, J., Clark, A., Williams, T. Cataract Incidence in Sub-Saharan Africa: What does Mathematical Modeling tell us about Geographic Variations and Surgical Needs?. Ophthalmic epidemiology, 2013.\n\n\n\nOutside links\n\nWikipedia\nMAD\nLinkedin\npersonal\n\n\n\nOther\nDr. Williams was the co-host of the 2018 PBS Nova Wonders series.\nPlease note the statisticians of the week are taken directly from the CURV project by Jo Hardin."
+  },
+  {
+    "objectID": "schedule/week_04_sched.html#statistician-of-the-week-joy-buolamwini",
+    "href": "schedule/week_04_sched.html#statistician-of-the-week-joy-buolamwini",
+    "title": "Week 4",
+    "section": "Statistician of the Week: Joy Buolamwini",
+    "text": "Statistician of the Week: Joy Buolamwini\n\n\n\n\n\n\n\nJoy Buolamwini\n\n\n\n\n\n\nDr. Buolamwini earned a BS in Computer Science from Georgia Institute of Technology, an Master’s from University of Oxford, and MS and PhD (2022) degrees in Media Arts & Sciences from Massachusetts Institute of Technology. While a graduate student, Dr. Buolamwini was part of the MIT Media Lab. Additionally, she is the founder of the Algorithmic Justice League.\n\n\n\nTopics covered\nDr. Buolamwini has done substantial work demonstrating how algorithms can encode bias. Her undergraduate senior project was to create a inspired “mask” mirror as a way to raise spirits for the person who looked into the mirror. The project relied on off the shelf facial recognition software that could not recognize Dr. Buolamwini’s face.\nSince then, she has focused her work on demonstrating bias across racial and gender spectra in off the shelf software. Her work has been cited as directly influencing Microsoft and Google’s changes to their algorithms.\nAmong many other aspects, a big focus of Dr. Buolamwini’s work is pointing out the biased data which directly impacts how algorithms learn how to do tasks.\n\n\nRelevant work\n\nBuolamwini, J., Gebru, T. Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification. Proceedings of Machine Learning Research 81:1–15, 2018 Conference on Fairness, Accountability, and Transparency.\nRaji, I & Buolamwini, J. Actionable Auditing: Investigating the Impact of Publicly Naming Biased Performance Results of Commercial AI Products. Conference on Artificial Intelligence, Ethics, and Society, 2019\n\n\n\nOutside links\n\nWikipedia\nLinkedin\npersonal\n\n\n\nOther\nDr. Buolamwini has done a lot of work on how data propagates through systems to encode the same types of bias into different algorithms. In her video AI, Ain’t I a Woman? she demonstrates how systems designed to determine gender are particularly poor when using dark skinned faces.\nHer work was featured in a recent documentary Coded Bias.\nPlease note the statisticians of the week are taken directly from the CURV project by Jo Hardin."
+  },
+  {
+    "objectID": "schedule/week_05_sched.html#statistician-of-the-week-liz-hare",
+    "href": "schedule/week_05_sched.html#statistician-of-the-week-liz-hare",
+    "title": "Week 5",
+    "section": "Statistician of the Week: Liz Hare",
+    "text": "Statistician of the Week: Liz Hare\n\n\n\n\n\n\n\nLiz Hare\n\n\n\n\n\n\nDr. Hare got her BA from Bryn Mawr College and her PhD in Genetics (1998) from The George Washington University. She works primarily in dog / animal genetics; although, as a quantitative geneticist her statistical and computational methodology is quite sophisticated.\nDr. Hare is active in the MiR (Minorities in R) Community which aims to support historically underrepresented R users around the world.\n\n\n\nTopics covered\nHer computational language of choice is R, and much of her work has focused on open science with an eye toward inclusion and equity. In many software programs, the user has the ability to include alt text: text descriptions that convey the content and meaning to blind and low-vision readers.\n\nyou really need to tell us what the data is saying and why you included it.\n\n\nWhat kind of graph or chart is it?\nWhat variables are on the axes?\nWhat are the ranges of the variables?\nWhat does the appearance tell you about the relationships between the variables?\n\n\n\nRelevant work\n\nL. Hare, Writing Alt Text to Communicate the Meaning in Data Visualizations, Do No Harm Guide: centering accessibility in data visualization, eds Schwabish, Popkin, Feng, Chapter 4, 2022.\n\n\n\nOutside links\n\nGoogle Scholar\nLinkedin\nprofessional\nfosstodon"
+  },
+  {
+    "objectID": "schedule/week_03_sched.html#statistician-of-the-week-david-blackwell",
+    "href": "schedule/week_03_sched.html#statistician-of-the-week-david-blackwell",
+    "title": "Week 3",
+    "section": "Statistician of the Week: David Blackwell",
+    "text": "Statistician of the Week: David Blackwell\n\n\n\n\n\n\n\nDavid Blackwell\n\n\n\n\n\n\nBlackwell was the first black person to receive a PhD in statistics (from University of Illinois at Urbana-Champaign, in 1941 at the age of 22) in the US and the first black scholar to be admitted to the National Academy of Sciences. He was a statistician at UC Berkeley for more than 50 years. He was hired in 1954 after the department almost made him an offer in 1942 (but declined to do so when one faculty member’s wife said she didn’t want Blackwell hired because she wouldn’t feel comfortable having faculty events in her home with a black man). Hear Blackwell tell the story in his own words.\n\n\n\nTopics covered\nBlackwell contributed to game theory, probability theory, information science, and Bayesian statistics. The Rao-Blackwell theorem (often seen in a senior level undergraduate class on statistical theory) is named after him.\n\n\nRelevant work\n\nBlackwell, D. (1947). “Conditional expectation and unbiased sequential estimation”. Annals of Mathematical Statistics. 18 (1): 105–110. doi:10.1214/aoms/1177730497.\n\n\n\nOutside links\n\nWikipedia\nMAD\n\nPlease note the statisticians of the week are taken directly from the CURV project by Jo Hardin."
+  },
+  {
+    "objectID": "schedule/week_06_sched.html#statistician-of-the-week-lester-mackey",
+    "href": "schedule/week_06_sched.html#statistician-of-the-week-lester-mackey",
+    "title": "Week 6",
+    "section": "Statistician of the Week: Lester Mackey",
+    "text": "Statistician of the Week: Lester Mackey\n\n\n\n\n\n\n\nLester Mackey\n\n\n\n\n\n\nDr. Mackey is a machine learning researcher at Microsoft Research New England and an adjunct professor at Stanford University. His PhD (Computer Science 2012) and MA (Statistics 2011) are both from University of California, Berkeley, while his undergraduate degree (Computer Science 2007) is from Princeton University.\nHe is involved in Stanford’s initiative of Statistics for Social Good and has the following quote on his website:\n\nQuixotic though it may sound, I hope to use computer science and statistics to change the world for the better.\n\n\n\n\nTopics covered\nFrom Dr. Mackey’s personal website his areas of research are:\n\nstatistical machine learning\nscalable algorithms\nhigh-dimensional statistics\napproximate inference\nprobability\n\n\n\nRelevant work\n\nKoulik Khamaru, Yash Deshpande, Lester Mackey, and Martin J. Wainwright, Near-optimal inference in adaptive linear regression\n\n\nWhen data is collected in an adaptive manner, even simple methods like ordinary least squares can exhibit non-normal asymptotic behavior. As an undesirable consequence, hypothesis tests and confidence intervals based on asymptotic normality can lead to erroneous results. We propose a family of online debiasing estimators to correct these distributional anomalies in least squares estimation. Our proposed methods take advantage of the covariance structure present in the dataset and provide sharper estimates in directions for which more information has accrued. We establish an asymptotic normality property for our proposed online debiasing estimators under mild conditions on the data collection process and provide asymptotically exact confidence intervals…\n\n\nPierre Bayle, Alexandre Bayle, Lucas Janson, and Lester Mackey, Cross-validation Confidence Intervals for Test Error Advances in Neural Information Processing Systems (NeurIPS), December 2020.\n\n\nThis work develops central limit theorems for cross-validation and consistent estimators of its asymptotic variance under weak stability conditions on the learning algorithm. Together, these results provide practical, asymptotically-exact confidence intervals for k-fold test error and valid, powerful hypothesis tests of whether one learning algorithm has smaller k-fold test error than another. These results are also the first of their kind for the popular choice of leave-one-out cross-validation. In our real-data experiments with diverse learning algorithms, the resulting intervals and tests outperform the most popular alternative methods from the literature…\n\n\n\nOutside links\n\nMathematically Gifted & Black\nLinkedin\npersonal\n\n\n\nOther\nThe precursor to kaggle was a $1 million prize given by Netflix to the most accurate prediction of ratings that people give to the movies they watch. As undergraduates, Dr. Mackey and two friends led the competition for a few hours in its first year. Later, groups merged and Dr. Mackey’s group merged with a few others, forming The Ensemble. Their final analysis came in second with the exact same error rates as the winning entry. The winning entry, however, had been submitted 20 minutes prior. Sigh."
+  },
+  {
+    "objectID": "schedule/week_07_sched.html#statistician-of-the-week-w.e.b.-du-bois",
+    "href": "schedule/week_07_sched.html#statistician-of-the-week-w.e.b.-du-bois",
+    "title": "Week 7",
+    "section": "Statistician of the Week: W.E.B. Du Bois",
+    "text": "Statistician of the Week: W.E.B. Du Bois\n\n\n\n\n\n\n\nW.E.B. Du Bois\n\n\n\n\n\n\nDu Bois was a sociologist and among the earliest data scientists. As Battle-Baptiste and Rusert say, his work can be thought of as\n\nthe rendering of information in a visual format to help communicate data while also generating new patterns and knoweldge throughout the act of visualization itselt.1\n\n\n\n\nTopics covered\nDu Bois was a sociologist who contributed to the field of data visualization through infographics related to the African American in the early twentieth century.\n\n\nRelevant work\n\nRusert, B., and Battle-Baptiste, W. “W. E. B. Du Bois’s Data Portraits: Visualizing Black America”, Princeton Architectural Press, 2018. https://papress.com/products/w-e-b-du-boiss-data-portraits-visualizing-black-america\n\n\n\nOutside links\n\nWikipedia\nTidyTuesday data viz and TidyTuesday challenge provided the data needed to re-create most of Du Bois’s original graphs (his originals were drawn by hand).\nData Journalism in the study of W.E.B. Du Bois\nW.E.B. Du Bois: retracing his attempt to challenge racism with data\nW.E.B. Du Bois’ Visionary Infographics Come Together for the First Time in Full Color\n\n\n\nOther\nIn 1900 Du Bois contributed approximately 60 data visualizations to an exhibit at the Exposition Universelle in Paris, an exhibit designed to illustrate the progress made by African Americans since the end of slavery (only 37 years prior, in 1863).\nAt their core, the data visualizations advocate for African American progress. They not only speak to the progress that had been made, but they centered many of the challenges that continued to exist at the time. The set of visualizations demonstrate how powerfully a picture can tell 1000 words, as the information Du Bois used was primarily available from public records (e.g., census and other government reports).\nWhitney Battle-Baptiste and Britt Rusert have reproduced and narrated the images from the exhibit in W.E.B. Du Bois’s Data Portraits: Visualizing Black America, the color line at the turn of the twentieth century."
+  },
+  {
+    "objectID": "schedule/week_07_sched.html#footnotes",
+    "href": "schedule/week_07_sched.html#footnotes",
+    "title": "Week 7",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nBattle-Baptiste and Rusert, W.E.B. Du Bois’s Data Portraits: Visualizing Black America, the color line at the turn of the twentieth century, 2018, page 8.↩︎"
+  },
+  {
+    "objectID": "schedule/week_08_sched.html#statistician-of-the-week-desi-small-rodriguez",
+    "href": "schedule/week_08_sched.html#statistician-of-the-week-desi-small-rodriguez",
+    "title": "Week 8",
+    "section": "Statistician of the Week: Desi Small-Rodriguez",
+    "text": "Statistician of the Week: Desi Small-Rodriguez\n\n\n\n\n\n\n\nDesi Small-Rodriguez\n\n\n\n\n\n\nDr. Small-Rodriguez is a social demographer and an Assistant Professor of Sociology and American Indian Studies at UCLA. She received a PhD in Sociology from the University of Arizona and a PhD in Demography from the University of Waikato. Dr. Small-Rodriguez is Northern Cheyenne and Chicana and grounds her work in Indigenous studies, sociology of race and ethnicity, critical demography, and health policy research. She directs the Data Warriors Lab (a mobile data sovereignty lab serving Indigenous communities) and was previously a member of the Collaboratory for Indigenous Data Governance. She is a founding member of the Global Indigenous Data Alliance.\n\n\n\nTopics covered\nDr. Small-Rodriguez is passionate about Indigenous data sovereignty and Indigenous data governance. Using networks of Indigenous scholars and survey methods, she works toward the following two goals: (1) better collection and use of data on Indigenous people that has been gathered by external sources such as the census and other federal entities; (2) development of data methods and practitioners within the Indigenous community. Dr. Small-Rodriguez also works for health and economic justice on Indian Reservations.\n\n\nRelevant work\n\nS.R. Carroll, D. Rodriguez-Lonebear, A. Martinez, “Indigenous Data Governance: Strategies from United States Native Nations.” Data Science Journal, 2019. https://datascience.codata.org/article/10.5334/dsj-2019-031/\n\n\n“Indigenous data sovereignty is the right of each Native nation to govern the collection, ownership, and application of the tribe’s data.”\n\n\nRodriguez-Lonebear D, Barceló NE, Akee R, Carroll SR. “American Indian Reservations and COVID-19: Correlates of Early Infection Rates in the Pandemic.” J Public Health Manag Pract. 2020. doi: 10.1097/PHH.0000000000001206.\n\n\n\nOutside links\n\nacademic\nLinkedin\npersonal"
+  },
+  {
+    "objectID": "schedule/week_09_sched.html#statistician-of-the-week-mike-dairyko",
+    "href": "schedule/week_09_sched.html#statistician-of-the-week-mike-dairyko",
+    "title": "Week 9",
+    "section": "Statistician of the Week: Mike Dairyko",
+    "text": "Statistician of the Week: Mike Dairyko\n\n\n\n\n\n\n\nMike Dairyko\n\n\n\n\n\n\nDr. Dairyko was a Posse Scholar at Pomona College where a linear algebra class set him on a career path centered around mathematics. Through that class he found his way to two different summer REU programs and eventually to a PhD in Applied Mathematics from Iowa State University (2018). While initially believing that he would stay in academia after his graduate work, being introduced to machine learning methods caused him to pursue data science jobs after graduation.\nDr. Dairyko served as a Senior Manager of Data Science at the Milwaukee Brewers and is now the Director of Ticketing Analytics at the Milwaukee Bucks. Helping the organization get the most out of budgeting, revenue, and ticket sales allows him to fully use his training in mathematics and data science.\n\n\n\nTopics covered\nDr. Dairyko’s graduate work is in graph theory, in particular, exponential domination. In a graph, exponential domination is the extent to which a particular vertex influences the remaining vertices in a graph. His published work falls very much within the realm of mathematics, proving that particular properties of graphs exist. However, graph theory is intimately related to machine learning; for example, it is the foundational structure of a neural network. Understanding properties of graphs help data scientists develop even more powerful models to harness information from data.\n\n\nRelevant work\n\nM. Dairyko, A linear programming method for exponential domination. The Golden Anniversary Celebration of the National Association of Mathematicians, Volume 759 of Contemporary mathematics. Eds O. Ortega, E. Lawrence, E. Goins (2020).\nM. Dairyko, L.Hogben, J. Lin, J. Lockhart, D. Roberson, S. Severini, M. Young, Note on von Neumann and Rényi entropies of a graph. Linear Algebra and its Applications, 2017.\n\n\n\nOutside links\n\nMAD\nLinkedin\nGoogle Scholar\n\n\n\nOther\nDr. Dairyko’s path from mathematics to data science has been written about in SIAM and in the Iowa State University newsletter Math Matters."
+  },
+  {
+    "objectID": "schedule/week_10_sched.html#statistician-of-the-week-florence-nightingale",
+    "href": "schedule/week_10_sched.html#statistician-of-the-week-florence-nightingale",
+    "title": "Week 10",
+    "section": "Statistician of the Week: Florence Nightingale",
+    "text": "Statistician of the Week: Florence Nightingale\n\n\n\n\n\n\n\nFlorence Nightingale\n\n\n\n\n\n\nNightingale was a nurse who is considered to be the founder of modern nursing. In particular, she was admant about the importance of hygiene and sanitary conditions. She was born into a wealthy and well-connected family and had a large amount of privilege. Educated by her father, she showed an ability toward making analytic arguments at an early age. For her work, she was awarded the Royal Red Cross, the Lady of Grace of the Order of St John, and the Order of Merit.\n\n\n\nTopics covered\nNightingale was a nurse and statistician who used her analytic abilities to better understand and improve public health. She served in the Crimean War where Britain and France fought against the Russian invasion of the Ottoman Empire. Nightingale worked to convince Queen Victoria that poor sanitation and overcrowding were causing unnecessary death. She was able to show, for example, that peacetime soldiers (who lived in poorly kept barracks) were dying in much higher number than comparable civilian men. Her genius was to collect data meticulously and to display it in ways that were accessible to the general public. Her visualizations are lauded as pioneering and the first of their kind to tell effective stories of important issues.\n\n\nRelevant work\n\nRJ Andrews, “Florence Nightingale’s Data Revolution” in Scientific American 327, 2, 78-85, 2022. doi:10.1038/scientificamerican0822-78,\n\n\n\n\n\n\n“Diagram of the causes of mortality in the army in the East” was published in Notes on Matters Affecting the Health, Efficiency, and Hospital Administration of the British Army and sent to Queen Victoria in 1858.\n\n\n\n\n\nS Julious, “On the battlefields of the Crimean War and in the hills of Sheffield, Florence Nightingale’s legacy lives on”, The Tribune, Feb 17, 2023.\n\n\n\nOutside links\n\nWikipedia"
+  },
+  {
+    "objectID": "schedule/week_11_sched.html#statistician-of-the-week-maricela-cruz",
+    "href": "schedule/week_11_sched.html#statistician-of-the-week-maricela-cruz",
+    "title": "Week 11",
+    "section": "Statistician of the Week: Maricela Cruz",
+    "text": "Statistician of the Week: Maricela Cruz\n\n\n\n\n\n\n\nMaricela Cruz\n\n\n\n\n\n\nDr. Cruz did her undergraduate work at Pomona College, majoring in mathematics. Her PhD in Statistics is from University of California, Irvine. She is now Assistant Biostatistics Investigator, Kaiser Permanente Washington Health Research Institute (KPWHRI) and Affiliate Assistant Investigator, Department of Biostatistics, University of Washington.\nIn an interview done by Lathisms, Dr. Cruz reminds us:\n\nNavigating institutions that have systematically excluded groups of people can be taxing, especially for people from one or more of these groups. Surround yourself with those who believe in you, give you the space to ask ‘silly’ questions, value your input, and/or understand your struggles. Do activities that will help you blow off steam. No one person or activity will meet all your support needs, so find the right group and balance for you.\n\n\n\n\nTopics covered\nDr. Cruz’s dissertation work was on interrupted time series models used to determine intervention timing. Indeed, her primary research questions are to understand complex health interventions. At KPWHRI she has continued to work on epidemiological methods, particularly those appropriate for longitudinal and multilevel data.\n\n\nRelevant work\n\nCruz M, Ombao H, Gillen DL, A Generalized Interrupted Time Series Model for Assessing Complex Health Care Interventions. Statistics in Biosciences, 2022.\nCruz M, Gillen DL, Bender M, & Ombao H, Assessing health care interventions via an interrupted time series model: study power and design considerations. Statistics in Medicine, 2019.\n\n\n\nOutside links\n\nLathisms\nLinkedin\nKaiser Permanente"
   }
 ]

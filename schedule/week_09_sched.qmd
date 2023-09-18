@@ -2,7 +2,7 @@
 title: "Week 9"
 description: "Expected values, variance, and continuous distributions"
 date: "11/20/2023"
-date-modified: "8/22/2023"
+date-modified: "9/15/2023"
 categories: [""]
 format: 
   html:
@@ -12,30 +12,95 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{css, echo=FALSE}
+.title{
+  font-size: 40px;
+  color: #006a4e;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.description{
+  font-size: 20px;
+  color: #fff;
+  background-color: #006a4e;
+  padding: 10px;
+}
+```
+
 ## Resources
 
-+-------------------+--------------------------------------------------------------------------+
-| Resource          | Information and Links                                                    |
-+===================+==========================================================================+
-| Readings and Code | Expect value and variance of continuous random variables (Chapter 28-30) |
-|                   |                                                                          |
-|                   | Common families of continuous distributions (Chapter 31-33, 35)          |
-+-------------------+--------------------------------------------------------------------------+
-| Slides            |                                                                          |
-+-------------------+--------------------------------------------------------------------------+
-| Class Notes       |                                                                          |
-+-------------------+--------------------------------------------------------------------------+
-| Data              |                                                                          |
-+-------------------+--------------------------------------------------------------------------+
-| Homework          |                                                                          |
-+-------------------+--------------------------------------------------------------------------+
+| Chapter | Topic                            |                                                  Slides                                                   |                                  Annotated Slides                                  |                           Recording                           |
+|---------------|---------------|:-------------:|:-------------:|:-------------:|
+| 28      | Expected value of continuous RVs | [[{{< iconify ri slideshow-fill size=30px >}}](../slides/28_Expected_Values.qmd)]{style="color:#49A3D1;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 29      | Variance of continuous RVs       |                   [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                   | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 31      | Uniform RV                       |                   [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                   | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 32      | Exponential RV                   |                   [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                   | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 33      | Gamma RV                         |                   [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                   | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 35      | Normal RV                        |                   [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                   | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
-## Post Class
+For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
 
-Survey link!!
+1.  Click on the icon with three horizontal bars on the bottom left of the browser.
+2.  Click on "Tools" with the gear icon at the top of the sidebar.
+3.  Click on "PDF Export Mode."
+4.  From there, you can print or save the PDF as you would normally from your internet browser.
+
+## On the Horizon
+
+## Class Exit Tickets
+
+[{{< iconify healthicons health-worker-form-negative size=30px >}}]{style="color:#f8f5f0;"} Monday (11/20)
+
+## Additional Information
+
+## Statistician of the Week: Mike Dairyko
+
+::: {.grid}
+
+::: {.g-col-4}
+```{r fig.cap = "Mike Dairyko", fig.alt = "Image credit: Will Stone", preview = TRUE, echo = FALSE}
+knitr::include_graphics("../images/stat_of_week/dairyko.jpg")
+```
+:::
+
+:::{.g-col-8}
+
+Dr. Dairyko was a Posse Scholar at Pomona College where a linear algebra class set him on a career path centered around mathematics. Through that class he found his way to two different summer REU programs and eventually to a PhD in Applied Mathematics from Iowa State University (2018). While initially believing that he would stay in academia after his graduate work, being introduced to machine learning methods caused him to pursue data science jobs after graduation.
+
+Dr. Dairyko served as a Senior Manager of Data Science at the Milwaukee Brewers and is now the Director of Ticketing Analytics at the Milwaukee Bucks.  Helping the organization get the most out of budgeting, revenue, and ticket sales allows him to fully use his training in mathematics and data science.
+
+:::
+
+:::
+
+
+#### Topics covered
+
+Dr. Dairyko's graduate work is in graph theory, in particular, exponential domination.  In a graph, exponential domination is the extent to which a particular vertex influences the remaining vertices in a graph.  His published work falls very much within the realm of mathematics, proving that particular properties of graphs exist.  However, graph theory is intimately related to machine learning; for example, it is the foundational structure of a neural network.  Understanding properties of graphs help data scientists develop even more powerful models to harness information from data.
+
+#### Relevant work
+
+* M. Dairyko, <a href = "https://www.ams.org/books/conm/759/" target = "_blank">A linear programming method for exponential domination</a>.  **The Golden Anniversary Celebration of the National Association of Mathematicians, Volume 759 of Contemporary mathematics**. Eds	O. Ortega, E. Lawrence, E. Goins (2020).
+
+* M. Dairyko, L.Hogben, J. Lin, J. Lockhart, D. Roberson, S. Severini, M. Young,
+<a href = "https://doi.org/10.1016/j.laa.2017.01.037" target = "_blank">Note on von Neumann and Rényi entropies of a graph</a>. **Linear Algebra and its Applications**, 2017.
+
+#### Outside links
+
+* [MAD](https://www.mathad.com/profile?bfcc2518292545635991142facc)
+* [Linkedin](https://www.linkedin.com/in/mdairyko/)
+* [Google Scholar](https://scholar.google.com/citations?user=eHsKgKYAAAAJ&hl=en)
+
+
+####  Other
+
+Dr. Dairyko's path from mathematics to data science has been written about in <a href = "https://sinews.siam.org/Details-Page/from-academia-to-major-league-baseball-the-journey-of-a-data-scientist " target = "_blank">SIAM</a> and in the Iowa State University newsletter <a href= "https://math.iastate.edu/2017/10/17/an-industrious-approach/" target = "_blank">Math Matters</a>.
 
 ## Muddiest Points
 
+This will be filled in with your Exit Ticket responses.
+
 ## Clearest Points
 
-## Additional Information
+This will be filled in with your Exit Ticket responses.

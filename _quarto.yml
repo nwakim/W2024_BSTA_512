@@ -21,6 +21,7 @@ website:
   sidebar:
     style: "docked"
     search: true
+    collapse-level: 4
     contents:
       - href: index.qmd
         text: Home
@@ -36,8 +37,8 @@ website:
           - class_slides.qmd
           - href: homeworks.qmd
             text: Homework
-          - href: schedule.qmd
-            text: Weekly pages
+          - contents: schedule
+            href: schedule.qmd
           
 execute:
   freeze: auto

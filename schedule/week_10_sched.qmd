@@ -1,8 +1,8 @@
 ---
 title: "Week 10"
-description: "Week 10"
+description: "mgf's; Sum of Normal RV's; and Central Limit Theorem"
 date: "11/27/2023"
-date-modified: "8/22/2023"
+date-modified: "9/15/2023"
 categories: [""]
 format: 
   html:
@@ -12,32 +12,89 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{css, echo=FALSE}
+.title{
+  font-size: 40px;
+  color: #006a4e;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.description{
+  font-size: 20px;
+  color: #fff;
+  background-color: #006a4e;
+  padding: 10px;
+}
+```
+
 ## Resources
 
-+-------------------+----------------------------------------------------------+
-| Resource          | Information and Links                                    |
-+===================+==========================================================+
-| Readings and Code | Moment generating functions (Chapter 43)                 |
-|                   |                                                          |
-|                   | Sums of independent normal random variables (Chapter 36) |
-|                   |                                                          |
-|                   | Central limit theorem (Chapter 37)                       |
-+-------------------+----------------------------------------------------------+
-| Slides            |                                                          |
-+-------------------+----------------------------------------------------------+
-| Class Notes       |                                                          |
-+-------------------+----------------------------------------------------------+
-| Data              |                                                          |
-+-------------------+----------------------------------------------------------+
-| Homework          |                                                          |
-+-------------------+----------------------------------------------------------+
+| Chapter | Topic                                       |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
+|---------------|---------------|:-------------:|:-------------:|:-------------:|
+| 43      | Moment generating functions                 | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 36      | Sums of independent normal random variables | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 37      | Central limit theorem                       | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
-## Post Class
+For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
 
-Survey link!!
+1.  Click on the icon with three horizontal bars on the bottom left of the browser.
+2.  Click on "Tools" with the gear icon at the top of the sidebar.
+3.  Click on "PDF Export Mode."
+4.  From there, you can print or save the PDF as you would normally from your internet browser.
+
+## On the Horizon
+
+## Class Exit Tickets
+
+[{{< iconify healthicons health-worker-form-negative size=30px >}}]{style="color:#f8f5f0;"} Monday (11/27)
+
+[{{< iconify healthicons health-worker-form-negative size=30px >}}]{style="color:#f8f5f0;"} Wednesday (11/29)
+
+## Additional Information
+
+## Statistician of the Week: Florence Nightingale
+
+::: {.grid}
+
+::: {.g-col-4}
+```{r fig.cap = "Florence Nightingale", fig.alt = "Image credit: Henry Hering (1814-1893) - National Portrait Gallery, London", preview = TRUE, echo = FALSE}
+knitr::include_graphics("../images/stat_of_week/nightingale.jpg")
+```
+:::
+
+:::{.g-col-8}
+
+Nightingale was a nurse who is considered to be the founder of modern nursing.  In particular, she was admant about the importance of hygiene and sanitary conditions.  She was born into a wealthy and well-connected family and had a large amount of privilege.  Educated by her father, she showed an ability toward making analytic arguments at an early age.  For her work, she was awarded the Royal Red Cross, the Lady of Grace of the Order of St John, and the Order of Merit.
+
+:::
+
+:::
+
+
+#### Topics covered
+
+Nightingale was a nurse and statistician who used her analytic abilities to better understand and improve public health.  She served in the Crimean War where Britain and France fought against the Russian invasion of the Ottoman Empire.  Nightingale worked to convince Queen Victoria that poor sanitation and overcrowding were causing unnecessary death.  She was able to show, for example, that peacetime soldiers (who lived in poorly kept barracks) were dying in much higher number than comparable civilian men. Her genius was to collect data meticulously and to display it in ways that were accessible to the general public.  Her visualizations are lauded as pioneering and the first of their kind to tell effective stories of important issues.
+
+
+#### Relevant work
+
+* RJ Andrews, <a href = "https://www.scientificamerican.com/article/how-florence-nightingale-changed-data-visualization-forever/" target = "_blank">"Florence Nightingale's Data Revolution"</a> in Scientific American 327, 2, 78-85, 2022. doi:10.1038/scientificamerican0822-78, 
+
+```{r fig.cap = ' "Diagram of the causes of mortality in the army in the East" was published in Notes on Matters Affecting the Health, Efficiency, and Hospital Administration of the British Army and sent to Queen Victoria in 1858.', fig.alt = "Image credit: Florence Nightingale, work is in the public domain ", preview = TRUE, echo = FALSE}
+knitr::include_graphics("../images/stat_of_week/Nightingale-mortality.jpg")
+```
+
+* S Julious, <a href = "https://www.sheffieldtribune.co.uk/p/on-the-battlefields-of-the-crimean" target = "_blank">"On the battlefields of the Crimean War and in the hills of Sheffield, Florence Nightingale's legacy lives on"</a>, The Tribune, Feb 17, 2023. 
+
+#### Outside links
+
+* [Wikipedia](https://en.wikipedia.org/wiki/Florence_Nightingale)
 
 ## Muddiest Points
 
+This will be filled in with your Exit Ticket responses.
+
 ## Clearest Points
 
-## Additional Information
+This will be filled in with your Exit Ticket responses.

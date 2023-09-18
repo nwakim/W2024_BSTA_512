@@ -2,7 +2,7 @@
 title: "Week 1"
 description: "Outcomes, Events, and Sample Space; Probability; and Counting"
 date: "09/25/2023"
-date-modified: "08/22/2023"
+date-modified: "9/15/2023"
 categories: [""]
 format: 
   html:
@@ -33,7 +33,7 @@ editor_options:
 Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
 | Chapter | Topic                              |                                                      Slides                                                      |                                  Annotated Slides                                  |                           Recording                           |
-|-------------|-------------|:-------------------:|:------------:|:-----------:|
+|---------------|---------------|:-------------:|:-------------:|:-------------:|
 |         | Intro                              |          [[{{< iconify ri slideshow-fill size=30px >}}](../slides/0_Intro.qmd)]{style="color:#49A3D1;"}          |                                                                                    | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 1       | Outcomes, Events, and Sample Space | [[{{< iconify ri slideshow-fill size=30px >}}](../slides/1_Outcomes_Events_Sample.qmd)]{style="color:#49A3D1;"}  | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 2       | Probability                        |       [[{{< iconify ri slideshow-fill size=30px >}}](../slides/2_Probability.qmd)]{style="color:#f8f5f0;"}       | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
@@ -58,7 +58,6 @@ For the slides, once they are opened, if you would like to print or save them as
 [[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUMkNKRDJMUk5DVVNZOEZXNVNXMzZHVjZSOC4u)]{style="color:#f8f5f0;"} Monday (9/25)
 
 [{{< iconify healthicons health-worker-form-negative size=30px >}}]{style="color:#f8f5f0;"} Wednesday (9/27)
-
 
 ## Additional Information
 

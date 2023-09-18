@@ -12,32 +12,91 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{css, echo=FALSE}
+.title{
+  font-size: 40px;
+  color: #006a4e;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.description{
+  font-size: 20px;
+  color: #fff;
+  background-color: #006a4e;
+  padding: 10px;
+}
+```
+
 ## Resources
 
-+-------------------+------------------------------------------------------+
-| Resource          | Information and Links                                |
-+===================+======================================================+
-| Readings and Code | Joint PDFs (Chapter 25)                              |
-|                   |                                                      |
-|                   | Independent continuous random variables (Chapter 26) |
-|                   |                                                      |
-|                   | Conditional distributions (Chapter 27)               |
-+-------------------+------------------------------------------------------+
-| Slides            |                                                      |
-+-------------------+------------------------------------------------------+
-| Class Notes       |                                                      |
-+-------------------+------------------------------------------------------+
-| Data              |                                                      |
-+-------------------+------------------------------------------------------+
-| Homework          |                                                      |
-+-------------------+------------------------------------------------------+
+| Chapter | Topic                                   |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
+|---------------|---------------|:-------------:|:-------------:|:-------------:|
+| 25      | Joint PDFs                              | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 26      | Independent continuous random variables | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 27      | Conditional distributions               | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
-## Post Class
+For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
 
-Survey link!!
+1.  Click on the icon with three horizontal bars on the bottom left of the browser.
+2.  Click on "Tools" with the gear icon at the top of the sidebar.
+3.  Click on "PDF Export Mode."
+4.  From there, you can print or save the PDF as you would normally from your internet browser.
+
+## On the Horizon
+
+## Class Exit Tickets
+
+[{{< iconify healthicons health-worker-form-negative size=30px >}}]{style="color:#f8f5f0;"} Monday (11/13)
+
+[{{< iconify healthicons health-worker-form-negative size=30px >}}]{style="color:#f8f5f0;"} Wednesday (11/15)
+
+## Additional Information
+
+### Extra Practice/Learning
+
+## Statistician of the Week: Desi Small-Rodriguez
+
+::: {.grid}
+
+::: {.g-col-4}
+```{r fig.cap = "Desi Small-Rodriguez", fig.alt = "Image credit: Matika Wilbur https://www.drdrdesi.com/", preview = TRUE, echo = FALSE}
+knitr::include_graphics("../images/stat_of_week/small-rodriguez.jpg")
+```
+:::
+
+:::{.g-col-8}
+Dr. Small-Rodriguez is a social demographer and an Assistant Professor of Sociology and American Indian Studies at UCLA.  She received a PhD in Sociology from the University of Arizona and a PhD in Demography from the University of Waikato.  Dr. Small-Rodriguez is Northern Cheyenne and Chicana and grounds her work in Indigenous studies, sociology of race and ethnicity, critical demography, and health policy research.  She directs the Data Warriors Lab (a mobile data sovereignty lab serving Indigenous communities) and was previously a member of the <a href = "https://indigenousdatalab.org/idsovteam/" target = "_blank">Collaboratory for Indigenous Data Governance</a>. She is a founding member of the <a href = "https://www.gida-global.org/whoweare" target = "_blank">Global Indigenous Data Alliance.</a>
+
+:::
+
+:::
+
+
+#### Topics covered
+
+Dr. Small-Rodriguez is passionate about Indigenous data sovereignty and Indigenous data governance. Using networks of Indigenous scholars and survey methods, she works toward the following two goals:  (1) better collection and use of data on Indigenous people that has been gathered by external sources such as the census and other federal entities; (2) development of data methods and practitioners within the Indigenous community.  Dr. Small-Rodriguez also works for health and economic justice on Indian Reservations.
+
+
+
+#### Relevant work
+
+* S.R. Carroll, D. Rodriguez-Lonebear, A. Martinez, "Indigenous Data Governance: Strategies from United States Native Nations." Data Science Journal, 2019.  https://datascience.codata.org/article/10.5334/dsj-2019-031/
+
+> "Indigenous data sovereignty is the right of each Native nation to govern the collection, ownership, and application of the tribe’s data."
+
+* Rodriguez-Lonebear D, Barceló NE, Akee R, Carroll SR. "American Indian Reservations and COVID-19: Correlates of Early Infection Rates in the Pandemic." J Public Health Manag Pract. 2020. doi: 10.1097/PHH.0000000000001206.
+
+#### Outside links
+
+* [academic](https://soc.ucla.edu/person/desi-small-rodriguez/)
+* [Linkedin](https://www.linkedin.com/in/desismallrodriguez/)
+* [personal](https://www.drdrdesi.com/)
 
 ## Muddiest Points
 
+This will be filled in with your Exit Ticket responses.
+
 ## Clearest Points
 
-## Additional Information
+This will be filled in with your Exit Ticket responses.
