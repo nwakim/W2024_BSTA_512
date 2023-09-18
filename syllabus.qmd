@@ -85,11 +85,11 @@ g=3
 
 -   *Statistical Inference*, Casella and Berger, 2nd ed. (This will be the textbook for BSTA 551-552 Math Stat.)
 
--   *Introduction to Probability,* Charles M. Grinstead and J. Laurie Snell, <http://www.dartmouth.edu/~chance/teaching_aids/books_articles/probability_book/pdf.html>
+-   [*Introduction to Probability*](https://math.dartmouth.edu/~prob/prob/prob.pdf)*,* Charles M. Grinstead and J. Laurie Snell
 
 -   *Probability With Applications and R*, Robert P. Dobrow, Wiley 2013 (eBook available from OHSU library)
 
--   *An Introduction to R* (free pdf available from <http://cran.r-project.org/manuals.html>)
+-   *An Introduction to R* ([free pdf available](http://cran.r-project.org/manuals.html))
 
 ### Online Resources
 
@@ -459,7 +459,7 @@ Students across the country experience food insecurity at alarming rates. OHSU a
 
 ### School of Public Health Handbook
 
-All students are responsible for following the policies and expectations outlined in the student handbook for their program of study. Students are responsible for their own academic work and are expected to have read and practice principles of academic honesty, as presented in the handbook: <https://ohsu-psu-sph.org/graduate/handbooks-policies-forms/>.
+All students are responsible for following the policies and expectations outlined in the student handbook for their program of study. Students are responsible for their own academic work and are expected to have read and practice principles of academic honesty, [as presented in the handbook](https://ohsu-psu-sph.org/current-graduate-students/policies-procedures/).
 
 ### Student Access & Accommodations
 
@@ -533,7 +533,7 @@ For more information related accessibility and accommodations, please see the "
 
 *Please note that faculty and the Title IX Coordinators will keep the information you disclose private but are not confidential. If you would like to speak with a confidential advocate, who will not disclose the information to a university official without your written consent, you may contact an advocate at PSU or OHSU.*
 
--   [*PSU's confidential advocates*](https://www.pdx.edu/wrc/sexual-and-relationship-violence-response) *are available in Women's Resource Center (serving all genders) in Smith Student Memorial Union 479. You may schedule an appointment by (503-725-5672) or schedule on line at [https://psuwrc.youcanbook.me](https://psuwrc.youcanbook.me/)[.]{.underline} For more information about resources at PSU, please see PSU's[Response to Sexual Misconduct website.](https://www.pdx.edu/sexual-assault/)*
+-   [*PSU's confidential advocates*](https://www.pdx.edu/womens-resource-center/schedule-confidential-advocacy-appointment) *are available in Women's Resource Center (serving all genders) in Smith Student Memorial Union 479. You may schedule an appointment by (503-725-5672) or schedule on line at [https://psuwrc.youcanbook.me](https://psuwrc.youcanbook.me/)[.]{.underline} For more information about resources at PSU, please see PSU's [Response to Sexual Misconduct website.](https://www.pdx.edu/sexual-assault/)*
 -   OHSU's advocates are available through the Confidential Advocacy Program (CAP) at 833-495-CAPS (2277) or by email [CAPsupport\@ohsu.edu](mailto:CAPsupport@ohsu.edu), but please note, email is not a secure form of communication. Also visit [www.ohsu.edu/CAP](http://www.ohsu.edu/CAP).
 
 *At OHSU, if you encounter any harassment, or discrimination based on race, color, religion, age, national origin or ancestry, veteran or military status, sex, marital status, pregnancy or parenting status, sexual orientation, gender identity or expression, disability or any other protected status, please contact the Affirmative Action and Equal Opportunity (AAEO) Department at 503-494-5148 or [aaeo\@ohsu.edu](mailto:aaeo@ohsu.edu).*
@@ -566,35 +566,35 @@ The [OHSU ITG Help Desk](http://www.ohsu.edu/xd/about/services/information-tech
 
 ## Institutional Policies and Resources
 
-### Statement Regarding Students with Disabilities:
+### Statement Regarding Students with Disabilities
 
 OHSU is committed to inclusive and accessible learning environments in compliance with federal and state law. If you have a disability or think you may have a disability (mental health, attention-related, learning, vision, hearing, physical or health impacts) contact the Office for Student Access at (503) 494-0082 or [OHSU Student Access](mailto:studentaccess@ohsu.edu "OHSU Student Access") to have a confidential conversation about academic accommodations. Information is also available at [Student Access Website](http://www.ohsu.edu/student-access "Student Access Website"). Because accommodations may take time to implement and cannot be applied retroactively, it is important to have this discussion as soon as possible.
 
 Portland State students also have similar resources available via the PSU Disability Resource Center (website <http://www.pdx.edu/drc> ). Please contact the DRC at tel. (503) 725-4150 or email at [drc\@pdx.edu](mailto:drc@pdx.edu "Disability Resource Center")
 
-### Student Evaluation of Courses:
+### Student Evaluation of Courses
 
 Course evaluation results are extremely important and used to help improve courses and the learning experience of future students. Responses will always remain anonymous and will only be available to instructors after grades have been posted. The results of scaled questions and comments go to both the instructor and their unit head/supervisor. Refer to Student Evaluation of Courses and Instructional Effectiveness, \*[Policy No. 02-50-035](https://o2.ohsu.edu/policies-and-compliance/ohsu-policy-manual/chapter-2-student-affairs/ohsu-policy-02-50-035.cfm "Student Evaluationvof Courses Policy").
 
 \*To access the OHSU Student Evaluation of Courses and Instructional Effectiveness Policy, you must log into the [OHSU O2 website](https://o2.ohsu.edu/ "OHSU O2 website").
 
-### Copyright Information:
+### Copyright Information
 
 Copyright laws and fair use policies protect the rights of those who have produced the material. The copy in this course has been provided for private study, scholarship, or research. Other uses may require permission from the copyright holder. The user of this work is responsible for adhering to copyright law of the U.S. (Title 17, U.S. Code). To help you familiarize yourself with copyright and fair use policies, the University encourages you to visit its [Copyright Web Page](https://www.ohsu.edu/xd/education/library/services/copyright/ "Copyright Web Page")
 
 Sakai course web sites contain material protected by copyrights held by the instructor, other individuals or institutions. Such material is used for educational purposes in accord with copyright law and/or with permission given by the owners of the original material. You may download one copy of the materials on any single computer for non-commercial, personal, or educational purposes only, provided that you (1) do not modify it, (2) use it only for the duration of this course, and (3) include both this notice and any copyright notice originally included with the material. Beyond this use, no material from the course web site may be copied, reproduced, re-published, uploaded, posted, transmitted, or distributed in any way without the permission of the original copyright holder. The instructor assumes no responsibility for individuals who improperly use copyrighted material placed on the web site.
 
-### Syllabi Changes and Retention:
+### Syllabi Changes and Retention
 
 Syllabi are considered to be a learning agreement between students and the faculty of record. Information contained in syllabi, other than the minimum requirements, may be subject to change as deemed appropriate by the faculty of record in concurrence with the academic program and the Office of the Provost. Refer to the \*[Course Syllabi Policy, 02-50-050.](https://o2.ohsu.edu/policies-and-compliance/ohsu-policy-manual/chapter-2-student-affairs/ohsu-policy-02-50-050.cfm "Course Syllabi Policy, 02-50-050.")
 
-\*To access the OHSU Course Syllabus Policy, you must log into the [OHSU O2 website](https://o2.ohsu.edu/ "OHSU O2 website").
+\*To access the OHSU Course Syllabus Policy, you must log into the [OHSU O2 website](#0 "OHSU O2 website").
 
-### Commitment to Diversity & Inclusion:
+### Commitment to Diversity & Inclusion
 
 OHSU is committed to creating and fostering a learning and working environment based on open communication and mutual respect. If you encounter sexual harassment, sexual misconduct, sexual assault, or discrimination based on race, color, religion, age, national origin, veteran's status, ancestry, sex, marital status, pregnancy or parenting status, sexual orientation, gender identity, disability or any other protected status please contact the Affirmative Action and Equal Opportunity Department at 503-494-5148 or [aaeo\@ohsu.edu](mailto:aaeo@ohsu.edu). Inquiries about Title IX compliance or sex/gender discrimination and harassment may be directed to the OHSU Title IX Coordinator at 503-494-0258 or [titleix\@ohsu.edu.](mailto:titleix@ohsu.edu.)
 
-### Modified Operations, Policy 01-40-010:
+### Modified Operations, Policy 01-40-010
 
 **Portland Campus:  Marquam Hill and South Waterfront**
 
