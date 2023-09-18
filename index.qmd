@@ -32,7 +32,7 @@ Welcome to Biostatistics and Probability! This course is designed to introduce h
 ::: g-col-3
 ### Instructor
 
-{{< iconify fluent person-24-filled size=24px >}} [Dr. Nicky Wakim](https://ohsu-psu-sph.org/our-school/faculty-directory/name/nicky-wakim/)
+{{< iconify fluent person-24-filled size=24px >}} [Dr. Nicky Wakim](instructors.qmd)
 
 {{< iconify bi building-fill size=24px >}} Vanport 622A
 
