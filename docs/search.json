@@ -1936,7 +1936,7 @@
     "href": "syllabus.html#further-student-resources",
     "title": "BSTA 550 Syllabus",
     "section": "Further Student Resources",
-    "text": "Further Student Resources\n\nSPH Writing Lab\nThe School of Public Health Writing Support serves graduate students (master’s and PhD) in SPH, offering help on all professional writing tasks, including class papers, dissertations, job application documents, personal statements, and grant applications, to name a few. Leslie Bienen, MFA, DVM offers one-on-one writing support and other workshops. Appointments are virtual for the time being. You can make an appointment by contacting writingsupportsph@pdx.edu or making an appointment through Calendly.\n\n\nGrammarly Subscription\nThe School of Public Health students have access to a subscription version of Grammarly. While Grammarly cannot improve the argument and flow of your work, it can help with spelling, grammar, and sentence structure. If you are interested in this tool, please add your name to this email form and they will get you added to the subscription. Be sure to use your PSU login credentials to access the form.\n\n\nStudent Wellness\nI am committed to supporting the physical and emotional well-being of my students. Both PSU and OHSU have designated centers for student health. For OHSU, students can visit the Behavioral Health site, where you can find more information including the number to make an appointment. All student visits are free. OHSU students also have access to PSU’s Counseling Services through the school’s Student Health & Counseling. Information on additional student resources for OHSU students are available on the OHSU Health and Wellness Resource page. \n\n\nSupport for Food Insecurity\nStudents across the country experience food insecurity at alarming rates. OHSU and PSU both provide a list of resources to help combat food insecurity. Of note, the Committee to Improve Student Food Security (CISFS) at PSU provides a Free Food Market on the second Monday of each month. OHSU also provides SNAP Enrollment Assistance. The Supplemental Nutrition Assistance Program (SNAP) allocates money towards food for individuals below a certain income level. If you make less than $2,430 monthly, you may wish to enroll."
+    "text": "Further Student Resources\n\nSPH Writing Lab\nThe School of Public Health Writing Support serves graduate students (master’s and PhD) in SPH, offering help on all professional writing tasks, including class papers, dissertations, job application documents, personal statements, and grant applications, to name a few. Leslie Bienen, MFA, DVM offers one-on-one writing support and other workshops. Appointments are virtual for the time being. You can make an appointment by contacting writingsupportsph@pdx.edu or making an appointment through Calendly.\n\n\nGrammarly Subscription\nThe School of Public Health students have access to a subscription version of Grammarly. While Grammarly cannot improve the argument and flow of your work, it can help with spelling, grammar, and sentence structure. If you are interested in this tool, please add your name to this email form and they will get you added to the subscription. Be sure to use your PSU login credentials to access the form.\n\n\nStudent Wellness\nI am committed to supporting the physical and emotional well-being of my students. Both PSU and OHSU have designated centers for student health. For OHSU, students can visit the Behavioral Health site, where you can find more information including the number to make an appointment. All student visits are free. OHSU students also have access to PSU’s Counseling Services through the school’s Student Health & Counseling. Information on additional student resources for OHSU students are available on the OHSU Health and Wellness Resource page. \n\n\nSupport for Food Insecurity\nStudents across the country experience food insecurity at alarming rates. OHSU and PSU both provide a list of resources to help combat food insecurity. Of note, the Committee to Improve Student Food Security (CISFS) at PSU provides a Free Food Market on the second Monday of each month. OHSU also provides SNAP Enrollment Assistance. The Supplemental Nutrition Assistance Program (SNAP) allocates money towards food for individuals below a certain income level. If you make less than $2,430 monthly, you may wish to enroll.\n\n\nSupport for Students with Children\nStudents who have children can use the PSU resource: Resource Center for Students with Children. Resources are mostly focused on students with younger children. There are several great resources available, including: family-friendly study spaces, new baby starter packs, free kids clothing, and further information on financial resources for childcare."
   },
   {
     "objectID": "syllabus.html#school-policies-and-resources",
@@ -1991,8 +1991,8 @@
     "objectID": "slides/2_Probability.html#a-probability-is-a-function",
     "href": "slides/2_Probability.html#a-probability-is-a-function",
     "title": "Chapter 2: Probability",
-    "section": "",
-    "text": "\\(\\mathbb{P}(A)\\) is a function with\n\nInput: event \\(A\\) from the sample space \\(S\\), (\\(A \\subseteq S\\))\nOutput: a number between 0 and 1 (inclusive)\n\n\\[\\mathbb{P}(A): S \\rightarrow [0,1]\\]\nA function that follows some specific rules though!\n \nSee Probability Axioms on next slide."
+    "section": "A probability is a function…",
+    "text": "A probability is a function…\n\\(\\mathbb{P}(A)\\) is a function with\n\nInput: event \\(A\\) from the sample space \\(S\\), (\\(A \\subseteq S\\))\nOutput: a number between 0 and 1 (inclusive)\n\n\\[\\mathbb{P}(A): S \\rightarrow [0,1]\\]\nA function that follows some specific rules though!\n \nSee Probability Axioms on next slide."
   },
   {
     "objectID": "slides/2_Probability.html#probability-axioms-1",
@@ -2047,15 +2047,15 @@
     "objectID": "slides/2_Probability.html#pick-an-equally-likely-card-any-equally-likely-card",
     "href": "slides/2_Probability.html#pick-an-equally-likely-card-any-equally-likely-card",
     "title": "Chapter 2: Probability",
-    "section": "",
-    "text": "Example 1\n\n\nSuppose you have a regular well-shuffled deck of cards. What’s the probability of drawing:\n\nany heart\nthe queen of hearts\nany queen"
+    "section": "Pick an equally likely card, any equally likely card",
+    "text": "Pick an equally likely card, any equally likely card\n\n\nExample 1\n\n\nSuppose you have a regular well-shuffled deck of cards. What’s the probability of drawing:\n\nany heart\nthe queen of hearts\nany queen"
   },
   {
     "objectID": "slides/2_Probability.html#lets-break-down-this-probability",
     "href": "slides/2_Probability.html#lets-break-down-this-probability",
     "title": "Chapter 2: Probability",
-    "section": "",
-    "text": "If \\(S\\) is a finite sample space, with equally likely outcomes, then\n\\[\\mathbb{P}(A) = \\frac{|A|}{|S|}.\\]"
+    "section": "Let’s break down this probability",
+    "text": "Let’s break down this probability\nIf \\(S\\) is a finite sample space, with equally likely outcomes, then\n\\[\\mathbb{P}(A) = \\frac{|A|}{|S|}.\\]"
   },
   {
     "objectID": "slides/2_Probability.html#proposition-4-visual-proof",
@@ -2076,7 +2076,7 @@
     "href": "slides/2_Probability.html#weekly-medications",
     "title": "Chapter 2: Probability",
     "section": "Weekly medications",
-    "text": "Weekly medications\n\n\n\n\nExample 3\n\n\nIf a subject has an\n\n80% chance of taking their medication this week,\n70% chance of taking their medication next week, and\n10% chance of not taking their medication either week,\n\nthen find the probability of them taking their medication exactly one of the two weeks.\n\n\n\nHint: Draw a Venn diagram labelling each of the parts to find the probability."
+    "text": "Weekly medications\n\n\n\n\nExample 3\n\n\nIf a subject has an\n\n80% chance of taking their medication this week,\n70% chance of taking their medication next week, and\n10% chance of not taking their medication either week,\n\nthen find the probability of them taking their medication exactly one of the two weeks.\n\n\n\nHint: Draw a Venn diagram labelling each of the parts to find the probability.\n\n\n\n\nChapter 2 Slides"
   },
   {
     "objectID": "schedule/week_01_sched.html#class-exit-tickets",
