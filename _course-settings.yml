@@ -6,6 +6,11 @@ schedule:
         date: 09/25/23
         calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
+      - href: homework/HW0.qmd
+        title: "HW 0 due"
+        date: 9/28/23
+        calendar-color: "#F08897"
+        calendar-color2: "#FFFFFF"
       - href: schedule/week_02_sched.qmd
         date: 10/2/23
         calendar-color: "#E25D3B"
