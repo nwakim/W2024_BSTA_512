@@ -67,7 +67,7 @@ Definition: Sample Space
 :::
 
 ::: def-cont
-The **sample space** $S$ is the set of *all* possible outcomes.
+The **sample space** $S$ is the set of *all* outcomes
 :::
 :::
 
@@ -77,7 +77,7 @@ Definition: Event
 :::
 
 ::: def-cont
-An **event** is a collection of *some* possible outcomes.
+An **event** is a *collection of some* outcomes. An event can include multiple outcomes or no outcomes.
 :::
 :::
 :::
@@ -173,7 +173,7 @@ Definition: Union
 :::
 
 ::: def-cont
-The **union** of events $A$ and $B$, denoted by $A \cup B$, contains all outcomes that are in $A$ *or* $B$.
+The **union** of events $A$ and $B$, denoted by $A \cup B$, contains all outcomes that are in $A$ *or* $B$ or both
 :::
 :::
 
