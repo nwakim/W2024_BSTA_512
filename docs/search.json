@@ -2117,22 +2117,22 @@
     "objectID": "slides/1_Outcomes_Events_Sample.html#coin-toss-example-1-coin-13",
     "href": "slides/1_Outcomes_Events_Sample.html#coin-toss-example-1-coin-13",
     "title": "Chapter 1: Outcomes, Events, and Sample Spaces",
-    "section": "",
-    "text": "Suppose you toss one coin.\n\nWhat are the possible outcomes?\n \nWhat is the sample space?\n \nWhat are the possible events?"
+    "section": "Coin Toss Example: 1 coin (1/3)",
+    "text": "Coin Toss Example: 1 coin (1/3)\nSuppose you toss one coin.\n\nWhat are the possible outcomes?\n \nWhat is the sample space?\n \nWhat are the possible events?"
   },
   {
     "objectID": "slides/1_Outcomes_Events_Sample.html#coin-toss-example-1-coin-23",
     "href": "slides/1_Outcomes_Events_Sample.html#coin-toss-example-1-coin-23",
     "title": "Chapter 1: Outcomes, Events, and Sample Spaces",
-    "section": "",
-    "text": "Suppose you toss one coin.\n\nWhat are the possible outcomes?\n\nHeads (\\(H\\))\nTails (\\(T\\))\n\n\n \n\n\nNote\n\n\nWhen something happens at random, such as a coin toss, there are several possible outcomes, and exactly one of the outcomes will occur."
+    "section": "Coin Toss Example: 1 coin (2/3)",
+    "text": "Coin Toss Example: 1 coin (2/3)\nSuppose you toss one coin.\n\nWhat are the possible outcomes?\n\nHeads (\\(H\\))\nTails (\\(T\\))\n\n\n \n\n\nNote\n\n\nWhen something happens at random, such as a coin toss, there are several possible outcomes, and exactly one of the outcomes will occur."
   },
   {
     "objectID": "slides/1_Outcomes_Events_Sample.html#coin-toss-example-1-coin-33",
     "href": "slides/1_Outcomes_Events_Sample.html#coin-toss-example-1-coin-33",
     "title": "Chapter 1: Outcomes, Events, and Sample Spaces",
-    "section": "",
-    "text": "Definition: Sample Space\n\n\nThe sample space \\(S\\) is the set of all outcomes\n\n\n\n\nDefinition: Event\n\n\nAn event is a collection of some outcomes. An event can include multiple outcomes or no outcomes.\n\n\n\n\nWhat is the sample space?\n\n\\(S =\\)\n\n\n \n\nWhat are the possible events?\n\n\n\n\n\n\n \nWhen thinking about events, think about outcomes that you might be asking the probability of."
+    "section": "Coin Toss Example: 1 coin (3/3)",
+    "text": "Coin Toss Example: 1 coin (3/3)\n\n\n\n\nDefinition: Sample Space\n\n\nThe sample space \\(S\\) is the set of all outcomes\n\n\n\n\nDefinition: Event\n\n\nAn event is a collection of some outcomes. An event can include multiple outcomes or no outcomes.\n\n\n\n\nWhat is the sample space?\n\n\\(S =\\)\n\n\n \n\nWhat are the possible events?\n\n\n\n\n\n\n \nWhen thinking about events, think about outcomes that you might be asking the probability of."
   },
   {
     "objectID": "slides/1_Outcomes_Events_Sample.html#coin-toss-example-2-coins",
@@ -2202,7 +2202,7 @@
     "href": "slides/1_Outcomes_Events_Sample.html#remarks-on-de-morgans-laws",
     "title": "Chapter 1: Outcomes, Events, and Sample Spaces",
     "section": "Remarks on De Morgan’s Laws",
-    "text": "Remarks on De Morgan’s Laws\n\nThese laws also hold for infinite collections of events.\n \nDraw Venn diagrams to convince yourself that these are true!\n \nThese laws are very useful when calculating probabilities.\n\nThis is because calculating the probability of the intersection of events is often much easier than the union of events.\nThis is not obvious right now, but we will see in the coming chapters why."
+    "text": "Remarks on De Morgan’s Laws\n\nThese laws also hold for infinite collections of events.\n \nDraw Venn diagrams to convince yourself that these are true!\n \nThese laws are very useful when calculating probabilities.\n\nThis is because calculating the probability of the intersection of events is often much easier than the union of events.\nThis is not obvious right now, but we will see in the coming chapters why.\n\n\n\n\nChapter 1 Slides"
   },
   {
     "objectID": "slides/0_Intro.html#nicky-wakim-sheher",
