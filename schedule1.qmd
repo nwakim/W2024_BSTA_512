@@ -191,15 +191,17 @@ for (i in seq_along(unique_mo)) {
 
 Here is a tentative list of important, recurring times:
 
--   Homeworks are always due at **11pm** on the specified day
+-   Homeworks are always due at **11pm** on the specified day (usually Thursday)
 
--   Class surveys are due at **11pm** the day of class
+-   Exit tickets are due at **11pm** 4 days after class
+
+    -   So for Monday classes, they are due Friday at 11pm
+
+    -   For Wednesday classes, they are due Sunday at 11pm
 
 -   Office hours
 
-    -   Nicky
-
-    -   TA
+    -   Nicky: TBD
 
 -   Class meets on Mondays and Wednesdays at **10:30am - 12pm**
 
