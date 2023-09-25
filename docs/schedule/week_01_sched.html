@@ -63,6 +63,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -297,7 +299,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#extra-practicelearning" id="toc-extra-practicelearning" class="nav-link" data-scroll-target="#extra-practicelearning">Extra Practice/Learning</a></li>
   </ul></li>
   <li><a href="#statistician-of-the-week-regina-nuzzo" id="toc-statistician-of-the-week-regina-nuzzo" class="nav-link" data-scroll-target="#statistician-of-the-week-regina-nuzzo">Statistician of the Week: Regina Nuzzo</a></li>
-  <li><a href="#muddiest-points" id="toc-muddiest-points" class="nav-link" data-scroll-target="#muddiest-points">Muddiest Points</a></li>
+  <li><a href="#muddiest-points" id="toc-muddiest-points" class="nav-link" data-scroll-target="#muddiest-points">Muddiest Points</a>
+  <ul class="collapse">
+  <li><a href="#why-is-the-number-of-possible-events-2s" id="toc-why-is-the-number-of-possible-events-2s" class="nav-link" data-scroll-target="#why-is-the-number-of-possible-events-2s">Why is the number of possible events <span class="math inline">\(2^{|S|}\)</span>?</a></li>
+  <li><a href="#what-is-an-event" id="toc-what-is-an-event" class="nav-link" data-scroll-target="#what-is-an-event">What is an event??</a></li>
+  </ul></li>
   <li><a href="#clearest-points" id="toc-clearest-points" class="nav-link" data-scroll-target="#clearest-points">Clearest Points</a></li>
   </ul>
 </nav>
@@ -381,7 +387,7 @@ ul.task-list li input[type="checkbox"] {
 <td>1</td>
 <td>Outcomes, Events, and Sample Space</td>
 <td style="text-align: center;"><span style="color:#49A3D1;"><a href="../slides/1_Outcomes_Events_Sample.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/01_Outcomes_Events_Sample.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
 </tr>
 <tr class="odd">
@@ -508,7 +514,26 @@ She is the <a href="https://www.amstat.org/news-listing/2021/10/08/asa-welcomes-
 </section>
 <section id="muddiest-points" class="level2">
 <h2 class="anchored" data-anchor-id="muddiest-points">Muddiest Points</h2>
-<p>This will be filled in with your Exit Ticket responses.</p>
+<section id="why-is-the-number-of-possible-events-2s" class="level3">
+<h3 class="anchored" data-anchor-id="why-is-the-number-of-possible-events-2s">Why is the number of possible events <span class="math inline">\(2^{|S|}\)</span>?</h3>
+<p>In class, we were wondering why/if <span class="math inline">\(2^{|S|}\)</span> is the general formula for calculating the total number of possible events. We were specifically wondering if the <span class="math inline">\(2\)</span> came from the fact that we had two options (heads and tails) for our outcome. Let’s work through the example of a 6-sided die to explain this further. The sample space is <span class="math inline">\(S=\{1, 2, 3, 4, 5, 6\}\)</span>. So is the total number of possible events <span class="math inline">\(2^6\)</span> or <span class="math inline">\(6^6\)</span> or something else? We can actually think about an event by using an indicator variable for each outcome of the sample space. An indicator variable is just a way to give us a yes/no answer to a question. So in this case, we are wondering: is this outcome a part of our event? If our <strong>event</strong> is <span class="math inline">\(\{1\}\)</span> then for the outcome <span class="math inline">\(1\)</span>, the answer is “yes, the outcome is part of the event. For outcomes <span class="math inline">\(2-6\)</span>, the answer is”no, the outcome is not apart of the event.”</p>
+<p><img src="week_01/event_1.png" class="img-fluid"></p>
+<p>For each outcome, we have a “yes” or “no” answer. We can look at another example of an event. Let’s say our event is rolling an even number:</p>
+<p><img src="week_01/event_2.png" class="img-fluid"></p>
+<p>For <span class="math inline">\(2\)</span>, <span class="math inline">\(4\)</span>, and <span class="math inline">\(6\)</span>, the answer is “yes.” We can define the indicator variable for whether an outcome is in an event or not. The indicator gives a 1 or 0 for yes and no respectively.</p>
+<p><img src="week_01/indicator.png" class="img-fluid"></p>
+<p>As stated above, the <span class="math inline">\(2\)</span> in <span class="math inline">\(2^6\)</span> comes from the <span class="math inline">\(2\)</span> options from our indicator. Each side has two options, and there are <span class="math inline">\(6\)</span> sides. Thus, <span class="math inline">\(2^6\)</span> possible events.</p>
+</section>
+<section id="what-is-an-event" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-an-event">What is an event??</h3>
+<p>I think this will become clearer when we start thinking about events in the context of probability. When we think of <strong>events outside of probability</strong>, we may think of something we actually do or something that happens, like going to a concert or coming to class or missing the streetcar. In this case, we think of the event as the single thing (out of all the options) that actually occured. For example, if I’m taking the streetcar to class, I can think of two definitive options of what <em>might</em> occur: I miss the streetcar or I get on the streetcar. Only one of these things can occur, which I may call an event <em>colloquially</em>.</p>
+<p>It is important to make the distinction with <strong>events defined within probability</strong>. Events are not necessarily a single thing that occurred. Instead it can be a collection of things that may occur. In the example of the streetcar, I can define my event to include both options. Thus, my event is that I make the streetcar or I miss it. Both of these things cannot happen simultaneously, but if I want to calculate the probability that I miss or make the streetcar, then it is helpful to have the event defined.</p>
+<section id="outcomes-with-no-probability" class="level4">
+<h4 class="anchored" data-anchor-id="outcomes-with-no-probability">Outcomes with no probability</h4>
+<p>The same can be said for outcomes without probability.</p>
+<p>Both or nrither ehads nor tails</p>
+</section>
+</section>
 </section>
 <section id="clearest-points" class="level2">
 <h2 class="anchored" data-anchor-id="clearest-points">Clearest Points</h2>
