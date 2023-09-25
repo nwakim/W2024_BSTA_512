@@ -68,6 +68,7 @@ As we start the course, here are some administrative items that we need to do:
 
 ### Extra Practice/Learning
 
+-   If you would like a Calculus review, please see [this page](/readings/Calc_review.qmd)!
 -   Combinatorics practice problems
     -   [handout](/schedule/week_01/Ch22-combinatorics-practice-B550.pdf) (& [answers](/schedule/week_01/Ch22-combinatorics-practice-B550-ANSWERS.pdf))
     -   Try to complete as many of these as you can before class on Wednesday.

@@ -753,7 +753,7 @@
     "href": "schedule/week_01_sched.html#additional-information",
     "title": "Week 1",
     "section": "Additional Information",
-    "text": "Additional Information\nAs we start the course, here are some administrative items that we need to do:\n\nPlease join the Slack page\nPlease read the syllabus on your own time\n\n\nExtra Practice/Learning\n\nCombinatorics practice problems\n\nhandout (& answers)\nTry to complete as many of these as you can before class on Wednesday.\nWe will discuss some of them Wednesday in class.\n\nPixar has a series of videos explaining how they use combinatorics in making animations\n\nThis is a great & fun introduction to the basic principles of counting\nI highly recommend looking at them, especially if you have not studied permutations and combinations before.\n\nThere is a table on p. 277 of the book with formulas for 4 different common counting cases (does order matter (y/n) vs. sampling with replacement (y/n).\n\nIn class we covered all cases except “order does not matter and sampling with replacement.”\n\nThis case is often referred to as the “stars and bars” problem.\nSee this page for a proof to the Stars and Bars Theorem.\n\nNote: Their notation is opposite of what our textbook uses. The website uses k instead of n and n instead of r."
+    "text": "Additional Information\nAs we start the course, here are some administrative items that we need to do:\n\nPlease join the Slack page\nPlease read the syllabus on your own time\n\n\nExtra Practice/Learning\n\nIf you would like a Calculus review, please see this page!\nCombinatorics practice problems\n\nhandout (& answers)\nTry to complete as many of these as you can before class on Wednesday.\nWe will discuss some of them Wednesday in class.\n\nPixar has a series of videos explaining how they use combinatorics in making animations\n\nThis is a great & fun introduction to the basic principles of counting\nI highly recommend looking at them, especially if you have not studied permutations and combinations before.\n\nThere is a table on p. 277 of the book with formulas for 4 different common counting cases (does order matter (y/n) vs. sampling with replacement (y/n).\n\nIn class we covered all cases except “order does not matter and sampling with replacement.”\n\nThis case is often referred to as the “stars and bars” problem.\nSee this page for a proof to the Stars and Bars Theorem.\n\nNote: Their notation is opposite of what our textbook uses. The website uses k instead of n and n instead of r."
   },
   {
     "objectID": "schedule/week_08_sched.html",
@@ -2116,93 +2116,93 @@
   {
     "objectID": "slides/1_Outcomes_Events_Sample.html#coin-toss-example-1-coin-13",
     "href": "slides/1_Outcomes_Events_Sample.html#coin-toss-example-1-coin-13",
-    "title": "Chapter 1: Outcomes, Events, and Sample Spaces",
-    "section": "Coin Toss Example: 1 coin (1/3)",
-    "text": "Coin Toss Example: 1 coin (1/3)\nSuppose you toss one coin.\n\nWhat are the possible outcomes?\n \nWhat is the sample space?\n \nWhat are the possible events?"
+    "title": "Chap-ter 1: Outcomes, Events, and Sample Spaces",
+    "section": "",
+    "text": "Suppose you toss one coin.\n\nWhat are the possible outcomes?\n \nWhat is the sample space?\n \nWhat are the possible events?"
   },
   {
     "objectID": "slides/1_Outcomes_Events_Sample.html#coin-toss-example-1-coin-23",
     "href": "slides/1_Outcomes_Events_Sample.html#coin-toss-example-1-coin-23",
-    "title": "Chapter 1: Outcomes, Events, and Sample Spaces",
-    "section": "Coin Toss Example: 1 coin (2/3)",
-    "text": "Coin Toss Example: 1 coin (2/3)\nSuppose you toss one coin.\n\nWhat are the possible outcomes?\n\nHeads (\\(H\\))\nTails (\\(T\\))\n\n\n \n\n\nNote\n\n\nWhen something happens at random, such as a coin toss, there are several possible outcomes, and exactly one of the outcomes will occur."
+    "title": "Chap-ter 1: Outcomes, Events, and Sample Spaces",
+    "section": "",
+    "text": "Suppose you toss one coin.\n\nWhat are the possible outcomes?\n\nHeads (\\(H\\))\nTails (\\(T\\))\n\n\n \n\n\nNote\n\n\nWhen something happens at random, such as a coin toss, there are several possible outcomes, and exactly one of the outcomes will occur."
   },
   {
     "objectID": "slides/1_Outcomes_Events_Sample.html#coin-toss-example-1-coin-33",
     "href": "slides/1_Outcomes_Events_Sample.html#coin-toss-example-1-coin-33",
-    "title": "Chapter 1: Outcomes, Events, and Sample Spaces",
-    "section": "Coin Toss Example: 1 coin (3/3)",
-    "text": "Coin Toss Example: 1 coin (3/3)\n\n\n\n\nDefinition: Sample Space\n\n\nThe sample space \\(S\\) is the set of all outcomes\n\n\n\n\nDefinition: Event\n\n\nAn event is a collection of some outcomes. An event can include multiple outcomes or no outcomes.\n\n\n\n\nWhat is the sample space?\n\n\\(S =\\)\n\n\n \n\nWhat are the possible events?\n\n\n\n\n\n\n \nWhen thinking about events, think about outcomes that you might be asking the probability of."
+    "title": "Chap-ter 1: Outcomes, Events, and Sample Spaces",
+    "section": "",
+    "text": "Definition: Sample Space\n\n\nThe sample space \\(S\\) is the set of all outcomes\n\n\n\n\nDefinition: Event\n\n\nAn event is a collection of some outcomes. An event can include multiple outcomes or no outcomes.\n\n\n\n\nWhat is the sample space?\n\n\\(S =\\)\n\n\n \n\nWhat are the possible events?\n\n\n\n\n\n\n \nWhen thinking about events, think about outcomes that you might be asking the probability of."
   },
   {
     "objectID": "slides/1_Outcomes_Events_Sample.html#coin-toss-example-2-coins",
     "href": "slides/1_Outcomes_Events_Sample.html#coin-toss-example-2-coins",
-    "title": "Chapter 1: Outcomes, Events, and Sample Spaces",
+    "title": "Chap-ter 1: Outcomes, Events, and Sample Spaces",
     "section": "Coin Toss Example: 2 coins",
     "text": "Coin Toss Example: 2 coins\nSuppose you toss two coins.\n\nWhat is the sample space? Assume the coins are distinguishable\n\n\\(S =\\)\n\n\n \n\nWhat are some possible events?\n\n\\(A =\\) exactly one \\(H =\\)\n\\(B =\\) at least one \\(H =\\)"
   },
   {
     "objectID": "slides/1_Outcomes_Events_Sample.html#more-info-on-events-and-sample-spaces",
     "href": "slides/1_Outcomes_Events_Sample.html#more-info-on-events-and-sample-spaces",
-    "title": "Chapter 1: Outcomes, Events, and Sample Spaces",
+    "title": "Chap-ter 1: Outcomes, Events, and Sample Spaces",
     "section": "More info on events and sample spaces",
     "text": "More info on events and sample spaces\n\nWe usually use capital letters from the beginning of the alphabet to denote events. However, other letters might be chosen to be more descriptive.\n\n \n\nWe use the notation \\(|S|\\) to denote the size of the sample space.\n\n \n\nThe total number of possible events is \\(2^{|S|}\\), which is the total number of possible subsets of \\(S\\). We will prove this later in the course.\n\n \n\nThe empty set, denoted by \\(\\emptyset\\), is the set containing no outcomes."
   },
   {
     "objectID": "slides/1_Outcomes_Events_Sample.html#example-keep-sampling-until",
     "href": "slides/1_Outcomes_Events_Sample.html#example-keep-sampling-until",
-    "title": "Chapter 1: Outcomes, Events, and Sample Spaces",
+    "title": "Chap-ter 1: Outcomes, Events, and Sample Spaces",
     "section": "Example: Keep sampling until…",
     "text": "Example: Keep sampling until…\nSuppose you keep sampling people until you have someone with high blood pressure (BP)\n \nWhat is the sample space?\n\nLet \\(H =\\) denote someone with high BP.\nLet \\(H^C =\\) denote someone with not high blood pressure, such as low or regular BP.\n\n \n\nThen, \\(S =\\)"
   },
   {
     "objectID": "slides/1_Outcomes_Events_Sample.html#set-theory-12",
     "href": "slides/1_Outcomes_Events_Sample.html#set-theory-12",
-    "title": "Chapter 1: Outcomes, Events, and Sample Spaces",
+    "title": "Chap-ter 1: Outcomes, Events, and Sample Spaces",
     "section": "Set Theory (1/2)",
     "text": "Set Theory (1/2)\n\n\n \n\n\nDefinition: Union\n\n\nThe union of events \\(A\\) and \\(B\\), denoted by \\(A \\cup B\\), contains all outcomes that are in \\(A\\) or \\(B\\) or both\n\n\n\n\nDefinition: Intersection\n\n\nThe intersection of events \\(A\\) and \\(B\\), denoted by \\(A \\cap B\\), contains all outcomes that are both in \\(A\\) and \\(B\\).\n\n\n\nVenn diagrams"
   },
   {
     "objectID": "slides/1_Outcomes_Events_Sample.html#set-theory-22",
     "href": "slides/1_Outcomes_Events_Sample.html#set-theory-22",
-    "title": "Chapter 1: Outcomes, Events, and Sample Spaces",
+    "title": "Chap-ter 1: Outcomes, Events, and Sample Spaces",
     "section": "Set Theory (2/2)",
     "text": "Set Theory (2/2)\n\n\n \n\n\nDefinition: Complement\n\n\nThe complement of event \\(A\\), denoted by \\(A^C\\) or \\(A'\\), contains all outcomes in the sample space \\(S\\) that are not in \\(A\\) .\n\n\n\n\nDefinition: Mutually Exclusive\n\n\nEvents \\(A\\) and \\(B\\) are mutually exclusive, or disjoint, if they have no outcomes in common. In this case \\(A \\cap B = \\emptyset\\), where \\(\\emptyset\\) is the empty set.\n\n\n\nVenn diagrams"
   },
   {
     "objectID": "slides/1_Outcomes_Events_Sample.html#bp-example-variation-13",
     "href": "slides/1_Outcomes_Events_Sample.html#bp-example-variation-13",
-    "title": "Chapter 1: Outcomes, Events, and Sample Spaces",
+    "title": "Chap-ter 1: Outcomes, Events, and Sample Spaces",
     "section": "BP example variation (1/3)",
     "text": "BP example variation (1/3)\n\nSuppose you have \\(n\\) subjects in a study.\nLet \\(H_i\\) be the event that person \\(i\\) has high BP, for \\(i=1\\ldots n\\).\n\n \nUse set theory notation to denote the following events:\n\nEvent subject \\(i\\) does not have high BP\nEvent all \\(n\\) subjects have high BP\nEvent at least one subject has high BP\nEvent all of them do not have high BP\nEvent at least one subject does not have high BP"
   },
   {
     "objectID": "slides/1_Outcomes_Events_Sample.html#bp-example-variation-23",
     "href": "slides/1_Outcomes_Events_Sample.html#bp-example-variation-23",
-    "title": "Chapter 1: Outcomes, Events, and Sample Spaces",
+    "title": "Chap-ter 1: Outcomes, Events, and Sample Spaces",
     "section": "BP example variation (2/3)",
     "text": "BP example variation (2/3)\n\nSuppose you have \\(n\\) subjects in a study.\nLet \\(H_i\\) be the event that person \\(i\\) has high BP, for \\(i=1\\ldots n\\).\n\nUse set theory notation to denote the following events:\n\nEvent subject \\(i\\) does not have high BP\n \nEvent all \\(n\\) subjects have high BP\n \n \nEvent at least one subject has high BP"
   },
   {
     "objectID": "slides/1_Outcomes_Events_Sample.html#bp-example-variation-33",
     "href": "slides/1_Outcomes_Events_Sample.html#bp-example-variation-33",
-    "title": "Chapter 1: Outcomes, Events, and Sample Spaces",
+    "title": "Chap-ter 1: Outcomes, Events, and Sample Spaces",
     "section": "BP example variation (3/3)",
     "text": "BP example variation (3/3)\n\nEvent all of them do not have high BP\n \n \n \nEvent at least one subject does not have high BP"
   },
   {
     "objectID": "slides/1_Outcomes_Events_Sample.html#de-morgans-laws",
     "href": "slides/1_Outcomes_Events_Sample.html#de-morgans-laws",
-    "title": "Chapter 1: Outcomes, Events, and Sample Spaces",
+    "title": "Chap-ter 1: Outcomes, Events, and Sample Spaces",
     "section": "De Morgan’s Laws",
     "text": "De Morgan’s Laws\n\n\nTheorem: De Morgan’s 1st Law\n\n\nFor a collection of events (sets) \\(A_1, A_2, A_3, \\ldots\\)\n\\[\\bigcap\\limits_{i=1}^{n}A_i^C = \\Big(\\bigcup\\limits_{i=1}^{n}A_i\\Big)^C\\]\n\n\n“all not A = \\((\\)at least one event A\\()^C\\)”\n\n\nTheorem: De Morgan’s 2nd Law\n\n\nFor a collection of events (sets) \\(A_1, A_2, A_3, \\ldots\\)\n\\[\\bigcup\\limits_{i=1}^{n}A_i^C = \\Big(\\bigcap\\limits_{i=1}^{n}A_i\\Big)^C\\]\n\n\n“at least one event not A = \\((\\)all A\\()^C\\)”"
   },
   {
     "objectID": "slides/1_Outcomes_Events_Sample.html#remarks-on-de-morgans-laws",
     "href": "slides/1_Outcomes_Events_Sample.html#remarks-on-de-morgans-laws",
-    "title": "Chapter 1: Outcomes, Events, and Sample Spaces",
+    "title": "Chap-ter 1: Outcomes, Events, and Sample Spaces",
     "section": "Remarks on De Morgan’s Laws",
-    "text": "Remarks on De Morgan’s Laws\n\nThese laws also hold for infinite collections of events.\n \nDraw Venn diagrams to convince yourself that these are true!\n \nThese laws are very useful when calculating probabilities.\n\nThis is because calculating the probability of the intersection of events is often much easier than the union of events.\nThis is not obvious right now, but we will see in the coming chapters why.\n\n\n\n\nChapter 1 Slides"
+    "text": "Remarks on De Morgan’s Laws\n\nThese laws also hold for infinite collections of events.\n \nDraw Venn diagrams to convince yourself that these are true!\n \nThese laws are very useful when calculating probabilities.\n\nThis is because calculating the probability of the intersection of events is often much easier than the union of events.\nThis is not obvious right now, but we will see in the coming chapters why."
   },
   {
     "objectID": "slides/0_Intro.html#nicky-wakim-sheher",
@@ -2889,5 +2889,12 @@
     "title": "Welcome to BSTA 550!",
     "section": "Let’s visit the website",
     "text": "Let’s visit the website\n\nHomepage\n\nGitHub\n\nSyllabus\nSchedule\n\nWeeks, class info, exams, homeworks\n\nSearch\n\n\n\nImportant Note\n\n\nThis is my first time teaching the course. I will work hard to answer your questions in class, but I will often need some time outside of class to make sure I give you the best answer possible! Also, many of the examples are not my own. I will work to improve examples, but if you have feedback or suggestions, I am happy to hear them!"
+  },
+  {
+    "objectID": "slides/1_Outcomes_Events_Sample.html",
+    "href": "slides/1_Outcomes_Events_Sample.html",
+    "title": "Chap-ter 1: Outcomes, Events, and Sample Spaces",
+    "section": "",
+    "text": "Suppose you toss one coin.\n\nWhat are the possible outcomes?\n \nWhat is the sample space?\n \nWhat are the possible events?\n\n\n\n\nSuppose you toss one coin.\n\nWhat are the possible outcomes?\n\nHeads (\\(H\\))\nTails (\\(T\\))\n\n\n \n\n\nNote\n\n\nWhen something happens at random, such as a coin toss, there are several possible outcomes, and exactly one of the outcomes will occur.\n\n\n\n\n\n\n\n\n\nDefinition: Sample Space\n\n\nThe sample space \\(S\\) is the set of all outcomes\n\n\n\n\nDefinition: Event\n\n\nAn event is a collection of some outcomes. An event can include multiple outcomes or no outcomes.\n\n\n\n\nWhat is the sample space?\n\n\\(S =\\)\n\n\n \n\nWhat are the possible events?\n\n\n\n\n\n\n \nWhen thinking about events, think about outcomes that you might be asking the probability of."
   }
 ]
