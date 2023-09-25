@@ -193,11 +193,11 @@ Here is a tentative list of important, recurring times:
 
 -   Homeworks are always due at **11pm** on the specified day (usually Thursday)
 
--   Exit tickets are due at **11pm** 4 days after class
+-   Exit tickets are due at **11pm** 7 days after class
 
-    -   So for Monday classes, they are due Friday at 11pm
+    -   So for Monday classes, they are due the following Monday at 11pm
 
-    -   For Wednesday classes, they are due Sunday at 11pm
+    -   For Wednesday classes, they are due the following Wednesday at 11pm
 
 -   Office hours
 
