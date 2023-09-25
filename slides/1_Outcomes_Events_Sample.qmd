@@ -1,5 +1,5 @@
 ---
-title: "Chapter 1: Outcomes, Events, and Sample Spaces"
+title: "Chap-ter 1: Outcomes, Events, and Sample Spaces"
 author: "Meike Niederhausen and Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#006a4e"
