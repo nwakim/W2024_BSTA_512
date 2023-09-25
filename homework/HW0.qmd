@@ -16,6 +16,8 @@ editor_options:
 
 ## Directions
 
+**This homework does not need to be turned in on Sakai.**
+
 ### Purpose
 
 This homework is meant to introduce yourself to me and your peers. In the first class, we will all briefly introduce ourselves, but we don't have enough time in-depth introductions. Thus, I'd like you to share some information with the class over Slack.
