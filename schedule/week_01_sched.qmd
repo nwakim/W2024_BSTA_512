@@ -2,7 +2,7 @@
 title: "Week 1"
 description: "Outcomes, Events, and Sample Space; Probability; and Counting"
 date: "09/25/2023"
-date-modified: "9/15/2023"
+date-modified: "9/25/2023"
 categories: [""]
 format: 
   html:
@@ -32,13 +32,13 @@ editor_options:
 
 Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
-| Chapter | Topic                              |                                                      Slides                                                      |                                                            Annotated Slides                                                             |                           Recording                           |
+| Chapter | Topic                              |                                                      Slides                                                      |                                                            Annotated Slides                                                             |                                                    Recording                                                    |
 |---------------|---------------|:-------------:|:-------------:|:-------------:|
-|         | Intro                              |          [[{{< iconify ri slideshow-fill size=30px >}}](../slides/0_Intro.qmd)]{style="color:#49A3D1;"}          |                           [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                            | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 1       | Outcomes, Events, and Sample Space | [[{{< iconify ri slideshow-fill size=30px >}}](../slides/1_Outcomes_Events_Sample.qmd)]{style="color:#49A3D1;"}  | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](../slides_annotated/01_Outcomes_Events_Sample.pdf)]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 2       | Probability                        |       [[{{< iconify ri slideshow-fill size=30px >}}](../slides/2_Probability.qmd)]{style="color:#f8f5f0;"}       |                           [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                            | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 22      | Counting                           | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/22_Counting_Intro-solutions.qmd)]{style="color:#f8f5f0;"} |                           [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                            | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 23      | Case Study on Counting             |                      [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                       |                           [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                            | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+|         | Intro                              |          [[{{< iconify ri slideshow-fill size=30px >}}](../slides/0_Intro.qmd)]{style="color:#49A3D1;"}          |                           [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                            |                          [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                          |
+| 1       | Outcomes, Events, and Sample Space | [[{{< iconify ri slideshow-fill size=30px >}}](../slides/1_Outcomes_Events_Sample.qmd)]{style="color:#49A3D1;"}  | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](../slides_annotated/01_Outcomes_Events_Sample.pdf)]{style="color:#f8f5f0;"} | [[{{< iconify mdi video size=34px >}}](../recordings/01_Outcomes_Events_Sample_01.mp4)]{style="color:#f8f5f0;"} |
+| 2       | Probability                        |       [[{{< iconify ri slideshow-fill size=30px >}}](../slides/2_Probability.qmd)]{style="color:#f8f5f0;"}       |                           [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                            |                          [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                          |
+| 22      | Counting                           | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/22_Counting_Intro-solutions.qmd)]{style="color:#f8f5f0;"} |                           [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                            |                          [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                          |
+| 23      | Case Study on Counting             |                      [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                       |                           [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                            |                          [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                          |
 
 For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
 
