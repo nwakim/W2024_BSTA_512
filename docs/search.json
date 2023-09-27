@@ -711,7 +711,7 @@
     "href": "schedule/week_01_sched.html#resources",
     "title": "Week 1",
     "section": "Resources",
-    "text": "Resources\nBelow is a table with links to resources. Icons in orange mean there is an available file link.\n\n\n\nChapter\nTopic\nSlides\nAnnotated Slides\nRecording\n\n\n\n\n\nIntro\n\n\n\n\n\n1\nOutcomes, Events, and Sample Space\n\n\n\n\n\n2\nProbability\n\n\n\n\n\n22\nIntroduction to Counting\n\n\n\n\n\n23\nCase Study on Counting\n\n\n\n\n\n\nFor the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:\n\nClick on the icon with three horizontal bars on the bottom left of the browser.\nClick on “Tools” with the gear icon at the top of the sidebar.\nClick on “PDF Export Mode.”\nFrom there, you can print or save the PDF as you would normally from your internet browser."
+    "text": "Resources\nBelow is a table with links to resources. Icons in orange mean there is an available file link.\n\n\n\nChapter\nTopic\nSlides\nAnnotated Slides\nRecording(s)\n\n\n\n\n\nIntro\n\n\n\n\n\n1\nOutcomes, Events, and Sample Space\n\n\n\n\n\n2\nProbability\n\n\n\n\n\n22\nIntroduction to Counting\n\n\n\n\n\n23\nCase Study on Counting\n\n\n\n\n\n\nFor the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:\n\nClick on the icon with three horizontal bars on the bottom left of the browser.\nClick on “Tools” with the gear icon at the top of the sidebar.\nClick on “PDF Export Mode.”\nFrom there, you can print or save the PDF as you would normally from your internet browser."
   },
   {
     "objectID": "schedule/week_01_sched.html#homework",
@@ -2587,7 +2587,7 @@
     "href": "slides/22_Counting_Intro.html#basic-counting-examples-13",
     "title": "Chapter 22: Introduction to Counting",
     "section": "Basic Counting Examples (1/3)",
-    "text": "Basic Counting Examples (1/3)\n\n\nExample 1\n\n\nSuppose we have 10 (distinguishable) subjects for study.\n\nHow many possible ways are there to order them?\nHow many ways to order them if we can reuse the same subject and\n\nneed 10 total?\nneed 6 total?\n\nHow many ways to order them if without replacement and only need 6?\nHow many ways to choose 6 subjects without replacement if the order doesn’t matter?"
+    "text": "Basic Counting Examples (1/3)\n\n\nExample 1\n\n\nSuppose we have 10 (distinguishable) subjects for study.\n\nHow many possible ways are there to order them?\nHow many ways to order them if we can reuse the same subject and\n\nneed 10 total?\nneed 6 total?\n\nHow many ways to order them without replacement and only need 6?\nHow many ways to choose 6 subjects without replacement if the order doesn’t matter?"
   },
   {
     "objectID": "slides/22_Counting_Intro.html#basic-counting-examples-23",
@@ -2601,7 +2601,7 @@
     "href": "slides/22_Counting_Intro.html#basic-counting-examples-33",
     "title": "Chapter 22: Introduction to Counting",
     "section": "Basic Counting Examples (3/3)",
-    "text": "Basic Counting Examples (3/3)\nSuppose we have 10 (distinguishable) subjects for study.\n\n\n\n\nExample 1.3\n\n\nHow many ways to order them if without replacements and only need 6?\n\n\n \n\n\nExample 1.4\n\n\nHow many ways to choose 6 subjects without replacement if the order doesn’t matter?"
+    "text": "Basic Counting Examples (3/3)\nSuppose we have 10 (distinguishable) subjects for study.\n\n\n\n\nExample 1.3\n\n\nHow many ways to order them without replacement and only need 6?\n\n\n \n\n\nExample 1.4\n\n\nHow many ways to choose 6 subjects without replacement if the order doesn’t matter?"
   },
   {
     "objectID": "slides/22_Counting_Intro.html#permutations-and-combinations-1",
