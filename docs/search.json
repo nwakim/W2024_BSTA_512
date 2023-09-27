@@ -1291,8 +1291,8 @@
     "objectID": "slides/3_IndependentEvents.html#slide-1",
     "href": "slides/3_IndependentEvents.html#slide-1",
     "title": "Chapter 3: Independent Events",
-    "section": "",
-    "text": "Question: Which of the following sequences of coin tosses of heads (\\(H\\)) and tails (\\(T\\)) is more likely to happen, assuming the coin is fair?\n\\[HTTHHHTHTHHTTTH\\] or \\[HTTTTTTTTHTTTTT\\]"
+    "section": "Slide 1",
+    "text": "Slide 1\nQuestion: Which of the following sequences of coin tosses of heads (\\(H\\)) and tails (\\(T\\)) is more likely to happen, assuming the coin is fair?\n\\[HTTHHHTHTHHTTTH\\] or \\[HTTTTTTTTHTTTTT\\]"
   },
   {
     "objectID": "slides/3_IndependentEvents.html#slide-2",
@@ -1327,7 +1327,7 @@
     "href": "slides/3_IndependentEvents.html#faf",
     "title": "Chapter 3: Independent Events",
     "section": "faf",
-    "text": "faf\n\n\nExample 5\n\n\n\\(A, B,\\) and \\(C\\) toss a fair coin in order. The first to throw heads wins. What are their respective chances of winning?\n\n\nSolution: Let\n\n\\(A_H\\) and \\(A_T\\) be the events player A tosses heads and tails, respectively.\nSimilarly define \\(B_H\\), \\(B_T\\), \\(C_H\\), and \\(C_T\\)."
+    "text": "faf\n\n\nExample 5\n\n\n\\(A, B,\\) and \\(C\\) toss a fair coin in order. The first to throw heads wins. What are their respective chances of winning?\n\n\nSolution: Let\n\n\\(A_H\\) and \\(A_T\\) be the events player A tosses heads and tails, respectively.\nSimilarly define \\(B_H\\), \\(B_T\\), \\(C_H\\), and \\(C_T\\).\n\n\n\nChapter 3 Slides"
   },
   {
     "objectID": "slides/8_pmfs_and_cdfs.html",
@@ -2069,7 +2069,7 @@
     "href": "slides/2_Probability.html#proposition-5-visual-proof",
     "title": "Chapter 2: Probability",
     "section": "Proposition 5 Visual Proof",
-    "text": "Proposition 5 Visual Proof\n\n\nProposition 5\n\n\n\\[\\begin{align}\n\\mathbb{P}(A \\cup B \\cup C) =  & \\mathbb{P}(A) + \\mathbb{P}(B) + \\mathbb{P}(C) - \\mathbb{P}(A \\cap B) - \\mathbb{P}(A \\cap C) - \\mathbb{P}(B \\cap C) + \\\\ & \\mathbb{P}(A \\cap B \\cap C)\n\\end{align}\\]"
+    "text": "Proposition 5 Visual Proof\n\n\nProposition 5\n\n\n\\(\\mathbb{P}(A \\cup B \\cup C) = \\mathbb{P}(A) + \\mathbb{P}(B) + \\mathbb{P}(C) - \\mathbb{P}(A \\cap B) - \\mathbb{P}(A \\cap C) - \\mathbb{P}(B \\cap C) + \\mathbb{P}(A \\cap B \\cap C)\\)"
   },
   {
     "objectID": "slides/2_Probability.html#weekly-medications",

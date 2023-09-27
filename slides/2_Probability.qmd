@@ -14,7 +14,7 @@ format:
     chalkboard: true
     slide-number: true
     show-slide-number: all
-    width: 1600
+    width: 1955
     height: 1100
     footer: Chapter 2 Slides
 ---
@@ -213,9 +213,7 @@ Proposition 5
 :::
 
 ::: prop-cont
-$$\begin{align}
-\mathbb{P}(A \cup B \cup C) =  & \mathbb{P}(A) + \mathbb{P}(B) + \mathbb{P}(C) - \mathbb{P}(A \cap B) - \mathbb{P}(A \cap C) - \mathbb{P}(B \cap C) + \\ & \mathbb{P}(A \cap B \cap C) 
-\end{align}$$
+$\mathbb{P}(A \cup B \cup C) =  \mathbb{P}(A) + \mathbb{P}(B) + \mathbb{P}(C) - \mathbb{P}(A \cap B) - \mathbb{P}(A \cap C) - \mathbb{P}(B \cap C) + \mathbb{P}(A \cap B \cap C)$
 :::
 :::
 
