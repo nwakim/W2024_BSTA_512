@@ -1,5 +1,5 @@
 ---
-title: "Chapter 22: Counting"
+title: "Chapter 22: Introduction to Counting"
 author: "Meike Niederhausen and Nicky Wakim"
 date: "09/27/2023"
 title-slide-attributes:
