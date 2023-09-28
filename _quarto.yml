@@ -37,8 +37,9 @@ website:
           - class_slides.qmd
           - href: homeworks.qmd
             text: Homework
-          - contents: schedule
+          - contents: weeks
             href: schedule.qmd
+            text: Weekly Pages
           
 execute:
   freeze: auto

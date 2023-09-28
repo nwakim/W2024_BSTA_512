@@ -2,7 +2,7 @@
 schedule:
   - unit: "Summarizing Data"
     materials:
-      - href: schedule/week_01_sched.qmd
+      - href: weekly_pages/week_01_sched.qmd
         date: 09/25/23
         calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
@@ -11,7 +11,7 @@ schedule:
         date: 9/28/23
         calendar-color: "#F08897"
         calendar-color2: "#FFFFFF"
-      - href: schedule/week_02_sched.qmd
+      - href: weekly_pages/week_02_sched.qmd
         date: 10/2/23
         calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
@@ -20,7 +20,7 @@ schedule:
         date: 10/5/23
         calendar-color: "#F08897"
         calendar-color2: "#FFFFFF"
-      - href: schedule/week_03_sched.qmd
+      - href: weekly_pages/week_03_sched.qmd
         date: 10/9/23
         calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
@@ -29,7 +29,7 @@ schedule:
         date: 10/12/23
         calendar-color: "#F08897"
         calendar-color2: "#FFFFFF"      
-      - href: schedule/week_04_sched.qmd
+      - href: weekly_pages/week_04_sched.qmd
         date: 10/16/23
         calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
@@ -38,7 +38,7 @@ schedule:
         date: 10/19/23
         calendar-color: "#F08897"
         calendar-color2: "#FFFFFF" 
-      - href: schedule/week_05_sched.qmd
+      - href: weekly_pages/week_05_sched.qmd
         date: 10/23/23
         calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
@@ -51,7 +51,7 @@ schedule:
         date: 10/26/23
         calendar-color: "#F08897"
         calendar-color2: "#FFFFFF" 
-      - href: schedule/week_06_sched.qmd
+      - href: weekly_pages/week_06_sched.qmd
         date: 10/30/23
         calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
@@ -64,11 +64,11 @@ schedule:
         date: 11/2/23
         calendar-color: "#F08897"
         calendar-color2: "#FFFFFF" 
-      - href: schedule/week_07_sched.qmd
+      - href: weekly_pages/week_07_sched.qmd
         date: 11/06/23
         calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
-      - href: schedule/week_08_sched.qmd
+      - href: weekly_pages/week_08_sched.qmd
         date: 11/13/23
         calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
@@ -77,7 +77,7 @@ schedule:
         date: 11/16/23
         calendar-color: "#F08897"
         calendar-color2: "#FFFFFF" 
-      - href: schedule/week_09_sched.qmd
+      - href: weekly_pages/week_09_sched.qmd
         date: 11/20/23
         calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
@@ -85,7 +85,7 @@ schedule:
         date: 11/22/23
         calendar-color: "#006a4e"
         calendar-color2: "#FFFFFF" 
-      - href: schedule/week_10_sched.qmd
+      - href: weekly_pages/week_10_sched.qmd
         date: 11/27/23
         calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"
@@ -94,7 +94,7 @@ schedule:
         date: 11/30/23
         calendar-color: "#F08897"
         calendar-color2: "#FFFFFF" 
-      - href: schedule/week_11_sched.qmd
+      - href: weekly_pages/week_11_sched.qmd
         date: 12/04/23
         calendar-color: "#E25D3B"
         calendar-color2: "#FFFFFF"

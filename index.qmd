@@ -1,7 +1,6 @@
 ---
 title: ""
 toc: false
-sidebar: false
 page-layout: full
 link-external-newwindow: true
 ---

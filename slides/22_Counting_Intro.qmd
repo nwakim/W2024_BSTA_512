@@ -183,6 +183,6 @@ See table on pg. 277 of textbook
 -   $r$ = number objects needed
 
     |                          |   with replacement    |             without replacement              |
-    |-------------------:|:----------------------:|:--------------------------:|
+    |-------------------------:|:---------------------:|:--------------------------------------------:|
     |        **order matters** |        $$n^r$$        |         $$nPr = \frac{n!}{(n-r)!}$$          |
     | **order doesn't matter** | $$ \binom{n+r-1}{r}$$ | $$nCr = \binom{n}{r} = \frac{n!}{r!(n-r)!}$$ |
