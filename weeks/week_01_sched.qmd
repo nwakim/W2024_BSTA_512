@@ -33,11 +33,11 @@ editor_options:
 Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
 | Chapter | Topic                              |                                                     Slides                                                      |                                                              Annotated Slides                                                              |                                                                                                                                                                                                                                                                                                                                            Recording(s)                                                                                                                                                                                                                                                                                                                                            |
-|---------|------------------------------------|:---------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|--------------|--------------|:------------:|:------------:|:---------------:|
 |         | Intro                              |         [[{{< iconify ri slideshow-fill size=30px >}}](../slides/0_Intro.qmd)]{style="color:#49A3D1;"}          |                             [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                             |                                                                                                                                                                                                                                                                                                                   [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                                                                                                                                                                                    |
 | 1       | Outcomes, Events, and Sample Space | [[{{< iconify ri slideshow-fill size=30px >}}](../slides/1_Outcomes_Events_Sample.qmd)]{style="color:#49A3D1;"} | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](../slides_annotated/01_Outcomes_Events_Sample_02.pdf)]{style="color:#f8f5f0;"} | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F01%5FOutcomes%5FEvents%5FSample%5F01%2Emp4&referrer=OneDriveForBusiness&referrerScenario=OpenFile)[{{\< iconify mdi video size=34px \>}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F01%5FOutcomes%5FEvents%5FSample%5F02%2Emp4&referrer=OneDriveForBusiness&referrerScenario=OpenFile)]{style="color:#f8f5f0;"} |
 | 2       | Probability                        |      [[{{< iconify ri slideshow-fill size=30px >}}](../slides/2_Probability.qmd)]{style="color:#f8f5f0;"}       |        [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](../slides_annotated/02_Probability.pdf)]{style="color:#f8f5f0;"}        |                                                                                                                                                                             [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F02%5FProbability%2Emp4&referrer=OneDriveForBusiness&referrerScenario=OpenFile)]{style="color:#f8f5f0;"}                                                                                                                                                                              |
-| 22      | Introduction to Counting           |     [[{{< iconify ri slideshow-fill size=30px >}}](/slides/22_Counting_Intro.qmd)]{style="color:#f8f5f0;"}      |                             [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                             |                                                                                                                                                                                                                                                                                                                   [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                                                                                                                                                                                    |
+| ~~22~~  | ~~Introduction to Counting~~       |     [[{{< iconify ri slideshow-fill size=30px >}}](/slides/22_Counting_Intro.qmd)]{style="color:#f8f5f0;"}      |                             [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                             |                                                                                                                                                                                                                                                                                                                   [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                                                                                                                                                                                    |
 | 23      | Case Study on Counting             |                      [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                      |                             [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                             |                                                                                                                                                                                                                                                                                                                   [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                                                                                                                                                                                    |
 
 For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
@@ -139,6 +139,60 @@ As stated above, the $2$ in $2^6$ comes from the $2$ options from our indicator.
 I think this will become clearer when we start thinking about events in the context of probability. When we think of **events outside of probability**, we may think of something we actually do or something that happens, like going to a concert or coming to class or missing the streetcar. In this case, we think of the event as the single thing (out of all the options) that actually occured. For example, if I'm taking the streetcar to class, I can think of two definitive options of what *might* occur: I miss the streetcar or I get on the streetcar. Only one of these things can occur, which I may call an event *colloquially*.
 
 It is important to make the distinction with **events defined within probability**. Events are not necessarily a single thing that occurred. Instead it can be a collection of things that may occur. In the example of the streetcar, I can define my event to include both options. Thus, my event is that I make the streetcar or I miss it. Both of these things cannot happen simultaneously, but if I want to calculate the probability that I miss or make the streetcar, then it is helpful to have the event defined.
+
+### 3. Confusion on the Venn Diagram for the high blood pressure example
+
+This is in reference to the Chapter 1 notes on "BP example variation (3/3)" slide. I explained the event that at least one subject does not have high blood pressure using a venn diagram. In this venn diagram, I assumed $n=4$, and I wanted to show that the union of complements is equal to the complement of unions: $\bigcup\limits_{i=1}^{n}H_i^C = \Big(\bigcap\limits_{i=1}^{n}H_i\Big)^C$.
+
+![](week_01/Muddy_point_3_1.png)
+
+![](week_01/Muddy_point_3_2.png) Now we can look at $\bigcup\limits_{i=1}^{4}H_i^C$. We first need to define $H_i^c$
+
+![](week_01/Muddy_point_3_3.png)
+
+![](week_01/Muddy_point_3_4.png)
+
+![](week_01/Muddy_point_3_5.png)
+
+### 4. Proofs of propositions
+
+Further explanations of the propositions can be found in the textbook from pages 24-27. For many of the explanations in class, I was working to produce a union of disjoint events, so that the probability could easily be calculated. Proposition 3 and 4 were specifically mentioned, so I will include some writing notes on them here:
+
+#### Proposition 3
+
+If $A \subseteq B$, then $\mathbb{P}(A) \leq \mathbb{P}(B)$
+
+In this proposition, I want to define event $B$ as a union of disjoint events so that I can show $P(B)$ is the sum of $P(A)$ and some greater-than-or-equal-to 0 probability event. If the following is my venn diagram of A and B:
+
+![](week_01/Muddy_point_4_1_1.png){fig-align="center" width="391"}
+
+Then I can define B as the union of disjoint events: ![](week_01/Muddy_point_4_1_2.png)
+
+If we then take the probability of each side of the equation $B = A \cup (A^c \cap B)$, we get $$P(B) = P\big(A \cup (A^c \cap B)\big)$$
+
+Since events $A$ and $A^c \cap B$ are disjoint, the probability of their union is just: $$P(A) + P(A^c \cap B)$$
+
+Thus, our equation is now $$P(B) = P(A) + P(A^c \cap B)$$
+
+From Axiom 1, we know for event $A^c \cap B$, $P(A^c \cap B) \geq 0$.
+
+So the probability of event B is the sum of the probability of event A and an event that is $\geq$ 0. This means $P(B) \geq P(A)$.
+
+#### Proposition 4
+
+$\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(A \cap B)$
+
+![](week_01/Muddy_point_4_2_1.png)
+
+![](week_01/Muddy_point_4_2_2.png)
+
+From the pictures above, we can see some similar disjoint events.
+
+If we look back at $A \cup B$, we can start manipulating the right side of the equation:
+
+![](week_01/Muddy_point_4_2_3.png)
+
+![](week_01/Muddy_point_4_2_4.png) ![](week_01/Muddy_point_4_2_5.png)
 
 ## Clearest Points
 

@@ -303,6 +303,8 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#why-is-the-number-of-possible-events-2s" id="toc-why-is-the-number-of-possible-events-2s" class="nav-link" data-scroll-target="#why-is-the-number-of-possible-events-2s">1. Why is the number of possible events <span class="math inline">\(2^{|S|}\)</span>?</a></li>
   <li><a href="#what-is-an-event" id="toc-what-is-an-event" class="nav-link" data-scroll-target="#what-is-an-event">2. What is an event??</a></li>
+  <li><a href="#confusion-on-the-venn-diagram-for-the-high-blood-pressure-example" id="toc-confusion-on-the-venn-diagram-for-the-high-blood-pressure-example" class="nav-link" data-scroll-target="#confusion-on-the-venn-diagram-for-the-high-blood-pressure-example">3. Confusion on the Venn Diagram for the high blood pressure example</a></li>
+  <li><a href="#proofs-of-propositions" id="toc-proofs-of-propositions" class="nav-link" data-scroll-target="#proofs-of-propositions">4. Proofs of propositions</a></li>
   </ul></li>
   <li><a href="#clearest-points" id="toc-clearest-points" class="nav-link" data-scroll-target="#clearest-points">Clearest Points</a></li>
   </ul>
@@ -398,8 +400,8 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F02%5FProbability%2Emp4&amp;referrer=OneDriveForBusiness&amp;referrerScenario=OpenFile"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></td>
 </tr>
 <tr class="even">
-<td>22</td>
-<td>Introduction to Counting</td>
+<td><del>22</del></td>
+<td><del>Introduction to Counting</del></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/22_Counting_Intro.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
@@ -528,6 +530,45 @@ She is the <a href="https://www.amstat.org/news-listing/2021/10/08/asa-welcomes-
 <h3 class="anchored" data-anchor-id="what-is-an-event">2. What is an event??</h3>
 <p>I think this will become clearer when we start thinking about events in the context of probability. When we think of <strong>events outside of probability</strong>, we may think of something we actually do or something that happens, like going to a concert or coming to class or missing the streetcar. In this case, we think of the event as the single thing (out of all the options) that actually occured. For example, if I’m taking the streetcar to class, I can think of two definitive options of what <em>might</em> occur: I miss the streetcar or I get on the streetcar. Only one of these things can occur, which I may call an event <em>colloquially</em>.</p>
 <p>It is important to make the distinction with <strong>events defined within probability</strong>. Events are not necessarily a single thing that occurred. Instead it can be a collection of things that may occur. In the example of the streetcar, I can define my event to include both options. Thus, my event is that I make the streetcar or I miss it. Both of these things cannot happen simultaneously, but if I want to calculate the probability that I miss or make the streetcar, then it is helpful to have the event defined.</p>
+</section>
+<section id="confusion-on-the-venn-diagram-for-the-high-blood-pressure-example" class="level3">
+<h3 class="anchored" data-anchor-id="confusion-on-the-venn-diagram-for-the-high-blood-pressure-example">3. Confusion on the Venn Diagram for the high blood pressure example</h3>
+<p>This is in reference to the Chapter 1 notes on “BP example variation (3/3)” slide. I explained the event that at least one subject does not have high blood pressure using a venn diagram. In this venn diagram, I assumed <span class="math inline">\(n=4\)</span>, and I wanted to show that the union of complements is equal to the complement of unions: <span class="math inline">\(\bigcup\limits_{i=1}^{n}H_i^C = \Big(\bigcap\limits_{i=1}^{n}H_i\Big)^C\)</span>.</p>
+<p><img src="week_01/Muddy_point_3_1.png" class="img-fluid"></p>
+<p><img src="week_01/Muddy_point_3_2.png" class="img-fluid"> Now we can look at <span class="math inline">\(\bigcup\limits_{i=1}^{4}H_i^C\)</span>. We first need to define <span class="math inline">\(H_i^c\)</span></p>
+<p><img src="week_01/Muddy_point_3_3.png" class="img-fluid"></p>
+<p><img src="week_01/Muddy_point_3_4.png" class="img-fluid"></p>
+<p><img src="week_01/Muddy_point_3_5.png" class="img-fluid"></p>
+</section>
+<section id="proofs-of-propositions" class="level3">
+<h3 class="anchored" data-anchor-id="proofs-of-propositions">4. Proofs of propositions</h3>
+<p>Further explanations of the propositions can be found in the textbook from pages 24-27. For many of the explanations in class, I was working to produce a union of disjoint events, so that the probability could easily be calculated. Proposition 3 and 4 were specifically mentioned, so I will include some writing notes on them here:</p>
+<section id="proposition-3" class="level4">
+<h4 class="anchored" data-anchor-id="proposition-3">Proposition 3</h4>
+<p>If <span class="math inline">\(A \subseteq B\)</span>, then <span class="math inline">\(\mathbb{P}(A) \leq \mathbb{P}(B)\)</span></p>
+<p>In this proposition, I want to define event <span class="math inline">\(B\)</span> as a union of disjoint events so that I can show <span class="math inline">\(P(B)\)</span> is the sum of <span class="math inline">\(P(A)\)</span> and some greater-than-or-equal-to 0 probability event. If the following is my venn diagram of A and B:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_01/Muddy_point_4_1_1.png" class="img-fluid figure-img" width="391"></p>
+</figure>
+</div>
+<p>Then I can define B as the union of disjoint events: <img src="week_01/Muddy_point_4_1_2.png" class="img-fluid"></p>
+<p>If we then take the probability of each side of the equation <span class="math inline">\(B = A \cup (A^c \cap B)\)</span>, we get <span class="math display">\[P(B) = P\big(A \cup (A^c \cap B)\big)\]</span></p>
+<p>Since events <span class="math inline">\(A\)</span> and <span class="math inline">\(A^c \cap B\)</span> are disjoint, the probability of their union is just: <span class="math display">\[P(A) + P(A^c \cap B)\]</span></p>
+<p>Thus, our equation is now <span class="math display">\[P(B) = P(A) + P(A^c \cap B)\]</span></p>
+<p>From Axiom 1, we know for event <span class="math inline">\(A^c \cap B\)</span>, <span class="math inline">\(P(A^c \cap B) \geq 0\)</span>.</p>
+<p>So the probability of event B is the sum of the probability of event A and an event that is <span class="math inline">\(\geq\)</span> 0. This means <span class="math inline">\(P(B) \geq P(A)\)</span>.</p>
+</section>
+<section id="proposition-4" class="level4">
+<h4 class="anchored" data-anchor-id="proposition-4">Proposition 4</h4>
+<p><span class="math inline">\(\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(A \cap B)\)</span></p>
+<p><img src="week_01/Muddy_point_4_2_1.png" class="img-fluid"></p>
+<p><img src="week_01/Muddy_point_4_2_2.png" class="img-fluid"></p>
+<p>From the pictures above, we can see some similar disjoint events.</p>
+<p>If we look back at <span class="math inline">\(A \cup B\)</span>, we can start manipulating the right side of the equation:</p>
+<p><img src="week_01/Muddy_point_4_2_3.png" class="img-fluid"></p>
+<p><img src="week_01/Muddy_point_4_2_4.png" class="img-fluid"> <img src="week_01/Muddy_point_4_2_5.png" class="img-fluid"></p>
+</section>
 </section>
 </section>
 <section id="clearest-points" class="level2">

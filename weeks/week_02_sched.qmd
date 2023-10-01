@@ -32,11 +32,12 @@ editor_options:
 
 Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
-| Chapter | Topic                   |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
+| Chapter | Topic                    |                                                 Slides                                                 |                                  Annotated Slides                                  |                           Recording                           |
 |---------------|---------------|:-------------:|:-------------:|:-------------:|
-| 3       | Independent Events      | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#49A3D1;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 4       | Conditional Probability | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 6       | Bayes' Theorem          | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 22      | Introduction to Counting | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/22_Counting_Intro.qmd)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 3       | Independent Events       |                 [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#49A3D1;"}                  | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 4       | Conditional Probability  |                 [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                  | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 6       | Bayes' Theorem           |                 [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                  | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
 For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
 
@@ -47,13 +48,13 @@ For the slides, once they are opened, if you would like to print or save them as
 
 ## On the Horizon
 
-[Homework 1 due 10/5](../homework/HW1.qmd)
+-   [Homework 1 due 10/5](../homework/HW1.qmd)
 
 ## Class Exit Tickets
 
-[{{< iconify healthicons health-worker-form-negative size=30px >}}]{style="color:#f8f5f0;"} Monday (10/2)
+[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUNTlTWUZHM1RIN0Q1WkpKTjMwTTdRRTBVNC4u)]{style="color:#f8f5f0;"} Monday (10/2)
 
-[{{< iconify healthicons health-worker-form-negative size=30px >}}]{style="color:#f8f5f0;"} Wednesday (10/4)
+[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhURDVVMlpFT0RKQU5aQTMyNzhIWTRNTzk2My4u)]{style="color:#f8f5f0;"} Wednesday (10/4)
 
 ## Additional Information
 

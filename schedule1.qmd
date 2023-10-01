@@ -192,17 +192,13 @@ for (i in seq_along(unique_mo)) {
 Here is a tentative list of important, recurring times:
 
 -   Homeworks are always due at **11pm** on the specified day (usually Thursday)
-
 -   Exit tickets are due at **11pm** 7 days after class
-
     -   So for Monday classes, they are due the following Monday at 11pm
-
     -   For Wednesday classes, they are due the following Wednesday at 11pm
-
--   Office hours
-
-    -   Nicky: TBD
-
+-   Office hours: Link to Webex
+    -   Mondays or Wednesdays, 4-5pm
+    -   Thursdays, 3-4pm
+    -   Fridays, 11:30am-12:30pm
 -   Class meets on Mondays and Wednesdays at **10:30am - 12pm**
 
 ## Credit to
