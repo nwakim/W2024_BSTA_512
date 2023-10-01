@@ -1,7 +1,9 @@
 ---
 title: "Chapter 4: Conditional Probability"
-author: "Meike Niederhausen"
+author: "Meike Niederhausen and Nicky Wakim"
 date: "10/04/2023"
+title-slide-attributes:
+    data-background-color: "#006a4e"
 categories: ["Week 2"]
 format: 
   revealjs:
@@ -10,16 +12,22 @@ format:
     chalkboard: true
     slide-number: true
     show-slide-number: all
-    width: 1600
+    width: 1955
     height: 1100
     footer: Chapter 4 Slides
 ---
 
-## Example
+## Learning Objectives
+
+1.  Calculate the probability of an event occurring, given that another event occurred.
+
+2.  Define keys facts for conditional probabilities using notation.
+
+## Let's revisit our deck of cards
 
 ::: example
 ::: ex-title
-Example 4.1
+Example 1
 :::
 
 ::: ex-cont
@@ -63,15 +71,40 @@ $$\mathbb{P}(A|B)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}$$
 
 ## Conditional Probability facts (2/2)
 
-3.  If $A$ and $B$ are independent events ($A \unicode{x2AEB}B$), then $$\mathbb{P}(A|B) = \mathbb{P}(A)$$
+::: columns
+::: column
+::: fact
+::: fact-title
+Fact 3
+:::
 
-4.  $\mathbb{P}(A|B)$ is a probability, meaning that it satisfies the probability axioms. In particular, $$\mathbb{P}(A|B) + \mathbb{P}(A^C|B) = 1$$
+::: fact-cont
+If $A$ and $B$ are independent events ($A \unicode{x2AEB}B$), then $$\mathbb{P}(A|B) = \mathbb{P}(A)$$
+:::
+:::
+:::
 
-## Example
+::: column
+::: fact
+::: fact-title
+Fact 4
+:::
 
+::: fact-cont
+$\mathbb{P}(A|B)$ is a probability, meaning that it satisfies the probability axioms. In particular, $$\mathbb{P}(A|B) + \mathbb{P}(A^C|B) = 1$$
+:::
+:::
+:::
+:::
+
+## Conditional probability with two dice
+
+::: columns
+
+::: column
 ::: example
 ::: ex-title
-Example 4.2
+Example 2
 :::
 
 ::: ex-cont
@@ -79,4 +112,5 @@ Two dice (red and blue) are rolled. If the dice do not show the same face, what 
 :::
 :::
 
-**Solution:**
+:::
+:::

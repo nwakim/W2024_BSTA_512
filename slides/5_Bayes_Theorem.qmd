@@ -1,7 +1,9 @@
 ---
 title: "Chapter 5: Bayes' Theorem"
-author: "Meike Niederhausen"
+author: "Meike Niederhausen and Nicky Wakim"
 date: "10/04/2023"
+title-slide-attributes:
+    data-background-color: "#006a4e"
 categories: ["Week 2"]
 format: 
   revealjs:
@@ -10,10 +12,16 @@ format:
     chalkboard: true
     slide-number: true
     show-slide-number: all
-    width: 1600
+    width: 1955
     height: 1100
     footer: Chapter 5 Slides
 ---
+
+## Learning Objectives
+
+1.  Calculate conditional probability of an event using Bayes' Theorem
+
+2.  Utilize additional probability rules in probability calculations, specifically the Higher Order Multiplication Rule and the Law of Total Probabilities
 
 ## Introduction
 
@@ -27,6 +35,9 @@ format:
 
 ## Bayes' Rule for two events
 
+::: columns
+
+::: column 
 ::: theorem
 ::: thm-title
 Theorem: Bayes' Rule (for two events)
@@ -41,46 +52,59 @@ $$\mathbb{P}(A| B) =
 :::
 :::
 
-**Proof:**
+:::
+:::
 
-## Example
 
+## Calculating probability with Higher Order Multiplication Rule
+
+::: columns
+
+::: column 
 ::: example
 ::: ex-title
-Example 5.1
+Example 1
 :::
 
 ::: ex-cont
 Suppose we draw 5 cards from a standard shuffled deck of 52 cards. What is the probability of a flush, that is all the cards are of the same suit (including straight flushes)?
 :::
 :::
+:::
 
-**Solution:**
-
+::: column 
 ::: fact
 ::: fact-title
 Higher Order Multiplication Rule
 :::
 
 ::: fact-cont
-$$\mathbb{P}(A_1\cap A_2 \cap  \ldots \cap A_n)=\mathbb{P}(A_1)\cdot\mathbb{P}(A_2|A_1)\cdot\mathbb{P}(A_3|A_1A_2)\ldots \cdot\mathbb{P}(A_n|A_1A_2\ldots A_{n-1})$$
+$$\mathbb{P}(A_1\cap A_2 \cap  \ldots \cap A_n)=\mathbb{P}(A_1)\cdot\mathbb{P}(A_2|A_1) \cdot \\
+\mathbb{P}(A_3|A_1A_2)\ldots \cdot\mathbb{P}(A_n|A_1A_2\ldots A_{n-1})$$
+:::
 :::
 :::
 
-## Example
+:::
 
+## Calculating probability with Law of Total Probability
+
+::: columns
+
+::: column 
 ::: example
 ::: ex-title
-Example 5.2
+Example 2
 :::
 
 ::: ex-cont
-Suppose 1% of females and 5% of males are color-blind. What is the probability that a person chosen at random is color-blind?
+Suppose 1% of people assigned female at birth (AFAB) and 5% of people assigned male at birth (AMAB) are color-blind. What is the probability that a person chosen at random is color-blind?
 :::
 :::
 
-**Solution:**
+:::
 
+::: column 
 ::: fact
 ::: fact-title
 Law of Total Probability for 2 Events
@@ -98,11 +122,37 @@ $$%\left(
 :::
 :::
 
-## Example
+:::
+:::
 
+## General Law of Total Proability
+
+::: fact
+::: fact-title
+Law of Total Probability (general)
+:::
+
+::: fact-cont
+If $\{A_i\}_{i=1}^{n} = \{A_1, A_2, \ldots, A_n\}$ form a partition of the sample space, then for event $B$,
+
+$$%\left(
+\begin{array}{ccl}
+\mathbb{P}(B)&=& \sum_{i=1}^{n} \mathbb{P}(B \cap A_i)\\
+           &=& \sum_{i=1}^{n} \mathbb{P}(B|A_i) \cdot \mathbb{P}(A_i)
+\end{array}
+%\right)$$
+:::
+:::
+
+
+## Calculating probability with generalized Law of Total Probability {.smaller}
+
+::: columns
+
+::: {.column width="40%"}
 ::: example
 ::: ex-title
-Example 5.3
+Example 3
 :::
 
 ::: ex-cont
@@ -126,52 +176,43 @@ Based solely on the preliminary test of being diagnosed with the cancer, what is
 :::
 :::
 
-**Solution:**
-
-::: fact
-::: fact-title
-Law of Total Probability (general)
-:::
-
-::: fact-cont
-If $\{A_i\}_{i=1}^{n} = \{A_1, A_2, \ldots, A_n\}$ form a partition of the sample space, then for event $B$,
-
-$$%\left(
-\begin{array}{ccl}
-\mathbb{P}(B)&=& \sum_{i=1}^{n} \mathbb{P}(B \cap A_i)\\
-           &=& \sum_{i=1}^{n} \mathbb{P}(B|A_i) \cdot \mathbb{P}(A_i)
-\end{array}
-%\right)$$
 :::
 :::
 
-## Example
+## Let's revisit the color-blind example
 
+::: columns
+
+::: {.column width="40%"}
 ::: example
 ::: ex-title
-Example 5.4
+Example 4
 :::
 
 ::: ex-cont
 Recall the color-blind example (Example [2](#Ex_colorblind){reference-type="ref" reference="Ex_colorblind"}), where
 
--   a person is male with probability 0.5,
+-   a person is AMAB with probability 0.5,
 
--   males are color-blind with probability 0.05, and
+-   AMAB people are color-blind with probability 0.05, and
 
 -   all people are color-blind with probability 0.03.
 
-Find the probability that a color-blind person is male.
+Assuming people are AMAB or AFAB, find the probability that a color-blind person is AMAB.
 :::
 :::
 
-**Solution:**
+:::
+:::
 
-## Example
+## Calculate probability with both rules
 
+::: columns
+
+::: {.column width="40%"}
 ::: example
 ::: ex-title
-Example 5.5
+Example 5
 :::
 
 ::: ex-cont
@@ -187,7 +228,8 @@ What is the probability that a woman has breast cancer given that she just had a
 :::
 :::
 
-**Solution:**
+:::
+:::
 
 ## Bayes' Rule
 
@@ -204,5 +246,3 @@ $$\mathbb{P}(A_j | B) =
 {\sum_{i=1}^{n} \mathbb{P}(B|A_i) \cdot \mathbb{P}(A_i)}$$
 :::
 :::
-
-**Proof:**

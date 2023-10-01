@@ -19,6 +19,18 @@ format:
     footer: Chapter 1 Slides
 ---
 
+## Learning Objectives
+
+1.  Define basic terms related to events such as events, outcomes, and sample space.
+
+2.  Use proper set notation for events
+
+3.  Characterize possible outcomes, when something random occurs
+
+4.  Describe events into which outcomes can be grouped
+
+5.  Define important terms and rules within set theory such as unions, intersections, complements, mutually exclusive, and De Morgan's Laws
+
 # Tossing One Coin (Outcomes, Events, and Sample Space)
 
 ## Coin Toss Example: 1 coin (1/3)

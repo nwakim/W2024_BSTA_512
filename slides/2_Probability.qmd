@@ -19,6 +19,12 @@ format:
     footer: Chapter 2 Slides
 ---
 
+## Learning Objectives
+
+1.  Define basic axioms and propositions in probability
+
+2.  Assign probabilities to events, and perform manipulations on probabilities to make calculations easier
+
 # Probabilities of equally likely events
 
 ## Pick an *equally likely* card, any *equally likely* card

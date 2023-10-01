@@ -1,6 +1,6 @@
 ---
 title: "Chapter 3: Independent Events"
-author: "Meike Niederhausen"
+author: "Meike Niederhausen and Nicky Wakim"
 date: "10/02/2023"
 title-slide-attributes:
     data-background-color: "#006a4e"
@@ -17,13 +17,19 @@ format:
     footer: Chapter 3 Slides
 ---
 
-## Slide 1
+## Learning objectives
+
+1.  Define independence of 2-3 events given probability notation
+
+2.  Calculate whether two or more events are independent
+
+## Revisiting our coin toss
 
 **Question:** Which of the following sequences of coin tosses of heads ($H$) and tails ($T$) is more likely to happen, assuming the coin is fair?
 
 $$HTTHHHTHTHHTTTH$$ or $$HTTTTTTTTHTTTTT$$
 
-## Slide 2
+## Independent Events
 
 ::: definition
 ::: def-title
@@ -37,11 +43,11 @@ Definition: Independence
 
 **Notation:** For shorthand, we sometimes write $$A \mathrel{\unicode{x2AEB}} B,$$ to denote that $A$ and $B$ are independent events.
 
-## da
+## Example of two dice
 
 ::: example
 ::: ex-title
-Example 2
+Example 1
 :::
 
 ::: ex-cont
@@ -49,9 +55,7 @@ Example 2
 :::
 :::
 
-**Solution:**
-
-## fsf
+## Independence of 3 Events
 
 ::: definition
 ::: def-title
@@ -77,11 +81,11 @@ Definition: Independence of 3 Events
 
 On your homework you will show that $(1) \not \Rightarrow (2)$ and $(2) \not \Rightarrow (1)$.
 
-## fafs
+## Probability at least one smoker
 
 ::: example
 ::: ex-title
-Example 4
+Example 2
 :::
 
 ::: ex-cont
@@ -89,17 +93,17 @@ Example 4
 
 -   $A_i =$ event person $i$ is a smoker, for $i=1, \ldots ,n$, and
 
--   $p_i =$ probability person $i$ is a smoker, for $i=1, \ldots ,n$. Find the probability that at least one person in the random sample is a smoker.
+-   $p_i =$ probability person $i$ is a smoker, for $i=1, \ldots ,n$.
+
+Find the probability that at least one person in the random sample is a smoker.
 :::
 :::
 
-**Solution:**
-
-## faf
+## Building geometric series {visibility="hidden"}
 
 ::: example
 ::: ex-title
-Example 5
+Example 3
 :::
 
 ::: ex-cont
@@ -107,7 +111,7 @@ $A, B,$ and $C$ toss a fair coin in order. The first to throw heads wins. What a
 :::
 :::
 
-**Solution:** Let
+Let
 
 -   $A_H$ and $A_T$ be the events player A tosses heads and tails, respectively.
 
