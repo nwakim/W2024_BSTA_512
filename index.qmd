@@ -41,9 +41,13 @@ Welcome to Biostatistics and Probability! This course is designed to introduce h
 ::: g-col-3
 ### Office Hours
 
-{{< iconify fa6-solid calendar-days size=24px >}} TBD
+[Office Hours Link](https://ohsu.webex.com/meet/wakim)
 
-{{< iconify icon-park-solid time size=24px >}} TBD
+{{< iconify icon-park-solid time size=24px >}} Wednesdays, 4-5pm
+
+{{< iconify icon-park-solid time size=24px >}} Thursdays, 3-4pm
+
+{{< iconify icon-park-solid time size=24px >}} Fridays, 11:30am-12:30pm
 :::
 
 ::: g-col-3

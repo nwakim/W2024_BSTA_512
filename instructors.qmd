@@ -29,9 +29,9 @@ title: "Instructors"
 
 ### Office Hours
 
-Link to Webex!!
+[Link to Webex!!](https://ohsu.webex.com/meet/wakim)
 
--   Mondays or Wednesdays, 4-5pm
+-   Wednesdays, 4-5pm
 -   Thursdays, 3-4pm
 -   Fridays, 11:30am-12:30pm
 

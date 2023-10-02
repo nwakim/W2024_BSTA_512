@@ -2,7 +2,7 @@
 title: "Week 1"
 description: "Outcomes, Events, and Sample Space; Probability; and Counting"
 date: "09/25/2023"
-date-modified: "9/25/2023"
+date-modified: "9/30/2023"
 categories: [""]
 format: 
   html:

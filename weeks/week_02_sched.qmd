@@ -2,7 +2,7 @@
 title: "Week 2"
 description: "Independent Events; Conditional Probability; and Bayes' Theorem"
 date: "10/2/2023"
-date-modified: "08/22/2023"
+date-modified: "9/30/2023"
 categories: [""]
 format: 
   html:
