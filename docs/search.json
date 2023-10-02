@@ -3539,14 +3539,14 @@
     "href": "slides/3_IndependentEvents.html#example-of-two-dice",
     "title": "Chapter 3: Independent Events",
     "section": "Example of two dice",
-    "text": "Example of two dice\n\n\nExample 1\n\n\nTwo dice (red and blue) are rolled. Let \\(A =\\) event a total of 7 appears, and \\(B =\\) event first die is a six. Are events \\(A\\) and \\(B\\) independent?"
+    "text": "Example of two dice\n\n\nExample 1\n\n\nTwo dice (red and blue) are rolled. Let \\(A =\\) event a total of 7 appears, and \\(B =\\) event red die is a six. Are events \\(A\\) and \\(B\\) independent?"
   },
   {
     "objectID": "slides/3_IndependentEvents.html#independence-of-3-events",
     "href": "slides/3_IndependentEvents.html#independence-of-3-events",
     "title": "Chapter 3: Independent Events",
     "section": "Independence of 3 Events",
-    "text": "Independence of 3 Events\n\n\nDefinition: Independence of 3 Events\n\n\nEvents \\(A\\), \\(B\\), and \\(C\\) are independent if\n\n\n\\(\\mathbb{P}(A \\cap B) = \\mathbb{P}(A) \\cdot \\mathbb{P}(B)\\)\n\\(\\mathbb{P}(A \\cap C) = \\mathbb{P}(A) \\cdot \\mathbb{P}(C)\\)\n\\(\\mathbb{P}(B \\cap C) = \\mathbb{P}(B) \\cdot \\mathbb{P}(C)\\)\n\n\\(\\mathbb{P}(A \\cap B \\cap C) = \\mathbb{P}(A) \\cdot \\mathbb{P}(B) \\cdot \\mathbb{P}(C)\\)\n\n\n\nRemark:\nOn your homework you will show that \\((1) \\not \\Rightarrow (2)\\) and \\((2) \\not \\Rightarrow (1)\\)."
+    "text": "Independence of 3 Events\n\n\nDefinition: Independence of 3 Events\n\n\nEvents \\(A\\), \\(B\\), and \\(C\\) are mutually independent if\n\n\n\\(\\mathbb{P}(A \\cap B) = \\mathbb{P}(A) \\cdot \\mathbb{P}(B)\\)\n\\(\\mathbb{P}(A \\cap C) = \\mathbb{P}(A) \\cdot \\mathbb{P}(C)\\)\n\\(\\mathbb{P}(B \\cap C) = \\mathbb{P}(B) \\cdot \\mathbb{P}(C)\\)\n\n\\(\\mathbb{P}(A \\cap B \\cap C) = \\mathbb{P}(A) \\cdot \\mathbb{P}(B) \\cdot \\mathbb{P}(C)\\)\n\n\n\nRemark:\nOn your homework you will show that \\((1) \\not \\Rightarrow (2)\\) and \\((2) \\not \\Rightarrow (1)\\)."
   },
   {
     "objectID": "slides/3_IndependentEvents.html#probability-at-least-one-smoker",

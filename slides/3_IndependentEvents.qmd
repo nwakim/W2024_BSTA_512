@@ -51,7 +51,7 @@ Example 1
 :::
 
 ::: ex-cont
-*Two dice (red and blue) are rolled. Let* $A =$ event a total of 7 appears, and $B =$ event first die is a six. Are events $A$ and $B$ independent?
+*Two dice (red and blue) are rolled. Let* $A =$ event a total of 7 appears, and $B =$ event red die is a six. Are events $A$ and $B$ independent?
 :::
 :::
 
@@ -63,7 +63,7 @@ Definition: Independence of 3 Events
 :::
 
 ::: def-cont
-*Events* $A$, $B$, and $C$ are **independent** if
+*Events* $A$, $B$, and $C$ are *mutually* **independent** if
 
 1.  
 
