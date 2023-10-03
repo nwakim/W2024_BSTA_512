@@ -167,4 +167,12 @@ Yes and no...
 
 In the example with the spades, for order does not matter, we saw that $r!$ cancels out and leaves us with a probability equal to when order does matter! This is because each spade is not distinguishable from the other. (Yes, technically each will have a different face, but we only care about the suit.) If we select a spade first then another spade, all we know of the order is spade first, spade second. If we flip that, we still get spade first, spade second. Thus, the order of the spades does not matter.
 
-In the spades problem, we distinguished between "order matters" and "order does not matter" but the way we defined the probability, and the fact that spades are indistinguishable, means that the "ordered" cards really did not matter. It'll definitely matter in an event where we get the first card as a spade and the second as a heart. We can no longer use combinations to define the event space! The main take away should be that the two are equal when order is not needed to define the event!
+In the spades problem, we distinguished between "order matters" and "order does not matter" but the way we defined the probability, and the fact that spades are indistinguishable, means that the "ordered" cards really did not matter. It'll definitely matter in an event where we get the first card as a spade and the second as a heart. We can no longer use combinations to define the event space!
+
+The main take away should be that the probabilities (using order matters and order does not matter) are equal when order is **not needed** to define the event! **When order does not matter, it can still be easier to calculate the probability using an "order matters" framework!! So we will use that to our advantage!**
+
+Below is some of the work demonstrating the probabilities loosely mentioned. Please note that ChatGPT could be a really helpful tool if you are curious about this question!
+
+![](week_02/card_ex.png){fig-align="center"}
+
+I'll leave the work to calculate the exact probabilities above. For Case #1, the probabilities are equal. For Case #2, the probabilities are not equal!
