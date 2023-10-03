@@ -83,6 +83,9 @@ On your homework you will show that $(1) \not \Rightarrow (2)$ and $(2) \not \Ri
 
 ## Probability at least one smoker
 
+::: columns
+
+::: {.column width="34%"}
 ::: example
 ::: ex-title
 Example 2
@@ -96,6 +99,9 @@ Example 2
 -   $p_i =$ probability person $i$ is a smoker, for $i=1, \ldots ,n$.
 
 Find the probability that at least one person in the random sample is a smoker.
+:::
+:::
+
 :::
 :::
 

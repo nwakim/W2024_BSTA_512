@@ -3553,7 +3553,7 @@
     "href": "slides/3_IndependentEvents.html#probability-at-least-one-smoker",
     "title": "Chapter 3: Independent Events",
     "section": "Probability at least one smoker",
-    "text": "Probability at least one smoker\n\n\nExample 2\n\n\nSuppose you take a random sample of \\(n\\) people, of which people are smokers and non-smokers independently of each other. Let\n\n\\(A_i =\\) event person \\(i\\) is a smoker, for \\(i=1, \\ldots ,n\\), and\n\\(p_i =\\) probability person \\(i\\) is a smoker, for \\(i=1, \\ldots ,n\\).\n\nFind the probability that at least one person in the random sample is a smoker."
+    "text": "Probability at least one smoker\n\n\n\n\nExample 2\n\n\nSuppose you take a random sample of \\(n\\) people, of which people are smokers and non-smokers independently of each other. Let\n\n\\(A_i =\\) event person \\(i\\) is a smoker, for \\(i=1, \\ldots ,n\\), and\n\\(p_i =\\) probability person \\(i\\) is a smoker, for \\(i=1, \\ldots ,n\\).\n\nFind the probability that at least one person in the random sample is a smoker."
   },
   {
     "objectID": "slides/3_IndependentEvents.html#three-people-toss-a-coin",
