@@ -145,7 +145,7 @@ When order does not matter, then we just need to know that person A, E, and C ar
 
 Let's answer more questions with this example...
 
-#### When order does not matter, what are we controlling for? 
+#### When order does not matter, what are we controlling for?
 
 In class example 1.3 and 1.4, we went from an example where order matters to one where order does not matter. So I showed us going from a calculation of $\dfrac{10!}{4!}$ ways to order them to $\dfrac{10!}{4!6!}$ ways of choosing 6 subjects. So why do we divide by $6!$ when order does not matter? Let's think back to our three committee seats. For the three seats, and person A, C, and E selected, there were 6 ways to order them. In fact, for any three people selected, there is always 6 ways to arrange (order) them into the positions. We can calculate the number of ways to arrange them with another permutation: if given three people and three seats, we can arrange them in $3\cdot2\cdot1=6$ ways because we have three options for president, then once the president is selected, we only have 2 options for VP, then 1 for treasurer. So for every 6 ways to order the three people, there is only one way to select them unordered. Thus, we divide the number of ordered options by the number of ways each group of three people can be ordered.
 
@@ -163,8 +163,8 @@ which is 10 ways to fill the seats when order does not matter.
 
 #### Is the probability equal when order matters and when order does not matter?
 
-Yes! In the example with the spades, for order does not matter, we saw that $r!$ cancels out and leaves us with a probability equal to when order does matter! This will always hold! This is because the number of ways to order within a selected group is the same no matter what you select. Thus, the sample space and the event are both reduced by the number of ways to order, leaving us with the exact same fraction as when order matters. Let's look back at our committee:
+Yes and no...
 
-Let's say we want to calculate the probabilitiy that we pick B, D, and E. Ordering the people will increase the sample size AND the event size, and by the same factor of 6 (\$3!\$).
+In the example with the spades, for order does not matter, we saw that $r!$ cancels out and leaves us with a probability equal to when order does matter! This is because each spade is not distinguishable from the other. (Yes, technically each will have a different face, but we only care about the suit.) If we select a spade first then another spade, all we know of the order is spade first, spade second. If we flip that, we still get spade first, spade second. Thus, the order of the spades does not matter.
 
 In the spades problem, we distinguished between "order matters" and "order does not matter" but the way we defined the probability, and the fact that spades are indistinguishable, means that the "ordered" cards really did not matter. It'll definitely matter in an event where we get the first card as a spade and the second as a heart. We can no longer use combinations to define the event space! The main take away should be that the two are equal when order is not needed to define the event!

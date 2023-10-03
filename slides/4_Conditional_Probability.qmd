@@ -19,27 +19,58 @@ format:
 
 ## Learning Objectives
 
-1.  Calculate the probability of an event occurring, given that another event occurred.
+1.  Use set process to calculate probability of event of interest
 
-2.  Define keys facts for conditional probabilities using notation.
+2.  Calculate the probability of an event occurring, given that another event occurred.
+
+3.  Define keys facts for conditional probabilities using notation.
+
+## General Process for Probability Word Problems
+
+1.  Clearly define your events of interest
+
+2.  Translate question to probability using defined events OR Venn Diagram
+
+3.  Ask yourself:
+
+    -   Are we sampling with or without replacement?
+
+    -   Does order matter?
+
+4.  Use axioms, properties, partitions, facts, etc. to define the end probability calculation into smaller parts
+
+    -   If probabilities are given to you, Venn Diagrams may help you parse out the events and probability calculations
+
+    -   If you need to find probabilities with counting, pictures or diagrams might help here
+
+5.  Write out a concluding statement that gives the probability context
+
+6.  (For own check) Make sure the calculated probability follows the axioms. Is is between 0 and 1?
 
 ## Let's revisit our deck of cards
 
+::: columns
+::: {.column width="35%"}
 ::: example
 ::: ex-title
 Example 1
 :::
 
 ::: ex-cont
-Suppose we randomly draw 2 cards from a standard deck of cards. What is the probability that both cards are spades?
+Suppose we randomly draw 2 cards from a standard deck of cards. What is the probability that we draw a spade then a heart?
 :::
 :::
 
-**Solution:** Let
+Let
 
 -   Let $A =$ event $1^{st}$ card is spades
 
--   Let $B =$ event $2^{nd}$ card is spades
+-   Let $B =$ event $2^{nd}$ card is heart
+:::
+
+::: column
+:::
+:::
 
 ## Conditional Probability facts (1/2)
 
@@ -100,7 +131,6 @@ $\mathbb{P}(A|B)$ is a probability, meaning that it satisfies the probability ax
 ## Conditional probability with two dice
 
 ::: columns
-
 ::: column
 ::: example
 ::: ex-title
@@ -111,6 +141,5 @@ Example 2
 Two dice (red and blue) are rolled. If the dice do not show the same face, what is the probability that one of the dice is a 1?
 :::
 :::
-
 :::
 :::

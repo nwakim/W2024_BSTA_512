@@ -98,7 +98,7 @@ Example 2
 :::
 
 ::: ex-cont
-Suppose 1% of people assigned female at birth (AFAB) and 5% of people assigned male at birth (AMAB) are color-blind. What is the probability that a person chosen at random is color-blind?
+Suppose 1% of people assigned female at birth (AFAB) and 5% of people assigned male at birth (AMAB) are color-blind. Assume person born is equally likely AFAB or AMAB (not including intersex). What is the probability that a person chosen at random is color-blind?
 :::
 :::
 

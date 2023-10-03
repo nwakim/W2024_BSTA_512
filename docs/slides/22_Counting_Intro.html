@@ -509,8 +509,8 @@ Meike Niederhausen and Nicky Wakim
 <table>
 <colgroup>
 <col style="width: 27%">
-<col style="width: 25%">
-<col style="width: 47%">
+<col style="width: 24%">
+<col style="width: 48%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -532,6 +532,19 @@ Meike Niederhausen and Nicky Wakim
 </tr>
 </tbody>
 </table></li>
+</ul>
+</section>
+<section id="enumerating-events-and-sample-space" class="slide level2">
+<h2>Enumerating Events and Sample Space</h2>
+<ul>
+<li><p>Recall, <span class="math inline">\(P(A) = \dfrac{|A|}{|S|}\)</span>. And within combinatorics, we can use the previous equations to help enumerate the event and sample space.</p></li>
+<li><p>I left something out though… the enumeration of the event is not just one of the above formulas.</p></li>
+<li><p>For example in the example of the spades when order does not matter, we actually need to enumerate the other cards that were NOT spades. So the event is choosing 2 spades out of 13 AND choosing 0 other cards of 39 cards (13 hearts + 13 clubs + 13 diamonds).</p></li>
+<li><p>Thus the probability is actually:</p></li>
+</ul>
+<p><span class="math display">\[ P(\text{two spades}) = \dfrac{{13 \choose 2}{39 \choose 0}}{{52 \choose 2}} \]</span></p>
+<ul>
+<li>Note that <span class="math inline">\(13 + 39 = 52\)</span> and <span class="math inline">\(2+ 0 = 2\)</span>. So the numerator’s <span class="math inline">\(n\)</span>’s add up to the denominator’s <span class="math inline">\(n\)</span> and the numerator’s <span class="math inline">\(r\)</span>’s add up to the denominator’s <span class="math inline">\(r\)</span>’s</li>
 </ul>
 
 <div class="footer footer-default">
