@@ -63,6 +63,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -294,8 +296,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#class-exit-tickets" id="toc-class-exit-tickets" class="nav-link" data-scroll-target="#class-exit-tickets">Class Exit Tickets</a></li>
   <li><a href="#additional-information" id="toc-additional-information" class="nav-link" data-scroll-target="#additional-information">Additional Information</a></li>
   <li><a href="#statistician-of-the-week-talithia-williams" id="toc-statistician-of-the-week-talithia-williams" class="nav-link" data-scroll-target="#statistician-of-the-week-talithia-williams">Statistician of the Week: Talithia Williams</a></li>
-  <li><a href="#muddiest-points" id="toc-muddiest-points" class="nav-link" data-scroll-target="#muddiest-points">Muddiest Points</a></li>
-  <li><a href="#clearest-points" id="toc-clearest-points" class="nav-link" data-scroll-target="#clearest-points">Clearest Points</a></li>
+  <li><a href="#muddiest-points" id="toc-muddiest-points" class="nav-link" data-scroll-target="#muddiest-points">Muddiest Points</a>
+  <ul class="collapse">
+  <li><a href="#example-at-end-of-chapter-2-slides-venn-diagram" id="toc-example-at-end-of-chapter-2-slides-venn-diagram" class="nav-link" data-scroll-target="#example-at-end-of-chapter-2-slides-venn-diagram">1. Example at end of Chapter 2 slides (Venn Diagram)</a></li>
+  <li><a href="#partition-of-events" id="toc-partition-of-events" class="nav-link" data-scroll-target="#partition-of-events">2. Partition of events</a></li>
+  <li><a href="#order-matters-vs.-order-does-not-matter" id="toc-order-matters-vs.-order-does-not-matter" class="nav-link" data-scroll-target="#order-matters-vs.-order-does-not-matter">3. Order matters vs.&nbsp;order does not matter</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -466,13 +472,86 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="muddiest-points" class="level2">
 <h2 class="anchored" data-anchor-id="muddiest-points">Muddiest Points</h2>
-<p>This will be filled in with your Exit Ticket responses.</p>
+<section id="example-at-end-of-chapter-2-slides-venn-diagram" class="level3">
+<h3 class="anchored" data-anchor-id="example-at-end-of-chapter-2-slides-venn-diagram">1. Example at end of Chapter 2 slides (Venn Diagram)</h3>
+<p>I will post this in the previous week’s Muddy Points as well. <a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F02%5FProbability%5Fexample%2Emp4&amp;referrer=OneDriveForBusiness&amp;referrerScenario=OpenFile">Please follow this link for my work through of the example.</a> And <a href="../slides_annotated/02_Probability_example.pdf">here is the PDF with my work</a>.</p>
+<p><strong>Sub-question:</strong> why don’t we just multiply the probability of A and B to get the intersection? This is a specific property of probability when A and B are independent. Only when A and B are independent can we conclude that <span class="math inline">\(P(A \cap B) = P(A)P(B)\)</span>.</p>
 </section>
-<section id="clearest-points" class="level2">
-<h2 class="anchored" data-anchor-id="clearest-points">Clearest Points</h2>
-<p>This will be filled in with your Exit Ticket responses.</p>
+<section id="partition-of-events" class="level3">
+<h3 class="anchored" data-anchor-id="partition-of-events">2. Partition of events</h3>
+<p>We’ve been working with event partitions throughout Chapter 2, but we have not formally identified them. Partitions are advantageous to define for two reasons:</p>
+<ol type="1">
+<li><p>The partitions may be easier to calculate. We can then use the partitions to reconstruct other probabilities that may be more difficult to calculate</p></li>
+<li><p>Partitions have nice properties as a consequence of being disjoint. For example, the probability of the union of partitions is the sum of the probabilities across each partition: <span class="math display">\[P\bigg(\bigcup_{i=1}^n A_i\bigg) = P(A_1)P(A_2)P(A_3) \cdot \cdot \cdot P(A_n)\]</span></p></li>
+</ol>
+</section>
+<section id="order-matters-vs.-order-does-not-matter" class="level3">
+<h3 class="anchored" data-anchor-id="order-matters-vs.-order-does-not-matter">3. Order matters vs.&nbsp;order does not matter</h3>
+<p>I think the best way to think about when order does and does not matter is through examples. So here is another example:</p>
+<ul>
+<li><p>I randomly select 3 different people to be on my committee from a larger group of 5 people (we’ll call them people A-E) …</p>
+<ul>
+<li><p>Order matters: If I want to assign each person to a specific role as I select them, then I want to keep track of the order</p></li>
+<li><p>Order does not matter: If I just want to assemble a committee without any hierarchy, then the order that I select them does not matter</p>
+<ul>
+<li>So if I pick person A first, second, or third, they are still on the committee</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>When order matters, the seats are now labelled as president, vice president, and treasurer:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_02/muddy_point_01_01.png" class="img-fluid figure-img" width="268"></p>
+</figure>
+</div>
+<p>When order does not matter, there are just three seats to fill:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_02/muddy_point_01_02.png" class="img-fluid figure-img" width="270"></p>
+</figure>
+</div>
+<p>For both situations, let’s say you pick person A, C, and E. When order matters, we can arrange these three people in a few ways:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_02/muddy_point_01_03.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>So there are 6 ways to order the three people.</p>
+<p>When order does not matter, then we just need to know that person A, E, and C are on the committee:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_02/muddy_point_01_04.png" class="img-fluid figure-img" width="237"></p>
+</figure>
+</div>
+<p>**Remember that there are 6 permutations to this 1 combination</p>
+<p>Let’s answer more questions with this example…</p>
+<section id="when-order-does-not-matter-what-are-we-controlling-for" class="level4">
+<h4 class="anchored" data-anchor-id="when-order-does-not-matter-what-are-we-controlling-for">When order does not matter, what are we controlling for?</h4>
+<p>In class example 1.3 and 1.4, we went from an example where order matters to one where order does not matter. So I showed us going from a calculation of <span class="math inline">\(\dfrac{10!}{4!}\)</span> ways to order them to <span class="math inline">\(\dfrac{10!}{4!6!}\)</span> ways of choosing 6 subjects. So why do we divide by <span class="math inline">\(6!\)</span> when order does not matter? Let’s think back to our three committee seats. For the three seats, and person A, C, and E selected, there were 6 ways to order them. In fact, for any three people selected, there is always 6 ways to arrange (order) them into the positions. We can calculate the number of ways to arrange them with another permutation: if given three people and three seats, we can arrange them in <span class="math inline">\(3\cdot2\cdot1=6\)</span> ways because we have three options for president, then once the president is selected, we only have 2 options for VP, then 1 for treasurer. So for every 6 ways to order the three people, there is only one way to select them unordered. Thus, we divide the number of ordered options by the number of ways each group of three people can be ordered.</p>
+<p>So the calculation for the ordered committee (with P, VP, and T) is:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_02/muddy_point_01_05.png" class="img-fluid figure-img" width="687"></p>
+</figure>
+</div>
+<p>which is 60 ways to fill the committee seats when order (arrangement) matters.</p>
+<p>And the calculation for the unordered (order does not matter) committee will divide the ordered permutations by the number of ways to order within the three seats:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_02/muddy_point_01_06.png" class="img-fluid figure-img" width="391"></p>
+</figure>
+</div>
+<p>which is 10 ways to fill the seats when order does not matter.</p>
+</section>
+<section id="is-the-probability-equal-when-order-matters-and-when-order-does-not-matter" class="level4">
+<h4 class="anchored" data-anchor-id="is-the-probability-equal-when-order-matters-and-when-order-does-not-matter">Is the probability equal when order matters and when order does not matter?</h4>
+<p>Yes! In the example with the spades, for order does not matter, we saw that <span class="math inline">\(r!\)</span> cancels out and leaves us with a probability equal to when order does matter! This will always hold! This is because the number of ways to order within a selected group is the same no matter what you select. Thus, the sample space and the event are both reduced by the number of ways to order, leaving us with the exact same fraction as when order matters. Let’s look back at our committee:</p>
+<p>Let’s say we want to calculate the probabilitiy that we pick B, D, and E. Ordering the people will increase the sample size AND the event size, and by the same factor of 6 ($3!$).</p>
+<p>In the spades problem, we distinguished between “order matters” and “order does not matter” but the way we defined the probability, and the fact that spades are indistinguishable, means that the “ordered” cards really did not matter. It’ll definitely matter in an event where we get the first card as a spade and the second as a heart. We can no longer use combinations to define the event space! The main take away should be that the two are equal when order is not needed to define the event!</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
