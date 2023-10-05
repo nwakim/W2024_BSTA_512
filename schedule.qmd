@@ -3,7 +3,7 @@ title: "Weekly Pages"
 format: 
   html:
     listing: 
-      contents: schedule
+      contents: weeks
       type: table
       table-hover: true
       fields: [date, title, description]

@@ -33,7 +33,7 @@ editor_options:
 Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
 | Chapter | Topic                         |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
-|---------|-------------------------------|:---------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:-------------------------------------------------------------:|
+|-------------|-------------|:-------------:|:----------------:|:-----------:|
 | 7       | Random Variables              | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#49A3D1;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 8       | PMF and CDF                   | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 9       | Independence and Conditioning | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
@@ -49,9 +49,9 @@ For the slides, once they are opened, if you would like to print or save them as
 
 ## Class Exit Tickets
 
-[{{< iconify healthicons health-worker-form-negative size=30px >}}]{style="color:#f8f5f0;"} Monday (9/25)
+[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUNjBXODdQWlhGVVlVSDY1UzEwQURFVTNTRS4u)]{style="color:#f8f5f0;"} Monday (10/9)
 
-[{{< iconify healthicons health-worker-form-negative size=30px >}}]{style="color:#f8f5f0;"} Wednesday (9/27)
+[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUOFZPOFBQRFZaS0lGUlFTTjZTQ1YyWTY2WS4u)]{style="color:#f8f5f0;"} Wednesday (10/11)
 
 ## Additional Information
 
@@ -85,9 +85,5 @@ Blackwell contributed to game theory, probability theory, information science, a
 **Please note the statisticians of the week are taken directly from the [CURV project by Jo Hardin](https://hardin47.github.io/CURV/).**
 
 ## Muddiest Points
-
-This will be filled in with your Exit Ticket responses.
-
-## Clearest Points
 
 This will be filled in with your Exit Ticket responses.

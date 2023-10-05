@@ -14,16 +14,19 @@ editor_options:
   chunk_output_type: console
 ---
 
+[Please turn in this homework on Sakai.](https://sakai.ohsu.edu/portal/site/BSTA-550-1-12619-F23/tool/085b18e7-8118-4a51-ace5-0255aa46136e) Please submit your homework in pdf format. You can type your work on your computer or submit a photo of your written work or any other method that can be turned into a pdf. Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.
+
 Complete all of the problems listed below. Only turn in the ones listed in the "Turn In" column. Please submit problems in the order they are listed.
 
 *You must show all of your work to receive credit.*
 
 ::: center
-| Chapter |           Turn In           |    Extra Problems    |
-|:-------:|:---------------------------:|:--------------------:|
-|    7    |                             | \# 2, 10, 16, 17, 18 |
-|    8    |       TB \# 8\*, 18\*       |    \# 2, 5, 7, 10    |
-|    9    | TB \# 2, 8\*\*, NTB \# 1, 2 |    \# 1, 4, 9, 10    |
+| Chapter |      Turn In       |      Extra Problems      |
+|:-------:|:------------------:|:------------------------:|
+|    5    | TB \# 17, NTB \# 1 |       \# 1, 9, 11        |
+|    7    |                    |   \# 2, 10, 16, 17, 18   |
+|    8    |  TB \# 8\*, 18\*   |      \# 2, 5, 7, 10      |
+|    9    |    NTB \# 2, 3     | \# 1, 2, 4, 8\*\*, 9, 10 |
 :::
 
 \* In addition to the graphs, include piecewise defined functions for the pmf and cdf.
@@ -42,7 +45,9 @@ Complete all of the problems listed below. Only turn in the ones listed in the "
 
 ## Non-textbook problems (NTB)
 
-1.  The following table shows the results of a survey in which the subjects were a sample of 300 adults residing in a certain metropolitan area. Each subject was asked to indicate which of three policies they favored with respect to smoking in public places. (Table is from *Biostatistics: A Foundation for Analysis in the Health Sciences*, 10th Edition, Daniel, Wayne W.; Cross, Chad L., pg. 630)
+1.  A new drug is packaged to contain 30 pills in a bottle. Suppose that 98% of all bottles contain no defective pills, 1.5% contain one defective pill, and 0.5% contain two defective pills. Two pills from a bottle are randomly selected and tested. What is the probability that there are 2 defective pills in the bottle given that one of the two tested pills is defective?
+
+2.  The following table shows the results of a survey in which the subjects were a sample of 300 adults residing in a certain metropolitan area. Each subject was asked to indicate which of three policies they favored with respect to smoking in public places. (Table is from *Biostatistics: A Foundation for Analysis in the Health Sciences*, 10th Edition, Daniel, Wayne W.; Cross, Chad L., pg. 630)
 
     ![](Table_Smoking_vs_Education_Level.png){fig-align="center" width="6in"}
 
@@ -64,7 +69,7 @@ Complete all of the problems listed below. Only turn in the ones listed in the "
 
     h.  Make a table for the conditional pmf $p_{Y|X}(y|x)$ and briefly describe in words what the values are the probability of.
 
-2.  **Forgetful mornings revisited**. Using the joint pmf you found in Chapter 9 #2, complete the following questions:
+3.  **Forgetful mornings revisited**. Using the joint pmf you found in Chapter 9 #2, complete the following questions:
 
     a.  Find the joint cdf of $X$ and $Y$ and briefly explain what $F_{X,Y}(x,y)$ represents in the context of the problem.
 
@@ -73,6 +78,10 @@ Complete all of the problems listed below. Only turn in the ones listed in the "
 ## Some select answers
 
 Selected answers (or hints) not provided at the end the book:
+
+-   Chapter 5
+
+    -   NTB #1: 0.392
 
 -   Chapter 7
 
