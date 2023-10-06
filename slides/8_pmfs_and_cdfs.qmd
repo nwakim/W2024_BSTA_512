@@ -17,21 +17,43 @@ format:
     footer: Chapter 8 Slides
 ---
 
-## Slide 1
+## Learning Objectives
 
-::: {#Coins3p .example}
-**Example 1**. *Suppose we toss 3 coins with probability of heads* $p$. If $X$ is the random variable counting the number of heads, what are the probabilities of each value of $X$?
-:::
+1.  Calculate probabilities for discrete random variables
 
-**Solution:**
+2.  Calculate and graph a probability mass function (pmf)
+
+3.  Calculate and graph a cumulative distribution function (CDF)
+
+## What is a probability mass function?
 
 ::: definition
-**Definition 2**. *The **probability distribution** or **probability mass function** (**pmf**) of a discrete r.v.* $X$ is defined for every number $x$ by $$p_X(x) = \mathbb{P}(X=x) = \mathbb{P}(\mathrm{all }\ \omega\in S:X(\omega) = x)$$
+::: def-title
+Definition: probability distribution or probability mass function (pmf)
 :::
 
-## Slide 2
+::: def-cont
+The **probability distribution** or **probability mass function** (**pmf**) of a discrete r.v. $X$ is defined for every number $x$ by $$p_X(x) = \mathbb{P}(X=x) = \mathbb{P}(\mathrm{all }\ \omega\in S:X(\omega) = x)$$
+:::
+:::
 
-**Remarks:**
+## Let's demonstrate this definition with our coin toss
+
+::: columns
+::: {.column width="35%"}
+::: example
+::: ex-title
+Example 1
+:::
+
+::: ex-cont
+Suppose we toss 3 coins with probability of heads $p$. If $X$ is the random variable counting the number of heads, what are the probabilities of each value of $X$?
+:::
+:::
+:::
+:::
+
+## Remarks on the pmf
 
 -   A pmf $p_X(x)$ must satisfy the following properties:
 
@@ -41,72 +63,173 @@ format:
 
 -   Some distributions depend on parameters.
 
-    -   Each value of a parameter gives a different pmf.
+    -   Each value of a parameter gives a different pmf
 
-    -   The collection of all pmf's for different values of the parameters is called a *family* of pmf's.
+    -   The collection of all pmf's for different values of the parameters is called a *family* of pmf's
 
-## Slide 3
+## Binomial family of RVs
 
+::: columns
+::: {.column width="35%"}
 ::: example
-**Example 3** (Binomial family of r.v.'s). *Suppose you toss* $n$ coins, each with probability of heads $p$. If $X$ is the number of heads, what is the pmf of $X$?
+::: ex-title
+Example 2
 :::
 
-**Solution:**
-
-## Slide 4
-
-::: example
-**Example 4** (Bernoulli family of r.v.'s). *Suppose you toss 1 coin, with probability of heads* $p$. If $X$ is the number of heads, what is the pmf of $X$?
+::: ex-cont
+Suppose you toss $n$ coins, each with probability of heads $p$. If $X$ is the number of heads, what is the pmf of $X$?
+:::
+:::
+:::
 :::
 
-**Solution:**
+## Bernoulli family of RVs
 
-## Slide 5
-
+::: columns
+::: {.column width="35%"}
 ::: example
-**Example 5** (Household size). *The table below shows household sizes in 2019. Data are from <https://www.census.gov/data/tables/time-series/demo/families/households.html>.*
+::: ex-title
+Example 3
+:::
+
+::: ex-cont
+Suppose you toss 1 coin, with probability of heads $p$. If $X$ is the number of heads, what is the pmf of $X$?
+:::
+:::
+:::
+:::
+
+## Household size (1/4)
+
+::: columns
+::: {.column width="100%"}
+::: example
+::: ex-title
+Example 4
+:::
+
+::: ex-cont
+The table below shows household sizes in 2019. Data are from the [U.S. Census](https://www.census.gov/data/tables/time-series/demo/families/households.html).
 
 ::: center
-|  *Size*   |  *1*  |  *2*  |  *3*  |  *4*  | *5 or more* |     |
-|:---------:|:-----:|:-----:|:-----:|:-----:|:-----------:|-----|
-| *Percent* | *28%* | *35%* | *15%* | *13%* |    *9%*     |     |
+|  Size   |  1  |  2  |  3  |  4  | 5 or more |
+|:-------:|:---:|:---:|:---:|:---:|:---------:|
+| Percent | 28% | 35% | 15% | 13% |    9%     |
 :::
 
-1.  *What is the sample space for household sizes?*
+1.  What is the sample space for household sizes?
 
-2.  *Define the random variable for household sizes.*
+2.  Define the random variable for household sizes.
 
-3.  *Do the values in the table create a pmf? Why or why not?*
+3.  Do the values in the table create a pmf? Why or why not?
 
-4.  *Make a plot of the pmf.*
+4.  Make a plot of the pmf.
+
+5.  Graph the cdf of household sizes in 2019.
+
+6.  Write the cdf as a function.
+:::
+:::
+:::
 :::
 
-**Solution:**
+## Household size (2/4)
 
-## Slide 6
+::: columns
+::: {.column width="50%"}
+::: example
+::: ex-title
+Example 4
+:::
+
+::: ex-cont
+The table below shows household sizes in 2019. Data are from the [U.S. Census](https://www.census.gov/data/tables/time-series/demo/families/households.html).
+
+::: center
+|  Size   |  1  |  2  |  3  |  4  | 5 or more |
+|:-------:|:---:|:---:|:---:|:---:|:---------:|
+| Percent | 28% | 35% | 15% | 13% |    9%     |
+:::
+
+1.  What is the sample space for household sizes?
+
+2.  Define the random variable for household sizes.
+:::
+:::
+:::
+:::
+
+## Household size (3/4)
+
+::: columns
+::: {.column width="50%"}
+::: example
+::: ex-title
+Example 4
+:::
+
+::: ex-cont
+The table below shows household sizes in 2019. Data are from the [U.S. Census](https://www.census.gov/data/tables/time-series/demo/families/households.html).
+
+::: center
+|  Size   |  1  |  2  |  3  |  4  | 5 or more |
+|:-------:|:---:|:---:|:---:|:---:|:---------:|
+| Percent | 28% | 35% | 15% | 13% |    9%     |
+:::
+
+3.  Do the values in the table create a pmf? Why or why not?
+
+4.  Make a plot of the pmf.
+:::
+:::
+:::
+:::
+
+## What is a cumulative distribution function?
 
 ::: definition
-**Definition 6**. *The **cumulative distribution function** (**cdf**) of a discrete r.v.* $X$ with pmf $p_X(x)$, is defined for every value $x$ by $$F_X(x) = \mathbb{P}(X \leq x) = \sum \limits_{\{all\ y:\ y\leq x\}}p_X(y)$$
+::: def-title
+Definition: cumulative distribution function (CDF)
 :::
 
-## Slide 7
+::: def-cont
+The **cumulative distribution function** (**cdf**) of a discrete r.v. $X$ with pmf $p_X(x)$, is defined for every value $x$ by $$F_X(x) = \mathbb{P}(X \leq x) = \sum \limits_{\{all\ y:\ y\leq x\}}p_X(y)$$
+:::
+:::
 
+## Household size (4/4)
+
+::: columns
+::: {.column width="50%"}
 ::: example
-**Example 7** (Household size cont'd).
+::: ex-title
+Example 4
+:::
+
+::: ex-cont
+The table below shows household sizes in 2019. Data are from the [U.S. Census](https://www.census.gov/data/tables/time-series/demo/families/households.html).
 
 ::: center
-|  *Size*   |  *1*  |  *2*  |  *3*  |  *4*  | *5 or more* |     |
-|:---------:|:-----:|:-----:|:-----:|:-----:|:-----------:|-----|
-| *Percent* | *28%* | *35%* | *15%* | *13%* |    *9%*     |     |
+|  Size   |  1  |  2  |  3  |  4  | 5 or more |
+|:-------:|:---:|:---:|:---:|:---:|:---------:|
+| Percent | 28% | 35% | 15% | 13% |    9%     |
 :::
 
-1.  *Graph the cdf of household sizes in 2019.*
+5.  Graph the cdf of household sizes in 2019.
 
-2.  *Write the cdf as a function.*
+6.  Write the cdf as a function.
+:::
+:::
+:::
 :::
 
-**Solution:**
 
-## Slide 8
+## Properties of *discrete* CDFs
 
-**Properties of discrete cdf's:**
+-   $F(x)$ is increasing or flat (never decreasing)
+
+-   $\min\limits_x F(x) = 0$
+
+-   $\max\limits_xF(x)=1$
+
+-   CDF is a step function

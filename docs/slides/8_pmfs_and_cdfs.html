@@ -343,30 +343,57 @@ Meike Niederhausen and Nicky Wakim
 <nav role="doc-toc"> 
 <h2 id="toc-title">Table of contents</h2>
 <ul>
-<li><a href="#/slide-1" id="/toc-slide-1">Slide 1</a></li>
-<li><a href="#/slide-2" id="/toc-slide-2">Slide 2</a></li>
-<li><a href="#/slide-3" id="/toc-slide-3">Slide 3</a></li>
-<li><a href="#/slide-4" id="/toc-slide-4">Slide 4</a></li>
-<li><a href="#/slide-5" id="/toc-slide-5">Slide 5</a></li>
-<li><a href="#/slide-6" id="/toc-slide-6">Slide 6</a></li>
-<li><a href="#/slide-7" id="/toc-slide-7">Slide 7</a></li>
-<li><a href="#/slide-8" id="/toc-slide-8">Slide 8</a></li>
+<li><a href="#/learning-objectives" id="/toc-learning-objectives">Learning Objectives</a></li>
+<li><a href="#/what-is-a-probability-mass-function" id="/toc-what-is-a-probability-mass-function">What is a probability mass function?</a></li>
+<li><a href="#/lets-demonstrate-this-definition-with-our-coin-toss" id="/toc-lets-demonstrate-this-definition-with-our-coin-toss">Let’s demonstrate this definition with our coin toss</a></li>
+<li><a href="#/remarks-on-the-pmf" id="/toc-remarks-on-the-pmf">Remarks on the pmf</a></li>
+<li><a href="#/binomial-family-of-rvs" id="/toc-binomial-family-of-rvs">Binomial family of RVs</a></li>
+<li><a href="#/bernoulli-family-of-rvs" id="/toc-bernoulli-family-of-rvs">Bernoulli family of RVs</a></li>
+<li><a href="#/household-size-14" id="/toc-household-size-14">Household size (1/4)</a></li>
+<li><a href="#/household-size-24" id="/toc-household-size-24">Household size (2/4)</a></li>
+<li><a href="#/household-size-34" id="/toc-household-size-34">Household size (3/4)</a></li>
+<li><a href="#/what-is-a-cumulative-distribution-function" id="/toc-what-is-a-cumulative-distribution-function">What is a cumulative distribution function?</a></li>
+<li><a href="#/household-size-44" id="/toc-household-size-44">Household size (4/4)</a></li>
+<li><a href="#/properties-of-discrete-cdfs" id="/toc-properties-of-discrete-cdfs">Properties of <em>discrete</em> CDFs</a></li>
 </ul>
 </nav>
 </section>
-<section id="slide-1" class="slide level2">
-<h2>Slide 1</h2>
-<div id="Coins3p" class="example">
-<p><strong>Example 1</strong>. <em>Suppose we toss 3 coins with probability of heads</em> <span class="math inline">\(p\)</span>. If <span class="math inline">\(X\)</span> is the random variable counting the number of heads, what are the probabilities of each value of <span class="math inline">\(X\)</span>?</p>
-</div>
-<p><strong>Solution:</strong></p>
+<section id="learning-objectives" class="slide level2">
+<h2>Learning Objectives</h2>
+<ol type="1">
+<li><p>Calculate probabilities for discrete random variables</p></li>
+<li><p>Calculate and graph a probability mass function (pmf)</p></li>
+<li><p>Calculate and graph a cumulative distribution function (CDF)</p></li>
+</ol>
+</section>
+<section id="what-is-a-probability-mass-function" class="slide level2">
+<h2>What is a probability mass function?</h2>
 <div class="definition">
-<p><strong>Definition 2</strong>. <em>The <strong>probability distribution</strong> or <strong>probability mass function</strong> (<strong>pmf</strong>) of a discrete r.v.</em> <span class="math inline">\(X\)</span> is defined for every number <span class="math inline">\(x\)</span> by <span class="math display">\[p_X(x) = \mathbb{P}(X=x) = \mathbb{P}(\mathrm{all }\ \omega\in S:X(\omega) = x)\]</span></p>
+<div class="def-title">
+<p>Definition: probability distribution or probability mass function (pmf)</p>
+</div>
+<div class="def-cont">
+<p>The <strong>probability distribution</strong> or <strong>probability mass function</strong> (<strong>pmf</strong>) of a discrete r.v. <span class="math inline">\(X\)</span> is defined for every number <span class="math inline">\(x\)</span> by <span class="math display">\[p_X(x) = \mathbb{P}(X=x) = \mathbb{P}(\mathrm{all }\ \omega\in S:X(\omega) = x)\]</span></p>
+</div>
 </div>
 </section>
-<section id="slide-2" class="slide level2">
-<h2>Slide 2</h2>
-<p><strong>Remarks:</strong></p>
+<section id="lets-demonstrate-this-definition-with-our-coin-toss" class="slide level2">
+<h2>Let’s demonstrate this definition with our coin toss</h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="example">
+<div class="ex-title">
+<p>Example 1</p>
+</div>
+<div class="ex-cont">
+<p>Suppose we toss 3 coins with probability of heads <span class="math inline">\(p\)</span>. If <span class="math inline">\(X\)</span> is the random variable counting the number of heads, what are the probabilities of each value of <span class="math inline">\(X\)</span>?</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="remarks-on-the-pmf" class="slide level2">
+<h2>Remarks on the pmf</h2>
 <ul>
 <li><p>A pmf <span class="math inline">\(p_X(x)\)</span> must satisfy the following properties:</p>
 <ul>
@@ -375,110 +402,236 @@ Meike Niederhausen and Nicky Wakim
 </ul></li>
 <li><p>Some distributions depend on parameters.</p>
 <ul>
-<li><p>Each value of a parameter gives a different pmf.</p></li>
-<li><p>The collection of all pmf’s for different values of the parameters is called a <em>family</em> of pmf’s.</p></li>
+<li><p>Each value of a parameter gives a different pmf</p></li>
+<li><p>The collection of all pmf’s for different values of the parameters is called a <em>family</em> of pmf’s</p></li>
 </ul></li>
 </ul>
 </section>
-<section id="slide-3" class="slide level2">
-<h2>Slide 3</h2>
+<section id="binomial-family-of-rvs" class="slide level2">
+<h2>Binomial family of RVs</h2>
+<div class="columns">
+<div class="column" style="width:35%;">
 <div class="example">
-<p><strong>Example 3</strong> (Binomial family of r.v.’s). <em>Suppose you toss</em> <span class="math inline">\(n\)</span> coins, each with probability of heads <span class="math inline">\(p\)</span>. If <span class="math inline">\(X\)</span> is the number of heads, what is the pmf of <span class="math inline">\(X\)</span>?</p>
+<div class="ex-title">
+<p>Example 2</p>
 </div>
-<p><strong>Solution:</strong></p>
-</section>
-<section id="slide-4" class="slide level2">
-<h2>Slide 4</h2>
-<div class="example">
-<p><strong>Example 4</strong> (Bernoulli family of r.v.’s). <em>Suppose you toss 1 coin, with probability of heads</em> <span class="math inline">\(p\)</span>. If <span class="math inline">\(X\)</span> is the number of heads, what is the pmf of <span class="math inline">\(X\)</span>?</p>
+<div class="ex-cont">
+<p>Suppose you toss <span class="math inline">\(n\)</span> coins, each with probability of heads <span class="math inline">\(p\)</span>. If <span class="math inline">\(X\)</span> is the number of heads, what is the pmf of <span class="math inline">\(X\)</span>?</p>
 </div>
-<p><strong>Solution:</strong></p>
+</div>
+</div>
+</div>
 </section>
-<section id="slide-5" class="slide level2">
-<h2>Slide 5</h2>
+<section id="bernoulli-family-of-rvs" class="slide level2">
+<h2>Bernoulli family of RVs</h2>
+<div class="columns">
+<div class="column" style="width:35%;">
 <div class="example">
-<p><strong>Example 5</strong> (Household size). <em>The table below shows household sizes in 2019. Data are from <a href="https://www.census.gov/data/tables/time-series/demo/families/households.html" class="uri">https://www.census.gov/data/tables/time-series/demo/families/households.html</a>.</em></p>
+<div class="ex-title">
+<p>Example 3</p>
+</div>
+<div class="ex-cont">
+<p>Suppose you toss 1 coin, with probability of heads <span class="math inline">\(p\)</span>. If <span class="math inline">\(X\)</span> is the number of heads, what is the pmf of <span class="math inline">\(X\)</span>?</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="household-size-14" class="slide level2">
+<h2>Household size (1/4)</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="example">
+<div class="ex-title">
+<p>Example 4</p>
+</div>
+<div class="ex-cont">
+<p>The table below shows household sizes in 2019. Data are from the <a href="https://www.census.gov/data/tables/time-series/demo/families/households.html">U.S. Census</a>.</p>
 <div class="center">
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;"><em>Size</em></th>
-<th style="text-align: center;"><em>1</em></th>
-<th style="text-align: center;"><em>2</em></th>
-<th style="text-align: center;"><em>3</em></th>
-<th style="text-align: center;"><em>4</em></th>
-<th style="text-align: center;"><em>5 or more</em></th>
-<th></th>
+<th style="text-align: center;">Size</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5 or more</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><em>Percent</em></td>
-<td style="text-align: center;"><em>28%</em></td>
-<td style="text-align: center;"><em>35%</em></td>
-<td style="text-align: center;"><em>15%</em></td>
-<td style="text-align: center;"><em>13%</em></td>
-<td style="text-align: center;"><em>9%</em></td>
-<td></td>
+<td style="text-align: center;">Percent</td>
+<td style="text-align: center;">28%</td>
+<td style="text-align: center;">35%</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: center;">13%</td>
+<td style="text-align: center;">9%</td>
 </tr>
 </tbody>
 </table>
 </div>
 <ol type="1">
-<li><p><em>What is the sample space for household sizes?</em></p></li>
-<li><p><em>Define the random variable for household sizes.</em></p></li>
-<li><p><em>Do the values in the table create a pmf? Why or why not?</em></p></li>
-<li><p><em>Make a plot of the pmf.</em></p></li>
+<li><p>What is the sample space for household sizes?</p></li>
+<li><p>Define the random variable for household sizes.</p></li>
+<li><p>Do the values in the table create a pmf? Why or why not?</p></li>
+<li><p>Make a plot of the pmf.</p></li>
+<li><p>Graph the cdf of household sizes in 2019.</p></li>
+<li><p>Write the cdf as a function.</p></li>
 </ol>
 </div>
-<p><strong>Solution:</strong></p>
+</div>
+</div>
+</div>
 </section>
-<section id="slide-6" class="slide level2">
-<h2>Slide 6</h2>
+<section id="household-size-24" class="slide level2">
+<h2>Household size (2/4)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="example">
+<div class="ex-title">
+<p>Example 4</p>
+</div>
+<div class="ex-cont">
+<p>The table below shows household sizes in 2019. Data are from the <a href="https://www.census.gov/data/tables/time-series/demo/families/households.html">U.S. Census</a>.</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Size</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5 or more</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Percent</td>
+<td style="text-align: center;">28%</td>
+<td style="text-align: center;">35%</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: center;">13%</td>
+<td style="text-align: center;">9%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol type="1">
+<li><p>What is the sample space for household sizes?</p></li>
+<li><p>Define the random variable for household sizes.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="household-size-34" class="slide level2">
+<h2>Household size (3/4)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="example">
+<div class="ex-title">
+<p>Example 4</p>
+</div>
+<div class="ex-cont">
+<p>The table below shows household sizes in 2019. Data are from the <a href="https://www.census.gov/data/tables/time-series/demo/families/households.html">U.S. Census</a>.</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Size</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5 or more</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Percent</td>
+<td style="text-align: center;">28%</td>
+<td style="text-align: center;">35%</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: center;">13%</td>
+<td style="text-align: center;">9%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol start="3" type="1">
+<li><p>Do the values in the table create a pmf? Why or why not?</p></li>
+<li><p>Make a plot of the pmf.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="what-is-a-cumulative-distribution-function" class="slide level2">
+<h2>What is a cumulative distribution function?</h2>
 <div class="definition">
-<p><strong>Definition 6</strong>. <em>The <strong>cumulative distribution function</strong> (<strong>cdf</strong>) of a discrete r.v.</em> <span class="math inline">\(X\)</span> with pmf <span class="math inline">\(p_X(x)\)</span>, is defined for every value <span class="math inline">\(x\)</span> by <span class="math display">\[F_X(x) = \mathbb{P}(X \leq x) = \sum \limits_{\{all\ y:\ y\leq x\}}p_X(y)\]</span></p>
+<div class="def-title">
+<p>Definition: cumulative distribution function (CDF)</p>
+</div>
+<div class="def-cont">
+<p>The <strong>cumulative distribution function</strong> (<strong>cdf</strong>) of a discrete r.v. <span class="math inline">\(X\)</span> with pmf <span class="math inline">\(p_X(x)\)</span>, is defined for every value <span class="math inline">\(x\)</span> by <span class="math display">\[F_X(x) = \mathbb{P}(X \leq x) = \sum \limits_{\{all\ y:\ y\leq x\}}p_X(y)\]</span></p>
+</div>
 </div>
 </section>
-<section id="slide-7" class="slide level2">
-<h2>Slide 7</h2>
+<section id="household-size-44" class="slide level2">
+<h2>Household size (4/4)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="example">
-<p><strong>Example 7</strong> (Household size cont’d).</p>
+<div class="ex-title">
+<p>Example 4</p>
+</div>
+<div class="ex-cont">
+<p>The table below shows household sizes in 2019. Data are from the <a href="https://www.census.gov/data/tables/time-series/demo/families/households.html">U.S. Census</a>.</p>
 <div class="center">
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;"><em>Size</em></th>
-<th style="text-align: center;"><em>1</em></th>
-<th style="text-align: center;"><em>2</em></th>
-<th style="text-align: center;"><em>3</em></th>
-<th style="text-align: center;"><em>4</em></th>
-<th style="text-align: center;"><em>5 or more</em></th>
-<th></th>
+<th style="text-align: center;">Size</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5 or more</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><em>Percent</em></td>
-<td style="text-align: center;"><em>28%</em></td>
-<td style="text-align: center;"><em>35%</em></td>
-<td style="text-align: center;"><em>15%</em></td>
-<td style="text-align: center;"><em>13%</em></td>
-<td style="text-align: center;"><em>9%</em></td>
-<td></td>
+<td style="text-align: center;">Percent</td>
+<td style="text-align: center;">28%</td>
+<td style="text-align: center;">35%</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: center;">13%</td>
+<td style="text-align: center;">9%</td>
 </tr>
 </tbody>
 </table>
 </div>
-<ol type="1">
-<li><p><em>Graph the cdf of household sizes in 2019.</em></p></li>
-<li><p><em>Write the cdf as a function.</em></p></li>
+<ol start="5" type="1">
+<li><p>Graph the cdf of household sizes in 2019.</p></li>
+<li><p>Write the cdf as a function.</p></li>
 </ol>
 </div>
-<p><strong>Solution:</strong></p>
+</div>
+</div>
+</div>
 </section>
-<section id="slide-8" class="slide level2">
-<h2>Slide 8</h2>
-<p><strong>Properties of discrete cdf’s:</strong></p>
+<section id="properties-of-discrete-cdfs" class="slide level2">
+<h2>Properties of <em>discrete</em> CDFs</h2>
+<ul>
+<li><p><span class="math inline">\(F(x)\)</span> is increasing or flat (never decreasing)</p></li>
+<li><p><span class="math inline">\(\min\limits_x F(x) = 0\)</span></p></li>
+<li><p><span class="math inline">\(\max\limits_xF(x)=1\)</span></p></li>
+<li><p>CDF is a step function</p></li>
+</ul>
 
 <div class="footer footer-default">
 <p>Chapter 8 Slides</p>

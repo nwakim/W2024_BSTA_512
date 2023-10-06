@@ -19,6 +19,10 @@ format:
 
 ## Learning Objectives
 
+1.  Map the sample space to the set of real numbers using a discrete and continuous random variable
+
+2.  Distinguish between discrete and continuous random variables from a written description
+
 ## What is a random variable?
 
 ::: definition
@@ -69,13 +73,19 @@ What are some other random variables we could consider in Example 1?
 
 ## Some remarks on random variables
 
--   A random variable's value is completely determined by the outcome $\omega$, where $\omega \in S$. What is *random* is the outcome $\omega$.
+-   A random variable's value is completely determined by the outcome $\omega$, where $\omega \in S$
+
+    -   What is *random* is the outcome $\omega$
 
 -   A random variable is a function from the sample space (with outcomes $\omega$) to the set of real numbers
 
     -   We typically write $X$ instead of $X(\omega)$, where $X$ is our random variable
 
--   For example, if we roll three dice, there are $6^3 = 216$ possible outcomes (which is $\omega$). We can define a random variable as the sum of the of the three dice. If our outcome is the set of numbers the dice landed on ( $\omega=(a,b,c)$ ), then $X(\omega) = X = a + b + c$.
+-   For example, if we roll three dice, there are $6^3 = 216$ possible outcomes (which is $\omega$)
+
+    -   We can define a random variable as the sum of the of the three dice
+
+    -   If our outcome is the set of numbers the dice landed on ( $\omega=(a,b,c)$ ), then $$ X(\omega) = X = a + b + c $$
 
 ## Let's look at a continuous R.V.
 
@@ -83,7 +93,7 @@ What are some other random variables we could consider in Example 1?
 ::: {.column width="33%"}
 ::: example
 ::: ex-title
-Example 4
+Example 3
 :::
 
 ::: ex-cont

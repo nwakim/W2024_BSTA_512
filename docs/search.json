@@ -277,7 +277,7 @@
     "href": "slides/7_Random_Variables.html",
     "title": "Chapter 7: Discrete vs. Continuous Random Variables",
     "section": "",
-    "text": "Example 1. Suppose we toss 3 fair coins.\n\nWhat is the sample space?\nWhat are the probabilities for each of the elements in the sample space?\n\n\nSolution:"
+    "text": "Map the sample space to the set of real numbers using a discrete and continuous random variable\nDistinguish between discrete and continuous random variables from a written description"
   },
   {
     "objectID": "slides/7_Random_Variables.html#example",
@@ -1341,7 +1341,7 @@
     "href": "slides/8_pmfs_and_cdfs.html#slide-1",
     "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
     "section": "Slide 1",
-    "text": "Slide 1\n\nExample 1. Suppose we toss 3 coins with probability of heads \\(p\\). If \\(X\\) is the random variable counting the number of heads, what are the probabilities of each value of \\(X\\)?\n\nSolution:\n\nDefinition 2. The probability distribution or probability mass function (pmf) of a discrete r.v. \\(X\\) is defined for every number \\(x\\) by \\[p_X(x) = \\mathbb{P}(X=x) = \\mathbb{P}(\\mathrm{all }\\ \\omega\\in S:X(\\omega) = x)\\]"
+    "text": "Slide 1\n\n\n\n\nExample 1\n\n\nSuppose we toss 3 coins with probability of heads \\(p\\). If \\(X\\) is the random variable counting the number of heads, what are the probabilities of each value of \\(X\\)?\n\n\n\n\n\nDefinition 2. The probability distribution or probability mass function (pmf) of a discrete r.v. \\(X\\) is defined for every number \\(x\\) by \\[p_X(x) = \\mathbb{P}(X=x) = \\mathbb{P}(\\mathrm{all }\\ \\omega\\in S:X(\\omega) = x)\\]"
   },
   {
     "objectID": "slides/8_pmfs_and_cdfs.html#slide-2",
@@ -1355,14 +1355,14 @@
     "href": "slides/8_pmfs_and_cdfs.html#slide-3",
     "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
     "section": "Slide 3",
-    "text": "Slide 3\n\nExample 3 (Binomial family of r.v.’s). Suppose you toss \\(n\\) coins, each with probability of heads \\(p\\). If \\(X\\) is the number of heads, what is the pmf of \\(X\\)?\n\nSolution:"
+    "text": "Slide 3\n\n\n\n\nExample 2: Binomial family of RVs\n\n\nSuppose you toss \\(n\\) coins, each with probability of heads \\(p\\). If \\(X\\) is the number of heads, what is the pmf of \\(X\\)?"
   },
   {
     "objectID": "slides/8_pmfs_and_cdfs.html#slide-4",
     "href": "slides/8_pmfs_and_cdfs.html#slide-4",
     "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
     "section": "Slide 4",
-    "text": "Slide 4\n\nExample 4 (Bernoulli family of r.v.’s). Suppose you toss 1 coin, with probability of heads \\(p\\). If \\(X\\) is the number of heads, what is the pmf of \\(X\\)?\n\nSolution:"
+    "text": "Slide 4\n\n\n\n\nExample 3: Bernoulli family of RVs\n\n\nSuppose you toss 1 coin, with probability of heads \\(p\\). If \\(X\\) is the number of heads, what is the pmf of \\(X\\)?"
   },
   {
     "objectID": "slides/8_pmfs_and_cdfs.html#slide-5",
@@ -3714,7 +3714,7 @@
     "href": "slides/7_Random_Variables.html#learning-objectives",
     "title": "Chapter 7: Discrete vs. Continuous Random Variables",
     "section": "Learning Objectives",
-    "text": "Learning Objectives"
+    "text": "Learning Objectives\n\nMap the sample space to the set of real numbers using a discrete and continuous random variable\nDistinguish between discrete and continuous random variables from a written description"
   },
   {
     "objectID": "slides/7_Random_Variables.html#lets-demonstrate-this-definition-with-our-coin-toss",
@@ -3735,7 +3735,7 @@
     "href": "slides/7_Random_Variables.html#some-remarks-on-random-variables",
     "title": "Chapter 7: Discrete vs. Continuous Random Variables",
     "section": "Some remarks on random variables",
-    "text": "Some remarks on random variables\n\nA random variable’s value is completely determined by the outcome \\(\\omega\\), where \\(\\omega \\in S\\). What is random is the outcome \\(\\omega\\).\nA random variable is a function from the sample space (with outcomes \\(\\omega\\)) to the set of real numbers\n\nWe typically write \\(X\\) instead of \\(X(\\omega)\\), where \\(X\\) is our random variable\n\nFor example, if we roll three dice, there are \\(6^3 = 216\\) possible outcomes (which is \\(\\omega\\)). We can define a random variable as the sum of the of the three dice. If our outcome is the set of numbers the dice landed on ( \\(\\omega=(a,b,c)\\) ), then \\(X(\\omega) = X = a + b + c\\)."
+    "text": "Some remarks on random variables\n\nA random variable’s value is completely determined by the outcome \\(\\omega\\), where \\(\\omega \\in S\\)\n\nWhat is random is the outcome \\(\\omega\\)\n\nA random variable is a function from the sample space (with outcomes \\(\\omega\\)) to the set of real numbers\n\nWe typically write \\(X\\) instead of \\(X(\\omega)\\), where \\(X\\) is our random variable\n\nFor example, if we roll three dice, there are \\(6^3 = 216\\) possible outcomes (which is \\(\\omega\\))\n\nWe can define a random variable as the sum of the of the three dice\nIf our outcome is the set of numbers the dice landed on ( \\(\\omega=(a,b,c)\\) ), then \\[ X(\\omega) = X = a + b + c \\]"
   },
   {
     "objectID": "slides/7_Random_Variables.html#lets-look-at-sample-space",
@@ -3749,6 +3749,272 @@
     "href": "slides/7_Random_Variables.html#lets-look-at-a-continuous-r.v.",
     "title": "Chapter 7: Discrete vs. Continuous Random Variables",
     "section": "Let’s look at a continuous R.V.",
-    "text": "Let’s look at a continuous R.V.\n\n\n\n\nExample 4\n\n\nLet \\(X =\\) how many hours you slept last night.\n\nWhat is the sample space \\(S\\)?\nWhat is the range of possible values for \\(X\\)?\nWhat is \\(X(\\omega)\\)?"
+    "text": "Let’s look at a continuous R.V.\n\n\n\n\nExample 3\n\n\nLet \\(X =\\) how many hours you slept last night.\n\nWhat is the sample space \\(S\\)?\nWhat is the range of possible values for \\(X\\)?\nWhat is \\(X(\\omega)\\)?"
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#learning-objectives",
+    "href": "slides/8_pmfs_and_cdfs.html#learning-objectives",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nCalculate probabilities for discrete random variables\nCalculate and graph a probability mass function (pmf)\nCalculate and graph a cumulative distribution function (CDF)"
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#what-is-a-random-variable",
+    "href": "slides/8_pmfs_and_cdfs.html#what-is-a-random-variable",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "What is a random variable?",
+    "text": "What is a random variable?\n\n\nDefinition: probability distribution or probability mass function (pmf)\n\n\nThe probability distribution or probability mass function (pmf) of a discrete r.v.* \\(X\\) is defined for every number \\(x\\) by \\[p_X(x) = \\mathbb{P}(X=x) = \\mathbb{P}(\\mathrm{all }\\ \\omega\\in S:X(\\omega) = x)\\]"
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#lets-demonstrate-this-definition-with-our-coin-toss",
+    "href": "slides/8_pmfs_and_cdfs.html#lets-demonstrate-this-definition-with-our-coin-toss",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "Let’s demonstrate this definition with our coin toss",
+    "text": "Let’s demonstrate this definition with our coin toss\n\n\n\n\nExample 1\n\n\nSuppose we toss 3 coins with probability of heads \\(p\\). If \\(X\\) is the random variable counting the number of heads, what are the probabilities of each value of \\(X\\)?"
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#what-is-a-probability-mass-function",
+    "href": "slides/8_pmfs_and_cdfs.html#what-is-a-probability-mass-function",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "What is a probability mass function?",
+    "text": "What is a probability mass function?\n\n\nDefinition: probability distribution or probability mass function (pmf)\n\n\nThe probability distribution or probability mass function (pmf) of a discrete r.v. \\(X\\) is defined for every number \\(x\\) by \\[p_X(x) = \\mathbb{P}(X=x) = \\mathbb{P}(\\mathrm{all }\\ \\omega\\in S:X(\\omega) = x)\\]"
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#remarks-on-the-pmf",
+    "href": "slides/8_pmfs_and_cdfs.html#remarks-on-the-pmf",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "Remarks on the pmf",
+    "text": "Remarks on the pmf\n\nA pmf \\(p_X(x)\\) must satisfy the following properties:\n\n\\(p_X(x)\\geq 0\\) for all \\(x\\).\n\\(\\sum \\limits_{\\{all\\ x\\}}p_X(x)=1\\).\n\nSome distributions depend on parameters.\n\nEach value of a parameter gives a different pmf\nThe collection of all pmf’s for different values of the parameters is called a family of pmf’s"
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#binomial-family-of-rvs",
+    "href": "slides/8_pmfs_and_cdfs.html#binomial-family-of-rvs",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "Binomial family of RVs",
+    "text": "Binomial family of RVs\n\n\n\n\nExample 2\n\n\nSuppose you toss \\(n\\) coins, each with probability of heads \\(p\\). If \\(X\\) is the number of heads, what is the pmf of \\(X\\)?"
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#bernoulli-family-of-rvs",
+    "href": "slides/8_pmfs_and_cdfs.html#bernoulli-family-of-rvs",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "Bernoulli family of RVs",
+    "text": "Bernoulli family of RVs\n\n\n\n\nExample 3\n\n\nSuppose you toss 1 coin, with probability of heads \\(p\\). If \\(X\\) is the number of heads, what is the pmf of \\(X\\)?"
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#household-size",
+    "href": "slides/8_pmfs_and_cdfs.html#household-size",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "Household size",
+    "text": "Household size\n\n\n\n\nExample 4\n\n\nThe table below shows household sizes in 2019. Data are from the U.S. Census.\n\n\n\n\nSize\n1\n2\n3\n4\n5 or more\n\n\n\n\nPercent\n28%\n35%\n15%\n13%\n9%\n\n\n\n\n\nWhat is the sample space for household sizes?\nDefine the random variable for household sizes.\nDo the values in the table create a pmf? Why or why not?\nMake a plot of the pmf"
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#what-is-a-cumulative-distribution-function",
+    "href": "slides/8_pmfs_and_cdfs.html#what-is-a-cumulative-distribution-function",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "What is a cumulative distribution function?",
+    "text": "What is a cumulative distribution function?\n\n\nDefinition: cumulative distribution function (CDF)\n\n\nThe cumulative distribution function (cdf) of a discrete r.v. \\(X\\) with pmf \\(p_X(x)\\), is defined for every value \\(x\\) by \\[F_X(x) = \\mathbb{P}(X \\leq x) = \\sum \\limits_{\\{all\\ y:\\ y\\leq x\\}}p_X(y)\\]"
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#household-size-continued",
+    "href": "slides/8_pmfs_and_cdfs.html#household-size-continued",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "Household size continued",
+    "text": "Household size continued\n\n\n\n\nExample 4\n\n\nThe table below shows household sizes in 2019\n\n\n\n\nSize\n1\n2\n3\n4\n5 or more\n\n\n\n\nPercent\n28%\n35%\n15%\n13%\n9%\n\n\n\n\n\nGraph the cdf of household sizes in 2019.\nWrite the cdf as a function."
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#properties-of-discrete-cdfs",
+    "href": "slides/8_pmfs_and_cdfs.html#properties-of-discrete-cdfs",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "Properties of discrete CDFs",
+    "text": "Properties of discrete CDFs\n\n\\(F(x)\\) is increasing or flat (never decreasing)\n\\(\\min\\limits_x F(x) = 0\\)\n\\(\\max\\limits_xF(x)=1\\)\nCDF is a step function\n\n\n\nChapter 8 Slides"
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#household-size-14",
+    "href": "slides/8_pmfs_and_cdfs.html#household-size-14",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "Household size (1/4)",
+    "text": "Household size (1/4)\n\n\n\n\nExample 4\n\n\nThe table below shows household sizes in 2019. Data are from the U.S. Census.\n\n\n\n\nSize\n1\n2\n3\n4\n5 or more\n\n\n\n\nPercent\n28%\n35%\n15%\n13%\n9%\n\n\n\n\n\nWhat is the sample space for household sizes?\nDefine the random variable for household sizes.\nDo the values in the table create a pmf? Why or why not?\nMake a plot of the pmf.\nGraph the cdf of household sizes in 2019.\nWrite the cdf as a function."
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#household-size-24",
+    "href": "slides/8_pmfs_and_cdfs.html#household-size-24",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "Household size (2/4)",
+    "text": "Household size (2/4)\n\n\n\n\nExample 4\n\n\nThe table below shows household sizes in 2019. Data are from the U.S. Census.\n\n\n\n\nSize\n1\n2\n3\n4\n5 or more\n\n\n\n\nPercent\n28%\n35%\n15%\n13%\n9%\n\n\n\n\n\nWhat is the sample space for household sizes?\nDefine the random variable for household sizes."
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#household-size-34",
+    "href": "slides/8_pmfs_and_cdfs.html#household-size-34",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "Household size (3/4)",
+    "text": "Household size (3/4)\n\n\n\n\nExample 4\n\n\nThe table below shows household sizes in 2019. Data are from the U.S. Census.\n\n\n\n\nSize\n1\n2\n3\n4\n5 or more\n\n\n\n\nPercent\n28%\n35%\n15%\n13%\n9%\n\n\n\n\n\nDo the values in the table create a pmf? Why or why not?\nMake a plot of the pmf."
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#household-size-44",
+    "href": "slides/8_pmfs_and_cdfs.html#household-size-44",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "Household size (4/4)",
+    "text": "Household size (4/4)\n\n\n\n\nExample 4\n\n\nThe table below shows household sizes in 2019. Data are from the U.S. Census.\n\n\n\n\nSize\n1\n2\n3\n4\n5 or more\n\n\n\n\nPercent\n28%\n35%\n15%\n13%\n9%\n\n\n\n\n\nGraph the cdf of household sizes in 2019.\nWrite the cdf as a function."
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#learning-objectives",
+    "href": "slides/9_joint_distributions.html#learning-objectives",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nCalculate probabilities for a pair of discrete random variables\nCalculate and graph a joint, marginal, and conditional probability mass function (pmf)\nCalculate and graph a joint, marginal, and conditional cumulative distribution function (CDF)"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#what-is-a-joint-pmf",
+    "href": "slides/9_joint_distributions.html#what-is-a-joint-pmf",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "What is a joint pmf?",
+    "text": "What is a joint pmf?\n\n\nDefinition: joint pmf\n\n\nThe joint pmf of a pair of discrete r.v.’s \\(X\\) and \\(Y\\) is \\[p_{X,Y}(x,y) = \\mathbb{P}(X=x\\ and\\ Y=y) = \\mathbb{P}(X=x, Y=y)\\]"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#example",
+    "href": "slides/9_joint_distributions.html#example",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Example",
+    "text": "Example\n\n\n\n\nExample 1\n\n\nLet \\(X\\) and \\(Y\\) be two random draws from a box containing balls labelled 1, 2, and 3 without replacement.\n\nFind \\(p_{X|Y}(x|y)\\).\nAre \\(X\\) and \\(Y\\) independent? Why or why not?\n\n\n\n\n\nHints:\n\nTo show that \\(X\\) and \\(Y\\) are not independent, we just need to find one counterexample\nHowever, to show that they are independent, we need to verify this for all possible pairs of \\(x\\) and \\(y\\)"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#remarks-on-the-join-pmf",
+    "href": "slides/9_joint_distributions.html#remarks-on-the-join-pmf",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Remarks on the join pmf",
+    "text": "Remarks on the join pmf\nSome properties of joint pmf’s:\n\nA joint pmf \\(p_{X,Y}(x,y)\\) must satisfy the following properties:\n\n\\(p_{X,Y}(x,y)\\geq 0\\) for all \\(x, y\\).\n\\(\\sum \\limits_{\\{all\\ x\\}} \\sum \\limits_{\\{all\\ y\\}} p_{X,Y}(x,y)=1\\).\n\nMarginal pmf’s:\n\n\\(p_X(x) = \\sum \\limits_{\\{all\\ y\\}} p_{X,Y}(x,y)\\)\n\\(p_Y(y) = \\sum \\limits_{\\{all\\ x\\}} p_{X,Y}(x,y)\\)"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#what-is-a-join-cdf",
+    "href": "slides/9_joint_distributions.html#what-is-a-join-cdf",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "What is a join CDF?",
+    "text": "What is a join CDF?\n\n\nDefinition: joint CDF\n\n\nThe joint CDF of a pair of discrete r.v.’s \\(X\\) and \\(Y\\) is \\[F_{X,Y}(x,y) = \\mathbb{P}(X \\leq x\\ and\\ Y \\leq y) = \\mathbb{P}(X \\leq x, Y \\leq y)\\]"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#example-1",
+    "href": "slides/9_joint_distributions.html#example-1",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Example",
+    "text": "Example\n\n\n\n\nExample 1\n\n\nLet \\(X\\) and \\(Y\\) be two random draws from a box containing balls labelled 1, 2, and 3 without replacement.\n\nFind the joint CDF \\(F_{X,Y}(x,y)\\) for the joint pmf \\(p_{X,Y}(x,y)\\)\nFind the marginal CDFs \\(F_{X}(x)\\) and \\(F_{Y}(y)\\)"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#example-2",
+    "href": "slides/9_joint_distributions.html#example-2",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Example",
+    "text": "Example\n\n\n\n\nExample 1\n\n\nLet \\(X\\) and \\(Y\\) be two random draws from a box containing balls labelled 1, 2, and 3 without replacement.\n\nFind \\(p_{X|Y}(x|y)\\).\nAre \\(X\\) and \\(Y\\) independent? Why or why not?\n\n\n\n\n\nHints:\n\nTo show that \\(X\\) and \\(Y\\) are not independent, we just need to find one counterexample\nHowever, to show that they are independent, we need to verify this for all possible pairs of \\(x\\) and \\(y\\)"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#remarks-on-the-joint-cdf",
+    "href": "slides/9_joint_distributions.html#remarks-on-the-joint-cdf",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Remarks on the joint CDF",
+    "text": "Remarks on the joint CDF\n\n\\(F_X(x)\\): right most columns of the CDf table (where the \\(Y\\) values are largest)\n\\(F_Y(y)\\): bottom row of the table (where X values are largest)\n\\(F_X(x)=\\lim\\limits_{y\\rightarrow\\infty}F_{X, Y}(x,y)\\)\n\\(F_Y(y)=\\lim\\limits_{x\\rightarrow\\infty}F_{X, Y}(x,y)\\)"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#independence-and-conditioning",
+    "href": "slides/9_joint_distributions.html#independence-and-conditioning",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Independence and Conditioning",
+    "text": "Independence and Conditioning\nRecall that for events \\(A\\) and \\(B\\),\n\n\\(\\mathbb{P}(A|B) = \\frac{\\mathbb{P}(A \\cap B)}{\\mathbb{P}(B)}\\)\n\\(A\\) and \\(B\\) are independent if and only if\n\n\\(\\mathbb{P}(A|B) = \\mathbb{P}(A)\\)\n\\(\\mathbb{P}(A \\cap B) = \\mathbb{P}(A)\\cdot\\mathbb{P}(B)\\)\n\n\nIndependence and conditioning are defined similarly for r.v.’s, since \\[p_X(x) = \\mathbb{P}(X=x)\\ \\mathrm{and}\\ \\ p_{X,Y}(x,y) = \\mathbb{P}(X = x ,Y = y).\\]"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#what-is-the-conditional-pmf",
+    "href": "slides/9_joint_distributions.html#what-is-the-conditional-pmf",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "What is the conditional pmf?",
+    "text": "What is the conditional pmf?\n\n\nDefinition: conditional pmf\n\n\nThe conditional pmf of a pair of discrete r.v.’s \\(X\\) and \\(Y\\) is defined as \\[p_{X|Y}(x|y) = \\mathbb{P}(X = x |Y = y) = \\frac{\\mathbb{P}(X = x\\ and\\ Y = y)}{\\mathbb{P}(Y = y)}\n=\\frac{p_{X,Y}(x,y) }{p_{Y}(y) }\\] if \\(p_{Y}(y) &gt; 0\\)."
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#remarks-on-teh-conditional-pmf",
+    "href": "slides/9_joint_distributions.html#remarks-on-teh-conditional-pmf",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Remarks on teh conditional pmf",
+    "text": "Remarks on teh conditional pmf\nRemark: The following properties follow from the conditional pmf definition:"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#example-3",
+    "href": "slides/9_joint_distributions.html#example-3",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Example",
+    "text": "Example\n\nExample 7. Using \\(X\\) and \\(Y\\) from Example 2:\n\nFind \\(p_{X|Y}(x|y)\\).\nAre \\(X\\) and \\(Y\\) independent? Why or why not?\n\n\n\n\nHints:\n\nTo show that \\(X\\) and \\(Y\\) are not independent, we just need to find one counterexample.\nHowever, to show that they are independent, we need to verify this for all possible pairs of \\(x\\) and \\(y\\)."
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#hypothetical-4-sided-die",
+    "href": "slides/9_joint_distributions.html#hypothetical-4-sided-die",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Hypothetical 4-sided die",
+    "text": "Hypothetical 4-sided die\n\n\nExample 3\n\n\n\nSuppose you have a 4-sided die, and you roll the 4-sided die until the first 4 appears.\nLet \\(X\\) be the number of rolls required until (and including) the first 4.\nAfter the first 4, you keep rolling it again until you roll a 3.\nLet \\(Y\\) be the number of rolls, after the first 4, required until (and including) the 3.\n\n\nFind \\(p_{X,Y}(x,y)\\).\nUsing \\(p_{X,Y}(x,y)\\), find \\(p_{Y}(y)\\).\nFind \\(p_{X}(x)\\).\nAre \\(X\\) and \\(Y\\) are independent? Why or why not?\nFind \\(F_{X,Y}(x,y)\\).\n\n\n\n\n\nChapter 9 Slides"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#remarks-on-the-joint-and-marginal-cdf",
+    "href": "slides/9_joint_distributions.html#remarks-on-the-joint-and-marginal-cdf",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Remarks on the joint and marginal CDF",
+    "text": "Remarks on the joint and marginal CDF\n\n\\(F_X(x)\\): right most columns of the CDf table (where the \\(Y\\) values are largest)\n\\(F_Y(y)\\): bottom row of the table (where X values are largest)\n\\(F_X(x)=\\lim\\limits_{y\\rightarrow\\infty}F_{X, Y}(x,y)\\)\n\\(F_Y(y)=\\lim\\limits_{x\\rightarrow\\infty}F_{X, Y}(x,y)\\)"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#remarks-on-the-conditional-pmf",
+    "href": "slides/9_joint_distributions.html#remarks-on-the-conditional-pmf",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Remarks on the conditional pmf",
+    "text": "Remarks on the conditional pmf\nThe following properties follow from the conditional pmf definition:\n\nIf \\(X \\perp Y\\) (independent)\n\n\\(p_{X|Y}(x|y) = p_X(x)\\) for all \\(x\\) and \\(y\\)\n\\(p_{X,Y}(x,y) = p_X(x)p_Y(y)\\) for all \\(x\\) and \\(y\\)\nWhich also implies (\\(\\Rightarrow\\)): \\(F_{X,Y}(x,y) = F_X(x)F_Y(y)\\) for all \\(x\\) and \\(y\\)\n\nIf \\(X_1, X_2, …, X_n\\) are independent\n\n\\[p_{X_1, X_2, …, X_n}(x_1, x_2, …, x_n) = P(X_1=x_1, X_2=x_2, …, X_n=x_n)=\\prod\\limits_{i=1}^np_{X_i}(x_i)\\]\n\\[F_{X_1, X_2, …, X_n}(x_1, x_2, …, x_n) = P(X_1\\leq x_1, X_2\\leq x_2, …, X_n\\leq x_n)=\\prod\\limits_{i=1}^nP(X_i \\leq x_i) = \\prod\\limits_{i=1}^nF_{X_i}(x_i)\\]"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#remarks-on-the-joint-pmf",
+    "href": "slides/9_joint_distributions.html#remarks-on-the-joint-pmf",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Remarks on the joint pmf",
+    "text": "Remarks on the joint pmf\nSome properties of joint pmf’s:\n\nA joint pmf \\(p_{X,Y}(x,y)\\) must satisfy the following properties:\n\n\\(p_{X,Y}(x,y)\\geq 0\\) for all \\(x, y\\).\n\\(\\sum \\limits_{\\{all\\ x\\}} \\sum \\limits_{\\{all\\ y\\}} p_{X,Y}(x,y)=1\\).\n\nMarginal pmf’s:\n\n\\(p_X(x) = \\sum \\limits_{\\{all\\ y\\}} p_{X,Y}(x,y)\\)\n\\(p_Y(y) = \\sum \\limits_{\\{all\\ x\\}} p_{X,Y}(x,y)\\)"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#what-is-a-joint-cdf",
+    "href": "slides/9_joint_distributions.html#what-is-a-joint-cdf",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "What is a joint CDF?",
+    "text": "What is a joint CDF?\n\n\nDefinition: joint CDF\n\n\nThe joint CDF of a pair of discrete r.v.’s \\(X\\) and \\(Y\\) is \\[F_{X,Y}(x,y) = \\mathbb{P}(X \\leq x\\ and\\ Y \\leq y) = \\mathbb{P}(X \\leq x, Y \\leq y)\\]"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#this-chapters-main-example",
+    "href": "slides/9_joint_distributions.html#this-chapters-main-example",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "This chapter’s main example",
+    "text": "This chapter’s main example\n\n\n\n\nExample 1\n\n\nLet \\(X\\) and \\(Y\\) be two random draws from a box containing balls labelled 1, 2, and 3 without replacement.\n\nFind \\(p_{X,Y}(x,y)\\).\nFind \\(\\mathbb{P}(X+Y=3).\\)\nFind \\(\\mathbb{P}(Y = 1).\\)\nFind \\(\\mathbb{P}(Y \\leq 2).\\)\nFind the joint CDF \\(F_{X,Y}(x,y)\\) for the joint pmf \\(p_{X,Y}(x,y)\\)\nFind the marginal CDFs \\(F_{X}(x)\\) and \\(F_{Y}(y)\\)\nFind \\(p_{X|Y}(x|y)\\).\nAre \\(X\\) and \\(Y\\) independent? Why or why not?"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#joint-pmf",
+    "href": "slides/9_joint_distributions.html#joint-pmf",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Joint pmf",
+    "text": "Joint pmf\n\n\n\n\nExample 1\n\n\nLet \\(X\\) and \\(Y\\) be two random draws from a box containing balls labelled 1, 2, and 3 without replacement.\n\nFind \\(p_{X,Y}(x,y)\\).\nFind \\(\\mathbb{P}(X+Y=3).\\)"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#marginal-pmfs",
+    "href": "slides/9_joint_distributions.html#marginal-pmfs",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Marginal pmf’s",
+    "text": "Marginal pmf’s\n\n\n\n\nExample 1\n\n\nLet \\(X\\) and \\(Y\\) be two random draws from a box containing balls labelled 1, 2, and 3 without replacement.\n\nFind \\(\\mathbb{P}(Y = 1).\\)\nFind \\(\\mathbb{P}(Y \\leq 2).\\)"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#joint-and-marginal-cdfs",
+    "href": "slides/9_joint_distributions.html#joint-and-marginal-cdfs",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Joint and marginal CDFs",
+    "text": "Joint and marginal CDFs\n\n\n\n\nExample 1\n\n\nLet \\(X\\) and \\(Y\\) be two random draws from a box containing balls labelled 1, 2, and 3 without replacement.\n\nFind the joint CDF \\(F_{X,Y}(x,y)\\) for the joint pmf \\(p_{X,Y}(x,y)\\)\nFind the marginal CDFs \\(F_{X}(x)\\) and \\(F_{Y}(y)\\)"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#hypothetical-4-sided-die-.visabilityhidden",
+    "href": "slides/9_joint_distributions.html#hypothetical-4-sided-die-.visabilityhidden",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Hypothetical 4-sided die {.visability=“hidden”}",
+    "text": "Hypothetical 4-sided die {.visability=“hidden”}\n\n\nExample 3\n\n\n\nSuppose you have a 4-sided die, and you roll the 4-sided die until the first 4 appears.\nLet \\(X\\) be the number of rolls required until (and including) the first 4.\nAfter the first 4, you keep rolling it again until you roll a 3.\nLet \\(Y\\) be the number of rolls, after the first 4, required until (and including) the 3.\n\n\nFind \\(p_{X,Y}(x,y)\\).\nUsing \\(p_{X,Y}(x,y)\\), find \\(p_{Y}(y)\\).\nFind \\(p_{X}(x)\\).\nAre \\(X\\) and \\(Y\\) are independent? Why or why not?\nFind \\(F_{X,Y}(x,y)\\).\n\n\n\n\n\nChapter 9 Slides"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#conditional-pmfs",
+    "href": "slides/9_joint_distributions.html#conditional-pmfs",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Conditional pmf’s",
+    "text": "Conditional pmf’s\n\n\n\n\nExample 1\n\n\nLet \\(X\\) and \\(Y\\) be two random draws from a box containing balls labelled 1, 2, and 3 without replacement.\n\nFind \\(p_{X|Y}(x|y)\\).\nAre \\(X\\) and \\(Y\\) independent? Why or why not?\n\n\n\n\n\nHints:\n\nTo show that \\(X\\) and \\(Y\\) are not independent, we just need to find one counterexample\nHowever, to show that they are independent, we need to verify this for all possible pairs of \\(x\\) and \\(y\\)"
   }
 ]
