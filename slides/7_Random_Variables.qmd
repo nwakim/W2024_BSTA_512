@@ -1,7 +1,9 @@
 ---
 title: "Chapter 7: Discrete vs. Continuous Random Variables"
-author: "Meike Niederhausen"
-date: "10/04/2023"
+author: "Meike Niederhausen and Nicky Wakim"
+date: "10/09/2023"
+title-slide-attributes:
+    data-background-color: "#006a4e"
 categories: ["Week 3"]
 format: 
   revealjs:
@@ -10,61 +12,103 @@ format:
     chalkboard: true
     slide-number: true
     show-slide-number: all
-    width: 1600
+    width: 1955
     height: 1100
     footer: Chapter 7 Slides
 ---
 
-## Example
+## Learning Objectives
 
-::: {#Coins3 .example}
-**Example 1**. *Suppose we toss 3 fair coins.*
-
-1.  *What is the sample space?*
-
-2.  *What are the probabilities for each of the elements in the sample space?*
-:::
-
-**Solution:**
-
-## Definition
+## What is a random variable?
 
 ::: definition
-**Definition 2**. *For a given sample space* $S$, a **random variable** (r.v.) is a function whose domain is $S$ and whose range is the set of real numbers $\mathbb{R}$.
+::: def-title
+Definition: Random Variable
 :::
 
+::: def-cont
+For a given sample space $S$, a **random variable** (r.v.) is a function whose domain is $S$ and whose range is the set of real numbers $\mathbb{R}$. A random variable assigns a real number to each outcome in the sample space.
+:::
+:::
+
+## Let's demonstrate this definition with our coin toss
+
+::: columns
+::: {.column width="35%"}
 ::: example
-**Example 3**. *List some other random variables we could consider in Example [1](#Coins3){reference-type="ref" reference="Coins3"}.*
+::: ex-title
+Example 1
 :::
 
-**Solution:**
+::: ex-cont
+Suppose we toss 3 fair coins.
 
-## Slide 3
+1.  What is the sample space?
 
-**Remarks:**
+2.  What are the probabilities for each of the elements in the sample space?
+:::
+:::
+:::
+:::
+
+## Let's stretch our definition of random variables
+
+::: columns
+::: {.column width="35%"}
+::: example
+::: ex-title
+Example 2
+:::
+
+::: ex-cont
+What are some other random variables we could consider in Example 1?
+:::
+:::
+:::
+:::
+
+## Some remarks on random variables
 
 -   A random variable's value is completely determined by the outcome $\omega$, where $\omega \in S$. What is *random* is the outcome $\omega$.
 
--   We typically write $X$ instead of $X(\omega)$.
+-   A random variable is a function from the sample space (with outcomes $\omega$) to the set of real numbers
 
-## Slide 4
+    -   We typically write $X$ instead of $X(\omega)$, where $X$ is our random variable
 
+-   For example, if we roll three dice, there are $6^3 = 216$ possible outcomes (which is $\omega$). We can define a random variable as the sum of the of the three dice. If our outcome is the set of numbers the dice landed on ( $\omega=(a,b,c)$ ), then $X(\omega) = X = a + b + c$.
+
+## Let's look at a continuous R.V.
+
+::: columns
+::: {.column width="33%"}
 ::: example
-**Example 4**. *Let* $X =$ how many hours you slept last night.
-
--   *What is the sample space* $S$?
-
--   *What is the range of possible values for* $X$?
-
--   *What is* $X(\omega)$?
+::: ex-title
+Example 4
 :::
 
-**Solution:**
+::: ex-cont
+Let $X =$ how many hours you slept last night.
+
+-   What is the sample space $S$?
+
+-   What is the range of possible values for $X$?
+
+-   What is $X(\omega)$?
+:::
+:::
+:::
+:::
 
 ## Discrete vs. Continuous r.v.'s
 
-**Discrete vs. Continuous r.v.'s**
+-   For a **discrete** r.v., the set of possible values is either finite or can be put into a countably infinite list
 
--   For a **discrete** r.v., the set of possible values is either finite or can be put into a countably infinite list.
+    -   You could *theoretically* list the specific possible outcomes that the variable can take
 
--   **Continuous** r.v.'s take on values from continuous *intervals*, or unions of continuous intervals.
+    -   If you sum the rolls of three dice, you must get a whole number. For example, you can't get any number between 3 and 4.
+
+-   **Continuous** r.v.'s take on values from continuous *intervals*, or unions of continuous intervals
+
+    -   Variable takes on a range of values, but there are infinitely possible values within the range
+
+    -   If you keep track of the time you sleep, you can sleep for 8 hours or 7.9 hours or 7.99 hours or 7.999 hours ...

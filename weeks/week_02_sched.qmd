@@ -2,7 +2,7 @@
 title: "Week 2"
 description: "Independent Events; Conditional Probability; and Bayes' Theorem"
 date: "10/2/2023"
-date-modified: "9/30/2023"
+date-modified: "10/5/2023"
 categories: [""]
 format: 
   html:
@@ -33,7 +33,7 @@ editor_options:
 Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
 | Chapter | Topic                    |                                                     Slides                                                     |                                                            Annotated Slides                                                            |                                                                                                                                                                        Recording                                                                                                                                                                        |
-|---------|--------------------------|:--------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|-------------|-------------|:-----------:|:-----------:|:---------------------:|
 | 22      | Introduction to Counting |     [[{{< iconify ri slideshow-fill size=30px >}}](/slides/22_Counting_Intro.qmd)]{style="color:#f8f5f0;"}     |     [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/22_Counting_Intro.pdf)]{style="color:#f8f5f0;"}      |     [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F22%5FCounting%5FIntro%2Emp4&referrer=OneDriveForBusiness&referrerScenario=OpenFile)]{style="color:#f8f5f0;"}      |
 | 3       | Independent Events       |    [[{{< iconify ri slideshow-fill size=30px >}}](/slides/3_IndependentEvents.qmd)]{style="color:#49A3D1;"}    |   [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/03_Independent_Events.pdf)]{style="color:#f8f5f0;"}    |   [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F03%5FIndependent%5FEvents%2Emp4&referrer=OneDriveForBusiness&referrerScenario=OpenFile)]{style="color:#f8f5f0;"}    |
 | 4       | Conditional Probability  | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/4_Conditional_Probability.qmd)]{style="color:#f8f5f0;"} | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/04_Conditional_Probability.pdf)]{style="color:#f8f5f0;"} | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F04%5FConditional%5FProbability%2Emp4&referrer=OneDriveForBusiness&referrerScenario=OpenFile)]{style="color:#f8f5f0;"} |
@@ -55,8 +55,6 @@ For the slides, once they are opened, if you would like to print or save them as
 [[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUNTlTWUZHM1RIN0Q1WkpKTjMwTTdRRTBVNC4u)]{style="color:#f8f5f0;"} Monday (10/2)
 
 [[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhURDVVMlpFT0RKQU5aQTMyNzhIWTRNTzk2My4u)]{style="color:#f8f5f0;"} Wednesday (10/4)
-
-## Additional Information
 
 ## Statistician of the Week: Talithia Williams
 
@@ -179,12 +177,39 @@ I'll leave the work to calculate the exact probabilities above. For Case #1, the
 
 ### 4. Disjoint vs. Independent Events
 
-Explain + example!!
+[Here is a pretty good video](https://www.youtube.com/watch?v=aVqmWW3xmdU&ab_channel=AceTutors) breaking down disjoint (mutually exclusive) events and independent events. It includes examples as well.
 
 ### 5. Conditional Probability Fact #4
 
-Does it hold when A and B are NOT independent??
+Here is the 4th Conditional Probability Fact:
 
-### 6. Something about P(A\|B) is a probability so you can use the axioms but need to define A and B clearly
+$\mathbb{P}(A|B)$ is a probability, meaning that it satisfies the probability axioms. In particular, $$\mathbb{P}(A|B) + \mathbb{P}(A^C|B) = 1$$ **This is true even if A and B are NOT independent.** Let me show you...
 
-### 7. Example with MORE detail??
+We can start by $P(B)$ as the union of two disjoint events that involve $A$ and $A^c$:
+
+$$
+P(B) = P((A \cap B) \cup (A^c \cap B))
+$$
+
+Because they are disjoint, we can use Axiom 3 to say they are just the sum of each probability:
+
+$$
+P(B) = P(A \cap B) + P(A^c \cap B)
+$$
+
+Now, we can divide both side of the equation by $P(B)$:
+
+$$
+\begin{align}
+\dfrac{P(B)}{P(B)} = & \dfrac{P(A \cap B) + P(A^c \cap B)}{P(B)} \\
+1 = & \dfrac{P(A \cap B)}{P(B)} + \dfrac{P(A^c \cap B)}{P(B)} \\
+\end{align}
+$$
+
+By our definition of conditional probability, we know $P(A|B) = \dfrac{P(A \cap B)}{P(B)}$ and $P(A^c|B) = \dfrac{P(A^c \cap B)}{P(B)}$ Thus,
+
+$$
+1 = P(A|B) + P(A^c|B)
+$$
+
+**Again, this is true even if A and B are NOT independent!**

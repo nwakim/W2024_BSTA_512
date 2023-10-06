@@ -1,7 +1,9 @@
 ---
 title: "Chapter 8: Probability Mass Functions (pmf's) and Cumulative Distribution Functions (cdf's)"
-author: "Meike Niederhausen"
-date: "10/06/2023"
+author: "Meike Niederhausen and Nicky Wakim"
+date: "10/09/2023"
+title-slide-attributes:
+    data-background-color: "#006a4e"
 categories: ["Week 3"]
 format: 
   revealjs:
@@ -10,7 +12,7 @@ format:
     chalkboard: true
     slide-number: true
     show-slide-number: all
-    width: 1600
+    width: 1955
     height: 1100
     footer: Chapter 8 Slides
 ---
