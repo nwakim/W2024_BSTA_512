@@ -36,8 +36,7 @@ format:
 ## Bayes' Rule for two events
 
 ::: columns
-
-::: column 
+::: column
 ::: theorem
 ::: thm-title
 Theorem: Bayes' Rule (for two events)
@@ -51,16 +50,13 @@ $$\mathbb{P}(A| B) =
 {\mathbb{P}(B)}$$
 :::
 :::
-
 :::
 :::
-
 
 ## Calculating probability with Higher Order Multiplication Rule
 
 ::: columns
-
-::: column 
+::: column
 ::: example
 ::: ex-title
 Example 1
@@ -72,7 +68,7 @@ Suppose we draw 5 cards from a standard shuffled deck of 52 cards. What is the p
 :::
 :::
 
-::: column 
+::: column
 ::: fact
 ::: fact-title
 Higher Order Multiplication Rule
@@ -84,14 +80,12 @@ $$\mathbb{P}(A_1\cap A_2 \cap  \ldots \cap A_n)=\mathbb{P}(A_1)\cdot\mathbb{P}(A
 :::
 :::
 :::
-
 :::
 
 ## Calculating probability with Law of Total Probability
 
 ::: columns
-
-::: column 
+::: column
 ::: example
 ::: ex-title
 Example 2
@@ -101,10 +95,9 @@ Example 2
 Suppose 1% of people assigned female at birth (AFAB) and 5% of people assigned male at birth (AMAB) are color-blind. Assume person born is equally likely AFAB or AMAB (not including intersex). What is the probability that a person chosen at random is color-blind?
 :::
 :::
-
 :::
 
-::: column 
+::: column
 ::: fact
 ::: fact-title
 Law of Total Probability for 2 Events
@@ -121,7 +114,6 @@ $$%\left(
 %\right)$$
 :::
 :::
-
 :::
 :::
 
@@ -144,11 +136,13 @@ $$%\left(
 :::
 :::
 
-
 ## Calculating probability with generalized Law of Total Probability {.smaller}
 
-::: columns
+![](/images/Chp_05_ex_03.jpeg){fig-align="center"}
 
+## Calculating probability with generalized Law of Total Probability {visibility="hidden"}
+
+::: columns
 ::: {.column width="40%"}
 ::: example
 ::: ex-title
@@ -175,19 +169,16 @@ The probability of requiring chemotherapy ($C$) differs among the three forms of
 Based solely on the preliminary test of being diagnosed with the cancer, what is the probability of requiring chemotherapy (the event C)?
 :::
 :::
-
 :::
 
-::: column 
+::: column
 Skipping in class! Let me know if you would like me to post solutions to this if you work through it!
 :::
-
 :::
 
 ## Let's revisit the color-blind example
 
 ::: columns
-
 ::: {.column width="40%"}
 ::: example
 ::: ex-title
@@ -206,14 +197,12 @@ Recall the color-blind example (Example [2](#Ex_colorblind){reference-type="ref"
 Assuming people are AMAB or AFAB, find the probability that a color-blind person is AMAB.
 :::
 :::
-
 :::
 :::
 
 ## Calculate probability with both rules
 
 ::: columns
-
 ::: {.column width="40%"}
 ::: example
 ::: ex-title
@@ -232,7 +221,6 @@ Suppose
 What is the probability that a woman has breast cancer given that she just had a positive test?
 :::
 :::
-
 :::
 :::
 

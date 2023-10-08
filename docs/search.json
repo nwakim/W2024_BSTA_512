@@ -312,7 +312,7 @@
     "href": "slides/7_Random_Variables.html#discrete-vs.-continuous-r.v.s",
     "title": "Chapter 7: Discrete vs. Continuous Random Variables",
     "section": "Discrete vs. Continuous r.v.’s",
-    "text": "Discrete vs. Continuous r.v.’s\n\nFor a discrete r.v., the set of possible values is either finite or can be put into a countably infinite list\n\nYou could theoretically list the specific possible outcomes that the variable can take\nIf you sum the rolls of three dice, you must get a whole number. For example, you can’t get any number between 3 and 4.\n\nContinuous r.v.’s take on values from continuous intervals, or unions of continuous intervals\n\nVariable takes on a range of values, but there are infinitely possible values within the range\nIf you keep track of the time you sleep, you can sleep for 8 hours or 7.9 hours or 7.99 hours or 7.999 hours …\n\n\n\n\nChapter 7 Slides"
+    "text": "Discrete vs. Continuous r.v.’s\n\nFor a discrete r.v., the set of possible values is either finite or can be put into a countably infinite list\n\nYou could theoretically list the specific possible outcomes that the variable can take\nIf you sum the rolls of three dice, you must get a whole number. For example, you can’t get any number between 3 and 4.\n\n\n   \n\nContinuous r.v.’s take on values from continuous intervals, or unions of continuous intervals\n\nVariable takes on a range of values, but there are infinitely possible values within the range\nIf you keep track of the time you sleep, you can sleep for 8 hours or 7.9 hours or 7.99 hours or 7.999 hours …\n\n\n\n\nChapter 7 Slides"
   },
   {
     "objectID": "slides/16_Geometric_rv.html",
@@ -3133,7 +3133,7 @@
     "href": "weeks/week_03_sched.html#additional-information",
     "title": "Week 3",
     "section": "Additional Information",
-    "text": "Additional Information"
+    "text": "Additional Information\n\nAnnouncements for 10/9\n\nHomework 1 solutions are posted!"
   },
   {
     "objectID": "weeks/week_03_sched.html#statistician-of-the-week-david-blackwell",
@@ -3651,7 +3651,7 @@
     "href": "slides/5_Bayes_Theorem.html#calculating-probability-with-generalized-law-of-total-probability",
     "title": "Chapter 5: Bayes’ Theorem",
     "section": "Calculating probability with generalized Law of Total Probability",
-    "text": "Calculating probability with generalized Law of Total Probability\n\n\n\n\nExample 3\n\n\nIndividuals are diagnosed with a particular type of cancer that can take on three different disease forms,* \\(D_1\\), \\(D_2\\), and \\(D_3\\). It is known that amongst people diagnosed with this particular type of cancer,\n\n20% of people will eventually be diagnosed with form \\(D_1\\),\n30% with form \\(D_2\\), and\n50% with form \\(D_3\\).\n\nThe probability of requiring chemotherapy (\\(C\\)) differs among the three forms of disease:\n\n80% with \\(D_1\\),\n30% with \\(D_2\\), and\n10% with \\(D_3\\).\n\nBased solely on the preliminary test of being diagnosed with the cancer, what is the probability of requiring chemotherapy (the event C)?\n\n\n\nSkipping in class! Let me know if you would like me to post solutions to this if you work through it!"
+    "text": "Calculating probability with generalized Law of Total Probability"
   },
   {
     "objectID": "slides/5_Bayes_Theorem.html#lets-revisit-the-color-blind-example",
@@ -3721,7 +3721,7 @@
     "href": "slides/7_Random_Variables.html#lets-demonstrate-this-definition-with-our-coin-toss",
     "title": "Chapter 7: Discrete vs. Continuous Random Variables",
     "section": "Let’s demonstrate this definition with our coin toss",
-    "text": "Let’s demonstrate this definition with our coin toss\n\n\n\n\nExample 1\n\n\nSuppose we toss 3 fair coins.\n\nWhat is the sample space?\nWhat are the probabilities for each of the elements in the sample space?"
+    "text": "Let’s demonstrate this definition with our coin toss\n\n\n\n\nExample 1\n\n\nSuppose we toss 3 fair coins.\n\nWhat is the sample space?\nWhat are the probabilities for each of the elements in the sample space?\nWhat are the probabilities that you get 0, 1, 2, or 3 tails?"
   },
   {
     "objectID": "slides/7_Random_Variables.html#lets-stretch-our-definition-of-random-variables",
@@ -4016,5 +4016,12 @@
     "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
     "section": "Conditional pmf’s",
     "text": "Conditional pmf’s\n\n\n\n\nExample 1\n\n\nLet \\(X\\) and \\(Y\\) be two random draws from a box containing balls labelled 1, 2, and 3 without replacement.\n\nFind \\(p_{X|Y}(x|y)\\).\nAre \\(X\\) and \\(Y\\) independent? Why or why not?\n\n\n\n\n\nHints:\n\nTo show that \\(X\\) and \\(Y\\) are not independent, we just need to find one counterexample\nHowever, to show that they are independent, we need to verify this for all possible pairs of \\(x\\) and \\(y\\)"
+  },
+  {
+    "objectID": "slides/5_Bayes_Theorem.html#calculating-probability-with-generalized-law-of-total-probability-.smaller-visibilityhidden",
+    "href": "slides/5_Bayes_Theorem.html#calculating-probability-with-generalized-law-of-total-probability-.smaller-visibilityhidden",
+    "title": "Chapter 5: Bayes’ Theorem",
+    "section": "Calculating probability with generalized Law of Total Probability {.smaller, visibility=“hidden”}",
+    "text": "Calculating probability with generalized Law of Total Probability {.smaller, visibility=“hidden”}\n\n\n\n\nExample 3\n\n\nIndividuals are diagnosed with a particular type of cancer that can take on three different disease forms,* \\(D_1\\), \\(D_2\\), and \\(D_3\\). It is known that amongst people diagnosed with this particular type of cancer,\n\n20% of people will eventually be diagnosed with form \\(D_1\\),\n30% with form \\(D_2\\), and\n50% with form \\(D_3\\).\n\nThe probability of requiring chemotherapy (\\(C\\)) differs among the three forms of disease:\n\n80% with \\(D_1\\),\n30% with \\(D_2\\), and\n10% with \\(D_3\\).\n\nBased solely on the preliminary test of being diagnosed with the cancer, what is the probability of requiring chemotherapy (the event C)?\n\n\n\nSkipping in class! Let me know if you would like me to post solutions to this if you work through it!"
   }
 ]

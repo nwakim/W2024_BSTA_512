@@ -35,7 +35,7 @@ For a given sample space $S$, a **random variable** (r.v.) is a function whose d
 :::
 :::
 
-## Let's demonstrate this definition with our coin toss
+## Let's demonstrate this definition with our coin toss {.smaller}
 
 ::: columns
 ::: {.column width="35%"}
@@ -50,6 +50,8 @@ Suppose we toss 3 fair coins.
 1.  What is the sample space?
 
 2.  What are the probabilities for each of the elements in the sample space?
+
+3.  What are the probabilities that you get 0, 1, 2, or 3 tails?
 :::
 :::
 :::
@@ -99,11 +101,11 @@ Example 3
 ::: ex-cont
 Let $X =$ how many hours you slept last night.
 
--   What is the sample space $S$?
+1.   What is the sample space $S$?
 
--   What is the range of possible values for $X$?
+2.   What is the range of possible values for $X$?
 
--   What is $X(\omega)$?
+3.   What is $X(\omega)$?
 :::
 :::
 :::
@@ -116,6 +118,9 @@ Let $X =$ how many hours you slept last night.
     -   You could *theoretically* list the specific possible outcomes that the variable can take
 
     -   If you sum the rolls of three dice, you must get a whole number. For example, you can't get any number between 3 and 4.
+
+ 
+ 
 
 -   **Continuous** r.v.'s take on values from continuous *intervals*, or unions of continuous intervals
 
