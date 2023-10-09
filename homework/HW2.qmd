@@ -18,9 +18,9 @@ editor_options:
 
 [Please turn in this homework on Sakai.](https://sakai.ohsu.edu/portal/site/BSTA-550-1-12619-F23/tool/085b18e7-8118-4a51-ace5-0255aa46136e) Please submit your homework in pdf format. You can type your work on your computer or submit a photo of your written work or any other method that can be turned into a pdf. Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.
 
-Complete all of the problems listed below. Only turn in the ones listed in the "Turn In" column. Please submit problems in the order they are listed.
+**Try to complete all of the problems listed below at some point this quarter! You may want to save some of them for studying later!** Only turn in the ones listed in the "Turn In" column. Please submit problems in the order they are listed.
 
-*You must show all of your work to receive credit.*
+The more work you include that shows your thought process, the more I can give you feedback.
 
 ::: center
 | Chapter |      Turn In       |              Extra Problems              |

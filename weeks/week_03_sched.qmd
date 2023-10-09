@@ -97,4 +97,20 @@ Blackwell contributed to game theory, probability theory, information science, a
 
 ## Muddiest Points
 
-This will be filled in with your Exit Ticket responses.
+### 1. Breast Cancer Example with Bayes Theorem
+
+### 2. Random Variables??
+
+How are they functions? Are they not random??
+
+I don't really get the reason why a random variable would be defined as a function with a random input. Why isn't the random input considered to be the random variable, while the function is "a function with a random input"? The output of the function is deterministic, not random, after all.
+
+-   basically quantifying the random outcome
+
+    -   We can calculate probabilities more easily with RVs and we can use easier math notation
+
+-   Still random bc each value that the random variable takes is with a certain probability
+
+    -   So the "random" part of random variable comes from the outcome in a random process and that randomness carries through to the RV
+
+        -   Since the RV is a function of a random process
