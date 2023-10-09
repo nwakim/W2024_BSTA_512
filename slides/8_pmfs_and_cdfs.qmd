@@ -47,7 +47,7 @@ Example 1
 :::
 
 ::: ex-cont
-Suppose we toss 3 coins with probability of heads $p$. If $X$ is the random variable counting the number of heads, what are the probabilities of each value of $X$?
+Suppose we toss 3 coins with probability of tails $p$. If $X$ is the random variable counting the number of tails, what are the probabilities of each value of $X$?
 :::
 :::
 :::
@@ -57,13 +57,19 @@ Suppose we toss 3 coins with probability of heads $p$. If $X$ is the random vari
 
 -   A pmf $p_X(x)$ must satisfy the following properties:
 
-    -   $p_X(x)\geq 0$ for all $x$.
+    -   $0 \leq p_X(x) \leq 1$ for all $x$.
 
     -   $\sum \limits_{\{all\ x\}}p_X(x)=1$.
 
--   Some distributions depend on parameters.
+-   Some distributions depend on parameters
 
     -   Each value of a parameter gives a different pmf
+
+    -   In previous example, the number of coins tossed was a parameter
+
+        -   We tossed 3 coins
+
+        -   If we tossed 4 coins, we'd get a different pmf!
 
     -   The collection of all pmf's for different values of the parameters is called a *family* of pmf's
 
@@ -77,7 +83,7 @@ Example 2
 :::
 
 ::: ex-cont
-Suppose you toss $n$ coins, each with probability of heads $p$. If $X$ is the number of heads, what is the pmf of $X$?
+Suppose you toss $n$ coins, each with probability of tails $p$. If $X$ is the number of tails, what is the pmf of $X$?
 :::
 :::
 :::
@@ -93,13 +99,13 @@ Example 3
 :::
 
 ::: ex-cont
-Suppose you toss 1 coin, with probability of heads $p$. If $X$ is the number of heads, what is the pmf of $X$?
+Suppose you toss 1 coin, with probability of tails $p$. If $X$ is the number of tails, what is the pmf of $X$?
 :::
 :::
 :::
 :::
 
-## Household size (1/4)
+## Household size (1/5)
 
 ::: columns
 ::: {.column width="100%"}
@@ -125,15 +131,16 @@ The table below shows household sizes in 2019. Data are from the [U.S. Census](h
 
 4.  Make a plot of the pmf.
 
-5.  Graph the cdf of household sizes in 2019.
+5.  Write the cdf as a function.
 
-6.  Write the cdf as a function.
+6.  Graph the cdf of household sizes in 2019.
+
 :::
 :::
 :::
 :::
 
-## Household size (2/4)
+## Household size (2/5)
 
 ::: columns
 ::: {.column width="50%"}
@@ -159,7 +166,7 @@ The table below shows household sizes in 2019. Data are from the [U.S. Census](h
 :::
 :::
 
-## Household size (3/4)
+## Household size (3/5)
 
 ::: columns
 ::: {.column width="50%"}
@@ -179,11 +186,13 @@ The table below shows household sizes in 2019. Data are from the [U.S. Census](h
 
 3.  Do the values in the table create a pmf? Why or why not?
 
-4.  Make a plot of the pmf.
+4.  Make a plot of the pmf
+
 :::
 :::
 :::
 :::
+
 
 ## What is a cumulative distribution function?
 
@@ -197,7 +206,7 @@ The **cumulative distribution function** (**cdf**) of a discrete r.v. $X$ with p
 :::
 :::
 
-## Household size (4/4)
+## Household size (4/5)
 
 ::: columns
 ::: {.column width="50%"}
@@ -215,14 +224,36 @@ The table below shows household sizes in 2019. Data are from the [U.S. Census](h
 | Percent | 28% | 35% | 15% | 13% |    9%     |
 :::
 
-5.  Graph the cdf of household sizes in 2019.
+5.  Write the cdf as a function. 
 
-6.  Write the cdf as a function.
 :::
 :::
 :::
 :::
 
+## Household size (5/5)
+
+::: columns
+::: {.column width="50%"}
+::: example
+::: ex-title
+Example 4
+:::
+
+::: ex-cont
+The table below shows household sizes in 2019. Data are from the [U.S. Census](https://www.census.gov/data/tables/time-series/demo/families/households.html).
+
+::: center
+|  Size   |  1  |  2  |  3  |  4  | 5 or more |
+|:-------:|:---:|:---:|:---:|:---:|:---------:|
+| Percent | 28% | 35% | 15% | 13% |    9%     |
+:::
+
+6.  Graph the cdf of household sizes in 2019.
+:::
+:::
+:::
+:::
 
 ## Properties of *discrete* CDFs
 

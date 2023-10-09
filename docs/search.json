@@ -3770,7 +3770,7 @@
     "href": "slides/8_pmfs_and_cdfs.html#lets-demonstrate-this-definition-with-our-coin-toss",
     "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
     "section": "Let’s demonstrate this definition with our coin toss",
-    "text": "Let’s demonstrate this definition with our coin toss\n\n\n\n\nExample 1\n\n\nSuppose we toss 3 coins with probability of heads \\(p\\). If \\(X\\) is the random variable counting the number of heads, what are the probabilities of each value of \\(X\\)?"
+    "text": "Let’s demonstrate this definition with our coin toss\n\n\n\n\nExample 1\n\n\nSuppose we toss 3 coins with probability of tails \\(p\\). If \\(X\\) is the random variable counting the number of tails, what are the probabilities of each value of \\(X\\)?"
   },
   {
     "objectID": "slides/8_pmfs_and_cdfs.html#what-is-a-probability-mass-function",
@@ -3784,21 +3784,21 @@
     "href": "slides/8_pmfs_and_cdfs.html#remarks-on-the-pmf",
     "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
     "section": "Remarks on the pmf",
-    "text": "Remarks on the pmf\n\nA pmf \\(p_X(x)\\) must satisfy the following properties:\n\n\\(p_X(x)\\geq 0\\) for all \\(x\\).\n\\(\\sum \\limits_{\\{all\\ x\\}}p_X(x)=1\\).\n\nSome distributions depend on parameters.\n\nEach value of a parameter gives a different pmf\nThe collection of all pmf’s for different values of the parameters is called a family of pmf’s"
+    "text": "Remarks on the pmf\n\nA pmf \\(p_X(x)\\) must satisfy the following properties:\n\n\\(0 \\leq p_X(x) \\leq 1\\) for all \\(x\\).\n\\(\\sum \\limits_{\\{all\\ x\\}}p_X(x)=1\\).\n\nSome distributions depend on parameters\n\nEach value of a parameter gives a different pmf\nIn previous example, the number of coins tossed was a parameter\n\nWe tossed 3 coins\nIf we tossed 4 coins, we’d get a different pmf!\n\nThe collection of all pmf’s for different values of the parameters is called a family of pmf’s"
   },
   {
     "objectID": "slides/8_pmfs_and_cdfs.html#binomial-family-of-rvs",
     "href": "slides/8_pmfs_and_cdfs.html#binomial-family-of-rvs",
     "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
     "section": "Binomial family of RVs",
-    "text": "Binomial family of RVs\n\n\n\n\nExample 2\n\n\nSuppose you toss \\(n\\) coins, each with probability of heads \\(p\\). If \\(X\\) is the number of heads, what is the pmf of \\(X\\)?"
+    "text": "Binomial family of RVs\n\n\n\n\nExample 2\n\n\nSuppose you toss \\(n\\) coins, each with probability of tails \\(p\\). If \\(X\\) is the number of tails, what is the pmf of \\(X\\)?"
   },
   {
     "objectID": "slides/8_pmfs_and_cdfs.html#bernoulli-family-of-rvs",
     "href": "slides/8_pmfs_and_cdfs.html#bernoulli-family-of-rvs",
     "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
     "section": "Bernoulli family of RVs",
-    "text": "Bernoulli family of RVs\n\n\n\n\nExample 3\n\n\nSuppose you toss 1 coin, with probability of heads \\(p\\). If \\(X\\) is the number of heads, what is the pmf of \\(X\\)?"
+    "text": "Bernoulli family of RVs\n\n\n\n\nExample 3\n\n\nSuppose you toss 1 coin, with probability of tails \\(p\\). If \\(X\\) is the number of tails, what is the pmf of \\(X\\)?"
   },
   {
     "objectID": "slides/8_pmfs_and_cdfs.html#household-size",
@@ -3847,7 +3847,7 @@
     "href": "slides/8_pmfs_and_cdfs.html#household-size-34",
     "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
     "section": "Household size (3/4)",
-    "text": "Household size (3/4)\n\n\n\n\nExample 4\n\n\nThe table below shows household sizes in 2019. Data are from the U.S. Census.\n\n\n\n\nSize\n1\n2\n3\n4\n5 or more\n\n\n\n\nPercent\n28%\n35%\n15%\n13%\n9%\n\n\n\n\n\nDo the values in the table create a pmf? Why or why not?\nMake a plot of the pmf."
+    "text": "Household size (3/4)\n\n\n\n\nExample 4\n\n\nThe table below shows household sizes in 2019. Data are from the U.S. Census.\n\n\n\n\nSize\n1\n2\n3\n4\n5 or more\n\n\n\n\nPercent\n28%\n35%\n15%\n13%\n9%\n\n\n\n\n\nDo the values in the table create a pmf? Why or why not?\nMake a plot of the pmf"
   },
   {
     "objectID": "slides/8_pmfs_and_cdfs.html#household-size-44",
@@ -4023,5 +4023,47 @@
     "title": "Chapter 5: Bayes’ Theorem",
     "section": "Calculating probability with generalized Law of Total Probability {.smaller, visibility=“hidden”}",
     "text": "Calculating probability with generalized Law of Total Probability {.smaller, visibility=“hidden”}\n\n\n\n\nExample 3\n\n\nIndividuals are diagnosed with a particular type of cancer that can take on three different disease forms,* \\(D_1\\), \\(D_2\\), and \\(D_3\\). It is known that amongst people diagnosed with this particular type of cancer,\n\n20% of people will eventually be diagnosed with form \\(D_1\\),\n30% with form \\(D_2\\), and\n50% with form \\(D_3\\).\n\nThe probability of requiring chemotherapy (\\(C\\)) differs among the three forms of disease:\n\n80% with \\(D_1\\),\n30% with \\(D_2\\), and\n10% with \\(D_3\\).\n\nBased solely on the preliminary test of being diagnosed with the cancer, what is the probability of requiring chemotherapy (the event C)?\n\n\n\nSkipping in class! Let me know if you would like me to post solutions to this if you work through it!"
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#household-size-34-1",
+    "href": "slides/8_pmfs_and_cdfs.html#household-size-34-1",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "Household size (3/4)",
+    "text": "Household size (3/4)\n\n\n\n\nExample 4\n\n\nThe table below shows household sizes in 2019. Data are from the U.S. Census.\n\n\n\n\nSize\n1\n2\n3\n4\n5 or more\n\n\n\n\nPercent\n28%\n35%\n15%\n13%\n9%\n\n\n\n\n\nMake a plot of the pmf"
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#household-size-15",
+    "href": "slides/8_pmfs_and_cdfs.html#household-size-15",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "Household size (1/5)",
+    "text": "Household size (1/5)\n\n\n\n\nExample 4\n\n\nThe table below shows household sizes in 2019. Data are from the U.S. Census.\n\n\n\n\nSize\n1\n2\n3\n4\n5 or more\n\n\n\n\nPercent\n28%\n35%\n15%\n13%\n9%\n\n\n\n\n\nWhat is the sample space for household sizes?\nDefine the random variable for household sizes.\nDo the values in the table create a pmf? Why or why not?\nMake a plot of the pmf.\nWrite the cdf as a function.\nGraph the cdf of household sizes in 2019."
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#household-size-25",
+    "href": "slides/8_pmfs_and_cdfs.html#household-size-25",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "Household size (2/5)",
+    "text": "Household size (2/5)\n\n\n\n\nExample 4\n\n\nThe table below shows household sizes in 2019. Data are from the U.S. Census.\n\n\n\n\nSize\n1\n2\n3\n4\n5 or more\n\n\n\n\nPercent\n28%\n35%\n15%\n13%\n9%\n\n\n\n\n\nWhat is the sample space for household sizes?\nDefine the random variable for household sizes."
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#household-size-35",
+    "href": "slides/8_pmfs_and_cdfs.html#household-size-35",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "Household size (3/5)",
+    "text": "Household size (3/5)\n\n\n\n\nExample 4\n\n\nThe table below shows household sizes in 2019. Data are from the U.S. Census.\n\n\n\n\nSize\n1\n2\n3\n4\n5 or more\n\n\n\n\nPercent\n28%\n35%\n15%\n13%\n9%\n\n\n\n\n\nDo the values in the table create a pmf? Why or why not?\nMake a plot of the pmf"
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#household-size-45",
+    "href": "slides/8_pmfs_and_cdfs.html#household-size-45",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "Household size (4/5)",
+    "text": "Household size (4/5)\n\n\n\n\nExample 4\n\n\nThe table below shows household sizes in 2019. Data are from the U.S. Census.\n\n\n\n\nSize\n1\n2\n3\n4\n5 or more\n\n\n\n\nPercent\n28%\n35%\n15%\n13%\n9%\n\n\n\n\n\nWrite the cdf as a function."
+  },
+  {
+    "objectID": "slides/8_pmfs_and_cdfs.html#household-size-55",
+    "href": "slides/8_pmfs_and_cdfs.html#household-size-55",
+    "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
+    "section": "Household size (5/5)",
+    "text": "Household size (5/5)\n\n\n\n\nExample 4\n\n\nThe table below shows household sizes in 2019. Data are from the U.S. Census.\n\n\n\n\nSize\n1\n2\n3\n4\n5 or more\n\n\n\n\nPercent\n28%\n35%\n15%\n13%\n9%\n\n\n\n\n\nGraph the cdf of household sizes in 2019."
   }
 ]

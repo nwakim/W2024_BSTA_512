@@ -349,11 +349,12 @@ Meike Niederhausen and Nicky Wakim
 <li><a href="#/remarks-on-the-pmf" id="/toc-remarks-on-the-pmf">Remarks on the pmf</a></li>
 <li><a href="#/binomial-family-of-rvs" id="/toc-binomial-family-of-rvs">Binomial family of RVs</a></li>
 <li><a href="#/bernoulli-family-of-rvs" id="/toc-bernoulli-family-of-rvs">Bernoulli family of RVs</a></li>
-<li><a href="#/household-size-14" id="/toc-household-size-14">Household size (1/4)</a></li>
-<li><a href="#/household-size-24" id="/toc-household-size-24">Household size (2/4)</a></li>
-<li><a href="#/household-size-34" id="/toc-household-size-34">Household size (3/4)</a></li>
+<li><a href="#/household-size-15" id="/toc-household-size-15">Household size (1/5)</a></li>
+<li><a href="#/household-size-25" id="/toc-household-size-25">Household size (2/5)</a></li>
+<li><a href="#/household-size-35" id="/toc-household-size-35">Household size (3/5)</a></li>
 <li><a href="#/what-is-a-cumulative-distribution-function" id="/toc-what-is-a-cumulative-distribution-function">What is a cumulative distribution function?</a></li>
-<li><a href="#/household-size-44" id="/toc-household-size-44">Household size (4/4)</a></li>
+<li><a href="#/household-size-45" id="/toc-household-size-45">Household size (4/5)</a></li>
+<li><a href="#/household-size-55" id="/toc-household-size-55">Household size (5/5)</a></li>
 <li><a href="#/properties-of-discrete-cdfs" id="/toc-properties-of-discrete-cdfs">Properties of <em>discrete</em> CDFs</a></li>
 </ul>
 </nav>
@@ -386,7 +387,7 @@ Meike Niederhausen and Nicky Wakim
 <p>Example 1</p>
 </div>
 <div class="ex-cont">
-<p>Suppose we toss 3 coins with probability of heads <span class="math inline">\(p\)</span>. If <span class="math inline">\(X\)</span> is the random variable counting the number of heads, what are the probabilities of each value of <span class="math inline">\(X\)</span>?</p>
+<p>Suppose we toss 3 coins with probability of tails <span class="math inline">\(p\)</span>. If <span class="math inline">\(X\)</span> is the random variable counting the number of tails, what are the probabilities of each value of <span class="math inline">\(X\)</span>?</p>
 </div>
 </div>
 </div>
@@ -397,12 +398,17 @@ Meike Niederhausen and Nicky Wakim
 <ul>
 <li><p>A pmf <span class="math inline">\(p_X(x)\)</span> must satisfy the following properties:</p>
 <ul>
-<li><p><span class="math inline">\(p_X(x)\geq 0\)</span> for all <span class="math inline">\(x\)</span>.</p></li>
+<li><p><span class="math inline">\(0 \leq p_X(x) \leq 1\)</span> for all <span class="math inline">\(x\)</span>.</p></li>
 <li><p><span class="math inline">\(\sum \limits_{\{all\ x\}}p_X(x)=1\)</span>.</p></li>
 </ul></li>
-<li><p>Some distributions depend on parameters.</p>
+<li><p>Some distributions depend on parameters</p>
 <ul>
 <li><p>Each value of a parameter gives a different pmf</p></li>
+<li><p>In previous example, the number of coins tossed was a parameter</p>
+<ul>
+<li><p>We tossed 3 coins</p></li>
+<li><p>If we tossed 4 coins, we’d get a different pmf!</p></li>
+</ul></li>
 <li><p>The collection of all pmf’s for different values of the parameters is called a <em>family</em> of pmf’s</p></li>
 </ul></li>
 </ul>
@@ -416,7 +422,7 @@ Meike Niederhausen and Nicky Wakim
 <p>Example 2</p>
 </div>
 <div class="ex-cont">
-<p>Suppose you toss <span class="math inline">\(n\)</span> coins, each with probability of heads <span class="math inline">\(p\)</span>. If <span class="math inline">\(X\)</span> is the number of heads, what is the pmf of <span class="math inline">\(X\)</span>?</p>
+<p>Suppose you toss <span class="math inline">\(n\)</span> coins, each with probability of tails <span class="math inline">\(p\)</span>. If <span class="math inline">\(X\)</span> is the number of tails, what is the pmf of <span class="math inline">\(X\)</span>?</p>
 </div>
 </div>
 </div>
@@ -431,14 +437,14 @@ Meike Niederhausen and Nicky Wakim
 <p>Example 3</p>
 </div>
 <div class="ex-cont">
-<p>Suppose you toss 1 coin, with probability of heads <span class="math inline">\(p\)</span>. If <span class="math inline">\(X\)</span> is the number of heads, what is the pmf of <span class="math inline">\(X\)</span>?</p>
+<p>Suppose you toss 1 coin, with probability of tails <span class="math inline">\(p\)</span>. If <span class="math inline">\(X\)</span> is the number of tails, what is the pmf of <span class="math inline">\(X\)</span>?</p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="household-size-14" class="slide level2">
-<h2>Household size (1/4)</h2>
+<section id="household-size-15" class="slide level2">
+<h2>Household size (1/5)</h2>
 <div class="columns">
 <div class="column" style="width:100%;">
 <div class="example">
@@ -476,16 +482,16 @@ Meike Niederhausen and Nicky Wakim
 <li><p>Define the random variable for household sizes.</p></li>
 <li><p>Do the values in the table create a pmf? Why or why not?</p></li>
 <li><p>Make a plot of the pmf.</p></li>
-<li><p>Graph the cdf of household sizes in 2019.</p></li>
 <li><p>Write the cdf as a function.</p></li>
+<li><p>Graph the cdf of household sizes in 2019.</p></li>
 </ol>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="household-size-24" class="slide level2">
-<h2>Household size (2/4)</h2>
+<section id="household-size-25" class="slide level2">
+<h2>Household size (2/5)</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="example">
@@ -527,8 +533,8 @@ Meike Niederhausen and Nicky Wakim
 </div>
 </div>
 </section>
-<section id="household-size-34" class="slide level2">
-<h2>Household size (3/4)</h2>
+<section id="household-size-35" class="slide level2">
+<h2>Household size (3/5)</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="example">
@@ -563,7 +569,7 @@ Meike Niederhausen and Nicky Wakim
 </div>
 <ol start="3" type="1">
 <li><p>Do the values in the table create a pmf? Why or why not?</p></li>
-<li><p>Make a plot of the pmf.</p></li>
+<li><p>Make a plot of the pmf</p></li>
 </ol>
 </div>
 </div>
@@ -581,8 +587,8 @@ Meike Niederhausen and Nicky Wakim
 </div>
 </div>
 </section>
-<section id="household-size-44" class="slide level2">
-<h2>Household size (4/4)</h2>
+<section id="household-size-45" class="slide level2">
+<h2>Household size (4/5)</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="example">
@@ -616,8 +622,49 @@ Meike Niederhausen and Nicky Wakim
 </table>
 </div>
 <ol start="5" type="1">
-<li><p>Graph the cdf of household sizes in 2019.</p></li>
-<li><p>Write the cdf as a function.</p></li>
+<li>Write the cdf as a function.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="household-size-55" class="slide level2">
+<h2>Household size (5/5)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="example">
+<div class="ex-title">
+<p>Example 4</p>
+</div>
+<div class="ex-cont">
+<p>The table below shows household sizes in 2019. Data are from the <a href="https://www.census.gov/data/tables/time-series/demo/families/households.html">U.S. Census</a>.</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Size</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5 or more</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Percent</td>
+<td style="text-align: center;">28%</td>
+<td style="text-align: center;">35%</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: center;">13%</td>
+<td style="text-align: center;">9%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol start="6" type="1">
+<li>Graph the cdf of household sizes in 2019.</li>
 </ol>
 </div>
 </div>
