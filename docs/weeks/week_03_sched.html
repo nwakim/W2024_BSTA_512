@@ -63,6 +63,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -431,6 +433,28 @@ ul.task-list li input[type="checkbox"] {
 <li>Homework 1 solutions are posted!</li>
 </ul>
 </section>
+<section id="announcements-for-1011" class="level4">
+<h4 class="anchored" data-anchor-id="announcements-for-1011">Announcements for 10/11</h4>
+<ul>
+<li>Homework 1 notes
+<ul>
+<li>If you start with “the probability that …” you must end with a value between 0 and 1.
+<ul>
+<li>If you start with “the percent chance…” then you can have a value between 0% and 100%</li>
+</ul></li>
+<li><span class="math inline">\(P(A)\)</span> is not the same as probability of A only. Event A can overlap with B and C, so we need to find the part of A that does not overlap with B and C
+<ul>
+<li>Hence we get <span class="math inline">\(P(A \cap B^c \cap C^c)\)</span></li>
+</ul></li>
+</ul></li>
+<li>Rising Voices Retreat</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_03/RV Retreat Flyer.png" class="img-fluid figure-img" width="418"></p>
+</figure>
+</div>
+</section>
 </section>
 <section id="statistician-of-the-week-david-blackwell" class="level2">
 <h2 class="anchored" data-anchor-id="statistician-of-the-week-david-blackwell">Statistician of the Week: David Blackwell</h2>
@@ -472,13 +496,27 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="muddiest-points" class="level2">
 <h2 class="anchored" data-anchor-id="muddiest-points">Muddiest Points</h2>
+<p><strong>I am still working on these! Trying to go through them by end of day 10/11</strong></p>
 <section id="breast-cancer-example-with-bayes-theorem" class="level3">
 <h3 class="anchored" data-anchor-id="breast-cancer-example-with-bayes-theorem">1. Breast Cancer Example with Bayes Theorem</h3>
 </section>
 <section id="random-variables" class="level3">
 <h3 class="anchored" data-anchor-id="random-variables">2. Random Variables??</h3>
 <p>How are they functions? Are they not random??</p>
-<p>I don’t really get the reason why a random variable would be defined as a function with a random input. Why isn’t the random input considered to be the random variable, while the function is “a function with a random input”? The output of the function is deterministic, not random, after all.</p>
+<p>“Why isn’t the random input considered to be the random variable, while the function is”a function with a random input”? The output of the function is deterministic, not random, after all.”</p>
+<ul>
+<li><p>Basically quantifying the random outcome</p>
+<ul>
+<li>We can calculate probabilities more easily with RVs and we can use easier math notation</li>
+</ul></li>
+<li><p>Still random bc each value that the random variable takes is with a specific probability (not a certainty)</p>
+<ul>
+<li><p>So the “random” part of random variable comes from the outcome in a random process and that randomness carries through to the RV</p>
+<ul>
+<li>Since the RV is a function of a random process</li>
+</ul></li>
+</ul></li>
+</ul>
 
 
 </section>

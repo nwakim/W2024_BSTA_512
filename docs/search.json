@@ -3133,7 +3133,7 @@
     "href": "weeks/week_03_sched.html#additional-information",
     "title": "Week 3",
     "section": "Additional Information",
-    "text": "Additional Information\n\nAnnouncements for 10/9\n\nHomework 1 solutions are posted!"
+    "text": "Additional Information\n\nAnnouncements for 10/9\n\nHomework 1 solutions are posted!\n\n\n\nAnnouncements for 10/11\n\nHomework 1 notes\n\nIf you start with “the probability that …” you must end with a value between 0 and 1.\n\nIf you start with “the percent chance…” then you can have a value between 0% and 100%\n\n\\(P(A)\\) is not the same as probability of A only. Event A can overlap with B and C, so we need to find the part of A that does not overlap with B and C\n\nHence we get \\(P(A \\cap B^c \\cap C^c)\\)\n\n\nRising Voices Retreat"
   },
   {
     "objectID": "weeks/week_03_sched.html#statistician-of-the-week-david-blackwell",
@@ -3147,7 +3147,7 @@
     "href": "weeks/week_03_sched.html#muddiest-points",
     "title": "Week 3",
     "section": "Muddiest Points",
-    "text": "Muddiest Points\n\n1. Breast Cancer Example with Bayes Theorem\n\n\n2. Random Variables??\nHow are they functions? Are they not random??\nI don’t really get the reason why a random variable would be defined as a function with a random input. Why isn’t the random input considered to be the random variable, while the function is “a function with a random input”? The output of the function is deterministic, not random, after all."
+    "text": "Muddiest Points\nI am still working on these! Trying to go through them by end of day 10/11\n\n1. Breast Cancer Example with Bayes Theorem\n\n\n2. Random Variables??\nHow are they functions? Are they not random??\n“Why isn’t the random input considered to be the random variable, while the function is”a function with a random input”? The output of the function is deterministic, not random, after all.”\n\nBasically quantifying the random outcome\n\nWe can calculate probabilities more easily with RVs and we can use easier math notation\n\nStill random bc each value that the random variable takes is with a specific probability (not a certainty)\n\nSo the “random” part of random variable comes from the outcome in a random process and that randomness carries through to the RV\n\nSince the RV is a function of a random process"
   },
   {
     "objectID": "weeks/week_03_sched.html#clearest-points",
@@ -4015,7 +4015,7 @@
     "href": "slides/9_joint_distributions.html#conditional-pmfs",
     "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
     "section": "Conditional pmf’s",
-    "text": "Conditional pmf’s\n\n\n\n\nExample 1\n\n\nLet \\(X\\) and \\(Y\\) be two random draws from a box containing balls labelled 1, 2, and 3 without replacement.\n\nFind \\(p_{X|Y}(x|y)\\).\nAre \\(X\\) and \\(Y\\) independent? Why or why not?\n\n\n\n\n\nHints:\n\nTo show that \\(X\\) and \\(Y\\) are not independent, we just need to find one counterexample\nHowever, to show that they are independent, we need to verify this for all possible pairs of \\(x\\) and \\(y\\)"
+    "text": "Conditional pmf’s\n\n\n\n\nExample 1\n\n\nLet \\(X\\) and \\(Y\\) be two random draws from a box containing balls labelled 1, 2, and 3 without replacement.\n\nFind \\(p_{X|Y}(x|y)\\).\nAre \\(X\\) and \\(Y\\) independent? Why or why not?\n\n\n\n\n\nRemark:\n\nTo show that \\(X\\) and \\(Y\\) are not independent, we just need to find one counter example\nHowever, to show that they are independent, we need to verify this for all possible pairs of \\(x\\) and \\(y\\)"
   },
   {
     "objectID": "slides/5_Bayes_Theorem.html#calculating-probability-with-generalized-law-of-total-probability-.smaller-visibilityhidden",
@@ -4065,5 +4065,19 @@
     "title": "Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)",
     "section": "Household size (5/5)",
     "text": "Household size (5/5)\n\n\n\n\nExample 4\n\n\nThe table below shows household sizes in 2019. Data are from the U.S. Census.\n\n\n\n\nSize\n1\n2\n3\n4\n5 or more\n\n\n\n\nPercent\n28%\n35%\n15%\n13%\n9%\n\n\n\n\n\nGraph the cdf of household sizes in 2019."
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#joint-cdfs",
+    "href": "slides/9_joint_distributions.html#joint-cdfs",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Joint CDFs",
+    "text": "Joint CDFs\n\n\n\n\nExample 1\n\n\nLet \\(X\\) and \\(Y\\) be two random draws from a box containing balls labelled 1, 2, and 3 without replacement.\n\nFind the joint CDF \\(F_{X,Y}(x,y)\\) for the joint pmf \\(p_{X,Y}(x,y)\\)"
+  },
+  {
+    "objectID": "slides/9_joint_distributions.html#marginal-cdfs",
+    "href": "slides/9_joint_distributions.html#marginal-cdfs",
+    "title": "Chapter 9: Independence and Conditioning (Joint Distributions)",
+    "section": "Marginal CDFs",
+    "text": "Marginal CDFs\n\n\n\n\nExample 1\n\n\nLet \\(X\\) and \\(Y\\) be two random draws from a box containing balls labelled 1, 2, and 3 without replacement.\n\nFind the marginal CDFs \\(F_{X}(x)\\) and \\(F_{Y}(y)\\)"
   }
 ]

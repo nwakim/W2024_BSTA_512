@@ -137,7 +137,7 @@ The **joint CDF** of a pair of discrete r.v.'s $X$ and $Y$ is $$F_{X,Y}(x,y) = \
 :::
 :::
 
-## Joint and marginal CDFs
+## Joint CDFs
 
 ::: columns
 ::: {.column width="35%"}
@@ -150,6 +150,22 @@ Example 1
 Let $X$ and $Y$ be two random draws from a box containing balls labelled 1, 2, and 3 without replacement.
 
 5.  Find the joint CDF $F_{X,Y}(x,y)$ for the joint pmf $p_{X,Y}(x,y)$
+:::
+:::
+:::
+:::
+
+## Marginal CDFs
+
+::: columns
+::: {.column width="35%"}
+::: example
+::: ex-title
+Example 1
+:::
+
+::: ex-cont
+Let $X$ and $Y$ be two random draws from a box containing balls labelled 1, 2, and 3 without replacement.
 
 6.  Find the marginal CDFs $F_{X}(x)$ and $F_{Y}(y)$
 :::
@@ -222,18 +238,19 @@ Example 1
 Let $X$ and $Y$ be two random draws from a box containing balls labelled 1, 2, and 3 without replacement.
 
 7.  Find $p_{X|Y}(x|y)$.
-
 8.  Are $X$ and $Y$ independent? Why or why not?
 :::
 :::
 
+
 ::: example
 ::: ex-cont
-Hints:
+<font size=6ex>Remark:
 
--   To show that $X$ and $Y$ are *not* independent, we just need to find one counterexample
+-   To show that $X$ and $Y$ are *not* independent, we just need to find one counter example
+-   However, to show that they *are* independent, we need to verify this for all possible pairs of $x$ and $y$ 
 
--   However, to show that they *are* independent, we need to verify this for all possible pairs of $x$ and $y$
+</font>
 :::
 :::
 :::
