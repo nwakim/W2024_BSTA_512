@@ -2,7 +2,7 @@
 title: "Week 3"
 description: "RVs; PMFs and CDFs; and Independence and Conditioning"
 date: "10/09/2023"
-date-modified: "9/15/2023"
+date-modified: "10/10/2023"
 categories: [""]
 format: 
   html:
