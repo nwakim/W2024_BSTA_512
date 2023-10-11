@@ -33,7 +33,7 @@ editor_options:
 Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
 | Chapter | Topic                                               |                                                   Slides                                                   |                                                        Annotated Slides                                                         |                                                                                                                                                                                                                                                                                        Recording                                                                                                                                                                                                                                                                                        |
-|-----------|-----------|:---------:|:---------:|:--------------------------:|
+|---------|---------|:-------:|:-------:|:----------------------------------:|
 | 5       | Bayes' Theorem                                      |    [[{{< iconify ri slideshow-fill size=30px >}}](/slides/5_Bayes_Theorem.qmd)]{style="color:#f8f5f0;"}    |  [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/05_Bayes_Theorem.pdf)]{style="color:#f8f5f0;"}   | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F05%5FBayes%5FTheorem%5F01%2Emp4)]{style="color:#f8f5f0;"} [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F05%5FBayes%5FTheorem%5F02%2Emp4)]{style="color:#f8f5f0;"} |
 | 7       | Random Variables                                    |  [[{{< iconify ri slideshow-fill size=30px >}}](/slides/7_Random_Variables.qmd)]{style="color:#49A3D1;"}   | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/07_Random_variables.pdf)]{style="color:#f8f5f0;"} |                                                                                                                                                [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F07%5FRandom%5FVariables%2Emp4)]{style="color:#f8f5f0;"}                                                                                                                                                |
 | 8       | pmf's and CDFs                                      |    [[{{< iconify ri slideshow-fill size=30px >}}](/slides/8_pmfs_and_cdfs.qmd)]{style="color:#f8f5f0;"}    |                       [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                        |                                                                                                                                                                                                                                                              [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                                                                                                                              |
@@ -114,16 +114,22 @@ Blackwell contributed to game theory, probability theory, information science, a
 
 ### 2. Random Variables??
 
-How are they functions? Are they not random??
-
-"Why isn't the random input considered to be the random variable, while the function is"a function with a random input"? The output of the function is deterministic, not random, after all."
+How are they functions? Why are they random? Why do we need them?
 
 -   Basically quantifying the random outcome
 
     -   We can calculate probabilities more easily with RVs and we can use easier math notation
 
--   Still random bc each value that the random variable takes is with a specific probability (not a certainty)
+-   Still random because each value that the random variable takes is with a specific probability (not a certainty)
 
     -   So the "random" part of random variable comes from the outcome in a random process and that randomness carries through to the RV
 
-        -   Since the RV is a function of a random process
+        -   Since the RV is a function of a random process: it is dependent on the probability space
+
+    -   So the function itself is deterministic, BUT each outcome of the function still holds a specific probability
+
+-   The function part is essential for later manipulations of the RV
+
+    -   We will start taking derivatives and integrals of the RVs (especially important for continuous RVs)
+
+    -   Without a way to represent the probability as a overarching function, it is much harder to calculate derivatives and integrals
