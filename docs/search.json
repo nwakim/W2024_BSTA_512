@@ -3133,7 +3133,7 @@
     "href": "weeks/week_03_sched.html#additional-information",
     "title": "Week 3",
     "section": "Additional Information",
-    "text": "Additional Information\n\nAnnouncements for 10/9\n\nHomework 1 solutions are posted!\n\n\n\nAnnouncements for 10/11\n\nHomework 1 notes\n\nIf you start with “the probability that …” you must end with a value between 0 and 1.\n\nIf you start with “the percent chance…” then you can have a value between 0% and 100%\n\n\\(P(A)\\) is not the same as probability of A only. Event A can overlap with B and C, so we need to find the part of A that does not overlap with B and C\n\nHence we get \\(P(A \\cap B^c \\cap C^c)\\)\n\n\nRising Voices Retreat"
+    "text": "Additional Information\n\nAnnouncements for 10/9\n\nHomework 1 solutions are posted!\n\n\n\nAnnouncements for 10/11\n\nHomework 1 released! Here are some overarching notes:\n\nIf you start with “the probability that …” you must end with a value between 0 and 1.\n\nIf you start with “the percent chance…” then you can have a value between 0% and 100%\n\n\\(P(A)\\) is not the same as probability of A only. Event A can overlap with B and C, so we need to find the part of A that does not overlap with B and C\n\nHence we get \\(P(A \\cap B^c \\cap C^c)\\)\n\n\nGroup advising tomorrow at 5pm in Vanport 515!\n\nIf you can’t get in, you can also Slack me\n\nRising Voices Retreat"
   },
   {
     "objectID": "weeks/week_03_sched.html#statistician-of-the-week-david-blackwell",

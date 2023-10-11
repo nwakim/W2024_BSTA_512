@@ -68,11 +68,13 @@ For the slides, once they are opened, if you would like to print or save them as
 
 #### Announcements for 10/11
 
--   Homework 1 notes
+-   Homework 1 released! Here are some overarching notes:
     -   If you start with "the probability that ..." you must end with a value between 0 and 1.
         -   If you start with "the percent chance..." then you can have a value between 0% and 100%
     -   $P(A)$ is not the same as probability of A only. Event A can overlap with B and C, so we need to find the part of A that does not overlap with B and C
         -   Hence we get $P(A \cap B^c \cap C^c)$
+-   Group advising **tomorrow** at 5pm in Vanport 515!
+    -   If you can't get in, you can also Slack me
 -   Rising Voices Retreat
 
 ![](week_03/RV%20Retreat%20Flyer.png){fig-align="center" width="418"}
