@@ -1,7 +1,7 @@
 ---
 title: "Chapter 10: Expected Values of Discrete RVs"
 author: "Meike Niederhausen and Nicky Wakim"
-date: "10/16/2023"
+date: "10/18/2023"
 categories: ["Week 4"]
 title-slide-attributes:
     data-background-color: "#006a4e"
@@ -19,6 +19,8 @@ format:
 
 ## Learning Objectives
 
+1.  Calculate the mean (expected value) of discrete random variables
+
 ## Our good and fair friend, the 6-sided die
 
 ::: columns
@@ -35,28 +37,6 @@ Suppose you roll a fair 6-sided die. What value do you expect to get?
 :::
 :::
 
-## Our good and not-so-fair friend, the 6-sided die
-
-::: columns
-::: {.column width="40%"}
-::: example
-::: ex-title
-Example 2
-:::
-
-::: ex-cont
-Suppose the die is 6-sided, but not fair. What value do you expect to get on a roll?
-:::
-:::
-:::
-:::
-
-## Quick remark on expected values
-
--   Let's think about expected values vs. actual outcomes
--   Expected values are not necessarily an actual outcome
-    -   It could be that our expected value is not in the sample space ($E(X) \notin S$)
-
 ## What is an expected value?
 
 ::: definition
@@ -69,13 +49,37 @@ The **expected value** of a discrete r.v. $X$ that takes on values $x_1, x_2, \l
 :::
 :::
 
-## Remarks on the expected value
+-   Expected values are not necessarily an actual outcome
+    -   In previous example, we cannot roll a 3.5
+    -   It could be that our expected value is not in the sample space ($E(X) \notin S$)
+-   Definition holds when $X$ takes on countably infinitely many values (think $n=\infty$)
 
--   The definition holds if the r.v. $X$ takes on countably infinitely many values $x_1, x_2, \ldots$, as well: $$\mathbb{E}[X] = \sum_{i=1}^{\infty} x_ip_X(x_i).$$
+## Our good and not-so-fair friend, the 6-sided die
 
--   Another way to define the expected value of a discrete r.v. is to do so at the $\omega$ level, where the $\omega$'s are outcomes in the sample space:
+::: columns
+::: {.column width="30%"}
+::: example
+::: ex-title
+Example 2
+:::
 
-    -   Suppose $\omega_1, \omega_2, \ldots, \omega_n$ are the possible outcomes of a random phenomenon. If outcome $\omega_i$ causes the r.v. X to take on value $x_i$ (meaning $X(\omega_i)=x_i$), then $$\mathbb{E}[X] = \sum_{i=1}^{\infty} x_i\mathbb{P}(\{\omega_i\}).$$
+::: ex-cont
+Suppose the die is 6-sided, but not fair. And the probabilities of each side is distributed as:
+
+| $x$ | $p_X(x)$ |
+|-----|----------|
+| 1   | 0.10     |
+| 2   | 0.05     |
+| 3   | 0.02     |
+| 4   | 0.30     |
+| 5   | 0.50     |
+| 6   | 0.03     |
+
+What value do you expect to get on a roll?
+:::
+:::
+:::
+:::
 
 ## Expected value of a Bernoulli distribution
 
@@ -98,7 +102,6 @@ Suppose $$X = \left\{
 :::
 :::
 
-
 ## Let's slightly change our random variable
 
 ::: columns
@@ -109,7 +112,7 @@ Example 5
 :::
 
 ::: ex-cont
-*Suppose* $$X = \left\{
+Suppose $$X = \left\{
         \begin{array}{ll}
             1 & \quad \mathrm{with\ probability}\ p \\
             -1 & \quad \mathrm{with\ probability}\ 1-p 
@@ -120,7 +123,7 @@ Example 5
 :::
 :::
 
-## Bullseye! 🎯
+## Bullseye! 🎯 {visibility="hidden"}
 
 ::: columns
 ::: {.column width="30%"}
@@ -131,7 +134,6 @@ Example 5
 
 ::: ex-cont
 Suppose I throw darts at a dartboard until I hit the bullseye, and that my probability of hitting the bullseye is $p$. Suppose further that all of my throws are independent, and that the probability of a bullseye never changes, no matter how many times I throw a dart. How many times should I expect to have to throw the dart until I hit the bullseye?
-
 :::
 :::
 :::
@@ -153,7 +155,7 @@ A ghost is trick-or-treating. It comes to a house where it is known that there a
 :::
 :::
 
-## Some remarks on last two examples
+## Some remarks on last two examples {visibility="hidden"}
 
 Both examples are repeated random processes. They are fundamentally different though:
 

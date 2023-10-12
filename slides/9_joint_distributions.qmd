@@ -1,7 +1,7 @@
 ---
 title: "Chapter 9: Independence and Conditioning (Joint Distributions)"
 author: "Meike Niederhausen and Nicky Wakim"
-date: "10/11/2023"
+date: "10/16/2023"
 categories: ["Week 3"]
 title-slide-attributes:
     data-background-color: "#006a4e"

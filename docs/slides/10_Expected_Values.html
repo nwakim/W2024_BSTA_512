@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Meike Niederhausen and Nicky Wakim">
-  <meta name="dcterms.date" content="2023-10-16">
+  <meta name="dcterms.date" content="2023-10-18">
   <title>Introduction to Probability - Chapter 10: Expected Values of Discrete RVs</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -338,27 +338,28 @@ Meike Niederhausen and Nicky Wakim
 </div>
 </div>
 
-  <p class="date">2023-10-16</p>
+  <p class="date">2023-10-18</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
 <h2 id="toc-title">Table of contents</h2>
 <ul>
 <li><a href="#/learning-objectives" id="/toc-learning-objectives">Learning Objectives</a></li>
 <li><a href="#/our-good-and-fair-friend-the-6-sided-die" id="/toc-our-good-and-fair-friend-the-6-sided-die">Our good and fair friend, the 6-sided die</a></li>
-<li><a href="#/our-good-and-not-so-fair-friend-the-6-sided-die" id="/toc-our-good-and-not-so-fair-friend-the-6-sided-die">Our good and not-so-fair friend, the 6-sided die</a></li>
-<li><a href="#/quick-remark-on-expected-values" id="/toc-quick-remark-on-expected-values">Quick remark on expected values</a></li>
 <li><a href="#/what-is-an-expected-value" id="/toc-what-is-an-expected-value">What is an expected value?</a></li>
-<li><a href="#/remarks-on-the-expected-value" id="/toc-remarks-on-the-expected-value">Remarks on the expected value</a></li>
+<li><a href="#/our-good-and-not-so-fair-friend-the-6-sided-die" id="/toc-our-good-and-not-so-fair-friend-the-6-sided-die">Our good and not-so-fair friend, the 6-sided die</a></li>
 <li><a href="#/expected-value-of-a-bernoulli-distribution" id="/toc-expected-value-of-a-bernoulli-distribution">Expected value of a Bernoulli distribution</a></li>
 <li><a href="#/lets-slightly-change-our-random-variable" id="/toc-lets-slightly-change-our-random-variable">Let’s slightly change our random variable</a></li>
-<li><a href="#/bullseye" id="/toc-bullseye">Bullseye! 🎯</a></li>
+
 <li><a href="#/ghost" id="/toc-ghost">Ghost! 👻</a></li>
-<li><a href="#/some-remarks-on-last-two-examples" id="/toc-some-remarks-on-last-two-examples">Some remarks on last two examples</a></li>
+
 </ul>
 </nav>
 </section>
 <section id="learning-objectives" class="slide level2">
 <h2>Learning Objectives</h2>
+<ol type="1">
+<li>Calculate the mean (expected value) of discrete random variables</li>
+</ol>
 </section>
 <section id="our-good-and-fair-friend-the-6-sided-die" class="slide level2">
 <h2>Our good and fair friend, the 6-sided die</h2>
@@ -375,31 +376,6 @@ Meike Niederhausen and Nicky Wakim
 </div>
 </div>
 </section>
-<section id="our-good-and-not-so-fair-friend-the-6-sided-die" class="slide level2">
-<h2>Our good and not-so-fair friend, the 6-sided die</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<div class="example">
-<div class="ex-title">
-<p>Example 2</p>
-</div>
-<div class="ex-cont">
-<p>Suppose the die is 6-sided, but not fair. What value do you expect to get on a roll?</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="quick-remark-on-expected-values" class="slide level2">
-<h2>Quick remark on expected values</h2>
-<ul>
-<li>Let’s think about expected values vs.&nbsp;actual outcomes</li>
-<li>Expected values are not necessarily an actual outcome
-<ul>
-<li>It could be that our expected value is not in the sample space (<span class="math inline">\(E(X) \notin S\)</span>)</li>
-</ul></li>
-</ul>
-</section>
 <section id="what-is-an-expected-value" class="slide level2">
 <h2>What is an expected value?</h2>
 <div class="definition">
@@ -410,16 +386,64 @@ Meike Niederhausen and Nicky Wakim
 <p>The <strong>expected value</strong> of a discrete r.v. <span class="math inline">\(X\)</span> that takes on values <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> is <span class="math display">\[\mathbb{E}[X] = \sum_{i=1}^n x_ip_X(x_i).\]</span></p>
 </div>
 </div>
-</section>
-<section id="remarks-on-the-expected-value" class="slide level2">
-<h2>Remarks on the expected value</h2>
 <ul>
-<li><p>The definition holds if the r.v. <span class="math inline">\(X\)</span> takes on countably infinitely many values <span class="math inline">\(x_1, x_2, \ldots\)</span>, as well: <span class="math display">\[\mathbb{E}[X] = \sum_{i=1}^{\infty} x_ip_X(x_i).\]</span></p></li>
-<li><p>Another way to define the expected value of a discrete r.v. is to do so at the <span class="math inline">\(\omega\)</span> level, where the <span class="math inline">\(\omega\)</span>’s are outcomes in the sample space:</p>
+<li>Expected values are not necessarily an actual outcome
 <ul>
-<li>Suppose <span class="math inline">\(\omega_1, \omega_2, \ldots, \omega_n\)</span> are the possible outcomes of a random phenomenon. If outcome <span class="math inline">\(\omega_i\)</span> causes the r.v. X to take on value <span class="math inline">\(x_i\)</span> (meaning <span class="math inline">\(X(\omega_i)=x_i\)</span>), then <span class="math display">\[\mathbb{E}[X] = \sum_{i=1}^{\infty} x_i\mathbb{P}(\{\omega_i\}).\]</span></li>
+<li>In previous example, we cannot roll a 3.5</li>
+<li>It could be that our expected value is not in the sample space (<span class="math inline">\(E(X) \notin S\)</span>)</li>
 </ul></li>
+<li>Definition holds when <span class="math inline">\(X\)</span> takes on countably infinitely many values (think <span class="math inline">\(n=\infty\)</span>)</li>
 </ul>
+</section>
+<section id="our-good-and-not-so-fair-friend-the-6-sided-die" class="slide level2">
+<h2>Our good and not-so-fair friend, the 6-sided die</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="example">
+<div class="ex-title">
+<p>Example 2</p>
+</div>
+<div class="ex-cont">
+<p>Suppose the die is 6-sided, but not fair. And the probabilities of each side is distributed as:</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th><span class="math inline">\(p_X(x)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>0.10</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>0.05</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>0.02</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>0.30</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>0.50</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>0.03</td>
+</tr>
+</tbody>
+</table>
+<p>What value do you expect to get on a roll?</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="expected-value-of-a-bernoulli-distribution" class="slide level2">
 <h2>Expected value of a Bernoulli distribution</h2>
@@ -450,7 +474,7 @@ Meike Niederhausen and Nicky Wakim
 <p>Example 5</p>
 </div>
 <div class="ex-cont">
-<p><em>Suppose</em> <span class="math display">\[X = \left\{
+<p>Suppose <span class="math display">\[X = \left\{
         \begin{array}{ll}
             1 &amp; \quad \mathrm{with\ probability}\ p \\
             -1 &amp; \quad \mathrm{with\ probability}\ 1-p
@@ -461,21 +485,7 @@ Meike Niederhausen and Nicky Wakim
 </div>
 </div>
 </section>
-<section id="bullseye" class="slide level2">
-<h2>Bullseye! 🎯</h2>
-<div class="columns">
-<div class="column" style="width:30%;">
-<div class="example">
-<div class="ex-title">
-<p>Example 5</p>
-</div>
-<div class="ex-cont">
-<p>Suppose I throw darts at a dartboard until I hit the bullseye, and that my probability of hitting the bullseye is <span class="math inline">\(p\)</span>. Suppose further that all of my throws are independent, and that the probability of a bullseye never changes, no matter how many times I throw a dart. How many times should I expect to have to throw the dart until I hit the bullseye?</p>
-</div>
-</div>
-</div>
-</div>
-</section>
+
 <section id="ghost" class="slide level2">
 <h2>Ghost! 👻</h2>
 <div class="columns">
@@ -491,18 +501,7 @@ Meike Niederhausen and Nicky Wakim
 </div>
 </div>
 </section>
-<section id="some-remarks-on-last-two-examples" class="slide level2">
-<h2>Some remarks on last two examples</h2>
-<p>Both examples are repeated random processes. They are fundamentally different though:</p>
-<ul>
-<li><p>The bullseye example is “<em>with replacement</em>” since the probability of success remains constant.</p></li>
-<li><p>The ghost trick-or-treating example is <em>without replacement</em>, and thus the probability of success changes with each trial.</p></li>
-</ul>
 
-<div class="footer footer-default">
-<p>Chapter 10 Slides</p>
-</div>
-</section>
     </div>
   </div>
 

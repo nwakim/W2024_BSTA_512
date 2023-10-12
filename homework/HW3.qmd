@@ -1,7 +1,7 @@
 ---
 title: "Homework 3"
 subtitle: "BSTA 550"
-description: "Due: Thursday October 19, 2023"
+description: "Due: Thursday October 19, 2023 at 11pm"
 date-modified: "10/12/2023"
 date: "10/19/2023"
 categories: [""]

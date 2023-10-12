@@ -30,11 +30,11 @@ editor_options:
 
 ## Resources
 
-| Chapter | Topic                                               |                                                   Slides                                                   |                                  Annotated Slides                                  |                           Recording                           |
+| Chapter | Topic                                               |                                                         Slides                                                         |                                  Annotated Slides                                  |                           Recording                           |
 |---------------|---------------|:-------------:|:-------------:|:-------------:|
-| 9       | Independence and Conditioning (Joint Distributions) | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/9_joint_distributions.qmd)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 10      | Expected Values of discrete RVs                     |                   [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                    | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 11      | Expected Values of *sums of* discrete RVs           |                   [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                    | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 9       | Independence and Conditioning (Joint Distributions) |       [[{{< iconify ri slideshow-fill size=30px >}}](/slides/9_joint_distributions.qmd)]{style="color:#f8f5f0;"}       | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 10      | Expected Values of discrete RVs                     |        [[{{< iconify ri slideshow-fill size=30px >}}](/slides/10_Expected_Values.qmd)]{style="color:#f8f5f0;"}         | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 11      | Expected Values of *sums of* discrete RVs           | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/11_Expected_Values_of_Sums_of_rvs.qmd)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
 For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
 
@@ -45,13 +45,17 @@ For the slides, once they are opened, if you would like to print or save them as
 
 ## On the Horizon
 
+-   [Homework 3 due 10/19 at 11pm](/homework/HW3.qmd)
+
+-   Virtual Class 10/25
+
+-   Midterm 11/1 (in class)
+
 ## Class Exit Tickets
 
-[{{< iconify healthicons health-worker-form-negative size=30px >}}]{style="color:#f8f5f0;"} Monday (10/16)
+[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUMEJVQVc5Rjk2NkhGR0pQOVJQSzAzNlI2Ry4u)]{style="color:#f8f5f0;"} Monday (10/16) *Question about course set up*
 
-[{{< iconify healthicons health-worker-form-negative size=30px >}}]{style="color:#f8f5f0;"} Wednesday (10/18)
-
-## Additional Information
+[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUQlJaRE5FVTZCWDlSTlZYSVFSVzZSVEFFOS4u)]{style="color:#f8f5f0;"} Wednesday (10/18)
 
 ## Statistician of the Week: Joy Buolamwini
 
@@ -96,9 +100,5 @@ Her work was featured in a recent documentary <a href = "https://www.codedbias.c
 **Please note the statisticians of the week are taken directly from the [CURV project by Jo Hardin](https://hardin47.github.io/CURV/).**
 
 ## Muddiest Points
-
-This will be filled in with your Exit Ticket responses.
-
-## Clearest Points
 
 This will be filled in with your Exit Ticket responses.
