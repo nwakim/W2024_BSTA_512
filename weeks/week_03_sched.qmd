@@ -32,12 +32,12 @@ editor_options:
 
 Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
-| Chapter | Topic                                               |                                                   Slides                                                   |                                                        Annotated Slides                                                         |                                                                                                                                                                                                                                                                                        Recording                                                                                                                                                                                                                                                                                        |
-|---------|---------|:-------:|:-------:|:----------------------------------:|
-| 5       | Bayes' Theorem                                      |    [[{{< iconify ri slideshow-fill size=30px >}}](/slides/5_Bayes_Theorem.qmd)]{style="color:#f8f5f0;"}    |  [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/05_Bayes_Theorem.pdf)]{style="color:#f8f5f0;"}   | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F05%5FBayes%5FTheorem%5F01%2Emp4)]{style="color:#f8f5f0;"} [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F05%5FBayes%5FTheorem%5F02%2Emp4)]{style="color:#f8f5f0;"} |
-| 7       | Random Variables                                    |  [[{{< iconify ri slideshow-fill size=30px >}}](/slides/7_Random_Variables.qmd)]{style="color:#49A3D1;"}   | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/07_Random_variables.pdf)]{style="color:#f8f5f0;"} |                                                                                                                                                [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F07%5FRandom%5FVariables%2Emp4)]{style="color:#f8f5f0;"}                                                                                                                                                |
-| 8       | pmf's and CDFs                                      |    [[{{< iconify ri slideshow-fill size=30px >}}](/slides/8_pmfs_and_cdfs.qmd)]{style="color:#f8f5f0;"}    |                       [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                        |                                                                                                                                                                                                                                                              [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                                                                                                                              |
-| 9       | Independence and Conditioning (Joint Distributions) | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/9_joint_distributions.qmd)]{style="color:#f8f5f0;"} |                       [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                        |                                                                                                                                                                                                                                                              [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                                                                                                                              |
+| Chapter | Topic                                               |                                                   Slides                                                   |                                                          Annotated Slides                                                          |                                                                                                                                                                                                                                                                                        Recording                                                                                                                                                                                                                                                                                        |
+|---------------|---------------|:-------------:|:-------------:|:-------------:|
+| 5       | Bayes' Theorem                                      |    [[{{< iconify ri slideshow-fill size=30px >}}](/slides/5_Bayes_Theorem.qmd)]{style="color:#f8f5f0;"}    |    [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/05_Bayes_Theorem.pdf)]{style="color:#f8f5f0;"}    | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F05%5FBayes%5FTheorem%5F01%2Emp4)]{style="color:#f8f5f0;"} [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F05%5FBayes%5FTheorem%5F02%2Emp4)]{style="color:#f8f5f0;"} |
+| 7       | Random Variables                                    |  [[{{< iconify ri slideshow-fill size=30px >}}](/slides/7_Random_Variables.qmd)]{style="color:#49A3D1;"}   |  [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/07_Random_variables.pdf)]{style="color:#f8f5f0;"}   |                                                                                                                                                [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F07%5FRandom%5FVariables%2Emp4)]{style="color:#f8f5f0;"}                                                                                                                                                |
+| 8       | pmf's and CDFs                                      |    [[{{< iconify ri slideshow-fill size=30px >}}](/slides/8_pmfs_and_cdfs.qmd)]{style="color:#f8f5f0;"}    |       [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/08_pmf_cdf.pdf)]{style="color:#f8f5f0;"}       |                                                                                                                                                   [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F08%5Fpmfs%5FCDFs%2Emp4)]{style="color:#f8f5f0;"}                                                                                                                                                    |
+| 9       | Independence and Conditioning (Joint Distributions) | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/9_joint_distributions.qmd)]{style="color:#f8f5f0;"} | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/09_joint_distributions.pdf)]{style="color:#f8f5f0;"} |                                                                                                                                              [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F09%5Fjoint%5Fdistributions%2Emp4)]{style="color:#f8f5f0;"}                                                                                                                                               |
 
 For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
 
@@ -135,3 +135,53 @@ How are they functions? Why are they random? Why do we need them?
     -   We will start taking derivatives and integrals of the RVs (especially important for continuous RVs)
 
     -   Without a way to represent the probability as a overarching function, it is much harder to calculate derivatives and integrals
+
+### 3. Why is is incorrect to say $x \geq 5$ in our defined household random variable?
+
+-   I'm not clear on why PMFs have to be defined by w=1,2,3 etc and CDFs have to be x\<3 etc
+
+### 4. What is CDF? And what is it good for?
+
+#### What is the purpose of the CDF?
+
+-   One purpose of the CDF is to calculate the probability of intervals of $x$. For example, if we want to calculate the probability that some random variable $x$ is between 30 and 35, we can say the probability is $P(30 \leq x \leq 35)$. An easy way to calculate this is to find the difference between the two CDFs ($F_X(35) - F_X(30)$). We'll see more about it in later chapters. It's particularly helpful for continuous random variables.
+
+-   The CDF starts to become very useful when we start discussing how certain we are of an observation (aka how much do we trust that an observation is coming from our prescribed distribution). Let's say we tossed 50 fair coins. While the observation of 49 heads is possible, the probability is very small. And the probability that we get 49 or more heads is 0.000000000000045.
+
+    -   <div>
+
+        ```{r}
+        # Here I am using pbinom() to calculate the cumulative probability that I toss 49 
+        #   or more heads (q = 48) out of the 50 coins I tossed (size = 50) when the 
+        #   probability of heads is 0.5 (prob = 0.5). pbinom() automatically calculates 
+        #   the probability that we have 49 or less heads, so the "lower.tail = F" gives 
+        #   us the probability that we get 49 or more heads.
+        pbinom(q = 48, size = 50, prob = 0.5, lower.tail = F)
+        ```
+
+        </div>
+
+        -   Why did I use `q=48` instead of `q=49` for $49$ or more heads. If you type `?dbinom` in your console in R, a Help tab will open. It will tell you that when `lower.tail=F` we are calculating $P(X>x)$, but we want the probability to include $49$, so we put $48$. Note, this will be different when we get to continuous functions.
+
+    -   This probability may lead us to question whether the observed 49 heads really came from a fair coin. Maybe the probability that any given toss lands on heads is 0.99. What would the probability of 49 or more heads be then?
+
+    -   <div>
+
+        ```{r}
+        # Here I am using pbinom() to calculate the cumulative probability that I toss 49 
+        #   or more heads (q = 48) out of the 50 coins I tossed (size = 50) when the 
+        #   probability of heads is 0.99 (prob = 0.99).
+        pbinom(q = 48, size = 50, prob = 0.99, lower.tail = F)
+        ```
+
+        </div>
+
+    -   Now the probability of getting 49 or more heads is 0.91. Pretty high! And I might be more inclined to believe my observation was from this unfair coin.
+
+    -   The cumulative probability gives us a sense of where in the distribution does an observation (like 49 heads) fall. Is it on the fringe? Or more centered within the probability density? This will definitely be clearer when we discuss continuous RVs.
+
+#### What does it mean if the CDF is 1?
+
+For example, in the household problem the CDF for 5 or more individuals is 1 ($F_x(5+)=1$). This means the probability that households have $5+$ individuals *or less* (so the probability that a household has 1, 2, 3, 4, or 5+ individuals) is 1.
+
+### 5. What's up with the subtle changes in notation?

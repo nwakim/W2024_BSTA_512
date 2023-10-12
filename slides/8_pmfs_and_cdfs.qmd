@@ -55,11 +55,19 @@ Suppose we toss 3 coins with probability of tails $p$. If $X$ is the random vari
 
 ## Remarks on the pmf
 
--   A pmf $p_X(x)$ must satisfy the following properties:
+::: axiom
+::: axiom-title
+Properties of pmf
+:::
 
-    -   $0 \leq p_X(x) \leq 1$ for all $x$.
+::: axiom-cont
+A pmf $p_X(x)$ must satisfy the following properties:
 
-    -   $\sum \limits_{\{all\ x\}}p_X(x)=1$.
+-   $0 \leq p_X(x) \leq 1$ for all $x$.
+
+-   $\sum \limits_{\{all\ x\}}p_X(x)=1$.
+:::
+:::
 
 -   Some distributions depend on parameters
 
@@ -134,7 +142,6 @@ The table below shows household sizes in 2019. Data are from the [U.S. Census](h
 5.  Write the cdf as a function.
 
 6.  Graph the cdf of household sizes in 2019.
-
 :::
 :::
 :::
@@ -187,12 +194,10 @@ The table below shows household sizes in 2019. Data are from the [U.S. Census](h
 3.  Do the values in the table create a pmf? Why or why not?
 
 4.  Make a plot of the pmf
-
 :::
 :::
 :::
 :::
-
 
 ## What is a cumulative distribution function?
 
@@ -224,8 +229,7 @@ The table below shows household sizes in 2019. Data are from the [U.S. Census](h
 | Percent | 28% | 35% | 15% | 13% |    9%     |
 :::
 
-5.  Write the cdf as a function. 
-
+5.  Write the cdf as a function.
 :::
 :::
 :::

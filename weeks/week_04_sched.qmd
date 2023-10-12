@@ -2,7 +2,7 @@
 title: "Week 4"
 description: "Expected values of discrete random variables"
 date: "10/16/2023"
-date-modified: "8/22/2023"
+date-modified: "10/11/2023"
 categories: [""]
 format: 
   html:
@@ -30,10 +30,11 @@ editor_options:
 
 ## Resources
 
-| Chapter | Topic                                     |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
-|---------|-------------------------------------------|:---------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:-------------------------------------------------------------:|
-| 10      | Expected Values of discrete RVs           | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 11      | Expected Values of *sums of* discrete RVs | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| Chapter | Topic                                               |                                                   Slides                                                   |                                  Annotated Slides                                  |                           Recording                           |
+|--------------|--------------|:-------------:|:----------------:|:------------:|
+| 9       | Independence and Conditioning (Joint Distributions) | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/9_joint_distributions.qmd)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 10      | Expected Values of discrete RVs                     |                   [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                    | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 11      | Expected Values of *sums of* discrete RVs           |                   [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                    | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
 For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
 

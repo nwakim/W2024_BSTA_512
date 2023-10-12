@@ -28,6 +28,7 @@
       "/slides/7_Random_Variables.html",
       "/slides/8_pmfs_and_cdfs.html",
       "/slides/9_joint_distributions.html",
+      "/slides/10_Expected_Values.html",
       "/slides/16_Geometric_rv.html",
       "/slides/24_Calculus_review.html",
       "/slides/37_Central_Limit_Theorem.html",
@@ -50,7 +51,6 @@
       "/slides/43_Moment_Generating_Functions_Part1.html",
       "/slides/43_Moment_Generating_Functions_Part2.html",
       "/slides/19_Hypergeometric_rv.html",
-      "/slides/10_Expected_Values.html",
       "/slides/20_Discrete_Uniform_rv.html",
       "/slides/35_Normal_rv.html"
     ]

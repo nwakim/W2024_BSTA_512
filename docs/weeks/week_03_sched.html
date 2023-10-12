@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -300,6 +334,9 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#breast-cancer-example-with-bayes-theorem" id="toc-breast-cancer-example-with-bayes-theorem" class="nav-link" data-scroll-target="#breast-cancer-example-with-bayes-theorem">1. Breast Cancer Example with Bayes Theorem</a></li>
   <li><a href="#random-variables" id="toc-random-variables" class="nav-link" data-scroll-target="#random-variables">2. Random Variables??</a></li>
+  <li><a href="#why-is-is-incorrect-to-say-x-geq-5-in-our-defined-household-random-variable" id="toc-why-is-is-incorrect-to-say-x-geq-5-in-our-defined-household-random-variable" class="nav-link" data-scroll-target="#why-is-is-incorrect-to-say-x-geq-5-in-our-defined-household-random-variable">3. Why is is incorrect to say <span class="math inline">\(x \geq 5\)</span> in our defined household random variable?</a></li>
+  <li><a href="#what-is-cdf-and-what-is-it-good-for" id="toc-what-is-cdf-and-what-is-it-good-for" class="nav-link" data-scroll-target="#what-is-cdf-and-what-is-it-good-for">4. What is CDF? And what is it good for?</a></li>
+  <li><a href="#whats-up-with-the-subtle-changes-in-notation" id="toc-whats-up-with-the-subtle-changes-in-notation" class="nav-link" data-scroll-target="#whats-up-with-the-subtle-changes-in-notation">5. What’s up with the subtle changes in notation?</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -390,15 +427,15 @@ ul.task-list li input[type="checkbox"] {
 <td>8</td>
 <td>pmf’s and CDFs</td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/8_pmfs_and_cdfs.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/08_pmf_cdf.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F08%5Fpmfs%5FCDFs%2Emp4"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></td>
 </tr>
 <tr class="even">
 <td>9</td>
 <td>Independence and Conditioning (Joint Distributions)</td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/9_joint_distributions.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/09_joint_distributions.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F09%5Fjoint%5Fdistributions%2Emp4"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></td>
 </tr>
 </tbody>
 </table>
@@ -526,6 +563,61 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Without a way to represent the probability as a overarching function, it is much harder to calculate derivatives and integrals</p></li>
 </ul></li>
 </ul>
+</section>
+<section id="why-is-is-incorrect-to-say-x-geq-5-in-our-defined-household-random-variable" class="level3">
+<h3 class="anchored" data-anchor-id="why-is-is-incorrect-to-say-x-geq-5-in-our-defined-household-random-variable">3. Why is is incorrect to say <span class="math inline">\(x \geq 5\)</span> in our defined household random variable?</h3>
+<ul>
+<li>I’m not clear on why PMFs have to be defined by w=1,2,3 etc and CDFs have to be x&lt;3 etc</li>
+</ul>
+</section>
+<section id="what-is-cdf-and-what-is-it-good-for" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-cdf-and-what-is-it-good-for">4. What is CDF? And what is it good for?</h3>
+<section id="what-is-the-purpose-of-the-cdf" class="level4">
+<h4 class="anchored" data-anchor-id="what-is-the-purpose-of-the-cdf">What is the purpose of the CDF?</h4>
+<ul>
+<li><p>One purpose of the CDF is to calculate the probability of intervals of <span class="math inline">\(x\)</span>. For example, if we want to calculate the probability that some random variable <span class="math inline">\(x\)</span> is between 30 and 35, we can say the probability is <span class="math inline">\(P(30 \leq x \leq 35)\)</span>. An easy way to calculate this is to find the difference between the two CDFs (<span class="math inline">\(F_X(35) - F_X(30)\)</span>). We’ll see more about it in later chapters. It’s particularly helpful for continuous random variables.</p></li>
+<li><p>The CDF starts to become very useful when we start discussing how certain we are of an observation (aka how much do we trust that an observation is coming from our prescribed distribution). Let’s say we tossed 50 fair coins. While the observation of 49 heads is possible, the probability is very small. And the probability that we get 49 or more heads is 0.000000000000045.</p>
+<ul>
+<li><div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Here I am using pbinom() to calculate the cumulative probability that I toss 49 </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   or more heads (q = 48) out of the 50 coins I tossed (size = 50) when the </span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   probability of heads is 0.5 (prob = 0.5). pbinom() automatically calculates </span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   the probability that we have 49 or less heads, so the "lower.tail = F" gives </span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   us the probability that we get 49 or more heads.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="at">q =</span> <span class="dv">48</span>, <span class="at">size =</span> <span class="dv">50</span>, <span class="at">prob =</span> <span class="fl">0.5</span>, <span class="at">lower.tail =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.52971e-14</code></pre>
+</div>
+</div>
+</div>
+<ul>
+<li>Why did I use <code>q=48</code> instead of <code>q=49</code> for <span class="math inline">\(49\)</span> or more heads. If you type <code>?dbinom</code> in your console in R, a Help tab will open. It will tell you that when <code>lower.tail=F</code> we are calculating <span class="math inline">\(P(X&gt;x)\)</span>, but we want the probability to include <span class="math inline">\(49\)</span>, so we put <span class="math inline">\(48\)</span>. Note, this will be different when we get to continuous functions.</li>
+</ul></li>
+<li><p>This probability may lead us to question whether the observed 49 heads really came from a fair coin. Maybe the probability that any given toss lands on heads is 0.99. What would the probability of 49 or more heads be then?</p></li>
+<li><div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Here I am using pbinom() to calculate the cumulative probability that I toss 49 </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   or more heads (q = 48) out of the 50 coins I tossed (size = 50) when the </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   probability of heads is 0.99 (prob = 0.99).</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="at">q =</span> <span class="dv">48</span>, <span class="at">size =</span> <span class="dv">50</span>, <span class="at">prob =</span> <span class="fl">0.99</span>, <span class="at">lower.tail =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9105647</code></pre>
+</div>
+</div>
+</div></li>
+<li><p>Now the probability of getting 49 or more heads is 0.91. Pretty high! And I might be more inclined to believe my observation was from this unfair coin.</p></li>
+<li><p>The cumulative probability gives us a sense of where in the distribution does an observation (like 49 heads) fall. Is it on the fringe? Or more centered within the probability density? This will definitely be clearer when we discuss continuous RVs.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="what-does-it-mean-if-the-cdf-is-1" class="level4">
+<h4 class="anchored" data-anchor-id="what-does-it-mean-if-the-cdf-is-1">What does it mean if the CDF is 1?</h4>
+<p>For example, in the household problem the CDF for 5 or more individuals is 1 (<span class="math inline">\(F_x(5+)=1\)</span>). This means the probability that households have <span class="math inline">\(5+\)</span> individuals <em>or less</em> (so the probability that a household has 1, 2, 3, 4, or 5+ individuals) is 1.</p>
+</section>
+</section>
+<section id="whats-up-with-the-subtle-changes-in-notation" class="level3">
+<h3 class="anchored" data-anchor-id="whats-up-with-the-subtle-changes-in-notation">5. What’s up with the subtle changes in notation?</h3>
 
 
 </section>
