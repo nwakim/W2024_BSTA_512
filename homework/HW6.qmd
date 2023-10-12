@@ -14,9 +14,13 @@ editor_options:
   chunk_output_type: console
 ---
 
-Complete all of the problems listed below. Only turn in the ones listed in the "Turn In" column. Please submit problems in the order they are listed.
+## Directions
 
-*You must show all of your work to receive credit. Don't forget to define every r.v. you use!* *In particular, **if a similar problem was done in class or an example in the book, make sure to still show every step in the solution and not just cite the examples' results**.*
+[Please turn in this homework on Sakai.](https://sakai.ohsu.edu/portal/site/BSTA-550-1-12619-F23/tool/085b18e7-8118-4a51-ace5-0255aa46136e) Please submit your homework in pdf format. You can type your work on your computer or submit a photo of your written work or any other method that can be turned into a pdf. Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.
+
+**Try to complete all of the problems listed below at some point this quarter! You may want to save some of them for studying later!** Only turn in the ones listed in the "Turn In" column. Please submit problems in the order they are listed.
+
+The more work you include that shows your thought process, the more I can give you feedback.
 
 ::: center
 |     Chapter     |        Turn In        |       Extra Problems       |
