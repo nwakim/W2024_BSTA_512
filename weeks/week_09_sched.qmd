@@ -1,8 +1,8 @@
 ---
 title: "Week 9"
-description: "Expected values, variance, and continuous distributions"
-date: "11/20/2023"
-date-modified: "9/15/2023"
+description: "Model Diagnostics"
+date: "3/4/2024"
+date-modified: "12/15/2023"
 categories: [""]
 format: 
   html:
@@ -15,7 +15,7 @@ editor_options:
 ```{css, echo=FALSE}
 .title{
   font-size: 40px;
-  color: #006a4e;
+  color: #213c96;
   background-color: #fff;
   padding: 10px;
 }
@@ -23,12 +23,34 @@ editor_options:
 .description{
   font-size: 20px;
   color: #fff;
-  background-color: #006a4e;
+  background-color: #213c96;
   padding: 10px;
 }
 ```
 
 ## Resources
+
+Topics:
+
+-   purpose
+
+-   model assumptions
+
+    -   impact of violating assumptions
+
+-   using residuals to help with diagnosis
+
+-   transforming data
+
+    -   prtedictors
+
+    -   outcome
+
+    -   predictors +outcome
+
+-   influential obs/outliers
+
+-   multicollinearity
 
 | Chapter | Topic                            |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
 |---------------|---------------|:-------------:|:-------------:|:-------------:|

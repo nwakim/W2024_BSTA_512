@@ -1,0 +1,116 @@
+---
+title: "NHANES"
+author: "Meike Niederhausen"
+date: "2022-11-28"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+
+```
+
+
+
+# NHANES
+
+
+```{r}
+library(NHANES)
+library(skimr)
+library(janitor)
+library(tidyverse)
+library(broom)
+data("NHANES")
+
+```
+
+```{r}
+skim(NHANES)
+
+# 16 Depressed             3327         0.667 FALSE          3 "Non: 5246, Sev: 1009, Mos: 418"            
+# 17 SleepTrouble          2228         0.777 FALSE          2 "No: 5799, Yes: 1973"                       
+# 18 PhysActive            1674         0.833 FALSE          2 "Yes: 4649, No: 3677"          
+```
+
+```{r}
+NHANES18 <- NHANES %>% dplyr::filter(Age >= 18)
+NHANES18 %>% tabyl(Depressed, PhysActive)
+NHANES18 %>% drop_na(Depressed) %>% tabyl(Depressed, PhysActive)
+
+NHANES18Dep <- NHANES18 %>% drop_na(Depressed)
+NHANES18Dep %>% 
+  tabyl(Depressed, PhysActive) %>% 
+  adorn_totals()
+
+chisq_Dep_Phys<- chisq.test(NHANES18Dep$Depressed, NHANES18Dep$PhysActive)
+tidy(chisq_Dep_Phys)
+chisq_Dep_Phys$expected
+chisq_Dep_Phys$observed
+
+library(moderndive)
+set.seed(5348)
+# 5347
+NHANES18Dep200 <- NHANES18Dep %>%
+  rep_sample_n(size = 200, reps = 1, replace = FALSE)
+
+NHANES18Dep200 %>% 
+  tabyl(Depressed, PhysActive) %>% 
+  adorn_totals()
+
+chisq_Dep_Phys200<- chisq.test(NHANES18Dep200$Depressed, NHANES18Dep200$PhysActive)
+tidy(chisq_Dep_Phys200)
+chisq_Dep_Phys200$expected
+chisq_Dep_Phys200$observed
+
+
+#------------
+set.seed(5349)
+NHANES18Dep400 <- NHANES18Dep %>%
+  rep_sample_n(size = 400, reps = 1, replace = FALSE)
+
+NHANES18Dep400 %>% 
+  tabyl(PhysActive, Depressed) %>% 
+  adorn_totals(where = c("row", "col")) %>% 
+  adorn_title 
+
+chisq_Dep_Phys400<- chisq.test(NHANES18Dep400$Depressed, NHANES18Dep400$PhysActive)
+tidy(chisq_Dep_Phys400)
+chisq_Dep_Phys400$observed
+chisq_Dep_Phys400$expected
+
+
+set.seed(5349)
+NHANES18Dep_PAy100 <- NHANES18Dep %>% filter(PhysActive == "Yes") %>% 
+  rep_sample_n(size = 100, reps = 1, replace = FALSE)
+NHANES18Dep_PAy100 %>% tabyl(Depressed)
+
+NHANES18Dep_PAn100 <- NHANES18Dep %>% filter(PhysActive == "No") %>% 
+  rep_sample_n(size = 100, reps = 1, replace = FALSE)
+NHANES18Dep_PAn100 %>% tabyl(Depressed)
+
+(DepPA200_table <- matrix(c(83, 12, 5, 78, 16, 6), nrow = 2, ncol = 3, byrow = T))
+dimnames(DepPA200_table) <- list("PA" = c("Yes", "No"),   # row names
+                              "Depression" = c("None", "Several", "Most"))  # column names
+DepPA200_table
+
+chisq.test(DepPA200_table) 
+chisq.test(DepPA200_table)$expected
+
+
+
+set.seed(5349)
+NHANES18Dep_PAy50 <- NHANES18Dep %>% filter(PhysActive == "Yes") %>% 
+  rep_sample_n(size = 50, reps = 1, replace = FALSE)
+NHANES18Dep_PAy50 %>% tabyl(Depressed)
+
+NHANES18Dep_PAn50 <- NHANES18Dep %>% filter(PhysActive == "No") %>% 
+  rep_sample_n(size = 50, reps = 1, replace = FALSE)
+NHANES18Dep_PAn50 %>% tabyl(Depressed)
+```

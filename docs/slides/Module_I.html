@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Linear Regression – module_i</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/bsta_550_hex_3.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Linear Regression</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../syllabus.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule1.html" rel="" target="">
+ <span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../class_slides.html" rel="" target="">
+ <span class="menu-text">Slides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../homeworks.html" rel="" target="">
+ <span class="menu-text">Homework</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Course Info</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../instructors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Course Materials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../class_slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class Slides</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homeworks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weekly Pages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_01_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_02_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_03_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_04_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_05_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_06_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_07_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_08_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_09_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_10_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_11_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<div class="frame">
+<p><span style="color: royalblue"><strong>BIOSTAT 650<br>
+Theory and Application of Linear Regression<br>
+Module I: Interactions</strong></span></p>
+</div>
+<div class="frame">
+<p>Outline</p>
+<p>Topics:</p>
+<p>Modeling using interactions</p>
+<p>Interpreting parameters of interaction models</p>
+<p>Interactions involving categorical covariates</p>
+<p>Examples</p>
+<p>MPV 5th edition: Chapter 8</p>
+</div>
+<div class="frame">
+<p>Multiple Regression: Interaction Consider a linear regression model with two covariates: <span class="math display">\[\begin{aligned}
+    Y_i &amp; = &amp; \beta_0 + \beta_1X_{i1}+ \beta_2X_{i2} + \epsilon_i \nonumber
+    \\
+    E[Y_i|X_{i1},X_{i2}] &amp; = &amp; \beta_0 + \beta_1X_{i1}+ \beta_2X_{i2}
+    \nonumber
+\end{aligned}\]</span></p>
+<p>Recall: interpretation of coefficients:</p>
+<p><span class="math inline">\(\beta_0=\)</span> <span class="math inline">\(E[Y]\)</span>, when all covariates equal 0 <span class="math inline">\(\beta_1=\)</span> mean change in <span class="math inline">\(Y\)</span>, per unit increase in <span class="math inline">\(X_1\)</span>, with <span class="math inline">\(X_2\)</span> held constant</p>
+<p>Note: to interpret <span class="math inline">\(\beta_1\)</span>, we did not specify any value of <span class="math inline">\(X_2\)</span>; only specified that it be held constant</p>
+<p>implicit assumption: effect of <span class="math inline">\(X_1\)</span> is equal across all values of <span class="math inline">\(X_2\)</span></p>
+</div>
+<div class="frame">
+<p>Interaction: Description The preceding model assumes that <span class="math inline">\(X_{1}\)</span> and <span class="math inline">\(X_{2}\)</span> do not <em>interact</em> (with respect to their effect on <span class="math inline">\(Y\)</span>) epidemiology: no “effect modification” meaning the effect of <span class="math inline">\(X_{1}\)</span> is the same regardless of the values of <span class="math inline">\(X_{2}\)</span> We can incorporate interactions into our model through product terms: <span class="math display">\[\boxed{Y_i  =  \beta_0 + \beta_1X_{i1}+ \beta_2X_{i2} +
+    \beta_3X_{i1}X_{i2} + \epsilon_i}\]</span></p>
+<p>Terminology: main effect parameters: <span class="math inline">\(\beta_1,\beta_2\)</span></p>
+<p>interaction parameter: <span class="math inline">\(\beta_3\)</span></p>
+</div>
+<div class="frame">
+<p>Types of Interactions</p>
+<dl>
+<dt>Common types of interactions: : <span class="math inline">\(X_{i1}\)</span> strengthens the <span class="math inline">\(X_{i2}\)</span> effect</dt>
+<dd>
+<p><span class="math inline">\(X_{i1}\)</span> weakens the <span class="math inline">\(X_{i2}\)</span> effect</p>
+</dd>
+</dl>
+<p>To determine <em>synergism</em> vs.&nbsp;<em>antagonism</em> use model with interaction term look sign of <span class="math inline">\(X_{i1}\times X_{i2}\)</span> parameter and test significance of the interaction coefficient</p>
+<p>If not significant: no evidence of effect modification, i.e., the effect of <span class="math inline">\(X_{1}\)</span> does not vary with <span class="math inline">\(X_{2}\)</span></p>
+<p>The main effect models estimate the <em>average</em> <span class="math inline">\(X_{i1}\)</span> and <span class="math inline">\(X_{i2}\)</span> effects</p>
+</div>
+<div class="frame">
+<p>Interaction Models: Interpretation</p>
+<p>Q: How to interpret the parameters in the interaction model?</p>
+<p>Recall: main effects model, <span class="math inline">\(E[Y_i\mid X_{i1},X_{i2} ]=\beta_0 + \beta_1X_{i1} + \beta_2X_{i2}\)</span> <span class="math display">\[\frac{\partial E[Y_i\mid X_{i1},X_{i2} ]}{\partial X_{i1}} = \beta_1\]</span> interpretation of <span class="math inline">\(\beta_1\)</span> does not involve <span class="math inline">\(X_{i2}\)</span></p>
+<p>Interaction model: <span class="math inline">\(E[Y_i\mid X_{i1},X_{i2} ]=\beta_0 + \beta_1X_{i1} + \beta_2X_{i2} + \beta_3X_{i1}X_{i2}\)</span> <span class="math display">\[\frac{\partial E[Y_i\mid X_{i1},X_{i2} ]}{\partial X_{i1}} = \beta_1 +
+\beta_3X_{i2}\]</span> effect of <span class="math inline">\(X_{i1}\)</span> depends on value of <span class="math inline">\(X_{i2}\)</span> involves more than one coefficient and other covariates</p>
+</div>
+<div class="frame">
+<p>Interactions: Interpretation</p>
+<p>The “main effect" in main effects model: <span class="math display">\[\begin{aligned}
+\beta_1 &amp; = &amp; \frac{\partial E[Y_i\mid X_{i1},X_{i2}]}{\partial X_{i1}} \nonumber
+\end{aligned}\]</span></p>
+<p>The “main effect" in interaction model: <span class="math display">\[\begin{aligned}
+\beta_1 &amp; \neq &amp; \frac{\partial E[Y_i\mid X_{i1},X_{i2}]}{\partial X_{i1}} \nonumber
+\end{aligned}\]</span></p>
+<p>in fact, <span class="math inline">\(\beta_1=\)</span> change in <span class="math inline">\(E[Y]\)</span> per unit increase in <span class="math inline">\(X_{i1}\)</span>, when <span class="math inline">\(X_{i2}=0\)</span></p>
+<p>depending on the nature of <span class="math inline">\(X_{i2}\)</span>, this may be an undesirable interpretation Thus, for interaction model, we have a clear expression for the effect of <span class="math inline">\(X_{i1}\)</span>; but, <span class="math inline">\(\beta_1\)</span> itself <em>may</em> have an awkward interpretation Be extremely careful when interpreting the coefficients for the “main effects" when there is an interaction in the model</p>
+</div>
+<div class="frame">
+<p>Interactions: Interpretation (continued) <span class="math inline">\(E[Y_i\mid X_{i1},X_{i2} ]=\beta_0 + \underbrace{(\beta_1+\beta_3X_{i2}) }_\text{$X_{i1}$'s effect} X_{i1}+ \underbrace{\beta_2X_{i2}}_\text{$X_{i2}$ held constant}\)</span><br>
+<span class="math inline">\({\color{white}{E[Y_i\mid X_{i1},X_{i2} ]}}=\beta_0 + \underbrace{(\beta_2+\beta_3X_{i1}) }_\text{$X_{i2}$'s effect}X_{i3} + \underbrace{\beta_1X_{i1}}_\text{$X_{i1}$ held constant}\)</span></p>
+<p>For the product term, <span class="math display">\[\begin{aligned}
+\beta_3 &amp; = &amp; {\color{royalblue}{\frac{\partial^2 }{\partial X_{i1}\partial
+            X_{i2}}}} E[Y_i\mid X_{i1},X_{i2}]\nonumber
+\end{aligned}\]</span></p>
+<p>Interpretation: <span class="math inline">\(\beta_3\)</span> = mean change in <span class="math inline">\(X_{i1}\)</span>’s effect, per unit increase in <span class="math inline">\(X_{i2}\)</span>;<br>
+<span style="color: white"><span class="math inline">\(\beta_3\)</span></span> = mean change in <span class="math inline">\(X_{i2}\)</span>’s effect, per unit increase in <span class="math inline">\(X_{i1}\)</span>; where the “<span class="math inline">\(X_{i1}\)</span> effect” equals the change in <span class="math inline">\(E[Y]\)</span> per unit increase in <span class="math inline">\(X_{i1}\)</span> with <span class="math inline">\(X_{i2}\)</span> held constant, i.e.&nbsp;“adjusted <span class="math inline">\(X_{i1}\)</span> effect"</p>
+<p>In summary, the interaction term can be interpreted as “difference in adjusted <span class="math inline">\(X_1\)</span> (or <span class="math inline">\(X_2\)</span>) effect per unit increase in <span class="math inline">\(X_2\)</span> (or <span class="math inline">\(X_1\)</span>)"</p>
+</div>
+<div class="frame">
+<p>Interaction between Categorical and Continuous Variables</p>
+<p>Example: Pediatric Hypertension: A clinician wishes to examine the relationship between systolic blood pressure (SBP) and covariates age and gender</p>
+<p>Questions of interest: For males and females of the same age, is SBP different, on average? Is the gender effect on SBP independent of age? Does mean SBP change with age? Is the age effect on SBP the same for males and females?</p>
+</div>
+<div class="frame">
+<p>Example: Main Effects Model</p>
+<p>Main effects model: <span class="math inline">\(SBP_i=\beta_0 + \beta_1 A_i + \beta_2 F_i + \epsilon_i\)</span> <span class="math inline">\(A_i=\)</span> age (years) <span class="math inline">\(F_i=I(\)</span>subject <span class="math inline">\(i\)</span> is female) Interpretation of parameters: <span class="math inline">\(\beta_0 =E[SBP|A=0,F=0]\)</span> <span class="math inline">\(\beta_1 = E[SBP|A=a+1,F=1] -E[SBP|A=a,F=1]\)</span> <span class="math inline">\({\color{white}{\beta_1}}= E[SBP|A=a+1,F=0] -E[SBP|A=a,F=0]\)</span> <span class="math inline">\(\beta_2 = E[SBP|A=a,F=1] - E[SBP|A=a,F=0]\)</span></p>
+</div>
+<div class="frame">
+<p>Example: Main Effects Model</p>
+<p>The main effects model implies the following relationship: lines have same slope, different intercepts The main effects model assumes no interaction between age and gender w.r.t. SBP</p>
+</div>
+<div class="frame">
+<p>Example: Interaction Model Interaction model: <span class="math inline">\(SBP_i = \beta_0 + \beta_1 A_i + \beta_2 F_i + \beta_3 A_iF_i + \epsilon_i\)</span> Can pose the question of interaction in two ways (symmetric): Is the age-adjusted difference in mean SBP between males and females constant across all ages? <span class="math inline">\(SBP_i = \beta_0 + \underbrace{\beta_1 A_i}_\text{age adjusted} + \underbrace{(\beta_2 +\beta_3 A_i)}_\text{sex effect} F_i+  \epsilon_i\)</span></p>
+<p>Is the sex-adjusted mean change in SBP per year of age equal for males and females? <span class="math inline">\(SBP_i = \beta_0 + \underbrace{\beta_2 F_i}_\text{sex adjusted} + \underbrace{(\beta_1+\beta_3F_i)}_\text{age effect} A_i + \epsilon_i\)</span></p>
+</div>
+<div class="frame">
+<p>Example: Interaction Model</p>
+<p>The interaction model implies two separate regression lines</p>
+<p><span class="math inline">\(SBP_i = \beta_0 + \beta_1 A_i + \beta_2 F_i + \beta_3 A_iF_i + \epsilon_i\)</span> For male (<span class="math inline">\(F=0\)</span>): <span class="math inline">\(SBP_i = \beta_0 + \beta_1 A_i +  \epsilon_i\)</span></p>
+<p>For female (<span class="math inline">\(F=1\)</span>):</p>
+<p><span class="math inline">\(SBP_i = (\beta_0+\beta_2) + (\beta_1+\beta_3)\; A_i + \epsilon_i\)</span></p>
+<p>The two lines have different slope, different intercepts</p>
+</div>
+<div class="frame">
+<p>Example: Interaction Model</p>
+<p>The interaction model implies the following relationship: lines have distinct intercepts and distinct slopes</p>
+</div>
+<div class="frame">
+<p>Example: Interaction Model</p>
+<p>Hypothesis testing</p>
+<p><span class="math inline">\(SBP_i = \beta_0 + \beta_1 A_i + \beta_2 F_i + \beta_3 A_iF_i + \epsilon_i\)</span> Question 1: Is the adjusted gender effect on SBP independent of age? Is the adjusted age effect on SBP the same for males and females? How to test for significance of interaction term? <span class="math inline">\(H_0:\)</span> <span class="math inline">\(H_1:\)</span> <span class="math inline">\(F=\)</span></p>
+<p><span class="math inline">\(T=\)</span></p>
+</div>
+<div class="frame">
+<p>Example: Interaction Model</p>
+<p>Hypothesis testing</p>
+<p><span class="math inline">\(SBP_i = \beta_0 + \beta_1 A_i + \beta_2 F_i + \beta_3 A_iF_i + \epsilon_i\)</span> Question 2: Does mean SBP change with age? What about sex? How to test for significance of a covariate, e.g., age? <span class="math inline">\(SBP_i = \beta_0 + (\beta_1+\beta_3F_i) A_i + \beta_2 F_i + \epsilon_i\)</span> <span class="math inline">\(H_0:\)</span> <span class="math inline">\(H_1:\)</span> <span class="math inline">\(F=\)</span></p>
+</div>
+<div class="frame">
+<p>Example: Interaction Model</p>
+<p>Recall the interaction model implies two separate regression lines</p>
+<p><span class="math inline">\(SBP_i = \beta_0 + \beta_1 A_i + \beta_2 F_i + \beta_3 A_iF_i + \epsilon_i\)</span> For male (<span class="math inline">\(F=0\)</span>): <span class="math inline">\(SBP_i = \beta_0 + \beta_1 A_i + \epsilon_i\)</span></p>
+<p>For female (<span class="math inline">\(F=1\)</span>): <span class="math inline">\(SBP_i = (\beta_0+\beta_2) + (\beta_1+\beta_3)\; A_i + \epsilon_i\)</span></p>
+<p>How to calculate 95% CI for age effect among females? Point estimate: <span class="math inline">\(\widehat{\beta}_1+\widehat{\beta}_3\)</span> Standard error: <span class="math inline">\(\text{SE}(\widehat{\beta}_1+\widehat{\beta}_3)=\sqrt{\widehat{Var}(\widehat{\beta}_1+\widehat{\beta}_3)}=\sqrt{\widehat{Var}(\widehat{\beta}_1)+\widehat{Var}(\widehat{\beta}_3)+2\widehat{Cov}(\widehat{\beta}_1,\widehat{\beta}_3)}\)</span></p>
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+<p>Shifting Covariates in Main Effects Model</p>
+<p>Main effects model: <span class="math inline">\(E[Y_i]=\beta_0 + \beta_1X_{i1} + \beta_2X_{i2}\)</span></p>
+<p>Shifting Covariates: set <span class="math inline">\(X_{i1}^*=X_{i1}-a\)</span>, <span class="math inline">\(X_{i2}^*=X_{i2}-b\)</span></p>
+Revised model: $$
+<span class="math display">\[\begin{aligned}
+        E[Y_i] &amp; = &amp;\beta_0^* + \beta_1^*X_{i1}^* + \beta_2^*X_{i2}^*
+        \nonumber \\ &amp; = &amp; \beta_0^* + \beta_1^*(X_{i1}-a) +
+        \beta_2^*(X_{i2}-b)
+        \nonumber
+    
+\end{aligned}\]</span>
+<p>$$</p>
+Examining the parameters: $$
+<span class="math display">\[\begin{aligned}
+        \beta_1^* &amp; = &amp; \frac{\partial E[Y_i\mid X_{i1},X_{i2}]}{\partial X_{i1}}
+        \;\;\;(=\beta_1)\nonumber \\
+        \beta_2^* &amp; = &amp; \frac{\partial E[Y_i\mid X_{i1},X_{i2}]}{\partial X_{i2}}
+        \;\;\;(=\beta_2) \nonumber \\
+        \beta_0^* &amp; = &amp;
+        E[Y_i|X_{i1}=a,X_{i1}=b] \;(\neq \beta_0:  E[Y_i|X_{i1}=0,X_{i1}=0]) \nonumber
+    
+\end{aligned}\]</span>
+<p>$$</p>
+<p>Therefore, in the <em>main effects</em> model shifting covariates impacts the intercept, but not the regression parameters <span class="math inline">\(\{\beta_j;j&gt;0\}\)</span></p>
+</div>
+<div class="frame">
+<p>Shifting Covariates in Interaction Model</p>
+<p>Interaction model: <span class="math inline">\(E[Y_i]=\beta_0 + \beta_1X_{i1} + \beta_2X_{i2}+ \beta_3X_{i1}X_{i2}\)</span></p>
+<p>Shifting Covariates: set <span class="math inline">\(X_{i1}^*=X_{i1}-a\)</span>, <span class="math inline">\(X_{i2}^*=X_{i2}-b\)</span></p>
+Revised model: $$
+<span class="math display">\[\begin{aligned}
+        E[Y_i] &amp;= &amp; \beta_0^* + \beta_1^*X_{i1}^* + \beta_2^*X_{i2}^* +
+        \beta_3^*X_{i1}^*X_{i2}^* \nonumber \\
+        &amp; = &amp;
+        \beta_0^* + \beta_1^*(X_{i1}-a) + \beta_2^*(X_{i2}-b) + \beta_3^*(X_{i1}-a)(X_{i2}-b)
+        \nonumber
+    
+\end{aligned}\]</span>
+<p>$$ Examining the parameters: Clearly, <span class="math inline">\(\beta_0^*\neq \beta_0\)</span> $ = _1^* + _3^*(X_{i2}-b)_1^*$ recall: $_1$, therefore <span class="math inline">\(\beta_1^*\neq \beta_1\)</span> (unless <span class="math inline">\(b=0\)</span>) Similarly, <span class="math inline">\(\beta_2^*\neq \beta_2\)</span> However, <span class="math inline">\(\beta_3^* = \frac{\partial^2 E[Y_i\mid X_{i1},X_{i2}]}{\partial X_{i1}\partial  X_{i2}} = \beta_3\)</span></p>
+<p>Therefore, in the <em>interaction</em> model shifting covariates impacts everything but the interaction parameters</p>
+</div>
+<div class="frame">
+<p>Interpretation in Interaction Model</p>
+<p>Conclusion: interaction coefficient does not depend on shifting/centering</p>
+<p>In a model with interaction, interpret the main effect with caution: you need to know where the covariates are centered and this centering value should be meaningful to your data<br>
+For example: <span class="math inline">\(SBP_i = \beta_0 + \beta_1 A_i + \beta_2 F_i + \beta_3 A_iF_i +  \epsilon_i\)</span></p>
+<p><span class="math inline">\(\beta_1=\)</span> <span class="math inline">\(\beta_2=\)</span></p>
+</div>
+<div class="frame">
+<p>Questions?</p>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

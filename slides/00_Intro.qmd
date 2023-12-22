@@ -1,0 +1,95 @@
+---
+title: "Welcome to BSTA 512!"
+author: "Nicky Wakim"
+title-slide-attributes:
+    data-background-color: "#213c96"
+date: "1/8/2023"
+categories: ["Week 1"]
+format: 
+  revealjs:
+    theme: [default, simple_NW.scss]
+    toc: true
+    toc-depth: 1
+    toc-title: Class Overview
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1600
+    height: 1100
+    footer: Intro
+---
+
+## Nicky Wakim (she/her)
+
+::: columns
+::: {.column width="45%"}
+-   **Call me "Nicky," "Dr. W," "Professor Wakim," or any combo!**
+
+-   Assistant Professor of Biostatistics
+
+     
+
+-   Originally from DC area (Virginia side!)
+
+-   Two kitties
+
+-   Volleyball, biking, spikeball, pickleball
+
+-   But also sleeping, TV, and reading
+
+-   Just started taking a couple classes at PCC (French, ceramics, yoga)
+
+-   Slowly regrowing my plant collection after moving from Michigan
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="25%"}
+![](/images/Intro_slides/bike.JPG){width="450"} ![](/images/Intro_slides/cats.mov){width="450"} ![](/images/Intro_slides/crater_lake.jpeg){width="450"}
+:::
+
+::: {.column width="25%"}
+![](/images/Intro_slides/Narrows.JPG){width="450"}
+:::
+:::
+
+## Some important tasks
+
+-   [Join the Slack page!](https://join.slack.com/t/bsta550f23/shared_invite/zt-234443trn-SJOPMHIuUdZaVgSuFBHHIQ)
+
+-   Star the class website: <https://nwakim.github.io/F2023_BSTA_550/>
+
+-   Complete the [WhenIsGood](https://whenisgood.net/BSTA_550_OH) for office hours
+
+-   Complete Homework 0 by this Thursday at 11pm!
+
+-   Highly suggest that you make an appointment with a learning specialist through [Student Academic Support Services](https://sakai.ohsu.edu/portal/site/Student_Support)!
+
+## Let's visit the website
+
+-   Homepage
+
+    -   GitHub
+
+-   Syllabus
+
+-   Schedule
+
+    -   Weeks, class info, exams, homeworks
+
+-   Search
+
+::: definition
+::: def-title
+Important Note
+:::
+
+::: def-cont
+**This is my first time teaching the course.** I will work hard to answer your questions in class, but I will often need some time outside of class to make sure I give you the best answer possible! Also, many of the examples are not my own. I will work to improve examples, but if you have feedback or suggestions, I am happy to hear them!
+:::
+:::
+
+## Let's go through the syllabus!
+
+[Syllabus page](https://nwakim.github.io/F2023_BSTA_550/syllabus.html)

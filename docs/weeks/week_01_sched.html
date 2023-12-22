@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-09-25">
-<meta name="description" content="Outcomes, Events, and Sample Space; Probability; and Counting">
+<meta name="dcterms.date" content="2024-01-08">
+<meta name="description" content="Introduction; Review; Exploratory Data Analysis; and Case Studies">
 
-<title>Introduction to Probability - Week 1</title>
+<title>Linear Models - Week 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,8 +63,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -79,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
     <img src="../images/bsta_550_hex_3.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Introduction to Probability</span>
+    <span class="navbar-title">Linear Models</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -294,21 +292,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#resources" id="toc-resources" class="nav-link active" data-scroll-target="#resources">Resources</a></li>
   <li><a href="#on-the-horizon" id="toc-on-the-horizon" class="nav-link" data-scroll-target="#on-the-horizon">On the Horizon</a></li>
   <li><a href="#class-exit-tickets" id="toc-class-exit-tickets" class="nav-link" data-scroll-target="#class-exit-tickets">Class Exit Tickets</a></li>
-  <li><a href="#additional-information" id="toc-additional-information" class="nav-link" data-scroll-target="#additional-information">Additional Information</a>
-  <ul class="collapse">
-  <li><a href="#extra-practicelearning" id="toc-extra-practicelearning" class="nav-link" data-scroll-target="#extra-practicelearning">Extra Practice/Learning</a></li>
-  </ul></li>
+  <li><a href="#additional-information" id="toc-additional-information" class="nav-link" data-scroll-target="#additional-information">Additional Information</a></li>
   <li><a href="#statistician-of-the-week-regina-nuzzo" id="toc-statistician-of-the-week-regina-nuzzo" class="nav-link" data-scroll-target="#statistician-of-the-week-regina-nuzzo">Statistician of the Week: Regina Nuzzo</a></li>
-  <li><a href="#muddiest-points" id="toc-muddiest-points" class="nav-link" data-scroll-target="#muddiest-points">Muddiest Points</a>
-  <ul class="collapse">
-  <li><a href="#why-is-the-number-of-possible-events-2s" id="toc-why-is-the-number-of-possible-events-2s" class="nav-link" data-scroll-target="#why-is-the-number-of-possible-events-2s">1. Why is the number of possible events <span class="math inline">\(2^{|S|}\)</span>?</a></li>
-  <li><a href="#what-is-an-event" id="toc-what-is-an-event" class="nav-link" data-scroll-target="#what-is-an-event">2. What is an event??</a></li>
-  <li><a href="#confusion-on-the-venn-diagram-for-the-high-blood-pressure-example" id="toc-confusion-on-the-venn-diagram-for-the-high-blood-pressure-example" class="nav-link" data-scroll-target="#confusion-on-the-venn-diagram-for-the-high-blood-pressure-example">3. Confusion on the Venn Diagram for the high blood pressure example</a></li>
-  <li><a href="#proofs-of-propositions" id="toc-proofs-of-propositions" class="nav-link" data-scroll-target="#proofs-of-propositions">4. Proofs of propositions</a></li>
-  <li><a href="#example-at-end-of-chapter-2-slides-venn-diagram" id="toc-example-at-end-of-chapter-2-slides-venn-diagram" class="nav-link" data-scroll-target="#example-at-end-of-chapter-2-slides-venn-diagram">5. Example at end of Chapter 2 slides (Venn Diagram)</a></li>
-  <li><a href="#partition-of-events" id="toc-partition-of-events" class="nav-link" data-scroll-target="#partition-of-events">6. Partition of events</a></li>
-  </ul></li>
-  <li><a href="#clearest-points" id="toc-clearest-points" class="nav-link" data-scroll-target="#clearest-points">Clearest Points</a></li>
+  <li><a href="#muddiest-points" id="toc-muddiest-points" class="nav-link" data-scroll-target="#muddiest-points">Muddiest Points</a></li>
   </ul>
 </nav>
     </div>
@@ -322,7 +308,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Outcomes, Events, and Sample Space; Probability; and Counting
+    Introduction; Review; Exploratory Data Analysis; and Case Studies
   </div>
 </div>
 
@@ -333,14 +319,14 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 25, 2023</p>
+      <p class="date">January 8, 2024</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 30, 2023</p>
+      <p class="date-modified">November 8, 2024</p>
     </div>
   </div>
     
@@ -353,7 +339,7 @@ ul.task-list li input[type="checkbox"] {
 <style type="text/css">
 .title{
   font-size: 40px;
-  color: #006a4e;
+  color: #213c96;
   background-color: #fff;
   padding: 10px;
 }
@@ -361,18 +347,18 @@ ul.task-list li input[type="checkbox"] {
 .description{
   font-size: 20px;
   color: #fff;
-  background-color: #006a4e;
+  background-color: #213c96;
   padding: 10px;
 }
 </style>
 </div>
 <section id="resources" class="level2">
 <h2 class="anchored" data-anchor-id="resources">Resources</h2>
-<p>Below is a table with links to resources. Icons in <span style="color:#E25D3B;">orange</span> mean there is an available file link.</p>
+<p>Below is a table with links to resources. Icons in <span style="color:#E89543;">orange</span> mean there is an available file link.</p>
 <table class="table">
 <thead>
 <tr class="header">
-<th>Chapter</th>
+<th>Lesson</th>
 <th>Topic</th>
 <th style="text-align: center;">Slides</th>
 <th style="text-align: center;">Annotated Slides</th>
@@ -383,34 +369,20 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td></td>
 <td>Intro</td>
-<td style="text-align: center;"><span style="color:#49A3D1;"><a href="../slides/0_Intro.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/0_Intro.qmd"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
 </tr>
 <tr class="even">
 <td>1</td>
-<td>Outcomes, Events, and Sample Space</td>
-<td style="text-align: center;"><span style="color:#49A3D1;"><a href="../slides/1_Outcomes_Events_Sample.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/01_Outcomes_Events_Sample_02.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F01%5FOutcomes%5FEvents%5FSample%5F01%2Emp4&amp;referrer=OneDriveForBusiness&amp;referrerScenario=OpenFile"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F01%5FOutcomes%5FEvents%5FSample%5F02%2Emp4&amp;referrer=OneDriveForBusiness&amp;referrerScenario=OpenFile"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>Probability</td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/2_Probability.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/02_Probability.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F02%5FProbability%5F01%2Emp4&amp;referrer=OneDriveForBusiness&amp;referrerScenario=OpenFile"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F02%5FProbability%5F02%2Emp4&amp;referrer=OneDriveForBusiness&amp;referrerScenario=OpenFile"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span> <span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F02%5FProbability%5F03%2Emp4&amp;referrer=OneDriveForBusiness&amp;referrerScenario=OpenFile"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></td>
-</tr>
-<tr class="even">
-<td><del>22</del></td>
-<td><del>Introduction to Counting</del></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/22_Counting_Intro.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
+<td>Review</td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
 </tr>
 <tr class="odd">
-<td>23</td>
-<td>Case Study on Counting</td>
+<td>2</td>
+<td>Case Studies</td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
@@ -444,34 +416,6 @@ ul.task-list li input[type="checkbox"] {
 <li>Please join the Slack page</li>
 <li>Please read the syllabus on your own time</li>
 </ul>
-<section id="extra-practicelearning" class="level3">
-<h3 class="anchored" data-anchor-id="extra-practicelearning">Extra Practice/Learning</h3>
-<ul>
-<li>If you would like a Calculus review, please see <a href="../readings/Calc_review.html">this page</a>!</li>
-<li>Combinatorics practice problems
-<ul>
-<li><a href="../weeks/week_01/Ch22-combinatorics-practice-B550.pdf">handout</a> (&amp; <a href="../weeks/week_01/Ch22-combinatorics-practice-B550-ANSWERS.pdf">answers</a>)</li>
-<li>Try to complete as many of these as you can before class on Wednesday.</li>
-<li>We will discuss some of them Wednesday in class.</li>
-</ul></li>
-<li>Pixar has a <a href="https://www.khanacademy.org/partner-content/pixar/crowds">series of videos</a> explaining how they use combinatorics in making animations
-<ul>
-<li>This is a great &amp; fun introduction to the basic principles of counting</li>
-<li>I highly recommend looking at them, especially if you have not studied permutations and combinations before.</li>
-</ul></li>
-<li>There is a table on p.&nbsp;277 of the book with formulas for 4 different common counting cases (does order matter (y/n) vs.&nbsp;sampling with replacement (y/n).
-<ul>
-<li>In class we covered all cases except “order does not matter and sampling with replacement.”
-<ul>
-<li>This case is often referred to as the “stars and bars” problem.</li>
-<li>See <a href="https://brilliant.org/wiki/integer-equations-star-and-bars/">this page</a> for a proof to the Stars and Bars Theorem.
-<ul>
-<li>Note: <em>Their notation is opposite of what our textbook uses. The website uses k instead of n and n instead of r.</em></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
 </section>
 <section id="statistician-of-the-week-regina-nuzzo" class="level2">
 <h2 class="anchored" data-anchor-id="statistician-of-the-week-regina-nuzzo">Statistician of the Week: Regina Nuzzo</h2>
@@ -518,77 +462,6 @@ She is the <a href="https://www.amstat.org/news-listing/2021/10/08/asa-welcomes-
 </section>
 <section id="muddiest-points" class="level2">
 <h2 class="anchored" data-anchor-id="muddiest-points">Muddiest Points</h2>
-<section id="why-is-the-number-of-possible-events-2s" class="level3">
-<h3 class="anchored" data-anchor-id="why-is-the-number-of-possible-events-2s">1. Why is the number of possible events <span class="math inline">\(2^{|S|}\)</span>?</h3>
-<p>In class, we were wondering why/if <span class="math inline">\(2^{|S|}\)</span> is the general formula for calculating the total number of possible events. We were specifically wondering if the <span class="math inline">\(2\)</span> came from the fact that we had two options (heads and tails) for our outcome. Let’s work through the example of a 6-sided die to explain this further. The sample space is <span class="math inline">\(S=\{1, 2, 3, 4, 5, 6\}\)</span>. So is the total number of possible events <span class="math inline">\(2^6\)</span> or <span class="math inline">\(6^6\)</span> or something else? We can actually think about an event by using an indicator variable for each outcome of the sample space. An indicator variable is just a way to give us a yes/no answer to a question. So in this case, we are wondering: is this outcome a part of our event? If our <strong>event</strong> is <span class="math inline">\(\{1\}\)</span> then for the outcome <span class="math inline">\(1\)</span>, the answer is “yes, the outcome is part of the event. For outcomes <span class="math inline">\(2-6\)</span>, the answer is”no, the outcome is not apart of the event.”</p>
-<p><img src="week_01/event_1.png" class="img-fluid"></p>
-<p>For each outcome, we have a “yes” or “no” answer. We can look at another example of an event. Let’s say our event is rolling an even number:</p>
-<p><img src="week_01/event_2.png" class="img-fluid"></p>
-<p>For <span class="math inline">\(2\)</span>, <span class="math inline">\(4\)</span>, and <span class="math inline">\(6\)</span>, the answer is “yes.” We can define the indicator variable for whether an outcome is in an event or not. The indicator gives a 1 or 0 for yes and no respectively.</p>
-<p><img src="week_01/indicator.png" class="img-fluid"></p>
-<p>As stated above, the <span class="math inline">\(2\)</span> in <span class="math inline">\(2^6\)</span> comes from the <span class="math inline">\(2\)</span> options from our indicator. Each side has two options, and there are <span class="math inline">\(6\)</span> sides. Thus, <span class="math inline">\(2^6\)</span> possible events.</p>
-</section>
-<section id="what-is-an-event" class="level3">
-<h3 class="anchored" data-anchor-id="what-is-an-event">2. What is an event??</h3>
-<p>I think this will become clearer when we start thinking about events in the context of probability. When we think of <strong>events outside of probability</strong>, we may think of something we actually do or something that happens, like going to a concert or coming to class or missing the streetcar. In this case, we think of the event as the single thing (out of all the options) that actually occured. For example, if I’m taking the streetcar to class, I can think of two definitive options of what <em>might</em> occur: I miss the streetcar or I get on the streetcar. Only one of these things can occur, which I may call an event <em>colloquially</em>.</p>
-<p>It is important to make the distinction with <strong>events defined within probability</strong>. Events are not necessarily a single thing that occurred. Instead it can be a collection of things that may occur. In the example of the streetcar, I can define my event to include both options. Thus, my event is that I make the streetcar or I miss it. Both of these things cannot happen simultaneously, but if I want to calculate the probability that I miss or make the streetcar, then it is helpful to have the event defined.</p>
-</section>
-<section id="confusion-on-the-venn-diagram-for-the-high-blood-pressure-example" class="level3">
-<h3 class="anchored" data-anchor-id="confusion-on-the-venn-diagram-for-the-high-blood-pressure-example">3. Confusion on the Venn Diagram for the high blood pressure example</h3>
-<p>This is in reference to the Chapter 1 notes on “BP example variation (3/3)” slide. I explained the event that at least one subject does not have high blood pressure using a venn diagram. In this venn diagram, I assumed <span class="math inline">\(n=4\)</span>, and I wanted to show that the union of complements is equal to the complement of unions: <span class="math inline">\(\bigcup\limits_{i=1}^{n}H_i^C = \Big(\bigcap\limits_{i=1}^{n}H_i\Big)^C\)</span>.</p>
-<p><img src="week_01/Muddy_point_3_1.png" class="img-fluid"></p>
-<p><img src="week_01/Muddy_point_3_2.png" class="img-fluid"> Now we can look at <span class="math inline">\(\bigcup\limits_{i=1}^{4}H_i^C\)</span>. We first need to define <span class="math inline">\(H_i^c\)</span></p>
-<p><img src="week_01/Muddy_point_3_3.png" class="img-fluid"></p>
-<p><img src="week_01/Muddy_point_3_4.png" class="img-fluid"></p>
-<p><img src="week_01/Muddy_point_3_5.png" class="img-fluid"></p>
-</section>
-<section id="proofs-of-propositions" class="level3">
-<h3 class="anchored" data-anchor-id="proofs-of-propositions">4. Proofs of propositions</h3>
-<p>Further explanations of the propositions can be found in the textbook from pages 24-27. For many of the explanations in class, I was working to produce a union of disjoint events, so that the probability could easily be calculated. Proposition 3 and 4 were specifically mentioned, so I will include some writing notes on them here:</p>
-<section id="proposition-3" class="level4">
-<h4 class="anchored" data-anchor-id="proposition-3">Proposition 3</h4>
-<p>If <span class="math inline">\(A \subseteq B\)</span>, then <span class="math inline">\(\mathbb{P}(A) \leq \mathbb{P}(B)\)</span></p>
-<p>In this proposition, I want to define event <span class="math inline">\(B\)</span> as a union of disjoint events so that I can show <span class="math inline">\(P(B)\)</span> is the sum of <span class="math inline">\(P(A)\)</span> and some greater-than-or-equal-to 0 probability event. If the following is my venn diagram of A and B:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="week_01/Muddy_point_4_1_1.png" class="img-fluid figure-img" width="391"></p>
-</figure>
-</div>
-<p>Then I can define B as the union of disjoint events: <img src="week_01/Muddy_point_4_1_2.png" class="img-fluid"></p>
-<p>If we then take the probability of each side of the equation <span class="math inline">\(B = A \cup (A^c \cap B)\)</span>, we get <span class="math display">\[P(B) = P\big(A \cup (A^c \cap B)\big)\]</span></p>
-<p>Since events <span class="math inline">\(A\)</span> and <span class="math inline">\(A^c \cap B\)</span> are disjoint, the probability of their union is just: <span class="math display">\[P(A) + P(A^c \cap B)\]</span></p>
-<p>Thus, our equation is now <span class="math display">\[P(B) = P(A) + P(A^c \cap B)\]</span></p>
-<p>From Axiom 1, we know for event <span class="math inline">\(A^c \cap B\)</span>, <span class="math inline">\(P(A^c \cap B) \geq 0\)</span>.</p>
-<p>So the probability of event B is the sum of the probability of event A and an event that is <span class="math inline">\(\geq\)</span> 0. This means <span class="math inline">\(P(B) \geq P(A)\)</span>.</p>
-</section>
-<section id="proposition-4" class="level4">
-<h4 class="anchored" data-anchor-id="proposition-4">Proposition 4</h4>
-<p><span class="math inline">\(\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(A \cap B)\)</span></p>
-<p><img src="week_01/Muddy_point_4_2_1.png" class="img-fluid"></p>
-<p><img src="week_01/Muddy_point_4_2_2.png" class="img-fluid"></p>
-<p>From the pictures above, we can see some similar disjoint events.</p>
-<p>If we look back at <span class="math inline">\(A \cup B\)</span>, we can start manipulating the right side of the equation:</p>
-<p><img src="week_01/Muddy_point_4_2_3.png" class="img-fluid"></p>
-<p><img src="week_01/Muddy_point_4_2_4.png" class="img-fluid"> <img src="week_01/Muddy_point_4_2_5.png" class="img-fluid"></p>
-</section>
-</section>
-<section id="example-at-end-of-chapter-2-slides-venn-diagram" class="level3">
-<h3 class="anchored" data-anchor-id="example-at-end-of-chapter-2-slides-venn-diagram">5. Example at end of Chapter 2 slides (Venn Diagram)</h3>
-<p>I will post this in the previous week’s Muddy Points as well. <a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F02%5FProbability%5Fexample%2Emp4&amp;referrer=OneDriveForBusiness&amp;referrerScenario=OpenFile">Please follow this link for my work through of the example.</a> And <a href="../slides_annotated/02_Probability_example.pdf">here is the PDF with my work</a>.</p>
-<p><strong>Sub-question:</strong> why don’t we just multiply the probability of A and B to get the intersection? This is a specific property of probability when A and B are independent. Only when A and B are independent can we conclude that <span class="math inline">\(P(A \cap B) = P(A)P(B)\)</span>.</p>
-</section>
-<section id="partition-of-events" class="level3">
-<h3 class="anchored" data-anchor-id="partition-of-events">6. Partition of events</h3>
-<p>We’ve been working with event partitions throughout Chapter 2, but we have not formally identified them. Partitions are advantageous to define for two reasons:</p>
-<ol type="1">
-<li><p>The partitions may be easier to calculate. We can then use the partitions to reconstruct other probabilities that may be more difficult to calculate</p></li>
-<li><p>Partitions have nice properties as a consequence of being disjoint. For example, the probability of the union of partitions is the sum of the probabilities across each partition: <span class="math display">\[P\bigg(\bigcup_{i=1}^n A_i\bigg) = P(A_1)P(A_2)P(A_3) \cdot \cdot \cdot P(A_n)\]</span></p></li>
-</ol>
-</section>
-</section>
-<section id="clearest-points" class="level2">
-<h2 class="anchored" data-anchor-id="clearest-points">Clearest Points</h2>
-<p>Mostly: heads/tails example, sample space, how to draw a quarter, possible events for two coins.</p>
 
 
 </section>

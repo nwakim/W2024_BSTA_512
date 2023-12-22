@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-10-09">
-<meta name="description" content="RVs; PMFs and CDFs; and Independence and Conditioning">
+<meta name="dcterms.date" content="2024-01-22">
+<meta name="description" content="SLR Hypothesis Testing">
 
-<title>Introduction to Probability - Week 3</title>
+<title>Linear Models - Week 3</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -113,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <img src="../images/bsta_550_hex_3.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Introduction to Probability</span>
+    <span class="navbar-title">Linear Models</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -334,7 +334,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#breast-cancer-example-with-bayes-theorem" id="toc-breast-cancer-example-with-bayes-theorem" class="nav-link" data-scroll-target="#breast-cancer-example-with-bayes-theorem">1. Breast Cancer Example with Bayes Theorem</a></li>
   <li><a href="#random-variables" id="toc-random-variables" class="nav-link" data-scroll-target="#random-variables">2. Random Variables??</a></li>
-  <li><a href="#why-is-is-incorrect-to-say-x-geq-5-in-our-defined-household-random-variable" id="toc-why-is-is-incorrect-to-say-x-geq-5-in-our-defined-household-random-variable" class="nav-link" data-scroll-target="#why-is-is-incorrect-to-say-x-geq-5-in-our-defined-household-random-variable">3. Why is is incorrect to say <span class="math inline">\(x \geq 5\)</span> in our defined household random variable?</a></li>
+  <li><a href="#why-is-is-incorrect-to-say-omega-geq-5-in-our-defined-household-random-variable-and-incorrect-to-say-x-geq-5-in-the-pmf-and-why-can-we-use-inequalities-like-3-leq-x-4-in-our-cdf" id="toc-why-is-is-incorrect-to-say-omega-geq-5-in-our-defined-household-random-variable-and-incorrect-to-say-x-geq-5-in-the-pmf-and-why-can-we-use-inequalities-like-3-leq-x-4-in-our-cdf" class="nav-link" data-scroll-target="#why-is-is-incorrect-to-say-omega-geq-5-in-our-defined-household-random-variable-and-incorrect-to-say-x-geq-5-in-the-pmf-and-why-can-we-use-inequalities-like-3-leq-x-4-in-our-cdf">3. Why is is incorrect to say <span class="math inline">\(\omega \geq 5\)</span> in our defined household random variable? And incorrect to say <span class="math inline">\(x \geq 5\)</span> in the pmf? And why can we use inequalities, like <span class="math inline">\(3 \leq x &lt; 4\)</span>, in our CDF?</a></li>
   <li><a href="#what-is-cdf-and-what-is-it-good-for" id="toc-what-is-cdf-and-what-is-it-good-for" class="nav-link" data-scroll-target="#what-is-cdf-and-what-is-it-good-for">4. What is CDF? And what is it good for?</a></li>
   <li><a href="#whats-up-with-the-subtle-changes-in-notation" id="toc-whats-up-with-the-subtle-changes-in-notation" class="nav-link" data-scroll-target="#whats-up-with-the-subtle-changes-in-notation">5. What’s up with the subtle changes in notation?</a></li>
   </ul></li>
@@ -351,7 +351,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    RVs; PMFs and CDFs; and Independence and Conditioning
+    SLR Hypothesis Testing
   </div>
 </div>
 
@@ -362,14 +362,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 9, 2023</p>
+      <p class="date">January 22, 2024</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 10, 2023</p>
+      <p class="date-modified">December 10, 2023</p>
     </div>
   </div>
     
@@ -382,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <style type="text/css">
 .title{
   font-size: 40px;
-  color: #006a4e;
+  color: #213c96;
   background-color: #fff;
   padding: 10px;
 }
@@ -390,13 +390,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 .description{
   font-size: 20px;
   color: #fff;
-  background-color: #006a4e;
+  background-color: #213c96;
   padding: 10px;
 }
 </style>
 </div>
 <section id="resources" class="level2">
 <h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<p>Topics:</p>
+<ul>
+<li><p>hypothesis testing</p>
+<ul>
+<li><p>slope</p></li>
+<li><p>intercept</p></li>
+</ul></li>
+<li><p>sums of squares (ANOVA table?)</p></li>
+<li><p>coefficient of determination</p></li>
+<li><p>F test: overall fit</p></li>
+</ul>
 <p>Below is a table with links to resources. Icons in <span style="color:#E25D3B;">orange</span> mean there is an available file link.</p>
 <table class="table">
 <thead>
@@ -412,28 +423,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>5</td>
 <td>Bayes’ Theorem</td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/5_Bayes_Theorem.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/5_Bayes_Theorem.qmd"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/05_Bayes_Theorem.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F05%5FBayes%5FTheorem%5F01%2Emp4"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span> <span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F05%5FBayes%5FTheorem%5F02%2Emp4"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></td>
 </tr>
 <tr class="even">
 <td>7</td>
 <td>Random Variables</td>
-<td style="text-align: center;"><span style="color:#49A3D1;"><a href="../slides/7_Random_Variables.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
+<td style="text-align: center;"><span style="color:#49A3D1;"><a href="../slides/7_Random_Variables.qmd"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/07_Random_variables.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F07%5FRandom%5FVariables%2Emp4"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></td>
 </tr>
 <tr class="odd">
 <td>8</td>
 <td>pmf’s and CDFs</td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/8_pmfs_and_cdfs.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/8_pmfs_and_cdfs.qmd"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/08_pmf_cdf.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F08%5Fpmfs%5FCDFs%2Emp4"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></td>
 </tr>
 <tr class="even">
 <td>9</td>
 <td>Independence and Conditioning (Joint Distributions)</td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/9_joint_distributions.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/9_joint_distributions.qmd"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/09_joint_distributions.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F09%5Fjoint%5Fdistributions%2Emp4"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></td>
 </tr>
@@ -564,10 +575,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </section>
-<section id="why-is-is-incorrect-to-say-x-geq-5-in-our-defined-household-random-variable" class="level3">
-<h3 class="anchored" data-anchor-id="why-is-is-incorrect-to-say-x-geq-5-in-our-defined-household-random-variable">3. Why is is incorrect to say <span class="math inline">\(x \geq 5\)</span> in our defined household random variable?</h3>
+<section id="why-is-is-incorrect-to-say-omega-geq-5-in-our-defined-household-random-variable-and-incorrect-to-say-x-geq-5-in-the-pmf-and-why-can-we-use-inequalities-like-3-leq-x-4-in-our-cdf" class="level3">
+<h3 class="anchored" data-anchor-id="why-is-is-incorrect-to-say-omega-geq-5-in-our-defined-household-random-variable-and-incorrect-to-say-x-geq-5-in-the-pmf-and-why-can-we-use-inequalities-like-3-leq-x-4-in-our-cdf">3. Why is is incorrect to say <span class="math inline">\(\omega \geq 5\)</span> in our defined household random variable? And incorrect to say <span class="math inline">\(x \geq 5\)</span> in the pmf? And why can we use inequalities, like <span class="math inline">\(3 \leq x &lt; 4\)</span>, in our CDF?</h3>
+<p>Random variable part: <span class="math display">\[X(\omega)= \left\{
+        \begin{array}{ll}
+            \omega &amp; \quad \omega=1, 2, 3, 4\\
+            5+ &amp; \quad \omega = 5, 6, 7, ...
+        \end{array}
+    \right.\]</span></p>
 <ul>
-<li>I’m not clear on why PMFs have to be defined by w=1,2,3 etc and CDFs have to be x&lt;3 etc</li>
+<li><p>Why can’t we say <span class="math inline">\(\omega \geq 5\)</span>? If values <span class="math inline">\(5, 6, 7, …\)</span> are the only values greater than <span class="math inline">\(5\)</span> that are defined in the sample space, doesn’t <span class="math inline">\(\omega \geq 5\)</span> mean the same thing as <span class="math inline">\(\omega = 5, 6, 7, ...\)</span>?</p>
+<ul>
+<li>Since a number like 5.5 is not possible within our sample space,</li>
+</ul></li>
+</ul>
+<p>Here is the pmf for our household example: <span class="math display">\[p_X(x)= \left\{
+        \begin{array}{ll}
+            0.28 &amp; \quad x = 1\\
+            0.35 &amp; \quad x = 2\\
+            0.15 &amp; \quad x = 3\\
+            0.13 &amp; \quad x = 4\\
+            0.09 &amp; \quad x = 5+ \\
+            0    &amp; \quad \text{otherwise}
+        \end{array}
+    \right.\]</span></p>
+<ul>
+<li>When it comes to the pmf, we cannot use <span class="math inline">\(x \geq 5\)</span> or <span class="math inline">\(1 \leq x &lt; 2\)</span> instead of <span class="math inline">\(x=5+\)</span> or <span class="math inline">\(x=1\)</span> because <span class="math inline">\(x \geq 5\)</span> and <span class="math inline">\(1 \leq x &lt; 2\)</span> implies values like <span class="math inline">\(x=1.3\)</span> and <span class="math inline">\(x=200.01\)</span> will have a non-zero probability. Both of those values are included in the “otherwise” portion of the pmf, and have a probability of <span class="math inline">\(0\)</span>.</li>
+</ul>
+<p>Here is the CDF for our household example: <span class="math display">\[F_X(x)= \left\{
+        \begin{array}{ll}
+            0 &amp; \quad x &lt; 1\\
+            0.28 &amp; \quad 1 \leq x &lt; 2\\
+            0.63 &amp; \quad 2 \leq x &lt; 3\\
+            0.78 &amp; \quad 3 \leq x &lt; 4\\
+            0.91 &amp; \quad 4 \leq x &lt; 5 \\
+            1   &amp; \quad x \geq 5
+        \end{array}
+    \right.\]</span></p>
+<ul>
+<li>For the CDF, when we calculate <span class="math inline">\(F_X(x=1.3)\)</span>, for a discrete RV, there is no difference between <span class="math inline">\(F_X(x=1.3)\)</span> and <span class="math inline">\(F_X(x=1)\)</span>. <span class="math inline">\(F_X(x=1)\)</span> certainly feels more appropriate because <span class="math inline">\(x=1\)</span> and <span class="math inline">\(p_X(1)\)</span> is explicitly defined in our pmf. However, <span class="math inline">\(p_X(1.3)\)</span> is also defined in our pmf. It falls under the “otherwise” category. Thus, <span class="math inline">\(p_X(1.3) = 0\)</span> and for every value <span class="math inline">\(1 &lt; x &lt; 2\)</span> the probability is <span class="math inline">\(0\)</span>. So for <span class="math inline">\(1 &lt; x &lt; 2\)</span>, there is no additional probability added into the CDF. Thus, <span class="math inline">\(F_X(x)\)</span> for <span class="math inline">\(1 &lt; x &lt; 2\)</span> is the same as <span class="math inline">\(F_X(1) = 0.28\)</span>.</li>
 </ul>
 </section>
 <section id="what-is-cdf-and-what-is-it-good-for" class="level3">
@@ -618,6 +664,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="whats-up-with-the-subtle-changes-in-notation" class="level3">
 <h3 class="anchored" data-anchor-id="whats-up-with-the-subtle-changes-in-notation">5. What’s up with the subtle changes in notation?</h3>
+<ul>
+<li><p>What’s the difference between <span class="math inline">\(X(\omega)\)</span> and <span class="math inline">\(x\)</span>?</p>
+<ul>
+<li><p>In class we defined <span class="math inline">\(X(\omega) = x\)</span>. We call <span class="math inline">\(X(\omega)\)</span> or <span class="math inline">\(X\)</span> the random variable and <span class="math inline">\(x\)</span> the realized value of that random variable.</p></li>
+<li><p>For example: If I roll 20 dice, what is the number of dice that come up with 6?</p>
+<ul>
+<li><p><span class="math inline">\(X\)</span> (or <span class="math inline">\(X(\omega)\)</span>) is the number of 6’s that come up</p></li>
+<li><p><span class="math inline">\(x\)</span> is the realized value (like 4 dice have 6’s) that can be observed</p></li>
+<li><p>The number of 6’s (<span class="math inline">\(X\)</span> or <span class="math inline">\(X(\omega)\)</span>) is not yet a realized value, but it can be any of the realized values, <span class="math inline">\(x\)</span>!</p></li>
+</ul></li>
+<li><p>I thought <a href="https://www.reddit.com/r/learnmath/comments/4ti8nm/what_is_the_difference_between_x_and_x_in_regards/">this Reddit thread</a> is pretty helpful!</p></li>
+</ul></li>
+</ul>
 
 
 </section>

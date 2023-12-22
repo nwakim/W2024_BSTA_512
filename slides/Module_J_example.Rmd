@@ -1,0 +1,94 @@
+---
+title: "Module_I"
+author: "Nicky Wakim"
+date: "10/30/2023"
+fontsize: 10pt
+output: 
+    beamer_presentation
+---
+
+```{r set-options, echo=FALSE, cache=FALSE}
+options(width = 70)
+```
+```{r  mysize=T, tidy=T, size='\\tiny', warning=F,echo=FALSE,eval=T}
+knitr::knit_hooks$set(mysize = 
+  function(before, options, envir){
+    if (before) return(options$size)
+  }
+)
+knitr::opts_chunk$set(fig.width=10, fig.height=6) 
+```
+## Example: 
++ Read in the data file (hdl.csv). (n = 26)
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+data = read.csv(file="hdl.csv",header=T)
+attach(data)
+head(data)
+```
+
+## The MLR model
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+G1 = as.numeric(group==1)
+G2 = as.numeric(group==2)
+G3 = as.numeric(group==3)
+wt = weight - mean(weight)
+m1 = lm(hdl~-1+I(G1)+I(G2)+I(G3)+I(G1*wt)+I(G2*wt)+I(G3*wt))
+# alternatively: lm(hdl~-1+factor(group)*wt-wt)
+summary(m1)$coef
+```
+
+## GLH test for parallelism
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+(Contrast.T = matrix(c(0,0,0,1,-1,0,0,0,0,0,1,-1),byrow=T,nrow=2))
+car::linearHypothesis(model=m1,hypothesis.matrix=Contrast.T,rhs=c(0,0))
+```
+
+
+## GLH test for equality of intercepts
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+(Contrast.T = matrix(c(1,-1,0,0,0,0,0,1,-1,0,0,0),byrow=T,nrow=2))
+car::linearHypothesis(model=m1,hypothesis.matrix=Contrast.T,rhs=c(0,0))
+```
+
+
+## The MLR model reparameterized
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+m2 = lm(hdl~I(G2)+I(G3)+I(wt)+I(G2*wt)+I(G3*wt))
+anova(m2) #Sequential SS (type I)
+(pval = 1-pf(q = (317.97+187.09)/2/85.62, df1 = 2, df2 = 20))
+```
+
+## Change ordering of covariates
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+m3 = lm(hdl~I(wt)+I(G2*wt)+I(G3*wt)+I(G2)+I(G3))
+anova(m3) #Sequential SS (type I)
+(pval = 1-pf(q = (509.73+25.24)/2/85.62, df1 = 2, df2 = 20))
+```
+
+## SS test Alternative 1: GLH formulation (slopes)
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+(Contrast.T = matrix(c(0,0,0,0,1,0,0,0,0,0,0,1),byrow=T,nrow=2))
+car::linearHypothesis(model=m2,hypothesis.matrix=Contrast.T,rhs=c(0,0))
+```
+
+## SS test Alternative 1: GLH formulation (intercepts)
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+(Contrast.T = matrix(c(0,1,0,0,0,0,0,0,1,0,0,0),byrow=T,nrow=2))
+car::linearHypothesis(model=m2,hypothesis.matrix=Contrast.T,rhs=c(0,0))
+```
+
+## SS test Alternative 2: ANOVA of nested models (slopes)
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+anova(
+  lm(hdl~I(G2)+I(G3)+I(wt)+I(G2*wt)+I(G3*wt)),
+  lm(hdl~I(G2)+I(G3)+I(wt))
+)
+```
+
+## SS test Alternative 2: ANOVA of nested models (intercepts)
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+anova(
+  lm(hdl~I(G2)+I(G3)+I(wt)+I(G2*wt)+I(G3*wt)),
+  lm(hdl~I(wt)+I(G2*wt)+I(G3*wt))
+)
+```

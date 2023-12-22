@@ -1,9 +1,9 @@
 ---
 title: "Homework 0"
-subtitle: "BSTA 550"
-description: "Due: Thursday September 28, 2023"
-date-modified: "09/14/2023"
-date: "9/28/2023"
+subtitle: "BSTA 512/612"
+description: "Due: Thursday Jnauary 11, 2024"
+date-modified: "12/21/2023"
+date: "1/11/2024"
 categories: [""]
 format: 
   html:
@@ -66,11 +66,10 @@ Please post an introduction in the `#random` channel on Slack. You ***do not nee
 -   Career interests
 -   Hobbies
 -   Family, children, and/or fur babies
--   Favorite/recent adventures, restaurants, TV shows, books, podcasts, etc.
+-   Favorite/recent adventures, restaurants, TV shows, books, podcasts, games, etc.
 -   Willingness to join a study group
--   Astrology sign
 -   Motivation for taking the course
--   Anticipated Fall trip/activity
+-   Anticipated Winter trip/activity
 
 Please feel free to get creative with what you share! You don't need to adhere to this list.
 

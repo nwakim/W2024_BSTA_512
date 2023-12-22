@@ -1,0 +1,10 @@
+{
+  "hash": "890b2e5e85933428c1ecb50576d4facf",
+  "result": {
+    "markdown": "---\ntitle: \"Project Central\"\ndate: \"1/8/2024\"\ndate-modified: \"12/21/2023\"\ncategories: [\"\"]\nformat: \n  html:\n    link-external-newwindow: true\n    toc: true\n  pdf: default\neditor_options: \n  chunk_output_type: console\n---\n\n```{css, echo=FALSE}\n.title{\n  font-size: 40px;\n  color: #213c96;\n  background-color: #fff;\n  padding: 0px;\n}\n```\n\n",
+    "supporting": [
+      "project_files/figure-pdf"
+    ],
+    "filters": []
+  }
+}

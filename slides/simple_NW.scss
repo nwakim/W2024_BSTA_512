@@ -10,11 +10,12 @@ $font-family-sans-serif: Lato, sans-serif !default;
 // colors
 $body-bg: #fff !default;
 $body-color: #000 !default;
-$link-color: #E25D3B !default;
+$link-color: #213c96 !default;
 $selection-bg: rgba(0, 0, 0, 0.99);
 
 // headings
 $presentation-heading-font: Signika, sans-serif !default;
+$presentation-heading-color: #213c96 !default;
 
 // My added divs
 
@@ -221,6 +222,36 @@ $presentation-heading-font: Signika, sans-serif !default;
   color: black;
   background-color: white;
   border-bottom-right-radius: 10px;
+}
+
+// Learning Objectives
+.lob{
+  margin-left: 0em;
+  padding-left:  25px;
+  padding-top:  5px;
+  padding-bottom: 0.1em;
+  color: white;
+  background-color: #213c96;
+  font-size: 1em;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  border-radius: 15px;
+}
+
+// highlight equation
+.heq{
+  margin-left: 0em;
+  padding-left:  25px;
+  padding-top:  5px;
+  padding-bottom: 0.1em;
+  color: white;
+  background-color: #75bfab;
+  font-size: 1em;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  border: 15px solid #34AC8B;
 }
 
 

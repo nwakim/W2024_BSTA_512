@@ -1,0 +1,15 @@
+---
+title: "Lab 4"
+subtitle: "BSTA 512/612"
+description: "Due: Thursday March 14, 2024"
+date-modified: "12/21/2024"
+date: "3/14/2024"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+  pdf: default 
+editor_options: 
+  chunk_output_type: console
+---

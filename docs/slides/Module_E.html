@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Linear Regression – module_e</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/bsta_550_hex_3.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Linear Regression</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../syllabus.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule1.html" rel="" target="">
+ <span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../class_slides.html" rel="" target="">
+ <span class="menu-text">Slides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../homeworks.html" rel="" target="">
+ <span class="menu-text">Homework</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Course Info</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../instructors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Course Materials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../class_slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class Slides</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homeworks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weekly Pages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_01_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_02_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_03_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_04_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_05_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_06_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_07_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_08_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_09_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_10_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_11_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<div class="frame">
+<p>Announcements About Midterm: Before the Exam</p>
+<p>Study slides, homework questions, and past exams. You will be tested on Modules A-E. Note that HW 3 solutions will be posted right after the deadline (Oct 4 at 11:59pm), thus any late submission will not be graded. There will not be a question that asks you to write R code to analyze data. However, you will interpret R output.</p>
+</div>
+<div class="frame">
+<p>Announcements About Midterm: During the Exam</p>
+<p>We will post information about classrooms for exam review and exams on Canvas soon.</p>
+<p>This is a in-person closed notes, closed book exam. You are allowed to bring <strong>1 standard sheet of paper</strong> with handwritten formulae (<strong>can use both sides of the paper</strong>) and a <strong>basic calculator</strong>.</p>
+<p>You may use a calculator. However, you must show step(s) prior to using the calculator <strong>(e.g., if you are evaluating a test statistic formed as a ratio of two quantities, show the two numbers as a ratio, and then the computed value obtained with the calculator)</strong>.</p>
+<p>**Do not “collaborate" with others during the exam.** Any perception of”collaboration" with others during the exam will be considered academic misconduct.</p>
+<p><strong>Turn off all cell phones</strong> and remove all headphones.</p>
+</div>
+<div class="frame">
+<p>Announcements About Midterm: During the Exam</p>
+<p>To get full credit, you must show all work unless something has been proved in class. Unsupported answers may receive no credit. There will be about 4 questions on the exam and each question will have multiple parts. There will be questions on True/False statements, data analysis and interpretation, and methods/theory. Questions will be very similar to materials covered in lecture slides, homework, and past exams, but not exactly the same. Note that the problems are not of equal difficulty, so you may want to skip over and return to a problem on which you are stuck.</p>
+</div>
+<div class="frame">
+<p><span style="color: royalblue"><strong>BIOSTAT 650<br>
+Theory and Application of Linear Regression<br>
+Module E: Multiple Linear Regression</strong></span></p>
+</div>
+<div class="frame">
+<p>Outline</p>
+<p>Topics:</p>
+<p>Interpreting model parameters</p>
+<p>Matrix representation</p>
+<p>Parameter estimation</p>
+<p>Properties of estimators</p>
+<p>Sums of squares</p>
+<p>Text (MPV, 4th Ed.): 3.1, 3.2, 3.3</p>
+</div>
+<div class="frame">
+<p>Multiple Regression: Introduction Simple linear regression (SLR):</p>
+<p><span class="math inline">\(Y_i=\beta_0 + \beta_1X_i + \epsilon_i\)</span></p>
+<p>Multiple linear regression (MLR):</p>
+<p><span class="math inline">\(Y_i=\beta_0 + \sum_{k=1}^{\myq -1} \beta_kX_{ik} + \epsilon_i\)</span></p>
+<p>Multiple regression can accommodate <span class="math inline">\(\myq -1 \geq 1\)</span> covariates</p>
+<p>Modeling is usually based on several covariates</p>
+<p>Many concepts from SLR extend well to MLR</p>
+</div>
+<div class="frame">
+<p>Simple vs.&nbsp;Multiple Regression Consider a study of the association between weight (response) and height and age (covariates), among children age 10-19.</p>
+<p>SLR model: <span class="math inline">\(W_i=\beta_0+\beta_1 A_i+ \epsilon_i\)</span>, <span class="math inline">\(A\)</span> = age <span class="math inline">\(E[W_i|A_i] = \beta_0+\beta_1 A_i\)</span> Consider two children, one age 10 and the other age 11:</p>
+<p><span class="math inline">\(E[W_1|A_1=11] = \beta_0+\beta_1(11)\)</span> (1)</p>
+<p><span class="math inline">\(E[W_2|A_2=10] = \beta_0+\beta_1(10)\)</span> (2)</p>
+<p>Subtract (2) from (1): <span class="math inline">\(\beta_1 =\)</span> mean increase in weight for each year increase in age</p>
+<p>In the SLR model above, we have ignored height<span class="math inline">\(\ldots\)</span></p>
+</div>
+<div class="frame">
+<p>Simple vs.&nbsp;Multiple Regression (continued) Consider a multiple linear regression model: <span class="math inline">\(E[W_i|A_i,H_i] = \beta_0+\beta_1 A_i+\beta_2 H_i\)</span>, <span class="math inline">\(A\)</span> = age, <span class="math inline">\(H\)</span> = height Again, consider two children, aged 10 and 11:</p>
+<p><span class="math inline">\(E[W_1|A_1=11] = \beta_0+\beta_1(11)+\beta_2H_1\)</span> (3)</p>
+<p><span class="math inline">\(E[W_2|A_2=10] = \beta_0+\beta_1(10)+\beta_2H_2\)</span> (4)</p>
+<dl>
+<dt>subtract (4) from (3) leaves <span class="math inline">\(\beta_1+\beta_2(H_1-H_2)\)</span> (???)</dt>
+<dd>
+<p>How to interpret <span class="math inline">\(\beta_1\)</span>?</p>
+</dd>
+</dl>
+</div>
+<div class="frame">
+<p>Simple vs.&nbsp;Multiple Regression (continued)</p>
+<p>Now, suppose that the heights of the two children being compared are equal (say, <span class="math inline">\(H_1=H_2=h\)</span>): <span class="math inline">\(E[W_1|A_1=11,H_1=h] = \beta_0+\beta_1(11)+\beta_2h\)</span> (5)</p>
+<p><span class="math inline">\(E[W_2|A_2=10,H_2=h] = \beta_0+\beta_1(10)+\beta_2h\)</span> (6) Subtract (6) from (5): <span class="math inline">\(\beta_1\)</span> equals the mean change in weight per 1-year increase in age, with height held constant</p>
+<p><span class="math inline">\(\beta_1\)</span>, based on the MLR model, is said to be <em>adjusted for</em> height</p>
+</div>
+<div class="frame">
+<p>Multiple Regression: Interpreting Parameters Simple regression: <span class="math inline">\(E[Y_i] = \beta_0 + \beta_1X_i\)</span> <span class="math inline">\(\beta_1=\)</span> mean change in <span class="math inline">\(Y\)</span> per unit increase in <span class="math inline">\(X\)</span> <span class="math inline">\(\beta_1=\)</span> the <em>crude</em> or <em>unadjusted</em> slope</p>
+<p>Multiple regression: <span class="math inline">\(E[Y_i] = \beta_0 + \sum_{k=1}^{\myq -1} \beta_kX_{ik}\)</span> <span class="math inline">\(\beta_1=\)</span> mean change in <span class="math inline">\(Y\)</span> per unit increase in <span class="math inline">\(X_1\)</span>, with all other <span class="math inline">\(X_k\)</span>’s held constant <span class="math inline">\(\beta_1=\)</span> mean change in <span class="math inline">\(Y\)</span> per unit increase in <span class="math inline">\(X_1\)</span>, adjusting for (or controlling for) all other <span class="math inline">\(X_k\)</span></p>
+</div>
+<div class="frame">
+<p>Interpreting Parameters <span class="math inline">\(\beta_1\)</span>’s from SLR and MLR are equal in special cases If <span class="math inline">\(X_2,\ldots,X_{\myq -1}\)</span> are uncorrelated with <span class="math inline">\(X_1\)</span> If <span class="math inline">\(X_2,\ldots,X_{\myq -1}\)</span> are uncorrelated with <span class="math inline">\(Y\)</span>, i.e., <span class="math inline">\(\beta_2=\ldots=\beta_{\myq -1}=0\)</span></p>
+<p>Generally, <span class="math inline">\(X_k\)</span>’s will not be uncorrelated</p>
+<p>In contrast, extremely high correlations (multicollinearity) can cause great difficulties w.r.t. parameter estimation and interpretation</p>
+</div>
+<div class="frame">
+<p>Multiple Regression: Matrix Notation</p>
+<p>More compact to use matrix notation: results derived more easily <span class="math display">\[\begin{aligned}
+{\boldY} &amp;=&amp; {\boldX} \boldbeta + {\boldepsilon};\;\;\;\;\;E[{\boldY} ]= {\boldX} \boldbeta \\
+{\boldY} &amp;=&amp; \left[\begin{array}{c} Y_1 \\ Y_2 \\ \vdots \\ Y_n
+\end{array} \right]\ntimesone
+{\boldsymbol{\epsilon}} = \left[\begin{array}{c} \epsilon_1 \\ \epsilon_2 \\ \vdots \\ \epsilon_n
+\end{array} \right]\ntimesone  
+\end{aligned}\]</span> Design matrix <span class="math inline">\({\boldX}\)</span> and parameter vector <span class="math inline">\(\boldbeta\)</span>: <span class="math display">\[\begin{aligned}
+{\boldX} = \left[ \begin{array}{ccccc} 1 &amp;  X_{11} &amp;  X_{12} &amp; \ldots &amp; X_{1,\myq -1} \\
+1 &amp;X_{21} &amp;  X_{22} &amp; \ldots &amp; X_{2,\myq -1} \\
+\vdots&amp;\vdots &amp; \vdots &amp;  \ldots &amp; \vdots \\
+1 &amp; X_{n1} &amp;  X_{n2} &amp; \ldots &amp; X_{n,\myq -1} \end{array} \right]\ntimesp   
+&amp; \boldbeta  = \left[\begin{array}{c} \beta_0 \\ \beta_1\\ \beta_2 \\ \vdots \\
+\beta_{\myq -1}
+\end{array} \right]\ptimesone  \nonumber
+\end{aligned}\]</span></p>
+</div>
+<div class="frame">
+<p>Multiple Regression: Matrix Notation</p>
+<div class="columns">
+<div class="column">
+<p>0.4</p>
+Example: <span class="math inline">\(n=3, p=2\)</span> $$
+<span class="math display">\[\begin{aligned}
+            {\boldY} &amp;=&amp; {\boldX} \boldbeta + {\boldepsilon} \\
+            {\boldY} &amp;=&amp; \left[\begin{array}{c}
+                1 \\  1 \\ 1
+            \end{array} \right]\ntimesone\\
+            {\boldsymbol{\epsilon}} &amp;=&amp; \left[\begin{array}{c} \epsilon_1 \\ \epsilon_2 \\ \epsilon_3
+            \end{array} \right]\ntimesone \\
+            {\boldX}&amp; =&amp; \left[ \begin{array}{ccccc} 1 &amp;  0 \\
+                0 &amp; 1 \\
+                0 &amp; 0 \\
+            \end{array} \right]\ntimesp   \\
+            \boldbeta  &amp;=&amp; \left[\begin{array}{c} \beta_0 \\ \beta_1
+            \end{array} \right]\ptimesone  
+        
+\end{aligned}\]</span>
+<p>$$</p>
+</div><div class="column">
+<p>0.6</p>
+</div>
+</div>
+</div>
+<div class="frame">
+<p>Multiple Regression: Assumptions</p>
+<p>Assume: <span class="math inline">\({\boldsymbol{\epsilon}}\sim ({\boldzero}_n,\sigma^2 {\boldI}_n)\)</span> <span class="math inline">\(\epsilon_i\)</span>’s are mutually uncorrelated <span class="math inline">\(\epsilon_i\)</span>’s have mean 0 and equal variance <span class="math inline">\(\sigma^2\)</span></p>
+<p><span class="math inline">\({\boldY}={\boldX}\boldbeta + {\boldsymbol{\epsilon}}\)</span></p>
+<p><span class="math inline">\(E[{\boldY}]=E[{\boldX}\boldbeta + {\boldsymbol{\epsilon}}]={\boldX}\boldbeta\)</span></p>
+<p><span class="math inline">\(Var[{\boldY}]=Var[{\boldX}\boldbeta + {\boldsymbol{\epsilon}}]=Var[{\boldsymbol{\epsilon}}]=\sigma^2{\boldI}_n\)</span> Therefore, <span class="math inline">\({\boldY}\sim ({\boldX}\boldbeta,\sigma^2{\boldI}_n)\)</span> Note: we don’t need normality and independence yet</p>
+</div>
+<div class="frame">
+<p>Simple Linear Regression in Matrix Notation Straight-line Model: <span class="math inline">\(Y_i=\beta_0 + \beta_1 X_i + \epsilon_i\)</span> <span class="math display">\[\begin{aligned}
+{\boldY} &amp; = &amp; {\boldX}\boldbeta + {\boldsymbol{\epsilon}} \nonumber \\
+{\boldY} &amp;=&amp; \left[\begin{array}{c} Y_1 \\ Y_2 \\ \vdots \\ Y_n
+\end{array} \right],\;\;
+{\boldX}  =  \left[ \begin{array}{cc} 1 &amp; X_1 \\ 1 &amp; X_2 \\
+\vdots &amp; \vdots \\ 1 &amp; X_n
+\end{array} \right],\;\;
+{\boldepsilon}=\left[ \begin{array}{c} \epsilon_1 \\
+\epsilon_2 \\
+\vdots \\
+\epsilon_n \\
+\end{array}  \right],\;\;
+\boldbeta = \left[ \begin{array}{c} \beta_0 \\ \beta_1
+\end{array} \right]
+\nonumber
+\end{aligned}\]</span></p>
+<p><span class="math inline">\(SSE = %\sum_{i=1}^n(Y_i-\widehat{Y}_i)^2 =  \sum_{i=1}^n\widehat{\epsilon}_i^2=\widehat{\boldepsilon}^T\widehat{\boldsymbol{\epsilon}}=\left[ \begin{array}{cccc} \epsilon_1 &amp; \epsilon_2 &amp; \dots &amp;\epsilon_n \end{array} \right]\left[ \begin{array}{c} \epsilon_1 \\ \epsilon_2 \\ \vdots \\ \epsilon_n \\ \end{array} \right]\)</span></p>
+</div>
+<div class="frame">
+<p>Ordinary Least squares: solve <span class="math inline">\(\frac {\partial SSE} {\partial\widehat{\boldbeta}}=0\)</span> <span class="math display">\[\begin{aligned}
+SSE \pause &amp; = &amp; \widehat{\boldsymbol{\epsilon}}_{\onetimesn}^T \widehat{\boldsymbol{\epsilon}}_{\ntimesone} \nonumber \\
+&amp; = &amp;
+({\boldY}\ntimesone-\widehat{\boldY}\ntimesone)^T({\boldY}-\widehat{\boldY}) \nonumber \\
+&amp; = &amp; ({\boldY}\ntimesone-{\boldX}\ntimesp  \widehat{\boldbeta}\ptimesone )^T({\boldY}-{\boldX}\widehat{\boldbeta})
+\nonumber \\
+&amp;\stackrel[({\bf A}{\bf B})^T = {\bf B}^T{\bf A}^T]{({\bf A}+{\bf B})^T = {\bf A}^T+{\bf B}^T}{\longeq}
+&amp; ({\boldY}^T\onetimesn -\widehat{\boldbeta}\onetimesp ^T{\boldX}^T\ptimesn )({\boldY}-{\boldX}\widehat{\boldbeta})
+\nonumber \\
+&amp; =&amp; {\boldY}^T {\boldY} - {\boldY}^T{\boldX}\widehat{\boldbeta} -
+\widehat{\boldbeta}^T{\boldX}^T{\boldY} + \widehat{\boldbeta}^T {\boldX}^T{\boldX} \widehat{\boldbeta} \nonumber \\
+&amp; \stackrel[{\tiny
+{\boldY}^T{\boldX}\widehat{\boldbeta}  =\widehat{\boldbeta} ^T{\boldX}^T {\boldY}
+}]{ {\tiny
+{\boldY}^T{\boldX}\widehat{\boldbeta}   \text{ is a scalar, thus}
+}}{\longeq}  &amp; {\boldY}^T {\boldY} - 2\widehat{\boldbeta}^T{\boldX}^T{\boldY} +
+\widehat{\boldbeta}^T {\boldX}^T{\boldX} \widehat{\boldbeta}
+\nonumber
+\end{aligned}\]</span></p>
+</div>
+<div class="frame">
+<p>Ordinary Least squares: solve <span class="math inline">\(\frac {\partial SSE} {\partial\widehat{\boldbeta}}=0\)</span></p>
+<p>Choose <span class="math inline">\(\widehat{\boldbeta}\)</span> to minimize <span class="math inline">\(SSE\)</span> <span class="math display">\[\begin{split}
+\frac {\partial SSE} {\partial\widehat{\boldbeta}}
+= &amp; \frac {\partial } {\partial\widehat{\boldbeta}}\left\{
+{\boldY}^T {\boldY} - 2\widehat{\boldbeta}^T\onetimesp{\boldX}^T\ptimesn{\boldY}\ntimesone +
+\widehat{\boldbeta}^T\onetimesp {\boldX}^T\ptimesn{\boldX}\ntimesp \widehat{\boldbeta}\ptimesone
+\right\}
+%\stackrel{\frac{\partial}{\partial{\bf x}} ({\bf x}^T {\bf a}) =  {\bf a}}{\longeq}
+\end{split}\]</span> <span class="math inline">\(\frac {\partial } {\partial\widehat{\boldbeta}}\left\{ \widehat{\boldbeta}^T{\boldX}^T{\boldY}\right\}\pause \stackrel[\text{here }\bf a=X^TY]{\frac{\partial}{\partial{\bf x}} ({\bf x}^T {\bf a}) = {\bf a}}{=\!\longeq\!\longeq\!\longeq\!=} {\boldX}^T{\boldY}\)</span></p>
+<p><span class="math inline">\(\frac {\partial } {\partial\widehat{\boldbeta}} \left\{\widehat{\boldbeta}^T\onetimesp {\boldX}^T\ptimesn{\boldX}\ntimesp \widehat{\boldbeta}\ptimesone\right\}\pause \stackrel[\text{here }\bf A=X^TX]{\frac{\partial}{\partial{\bf x}} ({\bf x}^T{\bf A}{\bf x}) = 2{\bf A}{\bf x}\;\;\;\;}{=\!=\!\longeq\!\longeq\!\longeq\!\longeq} 2{\boldX}^T{\boldX} \widehat{\boldbeta}\)</span></p>
+<p>Therefore <span class="math display">\[\frac {\partial SSE} {\partial\widehat{\boldbeta}}
+=  -2
+{\boldX}^T{\boldY}
++ 2{\boldX}^T{\boldX}
+\widehat{\boldbeta}\]</span></p>
+</div>
+<div class="frame">
+<p>Ordinary Least squares: solve <span class="math inline">\(\frac {\partial SSE} {\partial\widehat{\boldbeta}}=0\)</span></p>
+<p>Setting <span class="math inline">\(\frac {\partial SSE} {\partial\widehat{\boldbeta}}\)</span> equal to <span class="math inline">\({\boldzero}\)</span> yields <span class="math display">\[\boxed{{\boldX}^T({\boldY}-{\boldX}\widehat{\boldbeta}) = {\boldzero}},\]</span> referred to as the <em>normal</em> equations</p>
+<p>Solving normal equations: <span class="math display">\[{\boldX}^T{\boldY}  = {\boldX}^T{\boldX}\widehat{\boldbeta}\]</span> If <span class="math inline">\({\boldX}^T{\boldX}\)</span> is invertible, then we have <span class="math display">\[\boxed{\widehat{\boldbeta} =({\boldX}^T{\boldX})^{-1}{\boldX}^T{\boldY}}\]</span> Each <span class="math inline">\(\widehat{\beta}_i,i=1,\dots,\myq\)</span> is a linear combination of <span class="math inline">\(\boldY\)</span></p>
+</div>
+<div class="frame">
+<p>Ordinary Least squares</p>
+<div class="columns">
+<div class="column">
+<p>0.4</p>
+Example: <span class="math inline">\(n=3, p=2\)</span> $$
+<span class="math display">\[\begin{aligned}
+            {\boldY} &amp;=&amp; {\boldX} \boldbeta + {\boldepsilon} \\
+            {\boldY} &amp;=&amp; \left[\begin{array}{c}
+                1 \\  1 \\ 1
+            \end{array} \right]\ntimesone\\
+            {\boldsymbol{\epsilon}} &amp;=&amp; \left[\begin{array}{c} \epsilon_1 \\ \epsilon_2 \\ \epsilon_3
+            \end{array} \right]\ntimesone \\
+        {\boldX}&amp; =&amp; \left[ \begin{array}{ccccc} 1 &amp;  0 \\
+            0 &amp; 1 \\
+            0 &amp; 0 \\
+        \end{array} \right]\ntimesp   \\
+         \boldbeta  &amp;=&amp; \left[\begin{array}{c} \beta_0 \\ \beta_1
+        \end{array} \right]\ptimesone  
+        
+\end{aligned}\]</span>
+<p>$$</p>
+</div><div class="column">
+<p>0.6 What is <span class="math inline">\(\widehat{\boldbeta}\)</span> and what is <span class="math inline">\(\widehat{\boldY}\)</span>?</p>
+</div>
+</div>
+</div>
+<div class="frame">
+<p>Components of Normal equations A matrix of <em>sum of squares and cross products</em> <span class="math display">\[\begin{aligned}
+\lefteqn{{\boldX}^T{\boldX} =} \nonumber   \\
+&amp;\pause \left[  \begin{array}{ccccc} n &amp; \sum
+X_{i1} &amp; \sum X_{i2} &amp; \ldots &amp; \sum X_{i,\myq-1  } \\
+\sum X_{i1} &amp; \sum X_{i1}^2 &amp; \sum X_{i1} X_{i2} &amp; \ldots &amp; \sum X_{i1}X_{i,\myq-1  } \\
+\sum X_{i2} &amp; \sum X_{i1}X_{i2} &amp; \sum X_{i2}^2 &amp; \ldots &amp;
+\sum X_{i2}X_{i,\myq-1  } \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
+\sum X_{i,\myq-1  } &amp; \sum X_{i1}X_{i,\myq-1 } &amp; \sum X_{i2} X_{i,\myq-1 } &amp; \ldots &amp;
+\sum X_{i,\myq-1 }^2
+\end{array} \right]_{\ptimesp}
+\nonumber\\
+&amp;{\boldX}^T {\boldY} = \pause \left[ \begin{array}{c} \sum Y_i \\ \sum
+X_{i1}Y_i \\ \sum X_{i2}Y_i \\ \ldots \\ \sum X_{i,\myq-1 }Y_i
+\end{array} \right] \nonumber
+\end{aligned}\]</span></p>
+</div>
+<div class="frame">
+<p>Rank and Normal equations Linear independence, rank, and matrix inverse Linear independence: Vectors <span class="math inline">\(\bf x_1, x_2, \dots,x_\myq\)</span> are linearly independent if <span class="math inline">\(\sum_{k=1}^\myq c_k{\bf x_k}\neq 0\)</span> unless <span class="math inline">\(c_k=0\)</span> for all <span class="math inline">\(k\)</span>. Rank: For an <span class="math inline">\(n\times p\)</span> matrix <span class="math inline">\(\bf X\)</span>, <span class="math inline">\(rank({\bf X})\leq min(n,p)\)</span> is the number of linearly independent columns (rows) of <span class="math inline">\(\bf X\)</span>. We say <span class="math inline">\({\bf X}\)</span> is <em>full rank</em> if <span class="math inline">\(rank({\bf X})=min(n,p)\)</span>; otherwise <span class="math inline">\({\bf X}\)</span> is <em>singular</em> or <em>rank-deficient</em>.</p>
+<p>What is <span class="math inline">\(rank({\bf X})\)</span> if <span class="math inline">\({\bf X}= \left[\begin{array}{cc} 1 &amp;1\\ 1 &amp;2 \end{array} \right]\)</span>, what if <span class="math inline">\({\bf X}= \left[\begin{array}{ccc} 1 &amp;0&amp;10\\ 1 &amp;0 &amp;10\\ 1 &amp;10&amp;0\\ 1 &amp;10 &amp;0 \end{array} \right]\)</span>?</p>
+</div>
+<div class="frame">
+<p>Rank and Normal equations</p>
+<p>Linear independence, rank, and matrix inverse <span class="math inline">\(\boxed{  rank({\bf X})=rank({\bf X}^T)=rank({\bf X}{\bf X}^T)=rank({\bf X}^T{\bf X}) }\)</span> A <span class="math inline">\(p\times p\)</span> matrix <span class="math inline">\({\bf A}\)</span> is invertible <span class="math inline">\(\Leftrightarrow\)</span> there exists a matrix <span class="math inline">\(\bf A^{-1}\)</span> such that <span class="math inline">\({\bf A^{-1}}{\bf A}={\bf A}{\bf A^{-1}}={\bf I}_p\)</span> <span class="math inline">\(\Leftrightarrow rank(A)=p\)</span> (“invertible" <span class="math inline">\(\Leftrightarrow\)</span>”non-singular")</p>
+<p>Unique solution to normal equations <span class="math inline">\({\boldX}^T{\boldY} = {\boldX}^T{\boldX}\widehat{\boldbeta}\)</span> requires <span class="math inline">\({\bf A}\ptimesp=({\boldX}^T{\boldX})\ptimesp\)</span> to have a unique inverse. This requires: <span class="math inline">\(rank({\boldX}^T{\boldX})=p \stackrel{rank({\bf X})=rank({\bf X}^T{\bf X})}{\Leftrightarrow} rank({\boldX}\ntimesp)=p\)</span> i.e., <span class="math inline">\({\bf X}\)</span> has full column rank i.e., no column of <span class="math inline">\({\boldX}\)</span> be expressible as a linear combination of the other columns (recall multicollinearity)</p>
+</div>
+<div class="frame">
+<p>Properties of Least Squares Estimators Mean of <span class="math inline">\(\widehat{\boldbeta}\)</span>: <span class="math display">\[\begin{split}
+&amp;E[\widehat{\boldbeta}] \\
+= &amp; E[({\boldX}^T{\boldX})^{-1} {\boldX}^T{\boldY}] \nonumber \\
+= &amp; ({\boldX}^T{\boldX})^{-1} {\boldX}^TE[{\boldY}] \nonumber \\
+= &amp; ({\boldX}^T{\boldX})^{-1} {\boldX}^T {\boldX}\boldbeta \nonumber\\
+= &amp; \boldbeta \nonumber
+\end{split}\]</span></p>
+</div>
+<div class="frame">
+<p>Properties of Least Squares Estimators Variance of <span class="math inline">\(\widehat{\boldbeta}\)</span>: <span class="math display">\[\begin{split}
+            &amp;Var[\widehat{\boldbeta}]\\
+            = &amp; Var[({\boldX}^T{\boldX})^{-1} {\boldX}^T{\boldY}] \nonumber \\
+            = &amp; ({\boldX}^T{\boldX})^{-1} {\boldX}^T Var[{\boldY}] \{({\boldX}^T{\boldX})^{-1} {\boldX}^T  \}^T \nonumber \\
+            = &amp; ({\boldX}^T{\boldX})^{-1} {\boldX}^T \sigma^2 {\boldI}_n \{({\boldX}^T{\boldX})^{-1} {\boldX}^T  \}^T \nonumber \\
+            = &amp; \sigma^2 ({\boldX}^T{\boldX})^{-1} \nonumber
+        \end{split}\]</span></p>
+</div>
+<div class="frame">
+<p>Properties of LSE’s (cont’d)</p>
+<div class="theorem">
+<p><span id="gaussmarkov" label="gaussmarkov"></span> If <span class="math inline">\({\boldY}={\boldX}\boldbeta + {\boldsymbol{\epsilon}}\)</span>, <span class="math inline">\(E[{\boldsymbol{\epsilon}}]={\boldzero}\)</span> and <span class="math inline">\(Var[{\boldsymbol{\epsilon}}]=\sigma^2{\boldI}\)</span>, then <span class="math inline">\(\widehat{\boldbeta}\)</span> achieves minimum variance among linear unbiased estimators.</p>
+</div>
+<p><span class="math inline">\(\widehat{\boldbeta}\)</span> referred to as the “BLUE” (best linear unbiased estimator) for <span class="math inline">\(\boldbeta\)</span> “Best" = minimum variance (most efficient) <span class="math inline">\(Var(\widehat{\boldbeta})\leq Var({\widehat{\boldbeta}}')\)</span>”Best" among whom: among all <em>linear unbiased</em> estimators <span class="math inline">\({\widehat{\boldbeta}}'\)</span></p>
+<p>estimators are linear functions of the response, <span class="math inline">\({\boldY}\)</span> estimators are the <span class="math inline">\(\widehat{\boldbeta}\)</span>’s satisfying <span class="math inline">\(E[\widehat{\boldbeta}]=\boldbeta\)</span> In summary, <span class="math inline">\(\widehat{\boldbeta}\)</span> is linear, unbiased, and has minimum variance among all linear unbiased estimators. Bias-variance tradeoff: Among unbiased estimators, this is the best we can do (smallest var) If we allow some bias, then we can achieve even smaller variance</p>
+</div>
+<div class="frame">
+<p>Properties of LSE <u>Adding Normality Assumption</u> When <span class="math inline">\({\boldsymbol{\epsilon}}\sim N({\boldzero},\sigma^2{\boldI})\)</span>, the LSE is the MLE</p>
+<p>i.e., <span class="math inline">\(\widehat{\boldbeta}\)</span> obtained from least squares estimation is also the maximum likelihood estimator (MLE) of <span class="math inline">\(\boldbeta\)</span></p>
+<div class="theorem">
+<p>If <span class="math inline">\({\boldY}={\boldX}\boldbeta + {\boldsymbol{\epsilon}}\)</span> and <span class="math inline">\({\boldsymbol{\epsilon}}\sim  N({\boldzero},\sigma^2{\boldI})\)</span>, then <span class="math inline">\(\widehat{\boldbeta}\)</span> is the uniformly minimum-variance unbiased estimator (UMVUE) of <span class="math inline">\(\boldbeta\)</span></p>
+</div>
+</div>
+<div class="frame">
+<p>Fitted Means Vector of fitted means: <span class="math display">\[\begin{aligned}
+\widehat{\boldY} &amp; = &amp; {\boldX}\widehat{\boldbeta} \nonumber \\
+&amp; = &amp;  {\boldX}\left\{ ({\boldX}^T{\boldX})^{-1}{\boldX}^T{\boldY} \right\}\nonumber \\
+&amp; = &amp; {\boldH}{\boldY} \nonumber
+\end{aligned}\]</span> <span class="math inline">\(\boxed{{\boldH}={\boldX} ({\boldX}^T{\boldX})^{-1}{\boldX}^T}\)</span>: the “hat” matrix (<span class="math inline">\(\boldH\)</span> puts a hat on <span class="math inline">\(\boldY\)</span>) <span class="math inline">\({\boldH}:\)</span> <span class="math inline">\(n\times n\)</span> matrix, involving only the covariates (hence not random)</p>
+<p>We showed in HW 2 that <span class="math inline">\({\boldH}\)</span> is symmetric and idempotent, i.e., a projection matrix <span class="math inline">\({\boldI-\boldH}\)</span> is symmetric and idempotent, i.e.&nbsp;a projection matrix <span class="math inline">\(\boldH\boldX=\boldX \;\;\;\Rightarrow\;\;\; ({\boldI-\boldH})\boldX=\boldzero \;\;\;\Rightarrow\;\;\; \boldX^T(\boldI-\boldH)=\boldzero^T\)</span> Hence <span class="math inline">\(\boldX^T(\boldI-\boldH)\boldY=\boldX^T(\boldY-\widehat{\boldY})={\boldX}^T \widehat{\boldsymbol{\epsilon}}=\boldzero\)</span></p>
+</div>
+<div class="frame">
+<p>Projection</p>
+<p>For two vectors <span class="math inline">\(\bf x\)</span> and <span class="math inline">\(\bf y\)</span>, the projection ( <span class="math inline">\(\widehat{{\bf y}}\)</span> ) of <span class="math inline">\(\bf y\)</span> onto <span class="math inline">\(\bf x\)</span> is given by <span class="math display">\[\widehat{{\bf y}}=\frac{{\bf x}^T{\bf y}}{{\bf x}^T{\bf x}}{\bf x}\]</span></p>
+<div class="columns">
+<div class="column">
+<p>0.5 <embed src="pic/2.pdf" style="height:1.2in"></p>
+</div><div class="column">
+<p>0.5 Aim to minimize<br>
+<span class="math inline">\(\|\boldepsilon\|=\|{\bf y}-\widehat{{\bf y}}\|=\|{\bf y}-\widehat{a}{\bf x}\|\)</span> The projection <span class="math inline">\(\widehat{{\bf y}}\)</span> lies on <span class="math inline">\(\bf x\)</span>; need to determine length (<span class="math inline">\(\widehat{a}\)</span>) Geometrically <span class="math inline">\(\widehat{a}\)</span> should be selected s.t. <span class="math inline">\(\boldepsilon\perp {\bf x}\)</span></p>
+</div>
+</div>
+<p>If <span class="math inline">\(\boldX\)</span> is an <span class="math inline">\(n\times p\)</span> matrix of rank <span class="math inline">\(p,n\geq p\)</span>, then the projection of vector <span class="math inline">\(\boldY\)</span> onto the column space of <span class="math inline">\(\boldX\)</span> is given by <span class="math display">\[\widehat{{\boldY}} = {\boldX} ({\boldX}^T{\boldX})^{-1}{\boldX}^T\boldY =\boldH\boldY\]</span></p>
+</div>
+<div class="frame">
+<p>Geometric Perspective: residual <span class="math inline">\(\perp\)</span> all covariates</p>
+<p>Geometrically we aim to find <span class="math inline">\(\widehat{\boldbeta}\)</span> to minimize distance between <span class="math inline">\({\boldY}\)</span> and <span class="math inline">\(\widehat{\boldY}\)</span>, i.e.&nbsp;minimize <span class="math inline">\(\|\widehat{{\boldsymbol{\epsilon}}}\|\)</span> (norm of residual)</p>
+<p><span class="math inline">\(\widehat{\boldbeta}\)</span> should be selected s.t. residual and covariates are orthogonal <span class="math inline">\(\boxed{{\boldX}^T \widehat{\boldsymbol{\epsilon}} = {\boldX}^T({\boldY}- \widehat{\boldY}) = {\boldX}^T({\boldY}- {\boldX}\widehat{\boldbeta})={\boldzero} }\)</span> (i.e., <span class="math inline">\(\boldX_k^T\boldepsilon=0,\; \forall k\)</span>) <span class="math inline">\(\widehat{\boldY}={\boldX}\widehat{\boldbeta}=\boldH\boldY\)</span> is a projection of <span class="math inline">\(\boldY\)</span> onto the column space of <span class="math inline">\(\boldX\)</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pic/1.png" style="height:2.2in" class="figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+</div>
+<div class="frame">
+<p>Geometric Perspective: residual <span class="math inline">\(\perp\)</span> all covariates</p>
+<p>Conclusions: On the ground: <span class="math inline">\(\boldX\ntimesp\)</span> and <span class="math inline">\(\widehat{\boldY}\ntimesone=\boldH\ntimesn\boldY\ntimesone\)</span> Pole: <span class="math inline">\(\widehat{\boldepsilon}\ntimesone=\boldY-\widehat{\boldY}=(\boldI-\boldH)\ntimesn\boldY\ntimesone\)</span></p>
+<p>Hence <span class="math inline">\(\widehat{\boldepsilon}\)</span> is orthogonal to both <span class="math inline">\(\boldX\)</span> and <span class="math inline">\(\widehat{\boldY}\)</span></p>
+<p><span class="math inline">\(\boldX^T\ptimesn\widehat{\boldepsilon}\ntimesone=\underbrace{\boldX^T\ptimesn(\boldI-\boldH)\ntimesn}_\text{$\boldzero\ptimesn$}\boldY\ntimesone=\boldzero\ptimesone\)</span> <span class="math inline">\(\widehat{\boldY}^T\onetimesn\widehat{\boldepsilon}\ntimesone=0\onetimesone\)</span></p>
+</div>
+<div class="frame">
+<p>Properties of Fitted Means <span class="math inline">\(\widehat{\boldY}\)</span> Mean: <span class="math display">\[\begin{aligned}
+E[\widehat{\boldY}] &amp; = \pause&amp; E[{\boldH}{\boldY}]  = \boldH E[ \boldY]\nonumber\\
+&amp; \stackrel{{\scriptsize E[\boldY]=\boldX\boldbeta}}{\longeq}&amp;     
+{\boldH}{\boldX}\boldbeta \stackrel{{\scriptsize  {\boldH}\boldX=\boldX}}{\longeq}   {\boldX}\boldbeta \nonumber
+\end{aligned}\]</span> Hence <span class="math inline">\(\widehat{\boldY}\)</span> is unbiased for <span class="math inline">\(E[{\boldY}]\)</span></p>
+</div>
+<div class="frame">
+<p>Properties of Fitted Means <span class="math inline">\(\widehat{\boldY}\)</span></p>
+Variance: $$
+<span class="math display">\[\begin{aligned}
+        Var(\widehat{\boldY}) &amp; = &amp;\pause Var({\boldH}{\boldY}) \nonumber \\
+         &amp; = &amp; {\boldH}Var({\boldY}){\boldH}^T \nonumber \\
+        &amp; = &amp; {\boldH}\sigma^2{\boldI}_n{\boldH}^T \nonumber \\
+        &amp; = &amp; \sigma^2 {\boldH} \nonumber
+    
+\end{aligned}\]</span>
+<p>$$</p>
+<p>Distribution: further assuming normality, i.e. <span class="math inline">\(\boldepsilon\sim N({\boldzero},\sigma^2 {\boldI})\)</span>, then <span class="math display">\[\widehat{\boldY}=\boldH\boldY\sim N({\boldX}\boldbeta,\sigma^2 {\boldH})\]</span></p>
+</div>
+<div class="frame">
+<p>Properties of Residual Vector <span class="math inline">\(\widehat{\boldepsilon}\)</span></p>
+Mean: $$
+<span class="math display">\[\begin{aligned}
+        E[\widehat{\boldepsilon}] &amp; = &amp;\pause E[\{{\boldI}_n-{\boldH} \} {\boldY}]=\{{\boldI}_n-{\boldH} \}E[ {\boldY}] \nonumber\\
+        &amp; \stackrel{{\scriptsize E[ {\boldY}] =\boldX\boldbeta}}{\longeq}&amp; \{{\boldI}_n-{\boldH} \} \boldX\boldbeta  \stackrel{{\scriptsize  ({\boldI}_n-{\boldH})\boldX=0}}{\longeq} \boldzero \nonumber
+    
+\end{aligned}\]</span>
+<p>$$</p>
+</div>
+<div class="frame">
+<p>Properties of Residual Vector <span class="math inline">\(\widehat{\boldepsilon}\)</span></p>
+<p>Variance: <span class="math display">\[\begin{aligned}
+Var(\widehat{\boldsymbol{\epsilon}}) &amp; = &amp; \pause Var({\boldY} - \widehat{\boldY}) \nonumber \\
+&amp; = &amp; Var(\{{\boldI}_n-{\boldH} \} {\boldY}) \nonumber \\
+&amp; = &amp; \{{\boldI}_n-{\boldH} \}  Var(\boldY)\{{\boldI}_n-{\boldH} \}^T \nonumber \\
+&amp; = &amp; \{{\boldI}_n-{\boldH} \}  \sigma^2 {\boldI}_n\{{\boldI}_n-{\boldH} \}^T \nonumber \\
+&amp; = &amp;  \sigma^2 ({\boldI}_n-{\boldH}) \nonumber
+\end{aligned}\]</span></p>
+<p>Distribution: further assuming normality, i.e. <span class="math inline">\(\boldepsilon\sim N({\boldzero},\sigma^2 {\boldI})\)</span>, then <span class="math display">\[\widehat{\boldsymbol{\epsilon}}=\{{\boldI}_n-{\boldH}\}\boldY\sim N({\boldzero}_n,\sigma^2 \{{\boldI}_n-{\boldH}\} )\]</span></p>
+</div>
+<div class="frame">
+<p>Estimating Variance</p>
+<p>Estimator of <span class="math inline">\(\sigma^2\)</span>:</p>
+<p><span class="math display">\[\begin{aligned}
+\widehat{\sigma}^2 = \frac{SSE}{dfE} =\frac{\widehat{\boldepsilon}^T\widehat{\boldsymbol{\epsilon}}}{n-\myq} \nonumber
+\end{aligned}\]</span></p>
+<p>i.e., same form as <span class="math inline">\(\widehat{\sigma}^2\)</span> from SLR, but with greater loss of <span class="math inline">\(df\)</span> since more parameters are estimated</p>
+<p>Hence <span class="math inline">\(\widehat{Var}(\widehat{\boldbeta})\ptimesp=\widehat{\sigma}^2(\boldX^T\boldX)^{-1}\)</span> This is a symmetric p-by-p matrix; <span class="math inline">\(\widehat{\sigma}^2\)</span> is a scalar number On the main diagonal: variance <span class="math inline">\(\widehat{Var}(\widehat{\boldbeta})_{i,i}=\widehat{Var}(\widehat{\beta}_i)=SE(\widehat{\beta}_i)^2\)</span> On the off-diagonal: covariance <span class="math inline">\(\widehat{Var}(\widehat{\boldbeta})_{i,j}=cov(\widehat{\beta}_i,\widehat{\beta}_j)\)</span></p>
+</div>
+<div class="frame">
+<p>Testing a Single Covariate</p>
+<p>Just like in SLR, we can still construct a <span class="math inline">\(T\)</span> statistic to test <span class="math inline">\(H_0:\beta_k=0\)</span> against <span class="math inline">\(H_i: \beta_k\neq 0\)</span>, for any <span class="math inline">\(k=0,\dots,\myq-1\)</span></p>
+<p><span class="math display">\[T=\frac{\widehat{\beta}_k}{\sqrt{\widehat{Var}(\widehat{\beta}_k)}}=\frac{\widehat{\beta}_k}{SE(\widehat{\beta}_k)}\stackrel{H_0}{\sim} t_{n-\myq}\]</span></p>
+<p><span class="math inline">\(\widehat{\boldbeta}\sim N(\boldbeta\stackrel{H_0}{=}\boldzero,\sigma^2(\boldX^T\boldX)^{-1})\)</span> under LINE (linear combination of <span class="math inline">\(\boldY\)</span>) <span class="math inline">\(SSE/\sigma^2\sim \chi^2_{n-\myq}\)</span> and <span class="math inline">\(\widehat{\boldbeta}\ind \widehat{\sigma}^2\)</span> will be shown later Note that <span class="math inline">\(dfSSE=n-\myq\)</span> due to estimating <span class="math inline">\(\myq\)</span> parameters (compare to <span class="math inline">\(n-2\)</span> in SLR). This is reflected in the <span class="math inline">\(t\)</span> distribution</p>
+<p>Interpretation: is the <span class="math inline">\(k\)</span>-th covariate associated with the outcome <strong>adjusting/controlling for all other covariates</strong> (or holding all other covariates constant)?</p>
+</div>
+<div class="frame">
+<p>Coefficient of Determination Just like in SLR, we still have <span class="math display">\[\underbrace{SSY}_\text{total variation}=\underbrace{SSR}_\text{explained by  $\myq$ covariates}+\underbrace{SSE}_\text{residual variation unexplained}\]</span> <span class="math inline">\(R^2=SSR/SSY\)</span> Same interpretation as in SLR, except now its percent of variation in <span class="math inline">\(Y\)</span> accounted by all <span class="math inline">\(\myq\)</span> covariates <span class="math inline">\(1-R^2=SSE/SSY\)</span> percent variation in <span class="math inline">\(Y\)</span> not accounted for by the model</p>
+<p><span class="math inline">\(0 \leq R^2 \leq 1\)</span> If no error in data, i.e., <span class="math inline">\({\boldY}={\boldX}\boldbeta\)</span> then <span class="math inline">\(R^2=1\)</span> (perfect fit) If no slope, i.e., <span class="math inline">\(\widehat{Y}_i=\overline{Y}=\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_{k&gt;0}=0\)</span>, then <span class="math inline">\(R^2=0\)</span> (null model)</p>
+</div>
+<div class="frame">
+<p>Coefficient of Determination (cont’d) <span class="math inline">\(R^2\)</span> must be interpreted with some caution <span class="math inline">\(SSE\)</span> decreases (or stay the same) as more variables are added to the model</p>
+<p><span class="math inline">\(SSR\)</span> increases (or stay the same) as covariates are added to a model</p>
+<p><span class="math inline">\(SSY\)</span> always stays the same (is not model-dependent)</p>
+<p>thus, <span class="math inline">\(R^2\)</span> always increases (or stay the same) as more variables are added</p>
+<p>Higher is not necessarily better <span class="math inline">\(R^2=SSR/SSY\)</span> is not a good tool to compare models: it will always “choose" models with more covariates However, as number of covariates increases, chances are we start to fit the noise rather than real signal (overfitting) and misspecify the model</p>
+</div>
+<div class="frame">
+<p>Adjusted R<span class="math inline">\(^{2}\)</span> A penalized version of <span class="math inline">\(R^2\)</span>: pay a price for inclusion of unnecessary variables in the model often utilized to compare models</p>
+<p>Intuition (consider <span class="math inline">\(SSE/(n-\myq)\)</span> since <span class="math inline">\(SSY/(n-1)\)</span> is constant): Once all of the correct variables have been included in the model, adding additional noise variables will lead to tiny decrease in SSE In the meanwhile, <span class="math inline">\(\myq\uparrow\)</span>, <span class="math inline">\(SSE/(n-\myq)\uparrow\)</span>, and consequently <span class="math inline">\(R_{adj}^2\downarrow\)</span> In theory, the model with the largest <span class="math inline">\(R_{adj}^2\)</span> will have only correct variables and no noise variables</p>
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+<p>Interpretation Updated interpretation check list: : <code>Units</code>, <strong>direction (for slope not intercept)</strong>, <span style="color: red">“average/mean"</span>, <span style="color: royalblue">“estimated"</span>, <em>population</em>, (and magnitude) : <u>95% CI or <span class="math inline">\(p\)</span>-value</u>,</p>
+<p><span class="math inline">\(\widehat{\beta}_1 = 3.64, p=0.0034, 95\%\; CI: (1.51, 5.77)\)</span> Example: We <span style="color: royalblue">estimated</span> that, <em>among children aged 6-12</em>, one <code>year</code> <strong>higher</strong> age is associated with 3.64 (<u>95% CI: 1.51, 5.77</u>, p=0.0034) <code>pounds</code> <strong>higher</strong> weight <span style="color: red">on average</span>.</p>
+<p><span class="math inline">\(R^2 = 0.5926\)</span> (adjusted <span class="math inline">\(R^2 = 0.5519\)</span>)</p>
+<p>Age explains 59.26% of the variance of weight</p>
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+<p>Interpretation Updated interpretation check list: : <code>Units</code>, <strong>direction (for slope not intercept)</strong>, <span style="color: red">“average/mean"</span>, <span style="color: royalblue">“estimated"</span>, <em>population</em>, (and magnitude) : <u>95% CI or <span class="math inline">\(p\)</span>-value</u>,</p>
+<p><span class="math inline">\(\widehat{\beta}_1 = 1.07, p=0.0013, 95\%\; CI: (0.53, 1.61)\)</span> Example: <em>Among children aged 6-12</em>, comparing two children who differ in height by one <code>inch</code>, the <strong>taller</strong> individual has an <span style="color: royalblue">estimated</span> <span style="color: red">mean</span> weight that is <em>1.07</em> (<u>95% CI: 0.53, 1.61</u>, p=0.0013) <code>pounds</code> <strong>higher</strong>.</p>
+<p>Unadjusted <span class="math inline">\(R^2 = 0.663\)</span></p>
+<p>Height explains 66.3% of the variance of weight</p>
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+<p>Interpretation Updated interpretation check list: : <code>Units</code>, <strong>direction (for slope not intercept)</strong>, <span style="color: red">“average/mean"</span>, <span style="color: royalblue">“estimated"</span>, <em>population</em>, , (and magnitude) : <u>95% CI or <span class="math inline">\(p\)</span>-value</u>,</p>
+<p><span class="math inline">\(\widehat{\beta}_{age} = 2.05, p=0.057, 95\%\; CI: (-0.07,4.17)\)</span> Example: We <span style="color: royalblue">estimated</span> that, <em>among children aged 6-12</em>, one <code>year</code> <strong>higher</strong> age is associated with 2.05 (<u>95% CI: -0.07,4.17</u>, p=0.06) <code>pounds</code> <strong>higher</strong> weight <span style="color: red">on average</span>, . <span class="math inline">\(\widehat{\beta}_{ht} = 0.72, p=0.02, 95\%\; CI: (0.13,1.31)\)</span> Example: <em>Among children aged 6-12</em>, comparing two children who differ in height by one <code>inch</code>, the <strong>taller</strong> individual has an <span style="color: royalblue">estimated</span> <span style="color: red">mean</span> weight that is <em>0.72</em> (<u>95% CI: 0.13,1.31</u>, p=0.02) <code>pounds</code> <strong>higher</strong>, .</p>
+<p>Unadjusted <span class="math inline">\(R^2 = 0.78\)</span></p>
+<p>Together, age and height explain 78% of the variability in weight.</p>
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+<p>Interpretation While in crude analyses age was significantly associated with weight, after adjustment for height the association was no longer statistically significant (p=0.057).</p>
+<p>The adjusted estimates for both height and age are attenuated (smaller in absolute value), compared to the unadjusted estimates.</p>
+<p>In HW 3, you will derive an adjustment factor (the relative amount of difference between adjusted and unadjusted coefficients). By examining the adjustment factor, you will be able to predict whether the crude coefficients will be attenuated after adjustment, or whether they will get larger in magnitude.</p>
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+<p>Questions?</p>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

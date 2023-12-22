@@ -24,15 +24,15 @@ $OHSU-yellow:   #F7CB25 !default;
 $OHSU-blue:     #49A3D1 !default;
 $OHSU-green:    #4EA627 !default;
 
-$blue:        #6B8CC4 !default;
-$pink:        #F08897 !default;
-$orange:      #E25D3B !default;
-$yellow:      #F1CF58 !default;
-$orange2:     #E89543 !default;
+$blue3:       #213c96 !default;
+$pink:        #F14124 !default;
+$blue2:       #4FADF3 !default;
+$orange:      #FF8021 !default;
+$orange2:     #FF8021 !default;
+$yellow:      #A7EA52 !default;
 $slate-grey:  #6C757D !default;
-$green:       #006a4e !default;
+$green:       #34AC8B !default;
 $ivory:       #F2EFEA !default;
-$green2:      #006a4e !default;
 
 
 
@@ -48,9 +48,9 @@ $green2:      #006a4e !default;
 //$cyan:          #29abe0 !default;
 
 // $primary:       $blue !default;
-$primary:       $green !default;
+$primary:       $blue3 !default;
 $secondary:     $gray-600 !default;
-$success:       $orange !default;
+$success:       $orange2 !default;
 $info:          $pink !default;
 $warning:       $yellow !default;
 $danger:        $orange !default;

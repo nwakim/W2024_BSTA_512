@@ -1,0 +1,207 @@
+---
+title: "Module_I"
+author: Xu Shi
+date: Oct 24, 2020
+fontsize: 10pt
+output: 
+    beamer_presentation
+latexengine: xelatex
+---
+```{r set-options, echo=FALSE, cache=FALSE}
+options(width = 70)
+```
+```{r  mysize=T, tidy=T, size='\\tiny', warning=F,echo=FALSE,eval=T}
+knitr::knit_hooks$set(mysize = 
+  function(before, options, envir){
+    if (before) return(options$size)
+  }
+)
+knitr::opts_chunk$set(fig.width=10, fig.height=6) 
+```
+## Example: 
++ We return to the data set containing age (measured in days) and birth weight (BWT in ounces) as predictors of infant systolic blood pressure (SBP, mm Hg). 
++ Read in the data file (systolic1.csv). (n = 16)
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+data = read.csv(file="systolic1.csv",header=T)
+attach(data)
+head(data)
+```
+
+## Fit SBP on AGE x BWT, AGE, BWT in this order
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+m1 = lm(sbp~I(age*bwt)+I(age)+I(bwt))
+summary(m1)
+```
+
+## Compute the sequential and partial SS
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+( SeqSS.m1 = anova(m1) ) #type I
+( ParSS.m1 = car::Anova(m1,type="III") ) #type III
+```
+
+
+## You have two F tests of the interaction. Are either of them valid tests?
+
+
+## Change ordering of covariates and recompute SS
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+( anova(lm(sbp~I(age)+I(bwt)+I(age*bwt))) ) #type I
+( car::Anova(m1,type="III") ) #type III
+```
+
+
+## Save the fitted values
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+data = cbind(data,fit.m1 = m1$fitted.values)
+summary(data)
+```
+
+## Hypothesis test of interaction term
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+summary(lm(sbp~age*bwt))$coef
+anova(lm(sbp~age*bwt))
+```
+
+## Hypothesis test of age
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+null.model = lm(sbp~bwt)
+alt.model = lm(sbp~age*bwt)
+anova(null.model,alt.model)
+```
+
+## Compare to the adjusted age effect in an *additive* model 
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+# car::Anova(lm(sbp~age),type="III") #crude effect
+anova(lm(sbp~bwt),lm(sbp~age+bwt))  #adjusted effect in additive model
+car::Anova(lm(sbp~age+bwt),type="III") #adjusted effect in additive model
+```
+
+## Hypothesis test of age: by hand
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+SeqSS = data.frame(anova(lm(sbp~I(bwt)+I(age)+I(bwt*age))))
+df1 = SeqSS["I(age)","Df"]+SeqSS["I(bwt * age)","Df"]
+F1 = (SeqSS["I(age)","Sum.Sq"]+SeqSS["I(bwt * age)","Sum.Sq"])/df1
+df2 = SeqSS["Residuals","Df"]
+F2 = SeqSS["Residuals","Mean.Sq"]
+c(F.val = F1/F2,
+  P.val = 1 - pf(F1/F2,df1=df1,df2=df2))
+anova(null.model,alt.model) ##validate
+```
+
+## Hypothesis test of bwt
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+null.model = lm(sbp~age)
+alt.model = lm(sbp~age*bwt)
+anova(null.model,alt.model)
+```
+
+
+
+## Center the covariates
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+c(mean(age), sd(age))
+c(mean(bwt), sd(bwt))
+age.c = age - mean(age)
+bwt.c = bwt - mean(bwt)
+```
+
+## Fit SBP on AGE x BWT, AGE, BWT, this time using the centered versions of the covariates.
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+m2 = lm(sbp~I(age.c*bwt.c)+I(age.c)+I(bwt.c))
+summary(m2)
+```
+
+## Compute the sequential and partial SS
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+( SeqSS.m2 = anova(m2) ) #type I
+( ParSS.m2 = car::Anova(m2,type="III") ) #type III
+```
+
+## Save the fitted values
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+data = cbind(data,fit.m2 = m2$fitted.values)
+summary(data)
+```
+
+## Compare the output from m1 and m2, what is the same? what is different? 
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+summary(m1)$coef
+summary(m2)$coef
+```
+
+## Compare the output from m1 and m2, what is the same? what is different? 
+```{r mysize=T,size='\\scriptsize', echo=T,eval=T}
+rbind(data.frame(SeqSS.m1),data.frame(SeqSS.m2))
+rbind(data.frame(ParSS.m1)[-1,],data.frame(ParSS.m2)[-1,])
+```
+
+## Verify the models are numerically equivalent
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+summary(data)
+```
+
+## Interpretation in uncentered and centered models.
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+summary(lm(sbp~age*bwt))$coef
+summary(lm(sbp~age.c*bwt.c))$coef
+```
++ (1) Give interpretations for the main effect coefficient for AGE 
++ (2) Interpret the interaction
+
+
+## (1) Give interpretations for the main effect coefficient for AGE 
+
+## (2) Interpret the interaction
+
+## Dichotomize BWT. Refit the interaction model.
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+highbwt = 1*(bwt > mean(bwt)) #1*(bwt.c > 0)
+mgrp = lm(sbp~age*highbwt)
+summary(mgrp)
+```
+
+## Scatterplot with subjects stratified by age category
+```{r mysize=T,size='\\scriptsize', echo=T,eval=T}
+plot(age[highbwt == 0], sbp[highbwt == 0], pch = 15, col="black",
+     xlab = "Age (years)", ylab = "SBP (mm Hg)",xlim=range(age),ylim=range(sbp))
+points(age[highbwt == 1], sbp[highbwt == 1], pch = 16, col="red")
+lines(age[highbwt == 0],mgrp$fitted.values[highbwt == 0],col="black")
+lines(age[highbwt == 1],mgrp$fitted.values[highbwt == 1],col="red")
+legend("bottomright",bty="n",legend=c("higher bwt","lower bwt"),
+       col=c("red","black"),pch=c(16,15))
+```
+
+
+## Fit regression by subgroup
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+mgrp1 = lm(sbp~age,data=data.frame(sbp,age)[highbwt==1,])
+mgrp0 = lm(sbp~age,data=data.frame(sbp,age)[highbwt==0,])
+summary(mgrp)$coef
+summary(mgrp1)$coef
+summary(mgrp0)$coef
+```
+
+## Fit regression by subgroup
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+rbind( mgrp0=coef(mgrp0), mgrp=coef(mgrp)[c("(Intercept)","age")] )
+rbind( mgrp1=coef(mgrp1), 
+   mgrp=c(
+   coef(mgrp)["(Intercept)"]+coef(mgrp)["highbwt"],
+   coef(mgrp)["age"]+coef(mgrp)["age:highbwt"]
+   )
+)
+```
+
+
+## Get 95% CI for age effect among high BWT subjects.
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+mgrp = lm(sbp~age*highbwt)
+vcov(mgrp)
+age.eff = c(  c(0,1,0,1)%*%coef(mgrp)  )
+age.var = c(  c(0,1,0,1)%*%vcov(mgrp)%*%c(0,1,0,1)  )
+t = qt(p=0.975,df=nrow(data)-4) #or qnorm(0.975) if n=nrow(data) is large
+(age.confint = age.eff + c(-1,1)*t*sqrt(age.var))
+confint(mgrp1)
+```
+
+

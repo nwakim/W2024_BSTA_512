@@ -1,0 +1,111 @@
+---
+title: "Module_G"
+author: Xu Shi
+date: Oct 12, 2020
+fontsize: 10pt
+output: 
+    beamer_presentation
+latexengine: xelatex
+---
+```{r set-options, echo=FALSE, cache=FALSE}
+options(width = 65)
+```
+```{r  mysize=T, tidy=T, size='\\tiny', warning=F,echo=FALSE,eval=T}
+knitr::knit_hooks$set(mysize = 
+  function(before, options, envir){
+    if (before) return(options$size)
+  }
+)
+```
+## Example: 
++ A study is conducted to examine the role of age (measured in days) and birth weight (BWT in ounces) as predictors of infant systolic blood pressure (SBP, mm Hg). 
++ Read in the data file (systolic1.csv).
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+data = read.csv(file="systolic1.csv",header=T)
+attach(data)
+```
+
+## Estimate the crude (i.e., unadjusted) effect of BWT on SPB. Is the effect significant?
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+summary(lm(sbp~bwt))
+```
+
+## Estimate the effect of BWT on SPB, adjusted for AGE. Is the effect significant?
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+summary(lm(sbp~bwt+age))
+```
+
+## Estimate the correlation between BWT and AGE. Is the correlation significant?
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+cor.test(bwt,age)
+# summary(lm(bwt~age))$coef
+# summary(lm(age~bwt))$coef
+```
+
+## Compare the simple and multiple linear regression coefficient estimates for BWT, are they really any different? Why?
+
+## What is the main reason that BWT had an insignificant effect based on the SLR model, but a significant effect based on the MLR model?
+
+## Compute sequential SS (type I SS)
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+anova(lm(sbp~bwt+age))
+anova(lm(sbp~bwt))
+```
+
+## Compute sequential SS (type I SS): order matters
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+anova(lm(sbp~age+bwt))
+anova(lm(sbp~age))
+```
+
+## Numerically verify that, same as SAS, anova() uses F rather than F*
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+(SeqSS = data.frame(anova(lm(sbp~bwt+age))))
+SeqSS[,"Mean.Sq"]/SeqSS[,"F.value"]
+```
+
+## Compute partial SS (type III SS)
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+library(car)
+car::Anova(lm(sbp~bwt+age), type="III")
+```
+
+
+## Using the SS's, calculate how much would R$^2$ increase if AGE is added to a model that already contains BWT
+\pause
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+(seq_bwt_age = anova(lm(sbp~bwt+age)))
+( SSY = sum( data.frame(seq_bwt_age)[,"Sum.Sq"] )  )
+(diff_Rsquared=data.frame(seq_bwt_age)["age","Sum.Sq"]/SSY)
+```
+
+
+## Verify your answer using lm outputs
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+summary(lm(sbp~bwt+age))$r.squared
+summary(lm(sbp~bwt))$r.squared
+summary(lm(sbp~bwt+age))$r.squared - summary(lm(sbp~bwt))$r.squared
+```
+
+## Using the *extra* SS's, test whether BWT is associated with SBP, not accounting for AGE
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+data.frame(seq_bwt_age)
+```
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+## Compare to lm result
+summary(lm(sbp~bwt))$coef["bwt",]
+```
++ What is the reason for the difference?
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+summary(lm(sbp~bwt))$sigma^2
+```
+
+## Are the t tests in lm(sbp~bwt+age) output sequential or partial? 
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+summary(lm(sbp~bwt+age))$coef
+```
++ Verify your answer numerically\pause 
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+summary(lm(sbp~bwt+age))$coef[,"t value"]^2
+data.frame(car::Anova(lm(sbp~bwt+age), type="III"))[,"F.value"]
+```

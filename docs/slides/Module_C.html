@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Linear Regression – module_c</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/bsta_550_hex_3.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Linear Regression</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../syllabus.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule1.html" rel="" target="">
+ <span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../class_slides.html" rel="" target="">
+ <span class="menu-text">Slides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../homeworks.html" rel="" target="">
+ <span class="menu-text">Homework</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Course Info</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../instructors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Course Materials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../class_slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class Slides</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homeworks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weekly Pages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_01_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_02_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_03_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_04_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_05_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_06_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_07_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_08_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_09_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_10_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_11_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<div class="frame">
+<p><span style="color: royalblue"><strong>BIOSTAT 650<br>
+Theory and Application of Linear Regression<br>
+Module C: SLR Hypothesis Testing</strong></span></p>
+</div>
+<div class="frame">
+<p>Review and Preview Suppose we have <span class="math inline">\(n\)</span> (sample size) pairs of data <span class="math inline">\((X_i,Y_i),i=1\dots,n\)</span> <span class="math inline">\(X\)</span>’s are fixed values <span class="math inline">\(Y\)</span>’s are randomly selected from the population at a given <span class="math inline">\(X\)</span> value We assume a linear relationship <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+\epsilon_i\)</span>, <span class="math inline">\(\epsilon_i\sim (0,\sigma^2)\)</span> The errors <span class="math inline">\(\epsilon_i\)</span> are at least uncorrelated Given the data we can estimate <span class="math inline">\(\beta_0,\beta_1\)</span> <span class="math inline">\(\widehat{\beta}_0 =\overline{Y}-\widehat{\beta}_1\overline{X}\)</span> <span class="math inline">\(\widehat{\beta}_1 = \frac{SSXY}{SSX}\)</span> Because the values of <span class="math inline">\(\widehat{\beta}_0,\widehat{\beta}_1\)</span> depend on the particular random sample drawn from the population, these quantities are considered random variables (estimators). Once we “plug in" observed data, we have estimates.</p>
+</div>
+<div class="frame">
+<p>Review and Preview A typical goal of the analysis is to infer (draw inference on) the values of <span class="math inline">\(\beta_0,\beta_1\)</span> supported by the data (point and interval estimates), as well as test if particular values of <span class="math inline">\(\beta_0,\beta_1\)</span> are consistent with the data (hypothesis testing where e.g., <span class="math inline">\(H_0:\beta_1=b_1\)</span>, and <span class="math inline">\(b_1\)</span> is a given constant such as 0). To draw inference (interval estimates or tests) we need to know the sampling distribution of the estimators <span class="math inline">\(\widehat{\beta}_0,\widehat{\beta}_1\)</span>, i.e., <u>What are the average values</u> of <span class="math inline">\(\widehat{\beta}_0,\widehat{\beta}_1\)</span> if we were able to take repeated samples of the population <u>How much variation</u> is there in the values of <span class="math inline">\(\widehat{\beta}_0,\widehat{\beta}_1\)</span> from one random sample to another Given the model assumptions, we can derive Average values: <span class="math inline">\(E[\widehat{\beta}_0]=\beta_0\)</span>, <span class="math inline">\(E[\widehat{\beta}_1]=\beta_1\)</span> Variation: <span class="math inline">\(Var(\widehat{\beta}_0)=\sigma^2(\frac{1}{n}+\frac{\bar{X}^2}{SSX})\)</span>, <span class="math inline">\(Var(\widehat{\beta}_1)=\frac{\sigma^2}{SSX}\)</span></p>
+</div>
+<div class="frame">
+<p>Review and Preview Since <span class="math inline">\(E[\widehat{\beta}_0]=\beta_0\)</span> and <span class="math inline">\(E[\widehat{\beta}_1]=\beta_1\)</span>, we know that the estimators (formulas) will give estimates that are centered at the true values.</p>
+<div class="columns">
+<div class="column">
+<p>0.3</p>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pic/Rplot.png" style="height:1.1in" class="figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+</div>
+</div><div class="column">
+<p>0.7 Histogram of observed values of <span class="math inline">\(\widehat{\beta}_1\)</span> if we took many repeated samples from the population Since we have only one particular dataset (sample), we are only able to observe one value of the slope, not the whole distribution</p>
+</div>
+</div>
+<p>The formulas for <span class="math inline">\(Var(\widehat{\beta}_0),Var(\widehat{\beta}_1)\)</span> tell us how much spread there is in this histogram. However, the formulas also involve <span class="math inline">\(\sigma^2\)</span> (the variance of errors). So we further estimate <span class="math inline">\(\sigma^2\)</span> before drawing inference. We do this by “plug in" an estimate of <span class="math inline">\(\sigma^2\)</span>, specifically <span class="math inline">\(\widehat{\sigma}^2=MSE=\frac{\sum_{i=1}^n(Y_i-\widehat{Y}_i)^2}{n-2}\)</span> Hence <span class="math inline">\(\widehat{Var}(\widehat{\beta}_0)=\widehat{\sigma}^2(\frac{1}{n}+\frac{\bar{X}^2}{SSX})=MSE(\frac{1}{n}+\frac{\bar{X}^2}{SSX})\)</span> <span style="color: white">Hence</span> <span class="math inline">\(\widehat{Var}(\widehat{\beta}_1)=\frac{\widehat{\sigma}^2}{SSX}=\frac{MSE}{SSX}\)</span></p>
+</div>
+<div class="frame">
+<p>Review and Preview Note that all the above estimators are derived without assuming independence or normality</p>
+<p>One additional piece of information needed is the shape of the histogram, i.e., the distribution of <span class="math inline">\(\widehat{\beta}_1\)</span>, <span class="math inline">\(\widehat{\beta}_0\)</span>.</p>
+<p>Note that we can re-write <span class="math inline">\(\widehat{\beta}_1=\frac{SSXY}{SSX}=\frac{\sum_{i=1}^n(X_i-\overline{X})Y_i}{SSX}\)</span><br>
+<span style="color: white"><span class="math inline">\(\widehat{\beta}_1\)</span></span><span class="math inline">\(=\sum_{i=1}^nw_{1i}Y_i\)</span>, where <span class="math inline">\(w_{1i}=\frac{X_i-\overline{X}}{SSX}\)</span> <span class="math inline">\(\widehat{\beta}_0=\overline{Y}-\widehat{\beta}_1\overline{X}=\sum_{i=1}^n  \frac{1}{n}Y_i-\sum_{i=1}^nw_{1i}Y_i\overline{X}=\sum_{i=1}^n(\frac{1}{n}-w_{1i}\overline{X})Y_i\)</span><br>
+<span style="color: white"><span class="math inline">\(\widehat{\beta}_1\)</span></span><span class="math inline">\(=\sum_{i=1}^nw_{0i}Y_i\)</span>, where <span class="math inline">\(w_{0i}=\frac{1}{n}-w_{1i}\overline{X}\)</span></p>
+<p>Therefore, <span class="math inline">\(\widehat{\beta}_1\)</span> and <span class="math inline">\(\widehat{\beta}_0\)</span> are linear combinations of <span class="math inline">\(Y_i\)</span></p>
+</div>
+<div class="frame">
+<p>Review and Preview Under LINE, <span class="math inline">\(Y_i\stackrel{i.i.d}{\sim}N(0,\sigma^2)\)</span>. Thus <span class="math inline">\(\widehat{\beta}_1\)</span> and <span class="math inline">\(\widehat{\beta}_0\)</span> also follow normal distributions (linear combination of normal is normal). That is, <span class="math inline">\(\boxed{\widehat{\beta}_1\sim N(\beta_1,\frac{\sigma^2}{SSX}),\; \widehat{\beta}_0\sim N(\beta_0,\sigma^2(\frac{1}{n}+\frac{\bar{X}^2}{SSX}))}\)</span> Hence <span class="math inline">\(\frac{\widehat{\beta}_1-\beta_1}{\sqrt{{\sigma^2}/{SSX}}}\sim N(0,1)\)</span> However, <span class="math inline">\(\sigma^2\)</span> is unknown and is estimated by <span class="math inline">\(\widehat{\sigma}^2=MSE\)</span>. Hence we need to understand what is the distribution of <span class="math inline">\(\frac{\widehat{\beta}_1-\beta_1}{\sqrt{MSE/{SSX}}}\)</span></p>
+</div>
+<div class="frame">
+<p>Outline</p>
+<p>Topics:</p>
+<p>Hypothesis testing</p>
+<p>Testing slope, intercept parameters</p>
+<p>Sums of squares</p>
+<p>ANOVA table</p>
+<p>Examples</p>
+<p>Text (MPV, 5th ed): 2.3, 2.6, 2.7</p>
+</div>
+<div class="frame">
+<p>Properties of Estimators</p>
+<div class="columns">
+<div class="column">
+<p>0.5 <span class="math inline">\(\widehat{\beta}_1=\frac{SSXY}{SSX}=\sum_{i=1}^nw_{1i}Y_i\)</span>, where <span class="math inline">\(w_{1i}=\frac{X_i-\overline{X}}{SSX}\)</span> <span class="math inline">\(E[\widehat{\beta}_1] =\beta_1\)</span> <span class="math inline">\(Var(\widehat{\beta}_1) = \frac{\sigma^2}{SSX}\)</span> <span class="math inline">\(\widehat{\beta}_1\sim N(\beta_1,\frac{\sigma^2}{SSX})\)</span></p>
+</div><div class="column">
+<p>0.47</p>
+<p><span class="math inline">\(\widehat{\beta}_0=\overline{Y}-\widehat{\beta}_1\overline{X}=\sum_{i=1}^nw_{0i}Y_i\)</span>, where <span class="math inline">\(w_{0i}=\frac{1}{n}-w_{1i}\overline{X}\)</span> <span class="math inline">\(E[\widehat{\beta}_0] = \beta_0\)</span> <span class="math inline">\(Var(\widehat{\beta}_0) = \sigma^2\left\{\frac{1}{n} + \frac{\overline{X}^2}{SSX} \right\}\)</span> <span class="math inline">\(\widehat{\beta}_0\sim N(\beta_0,\sigma^2(\frac{1}{n}+\frac{\bar{X}^2}{SSX}))\)</span></p>
+</div>
+</div>
+<p><span class="math inline">\(\widehat{\sigma}^2=\frac{\sum_{i=1}^n(Y_i-\widehat{Y}_i)^2}{n-2}=\frac{SSE}{n-2}=MSE\)</span>; <span class="math inline">\(E[\widehat{\sigma}^2]= \sigma^2\)</span> <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> are normally distributed under LINE Because they are linear combinations of <span class="math inline">\(Y_i\)</span> <span class="math inline">\(SSE/\sigma^2\)</span> follows a <span class="math inline">\(\chi^2_{n-2}\)</span> distribution (will be shown in Module F)</p>
+</div>
+<div class="frame">
+<p>Precision of Slope Estimator Recall: <span class="math inline">\(Var(\widehat{\beta}_1)=\sigma^2/SSX\)</span>, <span class="math inline">\(\widehat{Var}(\widehat{\beta}_1)=MSE/SSX\)</span> precision of <span class="math inline">\(\widehat{\beta}_1\)</span> increases as variability in the <span class="math inline">\(X\)</span> covariate increases Compare two studies:</p>
+<div class="columns">
+<div class="column">
+<p>0.5 Study #1: <span class="math inline">\(SSX\)</span> is quite large</p>
+</div><div class="column">
+<p>0.5 Study #2: <span class="math inline">\(SSX\)</span> is quite small</p>
+</div>
+</div>
+<p>Q: For which study should <span class="math inline">\(\widehat{\beta}_1\)</span> be more precise?</p>
+</div>
+<div class="frame">
+<p><span style="color: royalblue"><strong>Hypothesis Testing</strong></span></p>
+</div>
+<div class="frame">
+<p>Review in Module A: t Distribution</p>
+<p>If <span class="math inline">\(Z\sim \mbox{N}(0,1)\)</span> and <span class="math inline">\(S^2\sim \chi^2_{df}\)</span> and <span class="math inline">\(Z\)</span> and <span class="math inline">\(S^2\)</span> are independent, then <span class="math display">\[\begin{aligned}
+\frac{Z}{\sqrt{S^2/df}} &amp; \sim &amp; t_{df} \nonumber
+\end{aligned}\]</span></p>
+<p>Symmetric, centered at 0, <span class="math inline">\(t_{df} \stackrel{df\rightarrow \infty}{\rightarrow} \mbox{N}(0,1)\)</span></p>
+<p>Note that <span class="math inline">\(\widehat{\beta}_1\sim N(\beta_1,\frac{\sigma^2}{SSX})\)</span> and <span class="math inline">\(SSE/\sigma^2\sim\chi^2_{n-2}\)</span> under LINE <span class="math inline">\(Z=\frac{\widehat{\beta}_1-\beta_1}{\sqrt{\frac{\sigma^2}{SSX}}}\sim N(0,1)\)</span>, <span class="math inline">\(S^2=\frac{SSE}{\sigma^2}\sim \chi^2_{n-2}\)</span>, and <span class="math inline">\(S^2/(n-2)=\frac{MSE}{\sigma^2}\)</span> <span class="math display">\[\boxed{\frac{\widehat{\beta}_1-\beta_1}{\sqrt{\frac{\sigma^2}{SSX} \frac{MSE}{\sigma^2}}}=\frac{\widehat{\beta}_1-\beta_1}{\sqrt{ {MSE}/{SSX} }}\sim t_{n-2}}\label{tdist}\]</span></p>
+</div>
+<div class="frame">
+<p>Hypothesis Testing: General General procedure for hypothesis testing:</p>
+<p>Pose <span class="math inline">\(H_0\)</span> (and <span class="math inline">\(H_1\)</span>)</p>
+<p>Set up an appropriate test statistic: involves parameter of interest computable using observed data tractable sampling distribution</p>
+<p>Compute test statistic using observed data</p>
+<p>Pre-specify significant level <span class="math inline">\(\alpha\)</span> (often <span class="math inline">\(\alpha=0.05\)</span>)</p>
+<p>Determine either:</p>
+<p>rejection region method: whether test statistic falls in rejection region <span class="math inline">\(p\)</span>-value method: whether <span class="math inline">\(p\)</span>-value <span class="math inline">\(&lt;\alpha\)</span></p>
+<p>CI method: if null value falls in confidence interval (CI)</p>
+<p>Translate “answer" back to the language in which question was initially posed</p>
+</div>
+<div class="frame">
+<p>Hypothesis Testing: Slope To test <span class="math inline">\(H_0:\beta_1=0\)</span>, we can use the following statistic: <span class="math display">\[\begin{aligned}
+T  =%= \frac{\widehat{\beta}_1}{{SE}(\widehat{\beta}_1)}=
+  \frac{\widehat{\beta}_1}{\sqrt{\widehat{Var}(\widehat{\beta}_1)}} = \frac{\widehat{\beta}_1}{\sqrt{MSE/SSX}}&amp;
+\sim &amp;  t_{n-2} \nonumber
+\end{aligned}\]</span></p>
+<p>Three different ways to conduct this hypothesis test rejection region method; <span class="math inline">\(p\)</span>-value method; CI method</p>
+</div>
+<div class="frame">
+<ol type="1">
+<li>Rejection Region Method Recall: <span class="math inline">\(H_0: \beta_1=0\)</span> We’re assuming a universe where the null hypothesis is true We look at how unlikely/extreme the observed data look like</li>
+</ol>
+<p>Note: <span class="math inline">\(T\)</span> is the computed value of the test statistic, whereas <span class="math inline">\(t_{df}\)</span> is a <span class="math inline">\(t\)</span>-distributed random variable with <span class="math inline">\(df\)</span> degrees of freedom</p>
+<p><span class="math inline">\(t_{df,q}\)</span> denotes the <span class="math inline">\(q\)</span>th percentile, for <span class="math inline">\(t_{df}\)</span></p>
+<p>Rejection Region Method Determine the cut-point(s) for a given significance level <span class="math inline">\(\alpha\)</span> Cut-point(s) is <span class="math inline">\(t_{df,q}\)</span>, <span class="math inline">\(q=1-\alpha\)</span> or <span class="math inline">\(1-\alpha/2\)</span> depending on <span class="math inline">\(H_1\)</span> Reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(T\)</span> is beyond the cut-point(s)</p>
+<p>“The observed data (<span class="math inline">\(T\)</span>) is beyond what we would expect to see (<span class="math inline">\(t_{df}\)</span>) if there were truly no association"</p>
+</div>
+<div class="frame">
+<ol type="1">
+<li>Rejection Region Method (continued)</li>
+</ol>
+<p>Specifying appropriate rejection region</p>
+<p>if <span class="math inline">\(H_1: \beta_1&gt;0\)</span>, then reject when <span class="math inline">\([T&gt;t_{n-2,0.95}]\)</span></p>
+<p>if <span class="math inline">\(H_1: \beta_1&lt;0\)</span>, reject when <span class="math inline">\([T&lt;-t_{n-2,0.95}]\)</span></p>
+<p>if <span class="math inline">\(H_1: \beta_1\neq 0\)</span>, reject when <span class="math inline">\([|T|&gt;t_{n-2,0.975}]\)</span></p>
+</div>
+<div class="frame">
+<ol start="2" type="1">
+<li><span class="math inline">\(p\)</span> Value Method Recall: <span class="math inline">\(H_0: \beta_1=0\)</span> We’re assuming a universe where the null hypothesis is true <span class="math inline">\(p\)</span>-value is the probability of data (not probability of the hypothesis) <span class="math inline">\(p\)</span> value is the probability of getting results at least as extreme as the ones you observed <em>under the null</em> <span class="math inline">\(p\)</span> value does not tell you the probability that the null is false <span class="math inline">\(p\)</span> Value Method First, compute <span class="math inline">\(p\)</span>-value if <span class="math inline">\(H_1: \beta_1&gt;0\)</span>, then <span class="math inline">\(p=P(t_{n-2}&gt;T)\)</span> if <span class="math inline">\(H_1: \beta_1&lt;0\)</span>, then <span class="math inline">\(p=P(t_{n-2}&lt;T)\)</span> if <span class="math inline">\(H_1: \beta_1\neq 0\)</span>, then <span class="math inline">\(p=2\times P(t_{n-2}&gt;|T|)\)</span> Then, reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(p&lt;\alpha\)</span></li>
+</ol>
+</div>
+<div class="frame">
+<ol start="3" type="1">
+<li>Confidence Interval Method Generally, only applied when <span class="math inline">\(H_1\)</span> is two-sided, e.g., <span class="math inline">\(H_1:\beta_1\neq b_1\)</span></li>
+</ol>
+<p><span class="math inline">\(H_0: \beta_1=b_1\)</span> Confidence Interval Method Compute 95% CI for <span class="math inline">\(\beta_1:\)</span><br>
+<span class="math inline">\(95\%\; \mbox{CI}(\beta_1) = \left(\widehat{\beta}_1 - t_{n-2,0.975}\sqrt{\frac{MSE}{SSX}} ,\widehat{\beta}_1 + t_{n-2,0.975}\sqrt{\frac{MSE}{SSX}} \right)\)</span> CI contains values we can’t rule out If we repeat sampling a lot of times, then about 95% of the time the CI contains the unknown true value (not necessarily your current CI)</p>
+<p>Reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(b_1\)</span> is outside the CI At what level of significance would <span class="math inline">\(H_0\)</span> be rejected?</p>
+</div>
+<div class="frame">
+<p>Interpreting Tests of Slope If <span class="math inline">\(H_0:\beta_1=0\)</span> is rejected, we conclude that: Slope of regression line is significantly different from 0 <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a significant linear association If <span class="math inline">\(H_0:\beta_1=0\)</span> fails to be rejected, we conclude that: We have insufficient evidence that the slope of the regression line is non-zero <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> exhibit no significant <em>linear</em> association</p>
+<p>Note These tests won’t tell you if <span class="math inline">\(H_0\)</span> or <span class="math inline">\(H_1\)</span> is true They tell you “strength of evidence": sig or not sig</p>
+</div>
+<div class="frame">
+<p>Interpreting Tests of Slope (continued)</p>
+<p>On the other hand, must not over-interpret <em>significant</em> result for <span class="math inline">\(\beta_1\)</span></p>
+<p>e.g., we may reject <span class="math inline">\(H_0:\beta_1 = 0\)</span>, but <span class="math inline">\(E[Y_i|X_i]=\beta_0+\beta_1 X_i\)</span> need not be the correct model <span class="math inline">\(\ldots\)</span></p>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pic/fig23.png" class="img-fluid figure-img" style="width:3in"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="frame">
+<p>Interpreting Tests of Slope (cont’d) Conversely, if we fail to reject <span class="math inline">\(H_0:\beta_1=0\)</span>, we must not over-interpret the result i.e., <span class="math inline">\(\beta_1\)</span> measures the <em>linear</em> association between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> relationship need not be linear perhaps <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are strongly associated, but a linear model inadequately describes the relationship <span class="math inline">\(\ldots\)</span></p>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pic/fig22.png" class="img-fluid figure-img" style="width:3in"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="frame">
+<p><span style="color: royalblue"><strong>Hypothesis Testing: Intercept</strong></span></p>
+</div>
+<div class="frame">
+<p>Hypothesis Testing: Intercept</p>
+<p>Can carry out test of <span class="math inline">\(H_0:\beta_0=b_0\)</span> using t-test: <span class="math display">\[\begin{aligned}
+T  =  \frac{\widehat{\beta}_0-b_0}{\sqrt{\widehat{Var}(\widehat{\beta}_0)}} &amp; \sim &amp; t_{n-2}
+\nonumber
+\end{aligned}\]</span></p>
+<p>Can apply <span class="math inline">\(p\)</span> value, CI and rejection rejection-region methods as described previously</p>
+</div>
+<div class="frame">
+<p>Hypothesis Testing: Intercept (continued) Typically, interest lies in <span class="math inline">\(\beta_1\)</span> rarely are investigators interested in <span class="math inline">\(\beta_0\)</span> Q: Can we remove <span class="math inline">\(\beta_0\)</span> from the model if<br>
+<span class="math inline">\(H_0: \beta_0=0\)</span> vs.&nbsp;<span class="math inline">\(H_1: \beta_0\neq 0\)</span> fails to be rejected? consider two models fitted to the same data set: model 1: <span class="math inline">\(Y_i=\beta_0+\beta_1 X_i + \epsilon_i\)</span> model 2: <span class="math inline">\(Y_i=\beta_1 X_i + \epsilon_i\)</span></p>
+<p>Removing <span class="math inline">\(\beta_0\)</span> in fact means forcing <span class="math inline">\(\beta_0=0\)</span> may distort our inference on <span class="math inline">\(\beta_1\)</span>, with <span class="math inline">\(|\widehat{\beta}_1|\)</span> exaggerated</p>
+</div>
+<div class="frame">
+<p>Example 1 A study is conducted to examine the relationship between a child’s age and the amount the child sleeps per night. A sample of n=15 children is collected and the average number of minutes slept per night over a 1-week period is recorded. A simple linear regression model (of sleep on age) is fitted, with <span class="math inline">\(\widehat{\beta}_1=1.00\)</span>, <span class="math inline">\(\widehat{Var}(\widehat{\beta}_1)=0.25\)</span> Note: <span class="math inline">\(t_{13,0.975}=2.16\)</span>, <span class="math inline">\(t_{13,0.95}=1.771\)</span>, <span class="math inline">\(t_{13,0.90}=1.35\)</span> Note: these are not the data from the example in Module B Answer the following questions (assume <span class="math inline">\(\alpha=0.05\)</span>).</p>
+</div>
+<div class="frame">
+<p>Example 1 (cont’d) A rather skeptical clinician claims that the study was a waste of money, since it is clear that sleeping patterns are not associated with age among children. Carry out an appropriate hypothesis test of this claim.</p>
+<p>null hypothesis:<br>
+alternative hypothesis:<br>
+test statistic: reference distribution: rejection region: decision:</p>
+</div>
+<div class="frame">
+<p>Example 1 (cont’d) Based on personal experience, a pediatrician believes that sleep time increases with age. Carry out an appropriate hypothesis test of this claim.</p>
+<p>null hypothesis:<br>
+alternative hypothesis:<br>
+test statistic: reference distribution: rejection region: decision:</p>
+</div>
+<div class="frame">
+<p>Example 1 (cont’d) A previous study found that the average amount slept per night increased by 1.5 minutes per year of age. Conduct a hypothesis test to determine if the results of the current study are consistent with this finding.</p>
+<p>null hypothesis:<br>
+alternative hypothesis:<br>
+test statistic: reference distribution: rejection region: decision:</p>
+</div>
+<div class="frame">
+<p>Example 1 (cont’d) Based on the model, estimate the difference between 5- and 9-year olds with respect to average sleep time.</p>
+<p>Compute a 95% confidence interval for the difference between 5- and 9-year olds with respect to average sleep time.</p>
+</div>
+<div class="frame">
+<p>Example 1 (cont’d) Compute an interval estimate of <span class="math inline">\(\beta_1\)</span></p>
+</div>
+<div class="frame">
+<p>Example 1 (cont’d) A previous study found that the average amount slept per night increased by 1.6 minutes per year of age. A second similar study yielded an estimate of 2.0 minutes. In addition, a third study estimates <span class="math inline">\(\beta_1\)</span> to be 2.5. Conduct hypothesis tests to determine if the results of the current study are consistent with each of these findings.</p>
+</div>
+<div class="frame">
+<p><span style="color: royalblue"><strong>Sums of Squares: ANOVA Table</strong></span></p>
+</div>
+<div class="frame">
+<p>SLR: ANOVA Table ANOVA: analysis of variance used when <span class="math inline">\(X\)</span> is categorical (e.g., gender, hospital, state, etc) method for comparing category-specific means can be cast as a special case of linear regression often de-emphasized, since regression methods can handle any ANOVA analysis ANOVA Table: applicable to linear regression, generally (regardless of whether <span class="math inline">\(X\)</span> is categorical) summarizes variation in response variable</p>
+</div>
+<div class="frame">
+<p>ANOVA: Sums of Squares</p>
+<div class="columns">
+<div class="column">
+<p>0.5</p>
+<p>sum of squares:<br>
+<span class="math inline">\(\boxed{SSY = \sum_{i=1}^n (Y_i-\overline{Y})^2}\)</span></p>
+<p>Total variation in <span class="math inline">\(Y\)</span></p>
+</div><div class="column">
+<p>0.5 <img src="pic/ss.png" class="img-fluid" style="width:2in" alt="image"></p>
+</div>
+</div>
+<div class="columns">
+<div class="column">
+<p>0.5 sum of squares: <span class="math inline">\(\boxed{SSR = \sum_{i=1}^n (\widehat{Y}_i-\overline{Y})^2}\)</span> Variation in <span class="math inline">\(Y\)</span> explained by the regression model Between group variation (think of <span class="math inline">\(\widehat{Y}_i\)</span> as group mean)</p>
+</div><div class="column">
+<p>0.5 sum of squares:<br>
+<span class="math inline">\(\boxed{SSE = \sum_{i=1}^n (Y_i-\widehat{Y}_i)^2}\)</span> Variation in <span class="math inline">\(Y\)</span> unexplained by the regression model With group variation (think of <span class="math inline">\(\widehat{Y}_i\)</span> as group mean)</p>
+</div>
+</div>
+</div>
+<div class="frame">
+<p>Key identity and Degrees of Freedom <span class="math inline">\(\boxed{\underbrace{\sum_{i=1}^n (Y_i-\overline{Y})^2}_{SSY}=\underbrace{\sum_{i=1}^n (\widehat{Y}_i-\overline{Y})^2}_{SSR}+\underbrace{\sum_{i=1}^n (Y_i-\widehat{Y}_i)^2}_{SSE}}\)</span></p>
+<p>total variation = variation explained + unexplained by regression <span class="math inline">\(\underbrace{dfSSY}_{n-1} = \underbrace{dfSSR}_{1} + \underbrace{dfSSE}_{n-2}\)</span></p>
+<p>You will show this in Homework 2. Consider showing <span class="math inline">\(\sum_{i=1}^nX_i (Y_i-\widehat{Y}_i) =0\)</span>: “the residual and covariate are orthogonal" <span class="math inline">\(\sum_{i=1}^n (Y_i-\widehat{Y}_i) = \sum_{i=1}^n \widehat{\epsilon}_i =0\)</span>:”the residuals sum to zero" from how <span class="math inline">\(\widehat{\beta}_1\)</span> and <span class="math inline">\(\widehat{\beta}_0\)</span> are obtained (<span class="math inline">\(\frac{\partial SSE}{\partial \widehat{\beta}_1}=\frac{\partial SSE}{\partial \widehat{\beta}_0}=0\)</span>)</p>
+</div>
+<div class="frame">
+<p>Mean Square</p>
+<p>We define the <em>mean square</em> as the ratio of the sum of squares (<span class="math inline">\(SS\)</span>) to its corresponding degrees of freedom (<span class="math inline">\(df\)</span>): <span class="math display">\[\begin{aligned}
+MS(\cdot) \nonumber &amp; = &amp; \frac{SS(\cdot)}{df(\cdot)} \nonumber
+\end{aligned}\]</span></p>
+<p>Two most important are mean square error and mean square regression: <span class="math display">\[\begin{aligned}
+MSE &amp; = &amp; \frac{SSE}{dfE} \nonumber \\ \nonumber \\ MSR &amp; = &amp;
+\frac{SSR}{dfR} \nonumber
+\end{aligned}\]</span></p>
+<p>Q: What use did we see previously for MSE?</p>
+</div>
+<div class="frame">
+<p>ANOVA Table Typical ANOVA table (e.g., in R output of anova() function)</p>
+<hr>
+<p>Source SS df MS F p</p>
+<p>model</p>
+<p>error</p>
+<p>total</p>
+<hr>
+</div>
+<div class="frame">
+<p><span style="color: royalblue"><strong>Coefficient of Determination: R Squared</strong></span></p>
+</div>
+<div class="frame">
+<p>Coefficient of Determination</p>
+<p>Given no linear association: We could simply use the sample mean to predict <span class="math inline">\(E(Y)\)</span>. The variability between the data and this simple prediction is SSY. Given linear association: Using <span class="math inline">\(X\)</span> permits a potentially better prediction of <span class="math inline">\(Y\)</span> via <span class="math inline">\(E(Y| X)\)</span> What did we gain by using <span class="math inline">\(X\)</span>? compute the proportion of the total variation that can be explained by the regression on <span class="math inline">\(X\)</span></p>
+<p>Define: <em>coefficient of determination</em>, <span class="math display">\[R^2= \frac{SSR}{SSY} %= 1-\frac{SSE}{SSY}\]</span> “Proportion of variation in <span class="math inline">\(Y\)</span>, explained by the regression model" <span class="math inline">\(0 \leq R^2 \leq 1\)</span></p>
+</div>
+<div class="frame">
+<p>Interpreting R-squared <span class="math inline">\(R^2\)</span> is, actually, comparing the fit of two different models <span class="math inline">\(SSE\)</span> relates to error from the model: <span class="math inline">\(Y_i=\)</span> <span class="math inline">\(SSY\)</span> is actually an ‘SSE’, but from the model: <span class="math inline">\(Y_i=\)</span> It is guaranteed that <span class="math inline">\(SSY\geq SSE\)</span> question is: how much is the improvement?</p>
+</div>
+<div class="frame">
+<p>Coefficient of Determination</p>
+<p>Correspondingly, <span class="math inline">\(1-R^2=\)</span> proportion of <span class="math inline">\(Y\)</span>’s variability not accounted for by <span class="math inline">\(Y\)</span>’s (linear) association with <span class="math inline">\(X\)</span>, <span class="math display">\[\begin{aligned}
+1-R^2 &amp; = &amp; \frac{SSE}{SSY}   \nonumber
+\end{aligned}\]</span></p>
+<p>If <span class="math inline">\(Y_i=\beta_0+\beta_1X_i\)</span> (note: no error term), then <span class="math inline">\(R^2=1\)</span></p>
+<p><span class="math inline">\(R^2\)</span> must be interpreted with caution e.g., suppose the true underlying model is <span class="math inline">\(Y_i=\beta_0+\beta_1X_i^2+\epsilon_i\)</span></p>
+<p>if the model <span class="math inline">\(E[Y_i]=\beta_0+\beta_1X_i\)</span> is fitted, <span class="math inline">\(R^2\)</span> could be very low, even though <span class="math inline">\(X\)</span> is a predictor of <span class="math inline">\(Y\)</span></p>
+</div>
+<div class="frame">
+<p><span class="math inline">\(R^2\)</span> (continued) <span class="math inline">\(R^2\)</span> equals the squared sample correlation between <span class="math inline">\(Y\)</span> and <span class="math inline">\(\widehat{Y}\)</span></p>
+<p>Recall Module A: sample correlation <span class="math display">\[\widehat{corr}(X,Y) = \frac{SSXY}{\sqrt{SSX\cdot SSY}}\]</span></p>
+<p>then <span class="math inline">\(R^2=\widehat{corr}(Y,\widehat{Y})^2\)</span></p>
+<p>Note: although related, <span class="math inline">\(R^2\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> are measuring different entities</p>
+<p><span class="math inline">\(R^2\)</span>: reflects fit of model</p>
+<p><span class="math inline">\(\widehat{\beta}_1\)</span>: reflects magnitude <span class="math inline">\((X,Y)\)</span> association</p>
+</div>
+<div class="frame">
+<p><span style="color: royalblue"><strong>F Test: Using Sums of Squares</strong></span></p>
+</div>
+<div class="frame">
+<p>Review in Module A: F Distribution</p>
+<p>If <span class="math inline">\(X_1^2\sim \chi^2_{df1}\)</span> and <span class="math inline">\(X_2^2\sim \chi^2_{df2}\)</span>, where <span class="math inline">\(X_1^2\perp X_2^2\)</span>, then: <span class="math display">\[\begin{aligned}
+\frac{X_1^2/df1}{X_2^2/df2} &amp; \sim &amp; F_{df1,df2} \nonumber
+\end{aligned}\]</span></p>
+<p>only takes on positive values</p>
+<p>connection to <span class="math inline">\(t\)</span> distribution:</p>
+<p><span class="math display">\[\begin{aligned}
+\{ t_{df} \}^2 &amp; \stackrel{{\cal D}}{=} &amp; F_{1,df} \nonumber
+\end{aligned}\]</span></p>
+</div>
+<div class="frame">
+<p>Hypothesis Testing: SLR</p>
+<p>Hypotheses of interest: <span class="math inline">\(H_0:\beta_1=0\)</span> vs.&nbsp;<span class="math inline">\(H_1:\beta_1\neq 0\)</span></p>
+<p>Recall: to test <span class="math inline">\(H_0:\beta_1=0\)</span>, we can use the following T statistic: <span class="math inline">\(T =%= \frac{\widehat{\beta}_1}{{SE}(\widehat{\beta}_1)}= \frac{\widehat{\beta}_1}{\sqrt{\widehat{Var}(\widehat{\beta}_1)}} = \frac{\widehat{\beta}_1}{\sqrt{MSE/SSX}} \sim t_{n-2}\)</span></p>
+<div class="columns">
+<div class="column">
+<p>0.5 The null model (<span class="math inline">\(\beta_1=0\)</span>)<br>
+<span class="math inline">\(Y_i=\beta_0+\epsilon_i\)</span> <span class="math inline">\(\widehat{\beta}_0=\overline{Y}\)</span>; <span class="math inline">\(\widehat{Y}_i=\overline{Y}\)</span> <span class="math inline">\(SSE_{H_0} = \sum_{i=1}^n(Y_i-\overline{Y})^2\)</span></p>
+</div><div class="column">
+<p>0.5 The alternative model (<span class="math inline">\(\beta_1\neq 0\)</span>)<br>
+<span class="math inline">\(Y_i=\beta_0+\beta_iX_i+\epsilon_i\)</span> <span class="math inline">\(\widehat{Y}_i=\widehat{\beta}_0+\widehat{\beta}_1X_i\)</span> <span class="math inline">\(SSE_{H_1} = \sum_{i=1}^n(Y_i-\widehat{Y}_i)^2\)</span></p>
+</div>
+</div>
+<p>How to use sums of squares to derive a test statistic for <span class="math inline">\(H_0:\beta_1=0\)</span> vs.&nbsp;<span class="math inline">\(H_1:\beta_1\neq 0\)</span>?</p>
+</div>
+<div class="frame">
+<p>Constructing Test Statistic Need to construct a statistic which involves <span class="math inline">\(\beta_1\)</span> and for which we can derive the sampling distribution</p>
+<p>We will show in future Modules that under <span class="math inline">\(H_0\)</span></p>
+<p><span class="math inline">\(SSY/\sigma^2\sim\chi_{n-1}^2\)</span></p>
+<p><span class="math inline">\(SSR/\sigma^2\sim\chi_1^2\)</span></p>
+<p><span class="math inline">\(SSE/\sigma^2\sim\chi_{n-2}^2\)</span></p>
+<p><span class="math inline">\(SSR\)</span> and <span class="math inline">\(SSE\)</span> are independent</p>
+<p>Key result: ratio of independent scaled (by df) Chi-square random variates yields an F-distribution</p>
+</div>
+<div class="frame">
+<p>Hypothesis Testing (continued)</p>
+<p>Since, under <span class="math inline">\(H_0\)</span>, <span class="math inline">\(SSR\)</span> and <span class="math inline">\(SSE\)</span> are independent: <span class="math display">\[\begin{aligned}
+\frac{\frac{SSR}{\sigma^2}}{\frac{SSE}{(n-2)\sigma^2}} &amp; \sim &amp; F_{1,n-2} \nonumber
+\end{aligned}\]</span></p>
+<p>Therefore, set <span class="math display">\[\begin{aligned}
+F=\frac{MSR}{MSE} &amp; \sim &amp; F_{1,n-2} \nonumber
+\end{aligned}\]</span></p>
+<p>Implication: we can test <span class="math inline">\(H_0\)</span> by computing <span class="math inline">\(F\)</span>, then assessing how reasonable it is to think that a value at least as extreme as <span class="math inline">\(F\)</span> would have arisen from the <span class="math inline">\(F_{1,n-2}\)</span> distribution</p>
+</div>
+<div class="frame">
+<p>Hypothesis Testing: F Test</p>
+<p>Procedure (F test):</p>
+<p>compute <span class="math inline">\(F=MSR/MSE\)</span></p>
+<p>compute <span class="math inline">\(p=P(F_{1,n-2} \geq F|H_0)\)</span></p>
+<p>if <span class="math inline">\(p&lt;0.05\)</span>, then reject <span class="math inline">\(H_0\)</span>; otherwise, <em>fail to reject</em> <span class="math inline">\(H_0\)</span></p>
+<p>Notes: <span class="math inline">\(F\)</span> test is two-sided</p>
+<p><span class="math inline">\(F_{1,n-2}\)</span> distribution is one-tailed (<span class="math inline">\(F\geq 0\)</span>)</p>
+<p><span class="math inline">\(p\)</span> value and rejection-region methods apply</p>
+</div>
+<div class="frame">
+<p>SLR Slope: Revisited Q: How are the <span class="math inline">\(t\)</span> and <span class="math inline">\(F\)</span> tests related? A: in SLR, they are equivalent.</p>
+<p><span class="math display">\[\begin{aligned}
+T &amp; = &amp; \frac{\widehat{\beta}_1}{\sqrt{MSE/SSX}}
+\sim  t_{n-2} \nonumber \\ \nonumber \\
+F &amp; = &amp; \frac{MSR}{MSE}  \sim  F_{1,n-2} \nonumber
+\end{aligned}\]</span></p>
+<p>Recall Module A: <span class="math inline">\(\{t_{df}\}^2\equiv F_{1,df}\)</span> Can also show <span class="math inline">\(F=T^2\)</span> When <span class="math inline">\(T\)</span> falls in the rejection region (from <span class="math inline">\(t_{df}\)</span>), so will <span class="math inline">\(F\)</span> (from <span class="math inline">\(F_{1,df}\)</span>)</p>
+</div>
+<div class="frame">
+<p>Hypothesis Testing: <span class="math inline">\(t\)</span> and <span class="math inline">\(F\)</span> tests We have stated that, for <span class="math inline">\(H_0:\beta_1=0\)</span> vs.&nbsp;<span class="math inline">\(H_1:\beta_1\neq 0\)</span> (two-sided test), the reference null distributions of the <span class="math inline">\(F\)</span> and <span class="math inline">\(T^2\)</span> statistics are equivalent</p>
+<p>Advantage of <span class="math inline">\(t\)</span>-test, relative to <span class="math inline">\(F\)</span>-test: can perform one-sided tests e.g., consider <span class="math inline">\(H_0:\beta_1=0\)</span> vs.&nbsp;<span class="math inline">\(H_1:\beta_1&gt;0\)</span></p>
+<p><span class="math display">\[\begin{aligned}
+t = \frac{\widehat{\beta}_1}{\widehat{SE}(\widehat{\beta}_1)}
+\nonumber
+\end{aligned}\]</span></p>
+<p>reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(t&gt;t_{n-2,0.95}\)</span></p>
+</div>
+<div class="frame">
+<p>R-squared vs.&nbsp;F</p>
+<p><span class="math inline">\(F\)</span> is a direct function of <span class="math inline">\(R^2\)</span>: <span class="math display">\[\begin{aligned}
+F &amp; = &amp; \left\{ \frac{R^2}{1-R^2} \right\}\times \frac{dfE}{dfR}
+\nonumber
+\end{aligned}\]</span></p>
+<p>Overall <span class="math inline">\(F\)</span> test is equivalent to testing <span class="math inline">\(R^2\)</span> adjusting for <span class="math inline">\(df\)</span> distribution of <span class="math inline">\(F\)</span> is easier to derive</p>
+</div>
+<div class="frame">
+<p>Example 2 A study is carried out in order to evaluate the relationship between birth weight (measured in g/100) and estriol levels (measured as mg/24h based on urine samples). Data were collected on a total of n=31 mothers-to-be and their newborns. A straight line regression model was used for analysis. Read in the data file (estriol1.sas7bdat), which is stored as a permanent SAS set (using sas7bdat::read.sas7bdat) Obtain a listing of the variables (using psych::describe) Check if there is any missing data (using psych::describe) Fit an SLR model (both using lm() and by hand) Obtain the F statistic and corresponding p value (both using anova() and by hand)</p>
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+<p>Example 2 (cont’d) Estimate the marginal variance of birth weight.</p>
+<p>Estimate the variance of birth weight, conditional on estriol level.</p>
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+<p>Example 2 (cont’d) Does birth weight depend on estriol level? Carry out an appropriate t test.</p>
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+<p>Example 2 (cont’d) Use an F test to determine whether estriol levels are associated with birth weight.</p>
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+<p>Example 2 (cont’d) What percentage of the variation in birth weight is explained by estriol level?</p>
+</div>
+<div class="frame">
+<p>Questions?</p>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

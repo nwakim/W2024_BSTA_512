@@ -1,0 +1,140 @@
+---
+title: "Module_H"
+author: Xu Shi
+date: Oct 18, 2020
+fontsize: 10pt
+output: 
+    beamer_presentation
+latexengine: xelatex
+---
+```{r set-options, echo=FALSE, cache=FALSE}
+options(width = 70)
+```
+```{r  mysize=T, tidy=T, size='\\tiny', warning=F,echo=FALSE,eval=T}
+knitr::knit_hooks$set(mysize = 
+  function(before, options, envir){
+    if (before) return(options$size)
+  }
+)
+```
+## Example: 
++ A data set was assembled consisting of life expectancy calculations, as well as other population level demographic data. Each record in the data set pertains to a country, with the primary objective being to determine the role of the following descriptors as predictors of life expectancy: continent, sex, persons per television, and persons per medical doctors.
++ Read in the data file (life1.csv).
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+data = read.csv(file="life1.csv",header=T)
+attach(data)
+head(data)
+```
+
+## Produce frequency tables for continent.
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+Hmisc::describe(continent)
+```
+
+## Compute mean life expectancy by continent.
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+by(life_exp, factor(continent), mean) #tapply
+```
+
+## Create dummy variables for continent
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+dummy_Af = 1*(continent=="Af")
+dummy_As = 1*(continent=="As")
+dummy_Eu = 1*(continent=="Eu")
+dummy_Na = 1*(continent=="Na")
+dummy_Sa = 1*(continent=="Sa")
+```
+
+
+## Fit a linear model with all continents represented. Interpret the NA in the output.
+```{r mysize=T,size='\\scriptsize', echo=T,eval=T}
+m0 = lm(life_exp~dummy_Af+dummy_As+dummy_Eu+dummy_Na+dummy_Sa); summary(m0)
+```
+
+## Compute the fitted means for each continent and compare them to the means computed previously.
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+coefs = c(coef(m0)) ## beta coefs
+coefs["dummy_Sa"] = 0 ## set NA to 0
+coefs[-1] + coefs["(Intercept)"] ## add intercept to each
+tapply(life_exp, factor(continent), mean)
+```
+
+## Fit a model w/o an intercept. Compare the parameter estimates to the group means.
+```{r mysize=T,size='\\scriptsize', echo=T,eval=T}
+m1 = lm(life_exp~ -1+dummy_Af+dummy_As+dummy_Eu+dummy_Na+dummy_Sa); summary(m1)
+# Af       As       Eu       Na       Sa 
+# 59.08333 65.03571 74.15000 74.66667 69.10000 
+```
+
+## Compare the SSE values for the two regression models fitted thus far. How can they be equal when SSY is defined differently?
+```{r mysize=T,size='\\scriptsize', echo=T,eval=T}
+data.frame(anova(m0))
+data.frame(anova(m1))
+```
+
+
+## Why does a linear model without an intercept (forced through the origin) have a higher R-squared value?
+\pause
+```{r mysize=T,size='\\scriptsize', echo=T,eval=T}
+ones = rep(1,nrow(data))
+m1.2 = lm(life_exp~ -1+ones+dummy_Af+dummy_As+dummy_Eu+dummy_Na+dummy_Sa); summary(m1.2)
+```
+
+
+## Interpret each row of the results in the no-intercept model.
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+summary(m1)
+```
+
+## Fit a model using the factor() function.
+```{r mysize=T,size='\\scriptsize', echo=T,eval=T}
+m2.1 = lm(life_exp~factor(continent)); summary(m2.1)
+```
+
+## Fit a model using dummy variables to get m2.2.
+```{r mysize=T,size='\\scriptsize', echo=T,eval=T}
+m2.2 = lm(life_exp~dummy_As+dummy_Eu+dummy_Na+dummy_Sa); summary(m2.2)
+```
+
+## Compare ANOVA tables of m2.1 and m2.2
+```{r mysize=T,size='\\scriptsize', echo=T,eval=T}
+data.frame(anova(m2.1))
+data.frame(anova(m2.2))
+sum(data.frame(anova(m2.2))[1:4,"Sum.Sq"])
+```
+
+## Interpret each row of the results in m2.1.
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+summary(m2.1)
+```
+
+## Fit a model using all covariates.
+```{r mysize=T,size='\\scriptsize', echo=T,eval=T}
+(m = lm(life_exp~sex+factor(continent)+per_TV+per_MD))
+```
++ Interpret the intercept, and describe any related concerns.
+
+## What percentage of the variation in life expectancy is explained by gender *alone*?
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+( SSY = var(life_exp)*(nrow(data)-1) )
+(SeqSS = data.frame(anova(lm(life_exp~sex))))
+sum(SeqSS[,"Sum.Sq"])
+SeqSS["sex","Sum.Sq"]/SSY
+```
+
+## What percentage of the variation in life expectancy is explained by gender *alone*?
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+( SSY = var(life_exp)*(nrow(data)-1) )
+(ParSS = data.frame(car::Anova(lm(life_exp~sex),type="III")))
+sum(ParSS[-1,"Sum.Sq"])
+ParSS["sex","Sum.Sq"]/SSY
+```
+
+## Consider the percentage of variation explained by the model with all covariates. What fraction of this percentage is attributable to the per-MD and per-TV covariates?
+\pause
+```{r mysize=T,size='\\scriptsize', echo=T,eval=T}
+(SeqSS = data.frame(anova(m)))
+(R2_MDTV = (SeqSS["per_TV","Sum.Sq"]+SeqSS["per_MD","Sum.Sq"])/SSY)
+R2_MDTV/summary(m)$r.squared
+(SeqSS["per_TV","Sum.Sq"]+SeqSS["per_MD","Sum.Sq"])/sum(SeqSS[1:4,"Sum.Sq"])
+```

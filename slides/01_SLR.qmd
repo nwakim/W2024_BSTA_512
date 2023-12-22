@@ -1,0 +1,124 @@
+---
+title: "Simple Linear Regression (SLR)"
+author: "Nicky Wakim"
+title-slide-attributes:
+    data-background-color: "#213c96"
+date: "01/12/2023"
+categories: ["Week 1"]
+format: 
+  revealjs:
+    theme: [default, simple_NW.scss]
+    toc: true
+    toc-depth: 1
+    toc-title: Class Overview
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1955
+    height: 1100
+    footer: Intro
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+```{r}
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(janitor)
+library(knitr)
+library(broom)
+library(rstatix)
+library(gt)
+```
+
+## Let's start with an example
+
+::: columns
+::: {.column width="55%"}
+```{r}
+#| fig-height: 8
+#| fig-width: 11
+
+gapm <- read_csv("data/lifeexp_femlit_2011.csv")
+ggplot(gapm, aes(x = female_literacy_rate_2011,
+                 y = life_expectancy_years_2011)) +
+  geom_point(size = 4) +
+  geom_smooth(method = "lm", se = FALSE, size = 3, colour="#F14124") +
+  labs(x = "Female literacy rate (%)", 
+       y = "Life expectancy (years)",
+       title = "Relationship between life expectancy and \n the female literacy rate in 2011") +
+    theme(axis.title = element_text(
+        size = 30), 
+        axis.text = element_text(
+        size = 25), 
+        title = element_text(
+        size = 30))
+
+```
+:::
+
+::: {.column width="45%"}
+Average life expectancy vs. female literacy rate
+
+-   Each point on the plot is for a different country
+
+-   $x$ = country's adult female literacy rate
+
+-   $y$ = country's average life expectancy (years)
+
+-   Data are from Gapminder (2011)
+
+:::
+:::
+
+::: heq
+$$\begin{aligned}
+\hat{\text{life expectancy}} & =  50.9 + 0.232\cdot\text{female literacy rate}
+\end{aligned}$$
+:::
+
+## Questions we can ask with this model
+
+## Dependent vs. Independent Variables
+
+## Association vs. prediction
+
+## Study Design
+
+## Simple Linear Regression Model
+
+The (population) regression line is denoted by:
+
+::: heq
+$$\begin{aligned}
+Y & =  \beta_0 + \beta_1X + \epsilon \nonumber
+\end{aligned}$$
+:::
+
+-   $\beta_0$ and $\beta_1$ are **unknown** population parameters
+
+-   $\epsilon$ (epsilon) is the error about the line
+
+    -   It is assumed to be a random variable with a...
+
+    -   Normal distribution with mean 0 and constant variance $\sigma^2$
+
+-   Our goal is to estimate $\beta_0$, $\beta_1$, and $\sigma^2$
+
+    -   The point estimates based on a sample are denoted by
+        $\hat{\beta_0}$, $\hat{\beta_1}$, and $\hat{\sigma^2}$
+
+## "Linear" Models
+
+## Model Components
+
+## Interpretations
+
+## Parameter estimation: best fit line
+
+## Least squares model assumptions
+
+## Estimate of variance??

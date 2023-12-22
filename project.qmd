@@ -1,0 +1,40 @@
+---
+title: "Project Central"
+date: "1/8/2024"
+date-modified: "12/21/2023"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+  pdf: default
+editor_options: 
+  chunk_output_type: console
+---
+
+```{css, echo=FALSE}
+.title{
+  font-size: 40px;
+  color: #213c96;
+  background-color: #fff;
+  padding: 0px;
+}
+```
+
+## Labs
+
+| Lab                       | Due Date | Topics                             |
+|---------------------------|----------|------------------------------------|
+| [Lab 1](/labs/Lab_01.qmd) | 1/25     | Exploring the question             |
+| [Lab 2](/labs/Lab_02.qmd) | 2/8      | Exploring the data                 |
+| [Lab 3](/labs/Lab_03.qmd) | 2/29     | Fitting and interpreting the model |
+| [Lab 4](/labs/Lab_04.qmd) | 3/14     | Building a model                   |
+
+## Report
+
+Due 3/21/2024
+
+```{r}
+#| echo: false
+g=3
+```

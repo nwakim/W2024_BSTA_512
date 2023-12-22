@@ -1,8 +1,8 @@
 ---
 title: "Week 8"
-description: "Joint PDFs, Independent continuous RVs, and Conditional distributions"
-date: "11/13/2023"
-date-modified: "8/22/2023"
+description: "Model Evaluation and Diagnostics"
+date: "2/26/2024"
+date-modified: "12/11/2023"
 categories: [""]
 format: 
   html:
@@ -15,7 +15,7 @@ editor_options:
 ```{css, echo=FALSE}
 .title{
   font-size: 40px;
-  color: #006a4e;
+  color: #213c96;
   background-color: #fff;
   padding: 10px;
 }
@@ -23,15 +23,31 @@ editor_options:
 .description{
   font-size: 20px;
   color: #fff;
-  background-color: #006a4e;
+  background-color: #213c96;
   padding: 10px;
 }
 ```
 
 ## Resources
 
+TOpics:
+
+-   evaluation
+
+    -   Testing full vs reduced model
+
+    -   testing if two covariate groups are the same
+
+-   diagnostics
+
+    -   purpose
+
+    -   model assumptions
+
+        -   impact of violating assumptions
+
 | Chapter | Topic                                   |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
-|---------|-----------------------------------------|:---------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:-------------------------------------------------------------:|
+|---------------|---------------|:-------------:|:-------------:|:-------------:|
 | 25      | Joint PDFs                              | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 26      | Independent continuous random variables | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 27      | Conditional distributions               | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |

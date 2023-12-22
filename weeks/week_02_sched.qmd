@@ -1,8 +1,8 @@
 ---
 title: "Week 2"
-description: "Independent Events; Conditional Probability; and Bayes' Theorem"
-date: "10/2/2023"
-date-modified: "10/5/2023"
+description: "Simple Linear Regression"
+date: "1/15/2024"
+date-modified: "12/5/2023"
 categories: [""]
 format: 
   html:
@@ -15,7 +15,7 @@ editor_options:
 ```{css, echo=FALSE}
 .title{
   font-size: 40px;
-  color: #006a4e;
+  color: #213c96;
   background-color: #fff;
   padding: 10px;
 }
@@ -23,21 +23,29 @@ editor_options:
 .description{
   font-size: 20px;
   color: #fff;
-  background-color: #006a4e;
+  background-color: #213c96;
   padding: 10px;
 }
 ```
 
 ## Resources
 
-Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
+Topics for SLR:
 
-| Chapter | Topic                    |                                                     Slides                                                     |                                                            Annotated Slides                                                            |                                                                                                                                                                        Recording                                                                                                                                                                        |
-|---------|--------------------------|:--------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| 22      | Introduction to Counting |     [[{{< iconify ri slideshow-fill size=30px >}}](/slides/22_Counting_Intro.qmd)]{style="color:#f8f5f0;"}     |     [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/22_Counting_Intro.pdf)]{style="color:#f8f5f0;"}      |     [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F22%5FCounting%5FIntro%2Emp4&referrer=OneDriveForBusiness&referrerScenario=OpenFile)]{style="color:#f8f5f0;"}      |
-| 3       | Independent Events       |    [[{{< iconify ri slideshow-fill size=30px >}}](/slides/3_IndependentEvents.qmd)]{style="color:#49A3D1;"}    |   [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/03_Independent_Events.pdf)]{style="color:#f8f5f0;"}    |   [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F03%5FIndependent%5FEvents%2Emp4&referrer=OneDriveForBusiness&referrerScenario=OpenFile)]{style="color:#f8f5f0;"}    |
-| 4       | Conditional Probability  | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/4_Conditional_Probability.qmd)]{style="color:#f8f5f0;"} | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/04_Conditional_Probability.pdf)]{style="color:#f8f5f0;"} | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F04%5FConditional%5FProbability%2Emp4&referrer=OneDriveForBusiness&referrerScenario=OpenFile)]{style="color:#f8f5f0;"} |
-| 5       | Bayes' Theorem           |      [[{{< iconify ri slideshow-fill size=30px >}}](/slides/5_Bayes_Theorem.qmd)]{style="color:#f8f5f0;"}      |      [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/05_Bayes_Theorem.pdf)]{style="color:#f8f5f0;"}      |      [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F05%5FBayes%5FTheorem%2Emp4&referrer=OneDriveForBusiness&referrerScenario=OpenFile)]{style="color:#f8f5f0;"}      |
+-   assumptions
+
+    -   
+
+-   parameter estimation and interpretation
+
+-   properties of LSE
+
+-   estimation of variance?
+
+| Lesson | Topic                    | Readings |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
+|-----------|-----------|-----------|:---------:|:---------:|:------------------:|
+| 3      | Simple Linear Regression |          | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 4      |                          |          | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#49A3D1;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
 For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
 
@@ -56,160 +64,10 @@ For the slides, once they are opened, if you would like to print or save them as
 
 [[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhURDVVMlpFT0RKQU5aQTMyNzhIWTRNTzk2My4u)]{style="color:#f8f5f0;"} Wednesday (10/4)
 
-## Statistician of the Week: Talithia Williams
-
-::: grid
-::: g-col-4
-```{r fig.cap = "Talithia Williams", fig.alt = "Image credit: Harvey Mudd College", preview = TRUE, echo = FALSE}
-knitr::include_graphics("../images/stat_of_week/williams.jpeg")
-```
-:::
-
-::: g-col-8
-Dr. Williams earned a BS in Mathematics from Spelman College, an MS in Mathematics from Howard University, and a PhD (2008) in Statistics from Rice University. Dr. Williams is Associate Professor and Director of the Clinic Program at Harvey Mudd College. She has also served as Associate Dean for Faculty Development and Diversity at Harvey Mudd.
-:::
-:::
-
-#### Topics covered
-
-Dr. Williams works on statistical models which describe spatial and temporal aspects of data. Some of her most important work has focused on developing models to predict cataract surgical rates for countries in Africa.
-
-#### Relevant work
-
--   Dray, A. and Williams, T. <a href = " https://doi.org/10.1002/sim.5423" target = "_blank">An incidence estimation model for multi-stage diseases with differential mortality</a>. **Statistics in Medicine**, 2012.
-
--   Lewallen, S., Courtright, P., Etya'ale, D., Mathenge, W., Schmidt, E., Oye, J., Clark, A., Williams, T. <a href = "https://doi.org/10.3109/09286586.2013.823215" target = "_blank">Cataract Incidence in Sub-Saharan Africa: What does Mathematical Modeling tell us about Geographic Variations and Surgical Needs?</a>. **Ophthalmic epidemiology**, 2013.
-
-#### Outside links
-
--   [Wikipedia](https://en.wikipedia.org/wiki/Talithia_Williams)
--   [MAD](https://www.mathad.com/profile?agje2518292535222328053fbci)
--   [Linkedin](https://www.linkedin.com/in/talithia-williams-7542b0b4/)
--   [personal](https://www.talithiawilliams.com/)
-
-#### Other
-
-Dr. Williams was the co-host of the 2018 <a href = "https://www.pbs.org/wgbh/nova/?s=talithia" target = "_blank">PBS Nova Wonders</a> series.
-
-**Please note the statisticians of the week are taken directly from the [CURV project by Jo Hardin](https://hardin47.github.io/CURV/).**
+## Statistician of the Week
 
 ## Muddiest Points
 
-### 1. Example at end of Chapter 2 slides (Venn Diagram)
-
-I will post this in the previous week's Muddy Points as well. [Please follow this link for my work through of the example.](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FF2023%5FBSTA%5F550%2FRecordings%2F02%5FProbability%5Fexample%2Emp4&referrer=OneDriveForBusiness&referrerScenario=OpenFile) And [here is the PDF with my work](/slides_annotated/02_Probability_example.pdf).
-
-**Sub-question:** why don't we just multiply the probability of A and B to get the intersection? This is a specific property of probability when A and B are independent. Only when A and B are independent can we conclude that $P(A \cap B) = P(A)P(B)$.
-
-### 2. Partition of events
-
-We've been working with event partitions throughout Chapter 2, but we have not formally identified them. Partitions are advantageous to define for two reasons:
-
-1.  The partitions may be easier to calculate. We can then use the partitions to reconstruct other probabilities that may be more difficult to calculate
-
-2.  Partitions have nice properties as a consequence of being disjoint. For example, the probability of the union of partitions is the sum of the probabilities across each partition: $$P\bigg(\bigcup_{i=1}^n A_i\bigg) = P(A_1)P(A_2)P(A_3) \cdot \cdot \cdot P(A_n)$$
-
-### 3. Order matters vs. order does not matter
-
-I think the best way to think about when order does and does not matter is through examples. So here is another example:
-
--   I randomly select 3 different people to be on my committee from a larger group of 5 people (we'll call them people A-E) ...
-
-    -   Order matters: If I want to assign each person to a specific role as I select them, then I want to keep track of the order
-
-    -   Order does not matter: If I just want to assemble a committee without any hierarchy, then the order that I select them does not matter
-
-        -   So if I pick person A first, second, or third, they are still on the committee
-
-When order matters, the seats are now labelled as president, vice president, and treasurer:
-
-![](week_02/muddy_point_01_01.png){fig-align="center" width="268"}
-
-When order does not matter, there are just three seats to fill:
-
-![](week_02/muddy_point_01_02.png){fig-align="center" width="270"}
-
-For both situations, let's say you pick person A, C, and E. When order matters, we can arrange these three people in a few ways:
-
-![](week_02/muddy_point_01_03.png){fig-align="center"}
-
-So there are 6 ways to order the three people.
-
-When order does not matter, then we just need to know that person A, E, and C are on the committee:
-
-![](week_02/muddy_point_01_04.png){fig-align="center" width="237"}
-
-\*\*Remember that there are 6 permutations to this 1 combination
-
-Let's answer more questions with this example...
-
-#### When order does not matter, what are we controlling for?
-
-In class example 1.3 and 1.4, we went from an example where order matters to one where order does not matter. So I showed us going from a calculation of $\dfrac{10!}{4!}$ ways to order them to $\dfrac{10!}{4!6!}$ ways of choosing 6 subjects. So why do we divide by $6!$ when order does not matter? Let's think back to our three committee seats. For the three seats, and person A, C, and E selected, there were 6 ways to order them. In fact, for any three people selected, there is always 6 ways to arrange (order) them into the positions. We can calculate the number of ways to arrange them with another permutation: if given three people and three seats, we can arrange them in $3\cdot2\cdot1=6$ ways because we have three options for president, then once the president is selected, we only have 2 options for VP, then 1 for treasurer. So for every 6 ways to order the three people, there is only one way to select them unordered. Thus, we divide the number of ordered options by the number of ways each group of three people can be ordered.
-
-So the calculation for the ordered committee (with P, VP, and T) is:
-
-![](week_02/muddy_point_01_05.png){fig-align="center" width="687"}
-
-which is 60 ways to fill the committee seats when order (arrangement) matters.
-
-And the calculation for the unordered (order does not matter) committee will divide the ordered permutations by the number of ways to order within the three seats:
-
-![](week_02/muddy_point_01_06.png){fig-align="center" width="391"}
-
-which is 10 ways to fill the seats when order does not matter.
-
-#### Is the probability equal when order matters and when order does not matter?
-
-Yes and no...
-
-In the example with the spades, for order does not matter, we saw that $r!$ cancels out and leaves us with a probability equal to when order does matter! This is because each spade is not distinguishable from the other. (Yes, technically each will have a different face, but we only care about the suit.) If we select a spade first then another spade, all we know of the order is spade first, spade second. If we flip that, we still get spade first, spade second. Thus, the order of the spades does not matter.
-
-In the spades problem, we distinguished between "order matters" and "order does not matter" but the way we defined the probability, and the fact that spades are indistinguishable, means that the "ordered" cards really did not matter. It'll definitely matter in an event where we get the first card as a spade and the second as a heart. We can no longer use combinations to define the event space!
-
-The main take away should be that the probabilities (using order matters and order does not matter) are equal when order is **not needed** to define the event! **When order does not matter, it can still be easier to calculate the probability using an "order matters" framework!! So we will use that to our advantage!**
-
-Below is some of the work demonstrating the probabilities loosely mentioned. Please note that ChatGPT could be a really helpful tool if you are curious about this question!
-
-![](week_02/card_ex.png){fig-align="center"}
-
-I'll leave the work to calculate the exact probabilities above. For Case #1, the probabilities are equal. For Case #2, the probabilities are not equal!
-
-### 4. Disjoint vs. Independent Events
-
-[Here is a pretty good video](https://www.youtube.com/watch?v=aVqmWW3xmdU&ab_channel=AceTutors) breaking down disjoint (mutually exclusive) events and independent events. It includes examples as well.
-
-### 5. Conditional Probability Fact #4
-
-Here is the 4th Conditional Probability Fact:
-
-$\mathbb{P}(A|B)$ is a probability, meaning that it satisfies the probability axioms. In particular, $$\mathbb{P}(A|B) + \mathbb{P}(A^C|B) = 1$$ **This is true even if A and B are NOT independent.** Let me show you...
-
-We can start by $P(B)$ as the union of two disjoint events that involve $A$ and $A^c$:
-
-$$
-P(B) = P((A \cap B) \cup (A^c \cap B))
-$$
-
-Because they are disjoint, we can use Axiom 3 to say they are just the sum of each probability:
-
-$$
-P(B) = P(A \cap B) + P(A^c \cap B)
-$$
-
-Now, we can divide both side of the equation by $P(B)$:
-
-$$
-\begin{align}
-\dfrac{P(B)}{P(B)} = & \dfrac{P(A \cap B) + P(A^c \cap B)}{P(B)} \\
-1 = & \dfrac{P(A \cap B)}{P(B)} + \dfrac{P(A^c \cap B)}{P(B)} \\
-\end{align}
-$$
-
-By our definition of conditional probability, we know $P(A|B) = \dfrac{P(A \cap B)}{P(B)}$ and $P(A^c|B) = \dfrac{P(A^c \cap B)}{P(B)}$ Thus,
-
-$$
-1 = P(A|B) + P(A^c|B)
-$$
-
-**Again, this is true even if A and B are NOT independent!**
+```{r}
+g=3
+```

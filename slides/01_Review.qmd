@@ -1,0 +1,225 @@
+---
+title: "Review"
+author: "Nicky Wakim"
+title-slide-attributes:
+    data-background-color: "#213c96"
+date: "01/12/2023"
+categories: ["Week 1"]
+format: 
+  revealjs:
+    theme: [default, simple_NW.scss]
+    toc: true
+    toc-depth: 1
+    toc-title: Class Overview
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1955
+    height: 1100
+    footer: Intro
+---
+
+## Where are we?
+
+-   Review
+
+-   Intro to SLR: estimation and testing
+
+-   Intro to MLR: estimation and testing
+
+-   Diving into our predictors: categorical variables, interactions between variable
+
+-   Key ingredient: model evaluation, diagnostics, selection, and building
+
+## Before we begin
+
+-   Meike has some really good online notes, code, and work on [her BSTA 511 page](https://niederhausen.github.io/BSTA_511_F23/)
+
+# Quick basics
+
+## Some Basic Statistics "Talk"
+
+::: columns
+::: column
+-   Random variable $Y$
+
+    -   Sample $Y_i, i=1,\dots, n$
+
+-   Summation:
+
+    $\sum_{i=1}^n Y_i =Y_1 + Y_2 + \ldots + Y_n$
+
+-   Product:
+
+    $\prod_{i=1}^n Y_i = Y_1 \times Y_2 \times \ldots \times Y_n$
+:::
+
+::: column
+:::
+:::
+
+## Descriptive Statistics: continuous variables
+
+::: columns
+::: {.column width="40%"}
+**Measures of central tendency**
+
+-   Sample mean
+
+    $$
+    \bar{x} = \dfrac{x_1+x_2+...+x_n}{n}=\dfrac{\sum_{i=1}^nx_i}{n}
+    $$
+
+-   Median
+:::
+
+::: column
+**Measures of variability (or dispersion)**
+
+-   Sample variance
+
+    -   Average of the squared deviations from the sample mean
+
+-   Sample standard deviation
+
+    $$
+    s = \sqrt{\dfrac{(x_1-\bar{x})^2+(x_2-\bar{x})^2+...+(x_n-\bar{x})^2}{n-1}}=\sqrt{\dfrac{\sum_{i=1}^n(x_i-\bar{x})^2}{n-1}}
+    $$
+
+-   IQR
+:::
+:::
+
+## Data visualization
+
+# Important Distributions
+
+## Distributions that will be used in this class
+
+-   Normal distribution
+
+-   Chi-square distribution
+
+-   t distribution
+
+-   F distribution
+
+## Normal Distribution
+
+-   Notation: $Y\sim N(\mu,\sigma^2)$
+
+-   If we know $E(Y)=\mu$, $Var(Y)=\sigma^2$ then
+
+    -   2/3 of $Y$'s distribution lies within 1 $\sigma$ of $\mu$
+
+    -   95% $\ldots$ $\ldots$ is within $\mu\pm 2\sigma$
+
+    -   $>99$% $\ldots$ $\ldots$ lies within $\mu\pm 3\sigma$
+
+-   Arguably, the most important distribution in statistics
+
+-   Linear combinations of Normals are Normal\
+    e.g., $(aY+b)\sim \mbox{N}(a\mu+b,\;a^2\sigma^2)$
+
+-   Standard normal:
+
+```{=tex}
+\begin{aligned}
+        Z=\frac{Y-\mu}{\sigma} \sim \mbox{N}(0,1) \nonumber
+        
+\end{aligned}
+```
+## Chi-square Distribution
+
+-   Notation: $X \sim \chi^2_{df}$
+
+    -   $df=$ degrees of freedom
+
+    -   $E[X]=df$
+
+    -   $X$ takes on only positive values
+
+-   If $Z_i\sim \mbox{N}(0,1)$, then $Z_i^2\sim \chi^2_1$
+
+-   If $Z_1,\ldots,Z_n$ are independent, with $Z_i\sim\mbox{N}(0,1)$, then
+
+```{=tex}
+\begin{aligned}
+        \sum_{i=1}^n Z_i^2 & \sim & \chi^2_n \nonumber
+        
+\end{aligned}
+```
+-   Used in hypothesis testing and CI's involving variance
+
+## t Distribution
+
+-   If $Z\sim \mbox{N}(0,1)$ and $S^2\sim \chi^2_{df}$ and $Z$ and $S^2$ are independent,
+
+    ```{=tex}
+    \begin{aligned}        \frac{Z}{S/\sqrt{df}} & \sim & t_{df} \nonumber            \end{aligned}
+    ```
+    -   Symmetric, bell-shaped; tails heavier than Normal
+
+    -   $E[t_{df}]=0$; $Var(t_{df})$ greater than 1
+
+    -   $\lim_{df\rightarrow \infty}t_{df} \rightarrow \mbox{N}(0,1)$
+
+    -   for $df>30$, the $t_{df}$ closely resembles the $\mbox{N}(0,1)$ distribution
+
+-   In linear modeling, used for inference on individual regression parameters
+
+## F Distribution
+
+-   Model ratio of sample variances
+
+    -   Ratio of variances is important for hypothesis testing of regression and ANOVA models
+
+-   If $X_1^2\sim \chi^2_{df1}$ and $X_2^2\sim \chi^2_{df2}$, where $X_1^2\perp X_2^2$, then:
+
+    ```{=tex}
+    \begin{aligned}        \frac{X_1^2/df1}{X_2^2/df2} & \sim & F_{df1,df2} \nonumber        \end{aligned}
+    ```
+    -   only takes on positive values
+
+-   Important relationship with $t$ distribution:
+
+    -   The square of a t-distribution with $df=\nu$
+
+    -   is an F-distrubtion with numerator df ($df1 = 1$) and denominator df ($df2 = \nu$)
+
+```{=tex}
+\begin{aligned}
+             T^2  \stackrel{{D}}{\sim} & F_{1,\nu} \\
+             \text{ if and only if } T \sim t_{\nu}
+            
+\end{aligned}
+```
+# Statistical inference: Estimation
+
+## Confidence interval for one mean
+
+## Confidence interval for two independent means
+
+# Statistical inference: Hypothesis testing
+
+## Steps in hypothesis testing
+
+![](01_Review/hypothesis_test_steps.png){fig-align="center"}
+
+## Example: one sample t-test using p-value approach
+
+## Example: one sample t-test using critical values approach
+
+# Error Rates and Power
+
+## Type 1 and 2 errors
+
+![](01_Review/Type_1_2_error.png){fig-align="center"}
+
+## Power
+
+-   Power is $1-\beta$
+
+    -   The probability of correctly rejecting the null hypothesis
+
+![](01_Review/Power.png){fig-align="center"}

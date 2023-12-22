@@ -5,7 +5,7 @@ page-layout: full
 link-external-newwindow: true
 ---
 
-::: {style="background-color: #006a4e"}
+::: {style="background-color: #213c96"}
 ::: {style="color: #FFFFFF"}
 ::: grid
 ::: g-col-4
@@ -13,13 +13,11 @@ link-external-newwindow: true
 :::
 
 ::: g-col-7
-# BSTA 550: Introduction to Probability
+# BSTA 512/612: Linear Regression
 
-### Fall 2023
+### Winter 2024
 
  
-
-Welcome to Biostatistics and Probability! This course is designed to introduce history, concepts and distributions in probability, Monte Carlo simulation techniques, and Markov chains. Students will also learn how to write R codes for various statistical computations and plots. Previous experience in R is not required. R is free software available from http://www.r-project.org.
 
  
 :::

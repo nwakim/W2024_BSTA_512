@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to Probability - Class Slides</title>
+<title>Linear Models - Class Slides</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,8 +72,7 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-date','listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      page: 30,
-    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      
       searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
@@ -108,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
     <img src="./images/bsta_550_hex_3.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Introduction to Probability</span>
+    <span class="navbar-title">Linear Models</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -317,7 +316,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(35)</span></div><div class="category" data-category="Week 1">Week 1 <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Week 2">Week 2 <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Week 3">Week 3 <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Week 4">Week 4 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Week 5">Week 5 <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(28)</span></div><div class="category" data-category="Week 1">Week 1 <span class="quarto-category-count">(4)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -381,421 +380,337 @@ Categories
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="Week 1" data-listing-date-sort="1695625200000" data-listing-file-modified-sort="1695657053979" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="Welcome to BSTA 550!" data-listing-filename-sort="0_Intro.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="0" data-listing-date-sort="1599980400000" data-listing-file-modified-sort="1699499072023" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="Module_C" data-listing-filename-sort="Module_C_example.Rmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<span class="listing-date">9/25/23</span>
+<span class="listing-date">9/13/20</span>
 </td>
 <td>
-<a href="./slides/0_Intro.html" class="title listing-title">Welcome to BSTA 550!</a>
+<a href="./slides/Module_C_example.html" class="title listing-title">Module_C</a>
+</td>
+<td>
+<span class="listing-categories">undefined</span>
+</td>
+</tr>
+<tr data-index="1" data-listing-date-sort="1602486000000" data-listing-file-modified-sort="1633985949000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="Module_G" data-listing-filename-sort="Module_G_example.Rmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">10/12/20</span>
+</td>
+<td>
+<a href="./slides/Module_G_example.html" class="title listing-title">Module_G</a>
+</td>
+<td>
+<span class="listing-categories">undefined</span>
+</td>
+</tr>
+<tr data-index="2" data-listing-date-sort="1603004400000" data-listing-file-modified-sort="1635215430000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="Module_H" data-listing-filename-sort="Module_H_example2020.Rmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">10/18/20</span>
+</td>
+<td>
+<a href="./slides/Module_H_example2020.html" class="title listing-title">Module_H</a>
+</td>
+<td>
+<span class="listing-categories">undefined</span>
+</td>
+</tr>
+<tr data-index="3" data-listing-date-sort="1603522800000" data-listing-file-modified-sort="1635913583000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="Module_L" data-listing-filename-sort="Module_L_example_updated.Rmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">10/24/20</span>
+</td>
+<td>
+<a href="./slides/Module_L_example_updated.html" class="title listing-title">Module_L</a>
+</td>
+<td>
+<span class="listing-categories">undefined</span>
+</td>
+</tr>
+<tr data-index="4" data-listing-date-sort="1603522800000" data-listing-file-modified-sort="1635215880000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="Module_I" data-listing-filename-sort="Module_I_example.Rmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">10/24/20</span>
+</td>
+<td>
+<a href="./slides/Module_I_example.html" class="title listing-title">Module_I</a>
+</td>
+<td>
+<span class="listing-categories">undefined</span>
+</td>
+</tr>
+<tr data-index="5" data-listing-date-sort="1606809600000" data-listing-file-modified-sort="1638031415000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="Module_N" data-listing-filename-sort="Module_N_example.Rmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">12/1/20</span>
+</td>
+<td>
+<a href="./slides/Module_N_example.html" class="title listing-title">Module_N</a>
+</td>
+<td>
+<span class="listing-categories">undefined</span>
+</td>
+</tr>
+<tr data-index="6" data-listing-date-sort="1632466800000" data-listing-file-modified-sort="1632491787000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="Module_E" data-listing-filename-sort="Module_E_example.Rmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">9/24/21</span>
+</td>
+<td>
+<a href="./slides/Module_E_example.html" class="title listing-title">Module_E</a>
+</td>
+<td>
+<span class="listing-categories">undefined</span>
+</td>
+</tr>
+<tr data-index="7" data-listing-date-sort="1635836400000" data-listing-file-modified-sort="1699499365318" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="Module_K" data-listing-filename-sort="Module_K_example.Rmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">11/2/21</span>
+</td>
+<td>
+<a href="./slides/Module_K_example.html" class="title listing-title">Module_K</a>
+</td>
+<td>
+<span class="listing-categories">undefined</span>
+</td>
+</tr>
+<tr data-index="8" data-listing-date-sort="1638086400000" data-listing-file-modified-sort="1699499441245" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="Module M" data-listing-filename-sort="Module_M_example.Rmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">11/28/21</span>
+</td>
+<td>
+<a href="./slides/Module_M_example.html" class="title listing-title">Module M</a>
+</td>
+<td>
+<span class="listing-categories">undefined</span>
+</td>
+</tr>
+<tr data-index="9" data-listing-date-sort="1669622400000" data-listing-file-modified-sort="1703180086575" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="NHANES" data-listing-filename-sort="NHANES_EDA.Rmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">11/28/22</span>
+</td>
+<td>
+<a href="./slides/data/NHANES_EDA.html" class="title listing-title">NHANES</a>
+</td>
+<td>
+<span class="listing-categories">undefined</span>
+</td>
+</tr>
+<tr data-index="10" data-categories="Week 1" data-listing-date-sort="1673164800000" data-listing-file-modified-sort="1699498780392" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="Welcome to BSTA 512!" data-listing-filename-sort="00_Intro.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">1/8/23</span>
+</td>
+<td>
+<a href="./slides/00_Intro.html" class="title listing-title">Welcome to BSTA 512!</a>
 </td>
 <td>
 <span class="listing-categories">Week 1</span>
 </td>
 </tr>
-<tr data-index="1" data-categories="Week 1" data-listing-date-sort="1695625200000" data-listing-file-modified-sort="1696120819634" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-title-sort="Chapter 1: Outcomes, Events, and Sample Spaces" data-listing-filename-sort="1_Outcomes_Events_Sample.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="11" data-categories="Week 1" data-listing-date-sort="1673510400000" data-listing-file-modified-sort="1702352115463" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="Simple Linear Regression (SLR)" data-listing-filename-sort="01_SLR.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<span class="listing-date">9/25/23</span>
+<span class="listing-date">1/12/23</span>
 </td>
 <td>
-<a href="./slides/1_Outcomes_Events_Sample.html" class="title listing-title">Chapter 1: Outcomes, Events, and Sample Spaces</a>
+<a href="./slides/01_SLR.html" class="title listing-title">Simple Linear Regression (SLR)</a>
 </td>
 <td>
 <span class="listing-categories">Week 1</span>
 </td>
 </tr>
-<tr data-index="2" data-categories="Week 1" data-listing-date-sort="1695798000000" data-listing-file-modified-sort="1696120839628" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="Chapter 2: Probability" data-listing-filename-sort="2_Probability.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="12" data-categories="Week 1" data-listing-date-sort="1673510400000" data-listing-file-modified-sort="1699498518839" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-title-sort="Module A" data-listing-filename-sort="Module_A.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<span class="listing-date">9/27/23</span>
+<span class="listing-date">1/12/23</span>
 </td>
 <td>
-<a href="./slides/2_Probability.html" class="title listing-title">Chapter 2: Probability</a>
+<a href="./slides/Module_A.html" class="title listing-title">Module A</a>
 </td>
 <td>
 <span class="listing-categories">Week 1</span>
 </td>
 </tr>
-<tr data-index="3" data-categories="Week 1" data-listing-date-sort="1695798000000" data-listing-file-modified-sort="1696358750957" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-title-sort="Chapter 22: Introduction to Counting" data-listing-filename-sort="22_Counting_Intro.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="13" data-categories="Week 1" data-listing-date-sort="1673510400000" data-listing-file-modified-sort="1702348801714" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-title-sort="Review" data-listing-filename-sort="01_Review.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<span class="listing-date">9/27/23</span>
+<span class="listing-date">1/12/23</span>
 </td>
 <td>
-<a href="./slides/22_Counting_Intro.html" class="title listing-title">Chapter 22: Introduction to Counting</a>
+<a href="./slides/01_Review.html" class="title listing-title">Review</a>
 </td>
 <td>
 <span class="listing-categories">Week 1</span>
 </td>
 </tr>
-<tr data-index="4" data-categories="Week 2" data-listing-date-sort="1696230000000" data-listing-file-modified-sort="1696374380035" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="Chapter 3: Independent Events" data-listing-filename-sort="3_IndependentEvents.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="14" data-listing-date-sort="1698649200000" data-listing-file-modified-sort="1699499185672" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="Module_I" data-listing-filename-sort="Module_J_example.Rmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<span class="listing-date">10/2/23</span>
+<span class="listing-date">10/30/23</span>
 </td>
 <td>
-<a href="./slides/3_IndependentEvents.html" class="title listing-title">Chapter 3: Independent Events</a>
-</td>
-<td>
-<span class="listing-categories">Week 2</span>
-</td>
-</tr>
-<tr data-index="5" data-categories="Week 2" data-listing-date-sort="1696402800000" data-listing-file-modified-sort="1696804315383" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-title-sort="Chapter 5: Bayes' Theorem" data-listing-filename-sort="5_Bayes_Theorem.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">10/4/23</span>
-</td>
-<td>
-<a href="./slides/5_Bayes_Theorem.html" class="title listing-title">Chapter 5: Bayes’ Theorem</a>
-</td>
-<td>
-<span class="listing-categories">Week 2</span>
-</td>
-</tr>
-<tr data-index="6" data-categories="Week 2" data-listing-date-sort="1696402800000" data-listing-file-modified-sort="1696554426212" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="Chapter 4: Conditional Probability" data-listing-filename-sort="4_Conditional_Probability.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">10/4/23</span>
-</td>
-<td>
-<a href="./slides/4_Conditional_Probability.html" class="title listing-title">Chapter 4: Conditional Probability</a>
-</td>
-<td>
-<span class="listing-categories">Week 2</span>
-</td>
-</tr>
-<tr data-index="7" data-categories="Week 3" data-listing-date-sort="1696834800000" data-listing-file-modified-sort="1696807243136" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="Chapter 7: Discrete vs. Continuous Random Variables" data-listing-filename-sort="7_Random_Variables.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">10/9/23</span>
-</td>
-<td>
-<a href="./slides/7_Random_Variables.html" class="title listing-title">Chapter 7: Discrete vs.&nbsp;Continuous Random Variables</a>
-</td>
-<td>
-<span class="listing-categories">Week 3</span>
-</td>
-</tr>
-<tr data-index="8" data-categories="Week 3" data-listing-date-sort="1696834800000" data-listing-file-modified-sort="1697063783610" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-title-sort="Chapter 8: Probability Mass Functions (pmf's) and Cumulative Distribution Functions (cdf's)" data-listing-filename-sort="8_pmfs_and_cdfs.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">10/9/23</span>
-</td>
-<td>
-<a href="./slides/8_pmfs_and_cdfs.html" class="title listing-title">Chapter 8: Probability Mass Functions (pmf’s) and Cumulative Distribution Functions (cdf’s)</a>
-</td>
-<td>
-<span class="listing-categories">Week 3</span>
-</td>
-</tr>
-<tr data-index="9" data-categories="Week 3" data-listing-date-sort="1697439600000" data-listing-file-modified-sort="1697136351396" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-title-sort="Chapter 9: Independence and Conditioning (Joint Distributions)" data-listing-filename-sort="9_joint_distributions.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">10/16/23</span>
-</td>
-<td>
-<a href="./slides/9_joint_distributions.html" class="title listing-title">Chapter 9: Independence and Conditioning (Joint Distributions)</a>
-</td>
-<td>
-<span class="listing-categories">Week 3</span>
-</td>
-</tr>
-<tr data-index="10" data-categories="Week 5" data-listing-date-sort="1697612400000" data-listing-file-modified-sort="1697136288879" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="Chapter 11: Expected Values of Sums of Discrete RVs" data-listing-filename-sort="11_Expected_Values_of_Sums_of_rvs.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">10/18/23</span>
-</td>
-<td>
-<a href="./slides/11_Expected_Values_of_Sums_of_rvs.html" class="title listing-title">Chapter 11: Expected Values of Sums of Discrete RVs</a>
-</td>
-<td>
-<span class="listing-categories">Week 5</span>
-</td>
-</tr>
-<tr data-index="11" data-categories="Week 4" data-listing-date-sort="1697612400000" data-listing-file-modified-sort="1697136339993" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="Chapter 10: Expected Values of Discrete RVs" data-listing-filename-sort="10_Expected_Values.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">10/18/23</span>
-</td>
-<td>
-<a href="./slides/10_Expected_Values.html" class="title listing-title">Chapter 10: Expected Values of Discrete RVs</a>
-</td>
-<td>
-<span class="listing-categories">Week 4</span>
-</td>
-</tr>
-<tr data-index="12" data-listing-file-modified-sort="1693611064616" data-listing-reading-time-sort="2" data-listing-title-sort="Chapter 16: Geometric r.v.'s" data-listing-filename-sort="16_Geometric_rv.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">undefined</span>
-</td>
-<td>
-<a href="./slides/16_Geometric_rv.html" class="title listing-title">Chapter 16: Geometric r.v.’s</a>
+<a href="./slides/Module_J_example.html" class="title listing-title">Module_I</a>
 </td>
 <td>
 <span class="listing-categories">undefined</span>
 </td>
 </tr>
-<tr data-index="13" data-listing-file-modified-sort="1693611064617" data-listing-reading-time-sort="1" data-listing-title-sort="Calculus Review" data-listing-filename-sort="24_Calculus_review.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="15" data-listing-file-modified-sort="1699496556018" data-listing-reading-time-sort="6" data-listing-filename-sort="Module_L.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <span class="listing-date">undefined</span>
 </td>
 <td>
-<a href="./slides/24_Calculus_review.html" class="title listing-title">Calculus Review</a>
+<span class="listing-title">undefined</span>
 </td>
 <td>
 <span class="listing-categories">undefined</span>
 </td>
 </tr>
-<tr data-index="14" data-listing-file-modified-sort="1693611064623" data-listing-reading-time-sort="2" data-listing-title-sort="Ch 37: The Central Limit Theorem (CLT)" data-listing-filename-sort="37_Central_Limit_Theorem.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="16" data-listing-file-modified-sort="1699496555415" data-listing-reading-time-sort="8" data-listing-filename-sort="Module_H.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <span class="listing-date">undefined</span>
 </td>
 <td>
-<a href="./slides/37_Central_Limit_Theorem.html" class="title listing-title">Ch 37: The Central Limit Theorem (CLT)</a>
+<span class="listing-title">undefined</span>
 </td>
 <td>
 <span class="listing-categories">undefined</span>
 </td>
 </tr>
-<tr data-index="15" data-listing-file-modified-sort="1693611064616" data-listing-reading-time-sort="2" data-listing-title-sort="Chapter 18: Poisson r.v.'s" data-listing-filename-sort="18_Poisson_rv.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="17" data-listing-file-modified-sort="1699496555520" data-listing-reading-time-sort="7" data-listing-filename-sort="Module_I.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <span class="listing-date">undefined</span>
 </td>
 <td>
-<a href="./slides/18_Poisson_rv.html" class="title listing-title">Chapter 18: Poisson r.v.’s</a>
+<span class="listing-title">undefined</span>
 </td>
 <td>
 <span class="listing-categories">undefined</span>
 </td>
 </tr>
-<tr data-index="16" data-listing-file-modified-sort="1693611064620" data-listing-reading-time-sort="1" data-listing-title-sort="Chapter 32: Exponential Random Variables" data-listing-filename-sort="32_Exponential_rv.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="18" data-listing-file-modified-sort="1699496556115" data-listing-reading-time-sort="4" data-listing-filename-sort="Module_M.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <span class="listing-date">undefined</span>
 </td>
 <td>
-<a href="./slides/32_Exponential_rv.html" class="title listing-title">Chapter 32: Exponential Random Variables</a>
+<span class="listing-title">undefined</span>
 </td>
 <td>
 <span class="listing-categories">undefined</span>
 </td>
 </tr>
-<tr data-index="17" data-listing-file-modified-sort="1693611064620" data-listing-reading-time-sort="2" data-listing-title-sort="Chapter 29: Variance of Continuous Random Variables" data-listing-filename-sort="29_Variance_and_Sums_of_rv.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="19" data-listing-file-modified-sort="1699496555160" data-listing-reading-time-sort="9" data-listing-title-sort="{\sqrt{ (\widehat{\sigma}^2a_{j,j})/(\sigma^2a_{j,j}) }}" data-listing-filename-sort="Module_F.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <span class="listing-date">undefined</span>
 </td>
 <td>
-<a href="./slides/29_Variance_and_Sums_of_rv.html" class="title listing-title">Chapter 29: Variance of Continuous Random Variables</a>
+<a href="./slides/Module_F.html" class="title listing-title">{}</a>
 </td>
 <td>
 <span class="listing-categories">undefined</span>
 </td>
 </tr>
-<tr data-index="18" data-listing-file-modified-sort="1693611064619" data-listing-reading-time-sort="1" data-listing-title-sort="Chapter 28: Expected Values of Continuous Random Variables" data-listing-filename-sort="28_Expected_Values.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="20" data-listing-file-modified-sort="1699496432412" data-listing-reading-time-sort="12" data-listing-filename-sort="Module_B.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <span class="listing-date">undefined</span>
 </td>
 <td>
-<a href="./slides/28_Expected_Values.html" class="title listing-title">Chapter 28: Expected Values of Continuous Random Variables</a>
+<span class="listing-title">undefined</span>
 </td>
 <td>
 <span class="listing-categories">undefined</span>
 </td>
 </tr>
-<tr data-index="19" data-listing-file-modified-sort="1693611064618" data-listing-reading-time-sort="2" data-listing-title-sort="Chapter 25: Joint densities" data-listing-filename-sort="25_Joint_densities.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="21" data-listing-file-modified-sort="1699496554784" data-listing-reading-time-sort="15" data-listing-filename-sort="Module_C.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <span class="listing-date">undefined</span>
 </td>
 <td>
-<a href="./slides/25_Joint_densities.html" class="title listing-title">Chapter 25: Joint densities</a>
+<span class="listing-title">undefined</span>
 </td>
 <td>
 <span class="listing-categories">undefined</span>
 </td>
 </tr>
-<tr data-index="20" data-listing-file-modified-sort="1693611064619" data-listing-reading-time-sort="1" data-listing-title-sort="Chapter 26: Independent Continuous Random Variables" data-listing-filename-sort="26_Independent_rv.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="22" data-listing-file-modified-sort="1699496555310" data-listing-reading-time-sort="10" data-listing-filename-sort="Module_G.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <span class="listing-date">undefined</span>
 </td>
 <td>
-<a href="./slides/26_Independent_rv.html" class="title listing-title">Chapter 26: Independent Continuous Random Variables</a>
+<span class="listing-title">undefined</span>
 </td>
 <td>
 <span class="listing-categories">undefined</span>
 </td>
 </tr>
-<tr data-index="21" data-listing-file-modified-sort="1693611064622" data-listing-reading-time-sort="1" data-listing-title-sort="Chapter 36: Sums of Independent Normal Random Variables" data-listing-filename-sort="36_Sums_of_Independent_Normal_rv.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="23" data-listing-file-modified-sort="1699496554917" data-listing-reading-time-sort="10" data-listing-filename-sort="Module_D.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <span class="listing-date">undefined</span>
 </td>
 <td>
-<a href="./slides/36_Sums_of_Independent_Normal_rv.html" class="title listing-title">Chapter 36: Sums of Independent Normal Random Variables</a>
+<span class="listing-title">undefined</span>
 </td>
 <td>
 <span class="listing-categories">undefined</span>
 </td>
 </tr>
-<tr data-index="22" data-listing-file-modified-sort="1693611064615" data-listing-reading-time-sort="1" data-listing-title-sort="Chapter 15: Binomial r.v.'s" data-listing-filename-sort="15_Binomial_rv.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="24" data-listing-file-modified-sort="1699496555073" data-listing-reading-time-sort="16" data-listing-filename-sort="Module_E.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <span class="listing-date">undefined</span>
 </td>
 <td>
-<a href="./slides/15_Binomial_rv.html" class="title listing-title">Chapter 15: Binomial r.v.’s</a>
+<span class="listing-title">undefined</span>
 </td>
 <td>
 <span class="listing-categories">undefined</span>
 </td>
 </tr>
-<tr data-index="23" data-listing-file-modified-sort="1693611064620" data-listing-reading-time-sort="1" data-listing-title-sort="Chapter 31: Continuous Uniform Random Variables" data-listing-filename-sort="31_Uniform_rv.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="25" data-listing-file-modified-sort="1699496555665" data-listing-reading-time-sort="8" data-listing-title-sort="\epsilon}$, where = = =\" data-listing-filename-sort="Module_J.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <span class="listing-date">undefined</span>
 </td>
 <td>
-<a href="./slides/31_Uniform_rv.html" class="title listing-title">Chapter 31: Continuous Uniform Random Variables</a>
+<a href="./slides/Module_J.html" class="title listing-title">}$, where = = =&lt;/a&gt;
+</a></td>
+<td>
+<span class="listing-categories">undefined</span>
+</td>
+</tr>
+<tr data-index="26" data-listing-file-modified-sort="1699496564227" data-listing-reading-time-sort="12" data-listing-filename-sort="Module_N.md" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">undefined</span>
+</td>
+<td>
+<span class="listing-title">undefined</span>
 </td>
 <td>
 <span class="listing-categories">undefined</span>
 </td>
 </tr>
-<tr data-index="24" data-listing-file-modified-sort="1693611064614" data-listing-reading-time-sort="2" data-listing-title-sort="Chapter 12: Variance of Discrete r.v.'s - or, Expected Values of Functions of r.v.'s" data-listing-filename-sort="12_Variance.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="27" data-listing-file-modified-sort="1699496555887" data-listing-reading-time-sort="16" data-listing-filename-sort="Module_K.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <span class="listing-date">undefined</span>
 </td>
 <td>
-<a href="./slides/12_Variance.html" class="title listing-title">Chapter 12: Variance of Discrete r.v.’s - or, Expected Values of Functions of r.v.’s</a>
-</td>
-<td>
-<span class="listing-categories">undefined</span>
-</td>
-</tr>
-<tr data-index="25" data-listing-file-modified-sort="1693611064621" data-listing-reading-time-sort="1" data-listing-title-sort="Chapter 33: Gamma Random Variables" data-listing-filename-sort="33_Gamma_rv.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">undefined</span>
-</td>
-<td>
-<a href="./slides/33_Gamma_rv.html" class="title listing-title">Chapter 33: Gamma Random Variables</a>
-</td>
-<td>
-<span class="listing-categories">undefined</span>
-</td>
-</tr>
-<tr data-index="26" data-listing-file-modified-sort="1693611064619" data-listing-reading-time-sort="1" data-listing-title-sort="Chapter 27: Conditional Distributions" data-listing-filename-sort="27_Conditional_distributions.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">undefined</span>
-</td>
-<td>
-<a href="./slides/27_Conditional_distributions.html" class="title listing-title">Chapter 27: Conditional Distributions</a>
-</td>
-<td>
-<span class="listing-categories">undefined</span>
-</td>
-</tr>
-<tr data-index="27" data-listing-file-modified-sort="1693611064618" data-listing-reading-time-sort="3" data-listing-title-sort="Chapter 24: Continuous r.v.'s and pdf's" data-listing-filename-sort="24_Continuous_rv.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">undefined</span>
-</td>
-<td>
-<a href="./slides/24_Continuous_rv.html" class="title listing-title">Chapter 24: Continuous r.v.’s and pdf’s</a>
-</td>
-<td>
-<span class="listing-categories">undefined</span>
-</td>
-</tr>
-<tr data-index="28" data-listing-file-modified-sort="1693611064616" data-listing-reading-time-sort="1" data-listing-title-sort="Chapter 17: Negative Binomial r.v.'s" data-listing-filename-sort="17_Negative_Binomial_rv.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">undefined</span>
-</td>
-<td>
-<a href="./slides/17_Negative_Binomial_rv.html" class="title listing-title">Chapter 17: Negative Binomial r.v.’s</a>
-</td>
-<td>
-<span class="listing-categories">undefined</span>
-</td>
-</tr>
-<tr data-index="29" data-listing-file-modified-sort="1693611064615" data-listing-reading-time-sort="1" data-listing-title-sort="Chapter 14: Bernoulli r.v.'s" data-listing-filename-sort="14_Bernoulli_rv.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">undefined</span>
-</td>
-<td>
-<a href="./slides/14_Bernoulli_rv.html" class="title listing-title">Chapter 14: Bernoulli r.v.’s</a>
-</td>
-<td>
-<span class="listing-categories">undefined</span>
-</td>
-</tr>
-<tr data-index="30" data-listing-file-modified-sort="1693611064628" data-listing-reading-time-sort="2" data-listing-title-sort="Chapter 43: Moment Generating Functions Part 1" data-listing-filename-sort="43_Moment_Generating_Functions_Part1.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">undefined</span>
-</td>
-<td>
-<a href="./slides/43_Moment_Generating_Functions_Part1.html" class="title listing-title">Chapter 43: Moment Generating Functions Part 1</a>
-</td>
-<td>
-<span class="listing-categories">undefined</span>
-</td>
-</tr>
-<tr data-index="31" data-listing-file-modified-sort="1693611064629" data-listing-reading-time-sort="2" data-listing-title-sort="Chapter 43: Moment Generating Functions Part 2" data-listing-filename-sort="43_Moment_Generating_Functions_Part2.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">undefined</span>
-</td>
-<td>
-<a href="./slides/43_Moment_Generating_Functions_Part2.html" class="title listing-title">Chapter 43: Moment Generating Functions Part 2</a>
-</td>
-<td>
-<span class="listing-categories">undefined</span>
-</td>
-</tr>
-<tr data-index="32" data-listing-file-modified-sort="1693611064617" data-listing-reading-time-sort="2" data-listing-title-sort="Chapter 19: Hypergeometric r.v.'s" data-listing-filename-sort="19_Hypergeometric_rv.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">undefined</span>
-</td>
-<td>
-<a href="./slides/19_Hypergeometric_rv.html" class="title listing-title">Chapter 19: Hypergeometric r.v.’s</a>
-</td>
-<td>
-<span class="listing-categories">undefined</span>
-</td>
-</tr>
-<tr data-index="33" data-listing-file-modified-sort="1693611064617" data-listing-reading-time-sort="1" data-listing-title-sort="Chapter 20: Discrete Uniform r.v.'s" data-listing-filename-sort="20_Discrete_Uniform_rv.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">undefined</span>
-</td>
-<td>
-<a href="./slides/20_Discrete_Uniform_rv.html" class="title listing-title">Chapter 20: Discrete Uniform r.v.’s</a>
-</td>
-<td>
-<span class="listing-categories">undefined</span>
-</td>
-</tr>
-<tr data-index="34" data-listing-file-modified-sort="1693611064621" data-listing-reading-time-sort="1" data-listing-title-sort="Chapter 35: Normal Variables" data-listing-filename-sort="35_Normal_rv.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">undefined</span>
-</td>
-<td>
-<a href="./slides/35_Normal_rv.html" class="title listing-title">Chapter 35: Normal Variables</a>
+<span class="listing-title">undefined</span>
 </td>
 <td>
 <span class="listing-categories">undefined</span>
@@ -807,9 +722,6 @@ Categories
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
-  <ul class="pagination"></ul>
-</nav>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

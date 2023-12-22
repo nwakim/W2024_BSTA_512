@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Linear Regression – module_k</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/bsta_550_hex_3.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Linear Regression</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../syllabus.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule1.html" rel="" target="">
+ <span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../class_slides.html" rel="" target="">
+ <span class="menu-text">Slides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../homeworks.html" rel="" target="">
+ <span class="menu-text">Homework</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Course Info</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../instructors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Course Materials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../class_slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class Slides</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homeworks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weekly Pages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_01_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_02_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_03_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_04_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_05_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_06_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_07_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_08_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_09_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_10_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_11_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<div class="frame">
+<p><span style="color: royalblue"><strong>BIOSTAT 650<br>
+Theory and Application of Linear Regression<br>
+Module K: Model Diagnosis</strong></span></p>
+</div>
+<div class="frame">
+<p>Outline</p>
+<p>Topics:</p>
+<p>Purpose Residuals and Properties of residuals Review of model assumptions Impact of violating assumptions Use of residuals in model diagnostics Correction strategies Outliers Examples</p>
+<p>MPV 5th edition: Chapter 4 and 5</p>
+</div>
+<div class="frame">
+<p>Regression Diagnostics Regression diagnostics includes assessment of: Model assumptions (LINE) Influential observations/outliers Multicollinearity</p>
+</div>
+<div class="frame">
+<p>Linear Model: Assumptions</p>
+<p>Model: <span class="math inline">\({\boldY} = \boldX\boldbeta + \boldepsilon\)</span> Assumptions: <span class="math inline">\({\boldY}\sim N(\boldX\boldbeta,\sigma^2{\boldI})\)</span></p>
+<p><strong>L</strong>inearity: <span class="math inline">\(E[Y_i]=\beta_0 + \beta_1X_{i1} + \ldots + \beta_{p-1}X_{i,p-1}\)</span> Linearity w.r.t. <span class="math inline">\(\beta\)</span>’s Functional form of <span class="math inline">\(\boldX\)</span>: often the focus of diagnostics for linearity <strong>I</strong>ndependence: <span class="math inline">\(\epsilon_i \perp \epsilon_j\)</span>, for <span class="math inline">\(i\neq j\)</span> <strong>N</strong>ormality: <span class="math inline">\(\epsilon_i\sim N(0,\sigma^2)\)</span> <strong>E</strong>qual variance (homogeneity): <span class="math inline">\(Var(\epsilon_i)=\sigma^2\)</span>, for all <span class="math inline">\(i\)</span> Assumptions mainly about <span class="math inline">\(\epsilon_i\)</span> and will be checked using residuals Since we cannot observe the true <span class="math inline">\(\epsilon_i\)</span>’s, we infer their behavior via the <span class="math inline">\(\widehat{\epsilon}_i\)</span>’s Residual is a measure of the variability of the outcome not explained by the regression model</p>
+</div>
+<div class="frame">
+<p>Violation of Assumptions Possible consequences of assumptions being violated: <span class="math inline">\(\widehat{\beta}_j\)</span> biased <span class="math inline">\(SE(\widehat{\beta}_j)\)</span> inaccurate CI’s for <span class="math inline">\(\beta_j\)</span> inaccurate hypothesis tests invalid Impact depends on which assumption is violated and the extent</p>
+</div>
+<div class="frame">
+<p>Regression Diagnostics: Objectives Identify violation of model assumptions Identify observations that may have too much influence on the results Understand the impact of violating the assumption e.g., impact on confidence intervals or coefficients Assumptions will never hold perfectly: degree of validity of model results depends on degree to which assumptions hold</p>
+<p>Be able to suggest potential corrective action e.g., transformation of response</p>
+<p>Regression diagnostics can involve an “iterative process” because violation of one assumption can mask a violation of another assumption</p>
+</div>
+<div class="frame">
+<p><span style="color: royalblue"><strong>Types of Residuals</strong></span></p>
+</div>
+<div class="frame">
+<p>Conventional Residuals: Properties (review) Assume: <span class="math inline">\(\boldepsilon\sim N({\boldzero},\sigma^2{\boldI})\)</span> Errors: <span class="math inline">\(\boldepsilon={\boldY}-E[{\boldY}]\)</span> Residuals: &amp; = &amp; -<br>
+&amp; = &amp; -<br>
+&amp; = &amp; (-)<br>
+<br>
+E[] &amp; = &amp; (-)E[]<br>
+&amp; = &amp; (-)<br>
+&amp; = &amp; -<br>
+&amp; = &amp; - (^T)^-1^T<br>
+&amp; = &amp;</p>
+</div>
+<div class="frame">
+<p>Residuals: Properties (continued) Var() &amp; = &amp; Var({-} )<br>
+&amp; = &amp; (-) ^2 (-)^T<br>
+&amp; = &amp; ^2(-)^2<br>
+&amp; = &amp; ^2(-) Therefore, <span class="math inline">\(\widehat{\boldepsilon}\sim N({\boldzero},\sigma^2\{{\boldI}-{\boldH}\})\)</span>, since <span class="math inline">\(\widehat{\boldepsilon}\)</span> is a linear combination of Normals</p>
+</div>
+<div class="frame">
+<p>Residuals: Properties (cont’d) Therefore, if <span class="math inline">\(\boldepsilon \sim\)</span> Normal, then <span class="math inline">\(\widehat{\boldepsilon}\sim\)</span> Normal if <span class="math inline">\(E[{\boldepsilon}]={\boldzero}\)</span>, then <span class="math inline">\(E[\widehat{\boldepsilon}]={\boldzero}\)</span> even if <span class="math inline">\(\{\epsilon_1,\ldots,\epsilon_n\}\)</span> are mutually independent,<br>
+<span class="math inline">\(\{\widehat{\epsilon}_1,\ldots,\widehat{\epsilon}_n\}\)</span> are not independent cov<span class="math inline">\((\widehat{\epsilon}_i,\widehat{\epsilon}_j)=-h_{ij}\sigma^2\)</span> because <span class="math inline">\(Var(\widehat{\boldepsilon})=\sigma^2({\boldI}-{\boldH})\)</span> even if <span class="math inline">\(Var(\epsilon_i)=\sigma^2\)</span> for all <span class="math inline">\(i\)</span>, <span class="math inline">\(Var(\widehat{\epsilon}_i)\neq \sigma^2\)</span> for any <span class="math inline">\(i\)</span> in fact <span class="math inline">\(Var(\widehat{\epsilon}_i)=(1-h_{ii})\sigma^2\leq\sigma^2\)</span> (<span class="math inline">\(h_{ii}\geq0\)</span> since <span class="math inline">\(\boldH\)</span> is positive definite)</p>
+</div>
+<div class="frame">
+<p>Standardized Residuals Standardized residuals (imperfect): _i &amp; = &amp; Rationale: <span class="math inline">\(\widehat{\epsilon}_i\)</span>’s are unit-dependent (e.g., changing units of <span class="math inline">\(Y_i\)</span> will change <span class="math inline">\(\widehat{\epsilon}_i\)</span>)</p>
+<p>Standardizing with <span class="math inline">\(\widehat{\sigma}\)</span> is very easy to do.</p>
+<p>Patterns in <span class="math inline">\(\widehat{z}_i\)</span>’s will be the same as <span class="math inline">\(\widehat{\epsilon}_i\)</span>’s, but easier to judge the magnitude of <span class="math inline">\(\widehat{\epsilon}_i\)</span> because it is “standardized”</p>
+<p>More meaningful to judge the magnitude of <span class="math inline">\(\widehat{\epsilon}_i\)</span> relative to its standard deviation</p>
+</div>
+<div class="frame">
+<p>Standardized Residuals (continued)</p>
+<p><span class="math inline">\(\widehat{z}_i\)</span>’s have mean <span class="math inline">\(\approx 0\)</span> and variance <span class="math inline">\(\approx 1\)</span></p>
+<p>If model assumptions are correct, <span class="math inline">\(\widehat{z}_i\stackrel{\cdot}{\sim} N(0,1)\)</span>.<br>
+Therefore <span class="math inline">\(\widehat{z}_i\)</span>’s are more readily interpreted: P(|_i| ) &amp; &amp; 0.67<br>
+P(|_i| ) &amp; &amp; 0.95<br>
+P(|_i| ) &amp; &amp; 0.99 Advantage of <span class="math inline">\(\widehat{z}\)</span> over <span class="math inline">\(\widehat{\epsilon}\)</span> is that we have a “rule of thumb" to identify large value: <span class="math inline">\(|\widehat{z}_i| \geq 2.5\)</span></p>
+<p>Histogram, Q-Q (quantile-to-quantile) plot, box/whisker plot will have same pattern as for <span class="math inline">\(\widehat{\epsilon}_i\)</span>’s (to be introduced soon)</p>
+</div>
+<div class="frame">
+<p>Internally Studentized Residuals Recall: <span class="math inline">\(\widehat{\sigma}^2(1-h_{ii})\)</span>, not <span class="math inline">\(\widehat{\sigma}^2\)</span>, is an unbiased estimator of <span class="math inline">\(Var(\widehat{\epsilon}_i)\)</span> Internally studentized residuals: _i &amp; = &amp; where <span class="math inline">\(h_{ii}=\text{diag}(\boldH)_i=\)</span> leverage for <span class="math inline">\(i\)</span>’th individual (the <span class="math inline">\(i\)</span>-th element of the diagonal of the hat matrix)</p>
+<p><span class="math inline">\(h_{ii}=\boldX_i^T (\boldX^T\boldX)^{-1} \boldX_i\)</span>; Special case: in SLR h_ii &amp; = &amp; +</p>
+<p>Reflects outlyingness in <span class="math inline">\(\boldX\)</span> space</p>
+<p><span class="math inline">\(E[\widehat{r}_i]= 0\)</span>, <span class="math inline">\(Var(\widehat{r}_i)\approx 1\)</span>, <span class="math inline">\(\widehat{r}_i\sim t_{df SSE}\)</span>. Note: when <span class="math inline">\(df SSE\)</span> (or sample size) is large: <span class="math inline">\(t_{df SSE}\approx N(0,1)\)</span>, <span class="math inline">\(|t_{df SSE, 0.025}|\approx 2\)</span></p>
+</div>
+<div class="frame">
+<p>Externally Studentized Residuals</p>
+<p>Externally studentized residuals: _(-i) &amp; = &amp; <span class="math inline">\(\widehat{\sigma}_{(-i)}\)</span> is an estimator of <span class="math inline">\(\sigma^2\)</span>, with <span class="math inline">\(i\)</span>’th individual deleted</p>
+<p>Rationale:</p>
+<p>if <span class="math inline">\(|\widehat{\epsilon}_i|\)</span> is large, <span class="math inline">\(\widehat{\sigma}^2\)</span> may over-estimate <span class="math inline">\(\sigma^2\)</span> <span class="math inline">\(\widehat{\epsilon}_i\)</span> can serve to mask its own outlyingness by inflating <span class="math inline">\(\widehat{\sigma}^2\)</span> hence remove influence of <span class="math inline">\(\widehat{\epsilon}_i\)</span> on <span class="math inline">\(\widehat{\sigma}^2\)</span> by removing the data point</p>
+<p><span class="math inline">\(E[\widehat{r}_{(-i)}]= 0\)</span>, <span class="math inline">\(Var(\widehat{r}_{(-i)})\approx 1\)</span>, <span class="math inline">\(\widehat{r}_{(-i)}\sim t_{dfSSE-1}\)</span></p>
+<p>Most sensitive residuals for detecting outliers</p>
+<p>Also known as “leave-one-out/Jackknife” residuals</p>
+</div>
+<div class="frame">
+<p>Comparing Residual Types</p>
+<p>For large samples, <span class="math inline">\(\widehat{\epsilon}_i\)</span>, <span class="math inline">\(\widehat{z}_i\)</span>, <span class="math inline">\(\widehat{r}_i\)</span>, <span class="math inline">\(\widehat{r}_{(-i)}\)</span> tend to provide similar information</p>
+<p>For large samples, <span class="math inline">\(\widehat{r}_{(-i)}\)</span>, <span class="math inline">\(\widehat{r}_i\)</span>, <span class="math inline">\(\widehat{z}_i\)</span> follow, approximately, a standard normal distribution For small to moderate samples, a rank, in decreasing order of sensitivity: <span class="math inline">\(\widehat{r}_{(-i)}\)</span> <span class="math inline">\(\widehat{r}_i\)</span> <span class="math inline">\(\widehat{z}_i\)</span> <span class="math inline">\(\widehat{\epsilon}_i\)</span></p>
+</div>
+<div class="frame">
+<p><span style="color: royalblue"><strong>Checking functional form of continuous predictor (linearity)</strong></span></p>
+</div>
+<div class="frame">
+<p>Functional form of continuous predictor Continuous covariates may have nonlinear functional form of relationship with the outcome e.g.&nbsp;SBP vs age Several approaches to check Approach 1: Partial regression plots Approach 2: Categorizing predictor Approach 3: Testing and smoothing approaches (future lecture)</p>
+</div>
+<div class="frame">
+<p>Residual vs.&nbsp;covariate plots in SLR and MLR</p>
+<p>In MLR: conditional association; in SLR, marginal=conditional. In simple linear regression, can plot <span class="math inline">\(\widehat{\epsilon}\)</span> versus <span class="math inline">\(X\)</span> (or <span class="math inline">\(\widehat{Y}\)</span>) to assess linearity of <span class="math inline">\((X,Y)\)</span> relationship can detect departures from linearity, and nature of non-linear relationships If the current functional form has captured the effect of <span class="math inline">\(X\)</span>, then <span class="math inline">\(\widehat{\epsilon}_i\)</span>’s should be randomly scattered and show no trend with <span class="math inline">\(X\)</span> For multiple linear regression, situation is more complicated Plot of <span class="math inline">\(\widehat{\epsilon}\)</span> versus <span class="math inline">\(X_k\)</span> can be impacted other covariates" If <span class="math inline">\(X_k\)</span> is correlated with <span class="math inline">\(X_j\)</span>, and <span class="math inline">\(X_j\)</span> has a non-linear association with <span class="math inline">\(Y\)</span>, then plot of <span class="math inline">\(\widehat{\boldepsilon}\)</span> vs <span class="math inline">\(X_k\)</span> will partially reflect non-linear association of <span class="math inline">\(Y\)</span> and <span class="math inline">\(X_j\)</span>. Solution: <em>Partial regression</em> plots</p>
+</div>
+<div class="frame">
+<p>Approach 1: Partial Regression Plots Design matrix <span class="math inline">\(\boldX=[{\boldone}_n, X_1,\ldots, X_p]\)</span> <span class="math inline">\(\boldX_{-k}\)</span> contains all covariates, except <span class="math inline">\(X_{k}\)</span></p>
+<p>Regress <span class="math inline">\({\boldY}\)</span> on <span class="math inline">\(\boldX_{-k}\)</span> and get residual <span class="math inline">\(\widehat{\boldepsilon}({\boldY}|\boldX_{-k})\)</span> <span class="math inline">\(\boldY=\boldX_{-k}\alpha%_{\scriptscriptstyle {\boldY}|\boldX_{-k} }  +\epsilon({\boldY}|\boldX_{-k})\)</span> Regress <span class="math inline">\(X_{k}\)</span> on <span class="math inline">\(\boldX_{-k}\)</span> and get residual <span class="math inline">\(\widehat{\boldepsilon}(\boldX_{k}|\boldX_{-k})\)</span> <span class="math inline">\(X_{k}=\boldX_{-k}  \boldbeta%_{\scriptscriptstyle\boldX_{k}|\boldX_{-k}}  +\epsilon(\boldX_{k} |\boldX_{-k})\)</span> Plot <span class="math inline">\(\widehat{\boldepsilon}(X_{k}|\boldX_{-k})\)</span> vs. <span class="math inline">\(\widehat{\boldepsilon}({\boldY}|\boldX_{-k})\)</span> both sets of residuals are covariate-adjusted (and hence model dependent): remove information/contribution from <span class="math inline">\(\boldX_{-k}\)</span> if linear, then shows the <em>adjusted</em> effect of <span class="math inline">\(X_k\)</span>; if nonlinear, then suggests a functional form of <span class="math inline">\(X_k\)</span> (see also partial residual plot) can also help to spot outliers (extreme residuals in the Y direction) and “leverage points” (extreme residuals in the X direction)</p>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pic/partial2.png" style="height:0.9in" class="figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="frame">
+<p>Partial Regression Plots–Example <u>Example</u>: Suppose we want to study association between Sytolic blood pressure (SBP) and covariates Age (<span class="math inline">\(A_{i}\)</span>), Quetlet intex (<span class="math inline">\(Q_i\)</span>), and smoking <span class="math inline">\(S_{i}\)</span>. <span class="math inline">\(SBP_i = \beta_0 + \beta_A A_i + \beta_Q Q_i + \beta_S S_i + \epsilon_i\)</span></p>
+<p>We want to assess functional relationship between <span class="math inline">\(SBP\)</span> and <span class="math inline">\(Age\)</span> Fit first model: <span class="math inline">\(SBP_i = \gamma_0 + \gamma_1 Q_{i} + \gamma_3 S_i +\epsilon_{i(SBP|Q,S)}\)</span></p>
+<p>obtain residuals, <span class="math inline">\(\widehat{\epsilon}_{i(SBP|Q,S)}\)</span>’s Fit second model: <span class="math inline">\(A_{i} = \alpha_0 + \alpha_1 Q_{i} + \alpha_2 S_i +\epsilon_{i(Age|Q,S)}\)</span> obtain residuals <span class="math inline">\(\widehat{\epsilon}_{i(A|Q,S)}\)</span>’s Plot <span class="math inline">\(\widehat{\epsilon}_{i(SBP|Q,S)}\)</span> vs.&nbsp;<span class="math inline">\(\widehat{\epsilon}_{i(Age|Q,S)}\)</span> pattern in plot describes association between <span class="math inline">\(Age\)</span> and <span class="math inline">\(SBP\)</span>, adjusting for <span class="math inline">\(Q\)</span> and <span class="math inline">\(S\)</span></p>
+</div>
+<div class="frame">
+<p>Approach 2: Categorize Continuous Predictor</p>
+<p>Replace continuous with categorical covariates, then examine pattern in coefficients of indicator variables Functional form of indicator variables can’t be misspecified e.g., blood pressure data: <span class="math inline">\(SBP_i = \beta_0 + \beta_A A_i + \beta_Q Q_i + \beta_S S_i + \epsilon_i\)</span> We want to assess functional relationship between <span class="math inline">\(SBP\)</span> and <span class="math inline">\(Age\)</span> Eliminate the linearity assumption by treating age as categorical: Break age into groups containing (approximately) equal numbers of subjects and set up indicator covariates: AG_1i &amp; = &amp; I(41 A_i &lt; 48)<br>
+AG_2i &amp; = &amp; I(48 A_i &lt; 54)<br>
+AG_3i &amp; = &amp; I(54 A_i &lt; 59)<br>
+AG_4i &amp; = &amp; I(59 A_i)</p>
+</div>
+<div class="frame">
+<p>Categorizing approach, continued (1) Revised model: E[SBP_i] &amp; = &amp; _0 + _A2AG_2i + _A3AG_3i +_A4AG_4i + _Q Q_i + _S S_i Now, plot <span class="math inline">\(\widehat{\beta}_{A1}\)</span>, <span class="math inline">\(\widehat{\beta}_{A2}\)</span> <span class="math inline">\(\dots\)</span>, <span class="math inline">\(\widehat{\beta}_{A4}\)</span> against group-specific medians set <span class="math inline">\(\widehat{\beta}_{A1}\equiv0\)</span>; <span class="math inline">\(\widehat{\beta}_{A1}\)</span> <span class="math inline">\(\dots\)</span>, <span class="math inline">\(\widehat{\beta}_{A4}\)</span> are adjusted group mean differences Plot reflects true nature of association between <span class="math inline">\(A_i\)</span> and <span class="math inline">\(E[SBP_i]\)</span> linear? quadratic? U-shaped? threshold? If plot approximately linear: evidence in favor of linearity assumption</p>
+</div>
+<div class="frame">
+<p>Violation of Linearity Assumption If linearity fails <span class="math inline">\(\ldots\)</span> <span class="math inline">\(\widehat{\boldbeta}\)</span>: <span class="math inline">\(\widehat{\boldY}\)</span>: <span class="math inline">\(\widehat{\sigma}^2\)</span>: <span class="math inline">\(\widehat{Var}(\widehat{\boldbeta})\)</span>: confidence intervals: hypothesis tests:</p>
+<p>Possible solutions: modify the model <span class="math inline">\(\ldots\)</span> additional covariates transform <span class="math inline">\({\boldY}\)</span>; e.g., <span class="math inline">\(log({\boldY})\)</span>, <span class="math inline">\(\sqrt{{\boldY}}\)</span> transform certain <span class="math inline">\(\boldX_k\)</span>’s</p>
+</div>
+<div class="frame">
+<p>Violation of Linearity Assumption If linearity fails <span class="math inline">\(\ldots\)</span> <span class="math inline">\(\widehat{\boldbeta}\)</span>: biased <span class="math inline">\(\widehat{\boldY}\)</span>: biased <span class="math inline">\(\widehat{\sigma}^2\)</span>: biased <span class="math inline">\(\widehat{Var}(\widehat{\boldbeta})\)</span>: biased confidence intervals: invalid hypothesis tests: wrong inference</p>
+<p>Possible solutions: modify the model additional covariates transform certain <span class="math inline">\(\boldX_k\)</span>’s based on the plots transform <span class="math inline">\({\boldY}\)</span>; e.g., <span class="math inline">\(log({\boldY})\)</span>, <span class="math inline">\(\sqrt{{\boldY}}\)</span></p>
+</div>
+<div class="frame">
+<p><span style="color: royalblue"><strong>Independence Assumption</strong></span></p>
+</div>
+<div class="frame">
+<p>Independence Assumption Independence: (multivariate normal + ) <span class="math inline">\(E[\epsilon_i \epsilon_j]=0\)</span> for <span class="math inline">\(i\neq j\)</span></p>
+<p>implies: <span class="math inline">\(Y_i\)</span> independent of <span class="math inline">\(Y_j\)</span>, <span class="math inline">\(i\neq j\)</span></p>
+<p>to assess validity of independence assumption, careful consideration of study design is essential</p>
+<p>violations of independence often clear from sampling scheme</p>
+<p>e.g., if <span class="math inline">\(Y_i\)</span>’s are time-ordered, may be serial correlation; <span class="math inline">\(E[\epsilon_i \epsilon_{i+1}]\neq 0\)</span></p>
+<p>e.g., subjects in a study are clustered</p>
+<p>e.g., response measured repeatedly on each subject</p>
+<p>Note: recall that residuals are never independent</p>
+</div>
+<div class="frame">
+<p>Independence Assumption: Autocorrelation : errors are correlated (sequenced) often occurs when response is measured over time <span class="math inline">\(\mbox{cov}(\epsilon_i \epsilon_{i+\ell})\neq 0\)</span>, for some <span class="math inline">\(\ell\)</span> (lag) e.g., lag-2 autocorrelation: <span class="math inline">\(E[\epsilon_i \epsilon_{i+1}]\neq 0\)</span> <span class="math inline">\(E[\epsilon_i \epsilon_{i+2}]\neq 0\)</span> <span class="math inline">\(E[\epsilon_i \epsilon_{i+k}]=0\)</span>, for <span class="math inline">\(k&gt;2\)</span></p>
+</div>
+<div class="frame">
+<p>Independence: Detecting Autocorrelation</p>
+<p>plot <span class="math inline">\(\widehat{\epsilon}_i\)</span>’s versus <span class="math inline">\(i\)</span> (index) positive autocorrelation: adjacent residuals have same sign negative autocorrelation: sign of residuals alternates Note: only if index <span class="math inline">\(i\)</span> has a meaningful order, e.g.&nbsp;time plot <span class="math inline">\(\widehat{\epsilon}_i\)</span> vs. <span class="math inline">\(\widehat{\epsilon}_{i-1}\)</span> positive correlation: positive trend negative correlation: negative trend</p>
+</div>
+<div class="frame">
+<p>Autocorrelation: Durbin-Watson Test (Chap 14) consider: departure from independence in form of lag 1 autocorrelation (first order) <span class="math inline">\(\mbox{corr}(\epsilon_i, \epsilon_{i+1})=\rho\)</span>, <span class="math inline">\(i=1,\ldots,n-1\)</span> Durbin-Watson Test: hypotheses: <span class="math inline">\(H_0: \rho=0\)</span> vs.&nbsp;<span class="math inline">\(H_1:\rho &gt; 0\)</span> test statistic: DW &amp; = &amp; (1-) 2 Distribution depends on <span class="math inline">\(\boldX\)</span>, but bounds are available (Table A.6) reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(DW &lt; DW_L\)</span> fail to reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(DW &gt; DW_U\)</span> inconclusive if <span class="math inline">\(DW_L \leq DW \leq DW_U\)</span> to test <span class="math inline">\(H_0\)</span> vs.&nbsp;<span class="math inline">\(H_1:\rho &lt;0\)</span>, use <span class="math inline">\((4-DW)\)</span> as test statistic</p>
+</div>
+<div class="frame">
+<p>Impact of Lack of Independence if <span class="math inline">\(e_i\)</span> and <span class="math inline">\(e_j\)</span> are correlated (<span class="math inline">\(i\neq j\)</span>): <span class="math inline">\(\widehat{\boldbeta}:\)</span> <span class="math inline">\(\widehat{\sigma}^2:\)</span> <span class="math inline">\(Var({\widehat{\boldbeta}}):\)</span> CI’s, hypothesis tests:</p>
+</div>
+<div class="frame">
+<p>Impact of Lack of Independence if <span class="math inline">\(e_i\)</span> and <span class="math inline">\(e_j\)</span> are correlated (<span class="math inline">\(i\neq j\)</span>): <span class="math inline">\(\widehat{\boldbeta}:\)</span> unbiased, normally distributed <span class="math inline">\(\widehat{\sigma}^2:\)</span> biased The conclusion that <span class="math inline">\(E[\widehat{\sigma}^2]=\sigma^2\)</span> depends on independence (<span class="math inline">\(n\)</span> is no longer the effective sample size) <span class="math inline">\(Var({\widehat{\boldbeta}}):\)</span> <span class="math inline">\(Var\{(\boldX^T\boldX)^{-1}\boldX^T\boldY\}=(\boldX^T\boldX)^{-1}\boldX^T{\color{royalblue}\boldsymbol{\Sigma}}\boldX(\boldX^T\boldX)^{-1}\)</span> where <span class="math inline">\(\boldSigma\)</span> is not a diagonal matrix CI’s, hypothesis tests: invalid</p>
+</div>
+<div class="frame">
+<p>Independence: Remedies In BIOSTAT 653 conditional approach: random effects, mixed models let <span class="math inline">\(Y_{ij}=\)</span> response, <span class="math inline">\(j\)</span>’th subject in <span class="math inline">\(i\)</span>’th cluster e.g, <span class="math inline">\(Y_{ij} = \beta_{0i} + \beta_1 X_{ij} + \epsilon_{ij}\)</span>, where <span class="math inline">\(\beta_{0i}\sim N(\beta_0,\sigma^2_0)\)</span> dependence among subjects captured by <span class="math inline">\(\sigma^2_0\)</span> <span class="math inline">\(Y_{ij}\)</span> conditionally independent of <span class="math inline">\(Y_{ik}\)</span>, given <span class="math inline">\(\beta_{0i}\)</span> marginal approach: Use a “working" correlation structure model: unchanged from the independence case compute <span class="math inline">\(\widehat{\boldbeta}\)</span> as if subjects were independent use adjusted (robust) version of variance estimator</p>
+</div>
+<div class="frame">
+<p>Independence: Remedies (continued) e.g., time-ordered data: include <em>time</em> as covariate need to ensure that effect of time is modelled correctly may or may not solve problem; need to examine residuals may need to depart from linear regression altogether appeal to <em>time series analysis</em> (regression methods specially developed for time-ordered data)</p>
+</div>
+<div class="frame">
+<p><span style="color: royalblue"><strong>Constant Variance Assumption</strong></span></p>
+</div>
+<div class="frame">
+<p>Assessing Constant Variance Plot <span class="math inline">\(\widehat{\boldepsilon}\)</span> vs. <span class="math inline">\(\widehat{\boldY}\)</span> to assess homogeneity assumption</p>
+<p>should be a random scatter</p>
+<p>common departure: <span class="math inline">\(|\widehat{\epsilon}_i|\)</span> increases with <span class="math inline">\(\widehat{Y}_i\)</span> (cone shape), implying that the variance is an increasing function of the mean common in linear modelling of count/rate data</p>
+<p>Note: residuals are heterogeneous, i.e., <span class="math inline">\(Var(\widehat{\epsilon}_i)\neq\sigma^2\)</span>, but shouldn’t have patterns</p>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pic/hetero.png" style="height:1.7in" class="figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="frame">
+<p>Model Assumptions: Constant Variance If homogeneity fails <span class="math inline">\(\ldots\)</span> <span class="math inline">\(\widehat{\boldbeta}\)</span>: <span class="math inline">\(\widehat{\sigma}^2\)</span>: <span class="math inline">\(\widehat{Var}(\widehat{\boldbeta})\)</span>: hypothesis tests, CI’s: Possible solutions: weighted least squares (Chapter 5.5.2 and 5.5.3) variance stabilizing transformations (Chapter 5.2) robust regression (Chapter 15.1) robust standard errors</p>
+</div>
+<div class="frame">
+<p>Model Assumptions: Constant Variance If homogeneity fails <span class="math inline">\(\ldots\)</span> <span class="math inline">\(\widehat{\boldbeta}\)</span>: remain valid <span class="math inline">\(\widehat{\sigma}^2\)</span>: not well defined <span class="math inline">\(\widehat{Var}(\widehat{\boldbeta})\)</span>: invalid <span class="math inline">\(Var\{(\boldX^T\boldX)^{-1}\boldX^T\boldY\}=(\boldX^T\boldX)^{-1}\boldX^T{\color{royalblue}Var(\boldY)}\boldX(\boldX^T\boldX)^{-1}\)</span> <span class="math inline">\({\color{white}{Var\{(\boldX^T\boldX)^{-1}\boldX^T\boldY\}}}\neq (\boldX^T\boldX)^{-1}\boldX^T{\color{royalblue}\boldsymbol{\sigma^2\boldI}}\boldX(\boldX^T\boldX)^{-1}\)</span> hypothesis tests, CI’s: invalid because SE(<span class="math inline">\(\widehat{\beta}\)</span>) invalid Possible solutions: weighted least squares (Chapter 5.5.2 and 5.5.3) variance stabilizing transformations (Chapter 5.2) robust regression (Chapter 15.1) robust standard errors</p>
+</div>
+<div class="frame">
+<p>Weighted Least Squares</p>
+<p>Suppose constant variance is violated, but the responses are uncorrelated, i.e., <span class="math inline">\({\boldepsilon}\sim N({\boldzero}, {\boldW})\)</span>, where <span class="math inline">\({\boldW}=\mbox{diag}\{\boldsymbol{w}_1,\ldots,\boldsymbol{w}_n\}\)</span> where <span class="math inline">\(\boldsymbol{w}_i\neq \boldsymbol{w}_j\)</span> for some <span class="math inline">\(i\neq j\)</span> <span class="math inline">\(Var\{(\boldX^T\boldX)^{-1}\boldX^T\boldY\}=(\boldX^T\boldX)^{-1}\boldX^T{\color{royalblue}\boldsymbol{\boldW}}\boldX(\boldX^T\boldX)^{-1}\)</span> We can estimate:</p>
+<p>_W &amp;=&amp; (^T^-1)^-1^T^-1<br>
+Var(_W) &amp; =&amp; (^T^-1)^-1</p>
+<p>Typically, <span class="math inline">\(\boldW\)</span> is unknown and needs to be estimated from <span class="math inline">\(\widehat{\epsilon}_i\)</span>’s</p>
+</div>
+<div class="frame">
+<p>Variance-Stabilizing Transformations</p>
+<p>Variance-stabilizing transformations (VST) can be used when strong evidence against the constant variance assumption exists</p>
+<p>Idea: often, when <span class="math inline">\(Var(Y_i)\)</span> is not constant, it is a function of <span class="math inline">\(E[Y_i]\)</span>. Thus we: choose a function <span class="math inline">\(g(\cdot)\)</span> s.t. <span class="math inline">\(Var(g(Y_i))\)</span> is not a function of <span class="math inline">\(E[Y_i]\)</span> fit <span class="math inline">\(g(\boldY)=\boldX\boldgamma+\bolddelta\)</span></p>
+<p>Caveat: <span class="math inline">\(\boldgamma\)</span> has different interpretation than <span class="math inline">\(\boldbeta\)</span> in <span class="math inline">\(\boldY=\boldX\boldbeta+\boldepsilon\)</span></p>
+</div>
+<div class="frame">
+<p>Non-Constant Variance: Example</p>
+<p>Suppose <span class="math inline">\(Y_i\)</span> follows a Poisson distribution From BIOS 601 we know <span class="math inline">\(E[Y_i]=Var(Y_i)=\boldX_i^T\boldbeta\)</span> (non-constant!)</p>
+<p>Set <span class="math inline">\(g(x)=\sqrt{x}\)</span> due to the following approximation: <span class="math display">\[Var(g(Y_i)) \approx  %Var\{\left.\frac{\partial g(x)}{\partial x}\right|_{x=E[Y_i]}   (Y_i)\} =
+         \left\{ \left.\frac{\partial g(x)}{\partial
+            x} \right|_{x=E[Y_i]} \right\}^2 Var(Y_i)\]</span></p>
+<p>this result is exact only when <span class="math inline">\(g(x)\)</span> is linear here, <span class="math inline">\(\{\partial g/\partial x\}^2=(4x)^{-1}\)</span>, such that <span class="math inline">\(Var(\sqrt{Y_i})=1/4\)</span></p>
+<p>Therefore, although <span class="math inline">\(Var(Y_i)\)</span> is non-constant, <span class="math inline">\(Var(\sqrt{Y_i})\)</span> is a constant</p>
+</div>
+<div class="frame">
+<p>Common VST’s</p>
+<p>Examples of variance-stabilizing transforms:</p>
+<div class="center">
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(Var(Y_i)\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(g(Y_i)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\sigma^2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Y_i\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(E[Y_i]\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\sqrt{Y_i}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(E[Y_i]^2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\log(Y_i)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(E[Y_i]^3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1/\sqrt{Y_i}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(E[Y_i]^4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1/Y_i\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>These are ordered from weakest to strongest <span class="math inline">\(\ldots\)</span> We don’t know exactly which one to choose. So: Plot residuals vs fitted values Use prior experience Involves some trial and error</p>
+</div>
+<div class="frame">
+<p>Robust standard errors</p>
+<p>Robust standard errors correctly estimate variability of parameter estimates even under non-constant variance Use empirical estimates of the variance in <span class="math inline">\(Y\)</span> at each <span class="math inline">\(X\)</span> value rather than assuming this variance is the same for all <span class="math inline">\(X\)</span> values Regression point estimates will be unchanged Robust or empirical standard errors will give correct confidence intervals and p-values In R: lmtest::coeftest()</p>
+</div>
+<div class="frame">
+<p><span style="color: royalblue"><strong>Normality Assumption</strong></span></p>
+</div>
+<div class="frame">
+<p>Normality Assumption Several ways to check assumption that <span class="math inline">\(\epsilon_i\sim N(0,\sigma^2)\)</span> normality: histogram (stem &amp; leaf plots)</p>
+<p>box-whisker plots (boxplots)</p>
+<p>quantile-to-quantile (Q-Q) plots</p>
+<p>Shapiro-Wilks Test (among other tests for normal distribution)</p>
+</div>
+<div class="frame">
+<p>Approach 1: Histogram</p>
+<p>Histogram of <span class="math inline">\(\widehat{\epsilon}_i\)</span>’s: should approximate the shape of a zero-mean normal distribution; i.e., symmetric bell-shaped light tailed</p>
+<p>Caveat: Need a fairly large number of individuals to get reliable information from histogram Histograms of the same data but using different bin sizes (breaks) and/or different cut-points may look quite different</p>
+<p>Q: Why not simply plot histogram of <span class="math inline">\(Y_i\)</span>’s? The distribution of <span class="math inline">\(Y\)</span> might look very non-bell shaped yet normality of errors may still hold – e.g., predictor itself might be highly skewed</p>
+</div>
+<div class="frame">
+<p>Approach 2: Box-Whisker Plot Box-whisker plots (Boxplot): provides information on symmetry of distribution</p>
+<p>symmetric distribution: terminology: <span class="math inline">\(q\%\)</span> of the <span class="math inline">\(\widehat{\epsilon}_i\)</span>’s are <span class="math inline">\(\leq\)</span> the <span class="math inline">\(q\)</span>’th percentile mean equals median 25th and 75th percentiles are equal distance from median median of <span class="math inline">\(\widehat{\epsilon}_i\)</span>’s should be <span class="math inline">\(\approx\)</span> 0</p>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pic/boxplot.png" style="height:1.5in" class="figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="frame">
+<p>Approach 3: Q-Q plot Normal probability plot: rank the <span class="math inline">\(\widehat{z}_i\)</span>’s in ascending order: _(1) &lt; _(2) &lt; …&lt; _(n) if the <span class="math inline">\(\epsilon_i\)</span>’s are truly normal, then <span class="math inline">\(\widehat{z}_{(i)}\)</span>’s should resemble order statistics from a size <span class="math inline">\(n\)</span> standard normal sample plot <span class="math inline">\(\widehat{z}_{(i)}\)</span>’s against the i-th quantile <span class="math inline">\(\Phi^{-1}(\frac{i-1/2}{n})\)</span>, where <span class="math inline">\(\Phi^{-1}(\cdot)\)</span> is inverse of standard normal cumulative distribution function (cdf)</p>
+<p>A special case of the quantile-to-quantile (Q–Q) plot: for a normal distribution Plot should be straight line</p>
+</div>
+<div class="frame">
+<p>Approach 3: Q-Q plot <img src="pic/qq.png" style="height:3in" alt="image"></p>
+</div>
+<div class="frame">
+<p>Shapiro-Wilks Test Shapiro-Wilks Test: formally examines correlation between <span class="math inline">\(\widehat{z}_{(i)}\)</span>’s and their expected values under normality <span class="math inline">\(H_0: \epsilon_i\sim N(0,\sigma^2)\)</span>; <span class="math inline">\(H_1:\overline{H}_0\)</span> under <span class="math inline">\(H_0\)</span>, E[_(i)|H_0] &amp; = &amp; ^-1() set: <span class="math inline">\(\widehat{\boldZ}_{(\cdot)}=[\widehat{z}_{(1)},\ldots,\widehat{z}_{(n)}]\)</span></p>
+<p>test statistic: <span class="math inline">\(\widehat{\rho}^2(\widehat{\boldZ}_{(\cdot)},E[\widehat{\boldZ}_{(\cdot)}|H_0])\)</span>, ^2(_(),E[_()|H_0]) &amp; = &amp; { }^2</p>
+<p>low values: evidence against <span class="math inline">\(H_0\)</span> In R: shapiro.test(). If <span class="math inline">\(p&gt;0.05\)</span>: we can assume normality</p>
+</div>
+<div class="frame">
+<p>Model Assumptions: Normality If Normality does not hold <span class="math inline">\(\ldots\)</span> <span class="math inline">\(\widehat{\boldbeta}\)</span>: <span class="math inline">\(\widehat{\sigma}^2\)</span>: <span class="math inline">\(\widehat{Var}(\widehat{\boldbeta})\)</span>: hypothesis tests, CI’s: Possible solution: transform <span class="math inline">\({\boldY}\)</span> Note: OLS is quite robust to departures from normality By CLT: even if violation of normality, sample mean of variables tends towards a normal distribution as sample size grows</p>
+</div>
+<div class="frame">
+<p>Model Assumptions: Normality If Normality does not hold <span class="math inline">\(\ldots\)</span> <span class="math inline">\(\widehat{\boldbeta}\)</span>: remains unbiased (does not rely on normality) <span class="math inline">\(\widehat{\sigma}^2\)</span>: remains unbiased (does not rely on normality) <span class="math inline">\(Var(\widehat{\boldbeta})=\sigma^2(\boldX^T\boldX)^{-1}\)</span>: still valid formula (only requires uncorrelated and homogeneity) <span class="math inline">\(\widehat{Var}(\widehat{\boldbeta})\)</span>: unbiased hypothesis tests, CI’s: invalid under small sample size; valid if sample size is large Possible solution: transform <span class="math inline">\({\boldY}\)</span> (<span class="math inline">\(\sqrt{\boldY}, \log(\boldY)\)</span>) Note: OLS is quite robust to departures from normality By CLT: even if violation of normality, sample mean of variables tends towards a normal distribution as sample size grows</p>
+</div>
+<div class="frame">
+<p>Summary</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;"><strong>Check</strong></th>
+<th style="text-align: center;"><strong>Estimates</strong></th>
+<th style="text-align: center;"><strong>Tests/CIs</strong></th>
+<th style="text-align: center;"><strong>Correct</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>L</strong></td>
+<td style="text-align: center;">Partial regression plot;</td>
+<td style="text-align: center;">Problematic</td>
+<td style="text-align: center;">Problematic</td>
+<td style="text-align: center;">Transform X or Y</td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: center;">Categorize (step-wise)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td><strong>I</strong></td>
+<td style="text-align: center;">Design</td>
+<td style="text-align: center;">Valid</td>
+<td style="text-align: center;">Problematic</td>
+<td style="text-align: center;">BIOS 653</td>
+</tr>
+<tr class="even">
+<td><strong>E</strong></td>
+<td style="text-align: center;">Plot <span class="math inline">\(\widehat{{\epsilon}}\sim\widehat{{Y}}\)</span></td>
+<td style="text-align: center;">Valid</td>
+<td style="text-align: center;">Problematic</td>
+<td style="text-align: center;">Weighted Least Squares</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Transform Y; Robust SE</td>
+</tr>
+<tr class="even">
+<td><strong>N</strong></td>
+<td style="text-align: center;">Hist; boxplot; QQ plot</td>
+<td style="text-align: center;">Valid</td>
+<td style="text-align: center;">Problematic</td>
+<td style="text-align: center;">Transform Y</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: center;">Shapiro-Wilks Test</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">if <span class="math inline">\(n\)</span> small</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="frame">
+<p>All models are wrong but some are useful <span class="math inline">\(E(\boldY)\! =\! \boldX\boldbeta\)</span> is a convenient way to measure the association that I’m interested in (“useful"), but I don’t believe the model (”wrong"). Since I have a random sample, I’m comfortable assuming that my errors are uncorrelated (by design). But why should I believe that my errors are homoscedastic? Maybe the instrument that measures the outcome is less accurate for larger outcome values. My errors are not really normal, but if my sample is large then I don’t need to worry about that. (And most of this class did not rely on normality anyway!)</p>
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+<p><span style="color: royalblue"><strong>Outliers</strong></span></p>
+</div>
+<div class="frame">
+<p>Outliers We observe data points of the form: (Y_i,X_i1,…,X_ik)</p>
+<p>“Outliers” <span class="math inline">\(\longrightarrow\)</span> extreme values Consider the <span class="math inline">\(i\)</span>’th individual; can be extreme in several ways: <span class="math inline">\(Y_i\)</span>, i.e., “outlying in <span class="math inline">\({\boldY}\)</span>”</p>
+<p><span class="math inline">\(x_{ij}\)</span>, outlying w.r.t. <span class="math inline">\(\boldX_j\)</span> row <span class="math inline">\(\boldX_i^T\)</span>, outlying w.r.t <span class="math inline">\(\boldX\)</span></p>
+<p><span class="math inline">\(\widehat{\epsilon}_i\)</span> outlying relative to <span class="math inline">\(\widehat{\boldepsilon}\)</span>: outliers</p>
+</div>
+<div class="frame">
+<p>Impact of Outliers Outliers can distort <span class="math inline">\(\widehat{\beta}_j\)</span>’s recall: sample means are sensitive to outliers <span class="math inline">\(\widehat{\beta}_j\)</span> is a weighted sample mean of <span class="math inline">\(Y_i\)</span>’s hence can be distorted Outliers may also distort <span class="math inline">\(\widehat{\sigma}^2\)</span> <span class="math inline">\(\widehat{\epsilon}_i\)</span> outlier <span class="math inline">\(\Rightarrow \widehat{\sigma}^2=\frac{1}{n-p}\sum_{i=1}^n\widehat{\epsilon}_i^2\)</span> Often difficult to detect outliers in <span class="math inline">\(\boldX\)</span>-space visually (unless SLR)</p>
+</div>
+<div class="frame">
+<p>Leverage: Hat Diagonals <span class="math inline">\(h_{ii}=\)</span> leverage for <span class="math inline">\(i\)</span>’th individual <span class="math inline">\((i,i)\)</span>’th element of the <span class="math inline">\({\boldH}\)</span> matrix Reflects outlyingness in <span class="math inline">\(\boldX\)</span> space measures distance between <span class="math inline">\(\boldX_i^T\)</span> and <span class="math inline">\(\overline\boldX^T\)</span></p>
+<p><span class="math inline">\(\widehat{Y}_i\)</span> and hence <span class="math inline">\(\widehat{\epsilon}_i\)</span> will be driven by the units with large <span class="math inline">\(h_{ii}\)</span></p>
+<p>Calculation: <span class="math inline">\(h_{ii}=\boldX_i^T (\boldX^T\boldX)^{-1} \boldX_i\)</span></p>
+<p>special case: SLR, h_ii &amp; = &amp; +</p>
+</div>
+<div class="frame">
+<p>Leverage: Interpretation</p>
+<p>Individuals with large <span class="math inline">\(h_{ii}\)</span> may have disproportionate impact on the <span class="math inline">\(\widehat{\beta}_j\)</span>’s</p>
+<p>Various criteria for “large” <span class="math inline">\(h_{ii}&gt;2\times \overline{h}\)</span>, where <span class="math inline">\(\overline{h}=\mbox{\# parameters}/n\)</span> <span class="math inline">\(0.2 \leq h_i \leq 0.5\)</span>: moderate; <span class="math inline">\(h_i&gt;0.5\)</span>: large</p>
+<p>Often useful to rank <span class="math inline">\(h_{ii}\)</span>’s, in addition to applying the criteria</p>
+<p>Note: <span class="math inline">\(0 \leq h_{ii} \leq 1\)</span></p>
+</div>
+<div class="frame">
+<p>Outliers, summary</p>
+<p>Important to detect outliers</p>
+<p>Generally, not interested in formal test of outlyingness power of existing tests is driven by <span class="math inline">\(n\)</span></p>
+<p>but, small samples are where outliers may have the greatest impact!</p>
+<p>Rarely should outliers be discarded</p>
+<p>appropriate efforts should be made to ensure that the outliers <em>really do</em> represent the process under study</p>
+<p>not the result of data collection or coding error</p>
+<p>discarding outliers may change the population to which the analysis conclusions can generalize</p>
+</div>
+<div class="frame">
+<p>Questions?</p>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

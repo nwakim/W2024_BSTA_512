@@ -1,0 +1,20 @@
+{
+  "hash": "50f54478cfd894b6f66dfc6a9868d193",
+  "result": {
+    "markdown": "---\ntitle: \"Simple Linear Regression (SLR)\"\nauthor: \"Nicky Wakim\"\ntitle-slide-attributes:\n    data-background-color: \"#213c96\"\ndate: \"01/12/2023\"\ncategories: [\"Week 1\"]\nformat: \n  revealjs:\n    theme: [default, simple_NW.scss]\n    toc: true\n    toc-depth: 1\n    toc-title: Class Overview\n    chalkboard: true\n    slide-number: true\n    show-slide-number: all\n    width: 1955\n    height: 1100\n    footer: Intro\neditor: \n  markdown: \n    wrap: 72\n---\n\n::: {.cell}\n\n:::\n\n\n## Let's start with an example\n\n::: columns\n::: {.column width=\"55%\"}\n\n::: {.cell}\n::: {.cell-output-display}\n![](01_SLR_files/figure-revealjs/unnamed-chunk-2-1.png){width=1056}\n:::\n:::\n\n:::\n\n::: {.column width=\"45%\"}\nAverage life expectancy vs. female literacy rate\n\n-   Each point on the plot is for a different country\n\n-   $x$ = country's adult female literacy rate\n\n-   $y$ = country's average life expectancy (years)\n\n-   Data are from Gapminder (2011)\n\n:::\n:::\n\n::: heq\n$$\\begin{aligned}\n\\hat{\\text{life expectancy}} & =  50.9 + 0.232\\cdot\\text{female literacy rate}\n\\end{aligned}$$\n:::\n\n## Questions we can ask with this model\n\n## Dependent vs. Independent Variables\n\n## Association vs. prediction\n\n## Study Design\n\n## Simple Linear Regression Model\n\nThe (population) regression line is denoted by:\n\n::: heq\n$$\\begin{aligned}\nY & =  \\beta_0 + \\beta_1X + \\epsilon \\nonumber\n\\end{aligned}$$\n:::\n\n-   $\\beta_0$ and $\\beta_1$ are **unknown** population parameters\n\n-   $\\epsilon$ (epsilon) is the error about the line\n\n    -   It is assumed to be a random variable with a...\n\n    -   Normal distribution with mean 0 and constant variance $\\sigma^2$\n\n-   Our goal is to estimate $\\beta_0$, $\\beta_1$, and $\\sigma^2$\n\n    -   The point estimates based on a sample are denoted by\n        $\\hat{\\beta_0}$, $\\hat{\\beta_1}$, and $\\hat{\\sigma^2}$\n\n## \"Linear\" Models\n\n## Model Components\n\n## Interpretations\n\n## Parameter estimation: best fit line\n\n## Least squares model assumptions\n\n## Estimate of variance??\n",
+    "supporting": [
+      "01_SLR_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Xu Shi">
+<meta name="dcterms.date" content="2020-10-24">
+
+<title>Linear Regression - Module_I</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/bsta_550_hex_3.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Linear Regression</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../syllabus.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule1.html" rel="" target="">
+ <span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../class_slides.html" rel="" target="">
+ <span class="menu-text">Slides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../homeworks.html" rel="" target="">
+ <span class="menu-text">Homework</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Module_I</li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Course Info</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../instructors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Course Materials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../class_slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class Slides</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homeworks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weekly Pages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_01_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_02_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_03_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_04_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_05_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_06_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_07_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_08_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_09_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_10_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_11_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#example" id="toc-example" class="nav-link active" data-scroll-target="#example">Example:</a></li>
+  <li><a href="#fit-sbp-on-age-x-bwt-age-bwt-in-this-order" id="toc-fit-sbp-on-age-x-bwt-age-bwt-in-this-order" class="nav-link" data-scroll-target="#fit-sbp-on-age-x-bwt-age-bwt-in-this-order">Fit SBP on AGE x BWT, AGE, BWT in this order</a></li>
+  <li><a href="#compute-the-sequential-and-partial-ss" id="toc-compute-the-sequential-and-partial-ss" class="nav-link" data-scroll-target="#compute-the-sequential-and-partial-ss">Compute the sequential and partial SS</a></li>
+  <li><a href="#you-have-two-f-tests-of-the-interaction.-are-either-of-them-valid-tests" id="toc-you-have-two-f-tests-of-the-interaction.-are-either-of-them-valid-tests" class="nav-link" data-scroll-target="#you-have-two-f-tests-of-the-interaction.-are-either-of-them-valid-tests">You have two F tests of the interaction. Are either of them valid tests?</a></li>
+  <li><a href="#change-ordering-of-covariates-and-recompute-ss" id="toc-change-ordering-of-covariates-and-recompute-ss" class="nav-link" data-scroll-target="#change-ordering-of-covariates-and-recompute-ss">Change ordering of covariates and recompute SS</a></li>
+  <li><a href="#save-the-fitted-values" id="toc-save-the-fitted-values" class="nav-link" data-scroll-target="#save-the-fitted-values">Save the fitted values</a></li>
+  <li><a href="#hypothesis-test-of-interaction-term" id="toc-hypothesis-test-of-interaction-term" class="nav-link" data-scroll-target="#hypothesis-test-of-interaction-term">Hypothesis test of interaction term</a></li>
+  <li><a href="#hypothesis-test-of-age" id="toc-hypothesis-test-of-age" class="nav-link" data-scroll-target="#hypothesis-test-of-age">Hypothesis test of age</a></li>
+  <li><a href="#compare-to-the-adjusted-age-effect-in-an-additive-model" id="toc-compare-to-the-adjusted-age-effect-in-an-additive-model" class="nav-link" data-scroll-target="#compare-to-the-adjusted-age-effect-in-an-additive-model">Compare to the adjusted age effect in an <em>additive</em> model</a></li>
+  <li><a href="#hypothesis-test-of-age-by-hand" id="toc-hypothesis-test-of-age-by-hand" class="nav-link" data-scroll-target="#hypothesis-test-of-age-by-hand">Hypothesis test of age: by hand</a></li>
+  <li><a href="#hypothesis-test-of-bwt" id="toc-hypothesis-test-of-bwt" class="nav-link" data-scroll-target="#hypothesis-test-of-bwt">Hypothesis test of bwt</a></li>
+  <li><a href="#center-the-covariates" id="toc-center-the-covariates" class="nav-link" data-scroll-target="#center-the-covariates">Center the covariates</a></li>
+  <li><a href="#fit-sbp-on-age-x-bwt-age-bwt-this-time-using-the-centered-versions-of-the-covariates." id="toc-fit-sbp-on-age-x-bwt-age-bwt-this-time-using-the-centered-versions-of-the-covariates." class="nav-link" data-scroll-target="#fit-sbp-on-age-x-bwt-age-bwt-this-time-using-the-centered-versions-of-the-covariates.">Fit SBP on AGE x BWT, AGE, BWT, this time using the centered versions of the covariates.</a></li>
+  <li><a href="#compute-the-sequential-and-partial-ss-1" id="toc-compute-the-sequential-and-partial-ss-1" class="nav-link" data-scroll-target="#compute-the-sequential-and-partial-ss-1">Compute the sequential and partial SS</a></li>
+  <li><a href="#save-the-fitted-values-1" id="toc-save-the-fitted-values-1" class="nav-link" data-scroll-target="#save-the-fitted-values-1">Save the fitted values</a></li>
+  <li><a href="#compare-the-output-from-m1-and-m2-what-is-the-same-what-is-different" id="toc-compare-the-output-from-m1-and-m2-what-is-the-same-what-is-different" class="nav-link" data-scroll-target="#compare-the-output-from-m1-and-m2-what-is-the-same-what-is-different">Compare the output from m1 and m2, what is the same? what is different?</a></li>
+  <li><a href="#compare-the-output-from-m1-and-m2-what-is-the-same-what-is-different-1" id="toc-compare-the-output-from-m1-and-m2-what-is-the-same-what-is-different-1" class="nav-link" data-scroll-target="#compare-the-output-from-m1-and-m2-what-is-the-same-what-is-different-1">Compare the output from m1 and m2, what is the same? what is different?</a></li>
+  <li><a href="#verify-the-models-are-numerically-equivalent" id="toc-verify-the-models-are-numerically-equivalent" class="nav-link" data-scroll-target="#verify-the-models-are-numerically-equivalent">Verify the models are numerically equivalent</a></li>
+  <li><a href="#interpretation-in-uncentered-and-centered-models." id="toc-interpretation-in-uncentered-and-centered-models." class="nav-link" data-scroll-target="#interpretation-in-uncentered-and-centered-models.">Interpretation in uncentered and centered models.</a></li>
+  <li><a href="#give-interpretations-for-the-main-effect-coefficient-for-age" id="toc-give-interpretations-for-the-main-effect-coefficient-for-age" class="nav-link" data-scroll-target="#give-interpretations-for-the-main-effect-coefficient-for-age">(1) Give interpretations for the main effect coefficient for AGE</a></li>
+  <li><a href="#interpret-the-interaction" id="toc-interpret-the-interaction" class="nav-link" data-scroll-target="#interpret-the-interaction">(2) Interpret the interaction</a></li>
+  <li><a href="#dichotomize-bwt.-refit-the-interaction-model." id="toc-dichotomize-bwt.-refit-the-interaction-model." class="nav-link" data-scroll-target="#dichotomize-bwt.-refit-the-interaction-model.">Dichotomize BWT. Refit the interaction model.</a></li>
+  <li><a href="#scatterplot-with-subjects-stratified-by-age-category" id="toc-scatterplot-with-subjects-stratified-by-age-category" class="nav-link" data-scroll-target="#scatterplot-with-subjects-stratified-by-age-category">Scatterplot with subjects stratified by age category</a></li>
+  <li><a href="#fit-regression-by-subgroup" id="toc-fit-regression-by-subgroup" class="nav-link" data-scroll-target="#fit-regression-by-subgroup">Fit regression by subgroup</a></li>
+  <li><a href="#fit-regression-by-subgroup-1" id="toc-fit-regression-by-subgroup-1" class="nav-link" data-scroll-target="#fit-regression-by-subgroup-1">Fit regression by subgroup</a></li>
+  <li><a href="#get-95-ci-for-age-effect-among-high-bwt-subjects." id="toc-get-95-ci-for-age-effect-among-high-bwt-subjects." class="nav-link" data-scroll-target="#get-95-ci-for-age-effect-among-high-bwt-subjects.">Get 95% CI for age effect among high BWT subjects.</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Module_I</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Xu Shi </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 24, 2020</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example:</h2>
+<ul>
+<li>We return to the data set containing age (measured in days) and birth weight (BWT in ounces) as predictors of infant systolic blood pressure (SBP, mm Hg).</li>
+<li>Read in the data file (systolic1.csv). (n = 16)</li>
+</ul>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">"systolic1.csv"</span>,<span class="at">header=</span>T)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(data)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  X idno bwt age sbp
+1 1    1 135   3  89
+2 2    2 120   4  90
+3 3    3 100   3  83
+4 4    4 105   2  77
+5 5    5 130   4  92
+6 6    6 125   5  98</code></pre>
+</div>
+</div>
+</section>
+<section id="fit-sbp-on-age-x-bwt-age-bwt-in-this-order" class="level2">
+<h2 class="anchored" data-anchor-id="fit-sbp-on-age-x-bwt-age-bwt-in-this-order">Fit SBP on AGE x BWT, AGE, BWT in this order</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">=</span> <span class="fu">lm</span>(sbp<span class="sc">~</span><span class="fu">I</span>(age<span class="sc">*</span>bwt)<span class="sc">+</span><span class="fu">I</span>(age)<span class="sc">+</span><span class="fu">I</span>(bwt))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = sbp ~ I(age * bwt) + I(age) + I(bwt))
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.2412 -0.7871 -0.0262  0.8000  3.8433 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)   2.55158   20.83776   0.122  0.90457   
+I(age * bwt) -0.12821    0.05159  -2.485  0.02869 * 
+I(age)       21.28730    6.22363   3.420  0.00507 **
+I(bwt)        0.55123    0.17373   3.173  0.00803 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.097 on 12 degrees of freedom
+Multiple R-squared:  0.9214,    Adjusted R-squared:  0.9017 
+F-statistic: 46.87 on 3 and 12 DF,  p-value: 6.692e-07</code></pre>
+</div>
+</div>
+</section>
+<section id="compute-the-sequential-and-partial-ss" class="level2">
+<h2 class="anchored" data-anchor-id="compute-the-sequential-and-partial-ss">Compute the sequential and partial SS</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>( <span class="at">SeqSS.m1 =</span> <span class="fu">anova</span>(m1) ) <span class="co">#type I</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: sbp
+             Df Sum Sq Mean Sq  F value    Pr(&gt;F)    
+I(age * bwt)  1 563.17  563.17 128.1049 9.252e-08 ***
+I(age)        1  10.75   10.75   2.4459  0.143809    
+I(bwt)        1  44.26   44.26  10.0674  0.008026 ** 
+Residuals    12  52.75    4.40                       
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>( <span class="at">ParSS.m1 =</span> car<span class="sc">::</span><span class="fu">Anova</span>(m1,<span class="at">type=</span><span class="st">"III"</span>) ) <span class="co">#type III</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in printHypothesis(L, rhs, names(b)): one or more coefficients in the hypothesis include
+     arithmetic operators in their names;
+  the printed representation of the hypothesis will be omitted</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Anova Table (Type III tests)
+
+Response: sbp
+             Sum Sq Df F value   Pr(&gt;F)   
+(Intercept)   0.066  1  0.0150 0.904570   
+I(age * bwt) 27.148  1  6.1753 0.028693 * 
+I(age)       51.432  1 11.6991 0.005075 **
+I(bwt)       44.258  1 10.0674 0.008026 **
+Residuals    52.754 12                    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="you-have-two-f-tests-of-the-interaction.-are-either-of-them-valid-tests" class="level2">
+<h2 class="anchored" data-anchor-id="you-have-two-f-tests-of-the-interaction.-are-either-of-them-valid-tests">You have two F tests of the interaction. Are either of them valid tests?</h2>
+</section>
+<section id="change-ordering-of-covariates-and-recompute-ss" class="level2">
+<h2 class="anchored" data-anchor-id="change-ordering-of-covariates-and-recompute-ss">Change ordering of covariates and recompute SS</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">anova</span>(<span class="fu">lm</span>(sbp<span class="sc">~</span><span class="fu">I</span>(age)<span class="sc">+</span><span class="fu">I</span>(bwt)<span class="sc">+</span><span class="fu">I</span>(age<span class="sc">*</span>bwt))) ) <span class="co">#type I</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: sbp
+             Df Sum Sq Mean Sq  F value    Pr(&gt;F)    
+I(age)        1 508.82  508.82 115.7405 1.617e-07 ***
+I(bwt)        1  82.22   82.22  18.7024  0.000988 ***
+I(age * bwt)  1  27.15   27.15   6.1753  0.028693 *  
+Residuals    12  52.75    4.40                       
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>( car<span class="sc">::</span><span class="fu">Anova</span>(m1,<span class="at">type=</span><span class="st">"III"</span>) ) <span class="co">#type III</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in printHypothesis(L, rhs, names(b)): one or more coefficients in the hypothesis include
+     arithmetic operators in their names;
+  the printed representation of the hypothesis will be omitted</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Anova Table (Type III tests)
+
+Response: sbp
+             Sum Sq Df F value   Pr(&gt;F)   
+(Intercept)   0.066  1  0.0150 0.904570   
+I(age * bwt) 27.148  1  6.1753 0.028693 * 
+I(age)       51.432  1 11.6991 0.005075 **
+I(bwt)       44.258  1 10.0674 0.008026 **
+Residuals    52.754 12                    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="save-the-fitted-values" class="level2">
+<h2 class="anchored" data-anchor-id="save-the-fitted-values">Save the fitted values</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">cbind</span>(data,<span class="at">fit.m1 =</span> m1<span class="sc">$</span>fitted.values)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       X              idno            bwt             age       
+ Min.   : 1.00   Min.   : 1.00   Min.   : 90.0   Min.   :2.000  
+ 1st Qu.: 4.75   1st Qu.: 4.75   1st Qu.:105.0   1st Qu.:3.000  
+ Median : 8.50   Median : 8.50   Median :120.0   Median :3.000  
+ Mean   : 8.50   Mean   : 8.50   Mean   :120.3   Mean   :3.312  
+ 3rd Qu.:12.25   3rd Qu.:12.25   3rd Qu.:126.2   3rd Qu.:4.000  
+ Max.   :16.00   Max.   :16.00   Max.   :160.0   Max.   :5.000  
+      sbp            fit.m1     
+ Min.   :77.00   Min.   :76.08  
+ 1st Qu.:82.75   1st Qu.:82.87  
+ Median :88.50   Median :88.07  
+ Mean   :88.06   Mean   :88.06  
+ 3rd Qu.:92.75   3rd Qu.:92.79  
+ Max.   :98.00   Max.   :98.21  </code></pre>
+</div>
+</div>
+</section>
+<section id="hypothesis-test-of-interaction-term" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-test-of-interaction-term">Hypothesis test of interaction term</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(sbp<span class="sc">~</span>age<span class="sc">*</span>bwt))<span class="sc">$</span>coef</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Estimate  Std. Error    t value    Pr(&gt;|t|)
+(Intercept)  2.5515809 20.83776184  0.1224499 0.904569568
+age         21.2872960  6.22362825  3.4203997 0.005074825
+bwt          0.5512330  0.17373097  3.1729116 0.008026120
+age:bwt     -0.1282085  0.05159272 -2.4850114 0.028693323</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(sbp<span class="sc">~</span>age<span class="sc">*</span>bwt))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: sbp
+          Df Sum Sq Mean Sq  F value    Pr(&gt;F)    
+age        1 508.82  508.82 115.7405 1.617e-07 ***
+bwt        1  82.22   82.22  18.7024  0.000988 ***
+age:bwt    1  27.15   27.15   6.1753  0.028693 *  
+Residuals 12  52.75    4.40                       
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="hypothesis-test-of-age" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-test-of-age">Hypothesis test of age</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>null.model <span class="ot">=</span> <span class="fu">lm</span>(sbp<span class="sc">~</span>bwt)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>alt.model <span class="ot">=</span> <span class="fu">lm</span>(sbp<span class="sc">~</span>age<span class="sc">*</span>bwt)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(null.model,alt.model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: sbp ~ bwt
+Model 2: sbp ~ age * bwt
+  Res.Df    RSS Df Sum of Sq      F    Pr(&gt;F)    
+1     14 540.40                                  
+2     12  52.75  2    487.65 55.462 8.655e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="compare-to-the-adjusted-age-effect-in-an-additive-model" class="level2">
+<h2 class="anchored" data-anchor-id="compare-to-the-adjusted-age-effect-in-an-additive-model">Compare to the adjusted age effect in an <em>additive</em> model</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># car::Anova(lm(sbp~age),type="III") #crude effect</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(sbp<span class="sc">~</span>bwt),<span class="fu">lm</span>(sbp<span class="sc">~</span>age<span class="sc">+</span>bwt))  <span class="co">#adjusted effect in additive model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: sbp ~ bwt
+Model 2: sbp ~ age + bwt
+  Res.Df   RSS Df Sum of Sq      F    Pr(&gt;F)    
+1     14 540.4                                  
+2     13  79.9  1     460.5 74.923 9.342e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">Anova</span>(<span class="fu">lm</span>(sbp<span class="sc">~</span>age<span class="sc">+</span>bwt),<span class="at">type=</span><span class="st">"III"</span>) <span class="co">#adjusted effect in additive model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Anova Table (Type III tests)
+
+Response: sbp
+            Sum Sq Df F value    Pr(&gt;F)    
+(Intercept) 854.98  1 139.104 2.571e-08 ***
+age         460.50  1  74.923 9.342e-07 ***
+bwt          82.22  1  13.377  0.002896 ** 
+Residuals    79.90 13                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="hypothesis-test-of-age-by-hand" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-test-of-age-by-hand">Hypothesis test of age: by hand</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>SeqSS <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">anova</span>(<span class="fu">lm</span>(sbp<span class="sc">~</span><span class="fu">I</span>(bwt)<span class="sc">+</span><span class="fu">I</span>(age)<span class="sc">+</span><span class="fu">I</span>(bwt<span class="sc">*</span>age))))</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">=</span> SeqSS[<span class="st">"I(age)"</span>,<span class="st">"Df"</span>]<span class="sc">+</span>SeqSS[<span class="st">"I(bwt * age)"</span>,<span class="st">"Df"</span>]</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>F1 <span class="ot">=</span> (SeqSS[<span class="st">"I(age)"</span>,<span class="st">"Sum.Sq"</span>]<span class="sc">+</span>SeqSS[<span class="st">"I(bwt * age)"</span>,<span class="st">"Sum.Sq"</span>])<span class="sc">/</span>df1</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">=</span> SeqSS[<span class="st">"Residuals"</span>,<span class="st">"Df"</span>]</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>F2 <span class="ot">=</span> SeqSS[<span class="st">"Residuals"</span>,<span class="st">"Mean.Sq"</span>]</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">F.val =</span> F1<span class="sc">/</span>F2,</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">P.val =</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pf</span>(F1<span class="sc">/</span>F2,<span class="at">df1=</span>df1,<span class="at">df2=</span>df2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       F.val        P.val 
+5.546241e+01 8.654657e-07 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(null.model,alt.model) <span class="do">##validate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: sbp ~ bwt
+Model 2: sbp ~ age * bwt
+  Res.Df    RSS Df Sum of Sq      F    Pr(&gt;F)    
+1     14 540.40                                  
+2     12  52.75  2    487.65 55.462 8.655e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="hypothesis-test-of-bwt" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-test-of-bwt">Hypothesis test of bwt</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>null.model <span class="ot">=</span> <span class="fu">lm</span>(sbp<span class="sc">~</span>age)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>alt.model <span class="ot">=</span> <span class="fu">lm</span>(sbp<span class="sc">~</span>age<span class="sc">*</span>bwt)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(null.model,alt.model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: sbp ~ age
+Model 2: sbp ~ age * bwt
+  Res.Df     RSS Df Sum of Sq      F   Pr(&gt;F)   
+1     14 162.121                                
+2     12  52.754  2    109.37 12.439 0.001187 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="center-the-covariates" class="level2">
+<h2 class="anchored" data-anchor-id="center-the-covariates">Center the covariates</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">mean</span>(age), <span class="fu">sd</span>(age))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.3125000 0.9464847</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">mean</span>(bwt), <span class="fu">sd</span>(bwt))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 120.3125  18.7500</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>age.c <span class="ot">=</span> age <span class="sc">-</span> <span class="fu">mean</span>(age)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>bwt.c <span class="ot">=</span> bwt <span class="sc">-</span> <span class="fu">mean</span>(bwt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fit-sbp-on-age-x-bwt-age-bwt-this-time-using-the-centered-versions-of-the-covariates." class="level2">
+<h2 class="anchored" data-anchor-id="fit-sbp-on-age-x-bwt-age-bwt-this-time-using-the-centered-versions-of-the-covariates.">Fit SBP on AGE x BWT, AGE, BWT, this time using the centered versions of the covariates.</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">=</span> <span class="fu">lm</span>(sbp<span class="sc">~</span><span class="fu">I</span>(age.c<span class="sc">*</span>bwt.c)<span class="sc">+</span><span class="fu">I</span>(age.c)<span class="sc">+</span><span class="fu">I</span>(bwt.c))</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = sbp ~ I(age.c * bwt.c) + I(age.c) + I(bwt.c))
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.2412 -0.7871 -0.0262  0.8000  3.8433 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)      88.29037    0.53214 165.917  &lt; 2e-16 ***
+I(age.c * bwt.c) -0.12821    0.05159  -2.485 0.028693 *  
+I(age.c)          5.86221    0.57536  10.189 2.93e-07 ***
+I(bwt.c)          0.12654    0.02904   4.357 0.000933 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.097 on 12 degrees of freedom
+Multiple R-squared:  0.9214,    Adjusted R-squared:  0.9017 
+F-statistic: 46.87 on 3 and 12 DF,  p-value: 6.692e-07</code></pre>
+</div>
+</div>
+</section>
+<section id="compute-the-sequential-and-partial-ss-1" class="level2">
+<h2 class="anchored" data-anchor-id="compute-the-sequential-and-partial-ss-1">Compute the sequential and partial SS</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>( <span class="at">SeqSS.m2 =</span> <span class="fu">anova</span>(m2) ) <span class="co">#type I</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: sbp
+                 Df Sum Sq Mean Sq  F value    Pr(&gt;F)    
+I(age.c * bwt.c)  1  29.83   29.83   6.7843 0.0230268 *  
+I(age.c)          1 504.89  504.89 114.8481 1.687e-07 ***
+I(bwt.c)          1  83.46   83.46  18.9858 0.0009328 ***
+Residuals        12  52.75    4.40                       
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>( <span class="at">ParSS.m2 =</span> car<span class="sc">::</span><span class="fu">Anova</span>(m2,<span class="at">type=</span><span class="st">"III"</span>) ) <span class="co">#type III</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in printHypothesis(L, rhs, names(b)): one or more coefficients in the hypothesis include
+     arithmetic operators in their names;
+  the printed representation of the hypothesis will be omitted</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Anova Table (Type III tests)
+
+Response: sbp
+                 Sum Sq Df    F value    Pr(&gt;F)    
+(Intercept)      121019  1 27528.3083 &lt; 2.2e-16 ***
+I(age.c * bwt.c)     27  1     6.1753 0.0286933 *  
+I(age.c)            456  1   103.8108 2.925e-07 ***
+I(bwt.c)             83  1    18.9858 0.0009328 ***
+Residuals            53 12                         
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="save-the-fitted-values-1" class="level2">
+<h2 class="anchored" data-anchor-id="save-the-fitted-values-1">Save the fitted values</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">cbind</span>(data,<span class="at">fit.m2 =</span> m2<span class="sc">$</span>fitted.values)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       X              idno            bwt             age       
+ Min.   : 1.00   Min.   : 1.00   Min.   : 90.0   Min.   :2.000  
+ 1st Qu.: 4.75   1st Qu.: 4.75   1st Qu.:105.0   1st Qu.:3.000  
+ Median : 8.50   Median : 8.50   Median :120.0   Median :3.000  
+ Mean   : 8.50   Mean   : 8.50   Mean   :120.3   Mean   :3.312  
+ 3rd Qu.:12.25   3rd Qu.:12.25   3rd Qu.:126.2   3rd Qu.:4.000  
+ Max.   :16.00   Max.   :16.00   Max.   :160.0   Max.   :5.000  
+      sbp            fit.m1          fit.m2     
+ Min.   :77.00   Min.   :76.08   Min.   :76.08  
+ 1st Qu.:82.75   1st Qu.:82.87   1st Qu.:82.87  
+ Median :88.50   Median :88.07   Median :88.07  
+ Mean   :88.06   Mean   :88.06   Mean   :88.06  
+ 3rd Qu.:92.75   3rd Qu.:92.79   3rd Qu.:92.79  
+ Max.   :98.00   Max.   :98.21   Max.   :98.21  </code></pre>
+</div>
+</div>
+</section>
+<section id="compare-the-output-from-m1-and-m2-what-is-the-same-what-is-different" class="level2">
+<h2 class="anchored" data-anchor-id="compare-the-output-from-m1-and-m2-what-is-the-same-what-is-different">Compare the output from m1 and m2, what is the same? what is different?</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)<span class="sc">$</span>coef</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               Estimate  Std. Error    t value    Pr(&gt;|t|)
+(Intercept)   2.5515809 20.83776184  0.1224499 0.904569568
+I(age * bwt) -0.1282085  0.05159272 -2.4850114 0.028693323
+I(age)       21.2872960  6.22362825  3.4203997 0.005074825
+I(bwt)        0.5512330  0.17373097  3.1729116 0.008026120</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)<span class="sc">$</span>coef</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   Estimate Std. Error    t value     Pr(&gt;|t|)
+(Intercept)      88.2903706 0.53213715 165.916570 1.544073e-21
+I(age.c * bwt.c) -0.1282085 0.05159272  -2.485011 2.869332e-02
+I(age.c)          5.8622095 0.57536064  10.188757 2.925058e-07
+I(bwt.c)          0.1265423 0.02904168   4.357266 9.328388e-04</code></pre>
+</div>
+</div>
+</section>
+<section id="compare-the-output-from-m1-and-m2-what-is-the-same-what-is-different-1" class="level2">
+<h2 class="anchored" data-anchor-id="compare-the-output-from-m1-and-m2-what-is-the-same-what-is-different-1">Compare the output from m1 and m2, what is the same? what is different?</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(<span class="fu">data.frame</span>(SeqSS.m1),<span class="fu">data.frame</span>(SeqSS.m2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 Df    Sum.Sq    Mean.Sq    F.value       Pr..F.
+I(age * bwt)      1 563.17274 563.172743 128.104944 9.252455e-08
+I(age)            1  10.75258  10.752575   2.445889 1.438088e-01
+I(bwt)            1  44.25799  44.257989  10.067368 8.026120e-03
+Residuals        12  52.75419   4.396183         NA           NA
+I(age.c * bwt.c)  1  29.82506  29.825065   6.784310 2.302678e-02
+I(age.c)          1 504.89335 504.893347 114.848126 1.686879e-07
+I(bwt.c)          1  83.46490  83.464895  18.985766 9.328388e-04
+Residuals1       12  52.75419   4.396183         NA           NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(<span class="fu">data.frame</span>(ParSS.m1)[<span class="sc">-</span><span class="dv">1</span>,],<span class="fu">data.frame</span>(ParSS.m2)[<span class="sc">-</span><span class="dv">1</span>,])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                    Sum.Sq Df    F.value       Pr..F.
+I(age * bwt)      27.14767  1   6.175282 2.869332e-02
+I(age)            51.43153  1  11.699134 5.074825e-03
+I(bwt)            44.25799  1  10.067368 8.026120e-03
+Residuals         52.75419 12         NA           NA
+I(age.c * bwt.c)  27.14767  1   6.175282 2.869332e-02
+I(age.c)         456.37107  1 103.810761 2.925058e-07
+I(bwt.c)          83.46490  1  18.985766 9.328388e-04
+Residuals1        52.75419 12         NA           NA</code></pre>
+</div>
+</div>
+</section>
+<section id="verify-the-models-are-numerically-equivalent" class="level2">
+<h2 class="anchored" data-anchor-id="verify-the-models-are-numerically-equivalent">Verify the models are numerically equivalent</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       X              idno            bwt             age       
+ Min.   : 1.00   Min.   : 1.00   Min.   : 90.0   Min.   :2.000  
+ 1st Qu.: 4.75   1st Qu.: 4.75   1st Qu.:105.0   1st Qu.:3.000  
+ Median : 8.50   Median : 8.50   Median :120.0   Median :3.000  
+ Mean   : 8.50   Mean   : 8.50   Mean   :120.3   Mean   :3.312  
+ 3rd Qu.:12.25   3rd Qu.:12.25   3rd Qu.:126.2   3rd Qu.:4.000  
+ Max.   :16.00   Max.   :16.00   Max.   :160.0   Max.   :5.000  
+      sbp            fit.m1          fit.m2     
+ Min.   :77.00   Min.   :76.08   Min.   :76.08  
+ 1st Qu.:82.75   1st Qu.:82.87   1st Qu.:82.87  
+ Median :88.50   Median :88.07   Median :88.07  
+ Mean   :88.06   Mean   :88.06   Mean   :88.06  
+ 3rd Qu.:92.75   3rd Qu.:92.79   3rd Qu.:92.79  
+ Max.   :98.00   Max.   :98.21   Max.   :98.21  </code></pre>
+</div>
+</div>
+</section>
+<section id="interpretation-in-uncentered-and-centered-models." class="level2">
+<h2 class="anchored" data-anchor-id="interpretation-in-uncentered-and-centered-models.">Interpretation in uncentered and centered models.</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(sbp<span class="sc">~</span>age<span class="sc">*</span>bwt))<span class="sc">$</span>coef</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Estimate  Std. Error    t value    Pr(&gt;|t|)
+(Intercept)  2.5515809 20.83776184  0.1224499 0.904569568
+age         21.2872960  6.22362825  3.4203997 0.005074825
+bwt          0.5512330  0.17373097  3.1729116 0.008026120
+age:bwt     -0.1282085  0.05159272 -2.4850114 0.028693323</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(sbp<span class="sc">~</span>age.c<span class="sc">*</span>bwt.c))<span class="sc">$</span>coef</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Estimate Std. Error    t value     Pr(&gt;|t|)
+(Intercept) 88.2903706 0.53213715 165.916570 1.544073e-21
+age.c        5.8622095 0.57536064  10.188757 2.925058e-07
+bwt.c        0.1265423 0.02904168   4.357266 9.328388e-04
+age.c:bwt.c -0.1282085 0.05159272  -2.485011 2.869332e-02</code></pre>
+</div>
+</div>
+<ul>
+<li><ol type="1">
+<li>Give interpretations for the main effect coefficient for AGE</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>Interpret the interaction</li>
+</ol></li>
+</ul>
+</section>
+<section id="give-interpretations-for-the-main-effect-coefficient-for-age" class="level2">
+<h2 class="anchored" data-anchor-id="give-interpretations-for-the-main-effect-coefficient-for-age">(1) Give interpretations for the main effect coefficient for AGE</h2>
+</section>
+<section id="interpret-the-interaction" class="level2">
+<h2 class="anchored" data-anchor-id="interpret-the-interaction">(2) Interpret the interaction</h2>
+</section>
+<section id="dichotomize-bwt.-refit-the-interaction-model." class="level2">
+<h2 class="anchored" data-anchor-id="dichotomize-bwt.-refit-the-interaction-model.">Dichotomize BWT. Refit the interaction model.</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>highbwt <span class="ot">=</span> <span class="dv">1</span><span class="sc">*</span>(bwt <span class="sc">&gt;</span> <span class="fu">mean</span>(bwt)) <span class="co">#1*(bwt.c &gt; 0)</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>mgrp <span class="ot">=</span> <span class="fu">lm</span>(sbp<span class="sc">~</span>age<span class="sc">*</span>highbwt)</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mgrp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = sbp ~ age * highbwt)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-5.2353 -1.2452 -0.7353  1.8750  4.3235 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  64.9118     3.2693  19.855 1.52e-10 ***
+age           6.4412     0.9759   6.600 2.54e-05 ***
+highbwt       8.4882     5.1498   1.648    0.125    
+age:highbwt  -1.2662     1.4872  -0.851    0.411    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.683 on 12 degrees of freedom
+Multiple R-squared:  0.8713,    Adjusted R-squared:  0.8391 
+F-statistic: 27.08 on 3 and 12 DF,  p-value: 1.257e-05</code></pre>
+</div>
+</div>
+</section>
+<section id="scatterplot-with-subjects-stratified-by-age-category" class="level2">
+<h2 class="anchored" data-anchor-id="scatterplot-with-subjects-stratified-by-age-category">Scatterplot with subjects stratified by age category</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(age[highbwt <span class="sc">==</span> <span class="dv">0</span>], sbp[highbwt <span class="sc">==</span> <span class="dv">0</span>], <span class="at">pch =</span> <span class="dv">15</span>, <span class="at">col=</span><span class="st">"black"</span>,</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Age (years)"</span>, <span class="at">ylab =</span> <span class="st">"SBP (mm Hg)"</span>,<span class="at">xlim=</span><span class="fu">range</span>(age),<span class="at">ylim=</span><span class="fu">range</span>(sbp))</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(age[highbwt <span class="sc">==</span> <span class="dv">1</span>], sbp[highbwt <span class="sc">==</span> <span class="dv">1</span>], <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(age[highbwt <span class="sc">==</span> <span class="dv">0</span>],mgrp<span class="sc">$</span>fitted.values[highbwt <span class="sc">==</span> <span class="dv">0</span>],<span class="at">col=</span><span class="st">"black"</span>)</span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(age[highbwt <span class="sc">==</span> <span class="dv">1</span>],mgrp<span class="sc">$</span>fitted.values[highbwt <span class="sc">==</span> <span class="dv">1</span>],<span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"bottomright"</span>,<span class="at">bty=</span><span class="st">"n"</span>,<span class="at">legend=</span><span class="fu">c</span>(<span class="st">"higher bwt"</span>,<span class="st">"lower bwt"</span>),</span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"black"</span>),<span class="at">pch=</span><span class="fu">c</span>(<span class="dv">16</span>,<span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Module_I_example_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="960"></p>
+</div>
+</div>
+</section>
+<section id="fit-regression-by-subgroup" class="level2">
+<h2 class="anchored" data-anchor-id="fit-regression-by-subgroup">Fit regression by subgroup</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>mgrp1 <span class="ot">=</span> <span class="fu">lm</span>(sbp<span class="sc">~</span>age,<span class="at">data=</span><span class="fu">data.frame</span>(sbp,age)[highbwt<span class="sc">==</span><span class="dv">1</span>,])</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>mgrp0 <span class="ot">=</span> <span class="fu">lm</span>(sbp<span class="sc">~</span>age,<span class="at">data=</span><span class="fu">data.frame</span>(sbp,age)[highbwt<span class="sc">==</span><span class="dv">0</span>,])</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mgrp)<span class="sc">$</span>coef</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Estimate Std. Error    t value     Pr(&gt;|t|)
+(Intercept) 64.911765  3.2693233 19.8548012 1.518613e-10
+age          6.441176  0.9759295  6.6000429 2.537604e-05
+highbwt      8.488235  5.1497686  1.6482751 1.252107e-01
+age:highbwt -1.266176  1.4872033 -0.8513809 4.112259e-01</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mgrp1)<span class="sc">$</span>coef</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Estimate Std. Error   t value     Pr(&gt;|t|)
+(Intercept)   73.400  3.4989999 20.977423 4.560651e-06
+age            5.175  0.9868511  5.243952 3.342896e-03</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mgrp0)<span class="sc">$</span>coef</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Estimate Std. Error   t value     Pr(&gt;|t|)
+(Intercept) 64.911765   3.524068 18.419555 3.445266e-07
+age          6.441176   1.051974  6.122945 4.801170e-04</code></pre>
+</div>
+</div>
+</section>
+<section id="fit-regression-by-subgroup-1" class="level2">
+<h2 class="anchored" data-anchor-id="fit-regression-by-subgroup-1">Fit regression by subgroup</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>( <span class="at">mgrp0=</span><span class="fu">coef</span>(mgrp0), <span class="at">mgrp=</span><span class="fu">coef</span>(mgrp)[<span class="fu">c</span>(<span class="st">"(Intercept)"</span>,<span class="st">"age"</span>)] )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      (Intercept)      age
+mgrp0    64.91176 6.441176
+mgrp     64.91176 6.441176</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>( <span class="at">mgrp1=</span><span class="fu">coef</span>(mgrp1), </span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">mgrp=</span><span class="fu">c</span>(</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">coef</span>(mgrp)[<span class="st">"(Intercept)"</span>]<span class="sc">+</span><span class="fu">coef</span>(mgrp)[<span class="st">"highbwt"</span>],</span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">coef</span>(mgrp)[<span class="st">"age"</span>]<span class="sc">+</span><span class="fu">coef</span>(mgrp)[<span class="st">"age:highbwt"</span>]</span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>   )</span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      (Intercept)   age
+mgrp1        73.4 5.175
+mgrp         73.4 5.175</code></pre>
+</div>
+</div>
+</section>
+<section id="get-95-ci-for-age-effect-among-high-bwt-subjects." class="level2">
+<h2 class="anchored" data-anchor-id="get-95-ci-for-age-effect-among-high-bwt-subjects.">Get 95% CI for age effect among high BWT subjects.</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>mgrp <span class="ot">=</span> <span class="fu">lm</span>(sbp<span class="sc">~</span>age<span class="sc">*</span>highbwt)</span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vcov</span>(mgrp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            (Intercept)        age    highbwt age:highbwt
+(Intercept)   10.688475 -3.0689681 -10.688475   3.0689681
+age           -3.068968  0.9524384   3.068968  -0.9524384
+highbwt      -10.688475  3.0689681  26.520117  -7.3866887
+age:highbwt    3.068968 -0.9524384  -7.386689   2.2117735</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>age.eff <span class="ot">=</span> <span class="fu">c</span>(  <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>)<span class="sc">%*%</span><span class="fu">coef</span>(mgrp)  )</span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>age.var <span class="ot">=</span> <span class="fu">c</span>(  <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>)<span class="sc">%*%</span><span class="fu">vcov</span>(mgrp)<span class="sc">%*%</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>)  )</span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>t <span class="ot">=</span> <span class="fu">qt</span>(<span class="at">p=</span><span class="fl">0.975</span>,<span class="at">df=</span><span class="fu">nrow</span>(data)<span class="sc">-</span><span class="dv">4</span>) <span class="co">#or qnorm(0.975) if n=nrow(data) is large</span></span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>(<span class="at">age.confint =</span> age.eff <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">*</span>t<span class="sc">*</span><span class="fu">sqrt</span>(age.var))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.729934 7.620066</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(mgrp1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                2.5 %    97.5 %
+(Intercept) 64.405535 82.394465
+age          2.638219  7.711781</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

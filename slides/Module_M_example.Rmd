@@ -1,0 +1,72 @@
+---
+title: "Module M"
+author: Nicky
+date: Nov 28, 2021
+fontsize: 10pt
+output: 
+    beamer_presentation
+latexengine: pdflatex
+---
+```{r set-options, echo=FALSE, cache=FALSE}
+options(width = 70)
+options(warn=-1)
+```
+```{r  mysize=T, tidy=T, size='\\tiny', warning=F,echo=FALSE,eval=T}
+knitr::knit_hooks$set(mysize = 
+  function(before, options, envir){
+    if (before) return(options$size)
+  }
+)
+knitr::opts_chunk$set(fig.width=10, fig.height=6) 
+```
+## Example: 
++ A data set is assembled from (n=17) hospitals in order to construct a model to predict manpower requirements (MANPOWER) as a function of the following factors: average number of patients admitted per day (PAT-DAYS), number of x- rays taken (X-RAYS), total number of days patients spent in bed (BED-DAYS), and average number of days stay per admission (AVG-STAY). One month’s worth of experience is recorded for each hospital.
++ Read in the data file (systolic1.csv).
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+rm(list=ls())
+data = read.csv(file="hosp1.csv",header=T)
+attach(data)
+head(data)
+```
+## Compute the correlation matrix of the four covariates. 
++ Do you have any concerns? Which pair-wise correlation appears to be the most problematic?
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+cor(data[c("pat_days", "x_rays", "bed_days", "avg_stay")])
+# psych::pairs.panels(data[,
+#     c("pat_days", "x_rays", "bed_days", "avg_stay")])
+```
+
+## What are the limitations of your assessment via bivariate analysis?
+
+
+## Fit a model containing each of the afore-listed factors. Compute the VIFs.
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+m = lm(manpower~pat_days+x_rays+bed_days+avg_stay)
+car::vif(m)
+```
++ Which covariate has the highest % of its variation explained by other covariates in the mode?
+
+
+## Re-fit the model without BED-DAYS. Compare the R$^2$ to that of the original model.
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+m2 = lm(manpower~pat_days+x_rays+avg_stay)
+c(summary(m)$r.squared, summary(m)$adj.r.squared)
+c(summary(m2)$r.squared, summary(m2)$adj.r.squared)
+```
+
+
+## Re-fit the model without PAT-DAYS. Compare the R$^2$ to that of the original model.
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+m3 = lm(manpower~bed_days+x_rays+avg_stay)
+c(summary(m)$r.squared, summary(m)$adj.r.squared)
+c(summary(m2)$r.squared, summary(m2)$adj.r.squared)
+c(summary(m3)$r.squared, summary(m3)$adj.r.squared)
+```
+
+## Based on your work thus far, what is a solution to the collinearity issue previously identified?
+\pause
+```{r mysize=T,size='\\footnotesize', echo=T,eval=T}
+car::vif(m)
+car::vif(m2)
+car::vif(m3)
+```

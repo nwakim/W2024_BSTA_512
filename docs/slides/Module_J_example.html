@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Nicky Wakim">
+<meta name="dcterms.date" content="2023-10-30">
+
+<title>Linear Regression - Module_I</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/bsta_550_hex_3.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Linear Regression</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../syllabus.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule1.html" rel="" target="">
+ <span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../class_slides.html" rel="" target="">
+ <span class="menu-text">Slides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../homeworks.html" rel="" target="">
+ <span class="menu-text">Homework</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Module_I</li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Course Info</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../instructors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Course Materials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../class_slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class Slides</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homeworks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weekly Pages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_01_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_02_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_03_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_04_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_05_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_06_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_07_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_08_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_09_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_10_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_11_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#example" id="toc-example" class="nav-link active" data-scroll-target="#example">Example:</a></li>
+  <li><a href="#the-mlr-model" id="toc-the-mlr-model" class="nav-link" data-scroll-target="#the-mlr-model">The MLR model</a></li>
+  <li><a href="#glh-test-for-parallelism" id="toc-glh-test-for-parallelism" class="nav-link" data-scroll-target="#glh-test-for-parallelism">GLH test for parallelism</a></li>
+  <li><a href="#glh-test-for-equality-of-intercepts" id="toc-glh-test-for-equality-of-intercepts" class="nav-link" data-scroll-target="#glh-test-for-equality-of-intercepts">GLH test for equality of intercepts</a></li>
+  <li><a href="#the-mlr-model-reparameterized" id="toc-the-mlr-model-reparameterized" class="nav-link" data-scroll-target="#the-mlr-model-reparameterized">The MLR model reparameterized</a></li>
+  <li><a href="#change-ordering-of-covariates" id="toc-change-ordering-of-covariates" class="nav-link" data-scroll-target="#change-ordering-of-covariates">Change ordering of covariates</a></li>
+  <li><a href="#ss-test-alternative-1-glh-formulation-slopes" id="toc-ss-test-alternative-1-glh-formulation-slopes" class="nav-link" data-scroll-target="#ss-test-alternative-1-glh-formulation-slopes">SS test Alternative 1: GLH formulation (slopes)</a></li>
+  <li><a href="#ss-test-alternative-1-glh-formulation-intercepts" id="toc-ss-test-alternative-1-glh-formulation-intercepts" class="nav-link" data-scroll-target="#ss-test-alternative-1-glh-formulation-intercepts">SS test Alternative 1: GLH formulation (intercepts)</a></li>
+  <li><a href="#ss-test-alternative-2-anova-of-nested-models-slopes" id="toc-ss-test-alternative-2-anova-of-nested-models-slopes" class="nav-link" data-scroll-target="#ss-test-alternative-2-anova-of-nested-models-slopes">SS test Alternative 2: ANOVA of nested models (slopes)</a></li>
+  <li><a href="#ss-test-alternative-2-anova-of-nested-models-intercepts" id="toc-ss-test-alternative-2-anova-of-nested-models-intercepts" class="nav-link" data-scroll-target="#ss-test-alternative-2-anova-of-nested-models-intercepts">SS test Alternative 2: ANOVA of nested models (intercepts)</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Module_I</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nicky Wakim </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 30, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example:</h2>
+<ul>
+<li>Read in the data file (hdl.csv). (n = 26)</li>
+</ul>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">"hdl.csv"</span>,<span class="at">header=</span>T)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(data)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  idnum group weight  hdl
+1     1     1  163.5 75.0
+2     2     1  180.0 72.5
+3     3     1  178.5 62.0
+4     4     1  161.5 60.0
+5     5     1  127.0 53.0
+6     6     1  161.0 53.0</code></pre>
+</div>
+</div>
+</section>
+<section id="the-mlr-model" class="level2">
+<h2 class="anchored" data-anchor-id="the-mlr-model">The MLR model</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>G1 <span class="ot">=</span> <span class="fu">as.numeric</span>(group<span class="sc">==</span><span class="dv">1</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>G2 <span class="ot">=</span> <span class="fu">as.numeric</span>(group<span class="sc">==</span><span class="dv">2</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>G3 <span class="ot">=</span> <span class="fu">as.numeric</span>(group<span class="sc">==</span><span class="dv">3</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>wt <span class="ot">=</span> weight <span class="sc">-</span> <span class="fu">mean</span>(weight)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">=</span> <span class="fu">lm</span>(hdl<span class="sc">~-</span><span class="dv">1</span><span class="sc">+</span><span class="fu">I</span>(G1)<span class="sc">+</span><span class="fu">I</span>(G2)<span class="sc">+</span><span class="fu">I</span>(G3)<span class="sc">+</span><span class="fu">I</span>(G1<span class="sc">*</span>wt)<span class="sc">+</span><span class="fu">I</span>(G2<span class="sc">*</span>wt)<span class="sc">+</span><span class="fu">I</span>(G3<span class="sc">*</span>wt))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># alternatively: lm(hdl~-1+factor(group)*wt-wt)</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)<span class="sc">$</span>coef</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Estimate Std. Error    t value     Pr(&gt;|t|)
+I(G1)      61.7029920  3.4335268 17.9707325 8.238699e-14
+I(G2)      53.1162611  3.4336920 15.4691399 1.361957e-12
+I(G3)      64.1608327  2.9506956 21.7443077 2.175830e-15
+I(G1 * wt)  0.2495631  0.2005974  1.2440992 2.278470e-01
+I(G2 * wt)  0.2509357  0.1050648  2.3883896 2.689778e-02
+I(G3 * wt) -0.0821306  0.1005492 -0.8168202 4.236546e-01</code></pre>
+</div>
+</div>
+</section>
+<section id="glh-test-for-parallelism" class="level2">
+<h2 class="anchored" data-anchor-id="glh-test-for-parallelism">GLH test for parallelism</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">Contrast.T =</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>),<span class="at">byrow=</span>T,<span class="at">nrow=</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4] [,5] [,6]
+[1,]    0    0    0    1   -1    0
+[2,]    0    0    0    0    1   -1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">linearHypothesis</span>(<span class="at">model=</span>m1,<span class="at">hypothesis.matrix=</span>Contrast.T,<span class="at">rhs=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in printHypothesis(L, rhs, names(b)): one or more coefficients in the hypothesis include
+     arithmetic operators in their names;
+  the printed representation of the hypothesis will be omitted</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear hypothesis test
+
+Hypothesis:
+
+
+Model 1: restricted model
+Model 2: hdl ~ -1 + I(G1) + I(G2) + I(G3) + I(G1 * wt) + I(G2 * wt) + 
+    I(G3 * wt)
+
+  Res.Df    RSS Df Sum of Sq      F  Pr(&gt;F)  
+1     22 2217.4                              
+2     20 1712.4  2    505.05 2.9495 0.07542 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="glh-test-for-equality-of-intercepts" class="level2">
+<h2 class="anchored" data-anchor-id="glh-test-for-equality-of-intercepts">GLH test for equality of intercepts</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">Contrast.T =</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="at">byrow=</span>T,<span class="at">nrow=</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4] [,5] [,6]
+[1,]    1   -1    0    0    0    0
+[2,]    0    1   -1    0    0    0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">linearHypothesis</span>(<span class="at">model=</span>m1,<span class="at">hypothesis.matrix=</span>Contrast.T,<span class="at">rhs=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear hypothesis test
+
+Hypothesis:
+I(G1) - I(G2) = 0
+I(G2) - I(G3) = 0
+
+Model 1: restricted model
+Model 2: hdl ~ -1 + I(G1) + I(G2) + I(G3) + I(G1 * wt) + I(G2 * wt) + 
+    I(G3 * wt)
+
+  Res.Df    RSS Df Sum of Sq      F  Pr(&gt;F)  
+1     22 2247.3                              
+2     20 1712.4  2    534.97 3.1242 0.06596 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="the-mlr-model-reparameterized" class="level2">
+<h2 class="anchored" data-anchor-id="the-mlr-model-reparameterized">The MLR model reparameterized</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">=</span> <span class="fu">lm</span>(hdl<span class="sc">~</span><span class="fu">I</span>(G2)<span class="sc">+</span><span class="fu">I</span>(G3)<span class="sc">+</span><span class="fu">I</span>(wt)<span class="sc">+</span><span class="fu">I</span>(G2<span class="sc">*</span>wt)<span class="sc">+</span><span class="fu">I</span>(G3<span class="sc">*</span>wt))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m2) <span class="co">#Sequential SS (type I)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: hdl
+           Df  Sum Sq Mean Sq F value   Pr(&gt;F)   
+I(G2)       1  914.13  914.13 10.6768 0.003853 **
+I(G3)       1    3.21    3.21  0.0375 0.848394   
+I(wt)       1  172.99  172.99  2.0205 0.170597   
+I(G2 * wt)  1  317.97  317.97  3.7138 0.068292 . 
+I(G3 * wt)  1  187.09  187.09  2.1851 0.154925   
+Residuals  20 1712.36   85.62                    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">pval =</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pf</span>(<span class="at">q =</span> (<span class="fl">317.97+187.09</span>)<span class="sc">/</span><span class="dv">2</span><span class="sc">/</span><span class="fl">85.62</span>, <span class="at">df1 =</span> <span class="dv">2</span>, <span class="at">df2 =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.07542134</code></pre>
+</div>
+</div>
+</section>
+<section id="change-ordering-of-covariates" class="level2">
+<h2 class="anchored" data-anchor-id="change-ordering-of-covariates">Change ordering of covariates</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">=</span> <span class="fu">lm</span>(hdl<span class="sc">~</span><span class="fu">I</span>(wt)<span class="sc">+</span><span class="fu">I</span>(G2<span class="sc">*</span>wt)<span class="sc">+</span><span class="fu">I</span>(G3<span class="sc">*</span>wt)<span class="sc">+</span><span class="fu">I</span>(G2)<span class="sc">+</span><span class="fu">I</span>(G3))</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m3) <span class="co">#Sequential SS (type I)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: hdl
+           Df  Sum Sq Mean Sq F value  Pr(&gt;F)  
+I(wt)       1  401.13  401.13  4.6851 0.04270 *
+I(G2 * wt)  1  446.89  446.89  5.2196 0.03339 *
+I(G3 * wt)  1  212.39  212.39  2.4807 0.13094  
+I(G2)       1  509.73  509.73  5.9536 0.02412 *
+I(G3)       1   25.24   25.24  0.2947 0.59320  
+Residuals  20 1712.36   85.62                  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">pval =</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pf</span>(<span class="at">q =</span> (<span class="fl">509.73+25.24</span>)<span class="sc">/</span><span class="dv">2</span><span class="sc">/</span><span class="fl">85.62</span>, <span class="at">df1 =</span> <span class="dv">2</span>, <span class="at">df2 =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.06596391</code></pre>
+</div>
+</div>
+</section>
+<section id="ss-test-alternative-1-glh-formulation-slopes" class="level2">
+<h2 class="anchored" data-anchor-id="ss-test-alternative-1-glh-formulation-slopes">SS test Alternative 1: GLH formulation (slopes)</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">Contrast.T =</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">byrow=</span>T,<span class="at">nrow=</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4] [,5] [,6]
+[1,]    0    0    0    0    1    0
+[2,]    0    0    0    0    0    1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">linearHypothesis</span>(<span class="at">model=</span>m2,<span class="at">hypothesis.matrix=</span>Contrast.T,<span class="at">rhs=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in printHypothesis(L, rhs, names(b)): one or more coefficients in the hypothesis include
+     arithmetic operators in their names;
+  the printed representation of the hypothesis will be omitted</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear hypothesis test
+
+Hypothesis:
+
+
+Model 1: restricted model
+Model 2: hdl ~ I(G2) + I(G3) + I(wt) + I(G2 * wt) + I(G3 * wt)
+
+  Res.Df    RSS Df Sum of Sq      F  Pr(&gt;F)  
+1     22 2217.4                              
+2     20 1712.4  2    505.05 2.9495 0.07542 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="ss-test-alternative-1-glh-formulation-intercepts" class="level2">
+<h2 class="anchored" data-anchor-id="ss-test-alternative-1-glh-formulation-intercepts">SS test Alternative 1: GLH formulation (intercepts)</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">Contrast.T =</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="at">byrow=</span>T,<span class="at">nrow=</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4] [,5] [,6]
+[1,]    0    1    0    0    0    0
+[2,]    0    0    1    0    0    0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">linearHypothesis</span>(<span class="at">model=</span>m2,<span class="at">hypothesis.matrix=</span>Contrast.T,<span class="at">rhs=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear hypothesis test
+
+Hypothesis:
+I(G2) = 0
+I(G3) = 0
+
+Model 1: restricted model
+Model 2: hdl ~ I(G2) + I(G3) + I(wt) + I(G2 * wt) + I(G3 * wt)
+
+  Res.Df    RSS Df Sum of Sq      F  Pr(&gt;F)  
+1     22 2247.3                              
+2     20 1712.4  2    534.97 3.1242 0.06596 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="ss-test-alternative-2-anova-of-nested-models-slopes" class="level2">
+<h2 class="anchored" data-anchor-id="ss-test-alternative-2-anova-of-nested-models-slopes">SS test Alternative 2: ANOVA of nested models (slopes)</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(hdl<span class="sc">~</span><span class="fu">I</span>(G2)<span class="sc">+</span><span class="fu">I</span>(G3)<span class="sc">+</span><span class="fu">I</span>(wt)<span class="sc">+</span><span class="fu">I</span>(G2<span class="sc">*</span>wt)<span class="sc">+</span><span class="fu">I</span>(G3<span class="sc">*</span>wt)),</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(hdl<span class="sc">~</span><span class="fu">I</span>(G2)<span class="sc">+</span><span class="fu">I</span>(G3)<span class="sc">+</span><span class="fu">I</span>(wt))</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: hdl ~ I(G2) + I(G3) + I(wt) + I(G2 * wt) + I(G3 * wt)
+Model 2: hdl ~ I(G2) + I(G3) + I(wt)
+  Res.Df    RSS Df Sum of Sq      F  Pr(&gt;F)  
+1     20 1712.4                              
+2     22 2217.4 -2   -505.05 2.9495 0.07542 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="ss-test-alternative-2-anova-of-nested-models-intercepts" class="level2">
+<h2 class="anchored" data-anchor-id="ss-test-alternative-2-anova-of-nested-models-intercepts">SS test Alternative 2: ANOVA of nested models (intercepts)</h2>
+<div class="cell" data-mysize="true">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(hdl<span class="sc">~</span><span class="fu">I</span>(G2)<span class="sc">+</span><span class="fu">I</span>(G3)<span class="sc">+</span><span class="fu">I</span>(wt)<span class="sc">+</span><span class="fu">I</span>(G2<span class="sc">*</span>wt)<span class="sc">+</span><span class="fu">I</span>(G3<span class="sc">*</span>wt)),</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(hdl<span class="sc">~</span><span class="fu">I</span>(wt)<span class="sc">+</span><span class="fu">I</span>(G2<span class="sc">*</span>wt)<span class="sc">+</span><span class="fu">I</span>(G3<span class="sc">*</span>wt))</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: hdl ~ I(G2) + I(G3) + I(wt) + I(G2 * wt) + I(G3 * wt)
+Model 2: hdl ~ I(wt) + I(G2 * wt) + I(G3 * wt)
+  Res.Df    RSS Df Sum of Sq      F  Pr(&gt;F)  
+1     20 1712.4                              
+2     22 2247.3 -2   -534.97 3.1242 0.06596 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

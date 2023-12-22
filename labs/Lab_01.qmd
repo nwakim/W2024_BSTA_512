@@ -1,0 +1,23 @@
+---
+title: "Lab 1"
+subtitle: "BSTA 512/612"
+description: "Due: Thursday January 25, 2024"
+date-modified: "12/21/2024"
+date: "1/25/2024"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+  pdf: default 
+editor_options: 
+  chunk_output_type: console
+---
+
+## Directions
+
+### Purpose
+
+This homework is meant to introduce yourself to me and your peers. In the first class, we will all briefly introduce ourselves, but we don't have enough time in-depth introductions. Thus, I'd like you to share some information with the class over Slack.
+
+### Grading

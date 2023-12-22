@@ -1,0 +1,181 @@
+%\usepackage[backend=bibtex,style=numeric-comp,sorting=none, citestyle = numeric-comp,maxcitenames=2,maxbibnames=100,uniquelist=false, uniquename=false]{biblatex}
+%\AtNextBibliography{\tiny}
+%\addbibresource{refs.bib}
+%-----------------------------------------------------------------------
+%\begin{frame}[allowframebreaks]{Bibliography}
+%\setbeamertemplate{bibliography item}{\insertbiblabel}
+%\tiny
+%\printbibliography
+%\end{frame}
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+%\usepackage{pdflscape}%
+%\usepackage[orientation=landscape,size=custom,width=16,height=9,scale=0.5,debug]{beamerposter} 
+\usepackage{mathtools,stackrel}
+
+\newcommand{\boldepsilon}{\mbox{\boldmath $\epsilon$}}
+\newcommand{\boldalpha}{\mbox{\boldmath $\alpha$}}
+\newcommand{\boldbeta}{\mbox{\boldmath $\beta$}}
+\newcommand{\boldlambda}{\mbox{\boldmath $\lambda$}}
+\newcommand{\boldmu}{\mbox{\boldmath $\mu$}}
+\newcommand{\boldxi}{\mbox{\boldmath $\xi$}}
+\newcommand{\boldtheta}{\mbox{\boldmath $\theta$}}
+\newcommand{\boldTheta}{\mbox{\boldmath $\Theta$}}
+\newcommand{\boldsigma}{\mbox{\boldmath $\sigma$}}
+\newcommand{\boldSigma}{\mbox{\boldmath $\Sigma$}}
+\newcommand{\boldgamma}{\mbox{\boldmath $\gamma$}}
+\newcommand{\bolddelta}{\mbox{\boldmath $\delta$}}
+\newcommand{\boldrho}{\mbox{\boldmath $\rho$}}
+\newcommand{\boldphi}{\mbox{\boldmath $\phi$}}
+\newcommand{\boldPhi}{\mbox{\boldmath $\Phi$}}
+\newcommand{\boldchi}{\mbox{\boldmath $\chi$}}
+\newcommand{\boldPi}{\mbox{\boldmath $\Pi$}}
+\newcommand{\boldpsi}{\mbox{\boldmath $\psi$}}
+
+\newcommand{\myi}{{\color{red}j }}
+\newcommand{\longeq}{=\joinrel=}
+\newcommand{\ind}{\perp\!\!\!\perp}
+\newcommand{\nind}{\not\!\perp\!\!\!\perp}
+\def\transpose{{\sf \scriptscriptstyle{T}}}
+\def\trans{^{\transpose}}
+\def\logit{\text{logit}}
+\def\expit{\text{expit}}
+\def\pr{\text{pr}}
+
+
+\usepackage{color,bbm,wasysym}
+\definecolor{royalblue}{RGB}{10,10,150}%{39,64,139}
+\setbeamercolor{titlelike}{fg=royalblue}
+\setbeamercolor{item}{fg=royalblue}
+\setbeamercolor{footline}{fg=royalblue}
+\setbeamerfont{frametitle}{size={\fontsize{13}{10}}}
+\setbeamerfont{title}{size={\fontsize{14}{12}}}%%title page font
+\usepackage{lipsum}
+\newcommand\blfootnote[1]{%
+	\begingroup
+	\renewcommand\thefootnote{}\footnote{#1}%
+	\addtocounter{footnote}{-1}%
+	\endgroup
+}
+\usecolortheme{orchid}
+\setbeamertemplate{theorems}[numbered]
+\usepackage{fancybox}\cornersize{0.1}
+\usepackage{pifont,tikz}
+\usepackage{amssymb,bbm}
+\usepackage[export]{adjustbox}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{itemize items}[circle]
+\useoutertheme{infolines}{}
+\usepackage[english]{babel}
+%\usepackage[normalem]{ulem}
+\usepackage{color,hyperref,graphicx}
+%%%%%%%%%%%remove total page begin
+\usepackage{multirow}\setbeamertemplate{footline}
+{
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\usebeamerfont{title in head/foot}\insertshorttitle
+		\end{beamercolorbox}%
+		
+		\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+			\usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+			\insertframenumber\hspace*{2ex} 
+	\end{beamercolorbox}}%
+	\vskip0pt%
+}
+\makeatother
+%%%%%%%%%%%remove total page end
+%\newcommand*{\mathcolor}{}
+%\def\mathcolor#1#{\mathcoloraux{#1}}
+%\newcommand*{\mathcoloraux}[3]{%
+%  \protect\leavevmode
+%  \begingroup
+%    \color#1{#2}#3%
+%  \endgroup
+%}
+\newcommand{\bi}{\begin{itemize}}
+	\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+	\newcommand{\ee}{\end{enumerate}}
+\newcommand{\ii}{\vspace{0.05in}\item}
+\newcommand{\iio}{\vspace{0.01in}\item[o]}
+\newcommand{\iid}{\vspace{0.005in}\item[-]}
+%\usepackage{wasysym}
+\usefonttheme{professionalfonts}
+\setbeamerfont{title}{series=\bfseries,parent=structure}
+
+%\newcommand\VRule{\color{royalblue}\vrule width 2pt}
+
+\usepackage{pifont,tikz}
+\usepackage{amssymb}
+\newcommand{\xmark}{\text{\ding{55}}}
+\newcommand{\cmark}{\text{\ding{51}}}
+\newcommand{\boxcmark}{\makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$}}
+\newcommand{\boxnomark}{\makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\;\;\;$}}
+\newcommand{\tickNo}{\hspace{-1pt}\Large\ding{55}}
+\usetikzlibrary{snakes,arrows,shapes.arrows,shapes.geometric,backgrounds,decorations.pathmorphing,positioning,fit,automata}
+\tikzset{
+	%Define standard arrow tip
+	>=stealth',
+	%Define style for boxes
+	true/.style={
+		rectangle,
+		draw=black, very thick,
+		text width=6.5em,
+		minimum height=2em,
+		text centered,
+		fill=gray, opacity = 0.5},
+	punkt/.style={
+		rectangle,
+		rounded corners,
+		draw=black, very thick,
+		text width=6.5em,
+		minimum height=2em,
+		text centered},
+	est/.style={
+		circle,
+		draw=black, very thick,
+		text centered},
+	shade/.style={
+		circle,
+		draw=black, very thick, fill=gray!50,
+		text centered},
+	weight/.style={
+		circle,
+		draw=black, very thick,
+		text width=6.5em,
+		minimum height=2em,
+		text centered},
+	% Define arrow style
+	pil/.style={
+		->,
+		thick,
+		shorten <=2pt,
+		shorten >=2pt,},
+	double/.style={
+		<->,
+		thick,
+		shorten <=2pt,
+		shorten >=2pt,},
+	dash/.style={
+		dashed,
+		thick,
+		shorten <=2pt,
+		shorten >=2pt,},
+	dashdouble/.style={
+		<->,
+		dashed,
+		thick,
+		shorten <=2pt,
+		shorten >=2pt}}
+
+\setbeamertemplate{frametitle continuation}{(\insertcontinuationcount)}
+
+\title[]{
+	Slides style
+}
+\author[]{Xu Shi \footnotesize{\\Department of Biostatistics\\University of Michigan}}
+\date[]{\tiny }

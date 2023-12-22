@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Linear Regression – module_n</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/bsta_550_hex_3.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Linear Regression</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../syllabus.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule1.html" rel="" target="">
+ <span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../class_slides.html" rel="" target="">
+ <span class="menu-text">Slides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../homeworks.html" rel="" target="">
+ <span class="menu-text">Homework</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Course Info</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../instructors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Course Materials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../class_slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class Slides</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homeworks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weekly Pages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_01_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_02_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_03_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_04_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_05_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_06_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_07_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_08_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_09_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_10_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_11_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<div class="frame">
+<p><span style="color: royalblue"><strong>BIOSTAT 650<br>
+Theory and Application of Linear Regression<br>
+Module N: Model Selection</strong></span></p>
+</div>
+<div class="frame">
+<p>Outline</p>
+<p>Topics:</p>
+<p>prediction</p>
+<p>maximum model</p>
+<p>criteria for comparing models</p>
+<p>automated model selection</p>
+<p>examples</p>
+<p>Text (MPV): Chapter 10 Reading: <em>An Introduction to Statistical Learning with Applications in R</em> (ISLR) Chapter 6</p>
+</div>
+<div class="frame">
+<p>Model Selection for Inference vs Prediction Model selection for <strong>Inference</strong>: we want <span class="math inline">\(\widehat{\beta}\)</span> to be close to <span class="math inline">\(\beta\)</span> requires pre-specified scientific knowledge about the known or hypothesized causal/biological mechanisms unbiased point estimation &amp; valid inference (interval estimation and hypothesis testing) Model selection for <strong>Prediction</strong>: we want the best model for predicting future responses The focus is more on the fitted model than on the individual parameters: <span class="math inline">\(\widehat{\beta}\)</span> can even be biased If <span class="math inline">\(p\)</span> is too large, then there can be overfitting (model follows the noise in <em>current</em> observations too closely) and consequently poor predictions on <em>future</em> observations not used in model training</p>
+</div>
+<div class="frame">
+<p>Model Complexity vs Parsimony Suppose we have p = 30 covariates (in the true model) and n = 50 observations. We could consider the following two alternatives: We could fit a model using all of the covariates. In this case, <span class="math inline">\(\widehat{\beta}\)</span> is unbiased for <span class="math inline">\({\beta}\)</span>, but it has very high variance. We could fit a model using the five strongest predictors. In this case, <span class="math inline">\(\widehat{\beta}\)</span> will be biased for <span class="math inline">\({\beta}\)</span>, but it will have lower variance. For prediction, either approach 1 or approach 2 could perform better, depending on the circumstances</p>
+</div>
+<div class="frame">
+<p>Training vs Test error</p>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pic/traintest4.png" class="img-fluid figure-img" style="width:3.5in"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="frame">
+<p>Model Selection for Prediction: Big Picture</p>
+<p><span style="color: royalblue"><span class="math inline">\(\bullet~~\)</span></span>Model selection methods generally consist of the same essential steps:</p>
+<p>Specify maximum/full model construct a list of all candidate covariates Specify criterion for comparing competing models how well the model fits current data (training error) how well the model predicts future responses (test error) Select best (sequence of) model(s) where “best" is defined by (2) All-Possible-subsets Regression (APR) forward, backward, hybrid Test error estimation and model validation Accuracy of the predictions when we apply our model to previously unseen test data not used to train the model indirectly estimate test error: criteria in (2) directly estimate test error: cross-validation</p>
+</div>
+<div class="frame">
+<p>Step 1: Specifying Maximum Model Maximum model: all covariates which are candidates for inclusion in final model</p>
+<p>Necessary to inspect data carefully before choosing candidate covariates: covariates must be scored on a meaningful scale covariates must have sufficient variability no covariate should be highly predicted by remaining covariates (i.e., beware of potential high <span class="math inline">\(VIF_j=1/(1-R^2_j)\)</span> ahead of time)</p>
+<p>“Size” of maximum model (<span class="math inline">\(p\)</span>) can be constrained by sample size (e.g., <span class="math inline">\(\geq\)</span><!-- -->5 subjects per parameter)</p>
+<p>Statisticians and investigators should work closely together in constructing maximum model</p>
+</div>
+<div class="frame">
+<p>Step 3: Select Model Given a Criterion</p>
+<p>We will introduce the approaches taking <span class="math inline">\(p\)</span>-value as a criterion Selection by <span class="math inline">\(p\)</span>-value is a commonly used and traditional method We will introduce other criteria (Step 2) in detail later</p>
+<p>All-Possible-subsets Regression (APR) having chosen criterion for comparing models, fit models using all possible combinations of covariates final model is the one judged to be the <em>best</em> based on the specified criterion</p>
+<p>There are many (<span class="math inline">\(2^p-1\)</span>) possible combinations of covariates we want to avoid fitting and comparing all possible models desirable to apply computationally efficient selection methods</p>
+</div>
+<div class="frame">
+<p>Step 3: Classical Automated Selection Three “classical" variations on theme: Forward Selection: start with null model (<span class="math inline">\(\beta_0\)</span> only); add covariates one at a time</p>
+<p>Backward Elimination: start with full model; delete covariates one at a time</p>
+<p>Stepwise Regression (hybrid): combination of forward selection and backward elimination</p>
+<p>Other methods (not covered in 650), e.g., the LASSO</p>
+</div>
+<div class="frame">
+<p>Algorithm 1: Forward Selection Pre-specify p-value threshold for inclusion: <span class="math inline">\(p_{\scriptscriptstyle\text{$I$}}\)</span> (e.g., 0.05)</p>
+<p>Begin with null model (<span class="math inline">\(\beta_0\)</span> only) <span class="math inline">\(\mathcal{M}_0\)</span></p>
+<p>At each step, add the most significant covariate, provided <span class="math inline">\(p&lt;p_{\scriptscriptstyle\text{$I$}}\)</span> for <span class="math inline">\(k\!=\!0,\dots,p\!-\!1\)</span>, fit <span class="math inline">\(p\!-\!k\)</span> models that add 1 predictor to <span class="math inline">\(\mathcal{M}_k\)</span> e.g., in the first step, <span class="math inline">\(k=0\)</span>, fit <span class="math inline">\(p\)</span> SLRs covariate with lowest <span class="math inline">\(p\)</span>-value (<span class="math inline">\(p&lt;p_{\scriptscriptstyle\text{$I$}}\)</span>) gets entered into model <span class="math inline">\(\mathcal{M}_{k\!+\!1}\)</span></p>
+<p>Procedure terminates when no more covariate meets the <span class="math inline">\(p_{\scriptscriptstyle\text{$I$}}\)</span>-rule (<span class="math inline">\(p&lt;p_{\scriptscriptstyle\text{$I$}}\)</span>) or all covariates have been added</p>
+</div>
+<div class="frame">
+<p>Algorithm 2: Backward Elimination Pre-specify p-value for omitting: <span class="math inline">\(p_{\scriptscriptstyle\text{$O$}}\)</span> (e.g., 0.05)</p>
+<p>Begin with maximum model <span class="math inline">\(\mathcal{M}_p\)</span></p>
+<p>At each step, eliminate least significant covariate, provided <span class="math inline">\(p\!&gt;\!p_{\scriptscriptstyle\text{$O$}}\)</span> for <span class="math inline">\(k\!=\!p,\dots,1\)</span>, fit <span class="math inline">\(k\)</span> models that remove 1 predictor from <span class="math inline">\(\mathcal{M}_k\)</span> e.g., in the first step, <span class="math inline">\(k=p\)</span>, fit <span class="math inline">\(p\)</span> models each w/ <span class="math inline">\(p-1\)</span> predictors covariate with highest <span class="math inline">\(p\)</span>-value (<span class="math inline">\(p\!&gt;\!p_{\scriptscriptstyle\text{$O$}}\)</span>) gets removed to obtain <span class="math inline">\(\mathcal{M}_{k\!-\!1}\)</span></p>
+<p>Procedure terminates when no more covariate meets the <span class="math inline">\(p_{\scriptscriptstyle\text{$O$}}\)</span>-rule (<span class="math inline">\(p&gt;p_{\scriptscriptstyle\text{$O$}}\)</span>), i.e., all covariates are significant in the sense that <span class="math inline">\(p&lt;p_{\scriptscriptstyle\text{$O$}}\)</span></p>
+</div>
+<div class="frame">
+<p>Algorithm 3: Stepwise Regression Pre-specify <span class="math inline">\(p_{\scriptscriptstyle\text{$I$}}\)</span> and <span class="math inline">\(p_{\scriptscriptstyle\text{$O$}}\)</span> satisfying <span class="math inline">\(p_O\geq p_I\)</span></p>
+<p>Begin with null model (<span class="math inline">\(\beta_0\)</span> only)</p>
+<p>Proceed as in forward selection. At each step:</p>
+<p>add most significant covariate, provided <span class="math inline">\(p&lt;p_{\scriptscriptstyle\text{$I$}}\)</span></p>
+<p>then, remove least significant covariate, if <span class="math inline">\(p&gt;p_{\scriptscriptstyle\text{$O$}}\)</span></p>
+<p>Procedure terminates when no more covariates added or deleted</p>
+<p>Idea: After adding each new variable, seek to remove one variable that no longer provide an improvement in the model fit Attempts to more closely mimic APR while retaining the computational advantages</p>
+</div>
+<div class="frame">
+<p>Algorithm 3: Stepwise Regression (continued) Opinion quite varied regarding appropriate <span class="math inline">\(p_{\scriptscriptstyle\text{$O$}}\)</span> e.g., <span class="math inline">\(p_{\scriptscriptstyle\text{$O$}}=0.10\)</span> or <span class="math inline">\(p_O=0.25\)</span> <span class="math inline">\(p_{\scriptscriptstyle\text{$I$}}\)</span> often set to 0.05</p>
+<p>Why higher <span class="math inline">\(p_{\scriptscriptstyle\text{$O$}}\)</span>: test statistics involve <span class="math inline">\(\widehat{\sigma}^2\)</span> in current model, which may be an overestimate if too few covariates in the model consequently, <span class="math inline">\(p\)</span>-values may be inflated and artificially exceed <span class="math inline">\(p_{\scriptscriptstyle\text{$O$}}\)</span></p>
+</div>
+<div class="frame">
+<p>Limitations of Classical Automated Selection Greedy search and not necessarily find the optimal: e.g., best <span class="math inline">\(\mathcal{M}_1\)</span> includes <span class="math inline">\(\{X_1\}\)</span> but <span class="math inline">\(\mathcal{M}_2\)</span> includes <span class="math inline">\(\{X_2,X_3\}\)</span> sometimes, covariate is only significant in the presence of others Tend to break down when: <span class="math inline">\(p\)</span> is very large (e.g., <span class="math inline">\(p&gt;n\)</span>, can’t do backward elimination) multicollinearity: large VIFs thus questionable <span class="math inline">\(p\)</span>-values</p>
+<p>F-tests are problematic both during and after selection: In forward selection <span class="math inline">\(F\)</span>-tests are conservative for early stages at each step, <span class="math inline">\(\widehat{\sigma}^2\)</span> in denominator of F-statistic is not <span class="math inline">\(\widehat{\sigma}_{full}^2\)</span> Multiple comparison problem during selection we ask the same dataset too many questions (hypotheses) and can get a small <span class="math inline">\(p\)</span>-value simply by chance Post-selection inference: F-tests in the final model are not valid theoretical results for F-test assume <span class="math inline">\(p\)</span> is fixed, but with automated selection we are also “estimating” <span class="math inline">\(p\)</span></p>
+</div>
+<div class="frame">
+<p>Implementation of Automated Selection Straightforward in SAS PROC REG are specified with the SELECTION= option in the MODEL statement In R The olsrr package, e.g., ols_step_forward_p(), ols_step_backward_p()</p>
+<p>Function stepwise() writen by Dr.&nbsp;Paul A. Rubin: <a href="https://rubin.msu.domains/code/stepwise_demo.nb.html" class="uri">https://rubin.msu.domains/code/stepwise_demo.nb.html</a><br>
+(demo.Rmd uploaded to Canvas, helpful for optional hw11)</p>
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+
+</div>
+<div class="frame">
+<p>Training vs Test error</p>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pic/traintest4.png" class="img-fluid figure-img" style="width:3.5in"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="frame">
+<p>Model Selection for Prediction: Big Picture</p>
+<p><span style="color: royalblue"><span class="math inline">\(\bullet~~\)</span></span>Model selection methods for the purpose of prediction generally consist of the same essential steps:</p>
+<p>Specify maximum/full model construct a list of all candidate covariates Specify criterion for comparing competing models how well the model fits current data (training error) how well the model predicts future responses (test error) Select best (sequence of) model(s) where “best" is defined by (2) All-Possible-subsets Regression (APR) forward, backward, hybrid Test error estimation and model validation Accuracy of the predictions when we apply our model to previously unseen test data not used to train the model indirectly estimate test error directly estimate test error: cross-validation</p>
+</div>
+<div class="frame">
+<p>Step 2: Criteria for Comparing Models <span class="math inline">\(R^2\)</span><span style="color: white"><span class="math inline">\(=\widehat{corr}(\widehat{Y},Y)^2\)</span>: nondecreasing when covariates are added</span></p>
+<p><span class="math inline">\(R_a^2\)</span><span style="color: white"><span class="math inline">\(= 1-\frac{\widehat{\sigma}^2}{SSY/(n-1)}\)</span>: increase or decrease when covariates added</span> <span style="color: white"><span class="math inline">\(R_a^2\)</span>-based model selection equivalent to MSE-based (<span class="math inline">\(\widehat{\sigma}^2\)</span>)</span> <span class="math inline">\(\widehat{\sigma}^2\)</span><span style="color: white">: when we include <span class="math inline">\(X_{p+1}\)</span>, <span class="math inline">\(\widehat{\sigma}^2_p=\frac{SSE_p}{n-p}\)</span> vs <span class="math inline">\(\widehat{\sigma}^2_{p+1}=\frac{SSE_{p+1}\downarrow}{n-p-1\downarrow}\)</span></span> <span style="color: white">decrease in <span class="math inline">\(SSE\)</span> is not offset by corresponding loss of <span class="math inline">\(df_E\)</span></span></p>
+<p><span class="math inline">\(PRESS\)</span></p>
+<p>Mallows <span class="math inline">\(C_p\)</span> Others: e.g., Akaike information criterion (AIC), Bayesian information criterion (BIC)</p>
+</div>
+<div class="frame">
+<p>Step 2: Criteria for Comparing Models</p>
+<p><span class="math inline">\(R^2=\widehat{corr}(\widehat{Y},Y)^2\)</span>: nondecreasing when covariates are added</p>
+<p><span class="math inline">\(R_a^2\)</span><span style="color: white"><span class="math inline">\(= 1-\frac{\widehat{\sigma}^2}{SSY/(n-1)}\)</span>: increase or decrease when covariates added</span> <span style="color: white"><span class="math inline">\(R_a^2\)</span>-based model selection equivalent to MSE-based (<span class="math inline">\(\widehat{\sigma}^2\)</span>)</span> <span class="math inline">\(\widehat{\sigma}^2\)</span><span style="color: white">: when we include <span class="math inline">\(X_{p+1}\)</span>, <span class="math inline">\(\widehat{\sigma}^2_p=\frac{SSE_p}{n-p}\)</span> vs <span class="math inline">\(\widehat{\sigma}^2_{p+1}=\frac{SSE_{p+1}\downarrow}{n-p-1\downarrow}\)</span></span> <span style="color: white">decrease in <span class="math inline">\(SSE\)</span> is not offset by corresponding loss of <span class="math inline">\(df_E\)</span></span></p>
+<p><span class="math inline">\(PRESS\)</span></p>
+<p>Mallows <span class="math inline">\(C_p\)</span> Others: e.g., Akaike information criterion (AIC), Bayesian information criterion (BIC)</p>
+</div>
+<div class="frame">
+<p>Step 2: Criteria for Comparing Models</p>
+<p><span class="math inline">\(R^2=\widehat{corr}(\widehat{Y},Y)^2\)</span>: nondecreasing when covariates are added</p>
+<p><span class="math inline">\(R_a^2= 1-\frac{\widehat{\sigma}^2}{SSY/(n-1)}\)</span>: increase or decrease when covariates added <span class="math inline">\(R_a^2\)</span>-based model selection equivalent to MSE-based (<span class="math inline">\(\widehat{\sigma}^2\)</span>) <span class="math inline">\(\widehat{\sigma}^2\)</span><span style="color: white">: when we include <span class="math inline">\(X_{p+1}\)</span>, <span class="math inline">\(\widehat{\sigma}^2_p=\frac{SSE_p}{n-p}\)</span> vs <span class="math inline">\(\widehat{\sigma}^2_{p+1}=\frac{SSE_{p+1}\downarrow}{n-p-1\downarrow}\)</span></span> <span style="color: white">decrease in <span class="math inline">\(SSE\)</span> is not offset by corresponding loss of <span class="math inline">\(df_E\)</span></span></p>
+<p><span class="math inline">\(PRESS\)</span></p>
+<p>Mallows <span class="math inline">\(C_p\)</span> Others: e.g., Akaike information criterion (AIC), Bayesian information criterion (BIC)</p>
+</div>
+<div class="frame">
+<p>Step 2: Criteria for Comparing Models</p>
+<p><span class="math inline">\(R^2=\widehat{corr}(\widehat{Y},Y)^2\)</span>: nondecreasing when covariates are added</p>
+<p><span class="math inline">\(R_a^2= 1-\frac{\widehat{\sigma}^2}{SSY/(n-1)}\)</span>: increase or decrease when covariates added <span class="math inline">\(R_a^2\)</span>-based model selection equivalent to <span class="math inline">\(\widehat{\sigma}^2\)</span>-based <span class="math inline">\(\widehat{\sigma}^2\)</span>: when we include <span class="math inline">\(X_{p+1}\)</span>, <span class="math inline">\(\widehat{\sigma}^2_p=\frac{SSE_p}{n-p}\)</span> vs <span class="math inline">\(\widehat{\sigma}^2_{p+1}=\frac{SSE_{p+1}\downarrow}{n-p-1\downarrow}\)</span> decrease in <span class="math inline">\(SSE\)</span> is not offset by corresponding loss of <span class="math inline">\(df_E\)</span></p>
+<p><span class="math inline">\(PRESS\)</span></p>
+<p>Mallows <span class="math inline">\(C_p\)</span> Others: e.g., Akaike information criterion (AIC), Bayesian information criterion (BIC)</p>
+</div>
+<div class="frame">
+<p>Fit v.s. Predictive Criteria <span class="math inline">\(R^2\)</span>, <span class="math inline">\(R^2_a\)</span>, <span class="math inline">\(\widehat{\sigma}^2\)</span>: all are functions of <span class="math inline">\(\widehat{\epsilon}_i\)</span>’s: reflect how well the model <em>fits current data</em> (training error) do not reflect how well the model <em>predicts future responses</em> (test error)</p>
+<p>Residuals <span class="math inline">\(\widehat{\epsilon}_i^2\)</span>’s may underestimate true errors <span class="math inline">\(\epsilon_i^2\)</span>’s <span class="math inline">\(\widehat{Y}_i\)</span> is not independent of <span class="math inline">\(Y_i\)</span> and may be artificially drawn towards it (particularly for high influence points) In fact, one can show that <span class="math inline">\(SSE=\|\widehat{\boldepsilon}\|^2\leq \|\boldepsilon\|^2\)</span>: “The training error is often overly optimistic – it underestimates the true error"</p>
+<p>Residuals <span class="math inline">\(\widehat{\epsilon}_i^2\)</span>’s (training error) also underestimate the test errors</p>
+</div>
+<div class="frame">
+<p>Model Selection for Prediction: Big Picture</p>
+<p><span style="color: royalblue"><span class="math inline">\(\bullet~~\)</span></span>Model selection methods for the purpose of prediction generally consist of the same essential steps:</p>
+<p>Specify maximum/full model Specify criterion for comparing competing models how well the model fits current data (training error) <span class="math inline">\(R^2,R^2_{adj},\widehat{\sigma}^2\)</span> <span style="color: black">how well the model predicts future responses (test error)</span> Select best (sequence of) model(s) where “best" is defined by (2) Test error estimation and model validation <span style="color: black">indirectly estimate test error</span> directly estimate test error: cross-validation</p>
+</div>
+<div class="frame">
+<p>Model Selection for Prediction: Big Picture</p>
+<p><span style="color: royalblue"><span class="math inline">\(\bullet~~\)</span></span>Model selection methods for the purpose of prediction generally consist of the same essential steps:</p>
+<p>Specify maximum/full model Specify criterion for comparing competing models how well the model fits current data (training error) <span class="math inline">\(R^2,R^2_{adj},\widehat{\sigma}^2\)</span> <span style="color: black"><strong>how well the model predicts future responses (test error)</strong></span> Select best (sequence of) model(s) where “best" is defined by (2) Test error estimation and model validation <span style="color: black"><strong>indirectly estimate test error</strong></span> directly estimate test error: cross-validation</p>
+</div>
+<div class="frame">
+<p>Prediction error residuals Deleted residuals (or prediction error residuals)</p>
+<p>_i(-i)=Y_i-_i(-i)= where <span class="math inline">\(\widehat{Y}_{i(-i)}\)</span> is the predicted value for the <span class="math inline">\(i^{th}\)</span> observation from a fitted model where the <span class="math inline">\(i^{th}\)</span> observation was left out Note: now <span class="math inline">\(\widehat{Y}_{i(-i)}\)</span> is independent of <span class="math inline">\(Y_i\)</span></p>
+<p><span class="math inline">\(\widehat{\epsilon}_{i(-i)}\)</span> also known as “<span class="math inline">\(PRESS\)</span>" residual, denoted as <span class="math inline">\(PRESS_i\)</span> Rationale: [leave-one-out] systematically remove each observation, pretend it is future data and measure performance of prediction Instead of defining criteria (<span class="math inline">\(\widehat{\sigma}^2\)</span> and <span class="math inline">\(R^2\)</span>) based on <span class="math inline">\(\widehat{\epsilon_i}^2\)</span>, we can use the prediction error residual <span class="math inline">\(\widehat{\epsilon}_{i(-i)}\)</span> Prediction counterparts of <span class="math inline">\(SSE\)</span> and <span class="math inline">\(R^2\)</span>: the <span class="math inline">\(PRESS\)</span> and <span class="math inline">\(R^2_{pred}\)</span></p>
+</div>
+<div class="frame">
+<p>Criterion 4. Prediction Sum of Squares (PRESS) Define the <span class="math inline">\(PRESS\)</span> (<em>prediction sum of squares</em>) statistic: PRESS &amp; = &amp; _i=1^n _i(-i)^2= _i=1^n {}^2 Not necessary to re-fit model Accounted for high leverage <span class="math inline">\(h_{ii}\)</span> but not high residual Reasonable to select model with lowest <span class="math inline">\(PRESS\)</span></p>
+<p>Another measure, <em>prediction</em> <span class="math inline">\(R^2\)</span>: R^2_pred &amp; = &amp; 1 - <span class="math inline">\(R^2_{pred}\)</span> measures ability to predict <em>future</em> responses <span class="math inline">\(R^2\)</span> and <span class="math inline">\(R_a^2\)</span> relate to model’s ability to predict <em>current</em> data</p>
+<p>This is also known as “leave one out” cross-validation!</p>
+</div>
+<div class="frame">
+<p>Residual taxonomy<span class="math inline">\(^1\)</span></p>
+<div class="center">
+
+</div>
+</div>
+<div class="frame">
+<p>Criterion 5. Mallows’ <span class="math inline">\(C_p\)</span> Total variation in prediction <span class="math inline">\(\widehat{Y}\)</span> is due to bias and variance: _p =_i=1^n { _ + _} <span class="math inline">\(\Gamma_p\)</span> corresponds to a specific model (with <span class="math inline">\(p\)</span> parameters) Mallows’ <span class="math inline">\(C_p\)</span> is an estimate of <span class="math inline">\(\Gamma_p\)</span>: C_p = _p =(_+_) <span class="math inline">\(SSE_p\)</span>: from the model being evaluated, underestimates test error <span class="math inline">\(\widehat{\sigma}_{full}^2=SSE_{\scriptscriptstyle full} /(n-p_{\scriptscriptstyle full})\)</span>: from full (maximum) model Mallows’ <span class="math inline">\(C_p\)</span> strikes a balance between bias and variance Recall: <span class="math inline">\(p\uparrow\)</span>, Var(<span class="math inline">\(\widehat{Y}\)</span>)<span class="math inline">\(\uparrow\)</span>. In <span class="math inline">\(C_p\)</span>: when <span class="math inline">\(p\uparrow\)</span>, <span class="math inline">\(SSE_p\downarrow\)</span> but <span class="math inline">\(2p\widehat{\sigma}_{full}^2\uparrow\)</span> (penalty) The model with the smallest <span class="math inline">\(C_p\)</span> is selected</p>
+</div>
+<div class="frame">
+<p>Other Criterion: e.g.&nbsp;AIC and BIC</p>
+<p>Recall Mallows’ <span class="math inline">\(C_p\)</span><br>
+<span class="math inline">\(C_p = \widehat{\Gamma}_p =\frac{1}{n}(\underbracket{SSE_p}_\text{training error of current model}+\underbracket{2p\widehat{\sigma}_{full}^2}_\text{adjustment for underestimation})\)</span></p>
+<p>Akaike information criterion (AIC): <span class="math inline">\(2\log \mathcal{L}+2p\)</span><br>
+<span class="math inline">\(AIC = \frac{1}{n{\color{royalblue}\widehat{\sigma}_{full}^2}}(\underbracket{SSE_p}_\text{training error of current model}+\underbracket{2p\widehat{\sigma}_{full}^2}_\text{adjustment for underestimation})+c\)</span> Equivalent to Mallows’ <span class="math inline">\(C_p\)</span> in MLR with Normal data Bayesian information criterion (BIC)<br>
+<span class="math inline">\(BIC = \frac{1}{n{\color{royalblue}\widehat{\sigma}_{full}^2}}(\underbracket{SSE_p}_\text{training error of current model}+\underbracket{{\color{royalblue}\log(n)}p\widehat{\sigma}_{full}^2}_\text{adjustment for underestimation})+c %\nonumber\ee\)</span> Places a heavier penalty on models with large <span class="math inline">\(p\)</span> because <span class="math inline">\(\log(n)&gt;2\)</span> for any <span class="math inline">\(n&gt;7\)</span></p>
+</div>
+<div class="frame">
+<p>Model Selection for Prediction: Big Picture</p>
+<p><span style="color: royalblue"><span class="math inline">\(\bullet~~\)</span></span>Model selection methods for the purpose of prediction generally consist of the same essential steps:</p>
+<p>Specify maximum/full model Specify criterion for comparing competing models how well the model fits current data (training error) <span class="math inline">\(R^2,R^2_{adj},\widehat{\sigma}^2\)</span> <span style="color: black">how well the model predicts future responses (test error)</span> <span class="math inline">\(C_p\)</span>, AIC, BIC, etc. Select best (sequence of) model(s) where “best" is defined by (2) Test error estimation and model validation <span style="color: black">indirectly estimate test error</span> via an adjustment to the training error to account for overfitting directly estimate test error: cross-validation</p>
+</div>
+<div class="frame">
+<p>Use of Criteria: Example True model: <span class="math inline">\(Y=1 + 0.1 *X_1 + 0.2*X_2 + 0.01*X_3 + 0.4*X_4 + \epsilon\)</span>, <span class="math inline">\(\epsilon \sim N(0,0.2)\)</span> Suppose true model is unknown, select best <em>predictive</em> model Measures for 3 possible models:</p>
+<div class="center">
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(X\)</span>’s</th>
+<th style="text-align: center;"><span class="math inline">\(R^2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\widehat{\sigma}^2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(R^2_a\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(R^2_{pred}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(C_p\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2,4</td>
+<td style="text-align: center;">0.2896</td>
+<td style="text-align: center;">0.04186</td>
+<td style="text-align: center;">0.2882</td>
+<td style="text-align: center;">0.2852</td>
+<td style="text-align: center;">34.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2,4,1</td>
+<td style="text-align: center;">0.3123</td>
+<td style="text-align: center;">0.04057</td>
+<td style="text-align: center;">0.3102</td>
+<td style="text-align: center;">0.3065</td>
+<td style="text-align: center;">3.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2,4,1,3</td>
+<td style="text-align: center;">0.3125</td>
+<td style="text-align: center;">0.04059</td>
+<td style="text-align: center;">0.3098</td>
+<td style="text-align: center;">0.3055</td>
+<td style="text-align: center;">5.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Note that even though <span class="math inline">\(X_3\)</span> is in the true model, its effect is not large enough to offset the ‘costs’ to estimate it</p>
+</div>
+<div class="frame">
+<p>Step 4: Model Validation Ultimately, desirable to test final model on external data set or newly collected data Use existing data to develop model Assess model’s predictive ability in new data is a useful alternative</p>
+</div>
+<div class="frame">
+<p>Step 4: Model Validation: K-fold cross-validation Split data into <span class="math inline">\(K\)</span> equally sized data sets called <span class="math inline">\(\boldD_1,\dots,\boldD_K\)</span> For <span class="math inline">\(j=1,\dots,K\)</span>, train model on <span class="math inline">\(\boldD_{(-j)}\)</span> data; test on <span class="math inline">\(\boldD_j\)</span>; Average the measures of predictive ability across the <span class="math inline">\(K\)</span> pieces</p>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pic/kfolds.png" style="height:1.9in" class="figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+</div>
+<p><span class="math inline">\(K=n\)</span>: “leave one out” cross-validation, e.g., <span class="math inline">\(PRESS\)</span> statistic <span class="math inline">\(K=2\)</span>: “data spiting": half training and half testing data</p>
+</div>
+<div class="frame">
+<p>Model Selection for Prediction: Big Picture</p>
+<p><span style="color: royalblue"><span class="math inline">\(\bullet~~\)</span></span>Model selection methods for the purpose of prediction generally consist of the same essential steps:</p>
+<p>Specify maximum/full model</p>
+<p>Specify criterion for comparing competing models <span style="color: royalblue"><strong>how well the model fits current data (training error)</strong></span> <span class="math inline">\(R^2,R^2_{adj},\widehat{\sigma}^2\)</span></p>
+<p><span style="color: royalblue"><strong>how well the model predicts future responses (test error)</strong></span> <span class="math inline">\(PRESS,~C_p\)</span>, AIC, BIC Select best (sequence of) model(s) where “best" is defined by (2) Test error estimation and model validation <span style="color: royalblue"><strong>indirectly estimate test error</strong></span> via an adjustment to the training error to account for overfitting <span class="math inline">\(C_p\)</span>, AIC, BIC, etc. <span style="color: royalblue"><strong>directly estimate test error: cross-validation</strong></span> <span class="math inline">\(PRESS\)</span> &amp; k-fold cross validation</p>
+</div>
+<div class="frame">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pic/thankyou.jpg" style="height:2in" class="figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+</div>
+<div class="frame">
+<p>Optional Readings: True Errors vs.&nbsp;Residuals Claim: <span class="math inline">\(||\widehat{\boldepsilon} ||^2 \leq ||{\boldepsilon} ||^2\)</span> Proof: &amp; = &amp; (<strong>I</strong> - )<br>
+&amp; = &amp; (<strong>I</strong> - ) (+ )<br>
+&amp; = &amp; - + (<strong>I</strong> - )<br>
+&amp; = &amp; (<strong>I</strong> - ) Therefore, || ||^2 &amp; = &amp; {(<strong>I</strong> - ) }^T (<strong>I</strong> - )<br>
+&amp; = &amp; ^T (<strong>I</strong> - )<br>
+&amp; = &amp; || ||^2 - ^T Note: <span class="math inline">\({\boldepsilon}^T {\boldH}{\boldepsilon}={\boldepsilon}^T {\boldH^T\boldH}{\boldepsilon} = ({\boldH}{\boldepsilon )}^T ({\boldH}{\boldepsilon}) ={(\boldepsilon^*)}^T (\boldepsilon^*) \geq 0\)</span> where <span class="math inline">\(\boldepsilon^* = {\boldH} \boldepsilon\)</span></p>
+</div>
+<div class="frame">
+<p>Optional Readings: Justification of Mallows’ <span class="math inline">\(C_p\)</span> _p &amp;= &amp; { _i=1^n [E(_i - Y_i)]^2 + _i=1^n Var( _i)}<br>
+&amp;= &amp;{_i=1^n [E(_i)]^2 + ^2 p}</p>
+<p>Recall <span class="math inline">\(\frac{SSE_p}{\sigma^2}\sim \chi^2_{n-p,\lambda}\)</span> with mean = <span class="math inline">\(n-p + \lambda\)</span>, i.e., <span class="math display">\[E\left[\frac{SSE_p}{\sigma^2}\right] = (n-p) + \frac{\sum_{i=1}^n [E(\widehat{\epsilon}_i)]^2}{\sigma^2}\]</span></p>
+<p>Thus, we can re-write: _p &amp;= &amp;E- (n-p) + p</p>
+</div>
+<div class="frame">
+<p>Optional Readings: Justification of Mallows’ <span class="math inline">\(C_p\)</span> (continued) _p &amp;= &amp;E- (n-p) + p</p>
+<p>Mallows’ <span class="math inline">\(C_p\)</span> is a plug-in estimator: C_p _p&amp;=&amp; -(n-p)+ p<br>
+&amp;= &amp;-(n-p)+ p<br>
+&amp; = &amp; p + { -1 }(n-p)</p>
+</div>
+<div class="frame">
+<p>Questions?</p>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

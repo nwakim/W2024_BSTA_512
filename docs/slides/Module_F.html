@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Linear Regression – module_f</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/bsta_550_hex_3.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Linear Regression</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../syllabus.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule1.html" rel="" target="">
+ <span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../class_slides.html" rel="" target="">
+ <span class="menu-text">Slides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../homeworks.html" rel="" target="">
+ <span class="menu-text">Homework</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Course Info</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../instructors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Course Materials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../class_slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class Slides</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homeworks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Homework</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weekly Pages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_01_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_02_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_03_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_04_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_05_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_06_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_07_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_08_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_09_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_10_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week_11_sched.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<div class="frame">
+<p><span style="color: royalblue"><strong>BIOSTAT 650<br>
+Theory and Application of Linear Regression<br>
+Module F: MLR Hypothesis Testing</strong></span></p>
+</div>
+<div class="frame">
+<p>Outline</p>
+<p>Topics:</p>
+<p>Sums of squares</p>
+<p>F test</p>
+<p>Text (MPV, 4th Ed.): Section 3.2, 3.3</p>
+</div>
+<div class="frame">
+<p><span style="color: royalblue"><strong>Sums of Squares:<br>
+Matrix Notation and Distributions</strong></span></p>
+</div>
+<div class="frame">
+<p>Preparation: Distribution Theory, Rank, and Trace Let <span class="math inline">\(\boldA\)</span> be a <span class="math inline">\(n\times n\)</span> matrix of constants, and <span class="math inline">\(\boldY\)</span> be a <span class="math inline">\(n\times 1\)</span> multivariate normal random vector with mean <span class="math inline">\(\boldmu\)</span> and variance-covariance matrix <span class="math inline">\(\sigma^2\boldI\)</span>, i.e., <span class="math inline">\(\boldY\sim N(\boldmu,\sigma^2\boldI)\)</span>. We call <span class="math inline">\(\boldY^T\boldA\boldY\)</span> a quadratic form.</p>
+<p>If <span class="math inline">\(\boldA\)</span> is <span style="color: royalblue">symmetric</span> and idempotent (<span class="math inline">\(\boldA^2=\boldA\)</span>) with rank <span class="math inline">\(p\)</span>, then <span class="math display">\[\boxed{\frac{\boldY^T\boldA\boldY}{\sigma^2}\sim \chi^2_{p,\lambda}\text{, with non-centrality parameter }\lambda=\frac{\mu^T\boldA\mu}{\sigma^2}}\]</span> Let <span class="math inline">\(\boldB\)</span> be a <span class="math inline">\(p\times n\)</span> matrix, then <span class="math display">\[\boxed{\boldY^T\boldA\boldY\text{ and }\boldB\boldY\text{  are independent if }\boldB\ptimesn\boldA\ntimesn=\boldzero}\]</span></p>
+<p>Let <span class="math inline">\(\boldB\)</span> be a <span class="math inline">\(n\times n\)</span> matrix, then <span class="math display">\[\boxed{\boldY^T\boldA\boldY\text{ and }\boldY^T\boldB\boldY\text{  are independent if }\boldA\ntimesn\boldB\ntimesn=\boldzero\ntimesn}\]</span></p>
+</div>
+<div class="frame">
+<p>Distributions of Sums of Squares</p>
+<p>We apply the distribution theory to show that <span class="math display">\[\begin{split}
+\frac{SSY}{\sigma^2}\sim\chi^2_{n-1,\lambda_Y},\;
+&amp;\lambda_Y=\frac{E[\boldY]^T(\boldI_n-\boldone\ntimesn/n)E[\boldY]}{\sigma^2}\\
+\frac{SSR}{\sigma^2}\sim\chi^2_{\myq-1,\lambda_R},\;
+&amp;\lambda_R=\frac{E[\boldY]^T(\boldH-\boldone\ntimesn/n)E[\boldY]}{\sigma^2}\\
+\frac{SSE}{\sigma^2}\sim\chi^2_{n-\myq,\lambda_E},\;
+&amp;\lambda_E=\frac{E[\boldY]^T(\boldI_n-\boldH)E[\boldY]}{\sigma^2}\\
+SSR\ind SSE&amp;\text{, and } \widehat{\boldbeta}\ind \widehat{\sigma}^2
+\end{split}\]</span></p>
+<p>To show distribution of SS, we need the following steps Write SS using matrix notation to show SS is a quadratic form Show <span class="math inline">\(\boldA\)</span> is symmetric and idempotent Find <span class="math inline">\(rank(\boldA)\)</span> Obtain distribution of SS</p>
+</div>
+<div class="frame">
+<p>Sum of Squares: Matrix Notation</p>
+<div class="columns">
+<div class="column">
+<p>0.4 <span class="math display">\[\begin{split}
+    &amp;SSY\\
+    = &amp;  \sum_{i=1}^n (Y_i-\overline{Y})^2 \nonumber \\
+    = &amp;  \sum_{i=1}^n Y_i^2- n\overline{Y}^2 \nonumber \\
+    = &amp; {\boldY}^T{\boldY} - n(\frac{1}{n}{\boldY}^T{\boldone}_n)^2
+    \nonumber \\
+    = &amp; {\boldY}^T\boldI_n{\boldY} - ({\boldY}^T{\boldone}_n)^2/n
+    \nonumber \\
+    = &amp; {\boldY}^T{\boldY} -{\boldY}^T{\boldone}_n{\boldone}_n^T{\boldY}/n
+    \nonumber \\
+    = &amp; {\boldY}^T ({\boldI}_n-{\boldone}\ntimesn/n)
+    {\boldY} \nonumber\\
+    &amp;\text{SSY is a quadratic form w/}\\
+    &amp;\boldA_Y={\boldI}_n-{\boldone}\ntimesn/n
+\end{split}\]</span></p>
+</div><div class="column">
+<p>0.6</p>
+</div>
+</div>
+</div>
+<div class="frame">
+<p>Sum of Squares: Matrix Notation</p>
+<div class="columns">
+<div class="column">
+<p>0.5 <span class="math display">\[\begin{split}
+&amp;SSR\\
+= &amp; \sum_{i=1}^n    (\widehat{Y}_i- \overline{Y})^2 \nonumber \\
+= &amp; \sum_{i=1}^n
+\widehat{Y}_i^2- n\overline{Y}^2 \nonumber \\
+= &amp; \widehat{\boldY}^T \widehat{\boldY} - {\boldY}^T{\boldone}_n{\boldone}_n^T{\boldY}/n\\
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+=&amp;({\boldH}{\boldY})^T{\boldH}{\boldY} - {\boldY}^T{\boldone}_n{\boldone}_n^T{\boldY}/n\\
+=&amp;{\boldY}^T{\boldH}{\boldY} - {\boldY}^T{\boldone}_n{\boldone}_n^T{\boldY}/n\\
+%       \widehat{\boldY}^T \widehat{\boldY} =&amp;  ({\boldH}{\boldY})^T{\boldH}{\boldY} = {\boldY}^T{\boldH}{\boldY}\\
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+= &amp; {\boldY}^T ({\boldH}-{\boldone}_n{\boldone}_n^T/n) {\boldY}
+\nonumber \\
+= &amp; {\boldY}^T({\boldH} - {\boldone}\ntimesn/n){\boldY} \\
+&amp;\text{SSR is a quadratic form w/}\\
+&amp;\boldA_R={\boldH} - {\boldone}\ntimesn/n
+\end{split}\]</span></p>
+</div><div class="column">
+<p>0.5</p>
+</div>
+</div>
+</div>
+<div class="frame">
+<p>Sum of Squares: Matrix Notation</p>
+<div class="columns">
+<div class="column">
+<p>0.52 <span class="math display">\[\begin{split}
+%       SSE = &amp; \sum_{i=1}^n \widehat{\epsilon}_i^2 \nonumber \\
+&amp;SSE \\
+= &amp; \widehat{\boldepsilon}^T \widehat{\boldepsilon}
+\nonumber \\
+= &amp; \{({\boldI}_n-{\boldH}){\boldY}\}^T \{({\boldI}_n-{\boldH}){\boldY})\}
+\nonumber \\
+= &amp; {\boldY}^T ({\boldI}_n-{\boldH})^2{\boldY}\nonumber \\
+= &amp; {\boldY}^T ({\boldI}_n-{\boldH}){\boldY} \nonumber \\
+&amp;\text{SSE is a quadratic form w/}\\
+&amp;\boldA_E=\boldI_n-{\boldH}
+\end{split}\]</span></p>
+</div><div class="column">
+<p>0.48</p>
+</div>
+</div>
+</div>
+<div class="frame">
+<p>Sum of Squares: Symmetric and Idempotent <span class="math inline">\(\boldA_Y={\boldI}_n-{\boldone}\ntimesn/n\)</span> <span class="math display">\[\begin{split}
+%       \boldA_Y=&amp;{\boldI}_n-{\boldone}\ntimesn/n\\
+\boldA_Y^2=&amp;({\boldI}_n-{\boldone}\ntimesn/n)({\boldI}_n-{\boldone}\ntimesn/n)\\
+=&amp;({\boldI}_n-{\boldone}\ntimesn/n){\boldI}_n-
+({\boldI}_n-{\boldone}\ntimesn/n){\boldone}\ntimesn/n\\
+%%%%%
+\stackrel{\tiny {\boldone}\ntimesn=\boldone\ntimesone\boldone\onetimesn}{\longeq\!\longeq}&amp;({\boldI}_n-{\boldone}\ntimesn/n)-
+({\boldone}\ntimesn/n-\boldone\ntimesone\boldone\onetimesn\boldone\ntimesone\boldone\onetimesn/n^2)\\
+%%%%%
+\stackrel{\tiny \boldone\onetimesn\boldone\ntimesone=n}{\longeq\!\longeq}&amp;({\boldI}_n-{\boldone}\ntimesn/n)-
+({\boldone}\ntimesn/n-\boldone\ntimesone n \boldone\onetimesn/n^2)\\
+=&amp;{\boldI}_n-{\boldone}\ntimesn/n\\
+=&amp;\boldA_Y
+\end{split}\]</span></p>
+</div>
+<div class="frame">
+<p>Sum of Squares: Symmetric and Idempotent <span class="math inline">\(\boldA_R={\boldH} - {\boldone}\ntimesn/n\)</span> <span class="math display">\[\begin{split}
+%   \boldA_R=&amp;{\boldH} - {\boldone}\ntimesn/n\\
+\boldA_R^2=&amp;({\boldH} - {\boldone}\ntimesn/n)({\boldH} - {\boldone}\ntimesn/n)\\
+=&amp;({\boldH} - {\boldone}\ntimesn/n){\boldH} - ({\boldH} - {\boldone}\ntimesn/n){\boldone}\ntimesn/n\\
+=&amp;(\boldH^2-\boldone\ntimesone\boldone\onetimesn\boldH/n)-(\boldH\boldone\ntimesone\boldone\onetimesn/n-\boldone\ntimesone\boldone\onetimesn\boldone\ntimesone\boldone\onetimesn/n^2)\\
+&amp;\text{Note that (1)$\boldH\boldX=\boldX$ and $\boldone\ntimesone$ is a column of $\boldX$}\\
+&amp;\text{\textcolor{white}{Note that }(2) we showed in HW 2 that $\boldH$ is symm+idempotent}\\
+\stackrel[\tiny \boldH\boldone\ntimesone=\boldone\ntimesone]{\tiny \boldone\onetimesn\boldH=\boldone\onetimesn}{\longeq\!\longeq}&amp;(\boldH-\boldone\ntimesone\boldone\onetimesn/n)-(\boldone\ntimesone\boldone\onetimesn/n-\boldone\ntimesone\boldone\onetimesn\boldone\ntimesone\boldone\onetimesn/n^2)\\
+&amp;\text{We just showed that $\boldone\ntimesone\boldone\onetimesn\boldone\ntimesone\boldone\onetimesn/n^2={\boldone}\ntimesn/n$}\\
+=&amp;(\boldH-{\boldone}\ntimesn/n)-({\boldone}\ntimesn/n-{\boldone}\ntimesn/n)\\
+=&amp;\boldH-{\boldone}\ntimesn/n\\
+=&amp;\boldA_R
+\end{split}\]</span></p>
+</div>
+<div class="frame">
+<p>Sum of Squares: Symmetric and Idempotent</p>
+<div class="columns">
+<div class="column">
+<p>0.52 <span class="math display">\[\begin{split}
+&amp;\boldA_E=\boldI_n-{\boldH} \\
+&amp;\text{We showed in HW 2 that $\boldI_n-\boldH$ is symmetric and idempotent}\\
+\end{split}\]</span></p>
+</div><div class="column">
+<p>0.1</p>
+</div>
+</div>
+</div>
+<div class="frame">
+<p>Preparation: Distribution Theory, Rank, and Trace Let <span class="math inline">\(\boldA\)</span> be a <span class="math inline">\(n\times n\)</span> matrix of constants, and <span class="math inline">\(\boldY\)</span> be a <span class="math inline">\(n\times 1\)</span> multivariate normal random vector with mean <span class="math inline">\(\boldmu\)</span> and variance-covariance matrix <span class="math inline">\(\sigma^2\boldI\)</span>, i.e., <span class="math inline">\(\boldY\sim N(\boldmu,\sigma^2\boldI)\)</span>. We call <span class="math inline">\(\boldY^T\boldA\boldY\)</span> a quadratic form.</p>
+<p>If <span class="math inline">\(\boldA\)</span> is <span style="color: royalblue">symmetric</span> and idempotent (<span class="math inline">\(\boldA^2=\boldA\)</span>) with rank <span class="math inline">\(p\)</span>, then <span class="math display">\[\boxed{\frac{\boldY^T\boldA\boldY}{\sigma^2}\sim \chi^2_{p,\lambda}\text{, with non-centrality parameter }\lambda=\frac{\mu^T\boldA\mu}{\sigma^2}}\]</span> Let <span class="math inline">\(\boldB\)</span> be a <span class="math inline">\(p\times n\)</span> matrix, then <span class="math display">\[\boxed{\boldY^T\boldA\boldY\text{ and }\boldB\boldY\text{  are independent if }\boldB\ptimesn\boldA\ntimesn=\boldzero}\]</span></p>
+<p>Let <span class="math inline">\(\boldB\)</span> be a <span class="math inline">\(n\times n\)</span> matrix, then <span class="math display">\[\boxed{\boldY^T\boldA\boldY\text{ and }\boldY^T\boldB\boldY\text{  are independent if }\boldA\ntimesn\boldB\ntimesn=\boldzero\ntimesn}\]</span></p>
+</div>
+<div class="frame">
+<p>Distributions of Sums of Squares</p>
+<p>We apply the distribution theory to show that <span class="math display">\[\begin{split}
+\frac{SSY}{\sigma^2}\sim\chi^2_{n-1,\lambda_Y},\;
+&amp;\lambda_Y=\frac{E[\boldY]^T(\boldI_n-\boldone\ntimesn/n)E[\boldY]}{\sigma^2}\\
+\frac{SSR}{\sigma^2}\sim\chi^2_{\myq-1,\lambda_R},\;
+&amp;\lambda_R=\frac{E[\boldY]^T(\boldH-\boldone\ntimesn/n)E[\boldY]}{\sigma^2}\\
+\frac{SSE}{\sigma^2}\sim\chi^2_{n-\myq,\lambda_E},\;
+&amp;\lambda_E=\frac{E[\boldY]^T(\boldI_n-\boldH)E[\boldY]}{\sigma^2}\\
+SSR\ind SSE&amp;\text{, and } \widehat{\boldbeta}\ind \widehat{\sigma}^2
+\end{split}\]</span></p>
+<p>To show distribution of SS, we need the following steps Write SS using matrix notation to show SS is a quadratic form Show <span class="math inline">\(\boldA\)</span> is symmetric and idempotent Find <span class="math inline">\(rank(\boldA)\)</span> Obtain distribution of SS</p>
+</div>
+<div class="frame">
+<p>Preparation: Distribution Theory, Rank, and Trace Let <span class="math inline">\(\boldA\)</span> be an idempotent matrix, then the rank of <span class="math inline">\(\boldA\)</span> is its trace.</p>
+<p>Trace of a matrix (Module D): sum of elements along the main diagonal <span class="math inline">\(tr(\boldA\ntimesn)=\sum_{i=1}^nA_{i,i}\)</span>, where <span class="math inline">\(A_{i,j}\)</span> denotes the element of <span class="math inline">\(\boldA\)</span> at the <span class="math inline">\(i\)</span>-th row and <span class="math inline">\(j\)</span>-th column <span class="math inline">\(tr(c\cdot\boldA)=c\cdot tr(\boldA)\)</span>, <span class="math inline">\(tr(\boldA+\boldB)=tr(\boldA)+tr(\boldB)\)</span> <span class="math inline">\(tr(\boldA\boldB)=tr(\boldB\boldA)\)</span>, thus <span class="math inline">\(tr(\boldA\boldB\boldC)=tr(\boldC\boldA\boldB)=tr(\boldB\boldC\boldA)\)</span></p>
+</div>
+<div class="frame">
+<p>Sum of Squares: Rank</p>
+<div class="columns">
+<div class="column">
+<p>0.4 <span class="math display">\[\begin{split}
+        &amp;rank(\boldA_Y)\\
+        &amp;=tr(\boldA_Y)\\
+        &amp;=tr({\boldI}_n-{\boldone}\ntimesn/n)\\
+        &amp;=tr({\boldI}_n)-tr({\boldone}\ntimesn/n)\\
+        &amp;=n-tr({\boldone}\ntimesn)/n\\
+        &amp;=n-(\sum_{i=1}^n 1)/n\\
+        &amp;=n-1
+        \end{split}\]</span></p>
+</div><div class="column">
+<p>0.6</p>
+</div>
+</div>
+</div>
+<div class="frame">
+<p>Sum of Squares: Rank</p>
+<div class="columns">
+<div class="column">
+<p>0.5 <span class="math display">\[\begin{split}
+    &amp;rank(\boldA_R)\\
+    &amp;=tr(\boldA_R)\\
+    &amp;=tr({\boldH} - {\boldone}\ntimesn/n)\\
+    &amp;=tr(\boldH)-tr({\boldone}\ntimesn/n)\\
+    &amp;=tr\left(\boldX(\boldX^T\boldX)^{-1}\boldX^T\right)-1\\
+    &amp;=tr\left(\underbrace{(\boldX\ptimesn^T\boldX\ntimesp)^{-1}\boldX^T\ptimesn\boldX\ntimesp}_\text{$p\times p$}\right)-1\\
+    &amp;=tr\left(\boldI_{p}\right)-1\\
+    &amp;=(\sum_{i=1}^p 1)-1\\
+    &amp;=p-1\\
+    \end{split}\]</span></p>
+</div><div class="column">
+<p>0.45</p>
+</div>
+</div>
+</div>
+<div class="frame">
+<p>Sum of Squares: Rank</p>
+<div class="columns">
+<div class="column">
+<p>0.52 <span class="math display">\[\begin{split}
+    &amp;rank(\boldA_E)\\
+    &amp;=tr(\boldA_E)\\
+    &amp;=tr(\boldI_n-\boldH)\\
+    &amp;=tr(\boldI_n)-tr(\boldH)\\
+    &amp;\text{We just showed that $tr(\boldH)=p$}\\
+    &amp;=(\sum_{i=1}^n 1)-p\\
+    &amp;=n-p\\
+    \end{split}\]</span></p>
+</div><div class="column">
+<p>0.48</p>
+</div>
+</div>
+</div>
+<div class="frame">
+<p>Distributions of Sums of Squares</p>
+<p>By the distribution theory we have <span class="math display">\[%\begin{split}
+%\frac{SSY}{\sigma^2}\sim\chi^2_{n-1,\lambda_Y},\;
+%&amp;\lambda_Y=\frac{E[\boldY]^T\boldA_YE[\boldY]}{\sigma^2}\\
+%\frac{SSR}{\sigma^2}\sim\chi^2_{\myq-1,\lambda_R},\;
+%&amp;\lambda_R=\frac{E[\boldY]^T\boldA_RE[\boldY]}{\sigma^2}\\
+%\frac{SSE}{\sigma^2}\sim\chi^2_{n-\myq,\lambda_E},\;
+%&amp;\lambda_E=\frac{E[\boldY]^T\boldA_EE[\boldY]}{\sigma^2}
+%\end{split}
+\begin{split}
+    \frac{SSY}{\sigma^2}\sim\chi^2_{n-1,\lambda_Y},\;
+    &amp;\lambda_Y=\frac{E[\boldY]^T( \overbrace{\boldI_n-\boldone\ntimesn/n}^{A_Y} )E[\boldY]}{\sigma^2}\\
+    \frac{SSR}{\sigma^2}\sim\chi^2_{\myq-1,\lambda_R},\;
+    &amp;\lambda_R=\frac{E[\boldY]^T(\overbrace{\boldH-\boldone\ntimesn/n}^{A_R})E[\boldY]}{\sigma^2}\\
+    \frac{SSE}{\sigma^2}\sim\chi^2_{n-\myq,\lambda_E},\;
+    &amp;\lambda_E=\frac{E[\boldY]^T(\overbrace{\boldI_n-\boldH}^{A_E})E[\boldY]}{\sigma^2}
+\end{split}\]</span></p>
+</div>
+<div class="frame">
+<p>Non-centrality parameter <span class="math inline">\(\lambda\)</span></p>
+<p><span class="math inline">\(\lambda_E\)</span> <span class="math inline">\(\lambda_E=0\)</span> if <span class="math inline">\(E[\boldY]=\boldX\boldbeta\)</span>, i.e., under “L"inearity of LINE (model is correctly specified with <span class="math inline">\(E[\boldY]=\boldX\boldbeta\)</span>) When <span class="math inline">\(\lambda_E=0\)</span>, i.e.&nbsp;<span class="math inline">\(\chi^2_{n-p}\)</span> is a central chi-square distribution, <span class="math inline">\(E[\frac{SSE}{\sigma^2}]=E[\chi^2_{n-p}]=n-p\)</span>, that is, <span class="math inline">\(\widehat{\sigma}^2=\frac{SSE}{n-p}\)</span> is unbiased for <span class="math inline">\(\sigma^2\)</span></p>
+<p><span class="math inline">\(\lambda_R\)</span> <span class="math inline">\(\lambda_R=0\)</span> under <span class="math inline">\(H_0: \beta_1=\beta_2=\dots=\beta_{p-1}=0\)</span> because <span class="math inline">\(E[\boldY]\stackrel{H_0}{=}\boldone\beta_0\)</span>; <span class="math inline">\(\boldone^T\boldH\boldone=\boldone^T\boldone\)</span>; <span class="math inline">\(\boldone^T\boldone_{\ntimesn}\boldone=\boldone^T\boldone\)</span></p>
+</div>
+<div class="frame">
+<p>Independence of SSR and SSE</p>
+<p><span class="math inline">\(SSR=\boldY A_R\boldY\)</span>, <span class="math inline">\(SSE=\boldY A_E\boldY\)</span> To show <span class="math inline">\(SSR\ind SSE\)</span>, we need to show <span class="math inline">\(A_R A_E =\boldzero\ntimesn\)</span></p>
+<p><span class="math display">\[\begin{split}
+A_R A_E =&amp; (\boldH-\boldone\ntimesn/n)(\boldI_n-\boldH)\\
+=&amp; (\boldH-\boldone\ntimesn/n)\boldI_n-(\boldH-\boldone\ntimesn/n)\boldH\\
+=&amp; (\boldH-\boldone\ntimesn/n)-(\boldH^2-\boldone\ntimesn\boldH/n)\\
+=&amp; (\boldH-\boldone\ntimesn/n)-(\boldH-\boldone\ntimesone\boldone\onetimesn\boldH/n)\\
+=&amp; (\boldH-\boldone\ntimesn/n)-(\boldH-\boldone\ntimesone\boldone\onetimesn/n)\\
+=&amp; (\boldH-\boldone\ntimesn/n)-(\boldH-\boldI\ntimesn/n)\\
+=&amp; \boldzero\ntimesn
+\end{split}\]</span></p>
+</div>
+<div class="frame">
+<p>Proof of distribution for F test</p>
+<p>Consider F test for the model <span class="math inline">\(H_0\)</span> : none of the covariates explain variation in <span class="math inline">\(Y\)</span> vs.&nbsp;<span class="math inline">\(H_1\)</span> : at least one covariate explains variation in Y i.e., <span class="math inline">\(H_0: \beta_1=\beta_2=\dots=\beta_{\myq-1}=0\)</span></p>
+<p>What have we shown so far</p>
+<p>Therefore, F test for the model <span class="math inline">\(F=\frac{MSR}{MSE}=\frac{\frac{SSR}{\sigma^2}/(\myq-1)}{\frac{SSE}{\sigma^2}/(n-\myq)}\stackrel{H_0}{\sim} F_{p-1,n-p}\)</span></p>
+</div>
+<div class="frame">
+<p>ANOVA table</p>
+<p>We can obtain the test statistic from MLR ANOVA table<br>
+</p>
+<hr>
+<pre><code> Source        SS      df      MS      F      p
+                                             
+                                             </code></pre>
+<p>Regression</p>
+<pre><code> Error                                       
+                                             
+ Total                                       
+                                             
+                                             </code></pre>
+<hr>
+</div>
+<div class="frame">
+<p>Independence of <span class="math inline">\(\widehat{\boldbeta}\)</span> and <span class="math inline">\(\widehat{\sigma}^2\)</span></p>
+<p><span class="math inline">\(\widehat{\boldbeta}=\underbrace{(\boldX^T\boldX)^{-1}\boldX^T}_\text{$p\times n$}\boldY\)</span> and <span class="math inline">\(\widehat{\sigma}^2=SSE/(n-p)=\boldY A_E\boldY/(n-p)\)</span> To show <span class="math inline">\(\widehat{\boldbeta}\ind \widehat{\sigma}^2\)</span>, we need to show <span class="math inline">\(\underbrace{(\boldX^T\boldX)^{-1}\boldX^T}_\text{$p\times n$}\underbrace{A_E}_\text{$n\times n$} =\boldzero\ptimesn\)</span></p>
+<p><span class="math display">\[\begin{split}
+            (\boldX^T\boldX)^{-1}\boldX^T A_E =&amp; (\boldX^T\boldX)^{-1}\boldX^T(\boldI_n-\boldH)\\
+            =&amp; (\boldX^T\boldX)^{-1}\left[\boldX^T(\boldI_n-\boldH)\right]\\
+            \stackrel{\tiny \boldI_n-\boldH\text{ is symmetric}}{\longeq}&amp; (\boldX^T\boldX)^{-1}\left[(\boldI_n-\boldH)\boldX\right]^T\\
+            &amp;\text{Note: we showed in HW2 that $(\boldI_n-\boldH)\boldX=\boldzero$}\\
+            =&amp; \boldzero\ptimesn
+        \end{split}\]</span></p>
+</div>
+<div class="frame">
+<p>Proof of distribution for t test</p>
+<p>t test for a single covariate <span class="math inline">\(H_0:\beta_j=0\)</span> <span class="math display">\[\frac{\widehat{\beta}_j}{SE(\widehat{\beta}_j)}=
+\frac{\widehat{\beta}_j}{\sqrt{ \widehat{\sigma}^2a_{j,j} }}=
+\frac{
+    \widehat{\beta}_j/\sqrt{\sigma^2a_{j,j}}
+}
+{\sqrt{ (\widehat{\sigma}^2a_{j,j})/(\sigma^2a_{j,j}) }}
+=
+\frac{
+    N(\beta_j {\tiny \stackrel{H_0}{=}0},1)
+}
+{\sqrt{\frac{SSE}{\sigma^2}/(n-p)}}
+=
+%%%
+%\frac{\widehat{\beta}_j}{\sqrt{\left(\sigma^2a_{j,j}\right) \frac{ \widehat{\sigma}^2}{\sigma^2}}}
+\stackrel{H_0}{\sim }t_{n-2},\]</span> where <span class="math inline">\(a_{j,j}=(\boldX^T\boldX)^{-1}_{j,j}\)</span> (recall <span class="math inline">\(\widehat{Var}(\widehat{\boldbeta})=\widehat{\sigma}^2(\boldX^T\boldX)^{-1}\)</span>)</p>
+</div>
+<div class="frame">
+<p>Questions?</p>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

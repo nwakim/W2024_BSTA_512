@@ -1,0 +1,23 @@
+---
+title: "Stat Talk"
+description: "An informal dictionary translating the stat jargon to normal speak to formulas"
+date: "1/15/2024"
+date-modified: "12/5/2023"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
++---------------------+-----------------------------------+---------------------------------------------------------------+
+| Name                | Normal Speak Examples             | Formula                                                       |
++=====================+===================================+===============================================================+
+| Random variable $Y$ | -   "If we look at Y..."          | Sample $Y_i, i=1,\dots, n$                                    |
++---------------------+-----------------------------------+---------------------------------------------------------------+
+| Summation           | -   "Sum over the Y's"            | $\sum_{i=1}^n Y_i =Y_1 + Y_2 + \ldots + Y_n$                  |
++---------------------+-----------------------------------+---------------------------------------------------------------+
+| Product             | -   "Take the product of the Y's" | $\prod_{i=1}^n Y_i = Y_1 \times Y_2 \times \ldots \times Y_n$ |
++---------------------+-----------------------------------+---------------------------------------------------------------+
