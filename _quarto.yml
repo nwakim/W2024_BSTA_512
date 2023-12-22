@@ -14,14 +14,15 @@ website:
       - href: syllabus.qmd
         text: Syllabus
       - schedule1.qmd
-      - href: class_slides.qmd
-        text: Slides
       - href: homeworks.qmd
         text: Homework
+      - href: project.qmd
+        text: Projects
+        
   sidebar:
     style: "docked"
     search: true
-    collapse-level: 4
+    collapse-level: 2
     contents:
       - href: index.qmd
         text: Home
@@ -34,12 +35,13 @@ website:
           - schedule1.qmd
       - section: "Course Materials"
         contents:
+          - href: schedule.qmd
+            text: Weekly Pages
           - class_slides.qmd
           - href: homeworks.qmd
             text: Homework
-          - contents: weeks
-            href: schedule.qmd
-            text: Weekly Pages
+          - href: project.qmd
+            text: Project
           
 execute:
   freeze: auto
