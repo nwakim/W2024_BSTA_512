@@ -13,12 +13,13 @@ link-external-newwindow: true
 :::
 
 ::: g-col-7
-# BSTA 512/612: Linear Regression
+# BSTA 512/612: Linear Models
 
 ### Winter 2024
 
  
 
+Welcome to BSTA 512/612! In this course, we will focus on linear models, and build our understanding of regression analysis. We will build some theoretical understanding in order to interpret and apply regression models appropriately. We will learn how to build a regression model, interpret the model, and diagnose potential issues with our model.
  
 :::
 :::
@@ -39,13 +40,18 @@ link-external-newwindow: true
 ::: g-col-3
 ### Office Hours
 
-[Office Hours Link](https://ohsu.webex.com/meet/wakim)
+[OH with Nicky](https://ohsu.webex.com/meet/wakim)
 
-{{< iconify icon-park-solid time size=24px >}} Wednesdays, 4-5pm
+{{< iconify icon-park-solid time size=24px >}} TBD
 
-{{< iconify icon-park-solid time size=24px >}} Thursdays, 3-4pm
+[OH with Antara](https://ohsu.webex.com/meet/wakim)
 
-{{< iconify icon-park-solid time size=24px >}} Fridays, 11:30am-12:30pm
+{{< iconify icon-park-solid time size=24px >}} TBD
+
+[OH with Ariel](https://ohsu.webex.com/meet/wakim)
+
+{{< iconify icon-park-solid time size=24px >}} TBD
+
 :::
 
 ::: g-col-3
@@ -53,9 +59,9 @@ link-external-newwindow: true
 
 {{< iconify fa6-solid calendar-days size=24px >}} Mondays, Wednesdays
 
-{{< iconify fa6-solid calendar size=24px >}} Sept 25 - Dec 4
+{{< iconify fa6-solid calendar size=24px >}} Jan 8 - March 18
 
-{{< iconify icon-park-solid time size=24px >}} 10:30 AM - 12 PM
+{{< iconify icon-park-solid time size=24px >}} 1:00 PM - 2:50 PM
 
 {{< iconify fa6-solid person-chalkboard size=24px >}} In-person
 :::
