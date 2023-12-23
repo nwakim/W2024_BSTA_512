@@ -1,6 +1,6 @@
 ---
 title: "Homework 2"
-subtitle: "BSTA 512"
+subtitle: "BSTA 512/612"
 description: "Due: Thursday February 1, 2024"
 date-modified: "12/22/2024"
 date: "2/1/2024"

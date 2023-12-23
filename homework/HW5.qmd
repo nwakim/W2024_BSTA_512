@@ -1,9 +1,9 @@
 ---
 title: "Homework 5"
-subtitle: "BSTA 550"
-description: "Due: Thursday November 2, 2023 at 11pm"
-date-modified: "09/11/2023"
-date: "11/2/2023"
+subtitle: "BSTA 512/612"
+description: "Due: Thursday March 7, 2025 at 11pm"
+date-modified: "12/22/2023"
+date: "3/7/2024"
 categories: [""]
 format: 
   html:
