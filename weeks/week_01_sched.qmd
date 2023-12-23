@@ -33,7 +33,7 @@ editor_options:
 Below is a table with links to resources. Icons in [orange]{style="color:#E89543;"} mean there is an available file link.
 
 | Lesson | Topic        |                                             Slides                                             |                                  Annotated Slides                                  |                         Recording(s)                          |
-|------------|------------|:------------------:|:---------------:|:----------:|
+|--------------|--------------|:--------------:|:------------:|:------------:|
 |        | Intro        | [[{{< iconify ri slideshow-fill size=30px >}}](../slides/0_Intro.qmd)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 1      | Review       |             [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}              | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 2      | Case Studies |             [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}              | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
@@ -45,17 +45,63 @@ For the slides, once they are opened, if you would like to print or save them as
 3.  Click on "PDF Export Mode."
 4.  From there, you can print or save the PDF as you would normally from your internet browser.
 
+## Announcements
+
+### Monday 1/8
+
+-   We came from two different sections of the same course
+
+    -   While I am confident we all learned a lot and mostly the same material
+
+    -   We definitely learned it in different ways
+
+    -   Three components of 511/512/513
+
+        -   Theory
+
+        -   Application
+
+        -   Coding
+
+-   There is a workshop on Friday, 1/12
+
+    -   [Data Equity Primer](https://weallcount.com/the-data-equity-primer/) from We All Count
+
+    -   If you attend, I will give you \_\_\_\_??
+
+-   Here are a few resources if you’d like to practice R:
+
+    -   [https://rladiessydney.org/courses/ryouwithme/](https://urldefense.com/v3/__https:/rladiessydney.org/courses/ryouwithme/__;!!Mi0JBg!IBoZPEa58_qilCqExXMIk05vR_PoK6BO5kH5n48vdJXKPK6dpuLSP4QwMqxk2n11HgCpsLCq7ufpNjA$ "https://urldefense.com/v3/__https:/rladiessydney.org/courses/ryouwithme/__;!!Mi0JBg!IBoZPEa58_qilCqExXMIk05vR_PoK6BO5kH5n48vdJXKPK6dpuLSP4QwMqxk2n11HgCpsLCq7ufpNjA$")
+
+    -   [https://r-bootcamp.netlify.app/](https://urldefense.com/v3/__https:/r-bootcamp.netlify.app/__;!!Mi0JBg!IBoZPEa58_qilCqExXMIk05vR_PoK6BO5kH5n48vdJXKPK6dpuLSP4QwMqxk2n11HgCpsLCqkZiESbE$ "https://urldefense.com/v3/__https:/r-bootcamp.netlify.app/__;!!Mi0JBg!IBoZPEa58_qilCqExXMIk05vR_PoK6BO5kH5n48vdJXKPK6dpuLSP4QwMqxk2n11HgCpsLCqkZiESbE$")
+
+        -   This is step by step, and lets you practice your code in real time
+
+        -   We will use `ggplot2`, `dplyr`, and `tidyr` extensively in this class!
+
+        -   I am happy to help with coding, but during our class time our focus will by statistics topics
+
+            -   Coding help will mostly be done outside of class time
+
+-   We will also be using an attachment within Rstudio called Quarto
+
+    -   Here is a great tutorial on Quarto: <https://quarto.org/docs/get-started/hello/rstudio.html>
+
+        -   Mine is the Quarto queen!
+
+        -   There is some expectation of knowledge with the above packages (`ggplot2`, `dplyr`, and `tidyr`)
+
+### Wednesday 1/10
+
 ## On the Horizon
 
--   [Homework 0 due 9/28](../homework/HW0.qmd)
-
--   [Homework 1 due 10/5](../homework/HW1.qmd)
+-   [Homework 0 due 1/11 ](../homework/HW0.qmd)
 
 ## Class Exit Tickets
 
-[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUMkNKRDJMUk5DVVNZOEZXNVNXMzZHVjZSOC4u)]{style="color:#f8f5f0;"} Monday (9/25)
+[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUMkNKRDJMUk5DVVNZOEZXNVNXMzZHVjZSOC4u)]{style="color:#f8f5f0;"} Monday (1/8)
 
-[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhURTc0UDdYTFI1SEJFTlUzMFZXMkNaRThCRC4u)]{style="color:#f8f5f0;"} Wednesday (9/27)
+[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhURTc0UDdYTFI1SEJFTlUzMFZXMkNaRThCRC4u)]{style="color:#f8f5f0;"} Wednesday (1/10)
 
 ## Additional Information
 

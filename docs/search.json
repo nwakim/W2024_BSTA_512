@@ -2972,14 +2972,14 @@
     "href": "weeks/week_01_sched.html#on-the-horizon",
     "title": "Week 1",
     "section": "On the Horizon",
-    "text": "On the Horizon\n\nHomework 0 due 9/28\nHomework 1 due 10/5"
+    "text": "On the Horizon\n\nHomework 0 due 1/11"
   },
   {
     "objectID": "weeks/week_01_sched.html#class-exit-tickets",
     "href": "weeks/week_01_sched.html#class-exit-tickets",
     "title": "Week 1",
     "section": "Class Exit Tickets",
-    "text": "Class Exit Tickets\n Monday (9/25)\n Wednesday (9/27)"
+    "text": "Class Exit Tickets\n Monday (1/8)\n Wednesday (1/10)"
   },
   {
     "objectID": "weeks/week_01_sched.html#additional-information",
@@ -5843,5 +5843,12 @@
     "title": "Homework 4",
     "section": "f)",
     "text": "f)\nf. From parts a – e, what is the final model that you have obtained? Interpret the R-square result from this model in the context of the study. Plot fitted value curve vs. X overlaid with scatter plot. Comments about the fitting model."
+  },
+  {
+    "objectID": "weeks/week_01_sched.html#announcements",
+    "href": "weeks/week_01_sched.html#announcements",
+    "title": "Week 1",
+    "section": "Announcements",
+    "text": "Announcements\n\nMonday 1/8\n\nWe came from two different sections of the same course\n\nWhile I am confident we all learned a lot and mostly the same material\nWe definitely learned it in different ways\nThree components of 511/512/513\n\nTheory\nApplication\nCoding\n\n\nThere is a workshop on Friday, 1/12\n\nData Equity Primer from We All Count\nIf you attend, I will give you ____??\n\nHere are a few resources if you’d like to practice R:\n\nhttps://rladiessydney.org/courses/ryouwithme/\nhttps://r-bootcamp.netlify.app/\n\nThis is step by step, and lets you practice your code in real time\nWe will use ggplot2, dplyr, and tidyr extensively in this class!\nI am happy to help with coding, but during our class time our focus will by statistics topics\n\nCoding help will mostly be done outside of class time\n\n\n\nWe will also be using an attachment within Rstudio called Quarto\n\nHere is a great tutorial on Quarto: https://quarto.org/docs/get-started/hello/rstudio.html\n\nMine is the Quarto queen!\nThere is some expectation of knowledge with the above packages (ggplot2, dplyr, and tidyr)\n\n\n\n\n\nWednesday 1/10"
   }
 ]
