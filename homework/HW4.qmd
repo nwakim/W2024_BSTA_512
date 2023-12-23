@@ -14,98 +14,162 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.height = 2, fig.width = 4)
+
+library(tidyverse)
+library(rstatix)
+library(broom)
+library(gt)
+library(janitor)
+library(readxl)
+
+# NEW!
+library(car)  # vif()
+```
+
+
 ## Directions
 
-[Please turn in this homework on Sakai.](https://sakai.ohsu.edu/portal/site/BSTA-550-1-12619-F23/tool/085b18e7-8118-4a51-ace5-0255aa46136e) Please submit your homework in pdf format. You can type your work on your computer or submit a photo of your written work or any other method that can be turned into a pdf. Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.
+* Please upload your homework to Sakai. __Upload both your .Rmd code file and the knitted .html file__.
 
-**Try to complete all of the problems listed below at some point this quarter! You may want to save some of them for studying later!** Only turn in the ones listed in the "Turn In" column. Please submit problems in the order they are listed.
+* For each question, make sure to include all code and resulting output in the html file to support your answers. 
 
-The more work you include that shows your thought process, the more I can give you feedback.
+* Show the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the knitted html file.
 
-::: center
-| Chapter |        Turn In        |            Extra Problems            |
-|:-------:|:---------------------:|:------------------------------------:|
-|    9    |      NTB \# 1, 2      |       \# 1, 2, 4, 8\*\*, 9, 10       |
-|  10\*   | TB \# 6, 8, NTB \# 3  |         \# 1, 10, 11, 14, 17         |
-| 11\*\*  | TB \# 20, NTB \# 4, 5 | \# 1, 2, 9\*\*\*, 17\*\*\*, 18\*\*\* |
-:::
+* Write all answers in complete sentences as if communicating the results to a collaborator.
+    * Points (usually 0.5-1) will be deducted for not including a sentence summarizing results in the context of the research study. 
+    * Questions not requiring a sentence are: _none - include a summary for all questions_
 
-\* Use Chapter 10 techniques when computing expected values for Chapter 10 problems, i.e. computing the expected value directly using the definition of $\mathbb{E}[X]$.
+> Tip: It is a good idea to try kitting your document from time to time as you go along!  Note that knitting automatically saves your Rmd file and knitting frequently helps you catch your errors more quickly.
 
-\*\* Use Chapter 11 techniques when computing expected values for Chapter 11 problems, i.e. expressing the r.v. as a sum of other r.v.'s and calculating the expected value of the sum of r.v.'s. Also, as I mentioned in class and posted on Sakai, we will be skipping the more complex examples of finding expected values using indicator r.v.'s. You can skip Examples 11.5, 11.10, and 11.11. We will not be covering these techniques.
 
-\*\*\* Although Chapter 11 exercises, these are to be done using Chapter 10 techniques since we aren't covering the more complex examples of finding expected values using indicator r.v.'s.
 
-## Non-textbook problems (NTB)
 
-1.  The following table shows the results of a survey in which the subjects were a sample of 300 adults residing in a certain metropolitan area. Each subject was asked to indicate which of three policies they favored with respect to smoking in public places. (Table is from *Biostatistics: A Foundation for Analysis in the Health Sciences*, 10th Edition, Daniel, Wayne W.; Cross, Chad L., pg. 630)
+# Chapter 11 & 12 (questions NOT from book)
 
-    ![](Table_Smoking_vs_Education_Level.png){fig-align="center" width="6in"}
+## Question 1
 
-    Let $X=$ highest education level and $Y=$ policy favored. We can let $X=1$ for college graduate, $X=2$ for high-school graduate, etc., and similarly for $Y$, or just keep the category names for the different levels of $X$ and $Y$
+<font color="green">Use the data from Chapter 12 Problem 3 to answer the questions below.</font>
 
-    a.  Make a table for the joint pmf $p_{X,Y}(x,y)$ and briefly describe in words what the values are the probability of.
 
-    b.  Find the marginal pmf $p_{X}(x)$ and briefly describe in words what the values are the probability of.
+### a)
 
-    c.  Find the marginal pmf $p_{Y}(y)$ and briefly describe in words what the values are the probability of.
+**a. How many dummy variable(s) do you need to create for the categorical variable Diet (protein-rich vs. protein-poor)?  Create the dummy variable(s) with the reference cell coding approach{0,1}.**
 
-    d.  Make a table for the joint cdf $F_{X,Y}(x,y)$ and briefly describe in words what the values are the probability of.
 
-    e.  Find the marginal cdf $F_{X}(x)$ and briefly describe in words what the values are the probability of.
+### b)
 
-    f.  Find the marginal cdf $F_{Y}(y)$ and briefly describe in words what the values are the probability of.
+**b. At a level of significance alpha = .05, test whether if Age is significantly associated with Height. Would this association be modified depending on diet group (e.g., rich-protein or poor-protein)? In other words, is Diet an effect-modifier that changes the association between Height and Age? Justify your answer (e.g., perform a hypothesis test at a level of alpha =.1).**
 
-    g.  Make a table for the conditional pmf $p_{X|Y}(x|y)$ and briefly describe in words what the values are the probability of.
+_Note: recall that an effect modifier is an interaction._
 
-    h.  Make a table for the conditional pmf $p_{Y|X}(y|x)$ and briefly describe in words what the values are the probability of.
 
-2.  **Forgetful mornings revisited**. Using the joint pmf you found in Chapter 9 #2, complete the following questions:
 
-    a.  Find the joint cdf of $X$ and $Y$ and briefly explain what $F_{X,Y}(x,y)$ represents in the context of the problem.
+### c)
 
-    b.  Find the conditional pmf $p_{Y|X}(y|x)$.
+**c. From the results obtained in part b, should we perform an assessment of a confounder for Diet? Justify your answer. Perform such an assessment if needed.**
 
-3.  **Forgetful mornings revisited again**. Recall from Chapter 9 #2, that $X$ is the number of days until Maude loses her cell phone and each day she has a 1% chance of losing her phone (her behavior on different days being independent). For this problem, ignore the r.v. $Y$, and consider the r.v. $X$ on its own.
 
-    a.  What is the pmf of $X$?
 
-    b.  Use the pmf of $X$ to find $\mathbb{E}[X]$.
+### d)
 
-4.  Approximately 10% of U.S. Veterans are women. Suppose an investigator plans a study with 4500 participants that are Veterans. How many women can they expect to be included? *Your answer must be calculated by defining a random variable and showing how to calculate the expected value.*
+**d. Perform a regression analysis on the model obtained from the results obtained from parts a- c. Write down a general regression equation that is applicable to both groups—rich-protein vs.poor-protein. Write down regression lines for each specific groups—rich-protein or poor-protein. **
 
-5.  **Cashews revisited**. Recall from Chapter 10 #8, that a bowl contains 30 cashews, 20 pecans, 25 almonds, and 25 walnuts, and 3 nuts are randomly selected to eat (without replacement). Again, find the expected value of the number of cashews, but this time by defining the number of cashews as a sum of random variables.
 
-## Some select answers
 
-Selected answers (or hints) not provided at the end the book:
+## Question 2
 
--   Chapter 9
+<font color="green">Use the data from Chapter 9 Problem 5 to answer the questions below.</font>
 
-    -   NTB \# 1 Partial answers:
 
-        -   
 
-            (g) $p_{X|Y}(X=\text{high school}| Y=\text{no smoking at all}) = 0.476$
+### a)
 
-        -   
+**a. Use $\alpha= 0.05$, test whether the (crude) association between Y and X1 could be established.**
 
-            (h) $p_{Y|X}( Y=\text{no smoking at all}|X=\text{high school}) = 0.200$
 
--   Chapter 10
 
-    -   \# 6:  750.5
+### b)
 
-    -   \# 8:  0.9
+**b. Use$\alpha= 0.1$, test whether X3 is an effect modifier of the association between Y and X1.**
 
-    -   \# 10:   201
+**Note: To identify effect modifiers, we perform a hypothesis test of interaction term, e.g.,X1*X3. That is: The full model includes X1, X3, X1*X3. the reduced model includes X1 and X3**
 
-    -   \# 14:   (a) 1.875     (b) 3.125     
 
--   Chapter 11
 
-    -   \# 2:  1.6
+### c)
 
-    -   \# 18:  a) 48.5     (b) 96     
+**c. From the result obtained in part b, do we need to perform an assessment of a confounder for X3? Justify your answer. Perform such an assessment if needed.**
 
-    -   \# 20:  $\approx$ 23.077
+
+
+
+### d)
+
+**d. Perform an assessment of a confounder for X2 which potentially changes the association between Y and X1.**
+
+
+
+### e)
+
+**e. From the results in parts a-d, what is your final association model?** 
+
+
+
+
+# Chapter 15: Polynomial Regression (questions NOT from book)
+
+<font color="green">Use the data from Chapter 5 Problem 18 to answer the questions below.</font>
+
+
+
+## a)
+
+**a. Obtain scatter plot: Y vs. X. Does linear trend support the relationship between Y and X?**
+
+
+
+
+## b)
+
+**b. At the level alpha =.05, test whether the linear relationship could be established between Y and X.**
+
+
+
+## c)
+
+**c. At the level alpha =.05, test whether the quadratic term ($X^2$) should be included in the model to improve the prediction in Y, given the linear term ($X$) is already in the model.**
+
+
+
+## d)
+
+**d. From the result obtained from part c, should we test if the linear term (X) is necessary to be included in the model, given the quadratic term is already in the model? Explain your answer.**
+
+
+
+## e)
+
+**e. From the results you obtain from parts c-d, should we further examine whether cubic term ($X^3$) or fourth polynomial degree (i.e., $X^4$) to improve the prediction in Y? Explain your answer and report the result of such a test if needed.**
+
+
+
+## f)
+
+**f. From parts a – e, what is the final model that you have obtained? Interpret the R-square result from this model in the context of the study. Plot fitted value curve vs. X overlaid with scatter plot. Comments about the fitting model.**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

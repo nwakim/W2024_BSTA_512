@@ -14,68 +14,265 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.height = 2, fig.width = 4)
+
+library(tidyverse)
+library(rstatix)
+library(broom)
+library(gt)
+library(janitor)
+library(readxl)
+```
+
+
 ## Directions
 
-[Please turn in this homework on Sakai.](https://sakai.ohsu.edu/portal/site/BSTA-550-1-12619-F23/tool/085b18e7-8118-4a51-ace5-0255aa46136e) Please submit your homework in pdf format. You can type your work on your computer or submit a photo of your written work or any other method that can be turned into a pdf. Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.
+* Please upload your homework to Sakai. __Upload both your .Rmd code file and the knitted .html file__.
 
-**Try to complete all of the problems listed below at some point this quarter! You may want to save some of them for studying later!** Only turn in the ones listed in the "Turn In" column. Please submit problems in the order they are listed.
+* For each question, make sure to include all code and resulting output in the html file to support your answers. 
 
-The more work you include that shows your thought process, the more I can give you feedback.
+* Show the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the knitted html file.
 
-::: center
-| Chapter |      Turn In       |    Extra Problems    |
-|:-------:|:------------------:|:--------------------:|
-|    5    | TB \# 17, NTB \# 1 |     \# 1, 9, 11      |
-|    7    |                    | \# 2, 10, 16, 17, 18 |
-|    8    |  TB \# 8\*, 18\*   |    \# 2, 5, 7, 10    |
-:::
+* Write all answers in complete sentences as if communicating the results to a collaborator.
+    * Points (usually 0.5-1) will be deducted for not including a sentence summarizing results in the context of the research study. 
+    * Questions not requiring a sentence are from the last section "Regression with one categorical predictor" #2, 3, 5, 7.
 
-\* In addition to the graphs, include piecewise defined functions for the pmf and cdf.
+> Tip: It is a good idea to try kitting your document from time to time as you go along!  Note that knitting automatically saves your Rmd file and knitting frequently helps you catch your errors more quickly.
 
-\*\* Break up your solution to Chapter 9 #8 into the following 5 parts:
 
-1.  Make a table of the joint probabilities for $X$ and $Y$.
 
-2.  Using the table in the previous part, write down the piecewise-defined equation for $p_{X,Y}(x,y)$. There should be only 3 pieces (cases) for $p_{X,Y}(x,y)$.
+# -------------------
 
-3.  Express $p_Y(y)$ as a formula (i.e. a function in terms of $y$).
+# Problems to turn in & more directions
 
-4.  Find the conditional pmf $p_{X|Y}(x|y)$ and express your answer as a piecewise-defined equation. There should be only 3 pieces (cases) for $p_{X|Y}(x|y)$.
+## Directions - important!!!
 
-5.  Make a table of the joint cdf $F_{X,Y}(x,y)$ values.
+* Hypothesis tests
+    * <font color="green">For every hypothesis test make sure to include the following:</font>
+        * Null & alternative hypotheses
+        * Calculation of test statistic using the formula
+        * Calculate the p-value directly using its probability distribution
+        * Running the test using R
+        * Conclusion in the context of the research problem. This includes referring to variables by what they actually are and not $X_1$, $X_2$, etc.
 
-## Non-textbook problems (NTB)
 
-1.  A new drug is packaged to contain 30 pills in a bottle. Suppose that 98% of all bottles contain no defective pills, 1.5% contain one defective pill, and 0.5% contain two defective pills. Two pills from a bottle are randomly selected and tested. What is the probability that there are 2 defective pills in the bottle given that one of the two tested pills is defective?
+<font color="green">See additional instructions/ clarifications in green.</font>
 
-## Some select answers
+## Tips
 
-Selected answers (or hints) not provided at the end the book:
+* You will be running _a lot_ of different tests below. I highly recommend coming up with a naming convention that will easily help you keep track of what variables are being included in which models. 
+    * The names model1, model2, etc. will not be helpful. 
 
--   Chapter 5
 
-    -   NTB #1: 0.392
+# Problem 9.7 (a, b, e, f) from book
 
--   Chapter 7
+_Note: (c) is in recommended problems below._
 
-    -   \# 2: $X\in(0,\infty)$, continuous; $Y\in\{0,1,2,\ldots\}$, discrete
 
-    -   \# 10: $X_j\in[0,\infty),j=1,\ldots,100$; $Y\in[0,\infty)$; both continuous
+> Use the results from Problem 4 in Chapter 8, as well as the computer output given here, to answer the following questions about the data from that problem.
 
-    -   \# 16: $Y$ could be 0
+<font color="green">Note: Create all output you need using R instead of relying on the output given in the text.</font>
 
-    -   \# 18: Yes, a r.v. can be both. Give an example!
+Problem 4 from Chapter 8:
 
--   Chapter 8
+> A sociologist investigating the recent increase in the incidence of homicide throughout the United States studied the extent to which the homicide rate per 100,000 population ($Y$) is associated with the city’s population size ($X_1$), the percentage of families with yearly income less than \$5,000 ($X_2$), and the rate of unemployment ($X_3$). Data are provided in the following table for a hypothetical sample of 20 cities.
 
-    -   \# 2: (a) $p(x)=\binom{7}{x}(.5)^7$ for $x=0,1,2,\ldots,7$
 
-    -   \# 9: (a) $c = \frac{1}{8}$
+## (a)
 
-    -   \# 10:
+> Conduct the overall regression F test for the model where $Y$ is regressed on $X_1, X_2$, and $X_3$. Use alpha = 0.05. Interpret your result.
 
-        ::: center
-        |  $x$   |  2   |  4  |  6   |  8   |
-        |:------:|:----:|:---:|:----:|:----:|
-        | $p(x)$ | 3/10 | 1/2 | 3/20 | 1/20 |
-        :::
+
+
+## (b)
+
+> Provide variables-added-in-order tests for the order $X_2, X_1$, and $X_3$.
+
+<font color="green">This means that there are 3 tests: (1) test model with just $X_2$, (2) test adding $X_1$ to the model given that $X_2$ is already in the model, and (3) test adding $X_3$ to the model given that $X_2, X_1$ are already in the model. See the subsections below to divide up the work.</font>
+
+
+### Test model with just $X_2$
+
+
+### Adding $X_1$ to the model given that $X_2$ is already in the model
+
+
+### Adding $X_3$ to the model given that $X_2, X_1$ are already in the model
+
+
+
+
+
+
+## (e)
+
+> Provide variables-added-last tests for $X_1, X_2$, and $X_3$.
+
+<font color="green">This means that there are 3 tests: (1) test adding $X_1$ to the model given that $X_2, X_3$ are already in the model, (2) test adding $X_2$ to the model given that $X_1, X_3$ are already in the model, and (3) test adding $X_3$ to the model given that $X_1, X_2$ are already in the model. See the subsections below to divide up the work. </font>
+
+* For adding $X_2$ and $X_3$ last to the model, you do not need to calculate the test statistic using the formula or the p-value directly using its probability distribution. You can instead run the appropriate tests in R.
+
+### Adding $X_1$ to the model given that $X_2, X_3$ are already in the model
+
+
+### Adding $X_2$ to the model given that $X_1, X_3$ are already in the model
+
+
+### Adding $X_3$ to the model given that $X_1, X_2$ are already in the model
+
+
+
+
+## (f)
+
+> Provide the variables-added-last test for $X_4 = X_2 X_3$ given that $X_2$ and $X_3$ are already in the model. Does $X_4$ significantly improve the prediction of $Y$ given that $X_2$ and $X_3$ are already in the model?
+
+# Chapter 10 - not a book problem
+
+<font color="green">Use the data from Chapter 9 Problem 5 to answer the questions below.</font>
+
+> An experiment was conducted regarding a quantitative analysis of factors found in high-density lipoprotein (HDL) in a sample of human blood serum. Three variables thought to be predictive of, or associated with, HDL measurement (Y) were the total cholesterol (X1) and total triglyceride (X2) concentrations in the sample, plus the presence or absence of a certain sticky component of the serum called sinking pre-beta or SPB (X3), coded as 0 if absent and 1 if present. The data obtained are shown in the following table.
+
+## (a) 
+
+<font color="green">Calculate the coefficient of determination $r^2_{Y|X1,X2,X3}$ and interpret this value in the context of the problem. Do the calculation using the formula and then check your answer with R. In particular, where in the R output do we find this value?</font>
+
+
+## (b) 
+
+<font color="green">Calculate the partial coefficient of determination $r^2_{YX1|X2}$ and interpret this value in the context of the problem. Do the calculation using the formula and then check your answer with R.</font>
+
+## (c)
+
+<font color="green">Use $r^2_{YX1|X2}$ to calculate $r_{YX1|X2}$ and interpret this value in the context of the problem. Check your answer with R.</font>
+
+## (d)
+
+<font color="green">Explain how the interpretations of $r^2_{YX1|X2}$ and $r_{YX1|X2}$. In particular, what information do each of these values tell us that the other does not?</font>
+
+## (e)
+
+<font color="green">Calculate the partial coefficient of determination $r^2_{YX1|X2X3}$ and interpret this value in the context of the problem. Do the calculation using the formula and then check your answer with R.</font>
+
+## (f)
+
+<font color="green">Use $r^2_{YX1|X2X3}$ to calculate $r_{YX1|X2X3}$ and interpret this value in the context of the problem. Check your answer with R.</font>
+
+## (g)
+
+<font color="green">Use your answers to parts (b, c, e, f), to discuss the change in the first-order partial correlation to the second-order partial correlation.</font>
+
+# Regression with one categorical predictor (Prequel to Ch 11 & 12)
+
+## Penguins: Flipper length vs. species
+
+For this problem we will be using the `penguins` dataset from the `palmerpenguins` R package. 
+
+Description from help file:
+
+> Includes measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex. 
+
+More info about the data are at https://allisonhorst.github.io/palmerpenguins/. 
+
+```{r}
+# first install the palmerpenguins package
+# install.packages("palmerpenguins")
+library(palmerpenguins)
+data(penguins)
+
+# run the command below to learn more about the variables in the penguins dataset
+# ?penguins
+```
+
+
+### (1) Outcome averages stratified by category levels
+
+__<font color="green">Calculate the average flipper lengths stratified by each of the penguin species.</font>__
+
+
+
+### (2) Visualize the "regression"
+
+__<font color="green">Make a scatterplot of flipper lengths by species, and include diamond-shape points for the averages of the flipper lengths for each of the species.</font>__
+
+
+
+### (3) Regression equations
+
+Before running the regression in R, we are going to find the regression equation"manually."
+
+__<font color="green">Write out the regression equation using LaTeX math markup (see class notes) that models the flipper length by penguin species. Do not yet insert values for the regression coefficients, i.e. us the generic coefficients</font>__ $\widehat{\beta}_0, \widehat{\beta}_1,$ __<font color="green">etc. Use Adelie as the reference level.</font>__
+
+
+### (4) Interpret coefficients
+
+__<font color="green">How do we interpret each of the regression coefficients for this model?</font>__   _Write out a separate interpretation for each of the coefficients._
+
+### (5) Regression coefficients "manually"
+
+__<font color="green">"Manually" calculate the values for each of the coefficients, and update the regression model with the values inserted.</font>__  
+_You must show your work for this. Do not run the linear model in this step to get the values._
+
+### (6) Regression table with `lm()` function
+
+__<font color="green">Run the linear regression of flipper lengths vs. species in R, and display the regression table output. Which species did R choose as the reference level, and how did you determine this?</font>__
+
+### (7) Mean calculation using regression output
+
+__<font color="green">Calculate the mean flipper length of penguins in the Chinstrap and Gentoo species using *only* the results from the regression table.</font>__ _You must show your work._
+
+
+# ----------------------------------
+
+# Recommended extra problems do not turn in (will be not graded)
+
+Below are some problems I _highly_ recommend working on. They will not be graded and you do not need to turn them in.
+
+
+## Problem 9.7 (c)
+
+<font color="green">Do this problem after completing 9.7 (b) above</font>
+
+> Provide variables-added-in-order tests for the order $X_3, X_1$, and $X_2$.
+
+
+<font color="green">This means that there are 3 tests: (1) test model with just $X_3$, (2) test adding $X_1$ to the model given that $X_3$ is already in the model, and (3) test adding $X_2$ to the model given that $X_3, X_1$ are already in the model. See the subsections below to divide up the work.</font>
+
+### Test model with just $X_3$
+
+
+
+### Adding $X_1$ to the model given that $X_3$ is already in the model
+
+
+### Adding $X_2$ to the model given that $X_3, X_1$ are already in the model
+
+## Chapter 10 (c) using the formula
+
+Do this after completing Chapter 10 (c) above. 
+
+<font color="green">Calculate $r_{YX1|X2}$ using the formula and check that your answer matches that of Chapter 10 (c) above.</font>
+
+
+
+## Regression with one categorical predictor (Prequel to Ch 11 & 12): Change the reference level to Gentoo
+
+After completing exercises (1) - (7) in the section _Regression with one categorical predictor (Prequel to Ch 11 & 12)_, do the problems below. 
+
+
+### (8)
+
+__<font color="green">Write out the regression equation using LaTeX math markup (see class notes) that models the flipper length by penguin species. Do not yet insert values for the regression coefficients, i.e. us the generic coefficients</font>__ $\widehat{\beta}_0, \widehat{\beta}_1,$ __<font color="green">etc. Use Gentoo as the reference level.</font>__
+
+
+### (9)
+
+__<font color="green">How do we interpret each of the regression coefficients for this model?</font>__ _Write out a separate interpretation for each of the coefficients._
+
+### (10)
+
+__<font color="green">"Manually" calculate the values for each of the coefficients, and update the regression model with the values inserted.</font>__  _You must show your work for this. Do not run the linear model in this step to get the values._
+
+
+

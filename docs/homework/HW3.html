@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2023-10-19">
 <meta name="description" content="Due: Thursday October 19, 2023 at 11pm">
 
-<title>Introduction to Probability - Homework 3</title>
+<title>Linear Models - Homework 3</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -78,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
     <img src="../images/bsta_550_hex_3.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Introduction to Probability</span>
+    <span class="navbar-title">Linear Models</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -96,12 +130,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../class_slides.html" rel="" target="">
- <span class="menu-text">Slides</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../homeworks.html" rel="" target="">
  <span class="menu-text">Homework</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../project.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
   </li>  
 </ul>
             <div class="quarto-navbar-tools">
@@ -180,8 +214,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../class_slides.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Class Slides</span></a>
+  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weekly Pages</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -190,94 +224,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Homework</span></a>
   </div>
 </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../schedule.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Weekly Pages</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Weeks</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week_01_sched.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 1</span></a>
+  <a href="../project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week_02_sched.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 2</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week_03_sched.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 3</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week_04_sched.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 4</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week_05_sched.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 5</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week_06_sched.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 6</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week_07_sched.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 7</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week_08_sched.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 8</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week_09_sched.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 9</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week_10_sched.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 10</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week_11_sched.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 11</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-      </ul>
-  </li>
       </ul>
   </li>
     </ul>
@@ -291,8 +243,69 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#directions" id="toc-directions" class="nav-link active" data-scroll-target="#directions">Directions</a></li>
-  <li><a href="#non-textbook-problems-ntb" id="toc-non-textbook-problems-ntb" class="nav-link" data-scroll-target="#non-textbook-problems-ntb">Non-textbook problems (NTB)</a></li>
-  <li><a href="#some-select-answers" id="toc-some-select-answers" class="nav-link" data-scroll-target="#some-select-answers">Some select answers</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">——————-</a></li>
+  <li><a href="#problems-to-turn-in-more-directions" id="toc-problems-to-turn-in-more-directions" class="nav-link" data-scroll-target="#problems-to-turn-in-more-directions">Problems to turn in &amp; more directions</a>
+  <ul class="collapse">
+  <li><a href="#directions---important" id="toc-directions---important" class="nav-link" data-scroll-target="#directions---important">Directions - important!!!</a></li>
+  <li><a href="#tips" id="toc-tips" class="nav-link" data-scroll-target="#tips">Tips</a></li>
+  </ul></li>
+  <li><a href="#problem-9.7-a-b-e-f-from-book" id="toc-problem-9.7-a-b-e-f-from-book" class="nav-link" data-scroll-target="#problem-9.7-a-b-e-f-from-book">Problem 9.7 (a, b, e, f) from book</a>
+  <ul class="collapse">
+  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">(a)</a></li>
+  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">(b)</a>
+  <ul class="collapse">
+  <li><a href="#test-model-with-just-x_2" id="toc-test-model-with-just-x_2" class="nav-link" data-scroll-target="#test-model-with-just-x_2">Test model with just <span class="math inline">\(X_2\)</span></a></li>
+  <li><a href="#adding-x_1-to-the-model-given-that-x_2-is-already-in-the-model" id="toc-adding-x_1-to-the-model-given-that-x_2-is-already-in-the-model" class="nav-link" data-scroll-target="#adding-x_1-to-the-model-given-that-x_2-is-already-in-the-model">Adding <span class="math inline">\(X_1\)</span> to the model given that <span class="math inline">\(X_2\)</span> is already in the model</a></li>
+  <li><a href="#adding-x_3-to-the-model-given-that-x_2-x_1-are-already-in-the-model" id="toc-adding-x_3-to-the-model-given-that-x_2-x_1-are-already-in-the-model" class="nav-link" data-scroll-target="#adding-x_3-to-the-model-given-that-x_2-x_1-are-already-in-the-model">Adding <span class="math inline">\(X_3\)</span> to the model given that <span class="math inline">\(X_2, X_1\)</span> are already in the model</a></li>
+  </ul></li>
+  <li><a href="#e" id="toc-e" class="nav-link" data-scroll-target="#e">(e)</a>
+  <ul class="collapse">
+  <li><a href="#adding-x_1-to-the-model-given-that-x_2-x_3-are-already-in-the-model" id="toc-adding-x_1-to-the-model-given-that-x_2-x_3-are-already-in-the-model" class="nav-link" data-scroll-target="#adding-x_1-to-the-model-given-that-x_2-x_3-are-already-in-the-model">Adding <span class="math inline">\(X_1\)</span> to the model given that <span class="math inline">\(X_2, X_3\)</span> are already in the model</a></li>
+  <li><a href="#adding-x_2-to-the-model-given-that-x_1-x_3-are-already-in-the-model" id="toc-adding-x_2-to-the-model-given-that-x_1-x_3-are-already-in-the-model" class="nav-link" data-scroll-target="#adding-x_2-to-the-model-given-that-x_1-x_3-are-already-in-the-model">Adding <span class="math inline">\(X_2\)</span> to the model given that <span class="math inline">\(X_1, X_3\)</span> are already in the model</a></li>
+  <li><a href="#adding-x_3-to-the-model-given-that-x_1-x_2-are-already-in-the-model" id="toc-adding-x_3-to-the-model-given-that-x_1-x_2-are-already-in-the-model" class="nav-link" data-scroll-target="#adding-x_3-to-the-model-given-that-x_1-x_2-are-already-in-the-model">Adding <span class="math inline">\(X_3\)</span> to the model given that <span class="math inline">\(X_1, X_2\)</span> are already in the model</a></li>
+  </ul></li>
+  <li><a href="#f" id="toc-f" class="nav-link" data-scroll-target="#f">(f)</a></li>
+  </ul></li>
+  <li><a href="#chapter-10---not-a-book-problem" id="toc-chapter-10---not-a-book-problem" class="nav-link" data-scroll-target="#chapter-10---not-a-book-problem">Chapter 10 - not a book problem</a>
+  <ul class="collapse">
+  <li><a href="#a-1" id="toc-a-1" class="nav-link" data-scroll-target="#a-1">(a)</a></li>
+  <li><a href="#b-1" id="toc-b-1" class="nav-link" data-scroll-target="#b-1">(b)</a></li>
+  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">(c)</a></li>
+  <li><a href="#d" id="toc-d" class="nav-link" data-scroll-target="#d">(d)</a></li>
+  <li><a href="#e-1" id="toc-e-1" class="nav-link" data-scroll-target="#e-1">(e)</a></li>
+  <li><a href="#f-1" id="toc-f-1" class="nav-link" data-scroll-target="#f-1">(f)</a></li>
+  <li><a href="#g" id="toc-g" class="nav-link" data-scroll-target="#g">(g)</a></li>
+  </ul></li>
+  <li><a href="#regression-with-one-categorical-predictor-prequel-to-ch-11-12" id="toc-regression-with-one-categorical-predictor-prequel-to-ch-11-12" class="nav-link" data-scroll-target="#regression-with-one-categorical-predictor-prequel-to-ch-11-12">Regression with one categorical predictor (Prequel to Ch 11 &amp; 12)</a>
+  <ul class="collapse">
+  <li><a href="#penguins-flipper-length-vs.-species" id="toc-penguins-flipper-length-vs.-species" class="nav-link" data-scroll-target="#penguins-flipper-length-vs.-species">Penguins: Flipper length vs.&nbsp;species</a>
+  <ul class="collapse">
+  <li><a href="#outcome-averages-stratified-by-category-levels" id="toc-outcome-averages-stratified-by-category-levels" class="nav-link" data-scroll-target="#outcome-averages-stratified-by-category-levels">(1) Outcome averages stratified by category levels</a></li>
+  <li><a href="#visualize-the-regression" id="toc-visualize-the-regression" class="nav-link" data-scroll-target="#visualize-the-regression">(2) Visualize the “regression”</a></li>
+  <li><a href="#regression-equations" id="toc-regression-equations" class="nav-link" data-scroll-target="#regression-equations">(3) Regression equations</a></li>
+  <li><a href="#interpret-coefficients" id="toc-interpret-coefficients" class="nav-link" data-scroll-target="#interpret-coefficients">(4) Interpret coefficients</a></li>
+  <li><a href="#regression-coefficients-manually" id="toc-regression-coefficients-manually" class="nav-link" data-scroll-target="#regression-coefficients-manually">(5) Regression coefficients “manually”</a></li>
+  <li><a href="#regression-table-with-lm-function" id="toc-regression-table-with-lm-function" class="nav-link" data-scroll-target="#regression-table-with-lm-function">(6) Regression table with <code>lm()</code> function</a></li>
+  <li><a href="#mean-calculation-using-regression-output" id="toc-mean-calculation-using-regression-output" class="nav-link" data-scroll-target="#mean-calculation-using-regression-output">(7) Mean calculation using regression output</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">———————————-</a></li>
+  <li><a href="#recommended-extra-problems-do-not-turn-in-will-be-not-graded" id="toc-recommended-extra-problems-do-not-turn-in-will-be-not-graded" class="nav-link" data-scroll-target="#recommended-extra-problems-do-not-turn-in-will-be-not-graded">Recommended extra problems do not turn in (will be not graded)</a>
+  <ul class="collapse">
+  <li><a href="#problem-9.7-c" id="toc-problem-9.7-c" class="nav-link" data-scroll-target="#problem-9.7-c">Problem 9.7 (c)</a>
+  <ul class="collapse">
+  <li><a href="#test-model-with-just-x_3" id="toc-test-model-with-just-x_3" class="nav-link" data-scroll-target="#test-model-with-just-x_3">Test model with just <span class="math inline">\(X_3\)</span></a></li>
+  <li><a href="#adding-x_1-to-the-model-given-that-x_3-is-already-in-the-model" id="toc-adding-x_1-to-the-model-given-that-x_3-is-already-in-the-model" class="nav-link" data-scroll-target="#adding-x_1-to-the-model-given-that-x_3-is-already-in-the-model">Adding <span class="math inline">\(X_1\)</span> to the model given that <span class="math inline">\(X_3\)</span> is already in the model</a></li>
+  <li><a href="#adding-x_2-to-the-model-given-that-x_3-x_1-are-already-in-the-model" id="toc-adding-x_2-to-the-model-given-that-x_3-x_1-are-already-in-the-model" class="nav-link" data-scroll-target="#adding-x_2-to-the-model-given-that-x_3-x_1-are-already-in-the-model">Adding <span class="math inline">\(X_2\)</span> to the model given that <span class="math inline">\(X_3, X_1\)</span> are already in the model</a></li>
+  </ul></li>
+  <li><a href="#chapter-10-c-using-the-formula" id="toc-chapter-10-c-using-the-formula" class="nav-link" data-scroll-target="#chapter-10-c-using-the-formula">Chapter 10 (c) using the formula</a></li>
+  <li><a href="#regression-with-one-categorical-predictor-prequel-to-ch-11-12-change-the-reference-level-to-gentoo" id="toc-regression-with-one-categorical-predictor-prequel-to-ch-11-12-change-the-reference-level-to-gentoo" class="nav-link" data-scroll-target="#regression-with-one-categorical-predictor-prequel-to-ch-11-12-change-the-reference-level-to-gentoo">Regression with one categorical predictor (Prequel to Ch 11 &amp; 12): Change the reference level to Gentoo</a>
+  <ul class="collapse">
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">(8)</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">(9)</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">(10)</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="HW3.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -336,99 +349,243 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="directions" class="level2">
 <h2 class="anchored" data-anchor-id="directions">Directions</h2>
-<p><a href="https://sakai.ohsu.edu/portal/site/BSTA-550-1-12619-F23/tool/085b18e7-8118-4a51-ace5-0255aa46136e">Please turn in this homework on Sakai.</a> Please submit your homework in pdf format. You can type your work on your computer or submit a photo of your written work or any other method that can be turned into a pdf. Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.</p>
-<p><strong>Try to complete all of the problems listed below at some point this quarter! You may want to save some of them for studying later!</strong> Only turn in the ones listed in the “Turn In” column. Please submit problems in the order they are listed.</p>
-<p>The more work you include that shows your thought process, the more I can give you feedback.</p>
-<div class="center">
-<table class="table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Chapter</th>
-<th style="text-align: center;">Turn In</th>
-<th style="text-align: center;">Extra Problems</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td style="text-align: center;">TB # 17, NTB # 1</td>
-<td style="text-align: center;"># 1, 9, 11</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">7</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"># 2, 10, 16, 17, 18</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">8</td>
-<td style="text-align: center;">TB # 8*, 18*</td>
-<td style="text-align: center;"># 2, 5, 7, 10</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>* In addition to the graphs, include piecewise defined functions for the pmf and cdf.</p>
-<p>** Break up your solution to Chapter 9 #8 into the following 5 parts:</p>
-<ol type="1">
-<li><p>Make a table of the joint probabilities for <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p></li>
-<li><p>Using the table in the previous part, write down the piecewise-defined equation for <span class="math inline">\(p_{X,Y}(x,y)\)</span>. There should be only 3 pieces (cases) for <span class="math inline">\(p_{X,Y}(x,y)\)</span>.</p></li>
-<li><p>Express <span class="math inline">\(p_Y(y)\)</span> as a formula (i.e.&nbsp;a function in terms of <span class="math inline">\(y\)</span>).</p></li>
-<li><p>Find the conditional pmf <span class="math inline">\(p_{X|Y}(x|y)\)</span> and express your answer as a piecewise-defined equation. There should be only 3 pieces (cases) for <span class="math inline">\(p_{X|Y}(x|y)\)</span>.</p></li>
-<li><p>Make a table of the joint cdf <span class="math inline">\(F_{X,Y}(x,y)\)</span> values.</p></li>
-</ol>
-</section>
-<section id="non-textbook-problems-ntb" class="level2">
-<h2 class="anchored" data-anchor-id="non-textbook-problems-ntb">Non-textbook problems (NTB)</h2>
-<ol type="1">
-<li>A new drug is packaged to contain 30 pills in a bottle. Suppose that 98% of all bottles contain no defective pills, 1.5% contain one defective pill, and 0.5% contain two defective pills. Two pills from a bottle are randomly selected and tested. What is the probability that there are 2 defective pills in the bottle given that one of the two tested pills is defective?</li>
-</ol>
-</section>
-<section id="some-select-answers" class="level2">
-<h2 class="anchored" data-anchor-id="some-select-answers">Some select answers</h2>
-<p>Selected answers (or hints) not provided at the end the book:</p>
 <ul>
-<li><p>Chapter 5</p>
+<li><p>Please upload your homework to Sakai. <strong>Upload both your .Rmd code file and the knitted .html file</strong>.</p></li>
+<li><p>For each question, make sure to include all code and resulting output in the html file to support your answers.</p></li>
+<li><p>Show the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the knitted html file.</p></li>
+<li><p>Write all answers in complete sentences as if communicating the results to a collaborator.</p>
 <ul>
-<li>NTB #1: 0.392</li>
-</ul></li>
-<li><p>Chapter 7</p>
-<ul>
-<li><p># 2: <span class="math inline">\(X\in(0,\infty)\)</span>, continuous; <span class="math inline">\(Y\in\{0,1,2,\ldots\}\)</span>, discrete</p></li>
-<li><p># 10: <span class="math inline">\(X_j\in[0,\infty),j=1,\ldots,100\)</span>; <span class="math inline">\(Y\in[0,\infty)\)</span>; both continuous</p></li>
-<li><p># 16: <span class="math inline">\(Y\)</span> could be 0</p></li>
-<li><p># 18: Yes, a r.v. can be both. Give an example!</p></li>
-</ul></li>
-<li><p>Chapter 8</p>
-<ul>
-<li><p># 2: (a) <span class="math inline">\(p(x)=\binom{7}{x}(.5)^7\)</span> for <span class="math inline">\(x=0,1,2,\ldots,7\)</span></p></li>
-<li><p># 9: (a) <span class="math inline">\(c = \frac{1}{8}\)</span></p></li>
-<li><p># 10:</p>
-<div class="center">
-<table class="table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: center;">2</th>
-<th style="text-align: center;">4</th>
-<th style="text-align: center;">6</th>
-<th style="text-align: center;">8</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(p(x)\)</span></td>
-<td style="text-align: center;">3/10</td>
-<td style="text-align: center;">1/2</td>
-<td style="text-align: center;">3/20</td>
-<td style="text-align: center;">1/20</td>
-</tr>
-</tbody>
-</table>
-</div></li>
+<li>Points (usually 0.5-1) will be deducted for not including a sentence summarizing results in the context of the research study.</li>
+<li>Questions not requiring a sentence are from the last section “Regression with one categorical predictor” #2, 3, 5, 7.</li>
 </ul></li>
 </ul>
+<blockquote class="blockquote">
+<p>Tip: It is a good idea to try kitting your document from time to time as you go along! Note that knitting automatically saves your Rmd file and knitting frequently helps you catch your errors more quickly.</p>
+</blockquote>
+</section>
+<section id="section" class="level1">
+<h1>——————-</h1>
+</section>
+<section id="problems-to-turn-in-more-directions" class="level1">
+<h1>Problems to turn in &amp; more directions</h1>
+<section id="directions---important" class="level2">
+<h2 class="anchored" data-anchor-id="directions---important">Directions - important!!!</h2>
+<ul>
+<li>Hypothesis tests
+<ul>
+<li><font color="green">For every hypothesis test make sure to include the following:</font>
+<ul>
+<li>Null &amp; alternative hypotheses</li>
+<li>Calculation of test statistic using the formula</li>
+<li>Calculate the p-value directly using its probability distribution</li>
+<li>Running the test using R</li>
+<li>Conclusion in the context of the research problem. This includes referring to variables by what they actually are and not <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, etc.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><font color="green">See additional instructions/ clarifications in green.</font></p>
+</section>
+<section id="tips" class="level2">
+<h2 class="anchored" data-anchor-id="tips">Tips</h2>
+<ul>
+<li>You will be running <em>a lot</em> of different tests below. I highly recommend coming up with a naming convention that will easily help you keep track of what variables are being included in which models.
+<ul>
+<li>The names model1, model2, etc. will not be helpful.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="problem-9.7-a-b-e-f-from-book" class="level1">
+<h1>Problem 9.7 (a, b, e, f) from book</h1>
+<p><em>Note: (c) is in recommended problems below.</em></p>
+<blockquote class="blockquote">
+<p>Use the results from Problem 4 in Chapter 8, as well as the computer output given here, to answer the following questions about the data from that problem.</p>
+</blockquote>
+<p><font color="green">Note: Create all output you need using R instead of relying on the output given in the text.</font></p>
+<p>Problem 4 from Chapter 8:</p>
+<blockquote class="blockquote">
+<p>A sociologist investigating the recent increase in the incidence of homicide throughout the United States studied the extent to which the homicide rate per 100,000 population (<span class="math inline">\(Y\)</span>) is associated with the city’s population size (<span class="math inline">\(X_1\)</span>), the percentage of families with yearly income less than $5,000 (<span class="math inline">\(X_2\)</span>), and the rate of unemployment (<span class="math inline">\(X_3\)</span>). Data are provided in the following table for a hypothetical sample of 20 cities.</p>
+</blockquote>
+<section id="a" class="level2">
+<h2 class="anchored" data-anchor-id="a">(a)</h2>
+<blockquote class="blockquote">
+<p>Conduct the overall regression F test for the model where <span class="math inline">\(Y\)</span> is regressed on <span class="math inline">\(X_1, X_2\)</span>, and <span class="math inline">\(X_3\)</span>. Use alpha = 0.05. Interpret your result.</p>
+</blockquote>
+</section>
+<section id="b" class="level2">
+<h2 class="anchored" data-anchor-id="b">(b)</h2>
+<blockquote class="blockquote">
+<p>Provide variables-added-in-order tests for the order <span class="math inline">\(X_2, X_1\)</span>, and <span class="math inline">\(X_3\)</span>.</p>
+</blockquote>
+<p><font color="green">This means that there are 3 tests: (1) test model with just <span class="math inline">\(X_2\)</span>, (2) test adding <span class="math inline">\(X_1\)</span> to the model given that <span class="math inline">\(X_2\)</span> is already in the model, and (3) test adding <span class="math inline">\(X_3\)</span> to the model given that <span class="math inline">\(X_2, X_1\)</span> are already in the model. See the subsections below to divide up the work.</font></p>
+<section id="test-model-with-just-x_2" class="level3">
+<h3 class="anchored" data-anchor-id="test-model-with-just-x_2">Test model with just <span class="math inline">\(X_2\)</span></h3>
+</section>
+<section id="adding-x_1-to-the-model-given-that-x_2-is-already-in-the-model" class="level3">
+<h3 class="anchored" data-anchor-id="adding-x_1-to-the-model-given-that-x_2-is-already-in-the-model">Adding <span class="math inline">\(X_1\)</span> to the model given that <span class="math inline">\(X_2\)</span> is already in the model</h3>
+</section>
+<section id="adding-x_3-to-the-model-given-that-x_2-x_1-are-already-in-the-model" class="level3">
+<h3 class="anchored" data-anchor-id="adding-x_3-to-the-model-given-that-x_2-x_1-are-already-in-the-model">Adding <span class="math inline">\(X_3\)</span> to the model given that <span class="math inline">\(X_2, X_1\)</span> are already in the model</h3>
+</section>
+</section>
+<section id="e" class="level2">
+<h2 class="anchored" data-anchor-id="e">(e)</h2>
+<blockquote class="blockquote">
+<p>Provide variables-added-last tests for <span class="math inline">\(X_1, X_2\)</span>, and <span class="math inline">\(X_3\)</span>.</p>
+</blockquote>
+<p><font color="green">This means that there are 3 tests: (1) test adding <span class="math inline">\(X_1\)</span> to the model given that <span class="math inline">\(X_2, X_3\)</span> are already in the model, (2) test adding <span class="math inline">\(X_2\)</span> to the model given that <span class="math inline">\(X_1, X_3\)</span> are already in the model, and (3) test adding <span class="math inline">\(X_3\)</span> to the model given that <span class="math inline">\(X_1, X_2\)</span> are already in the model. See the subsections below to divide up the work. </font></p>
+<ul>
+<li>For adding <span class="math inline">\(X_2\)</span> and <span class="math inline">\(X_3\)</span> last to the model, you do not need to calculate the test statistic using the formula or the p-value directly using its probability distribution. You can instead run the appropriate tests in R.</li>
+</ul>
+<section id="adding-x_1-to-the-model-given-that-x_2-x_3-are-already-in-the-model" class="level3">
+<h3 class="anchored" data-anchor-id="adding-x_1-to-the-model-given-that-x_2-x_3-are-already-in-the-model">Adding <span class="math inline">\(X_1\)</span> to the model given that <span class="math inline">\(X_2, X_3\)</span> are already in the model</h3>
+</section>
+<section id="adding-x_2-to-the-model-given-that-x_1-x_3-are-already-in-the-model" class="level3">
+<h3 class="anchored" data-anchor-id="adding-x_2-to-the-model-given-that-x_1-x_3-are-already-in-the-model">Adding <span class="math inline">\(X_2\)</span> to the model given that <span class="math inline">\(X_1, X_3\)</span> are already in the model</h3>
+</section>
+<section id="adding-x_3-to-the-model-given-that-x_1-x_2-are-already-in-the-model" class="level3">
+<h3 class="anchored" data-anchor-id="adding-x_3-to-the-model-given-that-x_1-x_2-are-already-in-the-model">Adding <span class="math inline">\(X_3\)</span> to the model given that <span class="math inline">\(X_1, X_2\)</span> are already in the model</h3>
+</section>
+</section>
+<section id="f" class="level2">
+<h2 class="anchored" data-anchor-id="f">(f)</h2>
+<blockquote class="blockquote">
+<p>Provide the variables-added-last test for <span class="math inline">\(X_4 = X_2 X_3\)</span> given that <span class="math inline">\(X_2\)</span> and <span class="math inline">\(X_3\)</span> are already in the model. Does <span class="math inline">\(X_4\)</span> significantly improve the prediction of <span class="math inline">\(Y\)</span> given that <span class="math inline">\(X_2\)</span> and <span class="math inline">\(X_3\)</span> are already in the model?</p>
+</blockquote>
+</section>
+</section>
+<section id="chapter-10---not-a-book-problem" class="level1">
+<h1>Chapter 10 - not a book problem</h1>
+<p><font color="green">Use the data from Chapter 9 Problem 5 to answer the questions below.</font></p>
+<blockquote class="blockquote">
+<p>An experiment was conducted regarding a quantitative analysis of factors found in high-density lipoprotein (HDL) in a sample of human blood serum. Three variables thought to be predictive of, or associated with, HDL measurement (Y) were the total cholesterol (X1) and total triglyceride (X2) concentrations in the sample, plus the presence or absence of a certain sticky component of the serum called sinking pre-beta or SPB (X3), coded as 0 if absent and 1 if present. The data obtained are shown in the following table.</p>
+</blockquote>
+<section id="a-1" class="level2">
+<h2 class="anchored" data-anchor-id="a-1">(a)</h2>
+<p><font color="green">Calculate the coefficient of determination <span class="math inline">\(r^2_{Y|X1,X2,X3}\)</span> and interpret this value in the context of the problem. Do the calculation using the formula and then check your answer with R. In particular, where in the R output do we find this value?</font></p>
+</section>
+<section id="b-1" class="level2">
+<h2 class="anchored" data-anchor-id="b-1">(b)</h2>
+<p><font color="green">Calculate the partial coefficient of determination <span class="math inline">\(r^2_{YX1|X2}\)</span> and interpret this value in the context of the problem. Do the calculation using the formula and then check your answer with R.</font></p>
+</section>
+<section id="c" class="level2">
+<h2 class="anchored" data-anchor-id="c">(c)</h2>
+<p><font color="green">Use <span class="math inline">\(r^2_{YX1|X2}\)</span> to calculate <span class="math inline">\(r_{YX1|X2}\)</span> and interpret this value in the context of the problem. Check your answer with R.</font></p>
+</section>
+<section id="d" class="level2">
+<h2 class="anchored" data-anchor-id="d">(d)</h2>
+<p><font color="green">Explain how the interpretations of <span class="math inline">\(r^2_{YX1|X2}\)</span> and <span class="math inline">\(r_{YX1|X2}\)</span>. In particular, what information do each of these values tell us that the other does not?</font></p>
+</section>
+<section id="e-1" class="level2">
+<h2 class="anchored" data-anchor-id="e-1">(e)</h2>
+<p><font color="green">Calculate the partial coefficient of determination <span class="math inline">\(r^2_{YX1|X2X3}\)</span> and interpret this value in the context of the problem. Do the calculation using the formula and then check your answer with R.</font></p>
+</section>
+<section id="f-1" class="level2">
+<h2 class="anchored" data-anchor-id="f-1">(f)</h2>
+<p><font color="green">Use <span class="math inline">\(r^2_{YX1|X2X3}\)</span> to calculate <span class="math inline">\(r_{YX1|X2X3}\)</span> and interpret this value in the context of the problem. Check your answer with R.</font></p>
+</section>
+<section id="g" class="level2">
+<h2 class="anchored" data-anchor-id="g">(g)</h2>
+<p><font color="green">Use your answers to parts (b, c, e, f), to discuss the change in the first-order partial correlation to the second-order partial correlation.</font></p>
+</section>
+</section>
+<section id="regression-with-one-categorical-predictor-prequel-to-ch-11-12" class="level1">
+<h1>Regression with one categorical predictor (Prequel to Ch 11 &amp; 12)</h1>
+<section id="penguins-flipper-length-vs.-species" class="level2">
+<h2 class="anchored" data-anchor-id="penguins-flipper-length-vs.-species">Penguins: Flipper length vs.&nbsp;species</h2>
+<p>For this problem we will be using the <code>penguins</code> dataset from the <code>palmerpenguins</code> R package.</p>
+<p>Description from help file:</p>
+<blockquote class="blockquote">
+<p>Includes measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.</p>
+</blockquote>
+<p>More info about the data are at https://allisonhorst.github.io/palmerpenguins/.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first install the palmerpenguins package</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("palmerpenguins")</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(penguins)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># run the command below to learn more about the variables in the penguins dataset</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ?penguins</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="outcome-averages-stratified-by-category-levels" class="level3">
+<h3 class="anchored" data-anchor-id="outcome-averages-stratified-by-category-levels">(1) Outcome averages stratified by category levels</h3>
+<p><strong><font color="green">Calculate the average flipper lengths stratified by each of the penguin species.</font></strong></p>
+</section>
+<section id="visualize-the-regression" class="level3">
+<h3 class="anchored" data-anchor-id="visualize-the-regression">(2) Visualize the “regression”</h3>
+<p><strong><font color="green">Make a scatterplot of flipper lengths by species, and include diamond-shape points for the averages of the flipper lengths for each of the species.</font></strong></p>
+</section>
+<section id="regression-equations" class="level3">
+<h3 class="anchored" data-anchor-id="regression-equations">(3) Regression equations</h3>
+<p>Before running the regression in R, we are going to find the regression equation”manually.”</p>
+<p><strong><font color="green">Write out the regression equation using LaTeX math markup (see class notes) that models the flipper length by penguin species. Do not yet insert values for the regression coefficients, i.e.&nbsp;us the generic coefficients</font></strong> <span class="math inline">\(\widehat{\beta}_0, \widehat{\beta}_1,\)</span> <strong><font color="green">etc. Use Adelie as the reference level.</font></strong></p>
+</section>
+<section id="interpret-coefficients" class="level3">
+<h3 class="anchored" data-anchor-id="interpret-coefficients">(4) Interpret coefficients</h3>
+<p><strong><font color="green">How do we interpret each of the regression coefficients for this model?</font></strong> <em>Write out a separate interpretation for each of the coefficients.</em></p>
+</section>
+<section id="regression-coefficients-manually" class="level3">
+<h3 class="anchored" data-anchor-id="regression-coefficients-manually">(5) Regression coefficients “manually”</h3>
+<p><strong><font color="green">“Manually” calculate the values for each of the coefficients, and update the regression model with the values inserted.</font></strong><br>
+<em>You must show your work for this. Do not run the linear model in this step to get the values.</em></p>
+</section>
+<section id="regression-table-with-lm-function" class="level3">
+<h3 class="anchored" data-anchor-id="regression-table-with-lm-function">(6) Regression table with <code>lm()</code> function</h3>
+<p><strong><font color="green">Run the linear regression of flipper lengths vs.&nbsp;species in R, and display the regression table output. Which species did R choose as the reference level, and how did you determine this?</font></strong></p>
+</section>
+<section id="mean-calculation-using-regression-output" class="level3">
+<h3 class="anchored" data-anchor-id="mean-calculation-using-regression-output">(7) Mean calculation using regression output</h3>
+<p><strong><font color="green">Calculate the mean flipper length of penguins in the Chinstrap and Gentoo species using <em>only</em> the results from the regression table.</font></strong> <em>You must show your work.</em></p>
+</section>
+</section>
+</section>
+<section id="section-1" class="level1">
+<h1>———————————-</h1>
+</section>
+<section id="recommended-extra-problems-do-not-turn-in-will-be-not-graded" class="level1">
+<h1>Recommended extra problems do not turn in (will be not graded)</h1>
+<p>Below are some problems I <em>highly</em> recommend working on. They will not be graded and you do not need to turn them in.</p>
+<section id="problem-9.7-c" class="level2">
+<h2 class="anchored" data-anchor-id="problem-9.7-c">Problem 9.7 (c)</h2>
+<p><font color="green">Do this problem after completing 9.7 (b) above</font></p>
+<blockquote class="blockquote">
+<p>Provide variables-added-in-order tests for the order <span class="math inline">\(X_3, X_1\)</span>, and <span class="math inline">\(X_2\)</span>.</p>
+</blockquote>
+<p><font color="green">This means that there are 3 tests: (1) test model with just <span class="math inline">\(X_3\)</span>, (2) test adding <span class="math inline">\(X_1\)</span> to the model given that <span class="math inline">\(X_3\)</span> is already in the model, and (3) test adding <span class="math inline">\(X_2\)</span> to the model given that <span class="math inline">\(X_3, X_1\)</span> are already in the model. See the subsections below to divide up the work.</font></p>
+<section id="test-model-with-just-x_3" class="level3">
+<h3 class="anchored" data-anchor-id="test-model-with-just-x_3">Test model with just <span class="math inline">\(X_3\)</span></h3>
+</section>
+<section id="adding-x_1-to-the-model-given-that-x_3-is-already-in-the-model" class="level3">
+<h3 class="anchored" data-anchor-id="adding-x_1-to-the-model-given-that-x_3-is-already-in-the-model">Adding <span class="math inline">\(X_1\)</span> to the model given that <span class="math inline">\(X_3\)</span> is already in the model</h3>
+</section>
+<section id="adding-x_2-to-the-model-given-that-x_3-x_1-are-already-in-the-model" class="level3">
+<h3 class="anchored" data-anchor-id="adding-x_2-to-the-model-given-that-x_3-x_1-are-already-in-the-model">Adding <span class="math inline">\(X_2\)</span> to the model given that <span class="math inline">\(X_3, X_1\)</span> are already in the model</h3>
+</section>
+</section>
+<section id="chapter-10-c-using-the-formula" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-10-c-using-the-formula">Chapter 10 (c) using the formula</h2>
+<p>Do this after completing Chapter 10 (c) above.</p>
+<p><font color="green">Calculate <span class="math inline">\(r_{YX1|X2}\)</span> using the formula and check that your answer matches that of Chapter 10 (c) above.</font></p>
+</section>
+<section id="regression-with-one-categorical-predictor-prequel-to-ch-11-12-change-the-reference-level-to-gentoo" class="level2">
+<h2 class="anchored" data-anchor-id="regression-with-one-categorical-predictor-prequel-to-ch-11-12-change-the-reference-level-to-gentoo">Regression with one categorical predictor (Prequel to Ch 11 &amp; 12): Change the reference level to Gentoo</h2>
+<p>After completing exercises (1) - (7) in the section <em>Regression with one categorical predictor (Prequel to Ch 11 &amp; 12)</em>, do the problems below.</p>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">(8)</h3>
+<p><strong><font color="green">Write out the regression equation using LaTeX math markup (see class notes) that models the flipper length by penguin species. Do not yet insert values for the regression coefficients, i.e.&nbsp;us the generic coefficients</font></strong> <span class="math inline">\(\widehat{\beta}_0, \widehat{\beta}_1,\)</span> <strong><font color="green">etc. Use Gentoo as the reference level.</font></strong></p>
+</section>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3">(9)</h3>
+<p><strong><font color="green">How do we interpret each of the regression coefficients for this model?</font></strong> <em>Write out a separate interpretation for each of the coefficients.</em></p>
+</section>
+<section id="section-4" class="level3">
+<h3 class="anchored" data-anchor-id="section-4">(10)</h3>
+<p><strong><font color="green">“Manually” calculate the values for each of the coefficients, and update the regression model with the values inserted.</font></strong> <em>You must show your work for this. Do not run the linear model in this step to get the values.</em></p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

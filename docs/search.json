@@ -116,7 +116,7 @@
     "href": "homework/HW5.html",
     "title": "Homework 5",
     "section": "",
-    "text": "Please turn in this homework on Sakai. Please submit your homework in pdf format. You can type your work on your computer or submit a photo of your written work or any other method that can be turned into a pdf. Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.\nTry to complete all of the problems listed below at some point this quarter! You may want to save some of them for studying later! Only turn in the ones listed in the “Turn In” column. Please submit problems in the order they are listed.\nThe more work you include that shows your thought process, the more I can give you feedback.\n\n\n\n\nChapter\nTurn In\nExtra Problems\n\n\n\n\n12\nTB # 2, NTB # 1-3\n# 1, 7, 11, 12, 15, 19, 25, 27\n\n\n13 (review)\n\n# 3, 4, 5, 6, 8, 9, 10, 17, 25\n\n\n20\n\n# 2, 3, 4\n\n\n14\n\n# 3, 7\n\n\n15\nNTB # 4\n# 1, 5, 11, 18, 23, NTB # 5\n\n\n16\nTB # 8\n# 3a-g, 11, 21\n\n\n17\nTB # 12a-c\n# 3a-g, 6, 9, 11, NTB # 6"
+    "text": "Please upload your homework to Sakai. Upload both your .Rmd code file and the knitted .html file.\nFor each question, make sure to include all code and resulting output in the html file to support your answers.\nShow the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the knitted html file.\nWrite all answers in complete sentences as if communicating the results to a collaborator.\n\nPoints (usually 0.5-1) will be deducted for not including a sentence summarizing results in the context of the research study.\nQuestions not requiring a sentence are: none - include a summary for all questions\n\n\n\nTip: It is a good idea to try kitting your document from time to time as you go along! Note that knitting automatically saves your Rmd file and knitting frequently helps you catch your errors more quickly.\n\n\n\n\nFor all hypothesis tests, include\n\nthe null and alternative hypotheses (and if applicable the regression model(s) being tested),\nR code to run the test, and\na conclusion in the context of the problem.\n\nYou do not need to run the hypothesis tests using the formula unless directed otherwise."
   },
   {
     "objectID": "homework/HW8.html",
@@ -130,7 +130,7 @@
     "href": "homework/HW2.html",
     "title": "Homework 2",
     "section": "",
-    "text": "Please turn in this homework on Sakai. Please submit your homework in pdf format. You can type your work on your computer or submit a photo of your written work or any other method that can be turned into a pdf. Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.\nTry to complete all of the problems listed below at some point this quarter! You may want to save some of them for studying later! Only turn in the ones listed in the “Turn In” column. Please submit problems in the order they are listed.\nThe more work you include that shows your thought process, the more I can give you feedback.\n\n\n\n\n\n\n\n\n\nChapter\nTurn In\nExtra Problems\n\n\n\n\n22*\nTB # 1\n# 3, 5, 7, 25, 27, 30, 31, 39-41, 43-48\n\n\n3\nTB # 10, NTB # 1\n# 4, 9, 12, 13**\n\n\n4\nTB # 5\n# 1, 4, 11, 13\n\n\n\n\nSee also the handout Conditional Probability Practice posted in Week 2 Course Materials on Sakai for more practice.\n* Please note the following for Chapter 22:\n\nSee the table on pg. 277, which summarizes some key combinatorics concepts.\nProblems 39-48 are a set that build on one another and more advanced than the other problems. It’ll be much easier to do #42 after doing 39-41.\nI highly recommend reading Chapter 23, which is a series of case studies in counting: poker hands and Yahtzee.\n\n**For #3.13, mathematically solve for the sample size instead of plugging in numbers and guessing."
+    "text": "Please upload your homework to Sakai. Upload both your .Rmd code file and the knitted .html file.\nFor each question, make sure to include all code and resulting output in the html file to support your answers.\nShow the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the knitted html file.\nWrite all answers in complete sentences as if communicating the results to a collaborator.\n\nPoints (usually 0.5-1) will be deducted for not including a sentence summarizing results in the context of the research study.\nQuestions not requiring a sentence are\n\nCh 7 # 1, 2, 5\nCh 6 # 5, 6\nCh 14 # 2, 12, 14\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nIt is a good idea to try rendering your document from time to time as you go along! Note that rendering automatically saves your qmd file and rendering frequently helps you catch your errors more quickly."
   },
   {
     "objectID": "homework/HW7.html",
@@ -697,7 +697,7 @@
     "href": "homeworks.html",
     "title": "Homework Assignments and Solutions",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nReading Time\n\n\n\n\n\n\n10/5/23\n\n\nHomework 1\n\n\n3 min\n\n\n\n\n10/12/23\n\n\nHomework 2\n\n\n5 min\n\n\n\n\n10/19/23\n\n\nHomework 3\n\n\n4 min\n\n\n\n\n10/26/23\n\n\nHomework 4\n\n\n6 min\n\n\n\n\n11/2/23\n\n\nHomework 5\n\n\n6 min\n\n\n\n\n11/16/23\n\n\nHomework 6\n\n\n8 min\n\n\n\n\n11/30/23\n\n\nHomework 7\n\n\n11 min\n\n\n\n\n1/11/24\n\n\nHomework 0\n\n\n3 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nReading Time\n\n\n\n\n\n\n10/19/23\n\n\nHomework 3\n\n\n9 min\n\n\n\n\n10/26/23\n\n\nHomework 4\n\n\n4 min\n\n\n\n\n11/2/23\n\n\nHomework 5\n\n\n5 min\n\n\n\n\n1/11/24\n\n\nHomework 0\n\n\n3 min\n\n\n\n\n1/18/24\n\n\nHomework 1\n\n\n3 min\n\n\n\n\n2/1/24\n\n\nHomework 2\n\n\n7 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "readings.html",
@@ -1404,7 +1404,7 @@
     "href": "homework/HW3.html",
     "title": "Homework 3",
     "section": "",
-    "text": "Please turn in this homework on Sakai. Please submit your homework in pdf format. You can type your work on your computer or submit a photo of your written work or any other method that can be turned into a pdf. Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.\nTry to complete all of the problems listed below at some point this quarter! You may want to save some of them for studying later! Only turn in the ones listed in the “Turn In” column. Please submit problems in the order they are listed.\nThe more work you include that shows your thought process, the more I can give you feedback.\n\n\n\n\nChapter\nTurn In\nExtra Problems\n\n\n\n\n5\nTB # 17, NTB # 1\n# 1, 9, 11\n\n\n7\n\n# 2, 10, 16, 17, 18\n\n\n8\nTB # 8*, 18*\n# 2, 5, 7, 10\n\n\n\n\n* In addition to the graphs, include piecewise defined functions for the pmf and cdf.\n** Break up your solution to Chapter 9 #8 into the following 5 parts:\n\nMake a table of the joint probabilities for \\(X\\) and \\(Y\\).\nUsing the table in the previous part, write down the piecewise-defined equation for \\(p_{X,Y}(x,y)\\). There should be only 3 pieces (cases) for \\(p_{X,Y}(x,y)\\).\nExpress \\(p_Y(y)\\) as a formula (i.e. a function in terms of \\(y\\)).\nFind the conditional pmf \\(p_{X|Y}(x|y)\\) and express your answer as a piecewise-defined equation. There should be only 3 pieces (cases) for \\(p_{X|Y}(x|y)\\).\nMake a table of the joint cdf \\(F_{X,Y}(x,y)\\) values."
+    "text": "Please upload your homework to Sakai. Upload both your .Rmd code file and the knitted .html file.\nFor each question, make sure to include all code and resulting output in the html file to support your answers.\nShow the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the knitted html file.\nWrite all answers in complete sentences as if communicating the results to a collaborator.\n\nPoints (usually 0.5-1) will be deducted for not including a sentence summarizing results in the context of the research study.\nQuestions not requiring a sentence are from the last section “Regression with one categorical predictor” #2, 3, 5, 7.\n\n\n\nTip: It is a good idea to try kitting your document from time to time as you go along! Note that knitting automatically saves your Rmd file and knitting frequently helps you catch your errors more quickly."
   },
   {
     "objectID": "homework/HW6.html",
@@ -1425,7 +1425,7 @@
     "href": "homework/HW1.html",
     "title": "Homework 1",
     "section": "",
-    "text": "Please turn in this homework on Sakai. Please submit your homework in pdf format. You can type your work on your computer or submit a photo of your written work or any other method that can be turned into a pdf. Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.\nComplete all of the problems listed below. Only turn in the ones listed in the “Turn In” column. Please submit problems in the order they are listed.\nYou must show all of your work to receive credit.\n\n\n\n\nChapter\nTurn In\nExtra Problems\n\n\n\n\n1\n\n# 3, 7, 9, 11\n\n\n2\nNTB # 1, TB # 30\n# 1, 4, 8, 16, 19, 23"
+    "text": "Please upload your homework to Sakai. Upload both your .Rmd code file and the knitted .html file.\nFor each question, make sure to include all code and resulting output in the html file to support your answers.\nShow the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the knitted html file.\nWrite all answers in complete sentences as if communicating the results to a collaborator.\n\n\n\n\n\n\n\nTip\n\n\n\nIt is a good idea to try rendering your document from time to time as you go along! Note that rendering automatically saves your qmd file and rendering frequently helps you catch your errors more quickly."
   },
   {
     "objectID": "homework/HW1.html#homework-structure",
@@ -1453,7 +1453,7 @@
     "href": "homework/HW4.html",
     "title": "Homework 4",
     "section": "",
-    "text": "Please turn in this homework on Sakai. Please submit your homework in pdf format. You can type your work on your computer or submit a photo of your written work or any other method that can be turned into a pdf. Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.\nTry to complete all of the problems listed below at some point this quarter! You may want to save some of them for studying later! Only turn in the ones listed in the “Turn In” column. Please submit problems in the order they are listed.\nThe more work you include that shows your thought process, the more I can give you feedback.\n\n\n\n\n\n\n\n\n\nChapter\nTurn In\nExtra Problems\n\n\n\n\n9\nNTB # 1, 2\n# 1, 2, 4, 8**, 9, 10\n\n\n10*\nTB # 6, 8, NTB # 3\n# 1, 10, 11, 14, 17\n\n\n11**\nTB # 20, NTB # 4, 5\n# 1, 2, 9***, 17***, 18***\n\n\n\n\n* Use Chapter 10 techniques when computing expected values for Chapter 10 problems, i.e. computing the expected value directly using the definition of \\(\\mathbb{E}[X]\\).\n** Use Chapter 11 techniques when computing expected values for Chapter 11 problems, i.e. expressing the r.v. as a sum of other r.v.’s and calculating the expected value of the sum of r.v.’s. Also, as I mentioned in class and posted on Sakai, we will be skipping the more complex examples of finding expected values using indicator r.v.’s. You can skip Examples 11.5, 11.10, and 11.11. We will not be covering these techniques.\n*** Although Chapter 11 exercises, these are to be done using Chapter 10 techniques since we aren’t covering the more complex examples of finding expected values using indicator r.v.’s."
+    "text": "Please upload your homework to Sakai. Upload both your .Rmd code file and the knitted .html file.\nFor each question, make sure to include all code and resulting output in the html file to support your answers.\nShow the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the knitted html file.\nWrite all answers in complete sentences as if communicating the results to a collaborator.\n\nPoints (usually 0.5-1) will be deducted for not including a sentence summarizing results in the context of the research study.\nQuestions not requiring a sentence are: none - include a summary for all questions\n\n\n\nTip: It is a good idea to try kitting your document from time to time as you go along! Note that knitting automatically saves your Rmd file and knitting frequently helps you catch your errors more quickly."
   },
   {
     "objectID": "readings/Calc_review.html",
@@ -1628,7 +1628,7 @@
     "href": "homeworks.html#assignments",
     "title": "Homework Assignments and Solutions",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nReading Time\n\n\n\n\n\n\n10/5/23\n\n\nHomework 1\n\n\n3 min\n\n\n\n\n10/12/23\n\n\nHomework 2\n\n\n5 min\n\n\n\n\n10/19/23\n\n\nHomework 3\n\n\n4 min\n\n\n\n\n10/26/23\n\n\nHomework 4\n\n\n6 min\n\n\n\n\n11/2/23\n\n\nHomework 5\n\n\n6 min\n\n\n\n\n11/16/23\n\n\nHomework 6\n\n\n8 min\n\n\n\n\n11/30/23\n\n\nHomework 7\n\n\n11 min\n\n\n\n\n1/11/24\n\n\nHomework 0\n\n\n3 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nReading Time\n\n\n\n\n\n\n10/19/23\n\n\nHomework 3\n\n\n9 min\n\n\n\n\n10/26/23\n\n\nHomework 4\n\n\n4 min\n\n\n\n\n11/2/23\n\n\nHomework 5\n\n\n5 min\n\n\n\n\n1/11/24\n\n\nHomework 0\n\n\n3 min\n\n\n\n\n1/18/24\n\n\nHomework 1\n\n\n3 min\n\n\n\n\n2/1/24\n\n\nHomework 2\n\n\n7 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "homeworks.html#solutions",
@@ -2902,7 +2902,7 @@
     "href": "homework/HW1.html#directions",
     "title": "Homework 1",
     "section": "",
-    "text": "Please turn in this homework on Sakai. Please submit your homework in pdf format. You can type your work on your computer or submit a photo of your written work or any other method that can be turned into a pdf. Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.\nComplete all of the problems listed below. Only turn in the ones listed in the “Turn In” column. Please submit problems in the order they are listed.\nYou must show all of your work to receive credit.\n\n\n\n\nChapter\nTurn In\nExtra Problems\n\n\n\n\n1\n\n# 3, 7, 9, 11\n\n\n2\nNTB # 1, TB # 30\n# 1, 4, 8, 16, 19, 23"
+    "text": "Please upload your homework to Sakai. Upload both your .Rmd code file and the knitted .html file.\nFor each question, make sure to include all code and resulting output in the html file to support your answers.\nShow the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the knitted html file.\nWrite all answers in complete sentences as if communicating the results to a collaborator.\n\n\n\n\n\n\n\nTip\n\n\n\nIt is a good idea to try rendering your document from time to time as you go along! Note that rendering automatically saves your qmd file and rendering frequently helps you catch your errors more quickly."
   },
   {
     "objectID": "schedule/week_01_sched.html#why-is-the-number-of-possible-events-2s",
@@ -3518,7 +3518,7 @@
     "href": "homework/HW2.html#directions",
     "title": "Homework 2",
     "section": "",
-    "text": "Please turn in this homework on Sakai. Please submit your homework in pdf format. You can type your work on your computer or submit a photo of your written work or any other method that can be turned into a pdf. Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.\nTry to complete all of the problems listed below at some point this quarter! You may want to save some of them for studying later! Only turn in the ones listed in the “Turn In” column. Please submit problems in the order they are listed.\nThe more work you include that shows your thought process, the more I can give you feedback.\n\n\n\n\n\n\n\n\n\nChapter\nTurn In\nExtra Problems\n\n\n\n\n22*\nTB # 1\n# 3, 5, 7, 25, 27, 30, 31, 39-41, 43-48\n\n\n3\nTB # 10, NTB # 1\n# 4, 9, 12, 13**\n\n\n4\nTB # 5\n# 1, 4, 11, 13\n\n\n\n\nSee also the handout Conditional Probability Practice posted in Week 2 Course Materials on Sakai for more practice.\n* Please note the following for Chapter 22:\n\nSee the table on pg. 277, which summarizes some key combinatorics concepts.\nProblems 39-48 are a set that build on one another and more advanced than the other problems. It’ll be much easier to do #42 after doing 39-41.\nI highly recommend reading Chapter 23, which is a series of case studies in counting: poker hands and Yahtzee.\n\n**For #3.13, mathematically solve for the sample size instead of plugging in numbers and guessing."
+    "text": "Please upload your homework to Sakai. Upload both your .Rmd code file and the knitted .html file.\nFor each question, make sure to include all code and resulting output in the html file to support your answers.\nShow the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the knitted html file.\nWrite all answers in complete sentences as if communicating the results to a collaborator.\n\nPoints (usually 0.5-1) will be deducted for not including a sentence summarizing results in the context of the research study.\nQuestions not requiring a sentence are\n\nCh 7 # 1, 2, 5\nCh 6 # 5, 6\nCh 14 # 2, 12, 14\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nIt is a good idea to try rendering your document from time to time as you go along! Note that rendering automatically saves your qmd file and rendering frequently helps you catch your errors more quickly."
   },
   {
     "objectID": "slides/3_IndependentEvents.html#revisiting-our-coin-toss",
@@ -4183,14 +4183,14 @@
     "href": "homework/HW4.html#directions",
     "title": "Homework 4",
     "section": "",
-    "text": "Please turn in this homework on Sakai. Please submit your homework in pdf format. You can type your work on your computer or submit a photo of your written work or any other method that can be turned into a pdf. Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.\nTry to complete all of the problems listed below at some point this quarter! You may want to save some of them for studying later! Only turn in the ones listed in the “Turn In” column. Please submit problems in the order they are listed.\nThe more work you include that shows your thought process, the more I can give you feedback.\n\n\n\n\n\n\n\n\n\nChapter\nTurn In\nExtra Problems\n\n\n\n\n9\nNTB # 1, 2\n# 1, 2, 4, 8**, 9, 10\n\n\n10*\nTB # 6, 8, NTB # 3\n# 1, 10, 11, 14, 17\n\n\n11**\nTB # 20, NTB # 4, 5\n# 1, 2, 9***, 17***, 18***\n\n\n\n\n* Use Chapter 10 techniques when computing expected values for Chapter 10 problems, i.e. computing the expected value directly using the definition of \\(\\mathbb{E}[X]\\).\n** Use Chapter 11 techniques when computing expected values for Chapter 11 problems, i.e. expressing the r.v. as a sum of other r.v.’s and calculating the expected value of the sum of r.v.’s. Also, as I mentioned in class and posted on Sakai, we will be skipping the more complex examples of finding expected values using indicator r.v.’s. You can skip Examples 11.5, 11.10, and 11.11. We will not be covering these techniques.\n*** Although Chapter 11 exercises, these are to be done using Chapter 10 techniques since we aren’t covering the more complex examples of finding expected values using indicator r.v.’s."
+    "text": "Please upload your homework to Sakai. Upload both your .Rmd code file and the knitted .html file.\nFor each question, make sure to include all code and resulting output in the html file to support your answers.\nShow the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the knitted html file.\nWrite all answers in complete sentences as if communicating the results to a collaborator.\n\nPoints (usually 0.5-1) will be deducted for not including a sentence summarizing results in the context of the research study.\nQuestions not requiring a sentence are: none - include a summary for all questions\n\n\n\nTip: It is a good idea to try kitting your document from time to time as you go along! Note that knitting automatically saves your Rmd file and knitting frequently helps you catch your errors more quickly."
   },
   {
     "objectID": "homework/HW3.html#directions",
     "href": "homework/HW3.html#directions",
     "title": "Homework 3",
     "section": "",
-    "text": "Please turn in this homework on Sakai. Please submit your homework in pdf format. You can type your work on your computer or submit a photo of your written work or any other method that can be turned into a pdf. Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.\nTry to complete all of the problems listed below at some point this quarter! You may want to save some of them for studying later! Only turn in the ones listed in the “Turn In” column. Please submit problems in the order they are listed.\nThe more work you include that shows your thought process, the more I can give you feedback.\n\n\n\n\nChapter\nTurn In\nExtra Problems\n\n\n\n\n5\nTB # 17, NTB # 1\n# 1, 9, 11\n\n\n7\n\n# 2, 10, 16, 17, 18\n\n\n8\nTB # 8*, 18*\n# 2, 5, 7, 10\n\n\n\n\n* In addition to the graphs, include piecewise defined functions for the pmf and cdf.\n** Break up your solution to Chapter 9 #8 into the following 5 parts:\n\nMake a table of the joint probabilities for \\(X\\) and \\(Y\\).\nUsing the table in the previous part, write down the piecewise-defined equation for \\(p_{X,Y}(x,y)\\). There should be only 3 pieces (cases) for \\(p_{X,Y}(x,y)\\).\nExpress \\(p_Y(y)\\) as a formula (i.e. a function in terms of \\(y\\)).\nFind the conditional pmf \\(p_{X|Y}(x|y)\\) and express your answer as a piecewise-defined equation. There should be only 3 pieces (cases) for \\(p_{X|Y}(x|y)\\).\nMake a table of the joint cdf \\(F_{X,Y}(x,y)\\) values."
+    "text": "Please upload your homework to Sakai. Upload both your .Rmd code file and the knitted .html file.\nFor each question, make sure to include all code and resulting output in the html file to support your answers.\nShow the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the knitted html file.\nWrite all answers in complete sentences as if communicating the results to a collaborator.\n\nPoints (usually 0.5-1) will be deducted for not including a sentence summarizing results in the context of the research study.\nQuestions not requiring a sentence are from the last section “Regression with one categorical predictor” #2, 3, 5, 7.\n\n\n\nTip: It is a good idea to try kitting your document from time to time as you go along! Note that knitting automatically saves your Rmd file and knitting frequently helps you catch your errors more quickly."
   },
   {
     "objectID": "homework/HW7.html#directions",
@@ -4211,7 +4211,7 @@
     "href": "homework/HW5.html#directions",
     "title": "Homework 5",
     "section": "",
-    "text": "Please turn in this homework on Sakai. Please submit your homework in pdf format. You can type your work on your computer or submit a photo of your written work or any other method that can be turned into a pdf. Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.\nTry to complete all of the problems listed below at some point this quarter! You may want to save some of them for studying later! Only turn in the ones listed in the “Turn In” column. Please submit problems in the order they are listed.\nThe more work you include that shows your thought process, the more I can give you feedback.\n\n\n\n\nChapter\nTurn In\nExtra Problems\n\n\n\n\n12\nTB # 2, NTB # 1-3\n# 1, 7, 11, 12, 15, 19, 25, 27\n\n\n13 (review)\n\n# 3, 4, 5, 6, 8, 9, 10, 17, 25\n\n\n20\n\n# 2, 3, 4\n\n\n14\n\n# 3, 7\n\n\n15\nNTB # 4\n# 1, 5, 11, 18, 23, NTB # 5\n\n\n16\nTB # 8\n# 3a-g, 11, 21\n\n\n17\nTB # 12a-c\n# 3a-g, 6, 9, 11, NTB # 6"
+    "text": "Please upload your homework to Sakai. Upload both your .Rmd code file and the knitted .html file.\nFor each question, make sure to include all code and resulting output in the html file to support your answers.\nShow the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the knitted html file.\nWrite all answers in complete sentences as if communicating the results to a collaborator.\n\nPoints (usually 0.5-1) will be deducted for not including a sentence summarizing results in the context of the research study.\nQuestions not requiring a sentence are: none - include a summary for all questions\n\n\n\nTip: It is a good idea to try kitting your document from time to time as you go along! Note that knitting automatically saves your Rmd file and knitting frequently helps you catch your errors more quickly.\n\n\n\n\nFor all hypothesis tests, include\n\nthe null and alternative hypotheses (and if applicable the regression model(s) being tested),\nR code to run the test, and\na conclusion in the context of the problem.\n\nYou do not need to run the hypothesis tests using the formula unless directed otherwise."
   },
   {
     "objectID": "slides/11_Expected_Values_of_Sums_of_rvs.html#revisiting-our-two-card-draw",
@@ -5184,7 +5184,7 @@
     "href": "project.html#report",
     "title": "Project Central",
     "section": "Report",
-    "text": "Report\nDue 3/21/2024"
+    "text": "Report\nReport Instructions\nDue 3/21/2024"
   },
   {
     "objectID": "labs/Lab_01.html",
@@ -5199,5 +5199,649 @@
     "title": "Lab 1",
     "section": "",
     "text": "This homework is meant to introduce yourself to me and your peers. In the first class, we will all briefly introduce ourselves, but we don’t have enough time in-depth introductions. Thus, I’d like you to share some information with the class over Slack."
+  },
+  {
+    "objectID": "homework/HW1.html#section",
+    "href": "homework/HW1.html#section",
+    "title": "Homework 1",
+    "section": "5.1",
+    "text": "5.1\n\nLoad the dataset using the readxl package.\n\nThis readxl package was installed as a part of the tidyverse, however it does not get loaded when you load the tidyverse package and thus you need to do that separately.\nUse the command read_excel(), as shown below\n\n\n\nlibrary(readxl)\n# you might need to update the location of the data file\n# you can choose whatever name you like for the tibble when loading it into R's workspace \nch05q01 &lt;- read_excel(\"data/CH05Q01.xls\")\n\n\n(a)\nAdditional instructions: Create the scatterplots in R using ggplot, in addition to describing the relationships in the book’s instructions.\n\n\n(b)\nNote: This is asking for the regression models BEFORE you find the values of the coefficients.\n\n\n(c)\nNote: Now get the regression coefficients using R and plug them into the regression models from (b). You can get the coefficients from the R output - you don’t have to use the formulas.\n\n\n(d)\nNote: Instead of sketching the lines, create them using ggplot.\n\n\n(e)\nNote: You can get the CI’s from the R output - you don’t have to use the formulas.\n\n\n(f)\nNote: Instead of sketching, make the figure using ggplot. Get the asked for CI using R instead of estimating it based on the sketch."
+  },
+  {
+    "objectID": "homework/HW1.html#section-1",
+    "href": "homework/HW1.html#section-1",
+    "title": "Homework 1",
+    "section": "3.5",
+    "text": "3.5"
+  },
+  {
+    "objectID": "homework/HW1.html#section-2",
+    "href": "homework/HW1.html#section-2",
+    "title": "Homework 1",
+    "section": "3.10",
+    "text": "3.10"
+  },
+  {
+    "objectID": "homework/HW1.html#section-3",
+    "href": "homework/HW1.html#section-3",
+    "title": "Homework 1",
+    "section": "3.11",
+    "text": "3.11"
+  },
+  {
+    "objectID": "homework/HW1.html#section-4",
+    "href": "homework/HW1.html#section-4",
+    "title": "Homework 1",
+    "section": "3.13",
+    "text": "3.13"
+  },
+  {
+    "objectID": "homework/HW1.html#section-5",
+    "href": "homework/HW1.html#section-5",
+    "title": "Homework 1",
+    "section": "3.14",
+    "text": "3.14"
+  },
+  {
+    "objectID": "homework/HW1.html#section-6",
+    "href": "homework/HW1.html#section-6",
+    "title": "Homework 1",
+    "section": "3.15",
+    "text": "3.15\nAdditional instructions: Do the problem with both the p-value and critical value approaches."
+  },
+  {
+    "objectID": "homework/HW1.html#section-7",
+    "href": "homework/HW1.html#section-7",
+    "title": "Homework 1",
+    "section": "3.16",
+    "text": "3.16\nAdditional instructions: You do not need to use the formula to do this problem. You can run it in R using the given data.\n\ngrp1 &lt;- c(132, 145, 124, 122, 165, 144, 151)\ngrp2 &lt;- c(141, 139, 172, 131, 150, 125)"
+  },
+  {
+    "objectID": "homework/HW1.html#section-8",
+    "href": "homework/HW1.html#section-8",
+    "title": "Homework 1",
+    "section": "3.17",
+    "text": "3.17"
+  },
+  {
+    "objectID": "homework/HW1.html#section-9",
+    "href": "homework/HW1.html#section-9",
+    "title": "Homework 1",
+    "section": "3.20",
+    "text": "3.20"
+  },
+  {
+    "objectID": "homework/HW1.html#section-10",
+    "href": "homework/HW1.html#section-10",
+    "title": "Homework 1",
+    "section": "3.21",
+    "text": "3.21"
+  },
+  {
+    "objectID": "homework/HW1.html#section-11",
+    "href": "homework/HW1.html#section-11",
+    "title": "Homework 1",
+    "section": "3.22",
+    "text": "3.22"
+  },
+  {
+    "objectID": "homework/HW1.html#section-12",
+    "href": "homework/HW1.html#section-12",
+    "title": "Homework 1",
+    "section": "3.23",
+    "text": "3.23"
+  },
+  {
+    "objectID": "homework/HW1.html#section-13",
+    "href": "homework/HW1.html#section-13",
+    "title": "Homework 1",
+    "section": "3.25",
+    "text": "3.25"
+  },
+  {
+    "objectID": "homework/HW1.html#section-14",
+    "href": "homework/HW1.html#section-14",
+    "title": "Homework 1",
+    "section": "5.1",
+    "text": "5.1\n\nLoad the dataset using the readxl package.\n\nThis readxl package was installed as a part of the tidyverse, however it does not get loaded when you load the tidyverse package and thus you need to do that separately.\nUse the command read_excel(), as shown below\n\n\n\nlibrary(readxl)\n# you might need to update the location of the data file\n# you can choose whatever name you like for the tibble when loading it into R's workspace \nch05q01 &lt;- read_excel(\"data/CH05Q01.xls\")\n\n\n(a)\nAdditional instructions: Create the scatterplots in R using ggplot, in addition to describing the relationships in the book’s instructions.\n\n\n(b)\nNote: This is asking for the regression models BEFORE you find the values of the coefficients.\n\n\n(c)\nNote: Now get the regression coefficients using R and plug them into the regression models from (b). You can get the coefficients from the R output - you don’t have to use the formulas.\n\n\n(d)\nNote: Instead of sketching the lines, create them using ggplot.\n\n\n(e)\nNote: You can get the CI’s from the R output - you don’t have to use the formulas.\n\n\n(f)\nNote: Instead of sketching, make the figure using ggplot. Get the asked for CI using R instead of estimating it based on the sketch."
+  },
+  {
+    "objectID": "homework/HW1.html#a---g",
+    "href": "homework/HW1.html#a---g",
+    "title": "Homework 1",
+    "section": "5.4 (a - g)",
+    "text": "5.4 (a - g)\n\nch05q04 &lt;- read_excel(\"data/CH05Q04.xls\")\n\n\n(a)\nAdditional instructions: Run the model to get the regression coefficients and create a scatterplot with the regression line using ggplot.\n\n\n(b)\n\n\n(c)\nAdditional instructions: Calculate the CI using the formula. The problem gives the values for \\(S_{Y|X}\\) and \\(S_X\\). Verify these values using R.\n\n\n(d)\n\n\n(e)\nAdditional instructions: Create a new dataset without the outlier. Verify the regression coefficients using R and create a new scatterplot with regression line for the dataset without the outlier. Then “decide whether this outlier has any effect on your estimate of the IQ–DI relationship.”\n\n\n(f)\nAdditional instructions: Calculate the test statistic using the formula and find the p-value using the test statistic value. The problem gives the values for \\(S_{Y|X}\\) and \\(S_X\\). Verify these values using R. Check your work by comparing your answers to the linear model output. \n\n\n(g)"
+  },
+  {
+    "objectID": "homework/HW1.html#questions",
+    "href": "homework/HW1.html#questions",
+    "title": "Homework 1",
+    "section": "Questions",
+    "text": "Questions\nThe following questions were adapted from this textbook.\n\nDownload the datasets from Sakai - see Week 2\n\n\nQuestion 1\n\nLoad the dataset using the readxl package.\n\nThis readxl package was installed as a part of the tidyverse, however it does not get loaded when you load the tidyverse package and thus you need to do that separately.\nUse the command read_excel(), as shown below\n\n\n\nlibrary(readxl)\n# you might need to update the location of the data file\n# you can choose whatever name you like for the tibble when loading it into R's workspace \nch05q01 &lt;- read_excel(\"data/CH05Q01.xls\")\n\n\n\n(a)\nAdditional instructions: Create the scatterplots in R using ggplot, in addition to describing the relationships in the book’s instructions.\n\n\n(b)\nNote: This is asking for the regression models BEFORE you find the values of the coefficients.\n\n\n(c)\nNote: Now get the regression coefficients using R and plug them into the regression models from (b). You can get the coefficients from the R output - you don’t have to use the formulas.\n\n\n(d)\nNote: Instead of sketching the lines, create them using ggplot.\n\n\n(e)\nNote: You can get the CI’s from the R output - you don’t have to use the formulas.\n\n\n(f)\nNote: Instead of sketching, make the figure using ggplot. Get the asked for CI using R instead of estimating it based on the sketch."
+  },
+  {
+    "objectID": "homework/HW2.html#section",
+    "href": "homework/HW2.html#section",
+    "title": "Homework 2",
+    "section": "(1)",
+    "text": "(1)\nCreate a scatterplot of the dependent and independent variables, and in words describe the their relationship. Is it reasonable to use a linear regression to model the relationship?"
+  },
+  {
+    "objectID": "homework/HW2.html#section-1",
+    "href": "homework/HW2.html#section-1",
+    "title": "Homework 2",
+    "section": "(2)",
+    "text": "(2)\nFind the correlation coefficient between the two variables. Is the value consistent with your description of the relationship in the previous question? Why or why not?"
+  },
+  {
+    "objectID": "homework/HW2.html#section-2",
+    "href": "homework/HW2.html#section-2",
+    "title": "Homework 2",
+    "section": "(3)",
+    "text": "(3)\nTest whether the two variables are significantly correlated. Do this using the formula and then check your work with R’s test for correlations. Make sure to include the hypotheses and a conclusion."
+  },
+  {
+    "objectID": "homework/HW2.html#section-3",
+    "href": "homework/HW2.html#section-3",
+    "title": "Homework 2",
+    "section": "(4)",
+    "text": "(4)\nCalculate the confidence interval for \\(\\rho\\) using the formula and verify that it matches the confidence interval in R’s test output. Include an interpretation of the confidence interval and also explain why the confidence interval is consistent with the p-value."
+  },
+  {
+    "objectID": "homework/HW2.html#section-4",
+    "href": "homework/HW2.html#section-4",
+    "title": "Homework 2",
+    "section": "(5)",
+    "text": "(5)\nCalculate the coefficient of determination using the ANOVA table output, and confirm that it matches the value in the R output (what R output shows this and what is it labeled as?)."
+  },
+  {
+    "objectID": "homework/HW2.html#section-5",
+    "href": "homework/HW2.html#section-5",
+    "title": "Homework 2",
+    "section": "(6)",
+    "text": "(6)\nWhat is another way to calculate the coefficient of determination? Do the calculation and verify that you have the same answer."
+  },
+  {
+    "objectID": "homework/HW2.html#section-6",
+    "href": "homework/HW2.html#section-6",
+    "title": "Homework 2",
+    "section": "(7)",
+    "text": "(7)\nGive an interpretation of the coefficient of determination in the context of the study.\nNote: the question numbers below do not refer to questions from the textbook. Complete the problems below instead of the ones in the book."
+  },
+  {
+    "objectID": "homework/HW2.html#section-7",
+    "href": "homework/HW2.html#section-7",
+    "title": "Homework 2",
+    "section": "(1)",
+    "text": "(1)\nCreate a scatterplot of the dependent and independent variables with both the best-fit line and a smoothed curve through the points. Describe the relationship between the dependent and independent variables, and also comment on whether you think it is reasonable to use a linear regression to model the relationship. Are their any outliers in the data? If so, describe the points and why you think they are outliers."
+  },
+  {
+    "objectID": "homework/HW2.html#section-8",
+    "href": "homework/HW2.html#section-8",
+    "title": "Homework 2",
+    "section": "(2)",
+    "text": "(2)\nWrite out the regression equation for the simple linear regression model."
+  },
+  {
+    "objectID": "homework/HW2.html#section-9",
+    "href": "homework/HW2.html#section-9",
+    "title": "Homework 2",
+    "section": "(3)",
+    "text": "(3)\nAssess the normality of the model’s (ordinary) residuals by creating a histogram, density plot, and boxplot of the residuals to visually inspect the distribution of the residuals, and describe any deviations from normality."
+  },
+  {
+    "objectID": "homework/HW2.html#section-10",
+    "href": "homework/HW2.html#section-10",
+    "title": "Homework 2",
+    "section": "(4)",
+    "text": "(4)\nAssess the normality of the model’s (ordinary) residuals by creating a normal probability plot of the residuals. Compare the normality probability plot to 8 such plots simulated from normal data, and discuss why or why not the residuals could have come from a normal distribution."
+  },
+  {
+    "objectID": "homework/HW2.html#section-11",
+    "href": "homework/HW2.html#section-11",
+    "title": "Homework 2",
+    "section": "(5)",
+    "text": "(5)\nTest the normality of the model’s (ordinary) residuals and comment on whether the test’s conclusion is consistent with your visual inspection or not. Make sure to include the hypotheses and a conclusion to the test based on the p-value."
+  },
+  {
+    "objectID": "homework/HW2.html#section-12",
+    "href": "homework/HW2.html#section-12",
+    "title": "Homework 2",
+    "section": "(6)",
+    "text": "(6)\nCreate a residual plot using ggplot and the standardized residuals and discuss what this shows us in terms of whether the model assumptions have been met or not."
+  },
+  {
+    "objectID": "homework/HW2.html#section-13",
+    "href": "homework/HW2.html#section-13",
+    "title": "Homework 2",
+    "section": "(7)",
+    "text": "(7)\nDetermine whether there are any observations with high leverage. If there are observations with high leverage, identify their coordinates and describe how they relate to the other observations. Why would these points have high leverage compared to the other observations? Do you think removing the points would change the linear model much? (you do not need to remove the points and rerun the model, just comment on whether you think they are influential)"
+  },
+  {
+    "objectID": "homework/HW2.html#section-14",
+    "href": "homework/HW2.html#section-14",
+    "title": "Homework 2",
+    "section": "(8)",
+    "text": "(8)\nDetermine whether there are any observations with high Cook’s distance. If there are observations with high Cook’s distance, identify their coordinates and describe how they relate to the other observations. Why would these points have high Cook’s distance compared to the other observations? Do you think removing the points would change the linear model much? (you do not need to remove the points and rerun the model, just comment on whether you think they are influential)"
+  },
+  {
+    "objectID": "homework/HW2.html#section-15",
+    "href": "homework/HW2.html#section-15",
+    "title": "Homework 2",
+    "section": "(9)",
+    "text": "(9)\nCreate histograms and density plots of the dependent and independent variables and describe their distribution shapes."
+  },
+  {
+    "objectID": "homework/HW2.html#section-16",
+    "href": "homework/HW2.html#section-16",
+    "title": "Homework 2",
+    "section": "(10)",
+    "text": "(10)\nUse Tukey’s ladder of transformations to choose two possible transformations for the dependent variable. Explain why you chose them. Note: questions below will ask about model fit with the transformations. For now, just explain why you chose the ones that you did."
+  },
+  {
+    "objectID": "homework/HW2.html#section-17",
+    "href": "homework/HW2.html#section-17",
+    "title": "Homework 2",
+    "section": "(11)",
+    "text": "(11)\nUse Tukey’s ladder of transformations to choose two possible transformations for the independent variable. Explain why you chose them. Note: questions below will ask about model fit with the transformations. For now, just explain why you chose the ones that you did."
+  },
+  {
+    "objectID": "homework/HW2.html#section-18",
+    "href": "homework/HW2.html#section-18",
+    "title": "Homework 2",
+    "section": "(12)",
+    "text": "(12)\nAdd the 4 transformations you chose above (2 for the dependent variable and 2 for the independent variable) to the dataset."
+  },
+  {
+    "objectID": "homework/HW2.html#section-19",
+    "href": "homework/HW2.html#section-19",
+    "title": "Homework 2",
+    "section": "(13)",
+    "text": "(13)\nCreate scatterplots using the transformed variables and discuss whether any of the transformations improve the model fit and why (or why not). Include plots with just the x or y variables transformed, and at least one plot with both the x and y variables transformed."
+  },
+  {
+    "objectID": "homework/HW2.html#section-20",
+    "href": "homework/HW2.html#section-20",
+    "title": "Homework 2",
+    "section": "(14)",
+    "text": "(14)\nRun the various transformed models and save the output to use for the diagnostic questions below."
+  },
+  {
+    "objectID": "homework/HW2.html#section-21",
+    "href": "homework/HW2.html#section-21",
+    "title": "Homework 2",
+    "section": "(15)",
+    "text": "(15)\nCompare the normal QQ plots of the different models and discuss whether any of the transformations improve the model fit and why (or why not)."
+  },
+  {
+    "objectID": "homework/HW2.html#section-22",
+    "href": "homework/HW2.html#section-22",
+    "title": "Homework 2",
+    "section": "(16)",
+    "text": "(16)\nCompare the residual plots of the different models and discuss whether any of the transformations improve the model fit and why (or why not)."
+  },
+  {
+    "objectID": "homework/HW2.html#section-23",
+    "href": "homework/HW2.html#section-23",
+    "title": "Homework 2",
+    "section": "(17)",
+    "text": "(17)\nCompare the leverage & Cook’s distance of the different models and discuss whether any of the transformations improve the model fit and why (or why not)."
+  },
+  {
+    "objectID": "homework/HW2.html#section-24",
+    "href": "homework/HW2.html#section-24",
+    "title": "Homework 2",
+    "section": "(18)",
+    "text": "(18)\nCompare the \\(R^2\\) values and F-test p-values of the different models and discuss whether any of the transformations improve the model fit and why (or why not)."
+  },
+  {
+    "objectID": "homework/HW2.html#section-25",
+    "href": "homework/HW2.html#section-25",
+    "title": "Homework 2",
+    "section": "(19)",
+    "text": "(19)\nWhich of the models would you recommend using for analyses? Discuss why you chose the model and why you did not choose the other models."
+  },
+  {
+    "objectID": "homework/HW2.html#section-26",
+    "href": "homework/HW2.html#section-26",
+    "title": "Homework 2",
+    "section": "(14)",
+    "text": "(14)\nRun the various transformed models and save the output to use for the diagnostic questions below."
+  },
+  {
+    "objectID": "homework/HW2.html#section-27",
+    "href": "homework/HW2.html#section-27",
+    "title": "Homework 2",
+    "section": "(15)",
+    "text": "(15)\nCompare the normal QQ plots of the different models and discuss whether any of the transformations improve the model fit and why (or why not)."
+  },
+  {
+    "objectID": "homework/HW2.html#section-28",
+    "href": "homework/HW2.html#section-28",
+    "title": "Homework 2",
+    "section": "(16)",
+    "text": "(16)\nCompare the residual plots of the different models and discuss whether any of the transformations improve the model fit and why (or why not)."
+  },
+  {
+    "objectID": "homework/HW2.html#section-29",
+    "href": "homework/HW2.html#section-29",
+    "title": "Homework 2",
+    "section": "(17)",
+    "text": "(17)\nCompare the leverage & Cook’s distance of the different models and discuss whether any of the transformations improve the model fit and why (or why not)."
+  },
+  {
+    "objectID": "homework/HW2.html#section-30",
+    "href": "homework/HW2.html#section-30",
+    "title": "Homework 2",
+    "section": "(18)",
+    "text": "(18)\nCompare the \\(R^2\\) values and F-test p-values of the different models and discuss whether any of the transformations improve the model fit and why (or why not)."
+  },
+  {
+    "objectID": "homework/HW2.html#section-31",
+    "href": "homework/HW2.html#section-31",
+    "title": "Homework 2",
+    "section": "(19)",
+    "text": "(19)\nWhich of the models would you recommend using for analyses? Discuss why you chose the model and why you did not choose the other models."
+  },
+  {
+    "objectID": "labs/Project_report_instructions.html",
+    "href": "labs/Project_report_instructions.html",
+    "title": "Project Report Instructions",
+    "section": "",
+    "text": "The report will be written in RMarkdown. Turn in both the Rmd and html files.\n\nMake sure the html file includes a table of contents\n\nThe report should be 2000-3000 words long\nThis is a separate file from the analyses file\n\nNote: you can save tables and figures in the analyses file and then load them in the report\n\nSave R objects in analyses file:\n\nSuppose you named the Table 1 as table1\nsave(table1, file = “table1.Rdata”)\n\nLoad R objects in report file: • load(file = “table1.Rdata”)"
+  },
+  {
+    "objectID": "labs/Project_report_instructions.html#sections",
+    "href": "labs/Project_report_instructions.html#sections",
+    "title": "Project Report Instructions",
+    "section": "Sections",
+    "text": "Sections\n\nIntroduction\n\nLength: 1-2 paragraphs\nIntroduce the research question and why it is important to study\nThis section is non-technical. By reading just the introduction and conclusion, someone without a technical background should have an idea of what they study was about, why it is important, and what the main results are\n\n\n\nStatistical Methods\n\nLength: at least 3 paragraphs\nDescribe the analyses that were conducted and methods used to select variables and check diagnostics.\nThis includes a description of analyses for Table 1 and what statistics were used to summarize the variables\n\n\n\nResults\n\nLength: at least 3 paragraphs\nInclude a brief description of the sample’s characteristics\nInterpret the model coefficients in the context of the research question.\nTables & figures\n\nTable 1 summarizing participant characteristics both overall and stratified by your primary independent variable\nTable 2 with regression results\n\nCan also be a forest plot\n\n1-3 figures that you think are helpful in understanding the results\n\n\n\n\nDiscussion\n\nLength: 2-3 paragraphs\nDiscuss the results. See the paper cited above as an example.\nInclude a paragraph on the limitations of the results\n\n\n\nConclusion\n\nLength: 1 paragraph\nDescribe the main conclusions to a non-technical audience\n\n\n\nReferences\n\nIf you cited any papers or websites, include their references here.\nNote: it is not required to do a literature search"
+  },
+  {
+    "objectID": "homework/HW5.html#a",
+    "href": "homework/HW5.html#a",
+    "title": "Homework 5",
+    "section": "a)",
+    "text": "a)\nCreate a figure with pairwise scatter plots of the variables. Note that depression index (DEP) is the outcome measure (or response variable, Y).\n\nDo you see any signs of the linearity assumption not being met? If so, for which variables?\nDo you see any strong correlations between independent variables that could potentially cause collinearity problems? Confirm your observations by calculating pairwise correlations among the predictors."
+  },
+  {
+    "objectID": "homework/HW5.html#b",
+    "href": "homework/HW5.html#b",
+    "title": "Homework 5",
+    "section": "b)",
+    "text": "b)\nCheck if the DEP data are normally distributed. If needed, what would be an appropriate transformation for this variable?"
+  },
+  {
+    "objectID": "homework/HW5.html#c",
+    "href": "homework/HW5.html#c",
+    "title": "Homework 5",
+    "section": "c)",
+    "text": "c)\nTest whether the association between DEP and WP is significant using alpha = .05."
+  },
+  {
+    "objectID": "homework/HW5.html#d",
+    "href": "homework/HW5.html#d",
+    "title": "Homework 5",
+    "section": "d)",
+    "text": "d)\nSuppose researchers would like to use a log transformation for the MC variable, based on what has been done in other studies. Do you agree with this choice? Why or why not? Whether or not you agree, test whether the association between DEP and log(MC) is significant, using alpha = .05, and use log(MC) instead of MC for the remainder of the assignment."
+  },
+  {
+    "objectID": "homework/HW5.html#e",
+    "href": "homework/HW5.html#e",
+    "title": "Homework 5",
+    "section": "e)",
+    "text": "e)\nTest whether SEX is an effect modifier that changes the association between DEP and WP. Use alpha = .10."
+  },
+  {
+    "objectID": "homework/HW5.html#f",
+    "href": "homework/HW5.html#f",
+    "title": "Homework 5",
+    "section": "f)",
+    "text": "f)\nTest whether SEX is an effect modifier that changes the association between DEP and log(MC). Use alpha = .10."
+  },
+  {
+    "objectID": "homework/HW5.html#g",
+    "href": "homework/HW5.html#g",
+    "title": "Homework 5",
+    "section": "g)",
+    "text": "g)\nFrom the results obtained in parts (e) and (f), should we further check whether SEX is a confounder? Why or why not? If yes, determine whether SEX is a confounder for the associations between DEP and WP and between DEP and log(MC)"
+  },
+  {
+    "objectID": "homework/HW5.html#h",
+    "href": "homework/HW5.html#h",
+    "title": "Homework 5",
+    "section": "h)",
+    "text": "h)\nDetermine whether AGE is a confounder for the associations between DEP and WP and between DEP and log(MC)."
+  },
+  {
+    "objectID": "homework/HW5.html#i",
+    "href": "homework/HW5.html#i",
+    "title": "Homework 5",
+    "section": "i)",
+    "text": "i)\nWhat is your final association model based on the results from the previous questions?"
+  },
+  {
+    "objectID": "homework/HW5.html#j",
+    "href": "homework/HW5.html#j",
+    "title": "Homework 5",
+    "section": "j)",
+    "text": "j)\nPerform model diagnostics for your final association model. Use the steps outlined below.\n\nj1)\nDetermine whether the independence assumption has been met.\n\n\nj2)\nDetermine whether the linearity assumption has been met.\n\n\nj3)\nDetermine whether the homoscedasticity assumption has been met.\n\n\nj4)\nDetermine whether the normality assumption has been met.\n\n\nj5)\nDetermine whether there any outliers (e.g., high leverage, lack of fit) or influential points (e.g., dffits, Cook’s distance, dfbetas)?\n\n\nj6)\nIs there evidence of collinearity in the model? If there is collinearity, make changes to your model to reduce the collinearity and justify your method."
+  },
+  {
+    "objectID": "homework/HW5.html#k",
+    "href": "homework/HW5.html#k",
+    "title": "Homework 5",
+    "section": "k)",
+    "text": "k)\nUsing the final association model obtained from part (j5), interpret the (adjusted) association between DEP and MC."
+  },
+  {
+    "objectID": "homework/HW5.html#l",
+    "href": "homework/HW5.html#l",
+    "title": "Homework 5",
+    "section": "l)",
+    "text": "l)\nWhat is the R-squared value for your final association model? Explain it in the context of study."
+  },
+  {
+    "objectID": "homework/HW5.html#m",
+    "href": "homework/HW5.html#m",
+    "title": "Homework 5",
+    "section": "m)",
+    "text": "m)\nFor your final association model, run a hypothesis test and report the 95% CI for the slope of the WP variable. Interpret the results (both test and CI)."
+  },
+  {
+    "objectID": "homework/HW5.html#a-1",
+    "href": "homework/HW5.html#a-1",
+    "title": "Homework 5",
+    "section": "a)",
+    "text": "a)\nRun the four automatic selection procedures discussed in class (forward selection, backward elimination, forward stepwise, and backward stepwise) using all the independent variables and the interactions listed above. What are the parsimonious models from the different procedures? How are they similar or different? If the results are different, provide some reasons as to why they are different.\n\nForward Selection\n\n\nBackwards Selection\n\n\nForward Stepwise\n\n\nBackwards Stepwise\n\n\nComparison of models"
+  },
+  {
+    "objectID": "homework/HW5.html#b-1",
+    "href": "homework/HW5.html#b-1",
+    "title": "Homework 5",
+    "section": "b)",
+    "text": "b)\nRestricting to just the variables that appeared in any of the prediction models obtained in the previous part, use Mallow’s \\(C_p\\) and the models’ adjusted R-squared values to decide on a parsimonious final prediction model. Include an explanation on how you chose your final prediction model."
+  },
+  {
+    "objectID": "homework/HW3.html#directions---important",
+    "href": "homework/HW3.html#directions---important",
+    "title": "Homework 3",
+    "section": "Directions - important!!!",
+    "text": "Directions - important!!!\n\nHypothesis tests\n\nFor every hypothesis test make sure to include the following:\n\nNull & alternative hypotheses\nCalculation of test statistic using the formula\nCalculate the p-value directly using its probability distribution\nRunning the test using R\nConclusion in the context of the research problem. This includes referring to variables by what they actually are and not \\(X_1\\), \\(X_2\\), etc.\n\n\n\nSee additional instructions/ clarifications in green."
+  },
+  {
+    "objectID": "homework/HW3.html#tips",
+    "href": "homework/HW3.html#tips",
+    "title": "Homework 3",
+    "section": "Tips",
+    "text": "Tips\n\nYou will be running a lot of different tests below. I highly recommend coming up with a naming convention that will easily help you keep track of what variables are being included in which models.\n\nThe names model1, model2, etc. will not be helpful."
+  },
+  {
+    "objectID": "homework/HW3.html#a",
+    "href": "homework/HW3.html#a",
+    "title": "Homework 3",
+    "section": "(a)",
+    "text": "(a)\n\nConduct the overall regression F test for the model where \\(Y\\) is regressed on \\(X_1, X_2\\), and \\(X_3\\). Use alpha = 0.05. Interpret your result."
+  },
+  {
+    "objectID": "homework/HW3.html#b",
+    "href": "homework/HW3.html#b",
+    "title": "Homework 3",
+    "section": "(b)",
+    "text": "(b)\n\nProvide variables-added-in-order tests for the order \\(X_2, X_1\\), and \\(X_3\\).\n\nThis means that there are 3 tests: (1) test model with just \\(X_2\\), (2) test adding \\(X_1\\) to the model given that \\(X_2\\) is already in the model, and (3) test adding \\(X_3\\) to the model given that \\(X_2, X_1\\) are already in the model. See the subsections below to divide up the work.\n\nTest model with just \\(X_2\\)\n\n\nAdding \\(X_1\\) to the model given that \\(X_2\\) is already in the model\n\n\nAdding \\(X_3\\) to the model given that \\(X_2, X_1\\) are already in the model"
+  },
+  {
+    "objectID": "homework/HW3.html#e",
+    "href": "homework/HW3.html#e",
+    "title": "Homework 3",
+    "section": "(e)",
+    "text": "(e)\n\nProvide variables-added-last tests for \\(X_1, X_2\\), and \\(X_3\\).\n\nThis means that there are 3 tests: (1) test adding \\(X_1\\) to the model given that \\(X_2, X_3\\) are already in the model, (2) test adding \\(X_2\\) to the model given that \\(X_1, X_3\\) are already in the model, and (3) test adding \\(X_3\\) to the model given that \\(X_1, X_2\\) are already in the model. See the subsections below to divide up the work. \n\nFor adding \\(X_2\\) and \\(X_3\\) last to the model, you do not need to calculate the test statistic using the formula or the p-value directly using its probability distribution. You can instead run the appropriate tests in R.\n\n\nAdding \\(X_1\\) to the model given that \\(X_2, X_3\\) are already in the model\n\n\nAdding \\(X_2\\) to the model given that \\(X_1, X_3\\) are already in the model\n\n\nAdding \\(X_3\\) to the model given that \\(X_1, X_2\\) are already in the model"
+  },
+  {
+    "objectID": "homework/HW3.html#f",
+    "href": "homework/HW3.html#f",
+    "title": "Homework 3",
+    "section": "(f)",
+    "text": "(f)\n\nProvide the variables-added-last test for \\(X_4 = X_2 X_3\\) given that \\(X_2\\) and \\(X_3\\) are already in the model. Does \\(X_4\\) significantly improve the prediction of \\(Y\\) given that \\(X_2\\) and \\(X_3\\) are already in the model?"
+  },
+  {
+    "objectID": "homework/HW3.html#a-1",
+    "href": "homework/HW3.html#a-1",
+    "title": "Homework 3",
+    "section": "(a)",
+    "text": "(a)\nCalculate the coefficient of determination \\(r^2_{Y|X1,X2,X3}\\) and interpret this value in the context of the problem. Do the calculation using the formula and then check your answer with R. In particular, where in the R output do we find this value?"
+  },
+  {
+    "objectID": "homework/HW3.html#b-1",
+    "href": "homework/HW3.html#b-1",
+    "title": "Homework 3",
+    "section": "(b)",
+    "text": "(b)\nCalculate the partial coefficient of determination \\(r^2_{YX1|X2}\\) and interpret this value in the context of the problem. Do the calculation using the formula and then check your answer with R."
+  },
+  {
+    "objectID": "homework/HW3.html#c",
+    "href": "homework/HW3.html#c",
+    "title": "Homework 3",
+    "section": "(c)",
+    "text": "(c)\nUse \\(r^2_{YX1|X2}\\) to calculate \\(r_{YX1|X2}\\) and interpret this value in the context of the problem. Check your answer with R."
+  },
+  {
+    "objectID": "homework/HW3.html#d",
+    "href": "homework/HW3.html#d",
+    "title": "Homework 3",
+    "section": "(d)",
+    "text": "(d)\nExplain how the interpretations of \\(r^2_{YX1|X2}\\) and \\(r_{YX1|X2}\\). In particular, what information do each of these values tell us that the other does not?"
+  },
+  {
+    "objectID": "homework/HW3.html#e-1",
+    "href": "homework/HW3.html#e-1",
+    "title": "Homework 3",
+    "section": "(e)",
+    "text": "(e)\nCalculate the partial coefficient of determination \\(r^2_{YX1|X2X3}\\) and interpret this value in the context of the problem. Do the calculation using the formula and then check your answer with R."
+  },
+  {
+    "objectID": "homework/HW3.html#f-1",
+    "href": "homework/HW3.html#f-1",
+    "title": "Homework 3",
+    "section": "(f)",
+    "text": "(f)\nUse \\(r^2_{YX1|X2X3}\\) to calculate \\(r_{YX1|X2X3}\\) and interpret this value in the context of the problem. Check your answer with R."
+  },
+  {
+    "objectID": "homework/HW3.html#g",
+    "href": "homework/HW3.html#g",
+    "title": "Homework 3",
+    "section": "(g)",
+    "text": "(g)\nUse your answers to parts (b, c, e, f), to discuss the change in the first-order partial correlation to the second-order partial correlation."
+  },
+  {
+    "objectID": "homework/HW3.html#penguins-flipper-length-vs.-species",
+    "href": "homework/HW3.html#penguins-flipper-length-vs.-species",
+    "title": "Homework 3",
+    "section": "Penguins: Flipper length vs. species",
+    "text": "Penguins: Flipper length vs. species\nFor this problem we will be using the penguins dataset from the palmerpenguins R package.\nDescription from help file:\n\nIncludes measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.\n\nMore info about the data are at https://allisonhorst.github.io/palmerpenguins/.\n\n# first install the palmerpenguins package\n# install.packages(\"palmerpenguins\")\nlibrary(palmerpenguins)\ndata(penguins)\n\n# run the command below to learn more about the variables in the penguins dataset\n# ?penguins\n\n\n(1) Outcome averages stratified by category levels\nCalculate the average flipper lengths stratified by each of the penguin species.\n\n\n(2) Visualize the “regression”\nMake a scatterplot of flipper lengths by species, and include diamond-shape points for the averages of the flipper lengths for each of the species.\n\n\n(3) Regression equations\nBefore running the regression in R, we are going to find the regression equation”manually.”\nWrite out the regression equation using LaTeX math markup (see class notes) that models the flipper length by penguin species. Do not yet insert values for the regression coefficients, i.e. us the generic coefficients \\(\\widehat{\\beta}_0, \\widehat{\\beta}_1,\\) etc. Use Adelie as the reference level.\n\n\n(4) Interpret coefficients\nHow do we interpret each of the regression coefficients for this model? Write out a separate interpretation for each of the coefficients.\n\n\n(5) Regression coefficients “manually”\n“Manually” calculate the values for each of the coefficients, and update the regression model with the values inserted.\nYou must show your work for this. Do not run the linear model in this step to get the values.\n\n\n(6) Regression table with lm() function\nRun the linear regression of flipper lengths vs. species in R, and display the regression table output. Which species did R choose as the reference level, and how did you determine this?\n\n\n(7) Mean calculation using regression output\nCalculate the mean flipper length of penguins in the Chinstrap and Gentoo species using only the results from the regression table. You must show your work."
+  },
+  {
+    "objectID": "homework/HW3.html#problem-9.7-c",
+    "href": "homework/HW3.html#problem-9.7-c",
+    "title": "Homework 3",
+    "section": "Problem 9.7 (c)",
+    "text": "Problem 9.7 (c)\nDo this problem after completing 9.7 (b) above\n\nProvide variables-added-in-order tests for the order \\(X_3, X_1\\), and \\(X_2\\).\n\nThis means that there are 3 tests: (1) test model with just \\(X_3\\), (2) test adding \\(X_1\\) to the model given that \\(X_3\\) is already in the model, and (3) test adding \\(X_2\\) to the model given that \\(X_3, X_1\\) are already in the model. See the subsections below to divide up the work.\n\nTest model with just \\(X_3\\)\n\n\nAdding \\(X_1\\) to the model given that \\(X_3\\) is already in the model\n\n\nAdding \\(X_2\\) to the model given that \\(X_3, X_1\\) are already in the model"
+  },
+  {
+    "objectID": "homework/HW3.html#chapter-10-c-using-the-formula",
+    "href": "homework/HW3.html#chapter-10-c-using-the-formula",
+    "title": "Homework 3",
+    "section": "Chapter 10 (c) using the formula",
+    "text": "Chapter 10 (c) using the formula\nDo this after completing Chapter 10 (c) above.\nCalculate \\(r_{YX1|X2}\\) using the formula and check that your answer matches that of Chapter 10 (c) above."
+  },
+  {
+    "objectID": "homework/HW3.html#regression-with-one-categorical-predictor-prequel-to-ch-11-12-change-the-reference-level-to-gentoo",
+    "href": "homework/HW3.html#regression-with-one-categorical-predictor-prequel-to-ch-11-12-change-the-reference-level-to-gentoo",
+    "title": "Homework 3",
+    "section": "Regression with one categorical predictor (Prequel to Ch 11 & 12): Change the reference level to Gentoo",
+    "text": "Regression with one categorical predictor (Prequel to Ch 11 & 12): Change the reference level to Gentoo\nAfter completing exercises (1) - (7) in the section Regression with one categorical predictor (Prequel to Ch 11 & 12), do the problems below.\n\n(8)\nWrite out the regression equation using LaTeX math markup (see class notes) that models the flipper length by penguin species. Do not yet insert values for the regression coefficients, i.e. us the generic coefficients \\(\\widehat{\\beta}_0, \\widehat{\\beta}_1,\\) etc. Use Gentoo as the reference level.\n\n\n(9)\nHow do we interpret each of the regression coefficients for this model? Write out a separate interpretation for each of the coefficients.\n\n\n(10)\n“Manually” calculate the values for each of the coefficients, and update the regression model with the values inserted. You must show your work for this. Do not run the linear model in this step to get the values."
+  },
+  {
+    "objectID": "homework/HW2.html#question-1-chapter-6",
+    "href": "homework/HW2.html#question-1-chapter-6",
+    "title": "Homework 2",
+    "section": "Question 1 (chapter 6)",
+    "text": "Question 1 (chapter 6)\nUse the data from Chapter 5 Question 9 to answer the following questions. Use the log-transformed values as given in the dataset.\nNote: the question numbers below do not refer to questions from the textbook. Complete the problems below instead of the ones in the book."
+  },
+  {
+    "objectID": "homework/HW4.html#question-1",
+    "href": "homework/HW4.html#question-1",
+    "title": "Homework 4",
+    "section": "Question 1",
+    "text": "Question 1\nUse the data from Chapter 12 Problem 3 to answer the questions below.\n\na)\na. How many dummy variable(s) do you need to create for the categorical variable Diet (protein-rich vs. protein-poor)? Create the dummy variable(s) with the reference cell coding approach{0,1}.\n\n\nb)\nb. At a level of significance alpha = .05, test whether if Age is significantly associated with Height. Would this association be modified depending on diet group (e.g., rich-protein or poor-protein)? In other words, is Diet an effect-modifier that changes the association between Height and Age? Justify your answer (e.g., perform a hypothesis test at a level of alpha =.1).\nNote: recall that an effect modifier is an interaction.\n\n\nc)\nc. From the results obtained in part b, should we perform an assessment of a confounder for Diet? Justify your answer. Perform such an assessment if needed.\n\n\nd)\nd. Perform a regression analysis on the model obtained from the results obtained from parts a- c. Write down a general regression equation that is applicable to both groups—rich-protein vs.poor-protein. Write down regression lines for each specific groups—rich-protein or poor-protein."
+  },
+  {
+    "objectID": "homework/HW4.html#question-2",
+    "href": "homework/HW4.html#question-2",
+    "title": "Homework 4",
+    "section": "Question 2",
+    "text": "Question 2\nUse the data from Chapter 9 Problem 5 to answer the questions below.\n\na)\na. Use \\(\\alpha= 0.05\\), test whether the (crude) association between Y and X1 could be established.\n\n\nb)\nb. Use\\(\\alpha= 0.1\\), test whether X3 is an effect modifier of the association between Y and X1.\nNote: To identify effect modifiers, we perform a hypothesis test of interaction term, e.g.,X1X3. That is: The full model includes X1, X3, X1X3. the reduced model includes X1 and X3\n\n\nc)\nc. From the result obtained in part b, do we need to perform an assessment of a confounder for X3? Justify your answer. Perform such an assessment if needed.\n\n\nd)\nd. Perform an assessment of a confounder for X2 which potentially changes the association between Y and X1.\n\n\ne)\ne. From the results in parts a-d, what is your final association model?"
+  },
+  {
+    "objectID": "homework/HW4.html#a-2",
+    "href": "homework/HW4.html#a-2",
+    "title": "Homework 4",
+    "section": "a)",
+    "text": "a)\na. Obtain scatter plot: Y vs. X. Does linear trend support the relationship between Y and X?"
+  },
+  {
+    "objectID": "homework/HW4.html#b-2",
+    "href": "homework/HW4.html#b-2",
+    "title": "Homework 4",
+    "section": "b)",
+    "text": "b)\nb. At the level alpha =.05, test whether the linear relationship could be established between Y and X."
+  },
+  {
+    "objectID": "homework/HW4.html#c-2",
+    "href": "homework/HW4.html#c-2",
+    "title": "Homework 4",
+    "section": "c)",
+    "text": "c)\nc. At the level alpha =.05, test whether the quadratic term (\\(X^2\\)) should be included in the model to improve the prediction in Y, given the linear term (\\(X\\)) is already in the model."
+  },
+  {
+    "objectID": "homework/HW4.html#d-2",
+    "href": "homework/HW4.html#d-2",
+    "title": "Homework 4",
+    "section": "d)",
+    "text": "d)\nd. From the result obtained from part c, should we test if the linear term (X) is necessary to be included in the model, given the quadratic term is already in the model? Explain your answer."
+  },
+  {
+    "objectID": "homework/HW4.html#e-1",
+    "href": "homework/HW4.html#e-1",
+    "title": "Homework 4",
+    "section": "e)",
+    "text": "e)\ne. From the results you obtain from parts c-d, should we further examine whether cubic term (\\(X^3\\)) or fourth polynomial degree (i.e., \\(X^4\\)) to improve the prediction in Y? Explain your answer and report the result of such a test if needed."
+  },
+  {
+    "objectID": "homework/HW4.html#f",
+    "href": "homework/HW4.html#f",
+    "title": "Homework 4",
+    "section": "f)",
+    "text": "f)\nf. From parts a – e, what is the final model that you have obtained? Interpret the R-square result from this model in the context of the study. Plot fitted value curve vs. X overlaid with scatter plot. Comments about the fitting model."
   }
 ]

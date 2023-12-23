@@ -1,0 +1,66 @@
+---
+title: "Project Report Instructions"
+subtitle: "BSTA 512/612"
+description: "Due: Thursday Marck 21, 2024"
+date-modified: "12/21/2024"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+  pdf: default 
+editor_options: 
+  chunk_output_type: console
+---
+
+-   The report will be written in RMarkdown. Turn in both the Rmd and html files.
+    -   Make sure the html file includes a table of contents
+-   The report should be 2000-3000 words long
+-   This is a separate file from the analyses file
+    -   Note: you can save tables and figures in the analyses file and then load them in the report
+        -   Save R objects in analyses file:
+            -   Suppose you named the Table 1 as table1
+
+            -   save(table1, file = "table1.Rdata")
+        -   Load R objects in report file: • load(file = "table1.Rdata")
+
+## Sections
+
+### Introduction
+
+-   Length: 1-2 paragraphs
+-   Introduce the research question and why it is important to study
+-   This section is non-technical. By reading just the introduction and conclusion, someone without a technical background should have an idea of what they study was about, why it is important, and what the main results are
+
+### Statistical Methods
+
+-   Length: at least 3 paragraphs
+-   Describe the analyses that were conducted and methods used to select variables and check diagnostics.
+-   This includes a description of analyses for Table 1 and what statistics were used to summarize the variables
+
+### Results
+
+-   Length: at least 3 paragraphs
+-   Include a brief description of the sample’s characteristics
+-   Interpret the model coefficients in the context of the research question.
+-   Tables & figures
+    -   Table 1 summarizing participant characteristics both overall and stratified by your primary independent variable
+    -   Table 2 with regression results
+        -   Can also be a forest plot
+    -   1-3 figures that you think are helpful in understanding the results
+
+### Discussion
+
+-   Length: 2-3 paragraphs
+-   Discuss the results. See the paper cited above as an example.
+-   Include a paragraph on the limitations of the results
+
+### Conclusion
+
+-   Length: 1 paragraph
+-   Describe the main conclusions to a non-technical audience
+
+### References
+
+-   If you cited any papers or websites, include their references here.
+-   Note: it is not required to do a literature search

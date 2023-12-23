@@ -32,6 +32,8 @@ editor_options:
 
 ## Report
 
+[Report Instructions](/labs/Project_report_instructions.qmd)
+
 Due 3/21/2024
 
 ```{r}

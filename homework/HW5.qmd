@@ -14,94 +14,227 @@ editor_options:
   chunk_output_type: console
 ---
 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.height = 2, fig.width = 4)
+
+library(tidyverse)
+library(rstatix)
+library(broom)
+library(gt)
+library(janitor)
+library(readxl)
+
+# NEW!
+library(car)  # vif()
+library(describedata)
+library(ppcor)
+library(rsq)
+library(kableExtra)
+library(leaps)
+library(olsrr)
+```
+
+
 ## Directions
 
-[Please turn in this homework on Sakai.](https://sakai.ohsu.edu/portal/site/BSTA-550-1-12619-F23/tool/085b18e7-8118-4a51-ace5-0255aa46136e) Please submit your homework in pdf format. You can type your work on your computer or submit a photo of your written work or any other method that can be turned into a pdf. Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.
+* Please upload your homework to Sakai. __Upload both your .Rmd code file and the knitted .html file__.
 
-**Try to complete all of the problems listed below at some point this quarter! You may want to save some of them for studying later!** Only turn in the ones listed in the "Turn In" column. Please submit problems in the order they are listed.
+* For each question, make sure to include all code and resulting output in the html file to support your answers. 
 
-The more work you include that shows your thought process, the more I can give you feedback.
+* Show the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the knitted html file.
 
-::: center
-|   Chapter   |       Turn In       |         Extra Problems          |
-|:-----------:|:-------------------:|:-------------------------------:|
-|     12      | TB \# 2, NTB \# 1-3 | \# 1, 7, 11, 12, 15, 19, 25, 27 |
-| 13 (review) |                     | \# 3, 4, 5, 6, 8, 9, 10, 17, 25 |
-|     20      |                     |           \# 2, 3, 4            |
-|     14      |                     |             \# 3, 7             |
-|     15      |      NTB \# 4       |  \# 1, 5, 11, 18, 23, NTB \# 5  |
-|     16      |       TB \# 8       |         \# 3a-g, 11, 21         |
-|     17      |     TB \# 12a-c     |   \# 3a-g, 6, 9, 11, NTB \# 6   |
-:::
+* Write all answers in complete sentences as if communicating the results to a collaborator.
+    * Points (usually 0.5-1) will be deducted for not including a sentence summarizing results in the context of the research study. 
+    * Questions not requiring a sentence are: _none - include a summary for all questions_
 
-## Non-textbook problems (NTB)
+> Tip: It is a good idea to try kitting your document from time to time as you go along!  Note that knitting automatically saves your Rmd file and knitting frequently helps you catch your errors more quickly.
 
-1.  Prove that for a r.v. $X$ and constants $a$ and $b$, that $$\mathrm{Var}[aX+b]=a^2\mathrm{Var}[X].$$ Note: you will not earn credit for citing this as a special case of a more general result.
+### HW 5 specific directions
 
-2.  Let $\bar{X}$ be the random variable for the sample mean, $\bar{X}=\frac{\sum_{i=1}^nX_i}{n}$, where the $X_i$ are i.i.d. random variables with common mean $\mu$ and variance $\sigma^2$.
+* For all hypothesis tests, include 
+    * the null and alternative hypotheses (and if applicable the regression model(s) being tested), 
+    * R code to run the test, and 
+    * a conclusion in the context of the problem. 
+* You do not need to run the hypothesis tests using the formula unless directed otherwise. 
 
-    a.  Find $\mathbb{E}[\bar{X}]$.
 
-    b.  Find $Var[\bar{X}]$.
+# Question 1: Association model building
 
-3.  Let $\hat{p}$ be the random variable for the sample proportion, $\hat{p}=\frac{X}{n}$, where $X$ is the number of successes in a random sample of size $n$. Assume the probability of success is $p$.
+<font color="green">Use the data from Chapter 16 Problem 5 to answer the questions below. These are NOT questions from the book.</font>
 
-    a.  Find $\mathbb{E}[\hat{p}]$.
 
-    b.  Find $Var[\hat{p}]$.
 
-4.  Let $X_i\sim$ Binomial($n_i,p$) be independent r.v.'s for $i=1,\ldots,m$. What does the r.v. $X=\sum_{i=1}^mX_i$ count, and what is the distribution of $X$? Make sure to specify the parameters of $X$'s distribution.Find $\mathbb{E}[X]$. *Make sure to show your work for (b) and (c). However, you may use without proof what you know about the mean and variance of each* $X_i$.Find $Var[X]$.
+## a)
+**Create a figure with pairwise scatter plots of the variables. Note that depression index (DEP) is the outcome measure (or response variable, Y).**
 
-5.  Read the Washington Post article *The amazing woman who can smell Parkinson's disease - before symptoms appear* (<http://www.washingtonpost.com/news/morning-mix/wp/2015/10/23/scottish-woman-detects-a-musky-smell-that-could-radically-improve-how-parkinsons-disease-is-diagnosed/>)
+* **Do you see any signs of the linearity assumption not being met? If so, for which variables?**
 
-    Assuming Joy Milne does not have the ability to detect Parkinson's disease via smell, answer the following questions:
+* **Do you see any strong correlations between independent variables that could potentially cause collinearity problems? Confirm your observations by calculating pairwise correlations among the predictors.**
 
-    a.  What is the probability of her correctly detecting Parkinson's by smelling one t-shirt?
 
-    b.  What is the probability of her correctly detecting Parkinson's in 12 out of 12 t-shirts?
 
-6.  Let $X_i\sim$ Negative Binomial($r_i,p$) be independent r.v.'s for $i=1,\ldots,m$.
+## b)
+**Check if the DEP data are normally distributed. If needed, what would be an appropriate transformation for this variable?**
 
-    a.  What does the r.v. $X=\sum_{i=1}^mX_i$ count, and what is the distribution of $X$? Make sure to specify the parameters of $X$'s distribution.
 
-    b.  Find $\mathbb{E}[X]$. *Make sure to show your work for (b) and (c). However, you may use without proof what you know about the mean and variance of each* $X_i$.
 
-    c.  Find $Var[X]$.
 
-## Some select answers
 
-Selected answers (or hints) not provided at the end the book:
+## c)
+**Test whether the association between DEP and WP is significant using alpha = .05.**
 
--   Chapter 12
 
-    -   \# 2:  64.8
 
-    -   \# 12:  1,096,357
 
--   Chapter 13
 
-    -   \# 4:  (a) 260/9     (b) 2.833     (c) $2.679\times 10^{-5}$     (d) Same idea as (c) Replace 10's with 100.     
 
-    -   \# 6:  (a) $p_X(x)=\binom{4}{x}.3^x .7^{4-x}$, for $x=0,1,\ldots,4$     (d) 0.3483     (e) 0.9163     (f) 0.0233     (g) 1
+## d)
+**Suppose researchers would like to use a log transformation for the MC variable, based on what has been done in other studies. Do you agree with this choice? Why or why not? Whether or not you agree, test whether the association between DEP and log(MC) is significant, using alpha = .05, and use log(MC) instead of MC for the remainder of the assignment.**
 
-    -   \# 8:  (a) T     (b) F     (c) F     (d) F     (e) T     (f) T    (g) T
 
-    -   \# 10:  (a) T     (b) T    (c) F     (d) T    (e) T     (f) F    (g) T     (h) T (nonnegative instead of positive)     (i) F
 
--   Chapter 20
 
-    -   \# 2:  (a) 0.0001     (b) Discrete since $X$ has a finite number of possible values. Uniform since each outcome is equally likely.     (c) $X$ = randomly selected 4-digit ID#; $X=0000,0001,\ldots,9999$     (d) 5000.5     (e) 8,333,333.25
 
--   Chapter 15
 
-    -   \# 18  (a) Bin(21,0.65)     (b) 4.78     
+## e)
+**Test whether SEX is an effect modifier that changes the association between DEP and WP. Use alpha = .10.**
 
--   Chapter 16
 
-    -   \# 8  (c) $1.03\times 10^{-6}$    (d) 10 questions: 91.43 minutes    
 
--   Chapter 17
 
-    -   \# 6   (a) 400, 87.18     (b) No     
 
-    -   \# 12   (c) 0.8000
+
+
+## f)
+**Test whether SEX is an effect modifier that changes the association between DEP and log(MC). Use alpha = .10.**
+
+
+
+
+
+## g)
+**From the results obtained in parts (e) and (f), should we further check whether SEX is a confounder? Why or why not? If yes, determine whether SEX is a confounder for the associations between DEP and WP and between DEP and log(MC)**
+
+
+
+
+
+## h)
+**Determine whether AGE is a confounder for the associations between DEP and WP and between DEP and log(MC).**
+
+
+
+
+## i)
+**What is your final association model based on the results from the previous questions?**
+
+
+
+
+## j) 
+**Perform model diagnostics for your final association model. Use the steps outlined below.**
+
+
+### j1)
+**Determine whether the independence assumption has been met.**
+
+
+
+### j2)
+**Determine whether the linearity assumption has been met.**
+
+
+### j3)
+**Determine whether the homoscedasticity assumption has been met.**
+
+
+### j4)
+**Determine whether the normality assumption has been met.**
+
+
+### j5)
+
+**Determine whether there any outliers (e.g., high leverage, lack of fit) or influential points (e.g., dffits, Cook’s distance, dfbetas)?**
+
+
+
+
+
+### j6)
+
+**Is there evidence of collinearity in the model? If there is collinearity, make changes to your model to reduce the collinearity and justify your method.**
+
+
+
+
+## k)
+
+**Using the final association model obtained from part (j5), interpret the (adjusted) association between DEP and MC.**
+
+
+
+
+
+
+## l)
+
+**What is the R-squared value for your final association model? Explain it in the context of study.**
+
+
+
+
+
+## m)
+
+**For your final association model, run a hypothesis test and report the 95% CI for the slope of the WP variable. Interpret the results (both test and CI).**
+
+
+
+
+
+
+# Question 2: Prediction model building
+
+<font color="green">Continue to use the data from Chapter 16 Problem 5 to answer the questions below. These are NOT questions from the book.</font>
+
+**Suppose that in addition to the independent variables, the interactions `log(MC)*SEX`, `WP*SEX`, `WP*MC_log`, `WP*AGE`, `MC_log*AGE`, and `SEX*AGE` are of interest in building a prediction model.**
+
+
+## a)
+
+**Run the four automatic selection procedures discussed in class (forward selection, backward elimination, forward stepwise, and backward stepwise) using all the independent variables and the interactions listed above. What are the parsimonious models from the different procedures? How are they similar or different? If the results are different, provide some reasons as to why they are different.**
+
+
+
+
+### Forward Selection
+
+
+
+
+
+### Backwards Selection
+
+
+
+
+### Forward Stepwise
+
+
+
+
+### Backwards Stepwise
+
+
+
+### Comparison of models
+
+
+
+
+## b)
+
+**Restricting to just the variables that appeared in any of the prediction models obtained in the previous part, use Mallow’s $C_p$ and the models' adjusted R-squared values to decide on a parsimonious final prediction model. Include an explanation on how you chose your final prediction model.**
+
+

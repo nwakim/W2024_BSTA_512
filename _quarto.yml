@@ -37,7 +37,6 @@ website:
         contents:
           - href: schedule.qmd
             text: Weekly Pages
-          - class_slides.qmd
           - href: homeworks.qmd
             text: Homework
           - href: project.qmd
