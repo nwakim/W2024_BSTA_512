@@ -30,7 +30,7 @@ Grading will be done as a check/no check for turning in your work. If you are st
 
 ### Question 1
 
-Please upload a picture of yourself to Slack. Please follow the below steps to add a picture of yourself in Slack:
+Please upload a picture of yourself [to Slack](https://join.slack.com/t/bsta512613w2024/shared_invite/zt-29g7biioz-XhPs~tj8xwL1GajEw9YlTg). Please follow the below steps to add a picture of yourself in Slack:
 
 1.  Go to the top right corner in Slack and click your profile picture.
 2.  Click "Profile."

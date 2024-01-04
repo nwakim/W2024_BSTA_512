@@ -33,7 +33,7 @@ editor_options:
 Below is a table with links to resources. Icons in [orange]{style="color:#E89543;"} mean there is an available file link.
 
 | Lesson | Topic        |                                             Slides                                             |                                  Annotated Slides                                  |                         Recording(s)                          |
-|--------------|--------------|:--------------:|:------------:|:------------:|
+|---------------|---------------|:-------------:|:-------------:|:-------------:|
 |        | Intro        | [[{{< iconify ri slideshow-fill size=30px >}}](../slides/0_Intro.qmd)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 1      | Review       |             [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}              | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 2      | Case Studies |             [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}              | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
@@ -67,7 +67,7 @@ For the slides, once they are opened, if you would like to print or save them as
 
     -   [Data Equity Primer](https://weallcount.com/the-data-equity-primer/) from We All Count
 
-    -   If you attend, I will give you \_\_\_\_??
+    -   If you attend, I will give you an extra 3% on your project report.
 
 -   Here are a few resources if you’d like to practice R:
 
@@ -95,7 +95,7 @@ For the slides, once they are opened, if you would like to print or save them as
 
 ## On the Horizon
 
--   [Homework 0 due 1/11 ](../homework/HW0.qmd)
+-   [Homework 0 due 1/11](../homework/HW0.qmd)
 
 ## Class Exit Tickets
 
