@@ -23,6 +23,9 @@ library(rstatix)
 library(broom)
 library(gt)
 library(janitor)
+library(here)
+
+setwd(here("homework"))
 ```
 
 ## Directions
@@ -47,6 +50,77 @@ The following questions were adapted from this textbook.
 
 ### Question 1
 
+Please use R code to determine the following answers. *(adapted from problem 3.3)*
+
+::: {.callout-note appearance="simple"}
+Type `?pnorm` in the console to get some information on a potentially helpful function.
+:::
+
+#### Part a
+
+From a normal distribution with mean 4 and standard deviation 6, what is $P(X>2)$?
+
+#### Part b
+
+From a normal distribution with mean 4 and standard deviation 6, for what value (in place of ??) would $P(X>??) = 0.1$?
+
+### Question 2
+
+Suppose that the height ($H$) of assigned-male-at-birth (AMAB) patients registered at a clinic has the normal distribution with mean 70 inches and variance 4. *(adapted from problem 3.11)*
+
+#### Part a
+
+For a random sample of patients of size $n = 25$, the expression $P(\bar{H} < 65)$, in which $\bar{H}$ denotes the sample mean height, is equivalent to saying $P(Z < ?)$
+
+::: {.callout-note appearance="simple"}
+$Z$ is a standard normal random variable.
+:::
+
+#### Part b
+
+Using the `pnorm` function, show that the probability expressions in Part a are equal.
+
+#### Part c
+
+Find an interval $(a, b)$ such that $P(a< \bar{H} <b) = 0.80$ for the same random sample in Part a.
+
+### Question 3
+
+Test the null hypothesis that the true population average height is the same for two independent groups from one hospital versus the alternative hypothesis that these two population averages are different, using the following data:
+
+-   Group 1: \[69.25, 72.80, 68.73, 72.01, 70.36, 71.49, 72.73\]
+
+-   Group 2: \[67.54, 68.51, 71.84, 70.59, 71.52, 71.50\]
+
+You may assume that the populations from which the data come are each normally distributed, with equal population variances. What conclusion should be drawn, with $\alpha = 0.05$?
+
+::: {.callout-important appearance="simple"}
+**Please attempt this problem using R.** Take a look at the information for the `t.test` function. You will need to set `x`, `y`, `alternative`, and `var.equal=T`. You can use the below groups coded in R.
+:::
+
+```{r}
+grp1 = c(69.25, 72.80, 68.73, 72.01, 70.36, 71.49, 72.73)
+grp2 = c(67.54, 68.51, 71.84, 70.59, 71.52, 71.50)
+```
+
+### Question 4
+
+The choice of an alternative hypothesis ($H_A$ or $H_1$) should depend primarily on (choose all that apply)
+
+a.  the data obtained from the study.
+
+b.  what the investigator is interested in determining.
+
+c.  the critical region.
+
+d.  the significance level.
+
+e.  the power of the test.
+
+### Question 5
+
+The accompanying table gives the dry weights (Y ) of 11 chick embryos ranging in age from 6 to 16 days (X ). Also given in the table are the values of the common logarithms of the weights (Z).
+
 -   Load the dataset using the `readxl` package.
     -   This `readxl` package was installed as a part of the tidyverse, however it does not get loaded when you load the tidyverse package and thus you need to do that separately.
     -   Use the command `read_excel()`, as shown below
@@ -55,37 +129,49 @@ The following questions were adapted from this textbook.
 library(readxl)
 # you might need to update the location of the data file
 # you can choose whatever name you like for the tibble when loading it into R's workspace 
-ch05q01 <- read_excel("data/CH05Q01.xls")
+ch05q01 <- read_excel("./data/CH05Q01.xls")
 ```
 
-### (a)
+### Part a
 
-<font color="green">Additional instructions: Create the scatterplots in R using ggplot, in addition to describing the relationships in the book's instructions.</font>
+Create the scatterplots in R using ggplot the above dataset. Observe the following two scatter diagrams. Describe the relationships between age (X) and dry weight (Y) and between age and log10 dry weight (Z).
 
-### (b)
+### Part b
 
-<font color="green">Note: This is asking for the regression models BEFORE you find the values of the coefficients.</font>
+State the simple linear regression models for these two regressions: Y regressed on X and Z regressed on X.
 
-### (c)
+::: {.callout-note appearance="simple"}
+This is asking for the regression models BEFORE you find the values of the coefficients.
+:::
 
-<font color="green">Note: Now get the regression coefficients using R and plug them into the regression models from (b). You can get the coefficients from the R output - you don't have to use the formulas.</font>
+### Part c
 
-### (d)
+Determine the least-squares estimates of each of the regression lines in part (b).
 
-<font color="green">Note: Instead of sketching the lines, create them using ggplot.</font>
+::: {.callout-note appearance="simple"}
+Now get the regression coefficients using R and plug them into the regression models from (b). You can get the coefficients from the R output - you don't have to use the formulas.
+:::
 
-### (e)
+### Part d
 
-<font color="green">Note: You can get the CI's from the R output - you don't have to use the formulas.</font>
+Create a line on your plots. Which of the two regression lines has the better fit? Based on your answers to parts (a)–(c), is it more appropriate to run a linear regression of Y on X or of Z on X? Explain.
 
-### (f)
+### Part e
 
-<font color="green">Note: Instead of sketching, make the figure using ggplot. Get the asked for CI using R instead of estimating it based on the sketch.</font>
+For the regression that you chose as being more appropriate in part (d), find 95% confidence intervals for the true slope and intercept. Interpret each interval with regard to the null hypothesis that the true value is 0.
+
+::: {.callout-note appearance="simple"}
+You can get the CI's from the R output - you don't have to use the formulas.
+:::
+
+### Part f
+
+For the regression that you chose as being more appropriate in part (d), add 95% confidence and prediction bands. Using your sketch, find and interpret an approximate 95% confidence interval for the mean response of an 8-day-old chick.
 
 ## 5.4 (a - g)
 
 ```{r}
-ch05q04 <- read_excel("data/CH05Q04.xls")
+ch05q04 <- read_excel("./data/CH05Q04.xls")
 ```
 
 ### (a)

@@ -2,13 +2,14 @@
 title: "Homework 0"
 subtitle: "BSTA 512/612"
 description: "Due: Thursday Jnauary 11, 2024"
-date-modified: "12/21/2023"
+date-modified: "1/5/2023"
 date: "1/11/2024"
 categories: [""]
 format: 
   html:
     link-external-newwindow: true
     toc: true
+    embed-resources: true
   pdf: default 
 editor_options: 
   chunk_output_type: console
@@ -16,7 +17,25 @@ editor_options:
 
 ## Directions
 
-**This homework does not need to be turned in on Sakai.**
+**This homework must be turned into Sakai. I want to make sure we are all familiar with the process of downloading a `.qmd`** file, editing it, and resubmitting an `.html` and `.qmd` file.
+
+Here are the instructions for downloading and submitting your homework:
+
+1.  Go to [this github site](https://github.com/nwakim/W2024_BSTA_512/blob/main/homework/HW0.qmd) to download the homework's `.qmd` file.
+
+2.  When you reach the site, it should look like this:![](HW0/HW0_github.png)
+
+3.  Click the "Download raw file" icon (![](HW0/download_icon.png){width="25"}) to download the `.qmd` file. This will likely download the file into your "Downloads" folder. It is up to you to move the file into the appropriate folder.
+
+4.  Please rename you homework as `Lastname_Firstinitial_HW0.qmd` . This will help organize the homeworks when the TAs grade them.
+
+5.  Please also add the following line under `subtitle: "BSTA 512/612"`: `author: First-name Last-name` with your first and last name so it is attached to the viewable document.
+
+6.  Edit the document with your explanations and code. If you are writing out an answer or calculating by hand, you can take a picture of your work and embed it within the `.qmd` file. The pictures will be viewable on the `.html` file.
+
+7.  Please upload your homework to this Sakai assignment. **Upload both your `.qmd` code file and the rendered `.html` file**.
+
+These instructions will not appear on every homework. You may come back to this page for reference.
 
 ### Purpose
 
@@ -24,7 +43,7 @@ This homework is meant to introduce yourself to me and your peers. In the first 
 
 ### Grading
 
-Grading will be done as a check/no check for turning in your work. If you are stressed about time, please give yourself an extension.
+Grading will be done as a check/no check for turning in your work. If you are stressed about time, please turn in whatever you have completed.
 
 ## Questions
 
@@ -36,6 +55,8 @@ Please upload a picture of yourself [to Slack](https://join.slack.com/t/bsta5126
 2.  Click "Profile."
 3.  In the picture of the clip art person, click "Upload Photo" in top right corner.
 4.  Upload a picture file of yourself.
+
+*Please include the picture you used below. This will make sure we are all able to insert a picture within Quarto. It will also make sure I can see the photo within the `.html` file.*
 
 ### Question 2
 
@@ -70,9 +91,10 @@ Please post an introduction in the `#random` channel on Slack. You ***do not nee
 -   Willingness to join a study group
 -   Motivation for taking the course
 -   Anticipated Winter trip/activity
+-   Any resolutions/vibes/outlooks that you are thinking about as we start the new calendar year/quarter
 
 Please feel free to get creative with what you share! You don't need to adhere to this list.
 
 ### Question 6
 
-Completion of this question is only necessary if you have accommodations. If you have any learning accommodations, please email me about your needs. I should receive a direct email from the Office of Student Access, but it is important that we discuss how accommodations will translate to our class. **Since this is the first quarter for a lot of you, please let me know if you need help setting up accommodations!**
+Completion of this question is only necessary if you have accommodations. If you have any learning accommodations, please email me about your needs. I should receive a direct email from the Office of Student Access, but it is important that we discuss how accommodations will translate to our class.

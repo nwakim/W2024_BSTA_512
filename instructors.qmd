@@ -1,5 +1,8 @@
 ---
 title: "Instructors"
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 ## Instructor: Nicole (Nicky) Wakim, PhD
@@ -12,9 +15,12 @@ title: "Instructors"
 
 **Pronouns:** she/her/hers
 
-*You are welcome to address me as Nicky (pronounced "nik-EE"), Dr. Wakim (pronounced "wah-KEEM"), Dr. W, Dr. Nicky, Professor, Professor Wakim, or any combination of the prior.*
+*You are welcome to address me as Nicky (pronounced "nik-EE"), Dr. Wakim
+(pronounced "wah-KEEM"), Dr. W, Dr. Nicky, Professor, Professor Wakim,
+or any combination of the prior.*
 
-**Best method to contact:** Office hours or Slack for general course questions or E-mail/Calendly appointments for private communication.
+**Best method to contact:** Office hours or Slack for general course
+questions or E-mail/Calendly appointments for private communication.
 :::
 
 ::: {.column width="2%"}
@@ -25,7 +31,13 @@ title: "Instructors"
 :::
 :::
 
-**Brief professor statement:** As a professor, my main goal is to instill a growth mindset into my students. Growth mindset means we are NOT stuck in our abilities or knowledge, and that we all can and will grow! This course aims to be as transparent as possible. I want you to understand my motivation for assessments, questions, and lessons. I also want those assessments to be clear, so please ask for clarification whenever needed.
+**Brief professor statement:** As a professor, my main goal is to
+instill a growth mindset into my students. Growth mindset means we are
+NOT stuck in our abilities or knowledge, and that we all can and will
+grow! This course aims to be as transparent as possible. I want you to
+understand my motivation for assessments, questions, and lessons. I also
+want those assessments to be clear, so please ask for clarification
+whenever needed.
 
 ### Office Hours
 
@@ -35,7 +47,34 @@ title: "Instructors"
 
 ## Teaching Assistants
 
-### Antara
+### Antara Vidyarthi
 
-### Ariel
+### Ariel Weingarten
 
+## Statistics Tutor for Epidemiology Students
+
+### Becky Lanford
+
+-   **Email:** [lanford\@ohsu.edu](mailto:lanford@ohsu.edu)
+-   [Link to Becky's
+    Calendly](https://urldefense.com/v3/__https:/calendly.com/lanford_75__;!!Mi0JBg!KrK1hm9GiJDdAZAtdibYsxN-73GWcP37_h9iE4mASjf2E0CqQYfFQpDWuQj_0vnO3cklOQYDsTXiyGw$)
+
+Introduction from Becky:
+
+> Hello fellow MPH classmates! My name is Becky Lanford. I’m looking
+> forward to helping support you in your coursework this quarter. A
+> little about my background: I am currently in my final year in the MPH
+> Epidemiology track and have completed most of my coursework including
+> the biostatistics and epidemiology series (mostly working in R). I
+> enrolled at the SPH as someone re-entering the workforce and quite new
+> to statistical programming. Though I had previously completed a
+> graduate degree (as a Physician Assistant/Associate), re-acclimating
+> to graduate work and learning programming skills made for a steep
+> learning curve my first academic year. I credit the collaborative
+> learning environment at SPH - support of TA's and classmates and
+> availability of instructors - for helping me be successful. I hope I
+> can help answer course-content questions, problem solve with you and
+> find answers if I don’t have them myself. I know there are many
+> challenges to being a graduate student and I am excited to help our
+> public health student community grow stronger and more knowledgeable
+> together.

@@ -54,7 +54,7 @@ schedule:
         calendar-color2: "#FFFFFF"
       - href: homework/HW1.qmd
         title: "HW 1 due"
-        date: 1/18/24
+        date: 1/25/24
         calendar-color: "#4FADF3"
         calendar-color2: "#FFFFFF"
       - title: "HW 2 due"
@@ -93,7 +93,7 @@ schedule:
 
       - title: "Lab 1 due"
         href: labs/Lab_01.qmd
-        date: 1/25/24
+        date: 1/18/24
         calendar-color: "#34AC8B"
         calendar-color2: "#FFFFFF"      
       - title: "Lab 2 due"

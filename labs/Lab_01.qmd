@@ -1,9 +1,9 @@
 ---
 title: "Lab 1"
 subtitle: "BSTA 512/612"
-description: "Due: Thursday January 25, 2024"
+description: "Due: Thursday January 18, 2024"
 date-modified: "12/21/2024"
-date: "1/25/2024"
+date: "1/18/2024"
 categories: [""]
 format: 
   html:
@@ -17,7 +17,5 @@ editor_options:
 ## Directions
 
 ### Purpose
-
-This homework is meant to introduce yourself to me and your peers. In the first class, we will all briefly introduce ourselves, but we don't have enough time in-depth introductions. Thus, I'd like you to share some information with the class over Slack.
 
 ### Grading
