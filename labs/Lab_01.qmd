@@ -2,7 +2,7 @@
 title: "Lab 1"
 subtitle: "BSTA 512/612"
 description: "Due: Thursday January 18, 2024"
-date-modified: "12/21/2024"
+date-modified: "1/5/2024"
 date: "1/18/2024"
 categories: [""]
 format: 
@@ -18,4 +18,89 @@ editor_options:
 
 ### Purpose
 
+This lab will serve as an introduction to our quarter long project.
+
+There will be no analysis in this lab. Instead, we are building our knowledge around the research question.
+
 ### Grading
+
+Each lab will have a slightly different grading rubric. Since this lab does not include coding nor analysis, this portion of the rubric is excluded.
+
+#### Rubric
+
++------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+|            | 4 points                                                                                                                                                                                                         | 3 points                                                                                                                                                                                        | 2 points                                                                                                                                                                                                    | 1 point                                                                                                                                  | 0 points                                                                                                 |
++============+==================================================================================================================================================================================================================+=================================================================================================================================================================================================+=============================================================================================================================================================================================================+==========================================================================================================================================+==========================================================================================================+
+| Answers    | Answers demonstrate completion and understanding of the needed activity\*. Answers are thoughtful and can be easily integrated into the final report.                                                            | Answers demonstrate completion and understanding of the needed activity\*. Answers are thoughtful, but lack the clarity needed to easily integrate into the final report.                       | Answers demonstrate completion and minimal understanding of the needed activity\*. Answers are fairly thoughtful, but lack connection to the research.                                                      | Answers demonstrate completion of needed activities\*, although evidently rushed through. Answers seem rushed and with minimal thought.  | It is evident that the needed activities\* were not completed. Answers seem rushed and without thought.  |
++------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+| Formatting | Lab submitted on Sakai with `.html` file. Answers are written in complete sentences with no major grammatical nor spelling errors. With little editing, the answer can be incorporated into the project report.  | Lab submitted on Sakai with `.html` file. Answers are written in complete sentences with grammatical or spelling errors. With editing, the answer can be incorporated into the project report.  | Lab submitted on Sakai with `.html` file. Answers are written in complete sentences with major grammatical or spelling errors. With major editing, the answer can be incorporated into the project report.  | Lab submitted on Sakai with `.html` file. Answers are bulletted or do not use complete sentences.                                        | Lab *not* submitted on Sakai with `.html` file.                                                          |
++------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+
+\*Example of needed activity: if asked to read something, answers reflect the gained knowledge from the reading.
+
+## Lab activities
+
+### 1. Reading and listening activities
+
+#### 1.1 Article: [Implicit and explicit anti-fat bias: The role of weight-related attitudes and beliefs](./resources/Implicit_anti_fat.pdf)
+
+This article will serve as a reference point for our project. The article is meant to introduce social scientists' approaches to research and analyses. However, the article is not meant to be a basis for which we perform our analysis.
+
+::: callout-warning
+This article discusses anti-fat bias. It uses words that may be triggering to larger-bodied people.
+:::
+
+Please read sections 1 - 2, through 2.2 ("Procedures and measures"). Answer the following questions:
+
+-   In your own words, what is anti-fat bias?
+
+-   What were the three social theoretical models that the paper discusses? Which do you personally think is the biggest contributor to anti-fat bias and why?
+
+-   From the following measures in section 2.2, select two and discuss why the named measure may or may not accurately represent the italicized statement taken from the IAT questionnaire. *Feel free to answer this question after taking the IAT yourself.*
+
+    -   Self-perception of weight
+
+    -   Thin/fat group identity
+
+    -   Controllability of weight
+
+    -   Awareness of societal standards
+
+    -   Internalization of societal standards
+
+#### 1.2 Podcast: [Anti-Fat Bias by Maintenance Phase](https://maintenancephase.buzzsprout.com/1411126/6524683-anti-fat-bias)
+
+::: callout-warning
+This podcast shares the experience of one of its hosts that involves anti-fat bias. This may be triggering if you have experienced this type of bias.
+:::
+
+**This is an optional listening for this lab**, but I highly encourage you listen at some point this quarter. This is a really good way to see how research can be integrated into conversation and experience.
+
+If you decide to listen, feel free to share a quote that most impacted you.
+
+### 2. Familiarizing ourselves with the Implicit Association Test (IAT)
+
+#### 2.1 Learn more about the test
+
+Visit the [Project Implicit site](https://implicit.harvard.edu/implicit/education.html), and read about the test. What is your initial reaction to the test? What questions about the test do you have? Do you have any questions about the test's validity? The point here is not to attempt to discredit the test itself, but see what specific questions the test can help us answer and what is outside the scope of our analysis. For example, are there any potential issues with the fact that people are self-selected to take the test? Does that mean our sample is representative of our population? Is it an issue that someone can take the test more than once?
+
+*This exercise will serve as a good starting point for the discussion section of our project report.* *The more effort you put in here and now, the more prepared you will be for the report.*
+
+#### 2.2 Take the test
+
+You will spend 15 minutes taking the IAT. You can go to the [Project Implicit website](https://implicit.harvard.edu/implicit/research/), register, and select a specific test to take. Once registered, you can click "Take a Test," read the Preliminary Information, and then click "I wish to proceed" at the bottom. Then you can click the button "Weight IAT" to take this particular test.
+
+I will not check that you have completed this test, but it will help you understand the data you are analyzing.
+
+### 3. Get a sense of how you would like to analyze the data
+
+For our project, we will examine the association betwen the IAT score and one other variable. From the above article, and the introduced variables in section 2.2, which association are you most interested in analyzing? Please write this in the form of a research question.
+
+*We will have a chance to adjust our research question once we have explored the data in Lab 2.*
+
+### 4. Compile above work into an introduction
+
+At this point, you have done a lot of the work needed to write an introduction for your report. Write a brief description of anti-fat bias, IAT, your research question, and the context for the question. This description should be in complete sentences and written as a single paragraph.
+
+*In the next lab, we will work on a summary of the dataset (e.g. where are the data from, when were they collected, how many subjects, what are the variables, what are the exposure and outcomes variables of interest, etc.).*
+

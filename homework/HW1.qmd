@@ -1,6 +1,6 @@
 ---
 title: "Homework 1"
-subtitle: "BSTA 512"
+subtitle: "BSTA 512/612"
 author: "Your name here - update this!!!!"
 description: "Due: Thursday January 18, 2023"
 date-modified: "12/22/2023"
@@ -10,6 +10,7 @@ format:
   html: 
     link-external-newwindow: true
     toc: true
+    embed-resources: true
   pdf: default 
 editor_options: 
   chunk_output_type: console
@@ -25,7 +26,6 @@ library(gt)
 library(janitor)
 library(here)
 
-setwd(here("homework"))
 ```
 
 ## Directions

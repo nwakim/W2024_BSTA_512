@@ -2,7 +2,7 @@
 title: "Week 1"
 description: "Introduction; Review; Exploratory Data Analysis; and Case Studies"
 date: "1/8/2024"
-date-modified: "11/8/2024"
+date-modified: "1/8/2024"
 categories: [""]
 format: 
   html:
@@ -32,11 +32,11 @@ editor_options:
 
 Below is a table with links to resources. Icons in [orange]{style="color:#E89543;"} mean there is an available file link.
 
-| Lesson | Topic        |                                             Slides                                             |                                  Annotated Slides                                  |                         Recording(s)                          |
+| Lesson | Topic        |                                             Slides                                              |                                  Annotated Slides                                  |                         Recording(s)                          |
 |---------------|---------------|:-------------:|:-------------:|:-------------:|
-|        | Intro        | [[{{< iconify ri slideshow-fill size=30px >}}](../slides/0_Intro.qmd)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 1      | Review       |             [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}              | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 2      | Case Studies |             [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}              | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+|        | Intro        | [[{{< iconify ri slideshow-fill size=30px >}}](../slides/00_Intro.qmd)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 1      | Review       |              [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}              | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 2      | Case Studies |              [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}              | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
 For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
 
@@ -67,7 +67,11 @@ For the slides, once they are opened, if you would like to print or save them as
 
     -   [Data Equity Primer](https://weallcount.com/the-data-equity-primer/) from We All Count
 
-    -   If you attend, I will give you an extra 3% on your project report.
+    -   ~~If you attend, I will give you an extra 3% on your project report.~~
+
+    -   Unfortunately, I was in contact with the workshop, but they cannot offer free seats to the whole class.
+
+    -   I am attending, and will try to see if I can share a recording afterwards!
 
 -   Here are a few resources if you’d like to practice R:
 

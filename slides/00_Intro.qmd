@@ -1,5 +1,5 @@
 ---
-title: "Welcome to BSTA 512!"
+title: "Welcome to BSTA 512/612!"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#213c96"
@@ -8,9 +8,6 @@ categories: ["Week 1"]
 format: 
   revealjs:
     theme: [default, simple_NW.scss]
-    toc: true
-    toc-depth: 1
-    toc-title: Class Overview
     chalkboard: true
     slide-number: true
     show-slide-number: all
@@ -33,11 +30,11 @@ format:
 
 -   Two kitties
 
--   Volleyball, biking, spikeball, pickleball
+-   *Volleyball*, biking, spikeball, pickleball
 
 -   But also sleeping, TV, and reading
 
--   Just started taking a couple classes at PCC (French, ceramics, yoga)
+-   Just started taking a couple classes at PCC (~~French~~, ceramics, ~~yoga~~)
 
 -   Slowly regrowing my plant collection after moving from Michigan
 :::
@@ -54,13 +51,15 @@ format:
 :::
 :::
 
+# Pride yourself in learning things, not knowing things
+
 ## Some important tasks
 
--   [Join the Slack page!](https://join.slack.com/t/bsta550f23/shared_invite/zt-234443trn-SJOPMHIuUdZaVgSuFBHHIQ)
+-   [Join the Slack page!](https://join.slack.com/t/bsta512613w2024/shared_invite/zt-29g7biioz-XhPs~tj8xwL1GajEw9YlTg)
 
--   Star the class website: <https://nwakim.github.io/F2023_BSTA_550/>
+-   Star the class website: <https://nwakim.github.io/W2024_BSTA_512/>
 
--   Complete the [WhenIsGood](https://whenisgood.net/BSTA_550_OH) for office hours
+-   Complete the [WhenIsGood](https://whenisgood.net/53kgg2b) for office hours
 
 -   Complete Homework 0 by this Thursday at 11pm!
 
@@ -92,4 +91,4 @@ Important Note
 
 ## Let's go through the syllabus!
 
-[Syllabus page](https://nwakim.github.io/F2023_BSTA_550/syllabus.html)
+[Syllabus page](https://nwakim.github.io/W2024_BSTA_512/syllabus.html)
