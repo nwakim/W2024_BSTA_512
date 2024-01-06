@@ -1,7 +1,7 @@
 ---
 title: "Project Report Instructions"
 subtitle: "BSTA 512/612"
-description: "Due: Thursday Marck 21, 2024"
+description: "Due: Thursday March 21, 2024"
 date-modified: "12/21/2024"
 categories: [""]
 format: 
@@ -12,6 +12,12 @@ format:
 editor_options: 
   chunk_output_type: console
 ---
+
+::: callout-important
+**THIS PAGE IS UNDER CONSTRUCTION!!**
+:::
+
+------------------------------------------------------------------------
 
 -   The report will be written in RMarkdown. Turn in both the Rmd and html files.
     -   Make sure the html file includes a table of contents

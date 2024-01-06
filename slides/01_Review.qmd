@@ -16,7 +16,7 @@ format:
     show-slide-number: all
     width: 1955
     height: 1100
-    footer: Intro
+    footer: Review
 ---
 
 ## Where are we?
