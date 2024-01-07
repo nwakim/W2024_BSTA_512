@@ -1,7 +1,6 @@
 ---
 title: "BSTA 512/612 Syllabus"
-date: "1/8/2024"
-date-modified: "12/21/2023"
+date-modified: "1/7/2024"
 categories: [""]
 format: 
   html:
@@ -207,9 +206,9 @@ This class will use a combination of formative and summative assessments to buil
 
 -   **Summative assessment:** Work meant to test how well students have achieved learning objectives. Grading of these assessments are meant to gauge how well a student grasps the learning objectives and will be able to use their knowledge outside of the classroom.
 
-### Breakdown
+## Assessment Breakdown
 
-#### Grading & Requirements
+### Grading & Requirements
 
 Letter grades will be assigned roughly according to the following scheme: A (\>=93%), A- (90-92%), B+ (88-89%), B(83-87%), B- (82-80%), C+(78-79%), C(73-77%), C- (70-72%), D (60 -- 69%), F(\<60%).
 
@@ -233,13 +232,13 @@ Grades will be based on homework assignments, midterm exam, class "attendance", 
 | 612 Readings              | Formative              | Approx. every other week | 0%                                       | 5%                                       |
 +---------------------------+------------------------+--------------------------+------------------------------------------+------------------------------------------+
 
-#### Homework grading
+### Homework grading
 
 No student has the same amount of time available to dedicate to homework. This class may not be a priority to you, you may be taking several other courses, or you may need to dedicate time to other activities. Homeworks are **formative assessments**, meaning its purpose is to help you learn and practice. To reduce the pressure on you to have perfect or complete homework, I have a very simple grading policy: **Your homework will be given a check mark if you turn something in (whether it is incomplete, complete, correct, or wrong).** I highly encourage you to stay up-to-date with the homeworks and put in as much effort as you can. This will be the most helpful work in this class!
 
 After the due date, the TAs will give you feedback (on one or more complete problems) and post the solutions.
 
-#### Viewing Grades in Sakai
+### Viewing Grades in Sakai
 
 Points you receive for graded activities will be posted to the Sakai Gradebook. Click on the Gradebook link on the left navigation to view your points.
 
