@@ -16,6 +16,8 @@ editor_options:
 
 ## Directions
 
+Please turn in your `.html` file [on Sakai.](https://sakai.ohsu.edu/portal/site/BSTA-512-1-AB-W24/tool/961ec5ef-d7f9-4518-be16-25f7af3d6be4?panel=Main) Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.
+
 ### Purpose
 
 This lab will serve as an introduction to our quarter long project.

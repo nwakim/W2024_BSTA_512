@@ -32,11 +32,10 @@ editor_options:
 
 Below is a table with links to resources. Icons in [orange]{style="color:#E89543;"} mean there is an available file link.
 
-| Lesson | Topic        |                                             Slides                                              |                                  Annotated Slides                                  |                         Recording(s)                          |
+| Lesson | Topic  |                                             Slides                                              |                                  Annotated Slides                                  |                         Recording(s)                          |
 |---------------|---------------|:-------------:|:-------------:|:-------------:|
-|        | Intro        | [[{{< iconify ri slideshow-fill size=30px >}}](../slides/00_Intro.qmd)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 1      | Review       |              [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}              | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 2      | Case Studies |              [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}              | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+|        | Intro  | [[{{< iconify ri slideshow-fill size=30px >}}](../slides/00_Intro.qmd)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 1      | Review |              [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}              | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
 For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
 

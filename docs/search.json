@@ -2965,7 +2965,7 @@
     "href": "weeks/week_01_sched.html#resources",
     "title": "Week 1",
     "section": "Resources",
-    "text": "Resources\nBelow is a table with links to resources. Icons in orange mean there is an available file link.\n\n\n\nLesson\nTopic\nSlides\nAnnotated Slides\nRecording(s)\n\n\n\n\n\nIntro\n\n\n\n\n\n1\nReview\n\n\n\n\n\n2\nCase Studies\n\n\n\n\n\n\nFor the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:\n\nClick on the icon with three horizontal bars on the bottom left of the browser.\nClick on “Tools” with the gear icon at the top of the sidebar.\nClick on “PDF Export Mode.”\nFrom there, you can print or save the PDF as you would normally from your internet browser."
+    "text": "Resources\nBelow is a table with links to resources. Icons in orange mean there is an available file link.\n\n\n\nLesson\nTopic\nSlides\nAnnotated Slides\nRecording(s)\n\n\n\n\n\nIntro\n\n\n\n\n\n1\nReview\n\n\n\n\n\n\nFor the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:\n\nClick on the icon with three horizontal bars on the bottom left of the browser.\nClick on “Tools” with the gear icon at the top of the sidebar.\nClick on “PDF Export Mode.”\nFrom there, you can print or save the PDF as you would normally from your internet browser."
   },
   {
     "objectID": "weeks/week_01_sched.html#on-the-horizon",
@@ -4370,7 +4370,7 @@
   {
     "objectID": "slides/00_Intro.html",
     "href": "slides/00_Intro.html",
-    "title": "Welcome to BSTA 550!",
+    "title": "Welcome to BSTA 512/612!",
     "section": "",
     "text": "Call me “Nicky,” “Dr. W,” “Professor Wakim,” or any combo!\nAssistant Professor of Biostatistics\n \nOriginally from DC area (Virginia side!)\nTwo kitties\nVolleyball, biking, spikeball, pickleball\nBut also sleeping, TV, and reading\nJust started taking a couple classes at PCC (French, ceramics, yoga)\nSlowly regrowing my plant collection after moving from Michigan\n\n\n\n\n Video"
   },
@@ -5044,14 +5044,14 @@
     "href": "slides/01_Review.html#data-visualization",
     "title": "Review",
     "section": "Data visualization",
-    "text": "Data visualization"
+    "text": "Data visualization\n\nUsing the library ggplot2 to visualize data\nWe will load the package:\n\n\nlibrary(ggplot2)"
   },
   {
     "objectID": "slides/01_Review.html#where-are-we",
     "href": "slides/01_Review.html#where-are-we",
     "title": "Review",
     "section": "Where are we?",
-    "text": "Where are we?\n\nReview\nIntro to SLR: estimation and testing\nIntro to MLR: estimation and testing\nDiving into our predictors: categorical variables, interactions between variable\nKey ingredient: model evaluation, diagnostics, selection, and building"
+    "text": "Where are we?\n\nReview\nIntro to SLR: estimation and testing\nIntro to MLR: estimation and testing\nDiving into our predictors: categorical variables, interactions between variable\nKey ingredients: model evaluation, diagnostics, selection, and building"
   },
   {
     "objectID": "slides/01_Review.html#confidence-interval-for-one-mean",
@@ -5191,14 +5191,14 @@
     "href": "labs/Lab_01.html",
     "title": "Lab 1",
     "section": "",
-    "text": "This lab will serve as an introduction to our quarter long project.\nThere will be no analysis in this lab. Instead, we are building our knowledge around the research question.\n\n\n\nEach lab will have a slightly different grading rubric. Since this lab does not include coding nor analysis, this portion of the rubric is excluded.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4 points\n3 points\n2 points\n1 point\n0 points\n\n\n\n\nAnswers\nAnswers demonstrate completion and understanding of the needed activity*. Answers are thoughtful and can be easily integrated into the final report.\nAnswers demonstrate completion and understanding of the needed activity*. Answers are thoughtful, but lack the clarity needed to easily integrate into the final report.\nAnswers demonstrate completion and minimal understanding of the needed activity*. Answers are fairly thoughtful, but lack connection to the research.\nAnswers demonstrate completion of needed activities*, although evidently rushed through. Answers seem rushed and with minimal thought.\nIt is evident that the needed activities* were not completed. Answers seem rushed and without thought.\n\n\nFormatting\nLab submitted on Sakai with .html file. Answers are written in complete sentences with no major grammatical nor spelling errors. With little editing, the answer can be incorporated into the project report.\nLab submitted on Sakai with .html file. Answers are written in complete sentences with grammatical or spelling errors. With editing, the answer can be incorporated into the project report.\nLab submitted on Sakai with .html file. Answers are written in complete sentences with major grammatical or spelling errors. With major editing, the answer can be incorporated into the project report.\nLab submitted on Sakai with .html file. Answers are bulletted or do not use complete sentences.\nLab not submitted on Sakai with .html file.\n\n\n\n*Example of needed activity: if asked to read something, answers reflect the gained knowledge from the reading."
+    "text": "Please turn in your .html file on Sakai. Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.\n\n\nThis lab will serve as an introduction to our quarter long project.\nThere will be no analysis in this lab. Instead, we are building our knowledge around the research question.\n\n\n\nEach lab will have a slightly different grading rubric. Since this lab does not include coding nor analysis, this portion of the rubric is excluded.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4 points\n3 points\n2 points\n1 point\n0 points\n\n\n\n\nAnswers\nAnswers demonstrate completion and understanding of the needed activity*. Answers are thoughtful and can be easily integrated into the final report.\nAnswers demonstrate completion and understanding of the needed activity*. Answers are thoughtful, but lack the clarity needed to easily integrate into the final report.\nAnswers demonstrate completion and minimal understanding of the needed activity*. Answers are fairly thoughtful, but lack connection to the research.\nAnswers demonstrate completion of needed activities*, although evidently rushed through. Answers seem rushed and with minimal thought.\nIt is evident that the needed activities* were not completed. Answers seem rushed and without thought.\n\n\nFormatting\nLab submitted on Sakai with .html file. Answers are written in complete sentences with no major grammatical nor spelling errors. With little editing, the answer can be incorporated into the project report.\nLab submitted on Sakai with .html file. Answers are written in complete sentences with grammatical or spelling errors. With editing, the answer can be incorporated into the project report.\nLab submitted on Sakai with .html file. Answers are written in complete sentences with major grammatical or spelling errors. With major editing, the answer can be incorporated into the project report.\nLab submitted on Sakai with .html file. Answers are bulletted or do not use complete sentences.\nLab not submitted on Sakai with .html file.\n\n\n\n*Example of needed activity: if asked to read something, answers reflect the gained knowledge from the reading."
   },
   {
     "objectID": "labs/Lab_01.html#directions",
     "href": "labs/Lab_01.html#directions",
     "title": "Lab 1",
     "section": "",
-    "text": "This lab will serve as an introduction to our quarter long project.\nThere will be no analysis in this lab. Instead, we are building our knowledge around the research question.\n\n\n\nEach lab will have a slightly different grading rubric. Since this lab does not include coding nor analysis, this portion of the rubric is excluded.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4 points\n3 points\n2 points\n1 point\n0 points\n\n\n\n\nAnswers\nAnswers demonstrate completion and understanding of the needed activity*. Answers are thoughtful and can be easily integrated into the final report.\nAnswers demonstrate completion and understanding of the needed activity*. Answers are thoughtful, but lack the clarity needed to easily integrate into the final report.\nAnswers demonstrate completion and minimal understanding of the needed activity*. Answers are fairly thoughtful, but lack connection to the research.\nAnswers demonstrate completion of needed activities*, although evidently rushed through. Answers seem rushed and with minimal thought.\nIt is evident that the needed activities* were not completed. Answers seem rushed and without thought.\n\n\nFormatting\nLab submitted on Sakai with .html file. Answers are written in complete sentences with no major grammatical nor spelling errors. With little editing, the answer can be incorporated into the project report.\nLab submitted on Sakai with .html file. Answers are written in complete sentences with grammatical or spelling errors. With editing, the answer can be incorporated into the project report.\nLab submitted on Sakai with .html file. Answers are written in complete sentences with major grammatical or spelling errors. With major editing, the answer can be incorporated into the project report.\nLab submitted on Sakai with .html file. Answers are bulletted or do not use complete sentences.\nLab not submitted on Sakai with .html file.\n\n\n\n*Example of needed activity: if asked to read something, answers reflect the gained knowledge from the reading."
+    "text": "Please turn in your .html file on Sakai. Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.\n\n\nThis lab will serve as an introduction to our quarter long project.\nThere will be no analysis in this lab. Instead, we are building our knowledge around the research question.\n\n\n\nEach lab will have a slightly different grading rubric. Since this lab does not include coding nor analysis, this portion of the rubric is excluded.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4 points\n3 points\n2 points\n1 point\n0 points\n\n\n\n\nAnswers\nAnswers demonstrate completion and understanding of the needed activity*. Answers are thoughtful and can be easily integrated into the final report.\nAnswers demonstrate completion and understanding of the needed activity*. Answers are thoughtful, but lack the clarity needed to easily integrate into the final report.\nAnswers demonstrate completion and minimal understanding of the needed activity*. Answers are fairly thoughtful, but lack connection to the research.\nAnswers demonstrate completion of needed activities*, although evidently rushed through. Answers seem rushed and with minimal thought.\nIt is evident that the needed activities* were not completed. Answers seem rushed and without thought.\n\n\nFormatting\nLab submitted on Sakai with .html file. Answers are written in complete sentences with no major grammatical nor spelling errors. With little editing, the answer can be incorporated into the project report.\nLab submitted on Sakai with .html file. Answers are written in complete sentences with grammatical or spelling errors. With editing, the answer can be incorporated into the project report.\nLab submitted on Sakai with .html file. Answers are written in complete sentences with major grammatical or spelling errors. With major editing, the answer can be incorporated into the project report.\nLab submitted on Sakai with .html file. Answers are bulletted or do not use complete sentences.\nLab not submitted on Sakai with .html file.\n\n\n\n*Example of needed activity: if asked to read something, answers reflect the gained knowledge from the reading."
   },
   {
     "objectID": "homework/HW1.html#section",
@@ -5878,5 +5878,117 @@
     "title": "Lab 1",
     "section": "Lab activities",
     "text": "Lab activities\n\n1. Reading and listening activities\n\n1.1 Article: Implicit and explicit anti-fat bias: The role of weight-related attitudes and beliefs\nThis article will serve as a reference point for our project. The article is meant to introduce social scientists’ approaches to research and analyses. However, the article is not meant to be a basis for which we perform our analysis.\n\n\n\n\n\n\nWarning\n\n\n\nThis article discusses anti-fat bias. It uses words that may be triggering to larger-bodied people.\n\n\nPlease read sections 1 - 2, through 2.2 (“Procedures and measures”). Answer the following questions:\n\nIn your own words, what is anti-fat bias?\nWhat were the three social theoretical models that the paper discusses? Which do you personally think is the biggest contributor to anti-fat bias and why?\nFrom the following measures in section 2.2, select two and discuss why the named measure may or may not accurately represent the italicized statement taken from the IAT questionnaire. Feel free to answer this question after taking the IAT yourself.\n\nSelf-perception of weight\nThin/fat group identity\nControllability of weight\nAwareness of societal standards\nInternalization of societal standards\n\n\n\n\n1.2 Podcast: Anti-Fat Bias by Maintenance Phase\n\n\n\n\n\n\nWarning\n\n\n\nThis podcast shares the experience of one of its hosts that involves anti-fat bias. This may be triggering if you have experienced this type of bias.\n\n\nThis is an optional listening for this lab, but I highly encourage you listen at some point this quarter. This is a really good way to see how research can be integrated into conversation and experience.\nIf you decide to listen, feel free to share a quote that most impacted you.\n\n\n\n2. Familiarizing ourselves with the Implicit Association Test (IAT)\n\n2.1 Learn more about the test\nVisit the Project Implicit site, and read about the test. What is your initial reaction to the test? What questions about the test do you have? Do you have any questions about the test’s validity? The point here is not to attempt to discredit the test itself, but see what specific questions the test can help us answer and what is outside the scope of our analysis. For example, are there any potential issues with the fact that people are self-selected to take the test? Does that mean our sample is representative of our population? Is it an issue that someone can take the test more than once?\nThis exercise will serve as a good starting point for the discussion section of our project report. The more effort you put in here and now, the more prepared you will be for the report.\n\n\n2.2 Take the test\nYou will spend 15 minutes taking the IAT. You can go to the Project Implicit website, register, and select a specific test to take. Once registered, you can click “Take a Test,” read the Preliminary Information, and then click “I wish to proceed” at the bottom. Then you can click the button “Weight IAT” to take this particular test.\nI will not check that you have completed this test, but it will help you understand the data you are analyzing.\n\n\n\n3. Get a sense of how you would like to analyze the data\nFor our project, we will examine the association betwen the IAT score and one other variable. From the above article, and the introduced variables in section 2.2, which association are you most interested in analyzing? Please write this in the form of a research question.\nWe will have a chance to adjust our research question once we have explored the data in Lab 2.\n\n\n4. Compile above work into an introduction\nAt this point, you have done a lot of the work needed to write an introduction for your report. Write a brief description of anti-fat bias, IAT, your research question, and the context for the question. This description should be in complete sentences and written as a single paragraph.\nIn the next lab, we will work on a summary of the dataset (e.g. where are the data from, when were they collected, how many subjects, what are the variables, what are the exposure and outcomes variables of interest, etc.)."
+  },
+  {
+    "objectID": "slides/01_Review.html#data-visualization-2",
+    "href": "slides/01_Review.html#data-visualization-2",
+    "title": "Review",
+    "section": "Data visualization 2",
+    "text": "Data visualization 2\n\n\n\nggplot(data = dds.discr, \n       aes(x = age)) +\n  geom_density()\n\n\n\n\n\n\nggplot(data = dds.discr, \n       aes(x = age)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "slides/01_Review.html#histogram-using-ggplot2",
+    "href": "slides/01_Review.html#histogram-using-ggplot2",
+    "title": "Review",
+    "section": "Histogram using ggplot2",
+    "text": "Histogram using ggplot2\nWe can make a basic graph for a continuous variable:\n\n\n\nggplot(data = dds.discr, \n       aes(x = age)) +\n  geom_histogram()\n\n\n\n\n\n\n\n\n\n\nggplot() +\n  geom_histogram(data = dds.discr, \n       aes(x = age))\n\n\n\n\n\n\n\n\n\n\nSome more information on histograms using ggplot2"
+  },
+  {
+    "objectID": "slides/01_Review.html#histogram-using-ggplot2-1",
+    "href": "slides/01_Review.html#histogram-using-ggplot2-1",
+    "title": "Review",
+    "section": "Histogram using ggplot2",
+    "text": "Histogram using ggplot2\nWe can make a more formal, presentable graph:\n\nggplot(data = dds.discr, \n       aes(x = age)) +\n  geom_histogram() +\n  theme(text = element_text(size=20)) +\n  labs(x = \"Age\", \n       y = \"Count\", \n       title = \"Distribution Age in Sample\")\n\n\nI would like you to turn in homework, labs, and project reports with graphs like these."
+  },
+  {
+    "objectID": "slides/01_Review.html#other-basic-plots-from-ggplot2",
+    "href": "slides/01_Review.html#other-basic-plots-from-ggplot2",
+    "title": "Review",
+    "section": "Other basic plots from ggplot2",
+    "text": "Other basic plots from ggplot2\nWe can also make a density and boxplot for the continuous variable with ggplot2\n\n\n\nggplot(data = dds.discr, \n       aes(x = age)) +\n  geom_density()\n\n\n\n\n\n\nggplot(data = dds.discr, \n       aes(x = age)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "slides/01_Review.html#where-are-we-1",
+    "href": "slides/01_Review.html#where-are-we-1",
+    "title": "Review",
+    "section": "Where are we?",
+    "text": "Where are we?\n\n\nReview\n\n\n\nIntro to SLR: estimation and testing\nIntro to MLR: estimation and testing\nDiving into our predictors: categorical variables, interactions between variable\nKey ingredient: model evaluation, diagnostics, selection, and building"
+  },
+  {
+    "objectID": "slides/01_Review.html#spruced-up-histogram-using-ggplot2",
+    "href": "slides/01_Review.html#spruced-up-histogram-using-ggplot2",
+    "title": "Review",
+    "section": "Spruced up histogram using ggplot2",
+    "text": "Spruced up histogram using ggplot2\nWe can make a more formal, presentable graph:\n\nggplot(data = dds.discr, \n       aes(x = age)) +\n  geom_histogram() +\n  theme(text = element_text(size=20)) +\n  labs(x = \"Age\", \n       y = \"Count\", \n       title = \"Distribution of Age in Sample\")\n\n\nI would like you to turn in homework, labs, and project reports with graphs like these."
+  },
+  {
+    "objectID": "slides/01_Review.html#descriptive-statistics-continuous-variables-r-code",
+    "href": "slides/01_Review.html#descriptive-statistics-continuous-variables-r-code",
+    "title": "Review",
+    "section": "Descriptive Statistics: continuous variables (R code)",
+    "text": "Descriptive Statistics: continuous variables (R code)\n\n\nMeasures of central tendency\n\nSample mean\n\nmean( sample )\n\nMedian\n\nmedian( sample )\n\n\n\nMeasures of variability (or dispersion)\n\nSample variance\n\nvar( sample )\n\nSample standard deviation\n\nsd( sample )\n\nIQR\n\nIQR( sample )"
+  },
+  {
+    "objectID": "slides/01_Review.html#what-will-this-class-cover",
+    "href": "slides/01_Review.html#what-will-this-class-cover",
+    "title": "Review",
+    "section": "What will this class cover?",
+    "text": "What will this class cover?"
+  },
+  {
+    "objectID": "slides/01_Review.html#what-will-we-learn-in-this-class",
+    "href": "slides/01_Review.html#what-will-we-learn-in-this-class",
+    "title": "Review",
+    "section": "What will we learn in this class?",
+    "text": "What will we learn in this class?\n\nWe will be building towards models that can handle many variables!\n\nRegression is the building block for modeling multivariable relationships\n\nIn Linear Models we will build, interpret, and evaluate linear regression models"
+  },
+  {
+    "objectID": "slides/01_Review.html#now",
+    "href": "slides/01_Review.html#now",
+    "title": "Review",
+    "section": "NOW!!",
+    "text": "NOW!!\nPreviously, if the exposure was:\n\nCategorical: we could run a t-test or ANOVA\nContinuous\n\nMain sections:\n\nIntro to SLR: estimation and testing\nIntro to MLR: estimation and testing\nDiving into our predictors: categorical variables, interactions between variable\nKey ingredients: model evaluation, diagnostics, selection, and building"
+  },
+  {
+    "objectID": "slides/01_Review.html#what-did-we-learn-in-511",
+    "href": "slides/01_Review.html#what-did-we-learn-in-511",
+    "title": "Review",
+    "section": "What did we learn in 511?",
+    "text": "What did we learn in 511?\n\nIn 511, we talked about categorical and continuous outcomes (dependent variables)\nWe also talked about their relationship with 1-2 continuous or categorical exposure (independent variables or predictor)\nWe had many good ways to assess the relationship between an outcome and exposure:\n\n\n\n\n\n\n\n\n\n\nContinuous Outcome\nCategorical Outcome\n\n\nContinuous Exposure\nCorrelation, simple linear regression\n??\n\n\nCategorical Exposure\nt-tests, paired t-tests, 2 sample t-tests, ANOVA\nproportion t-test, Chi-squared goodness of fit test, Fisher’s Exact test, Chi-squared test of independence, etc."
+  },
+  {
+    "objectID": "slides/01_Review.html#what-did-we-learn-in-511-1",
+    "href": "slides/01_Review.html#what-did-we-learn-in-511-1",
+    "title": "Review",
+    "section": "What did we learn in 511?",
+    "text": "What did we learn in 511?\n\nYou set up a really important foundation\n\nIncluding distributions, mathematical definitions, hypothesis testing, and more!\n\nTests and statistical approaches learned are incredibly helpful!\nWhile you had to learn a lot of different tests and approaches for each combination of categorical/continuous exposure with categorical/continuous outcome\n\nThose tests cannot handle more complicated data\n\nWhat happens when other variables influence the relationship between your exposure and outcome?\n\nDo we just ignore them?"
+  },
+  {
+    "objectID": "slides/01_Review.html#process-of-regression-data-analysis",
+    "href": "slides/01_Review.html#process-of-regression-data-analysis",
+    "title": "Review",
+    "section": "Process of regression data analysis",
+    "text": "Process of regression data analysis"
+  },
+  {
+    "objectID": "slides/01_Review.html#main-sections-of-the-course",
+    "href": "slides/01_Review.html#main-sections-of-the-course",
+    "title": "Review",
+    "section": "Main sections of the course",
+    "text": "Main sections of the course\n\nReview\nIntro to SLR: estimation and testing\n\nModel fitting\n\nIntro to MLR: estimation and testing\n\nModel fitting\n\nDiving into our predictors: categorical variables, interactions between variable\n\nModel fitting\n\nKey ingredients: model evaluation, diagnostics, selection, and building\n\nModel evaluation  and Model selection"
+  },
+  {
+    "objectID": "slides/01_Review.html",
+    "href": "slides/01_Review.html",
+    "title": "Review",
+    "section": "",
+    "text": "In 511, we talked about categorical and continuous outcomes (dependent variables)\nWe also talked about their relationship with 1-2 continuous or categorical exposure (independent variables or predictor)\nWe had many good ways to assess the relationship between an outcome and exposure:\n\n\n\n\n\n\n\n\n\n\nContinuous Outcome\nCategorical Outcome\n\n\nContinuous Exposure\nCorrelation, simple linear regression\n??\n\n\nCategorical Exposure\nt-tests, paired t-tests, 2 sample t-tests, ANOVA\nproportion t-test, Chi-squared goodness of fit test, Fisher’s Exact test, Chi-squared test of independence, etc."
+  },
+  {
+    "objectID": "slides/01_Review.html#main-sections-of-the-course-1",
+    "href": "slides/01_Review.html#main-sections-of-the-course-1",
+    "title": "Review",
+    "section": "Main sections of the course",
+    "text": "Main sections of the course\n\n\nReview\n\n\n\nIntro to SLR: estimation and testing\n\nModel fitting\n\nIntro to MLR: estimation and testing\n\nModel fitting\n\nDiving into our predictors: categorical variables, interactions between variable\n\nModel fitting\n\nKey ingredients: model evaluation, diagnostics, selection, and building\n\nModel evaluation  and Model selection"
   }
 ]

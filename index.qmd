@@ -9,7 +9,7 @@ link-external-newwindow: true
 ::: {style="color: #FFFFFF"}
 ::: grid
 ::: g-col-4
-![](images/bsta_550_hex_3.png){fig-align="center" width="337"}
+![](images/bsta_512_hex.png){fig-align="center" width="337"}
 :::
 
 ::: g-col-7

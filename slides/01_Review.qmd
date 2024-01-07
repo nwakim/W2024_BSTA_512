@@ -17,19 +17,104 @@ format:
     width: 1955
     height: 1100
     footer: Review
+    mermaid: 
+      theme: neutral
 ---
 
-## Where are we?
+## What did we learn in 511?
+
+-   In 511, we talked about *categorical* and *continuous* outcomes (dependent variables)
+-   We also talked about their relationship with 1-2 *continuous* or *categorical* exposure (independent variables or predictor)
+-   We had many good ways to assess the relationship between an outcome and exposure:
+
+|                      |                                                  |                                                                                                                  |
+|------------------|------------------|-------------------------------------|
+|                      | Continuous Outcome                               | Categorical Outcome                                                                                              |
+| Continuous Exposure  | Correlation, simple linear regression            | ??                                                                                                               |
+| Categorical Exposure | t-tests, paired t-tests, 2 sample t-tests, ANOVA | proportion t-test, Chi-squared goodness of fit test, Fisher's Exact test, Chi-squared test of independence, etc. |
+
+: {tbl-colwidths="\[15, 35,35\]"}
+
+## What did we learn in 511?
+
+-   You set up a really important foundation
+
+    -   Including distributions, mathematical definitions, hypothesis testing, and more!
+
+-   Tests and statistical approaches learned are incredibly helpful!
+
+-   While you had to learn a lot of different tests and approaches for each combination of categorical/continuous exposure with categorical/continuous outcome
+
+    -   Those tests cannot handle more complicated data
+
+-   What happens when other variables influence the relationship between your exposure and outcome?
+
+    -   Do we just ignore them?
+
+## What will we learn in this class?
+
+-   We will be building towards models that can handle many variables!
+
+    -   **Regression** is the building block for modeling multivariable relationships
+
+-   In Linear Models we will *build, interpret, and evaluate* linear regression models
+
+## Process of regression data analysis
+
+![](01_Review/Reg_analysis_process.png){fig-align="center"}
+
+## Main sections of the course
 
 -   Review
 
 -   Intro to SLR: estimation and testing
 
+    -   <span style="color:#34AC8B;">Model fitting</span>
+
 -   Intro to MLR: estimation and testing
+
+    -   <span style="color:#34AC8B;">Model fitting</span>
 
 -   Diving into our predictors: categorical variables, interactions between variable
 
--   Key ingredient: model evaluation, diagnostics, selection, and building
+    -   <span style="color:#34AC8B;">Model fitting</span>
+
+-   Key ingredients: model evaluation, diagnostics, selection, and building
+
+    -   <span style="color:#A7EA52;">Model evaluation </span> and <span style="color:#FF8021;">Model selection</span>
+
+```{r}
+library(ggplot2)
+```
+
+```{css}
+code.sourceCode {
+  font-size: 1.4em;
+  /* or try font-size: xx-large; */
+}
+```
+
+## Main sections of the course
+
+::: lob
+-   Review
+:::
+
+-   Intro to SLR: estimation and testing
+
+    -   <span style="color:#34AC8B;">Model fitting</span>
+
+-   Intro to MLR: estimation and testing
+
+    -   <span style="color:#34AC8B;">Model fitting</span>
+
+-   Diving into our predictors: categorical variables, interactions between variable
+
+    -   <span style="color:#34AC8B;">Model fitting</span>
+
+-   Key ingredients: model evaluation, diagnostics, selection, and building
+
+    -   <span style="color:#A7EA52;">Model evaluation </span> and <span style="color:#FF8021;">Model selection</span>
 
 ## Before we begin
 
@@ -90,7 +175,153 @@ format:
 :::
 :::
 
+## Descriptive Statistics: continuous variables (R code)
+
+::: columns
+::: {.column width="40%"}
+**Measures of central tendency**
+
+-   Sample mean
+
+    ```{r}
+    #| eval: false
+    #| echo: true
+
+    mean( sample )
+    ```
+
+-   Median
+
+    ```{r}
+    #| eval: false
+    #| echo: true
+
+    median( sample )
+    ```
+:::
+
+::: column
+**Measures of variability (or dispersion)**
+
+-   Sample variance
+
+    ```{r}
+    #| eval: false
+    #| echo: true
+
+    var( sample )
+    ```
+
+-   Sample standard deviation
+
+    ```{r}
+    #| eval: false
+    #| echo: true
+
+    sd( sample )
+    ```
+
+-   IQR
+
+    ```{r}
+    #| eval: false
+    #| echo: true
+
+    IQR( sample )
+    ```
+:::
+:::
+
 ## Data visualization
+
+-   Using the library `ggplot2` to visualize data
+
+-   We will load the package:
+
+```{r}
+#| echo: true
+
+library(ggplot2)
+```
+
+## Histogram using `ggplot2`
+
+We can make a basic graph for a continuous variable:
+
+::: columns
+```{r}
+data("dds.discr")
+```
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| fig-align: center
+
+ggplot(data = dds.discr, 
+       aes(x = age)) +
+  geom_histogram()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| fig-align: center
+
+ggplot() +
+  geom_histogram(data = dds.discr, 
+       aes(x = age))
+```
+:::
+:::
+
+[Some more information](https://www.sharpsightlabs.com/blog/histogram-r-ggplot2/) on histograms using `ggplot2`
+
+## Spruced up histogram using `ggplot2`
+
+We can make a more formal, presentable graph:
+
+```{r}
+#| echo: true
+#| fig-align: center
+
+ggplot(data = dds.discr, 
+       aes(x = age)) +
+  geom_histogram() +
+  theme(text = element_text(size=20)) +
+  labs(x = "Age", 
+       y = "Count", 
+       title = "Distribution of Age in Sample")
+```
+
+I would like you to turn in homework, labs, and project reports with graphs like these.
+
+## Other basic plots from `ggplot2`
+
+We can also make a density and boxplot for the continuous variable with `ggplot2`
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+
+ggplot(data = dds.discr, 
+       aes(x = age)) +
+  geom_density()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+
+ggplot(data = dds.discr, 
+       aes(x = age)) +
+  geom_boxplot()
+```
+:::
+:::
 
 # Important Distributions
 

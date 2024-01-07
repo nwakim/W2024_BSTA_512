@@ -30,6 +30,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -351,14 +416,124 @@ Nicky Wakim
 </ul>
 </nav>
 </section>
-<section id="where-are-we" class="slide level2">
-<h2>Where are we?</h2>
+<section id="what-did-we-learn-in-511" class="slide level2">
+<h2>What did we learn in 511?</h2>
+<ul>
+<li>In 511, we talked about <em>categorical</em> and <em>continuous</em> outcomes (dependent variables)</li>
+<li>We also talked about their relationship with 1-2 <em>continuous</em> or <em>categorical</em> exposure (independent variables or predictor)</li>
+<li>We had many good ways to assess the relationship between an outcome and exposure:</li>
+</ul>
+<table style="width:85%;">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 35%">
+<col style="width: 35%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>Continuous Outcome</td>
+<td>Categorical Outcome</td>
+</tr>
+<tr class="even">
+<td>Continuous Exposure</td>
+<td>Correlation, simple linear regression</td>
+<td>??</td>
+</tr>
+<tr class="odd">
+<td>Categorical Exposure</td>
+<td>t-tests, paired t-tests, 2 sample t-tests, ANOVA</td>
+<td>proportion t-test, Chi-squared goodness of fit test, Fisher’s Exact test, Chi-squared test of independence, etc.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-did-we-learn-in-511-1" class="slide level2">
+<h2>What did we learn in 511?</h2>
+<ul>
+<li><p>You set up a really important foundation</p>
+<ul>
+<li>Including distributions, mathematical definitions, hypothesis testing, and more!</li>
+</ul></li>
+<li><p>Tests and statistical approaches learned are incredibly helpful!</p></li>
+<li><p>While you had to learn a lot of different tests and approaches for each combination of categorical/continuous exposure with categorical/continuous outcome</p>
+<ul>
+<li>Those tests cannot handle more complicated data</li>
+</ul></li>
+<li><p>What happens when other variables influence the relationship between your exposure and outcome?</p>
+<ul>
+<li>Do we just ignore them?</li>
+</ul></li>
+</ul>
+</section>
+<section id="what-will-we-learn-in-this-class" class="slide level2">
+<h2>What will we learn in this class?</h2>
+<ul>
+<li><p>We will be building towards models that can handle many variables!</p>
+<ul>
+<li><strong>Regression</strong> is the building block for modeling multivariable relationships</li>
+</ul></li>
+<li><p>In Linear Models we will <em>build, interpret, and evaluate</em> linear regression models</p></li>
+</ul>
+</section>
+<section id="process-of-regression-data-analysis" class="slide level2">
+<h2>Process of regression data analysis</h2>
+
+<img data-src="01_Review/Reg_analysis_process.png" class="r-stretch quarto-figure-center"></section>
+<section id="main-sections-of-the-course" class="slide level2">
+<h2>Main sections of the course</h2>
 <ul>
 <li><p>Review</p></li>
-<li><p>Intro to SLR: estimation and testing</p></li>
-<li><p>Intro to MLR: estimation and testing</p></li>
-<li><p>Diving into our predictors: categorical variables, interactions between variable</p></li>
-<li><p>Key ingredient: model evaluation, diagnostics, selection, and building</p></li>
+<li><p>Intro to SLR: estimation and testing</p>
+<ul>
+<li><span style="color:#34AC8B;">Model fitting</span></li>
+</ul></li>
+<li><p>Intro to MLR: estimation and testing</p>
+<ul>
+<li><span style="color:#34AC8B;">Model fitting</span></li>
+</ul></li>
+<li><p>Diving into our predictors: categorical variables, interactions between variable</p>
+<ul>
+<li><span style="color:#34AC8B;">Model fitting</span></li>
+</ul></li>
+<li><p>Key ingredients: model evaluation, diagnostics, selection, and building</p>
+<ul>
+<li><span style="color:#A7EA52;">Model evaluation </span> and <span style="color:#FF8021;">Model selection</span></li>
+</ul></li>
+</ul>
+<div class="cell">
+<style type="text/css">
+code.sourceCode {
+  font-size: 1.4em;
+  /* or try font-size: xx-large; */
+}
+</style>
+</div>
+</section>
+<section id="main-sections-of-the-course-1" class="slide level2">
+<h2>Main sections of the course</h2>
+<div class="lob">
+<ul>
+<li>Review</li>
+</ul>
+</div>
+<ul>
+<li><p>Intro to SLR: estimation and testing</p>
+<ul>
+<li><span style="color:#34AC8B;">Model fitting</span></li>
+</ul></li>
+<li><p>Intro to MLR: estimation and testing</p>
+<ul>
+<li><span style="color:#34AC8B;">Model fitting</span></li>
+</ul></li>
+<li><p>Diving into our predictors: categorical variables, interactions between variable</p>
+<ul>
+<li><span style="color:#34AC8B;">Model fitting</span></li>
+</ul></li>
+<li><p>Key ingredients: model evaluation, diagnostics, selection, and building</p>
+<ul>
+<li><span style="color:#A7EA52;">Model evaluation </span> and <span style="color:#FF8021;">Model selection</span></li>
+</ul></li>
 </ul>
 </section>
 <section id="before-we-begin" class="slide level2">
@@ -419,8 +594,123 @@ s = \sqrt{\dfrac{(x_1-\bar{x})^2+(x_2-\bar{x})^2+...+(x_n-\bar{x})^2}{n-1}}=\sqr
 </div>
 </div>
 </section>
+<section id="descriptive-statistics-continuous-variables-r-code" class="slide level2">
+<h2>Descriptive Statistics: continuous variables (R code)</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><strong>Measures of central tendency</strong></p>
+<ul>
+<li><p>Sample mean</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">mean</span>( sample )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>Median</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">median</span>( sample )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ul>
+</div><div class="column">
+<p><strong>Measures of variability (or dispersion)</strong></p>
+<ul>
+<li><p>Sample variance</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">var</span>( sample )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>Sample standard deviation</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">sd</span>( sample )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>IQR</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">IQR</span>( sample )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ul>
+</div>
+</div>
+</section>
 <section id="data-visualization" class="slide level2">
 <h2>Data visualization</h2>
+<ul>
+<li><p>Using the library <code>ggplot2</code> to visualize data</p></li>
+<li><p>We will load the package:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="histogram-using-ggplot2" class="slide level2">
+<h2>Histogram using <code>ggplot2</code></h2>
+<p>We can make a basic graph for a continuous variable:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dds.discr, </span>
+<span id="cb7-2"><a href="#cb7-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="01_Review_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">data =</span> dds.discr, </span>
+<span id="cb8-3"><a href="#cb8-3"></a>       <span class="fu">aes</span>(<span class="at">x =</span> age))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="01_Review_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><a href="https://www.sharpsightlabs.com/blog/histogram-r-ggplot2/">Some more information</a> on histograms using <code>ggplot2</code></p>
+</section>
+<section id="spruced-up-histogram-using-ggplot2" class="slide level2">
+<h2>Spruced up histogram using <code>ggplot2</code></h2>
+<p>We can make a more formal, presentable graph:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dds.discr, </span>
+<span id="cb9-2"><a href="#cb9-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>)) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Age"</span>, </span>
+<span id="cb9-6"><a href="#cb9-6"></a>       <span class="at">y =</span> <span class="st">"Count"</span>, </span>
+<span id="cb9-7"><a href="#cb9-7"></a>       <span class="at">title =</span> <span class="st">"Distribution of Age in Sample"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="01_Review_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch quarto-figure-center"><p>I would like you to turn in homework, labs, and project reports with graphs like these.</p>
+</section>
+<section id="other-basic-plots-from-ggplot2" class="slide level2">
+<h2>Other basic plots from <code>ggplot2</code></h2>
+<p>We can also make a density and boxplot for the continuous variable with <code>ggplot2</code></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dds.discr, </span>
+<span id="cb10-2"><a href="#cb10-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="01_Review_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dds.discr, </span>
+<span id="cb11-2"><a href="#cb11-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="01_Review_files/figure-revealjs/unnamed-chunk-14-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
 </section></section>
 <section>
 <section id="important-distributions" class="title-slide slide level1 center">
@@ -776,6 +1066,44 @@ e.g., <span class="math inline">\((aY+b)\sim \mbox{N}(a\mu+b,\;a^2\sigma^2)\)</s
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
