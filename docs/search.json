@@ -5990,5 +5990,12 @@
     "title": "Review",
     "section": "Main sections of the course",
     "text": "Main sections of the course\n\n\nReview\n\n\n\nIntro to SLR: estimation and testing\n\nModel fitting\n\nIntro to MLR: estimation and testing\n\nModel fitting\n\nDiving into our predictors: categorical variables, interactions between variable\n\nModel fitting\n\nKey ingredients: model evaluation, diagnostics, selection, and building\n\nModel evaluation  and Model selection"
+  },
+  {
+    "objectID": "slides/00_Intro.html#positionality",
+    "href": "slides/00_Intro.html#positionality",
+    "title": "Welcome to BSTA 512/612!",
+    "section": "Positionality",
+    "text": "Positionality"
   }
 ]

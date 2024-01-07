@@ -51,6 +51,8 @@ format:
 :::
 :::
 
+## Positionality 
+
 # Pride yourself in learning things, not knowing things
 
 ## Some important tasks
