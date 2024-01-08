@@ -406,7 +406,7 @@ Nicky Wakim
   <p class="date">2023-01-08</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
-<h2 id="toc-title">Class Overview</h2>
+<h2 id="toc-title">Lecture Overview</h2>
 <ul>
 <li><a href="#/quick-basics" id="/toc-quick-basics">Quick basics</a></li>
 <li><a href="#/important-distributions" id="/toc-important-distributions">Important Distributions</a></li>
@@ -553,6 +553,30 @@ div.cell-output-stdout {
 <ul>
 <li>Meike has some really good online notes, code, and work on <a href="https://niederhausen.github.io/BSTA_511_F23/">her BSTA 511 page</a></li>
 </ul>
+</section>
+<section id="learning-objectives" class="slide level2">
+<h2>Learning Objectives</h2>
+<ol type="1">
+<li><p>Identify important descriptive statistics and visualize data from a continuous variable</p></li>
+<li><p>Identify important distributions that will be used in 512/612</p></li>
+<li><p>Use our previous tools in 511 to estimate a parameter and construct a confidence interval</p></li>
+<li><p>Use our previous tools in 511 to conduct a hypothesis test</p></li>
+<li><p>Define error rates and power</p></li>
+</ol>
+</section>
+<section id="learning-objectives-1" class="slide level2">
+<h2>Learning Objectives</h2>
+<div class="lob">
+<ol type="1">
+<li>Identify important descriptive statistics and visualize data from a continuous variable</li>
+</ol>
+</div>
+<ol start="2" type="1">
+<li><p>Identify important distributions that will be used in 512/612</p></li>
+<li><p>Use our previous tools in 511 to estimate a parameter and construct a confidence interval</p></li>
+<li><p>Use our previous tools in 511 to conduct a hypothesis test</p></li>
+<li><p>Define error rates and power</p></li>
+</ol>
 </section>
 <section>
 <section id="quick-basics" class="title-slide slide level1 center">
@@ -726,6 +750,22 @@ s = \sqrt{\dfrac{(x_1-\bar{x})^2+(x_2-\bar{x})^2+...+(x_n-\bar{x})^2}{n-1}}=\sqr
 </div>
 </div>
 </div>
+</section>
+<section id="learning-objectives-2" class="slide level2">
+<h2>Learning Objectives</h2>
+<ol type="1">
+<li>Identify important descriptive statistics and visualize data from a continuous variable</li>
+</ol>
+<div class="lob">
+<ol start="2" type="1">
+<li>Identify important distributions that will be used in 512/612</li>
+</ol>
+</div>
+<ol start="3" type="1">
+<li><p>Use our previous tools in 511 to estimate a parameter and construct a confidence interval</p></li>
+<li><p>Use our previous tools in 511 to conduct a hypothesis test</p></li>
+<li><p>Define error rates and power</p></li>
+</ol>
 </section></section>
 <section>
 <section id="important-distributions" class="title-slide slide level1 center">
@@ -743,6 +783,8 @@ s = \sqrt{\dfrac{(x_1-\bar{x})^2+(x_2-\bar{x})^2+...+(x_n-\bar{x})^2}{n-1}}=\sqr
 </section>
 <section id="normal-distribution" class="slide level2">
 <h2>Normal Distribution</h2>
+<div class="columns">
+<div class="column">
 <ul>
 <li><p>Notation: <span class="math inline">\(Y\sim N(\mu,\sigma^2)\)</span></p></li>
 <li><p>Arguably, the most important distribution in statistics</p></li>
@@ -756,64 +798,151 @@ s = \sqrt{\dfrac{(x_1-\bar{x})^2+(x_2-\bar{x})^2+...+(x_n-\bar{x})^2}{n-1}}=\sqr
 e.g., <span class="math inline">\((aY+b)\sim \mbox{N}(a\mu+b,\;a^2\sigma^2)\)</span></p></li>
 <li><p>Standard normal: <span class="math inline">\(Z=\frac{Y-\mu}{\sigma} \sim \mbox{N}(0,1)\)</span></p></li>
 </ul>
+</div><div class="column">
+<p><img data-src="01_Review/normal.png"></p>
+</div>
+</div>
 </section>
-<section id="chi-square-distribution" class="slide level2">
-<h2>Chi-square Distribution</h2>
+<section id="chi-squared-distribution-models-sampling-variance" class="slide level2">
+<h2>Chi-squared distribution: <em>models sampling variance</em></h2>
+<div class="columns">
+<div class="column">
 <ul>
-<li><p>Notation: <span class="math inline">\(X \sim \chi^2_{df}\)</span></p>
+<li><p>Notation: <span class="math inline">\(X \sim \chi^2_{df}\)</span> OR <span class="math inline">\(X \sim \chi^2_{\nu}\)</span></p>
 <ul>
-<li><p><span class="math inline">\(df=\)</span> degrees of freedom</p></li>
-<li><p><span class="math inline">\(E[X]=df\)</span></p></li>
+<li><p>Degrees of freedom (df): <span class="math inline">\(df=n-1\)</span></p></li>
 <li><p><span class="math inline">\(X\)</span> takes on only positive values</p></li>
 </ul></li>
-<li><p>If <span class="math inline">\(Z_i\sim \mbox{N}(0,1)\)</span>, then <span class="math inline">\(Z_i^2\sim \chi^2_1\)</span></p></li>
-<li><p>If <span class="math inline">\(Z_1,\ldots,Z_n\)</span> are independent, with <span class="math inline">\(Z_i\sim\mbox{N}(0,1)\)</span>, then</p></li>
-</ul>
-<span class="math display">\[\begin{aligned}
-        \sum_{i=1}^n Z_i^2 &amp; \sim &amp; \chi^2_n \nonumber
-        
-\end{aligned}\]</span>
+<li><p>If <span class="math inline">\(Z_i\sim \mbox{N}(0,1)\)</span>, then <span class="math inline">\(Z_i^2\sim \chi^2_1\)</span></p>
 <ul>
-<li>Used in hypothesis testing and CI’s involving variance</li>
-</ul>
-</section>
-<section id="t-distribution" class="slide level2">
-<h2>t Distribution</h2>
-<ul>
-<li><p>If <span class="math inline">\(Z\sim \mbox{N}(0,1)\)</span> and <span class="math inline">\(S^2\sim \chi^2_{df}\)</span> and <span class="math inline">\(Z\)</span> and <span class="math inline">\(S^2\)</span> are independent,</p>
-<span class="math display">\[\begin{aligned}        \frac{Z}{S/\sqrt{df}} &amp; \sim &amp; t_{df} \nonumber            \end{aligned}\]</span>
-<ul>
-<li><p>Symmetric, bell-shaped; tails heavier than Normal</p></li>
-<li><p><span class="math inline">\(E[t_{df}]=0\)</span>; <span class="math inline">\(Var(t_{df})\)</span> greater than 1</p></li>
-<li><p><span class="math inline">\(\lim_{df\rightarrow \infty}t_{df} \rightarrow \mbox{N}(0,1)\)</span></p></li>
-<li><p>for <span class="math inline">\(df&gt;30\)</span>, the <span class="math inline">\(t_{df}\)</span> closely resembles the <span class="math inline">\(\mbox{N}(0,1)\)</span> distribution</p></li>
+<li>A standard normal distribution squared is the Chi squared distribution with df of 1.</li>
 </ul></li>
-<li><p>In linear modeling, used for inference on individual regression parameters</p></li>
 </ul>
+<!-- -->
+<ul>
+<li>Used in hypothesis testing and CI’s <strong>for variance or standard deviation</strong>
+<ul>
+<li>Sample variance (and SD) is random and thus can be modeled by a probability distribution: Chi-sqaured</li>
+</ul></li>
+<li>Chi-squared distribution used to model the <strong>ratio of</strong> the <em>sample variance</em> <span class="math inline">\(s^2\)</span> to <em>population variance</em> <span class="math inline">\(\sigma^2\)</span>:
+<ul>
+<li><span class="math inline">\(\dfrac{(n-1)s^2}{\sigma^2}\sim \chi^2_{n-1}\)</span></li>
+</ul></li>
+</ul>
+</div><div class="column">
+<p><img data-src="01_Review/chi_squared.png"></p>
+</div>
+</div>
+</section>
+<section id="students-t-distribution" class="slide level2">
+<h2>Student’s t Distribution</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li><p>Notation: <span class="math inline">\(T \sim t_{df}\)</span> OR <span class="math inline">\(T \sim t_{n-1}\)</span></p>
+<ul>
+<li><p>Degrees of freedom (df): <span class="math inline">\(df=n-1\)</span></p></li>
+<li><p><span class="math inline">\(T = \dfrac{\bar{x} - \mu_x}{\dfrac{s}{\sqrt{n}}}\sim t_{n-1}\)</span></p></li>
+</ul></li>
+<li><p>In linear modeling, used for inference on individual regression parameters</p>
+<ul>
+<li>Think: our estimated coefficients (<span class="math inline">\(\hat{\beta}\)</span>)</li>
+</ul></li>
+</ul>
+</div><div class="column">
+<p><img data-src="01_Review/student_t.png"></p>
+</div>
+</div>
 </section>
 <section id="f-distribution" class="slide level2">
-<h2>F Distribution</h2>
+<h2>F-Distribution</h2>
+<div class="columns">
+<div class="column">
 <ul>
 <li><p>Model ratio of sample variances</p>
 <ul>
-<li>Ratio of variances is important for hypothesis testing of regression and ANOVA models</li>
+<li>Ratio of variances is important for hypothesis testing of regression models</li>
 </ul></li>
-<li><p>If <span class="math inline">\(X_1^2\sim \chi^2_{df1}\)</span> and <span class="math inline">\(X_2^2\sim \chi^2_{df2}\)</span>, where <span class="math inline">\(X_1^2\perp X_2^2\)</span>, then:</p>
-<span class="math display">\[\begin{aligned}        \frac{X_1^2/df1}{X_2^2/df2} &amp; \sim &amp; F_{df1,df2} \nonumber        \end{aligned}\]</span>
+<li><p>If <span class="math inline">\(X_1^2\sim \chi^2_{df1}\)</span> and <span class="math inline">\(X_2^2\sim \chi^2_{df2}\)</span>, where <span class="math inline">\(X_1^2\perp X_2^2\)</span>, then:</p></li>
+</ul>
+<p><span class="math display">\[\dfrac{X_1^2/df1}{X_2^2/df2} \sim F_{df1,df2}\]</span> - only takes on positive values</p>
 <ul>
-<li>only takes on positive values</li>
-</ul></li>
-<li><p>Important relationship with <span class="math inline">\(t\)</span> distribution:</p>
+<li><p>Important relationship with <span class="math inline">\(t\)</span> distribution: <span class="math inline">\(T^2 \sim F_{1,\nu}\)</span></p>
 <ul>
 <li><p>The square of a t-distribution with <span class="math inline">\(df=\nu\)</span></p></li>
-<li><p>is an F-distrubtion with numerator df (<span class="math inline">\(df1 = 1\)</span>) and denominator df (<span class="math inline">\(df2 = \nu\)</span>)</p></li>
+<li><p>is an F-distribution with numerator df (<span class="math inline">\(df_1 = 1\)</span>) and denominator df (<span class="math inline">\(df_2 = \nu\)</span>)</p></li>
 </ul></li>
 </ul>
-<span class="math display">\[\begin{aligned}
-             T^2  \stackrel{{D}}{\sim} &amp; F_{1,\nu} \\
-             \text{ if and only if } T \sim t_{\nu}
-            
-\end{aligned}\]</span>
+</div><div class="column">
+<p><img data-src="01_Review/f_dist.png"></p>
+</div>
+</div>
+</section>
+<section id="f-distribution-1" class="slide level2">
+<h2>F-Distribution</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li><p>Model ratio of sample variances</p>
+<ul>
+<li>Ratio of variances is important for hypothesis testing of regression models</li>
+</ul></li>
+<li><p>If <span class="math inline">\(X_1^2\sim \chi^2_{df1}\)</span> and <span class="math inline">\(X_2^2\sim \chi^2_{df2}\)</span>, where <span class="math inline">\(X_1^2\perp X_2^2\)</span>, then:</p></li>
+</ul>
+<p><span class="math display">\[\dfrac{X_1^2/df1}{X_2^2/df2} \sim F_{df1,df2}\]</span> - only takes on positive values</p>
+<ul>
+<li><p>Important relationship with <span class="math inline">\(t\)</span> distribution: <span class="math inline">\(T^2 \sim F_{1,\nu}\)</span></p>
+<ul>
+<li><p>The square of a t-distribution with <span class="math inline">\(df=\nu\)</span></p></li>
+<li><p>is an F-distribution with numerator df (<span class="math inline">\(df_1 = 1\)</span>) and denominator df (<span class="math inline">\(df_2 = \nu\)</span>)</p></li>
+</ul></li>
+</ul>
+</div><div class="column">
+<p><img data-src="01_Review/f_dist.png"></p>
+<div class="proposition">
+<div class="prop-title">
+<p>Is there a relationship between our chi-squared and F-distribution?</p>
+</div>
+<div class="prop-cont">
+<p>Recall, <span class="math inline">\(\dfrac{(n-1)s^2}{\sigma^2}\sim \chi^2_{n-1}\)</span>.</p>
+<p>The F-distribution for a ratio of variances between two models is: <span class="math inline">\(F = \dfrac{s_1^2\sigma^2_2}{s_2^2\sigma^2_1} \sim F_{n_1-1, n_2-1}\)</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="r-code-for-probability-distributions" class="slide level2">
+<h2>R code for probability distributions</h2>
+<div class="columns">
+<div class="column">
+<p><a href="https://www.stat.umn.edu/geyer/5101/examp/rlook.html">Here is a site</a> with the various probability distributions and their R code.</p>
+<ul>
+<li>It also includes practice with R code to see what each function outputs</li>
+</ul>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="01_Review/r_code_prob_dist.png" width="785"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="learning-objectives-3" class="slide level2">
+<h2>Learning Objectives</h2>
+<ol type="1">
+<li><p>Identify important descriptive statistics and visualize data from a continuous variable</p></li>
+<li><p>Identify important distributions that will be used in 512/612</p></li>
+</ol>
+<div class="lob">
+<ol start="3" type="1">
+<li>Use our previous tools in 511 to estimate a parameter and construct a confidence interval</li>
+</ol>
+</div>
+<ol start="4" type="1">
+<li><p>Use our previous tools in 511 to conduct a hypothesis test</p></li>
+<li><p>Define error rates and power</p></li>
+</ol>
 </section></section>
 <section>
 <section id="statistical-inference-estimation" class="title-slide slide level1 center">
@@ -921,6 +1050,22 @@ mean of x
 <section id="heres-a-decent-source-for-other-r-code-for-tests-in-511" class="slide level2">
 <h2>Here’s a decent source for other R code for tests in 511</h2>
 <p><a href="https://stats.oarc.ucla.edu/r/whatstat/what-statistical-analysis-should-i-usestatistical-analyses-using-r/">Website from UCLA</a></p>
+</section>
+<section id="learning-objectives-4" class="slide level2">
+<h2>Learning Objectives</h2>
+<ol type="1">
+<li><p>Identify important descriptive statistics and visualize data from a continuous variable</p></li>
+<li><p>Identify important distributions that will be used in 512/612</p></li>
+<li><p>Use our previous tools in 511 to estimate a parameter and construct a confidence interval</p></li>
+</ol>
+<div class="lob">
+<ol start="4" type="1">
+<li>Use our previous tools in 511 to conduct a hypothesis test</li>
+</ol>
+</div>
+<ol start="5" type="1">
+<li>Define error rates and power</li>
+</ol>
 </section></section>
 <section>
 <section id="statistical-inference-hypothesis-testing" class="title-slide slide level1 center">
@@ -931,6 +1076,22 @@ mean of x
 <h2>Steps in hypothesis testing</h2>
 
 <img data-src="01_Review/hypothesis_test_steps.png" class="r-stretch quarto-figure-center"></section>
+<section id="example-one-sample-t-test" class="slide level2">
+<h2>Example: one sample t-test</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>BodyTemps <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"data/BodyTemperatures.csv"</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="fu">ggplot</span>(<span class="at">data =</span> BodyTemps, </span>
+<span id="cb18-4"><a href="#cb18-4"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Temperature)) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>)) <span class="sc">+</span></span>
+<span id="cb18-7"><a href="#cb18-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Temperature"</span>, <span class="at">y =</span> <span class="st">"Count"</span>, </span>
+<span id="cb18-8"><a href="#cb18-8"></a>       <span class="at">title =</span> <span class="st">"Distribution of Body Temperature in Sample"</span>) <span class="sc">+</span></span>
+<span id="cb18-9"><a href="#cb18-9"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(BodyTemps<span class="sc">$</span>Temperature, <span class="at">na.rm =</span> T)), </span>
+<span id="cb18-10"><a href="#cb18-10"></a>             <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="01_Review_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch quarto-figure-center"></section>
 <section id="example-one-sample-t-test-using-p-value-approach" class="slide level2">
 <h2>Example: one sample t-test using <strong><em>p-value approach</em></strong></h2>
 <p>We want to see what the mean population body temperature is.</p>
@@ -938,8 +1099,8 @@ mean of x
 <li><p>State the null and alternative hypotheses:</p>
 <table>
 <colgroup>
-<col style="width: 26%">
-<col style="width: 73%">
+<col style="width: 30%">
+<col style="width: 69%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -957,7 +1118,7 @@ mean of x
 <li><p>The test statistic is: <span class="math inline">\(t_{\bar{x}} = \dfrac{\bar{x}-\mu_0}{\dfrac{s}{\sqrt{n}}}\)</span> and with the data: <span class="math inline">\(t_{\bar{x}} = \dfrac{98.25-98.6}{\dfrac{0.73}{\sqrt{130}}} = -5.45\)</span></p></li>
 <li><p>Calculate the p-value: <span class="math inline">\(p-value = P(t \leq -5.45) + P(t \geq 5.45)\)</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="dv">2</span><span class="sc">*</span><span class="fu">pt</span>(<span class="sc">-</span><span class="fl">5.4548</span>, <span class="at">df =</span> <span class="dv">130-1</span>, <span class="at">lower.tail=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="dv">2</span><span class="sc">*</span><span class="fu">pt</span>(<span class="sc">-</span><span class="fl">5.4548</span>, <span class="at">df =</span> <span class="dv">130-1</span>, <span class="at">lower.tail=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.410889e-07</code></pre>
 </div>
@@ -972,8 +1133,8 @@ mean of x
 <li><p>State the null and alternative hypotheses:</p>
 <table>
 <colgroup>
-<col style="width: 26%">
-<col style="width: 73%">
+<col style="width: 30%">
+<col style="width: 69%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -990,7 +1151,7 @@ mean of x
 <li><p>The test statistic, <span class="math inline">\(t_{\bar{x}}\)</span> follows a student’s t-distribution with <span class="math inline">\(df = n-1 = 129\)</span></p></li>
 <li><p>Decision rule (critical value): For <span class="math inline">\(\alpha=0.05\)</span> , <span class="math inline">\(2*P(t \geq t^*) = 0.05\)</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">qt</span>(<span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> <span class="dv">130-1</span>, <span class="at">lower.tail=</span>F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">qt</span>(<span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> <span class="dv">130-1</span>, <span class="at">lower.tail=</span>F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.978524</code></pre>
 </div>
@@ -1005,11 +1166,11 @@ mean of x
 <li>The <code>t.test</code> function can help us answer this, and give us the needed information for both approaches.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>BodyTemps <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"data/BodyTemperatures.csv"</span>)</span>
-<span id="cb22-2"><a href="#cb22-2"></a></span>
-<span id="cb22-3"><a href="#cb22-3"></a><span class="fu">t.test</span>(<span class="at">x =</span> BodyTemps<span class="sc">$</span>Temperature, </span>
-<span id="cb22-4"><a href="#cb22-4"></a>       <span class="co"># alternative = "two-sided", </span></span>
-<span id="cb22-5"><a href="#cb22-5"></a>       <span class="at">mu =</span> <span class="fl">98.6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>BodyTemps <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"data/BodyTemperatures.csv"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2"></a></span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="fu">t.test</span>(<span class="at">x =</span> BodyTemps<span class="sc">$</span>Temperature, </span>
+<span id="cb23-4"><a href="#cb23-4"></a>       <span class="co"># alternative = "two-sided", </span></span>
+<span id="cb23-5"><a href="#cb23-5"></a>       <span class="at">mu =</span> <span class="fl">98.6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
@@ -1023,6 +1184,20 @@ sample estimates:
 mean of x 
  98.24923 </code></pre>
 </div>
+</div>
+</section>
+<section id="learning-objectives-5" class="slide level2">
+<h2>Learning Objectives</h2>
+<ol type="1">
+<li><p>Identify important descriptive statistics and visualize data from a continuous variable</p></li>
+<li><p>Identify important distributions that will be used in 512/612</p></li>
+<li><p>Use our previous tools in 511 to estimate a parameter and construct a confidence interval</p></li>
+<li><p>Use our previous tools in 511 to conduct a hypothesis test</p></li>
+</ol>
+<div class="lob">
+<ol start="5" type="1">
+<li>Define error rates and power</li>
+</ol>
 </div>
 </section></section>
 <section>

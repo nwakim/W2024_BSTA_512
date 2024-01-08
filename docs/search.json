@@ -11,7 +11,7 @@
     "href": "schedule.html",
     "title": "Weekly Pages",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nDescription\n\n\n\n\n\n\n1/8/24\n\n\nWeek 1\n\n\nIntroduction; Review; Exploratory Data Analysis; and Case Studies\n\n\n\n\n1/15/24\n\n\nWeek 2\n\n\nSimple Linear Regression\n\n\n\n\n1/22/24\n\n\nWeek 3\n\n\nSLR Hypothesis Testing\n\n\n\n\n1/29/24\n\n\nWeek 4\n\n\nMultiple Linear Regression (MLR)\n\n\n\n\n2/5/24\n\n\nWeek 5\n\n\nMLR Hypothesis Testing\n\n\n\n\n2/12/24\n\n\nWeek 6\n\n\nCategorical Covariates\n\n\n\n\n2/19/24\n\n\nWeek 7\n\n\nInteractions\n\n\n\n\n2/26/24\n\n\nWeek 8\n\n\nModel Evaluation and Diagnostics\n\n\n\n\n3/4/24\n\n\nWeek 9\n\n\nModel Diagnostics\n\n\n\n\n3/11/24\n\n\nWeek 10\n\n\nModel Selection and Building\n\n\n\n\n3/18/24\n\n\nWeek 11\n\n\nSpill-Over Week\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nDescription\n\n\n\n\n\n\n1/8/24\n\n\nWeek 1\n\n\nIntroduction; Review; and Data Wrangling\n\n\n\n\n1/15/24\n\n\nWeek 2\n\n\nSimple Linear Regression\n\n\n\n\n1/22/24\n\n\nWeek 3\n\n\nSLR Hypothesis Testing\n\n\n\n\n1/29/24\n\n\nWeek 4\n\n\nMultiple Linear Regression (MLR)\n\n\n\n\n2/5/24\n\n\nWeek 5\n\n\nMLR Hypothesis Testing\n\n\n\n\n2/12/24\n\n\nWeek 6\n\n\nCategorical Covariates\n\n\n\n\n2/19/24\n\n\nWeek 7\n\n\nInteractions\n\n\n\n\n2/26/24\n\n\nWeek 8\n\n\nModel Evaluation and Diagnostics\n\n\n\n\n3/4/24\n\n\nWeek 9\n\n\nModel Diagnostics\n\n\n\n\n3/11/24\n\n\nWeek 10\n\n\nModel Selection and Building\n\n\n\n\n3/18/24\n\n\nWeek 11\n\n\nSpill-Over Week\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "syllabus.html",
@@ -4372,14 +4372,14 @@
     "href": "slides/00_Intro.html",
     "title": "Welcome to BSTA 512/612!",
     "section": "",
-    "text": "Call me “Nicky,” “Dr. W,” “Professor Wakim,” or any combo!\nAssistant Professor of Biostatistics\n \nOriginally from DC area (Virginia side!)\nTwo kitties\nVolleyball, biking, spikeball, pickleball\nBut also sleeping, TV, and reading\nJust started taking a couple classes at PCC (French, ceramics, yoga)\nSlowly regrowing my plant collection after moving from Michigan\n\n\n\n\n Video"
+    "text": "Call me “Nicky,” “Dr. W,” “Professor Wakim,” or any combo!\nAssistant Professor of Biostatistics\n \nOriginally from DC area (Virginia side!)\nTwo kitties\nVolleyball, biking, pickleball\nBut also sleeping, TV, and reading\nJust started taking a couple classes at PCC (French, ceramics, yoga)\nSlowly regrowing my plant collection after moving from Michigan\n\n\n\n\n Video"
   },
   {
     "objectID": "slides/00_Intro.html#nicky-wakim-sheher",
     "href": "slides/00_Intro.html#nicky-wakim-sheher",
     "title": "Welcome to BSTA 512/612!",
-    "section": "Nicky Wakim (she/her)",
-    "text": "Nicky Wakim (she/her)\n\n\n\nCall me “Nicky,” “Dr. W,” “Professor Wakim,” or any combo!\nAssistant Professor of Biostatistics\n \nOriginally from DC area (Virginia side!)\nTwo kitties\nVolleyball, biking, spikeball, pickleball\nBut also sleeping, TV, and reading\nJust started taking a couple classes at PCC (French, ceramics, yoga)\nSlowly regrowing my plant collection after moving from Michigan\n\n\n\n\n Video"
+    "section": "",
+    "text": "Call me “Nicky,” “Dr. W,” “Professor Wakim,” or any combo!\nAssistant Professor of Biostatistics\n \nOriginally from DC area (Virginia side!)\nTwo kitties\nVolleyball, biking, pickleball\nBut also sleeping, TV, and reading\nJust started taking a couple classes at PCC (French, ceramics, yoga)\nSlowly regrowing my plant collection after moving from Michigan\n\n\n\n\n Video"
   },
   {
     "objectID": "slides/00_Intro.html#some-important-tasks",
@@ -4393,14 +4393,14 @@
     "href": "slides/00_Intro.html#lets-visit-the-website",
     "title": "Welcome to BSTA 512/612!",
     "section": "Let’s visit the website",
-    "text": "Let’s visit the website\n\nHomepage\n\nGitHub\n\nSyllabus\nSchedule\n\nWeeks, class info, exams, homeworks\n\nSearch\n\n\n\nImportant Note\n\n\nThis is my first time teaching the course. I will work hard to answer your questions in class, but I will often need some time outside of class to make sure I give you the best answer possible! Also, many of the examples are not my own. I will work to improve examples, but if you have feedback or suggestions, I am happy to hear them!"
+    "text": "Let’s visit the website\n\nHomepage\n\nGitHub\n\nSyllabus\nSchedule\n\nWeeks, class info, quizzes, homeworks, projects\n\nSearch\n\n\n\nImportant Note\n\n\nThis is my first time teaching the course. I will work hard to answer your questions in class, but I will often need some time outside of class to make sure I give you the best answer possible! Also, many of the examples are not my own. I will work to improve examples, but if you have feedback or suggestions, I am happy to hear them!"
   },
   {
     "objectID": "slides/00_Intro.html#lets-go-through-the-syllabus",
     "href": "slides/00_Intro.html#lets-go-through-the-syllabus",
     "title": "Welcome to BSTA 512/612!",
     "section": "Let’s go through the syllabus!",
-    "text": "Let’s go through the syllabus!\nSyllabus page\n\n\nIntro"
+    "text": "Let’s go through the syllabus!\nSyllabus page"
   },
   {
     "objectID": "weeks/week_02_sched.html",
@@ -4995,7 +4995,7 @@
     "href": "slides/01_Review.html#normal-distribution",
     "title": "Review",
     "section": "Normal Distribution",
-    "text": "Normal Distribution\n\nNotation: \\(Y\\sim N(\\mu,\\sigma^2)\\)\nArguably, the most important distribution in statistics\nIf we know \\(E(Y)=\\mu\\), \\(Var(Y)=\\sigma^2\\) then\n\n2/3 of \\(Y\\)’s distribution lies within 1 \\(\\sigma\\) of \\(\\mu\\)\n95% \\(\\ldots\\) \\(\\ldots\\) is within \\(\\mu\\pm 2\\sigma\\)\n\\(&gt;99\\)% \\(\\ldots\\) \\(\\ldots\\) lies within \\(\\mu\\pm 3\\sigma\\)\n\nLinear combinations of Normal’s are Normal\ne.g., \\((aY+b)\\sim \\mbox{N}(a\\mu+b,\\;a^2\\sigma^2)\\)\nStandard normal: \\(Z=\\frac{Y-\\mu}{\\sigma} \\sim \\mbox{N}(0,1)\\)"
+    "text": "Normal Distribution\n\n\n\nNotation: \\(Y\\sim N(\\mu,\\sigma^2)\\)\nArguably, the most important distribution in statistics\nIf we know \\(E(Y)=\\mu\\), \\(Var(Y)=\\sigma^2\\) then\n\n2/3 of \\(Y\\)’s distribution lies within 1 \\(\\sigma\\) of \\(\\mu\\)\n95% \\(\\ldots\\) \\(\\ldots\\) is within \\(\\mu\\pm 2\\sigma\\)\n\\(&gt;99\\)% \\(\\ldots\\) \\(\\ldots\\) lies within \\(\\mu\\pm 3\\sigma\\)\n\nLinear combinations of Normal’s are Normal\ne.g., \\((aY+b)\\sim \\mbox{N}(a\\mu+b,\\;a^2\\sigma^2)\\)\nStandard normal: \\(Z=\\frac{Y-\\mu}{\\sigma} \\sim \\mbox{N}(0,1)\\)"
   },
   {
     "objectID": "slides/01_Review.html#chi-square-distribution",
@@ -5009,14 +5009,14 @@
     "href": "slides/01_Review.html#t-distribution",
     "title": "Review",
     "section": "t Distribution",
-    "text": "t Distribution\n\nIf \\(Z\\sim \\mbox{N}(0,1)\\) and \\(S^2\\sim \\chi^2_{df}\\) and \\(Z\\) and \\(S^2\\) are independent,\n\\[\\begin{aligned}        \\frac{Z}{S/\\sqrt{df}} & \\sim & t_{df} \\nonumber            \\end{aligned}\\]\n\nSymmetric, bell-shaped; tails heavier than Normal\n\\(E[t_{df}]=0\\); \\(Var(t_{df})\\) greater than 1\n\\(\\lim_{df\\rightarrow \\infty}t_{df} \\rightarrow \\mbox{N}(0,1)\\)\nfor \\(df&gt;30\\), the \\(t_{df}\\) closely resembles the \\(\\mbox{N}(0,1)\\) distribution\n\nIn linear modeling, used for inference on individual regression parameters"
+    "text": "t Distribution\n\n\n\nNotation: \\(T \\sim t_{df}\\) OR \\(T \\sim t_{n-1}\\)\n\nDegrees of freedom (df): \\(df=n-1\\)\n\\(T = \\dfrac{\\bar{x} - \\mu_x}{\\dfrac{s}{\\sqrt{n}}}\\sim t_{n-1}\\)\n\nIn linear modeling, used for inference on individual regression parameters\n\nThink: our estimated coefficients (\\(\\hat{\\beta}\\))"
   },
   {
     "objectID": "slides/01_Review.html#f-distribution",
     "href": "slides/01_Review.html#f-distribution",
     "title": "Review",
-    "section": "F Distribution",
-    "text": "F Distribution\n\nModel ratio of sample variances\n\nRatio of variances is important for hypothesis testing of regression and ANOVA models\n\nIf \\(X_1^2\\sim \\chi^2_{df1}\\) and \\(X_2^2\\sim \\chi^2_{df2}\\), where \\(X_1^2\\perp X_2^2\\), then:\n\\[\\begin{aligned}        \\frac{X_1^2/df1}{X_2^2/df2} & \\sim & F_{df1,df2} \\nonumber        \\end{aligned}\\]\n\nonly takes on positive values\n\nImportant relationship with \\(t\\) distribution:\n\nThe square of a t-distribution with \\(df=\\nu\\)\nis an F-distrubtion with numerator df (\\(df1 = 1\\)) and denominator df (\\(df2 = \\nu\\))\n\n\n\\[\\begin{aligned}\n             T^2  \\stackrel{{D}}{\\sim} & F_{1,\\nu} \\\\\n             \\text{ if and only if } T \\sim t_{\\nu}\n            \n\\end{aligned}\\]"
+    "section": "F-Distribution",
+    "text": "F-Distribution\n\n\n\nModel ratio of sample variances\n\nRatio of variances is important for hypothesis testing of regression models\n\nIf \\(X_1^2\\sim \\chi^2_{df1}\\) and \\(X_2^2\\sim \\chi^2_{df2}\\), where \\(X_1^2\\perp X_2^2\\), then:\n\n\\[\\dfrac{X_1^2/df1}{X_2^2/df2} \\sim F_{df1,df2}\\] - only takes on positive values\n\nImportant relationship with \\(t\\) distribution: \\(T^2 \\sim F_{1,\\nu}\\)\n\nThe square of a t-distribution with \\(df=\\nu\\)\nis an F-distribution with numerator df (\\(df_1 = 1\\)) and denominator df (\\(df_2 = \\nu\\))"
   },
   {
     "objectID": "Class_dictionary.html",
@@ -6039,5 +6039,82 @@
     "title": "Review",
     "section": "How did we get the 95% CI?",
     "text": "How did we get the 95% CI?\n\nThe t.test function can help us answer this, and give us the needed information for both approaches.\n\n\nBodyTemps = read.csv(\"data/BodyTemperatures.csv\")\n\nt.test(x = BodyTemps$Temperature, \n       # alternative = \"two-sided\", \n       mu = 98.6)\n\n\n    One Sample t-test\n\ndata:  BodyTemps$Temperature\nt = -5.4548, df = 129, p-value = 2.411e-07\nalternative hypothesis: true mean is not equal to 98.6\n95 percent confidence interval:\n 98.12200 98.37646\nsample estimates:\nmean of x \n 98.24923"
+  },
+  {
+    "objectID": "slides/01_Review.html#learning-objectives",
+    "href": "slides/01_Review.html#learning-objectives",
+    "title": "Review",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nIdentify important descriptive statistics and visualize data from a continuous variable\nIdentify important distributions that will be used in 512/612\nUse our previous tools in 511 to estimate a parameter and construct a confidence interval\nUse our previous tools in 511 to conduct a hypothesis test\nDefine error rates and power"
+  },
+  {
+    "objectID": "slides/01_Review.html#example-one-sample-t-test",
+    "href": "slides/01_Review.html#example-one-sample-t-test",
+    "title": "Review",
+    "section": "Example: one sample t-test",
+    "text": "Example: one sample t-test\n\nBodyTemps = read.csv(\"data/BodyTemperatures.csv\")\n\nggplot(data = BodyTemps, \n       aes(x = Temperature)) +\n  geom_histogram() +\n  theme(text = element_text(size=20)) +\n  labs(x = \"Temperature\", y = \"Count\", \n       title = \"Distribution of Body Temperature in Sample\") +\n  geom_vline(aes(xintercept = mean(BodyTemps$Temperature, na.rm = T)), \n             color = \"red\", linewidth = 2)"
+  },
+  {
+    "objectID": "slides/01_Review.html#chi-squared-distribution-models-sampling-variance",
+    "href": "slides/01_Review.html#chi-squared-distribution-models-sampling-variance",
+    "title": "Review",
+    "section": "Chi-squared distribution: models sampling variance",
+    "text": "Chi-squared distribution: models sampling variance\n\n\n\nNotation: \\(X \\sim \\chi^2_{df}\\) OR \\(X \\sim \\chi^2_{\\nu}\\)\n\nDegrees of freedom (df): \\(df=n-1\\)\n\\(X\\) takes on only positive values\n\nIf \\(Z_i\\sim \\mbox{N}(0,1)\\), then \\(Z_i^2\\sim \\chi^2_1\\)\n\nA standard normal distribution squared is the Chi squared distribution with df of 1.\n\n\n\n\nUsed in hypothesis testing and CI’s for variance or standard deviation\n\nSample variance (and SD) is random and thus can be modeled by a probability distribution: Chi-sqaured\n\nChi-squared distribution used to model the ratio of the sample variance \\(s^2\\) to population variance \\(\\sigma^2\\):\n\n\\(\\dfrac{(n-1)s^2}{\\sigma^2}\\sim \\chi^2_{n-1}\\)"
+  },
+  {
+    "objectID": "slides/01_Review.html#students-t-distribution",
+    "href": "slides/01_Review.html#students-t-distribution",
+    "title": "Review",
+    "section": "Student’s t Distribution",
+    "text": "Student’s t Distribution\n\n\n\nNotation: \\(T \\sim t_{df}\\) OR \\(T \\sim t_{n-1}\\)\n\nDegrees of freedom (df): \\(df=n-1\\)\n\\(T = \\dfrac{\\bar{x} - \\mu_x}{\\dfrac{s}{\\sqrt{n}}}\\sim t_{n-1}\\)\n\nIn linear modeling, used for inference on individual regression parameters\n\nThink: our estimated coefficients (\\(\\hat{\\beta}\\))"
+  },
+  {
+    "objectID": "slides/01_Review.html#f-distribution-1",
+    "href": "slides/01_Review.html#f-distribution-1",
+    "title": "Review",
+    "section": "F-Distribution",
+    "text": "F-Distribution\n\n\n\nModel ratio of sample variances\n\nRatio of variances is important for hypothesis testing of regression models\n\nIf \\(X_1^2\\sim \\chi^2_{df1}\\) and \\(X_2^2\\sim \\chi^2_{df2}\\), where \\(X_1^2\\perp X_2^2\\), then:\n\n\\[\\dfrac{X_1^2/df1}{X_2^2/df2} \\sim F_{df1,df2}\\] - only takes on positive values\n\nImportant relationship with \\(t\\) distribution: \\(T^2 \\sim F_{1,\\nu}\\)\n\nThe square of a t-distribution with \\(df=\\nu\\)\nis an F-distribution with numerator df (\\(df_1 = 1\\)) and denominator df (\\(df_2 = \\nu\\))\n\n\n\n\n\n\nIs there a relationship between our chi-squared and F-distribution?\n\n\nRecall, \\(\\dfrac{(n-1)s^2}{\\sigma^2}\\sim \\chi^2_{n-1}\\).\nThe F-distribution for a ratio of variances between two models is: \\(F = \\dfrac{s_1^2\\sigma^2_2}{s_2^2\\sigma^2_1} \\sim F_{n_1-1, n_2-1}\\)"
+  },
+  {
+    "objectID": "slides/01_Review.html#r-code-for-probability-distributions",
+    "href": "slides/01_Review.html#r-code-for-probability-distributions",
+    "title": "Review",
+    "section": "R code for probability distributions",
+    "text": "R code for probability distributions\n\n\nHere is a site with the various probability distributions and their R code.\n\nIt also includes practice with R code to see what each function outputs"
+  },
+  {
+    "objectID": "slides/01_Review.html#learning-objectives-1",
+    "href": "slides/01_Review.html#learning-objectives-1",
+    "title": "Review",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\n\nIdentify important descriptive statistics and visualize data from a continuous variable\n\n\n\nIdentify important distributions that will be used in 512/612\nUse our previous tools in 511 to estimate a parameter and construct a confidence interval\nUse our previous tools in 511 to conduct a hypothesis test\nDefine error rates and power"
+  },
+  {
+    "objectID": "slides/01_Review.html#learning-objectives-2",
+    "href": "slides/01_Review.html#learning-objectives-2",
+    "title": "Review",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nIdentify important descriptive statistics and visualize data from a continuous variable\n\n\n\nIdentify important distributions that will be used in 512/612\n\n\n\nUse our previous tools in 511 to estimate a parameter and construct a confidence interval\nUse our previous tools in 511 to conduct a hypothesis test\nDefine error rates and power"
+  },
+  {
+    "objectID": "slides/01_Review.html#learning-objectives-3",
+    "href": "slides/01_Review.html#learning-objectives-3",
+    "title": "Review",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nIdentify important descriptive statistics and visualize data from a continuous variable\nIdentify important distributions that will be used in 512/612\n\n\n\nUse our previous tools in 511 to estimate a parameter and construct a confidence interval\n\n\n\nUse our previous tools in 511 to conduct a hypothesis test\nDefine error rates and power"
+  },
+  {
+    "objectID": "slides/01_Review.html#learning-objectives-4",
+    "href": "slides/01_Review.html#learning-objectives-4",
+    "title": "Review",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nIdentify important descriptive statistics and visualize data from a continuous variable\nIdentify important distributions that will be used in 512/612\nUse our previous tools in 511 to estimate a parameter and construct a confidence interval\n\n\n\nUse our previous tools in 511 to conduct a hypothesis test\n\n\n\nDefine error rates and power"
+  },
+  {
+    "objectID": "slides/01_Review.html#learning-objectives-5",
+    "href": "slides/01_Review.html#learning-objectives-5",
+    "title": "Review",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nIdentify important descriptive statistics and visualize data from a continuous variable\nIdentify important distributions that will be used in 512/612\nUse our previous tools in 511 to estimate a parameter and construct a confidence interval\nUse our previous tools in 511 to conduct a hypothesis test\n\n\n\nDefine error rates and power"
   }
 ]

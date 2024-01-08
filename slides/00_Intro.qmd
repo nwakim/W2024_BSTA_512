@@ -30,7 +30,7 @@ format:
 
 -   Two kitties
 
--   *Volleyball*, biking, spikeball, pickleball
+-   *Volleyball*, biking, pickleball
 
 -   But also sleeping, TV, and reading
 
@@ -50,8 +50,6 @@ format:
 ![](/images/Intro_slides/Narrows.JPG){width="450"}
 :::
 :::
-
-## Positionality 
 
 # Pride yourself in learning things, not knowing things
 
@@ -77,7 +75,7 @@ format:
 
 -   Schedule
 
-    -   Weeks, class info, exams, homeworks
+    -   Weeks, class info, quizzes, homeworks, projects
 
 -   Search
 

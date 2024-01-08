@@ -10,7 +10,7 @@ format:
     theme: [default, simple_NW.scss]
     toc: true
     toc-depth: 1
-    toc-title: Class Overview
+    toc-title: Lecture Overview
     chalkboard: true
     slide-number: true
     show-slide-number: all
@@ -141,6 +141,32 @@ div.cell-output-stdout {
 ## Before we begin
 
 -   Meike has some really good online notes, code, and work on [her BSTA 511 page](https://niederhausen.github.io/BSTA_511_F23/)
+
+## Learning Objectives
+
+1.  Identify important descriptive statistics and visualize data from a continuous variable
+
+2.  Identify important distributions that will be used in 512/612
+
+3.  Use our previous tools in 511 to estimate a parameter and construct a confidence interval
+
+4.  Use our previous tools in 511 to conduct a hypothesis test
+
+5.  Define error rates and power
+
+## Learning Objectives
+
+::: lob
+1.  Identify important descriptive statistics and visualize data from a continuous variable
+:::
+
+2.  Identify important distributions that will be used in 512/612
+
+3.  Use our previous tools in 511 to estimate a parameter and construct a confidence interval
+
+4.  Use our previous tools in 511 to conduct a hypothesis test
+
+5.  Define error rates and power
 
 # Quick basics
 
@@ -347,6 +373,20 @@ ggplot(data = dds.discr,
 :::
 :::
 
+## Learning Objectives
+
+1.  Identify important descriptive statistics and visualize data from a continuous variable
+
+::: lob
+2.  Identify important distributions that will be used in 512/612
+:::
+
+3.  Use our previous tools in 511 to estimate a parameter and construct a confidence interval
+
+4.  Use our previous tools in 511 to conduct a hypothesis test
+
+5.  Define error rates and power
+
 # Important Distributions
 
 ## Distributions that will be used in this class
@@ -361,6 +401,8 @@ ggplot(data = dds.discr,
 
 ## Normal Distribution
 
+::: columns
+::: column
 -   Notation: $Y\sim N(\mu,\sigma^2)$
 
 -   Arguably, the most important distribution in statistics
@@ -377,72 +419,148 @@ ggplot(data = dds.discr,
     e.g., $(aY+b)\sim \mbox{N}(a\mu+b,\;a^2\sigma^2)$
 
 -   Standard normal: $Z=\frac{Y-\mu}{\sigma} \sim \mbox{N}(0,1)$
+:::
 
-## Chi-square Distribution
+::: column
+![](01_Review/normal.png)
+:::
+:::
 
--   Notation: $X \sim \chi^2_{df}$
+## Chi-squared distribution: *models sampling variance*
 
-    -   $df=$ degrees of freedom
+::: columns
+::: column
+-   Notation: $X \sim \chi^2_{df}$ OR $X \sim \chi^2_{\nu}$
 
-    -   $E[X]=df$
+    -   Degrees of freedom (df): $df=n-1$
 
     -   $X$ takes on only positive values
 
 -   If $Z_i\sim \mbox{N}(0,1)$, then $Z_i^2\sim \chi^2_1$
 
--   If $Z_1,\ldots,Z_n$ are independent, with $Z_i\sim\mbox{N}(0,1)$, then
+    -   A standard normal distribution squared is the Chi squared distribution with df of 1.
 
-```{=tex}
-\begin{aligned}
-        \sum_{i=1}^n Z_i^2 & \sim & \chi^2_n \nonumber
-        
-\end{aligned}
-```
--   Used in hypothesis testing and CI's involving variance
+<!-- -->
 
-## t Distribution
+-   Used in hypothesis testing and CI's **for variance or standard deviation**
+    -   Sample variance (and SD) is random and thus can be modeled by a probability distribution: Chi-sqaured
+-   Chi-squared distribution used to model the **ratio of** the *sample variance* $s^2$ to *population variance* $\sigma^2$:
+    -   $\dfrac{(n-1)s^2}{\sigma^2}\sim \chi^2_{n-1}$
+:::
 
--   If $Z\sim \mbox{N}(0,1)$ and $S^2\sim \chi^2_{df}$ and $Z$ and $S^2$ are independent,
+::: column
+![](01_Review/chi_squared.png)
+:::
+:::
 
-    ```{=tex}
-    \begin{aligned}        \frac{Z}{S/\sqrt{df}} & \sim & t_{df} \nonumber            \end{aligned}
-    ```
-    -   Symmetric, bell-shaped; tails heavier than Normal
+## Student's t Distribution
 
-    -   $E[t_{df}]=0$; $Var(t_{df})$ greater than 1
+::: columns
+::: column
+-   Notation: $T \sim t_{df}$ OR $T \sim t_{n-1}$
 
-    -   $\lim_{df\rightarrow \infty}t_{df} \rightarrow \mbox{N}(0,1)$
+    -   Degrees of freedom (df): $df=n-1$
 
-    -   for $df>30$, the $t_{df}$ closely resembles the $\mbox{N}(0,1)$ distribution
+    -   $T = \dfrac{\bar{x} - \mu_x}{\dfrac{s}{\sqrt{n}}}\sim t_{n-1}$
 
 -   In linear modeling, used for inference on individual regression parameters
 
-## F Distribution
+    -   Think: our estimated coefficients ($\hat{\beta}$)
+:::
 
+::: column
+![](01_Review/student_t.png)
+:::
+:::
+
+## F-Distribution
+
+::: columns
+::: column
 -   Model ratio of sample variances
 
-    -   Ratio of variances is important for hypothesis testing of regression and ANOVA models
+    -   Ratio of variances is important for hypothesis testing of regression models
 
 -   If $X_1^2\sim \chi^2_{df1}$ and $X_2^2\sim \chi^2_{df2}$, where $X_1^2\perp X_2^2$, then:
 
-    ```{=tex}
-    \begin{aligned}        \frac{X_1^2/df1}{X_2^2/df2} & \sim & F_{df1,df2} \nonumber        \end{aligned}
-    ```
-    -   only takes on positive values
+$$\dfrac{X_1^2/df1}{X_2^2/df2} \sim F_{df1,df2}$$ - only takes on positive values
 
--   Important relationship with $t$ distribution:
+-   Important relationship with $t$ distribution: $T^2 \sim F_{1,\nu}$
 
     -   The square of a t-distribution with $df=\nu$
 
-    -   is an F-distrubtion with numerator df ($df1 = 1$) and denominator df ($df2 = \nu$)
+    -   is an F-distribution with numerator df ($df_1 = 1$) and denominator df ($df_2 = \nu$)
+:::
 
-```{=tex}
-\begin{aligned}
-             T^2  \stackrel{{D}}{\sim} & F_{1,\nu} \\
-             \text{ if and only if } T \sim t_{\nu}
-            
-\end{aligned}
-```
+::: column
+![](01_Review/f_dist.png)
+:::
+:::
+
+## F-Distribution
+
+::: columns
+::: column
+-   Model ratio of sample variances
+
+    -   Ratio of variances is important for hypothesis testing of regression models
+
+-   If $X_1^2\sim \chi^2_{df1}$ and $X_2^2\sim \chi^2_{df2}$, where $X_1^2\perp X_2^2$, then:
+
+$$\dfrac{X_1^2/df1}{X_2^2/df2} \sim F_{df1,df2}$$ - only takes on positive values
+
+-   Important relationship with $t$ distribution: $T^2 \sim F_{1,\nu}$
+
+    -   The square of a t-distribution with $df=\nu$
+
+    -   is an F-distribution with numerator df ($df_1 = 1$) and denominator df ($df_2 = \nu$)
+:::
+
+::: column
+![](01_Review/f_dist.png)
+
+::: proposition
+::: prop-title
+Is there a relationship between our chi-squared and F-distribution?
+:::
+
+::: prop-cont
+Recall, $\dfrac{(n-1)s^2}{\sigma^2}\sim \chi^2_{n-1}$.
+
+The F-distribution for a ratio of variances between two models is: $F = \dfrac{s_1^2\sigma^2_2}{s_2^2\sigma^2_1} \sim F_{n_1-1, n_2-1}$
+:::
+:::
+:::
+:::
+
+## R code for probability distributions
+
+::: columns
+::: column
+[Here is a site](https://www.stat.umn.edu/geyer/5101/examp/rlook.html) with the various probability distributions and their R code.
+
+-   It also includes practice with R code to see what each function outputs
+:::
+
+::: column
+![](01_Review/r_code_prob_dist.png){fig-align="center" width="785"}
+:::
+:::
+
+## Learning Objectives
+
+1.  Identify important descriptive statistics and visualize data from a continuous variable
+
+2.  Identify important distributions that will be used in 512/612
+
+::: lob
+3.  Use our previous tools in 511 to estimate a parameter and construct a confidence interval
+:::
+
+4.  Use our previous tools in 511 to conduct a hypothesis test
+
+5.  Define error rates and power
+
 # Statistical inference: Estimation
 
 ## Confidence interval for one mean
@@ -543,11 +661,43 @@ $$
 
 [Website from UCLA](https://stats.oarc.ucla.edu/r/whatstat/what-statistical-analysis-should-i-usestatistical-analyses-using-r/)
 
+## Learning Objectives
+
+1.  Identify important descriptive statistics and visualize data from a continuous variable
+
+2.  Identify important distributions that will be used in 512/612
+
+3.  Use our previous tools in 511 to estimate a parameter and construct a confidence interval
+
+::: lob
+4.  Use our previous tools in 511 to conduct a hypothesis test
+:::
+
+5.  Define error rates and power
+
 # Statistical inference: Hypothesis testing
 
 ## Steps in hypothesis testing
 
 ![](01_Review/hypothesis_test_steps.png){fig-align="center"}
+
+## Example: one sample t-test
+
+```{r}
+#| echo: true
+#| fig-align: center
+
+BodyTemps = read.csv("data/BodyTemperatures.csv")
+
+ggplot(data = BodyTemps, 
+       aes(x = Temperature)) +
+  geom_histogram() +
+  theme(text = element_text(size=20)) +
+  labs(x = "Temperature", y = "Count", 
+       title = "Distribution of Body Temperature in Sample") +
+  geom_vline(aes(xintercept = mean(BodyTemps$Temperature, na.rm = T)), 
+             color = "red", linewidth = 2)
+```
 
 ## Example: one sample t-test using ***p-value approach***
 
@@ -556,7 +706,7 @@ We want to see what the mean population body temperature is.
 2.  State the null and alternative hypotheses:
 
     |                      |                                                                       |
-    |-------------------|-----------------------------------------------------|
+    |----------------------|-------------------------------------------------|
     | $H_0: \mu = 98.6$    | $H_0$: The population mean body temperature is 98.6 degrees F         |
     | $H_A: \mu \neq 98.6$ | $H_A$: The population mean body temperature is **not** 98.6 degrees F |
 
@@ -583,7 +733,7 @@ We want to see what the mean population body temperature is.
 2.  State the null and alternative hypotheses:
 
     |                      |                                                                       |
-    |-------------------|-----------------------------------------------------|
+    |----------------------|-------------------------------------------------|
     | $H_0: \mu = 98.6$    | $H_0$: The population mean body temperature is 98.6 degrees F         |
     | $H_A: \mu \neq 98.6$ | $H_A$: The population mean body temperature is **not** 98.6 degrees F |
 
@@ -616,6 +766,20 @@ t.test(x = BodyTemps$Temperature,
        # alternative = "two-sided", 
        mu = 98.6)
 ```
+
+## Learning Objectives
+
+1.  Identify important descriptive statistics and visualize data from a continuous variable
+
+2.  Identify important distributions that will be used in 512/612
+
+3.  Use our previous tools in 511 to estimate a parameter and construct a confidence interval
+
+4.  Use our previous tools in 511 to conduct a hypothesis test
+
+::: lob
+5.  Define error rates and power
+:::
 
 # Error Rates and Power
 

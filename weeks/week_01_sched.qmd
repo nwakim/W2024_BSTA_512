@@ -1,6 +1,6 @@
 ---
 title: "Week 1"
-description: "Introduction; Review; Exploratory Data Analysis; and Case Studies"
+description: "Introduction; Review; and Data Wrangling"
 date: "1/8/2024"
 date-modified: "1/8/2024"
 categories: [""]
