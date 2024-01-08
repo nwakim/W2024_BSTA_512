@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Nicky Wakim">
-  <meta name="dcterms.date" content="2023-01-12">
+  <meta name="dcterms.date" content="2023-01-08">
   <title>Linear Models - Review</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -403,7 +403,7 @@ Nicky Wakim
 </div>
 </div>
 
-  <p class="date">2023-01-12</p>
+  <p class="date">2023-01-08</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
 <h2 id="toc-title">Class Overview</h2>
@@ -419,9 +419,12 @@ Nicky Wakim
 <section id="what-did-we-learn-in-511" class="slide level2">
 <h2>What did we learn in 511?</h2>
 <ul>
-<li>In 511, we talked about <em>categorical</em> and <em>continuous</em> outcomes (dependent variables)</li>
-<li>We also talked about their relationship with 1-2 <em>continuous</em> or <em>categorical</em> exposure (independent variables or predictor)</li>
-<li>We had many good ways to assess the relationship between an outcome and exposure:</li>
+<li><p>In 511, we talked about <em>categorical</em> and <em>continuous</em> outcomes (dependent variables)</p>
+<p>&nbsp;</p></li>
+<li><p>We also talked about their relationship with 1-2 <em>continuous</em> or <em>categorical</em> exposure (independent variables or predictor)</p>
+<p>&nbsp;</p></li>
+<li><p>We had many good ways to assess the relationship between an outcome and exposure:</p>
+<p>&nbsp;</p></li>
 </ul>
 <table style="width:85%;">
 <colgroup>
@@ -451,16 +454,19 @@ Nicky Wakim
 <section id="what-did-we-learn-in-511-1" class="slide level2">
 <h2>What did we learn in 511?</h2>
 <ul>
-<li><p>You set up a really important foundation</p>
+<li><p>You set up a really <strong>important foundation</strong></p>
 <ul>
 <li>Including distributions, mathematical definitions, hypothesis testing, and more!</li>
-</ul></li>
-<li><p>Tests and statistical approaches learned are incredibly helpful!</p></li>
+</ul>
+<p>&nbsp;</p></li>
+<li><p>Tests and statistical approaches learned are incredibly helpful!</p>
+<p>&nbsp;</p></li>
 <li><p>While you had to learn a lot of different tests and approaches for each combination of categorical/continuous exposure with categorical/continuous outcome</p>
 <ul>
-<li>Those tests cannot handle more complicated data</li>
-</ul></li>
-<li><p>What happens when other variables influence the relationship between your exposure and outcome?</p>
+<li><strong>Those tests cannot handle more complicated data</strong></li>
+</ul>
+<p>&nbsp;</p></li>
+<li><p><strong>What happens when other variables influence the relationship between your exposure and outcome?</strong></p>
 <ul>
 <li>Do we just ignore them?</li>
 </ul></li>
@@ -470,9 +476,11 @@ Nicky Wakim
 <h2>What will we learn in this class?</h2>
 <ul>
 <li><p>We will be building towards models that can handle many variables!</p>
+<p>&nbsp;</p>
 <ul>
 <li><strong>Regression</strong> is the building block for modeling multivariable relationships</li>
-</ul></li>
+</ul>
+<p>&nbsp;</p></li>
 <li><p>In Linear Models we will <em>build, interpret, and evaluate</em> linear regression models</p></li>
 </ul>
 </section>
@@ -482,7 +490,7 @@ Nicky Wakim
 <img data-src="01_Review/Reg_analysis_process.png" class="r-stretch quarto-figure-center"></section>
 <section id="main-sections-of-the-course" class="slide level2">
 <h2>Main sections of the course</h2>
-<ul>
+<ol type="1">
 <li><p>Review</p></li>
 <li><p>Intro to SLR: estimation and testing</p>
 <ul>
@@ -498,14 +506,18 @@ Nicky Wakim
 </ul></li>
 <li><p>Key ingredients: model evaluation, diagnostics, selection, and building</p>
 <ul>
-<li><span style="color:#A7EA52;">Model evaluation </span> and <span style="color:#FF8021;">Model selection</span></li>
+<li><span style="color:#A7EA52;">Model evaluation</span> and <span style="color:#FF8021;">Model selection</span></li>
 </ul></li>
-</ul>
+</ol>
 <div class="cell">
 <style type="text/css">
 code.sourceCode {
-  font-size: 1.4em;
+  font-size: 1.7em;
   /* or try font-size: xx-large; */
+}
+
+div.cell-output-stdout {
+  font-size: 1.5em;
 }
 </style>
 </div>
@@ -513,11 +525,11 @@ code.sourceCode {
 <section id="main-sections-of-the-course-1" class="slide level2">
 <h2>Main sections of the course</h2>
 <div class="lob">
-<ul>
+<ol type="1">
 <li>Review</li>
-</ul>
+</ol>
 </div>
-<ul>
+<ol start="2" type="1">
 <li><p>Intro to SLR: estimation and testing</p>
 <ul>
 <li><span style="color:#34AC8B;">Model fitting</span></li>
@@ -532,9 +544,9 @@ code.sourceCode {
 </ul></li>
 <li><p>Key ingredients: model evaluation, diagnostics, selection, and building</p>
 <ul>
-<li><span style="color:#A7EA52;">Model evaluation </span> and <span style="color:#FF8021;">Model selection</span></li>
+<li><span style="color:#A7EA52;">Model evaluation</span> and <span style="color:#FF8021;">Model selection</span></li>
 </ul></li>
-</ul>
+</ol>
 </section>
 <section id="before-we-begin" class="slide level2">
 <h2>Before we begin</h2>
@@ -589,7 +601,10 @@ code.sourceCode {
 <p><span class="math display">\[
 s = \sqrt{\dfrac{(x_1-\bar{x})^2+(x_2-\bar{x})^2+...+(x_n-\bar{x})^2}{n-1}}=\sqrt{\dfrac{\sum_{i=1}^n(x_i-\bar{x})^2}{n-1}}
 \]</span></p></li>
-<li><p>IQR</p></li>
+<li><p>IQR</p>
+<ul>
+<li>Range from 1st to 3rd quartile</li>
+</ul></li>
 </ul>
 </div>
 </div>
@@ -730,21 +745,17 @@ s = \sqrt{\dfrac{(x_1-\bar{x})^2+(x_2-\bar{x})^2+...+(x_n-\bar{x})^2}{n-1}}=\sqr
 <h2>Normal Distribution</h2>
 <ul>
 <li><p>Notation: <span class="math inline">\(Y\sim N(\mu,\sigma^2)\)</span></p></li>
+<li><p>Arguably, the most important distribution in statistics</p></li>
 <li><p>If we know <span class="math inline">\(E(Y)=\mu\)</span>, <span class="math inline">\(Var(Y)=\sigma^2\)</span> then</p>
 <ul>
 <li><p>2/3 of <span class="math inline">\(Y\)</span>’s distribution lies within 1 <span class="math inline">\(\sigma\)</span> of <span class="math inline">\(\mu\)</span></p></li>
 <li><p>95% <span class="math inline">\(\ldots\)</span> <span class="math inline">\(\ldots\)</span> is within <span class="math inline">\(\mu\pm 2\sigma\)</span></p></li>
 <li><p><span class="math inline">\(&gt;99\)</span>% <span class="math inline">\(\ldots\)</span> <span class="math inline">\(\ldots\)</span> lies within <span class="math inline">\(\mu\pm 3\sigma\)</span></p></li>
 </ul></li>
-<li><p>Arguably, the most important distribution in statistics</p></li>
-<li><p>Linear combinations of Normals are Normal<br>
+<li><p>Linear combinations of Normal’s are Normal<br>
 e.g., <span class="math inline">\((aY+b)\sim \mbox{N}(a\mu+b,\;a^2\sigma^2)\)</span></p></li>
-<li><p>Standard normal:</p></li>
+<li><p>Standard normal: <span class="math inline">\(Z=\frac{Y-\mu}{\sigma} \sim \mbox{N}(0,1)\)</span></p></li>
 </ul>
-<span class="math display">\[\begin{aligned}
-        Z=\frac{Y-\mu}{\sigma} \sim \mbox{N}(0,1) \nonumber
-        
-\end{aligned}\]</span>
 </section>
 <section id="chi-square-distribution" class="slide level2">
 <h2>Chi-square Distribution</h2>
@@ -811,9 +822,105 @@ e.g., <span class="math inline">\((aY+b)\sim \mbox{N}(a\mu+b,\;a^2\sigma^2)\)</s
 </section>
 <section id="confidence-interval-for-one-mean" class="slide level2">
 <h2>Confidence interval for one mean</h2>
+<div class="columns">
+<div class="column">
+<p>The confidence interval for population mean <span class="math inline">\(\mu\)</span>:</p>
+<p><span class="math display">\[
+\bar{x} \pm t^{*}\dfrac{s}{\sqrt{n}}
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t^*\)</span> is the critical value for the 95% (or other percent) corresponding to the t-distribution and dependent on <span class="math inline">\(df=n-1\)</span></li>
+</ul>
+<div class="proposition">
+<div class="prop-title">
+<p>We can use <code>R</code> to find the critical t-value, <span class="math inline">\(t^*\)</span></p>
+</div>
+<div class="prop-cont">
+<p>For example the critical value for the 95% CI with <span class="math inline">\(n=10\)</span> subjects is…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df=</span><span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.262157</code></pre>
+</div>
+</div>
+<ul>
+<li>Recall, that as the <span class="math inline">\(df\)</span> increases, the t-distribution converges towards the Normal distribution</li>
+</ul>
+</div>
+</div>
+</div><div class="column">
+
+</div>
+</div>
+</section>
+<section id="confidence-interval-for-one-mean-1" class="slide level2">
+<h2>Confidence interval for one mean</h2>
+<div class="columns">
+<div class="column">
+<p>The confidence interval for population mean <span class="math inline">\(\mu\)</span>:</p>
+<p><span class="math display">\[
+\bar{x} \pm t^{*}\dfrac{s}{\sqrt{n}}
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t^*\)</span> is the critical value for the 95% (or other percent) corresponding to the t-distribution and dependent on <span class="math inline">\(df=n-1\)</span></li>
+</ul>
+<div class="proposition">
+<div class="prop-title">
+<p>We can use <code>R</code> to find the critical t-value, <span class="math inline">\(t^*\)</span></p>
+</div>
+<div class="prop-cont">
+<p>For example the critical value for the 95% CI with <span class="math inline">\(n=10\)</span> subjects is…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df=</span><span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.262157</code></pre>
+</div>
+</div>
+<ul>
+<li>Recall, that as the <span class="math inline">\(df\)</span> increases, the t-distribution converges towards the Normal distribution</li>
+</ul>
+</div>
+</div>
+</div><div class="column">
+<p>We can also use <code>t.test</code> in R to calculate the confidence interval if we have a dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">t.test</span>(dds.discr<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One Sample t-test
+
+data:  dds.discr$age
+t = 39.053, df = 999, p-value &lt; 2.2e-16
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 21.65434 23.94566
+sample estimates:
+mean of x 
+     22.8 </code></pre>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="confidence-interval-for-two-independent-means" class="slide level2">
 <h2>Confidence interval for two independent means</h2>
+<div class="columns">
+<div class="column">
+<p>The confidence interval for difference in independent population means, <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_2\)</span>:</p>
+<p><span class="math display">\[
+\bar{x}_1 - \bar{x}_2 \pm t^{*}\sqrt{\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}}
+\]</span></p>
+<ul>
+<li>where <span class="math inline">\(t^*\)</span> is the critical value for the 95% (or other percent) corresponding to the t-distribution and dependent on <span class="math inline">\(df=n_1 + n_2 -2\)</span></li>
+</ul>
+</div><div class="column">
+
+</div>
+</div>
+</section>
+<section id="heres-a-decent-source-for-other-r-code-for-tests-in-511" class="slide level2">
+<h2>Here’s a decent source for other R code for tests in 511</h2>
+<p><a href="https://stats.oarc.ucla.edu/r/whatstat/what-statistical-analysis-should-i-usestatistical-analyses-using-r/">Website from UCLA</a></p>
 </section></section>
 <section>
 <section id="statistical-inference-hypothesis-testing" class="title-slide slide level1 center">
@@ -825,10 +932,98 @@ e.g., <span class="math inline">\((aY+b)\sim \mbox{N}(a\mu+b,\;a^2\sigma^2)\)</s
 
 <img data-src="01_Review/hypothesis_test_steps.png" class="r-stretch quarto-figure-center"></section>
 <section id="example-one-sample-t-test-using-p-value-approach" class="slide level2">
-<h2>Example: one sample t-test using p-value approach</h2>
+<h2>Example: one sample t-test using <strong><em>p-value approach</em></strong></h2>
+<p>We want to see what the mean population body temperature is.</p>
+<ol start="2" type="1">
+<li><p>State the null and alternative hypotheses:</p>
+<table>
+<colgroup>
+<col style="width: 26%">
+<col style="width: 73%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(H_0: \mu = 98.6\)</span></td>
+<td><span class="math inline">\(H_0\)</span>: The population mean body temperature is 98.6 degrees F</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(H_A: \mu \neq 98.6\)</span></td>
+<td><span class="math inline">\(H_A\)</span>: The population mean body temperature is <strong>not</strong> 98.6 degrees F</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>The significance level is <span class="math inline">\(\alpha = 0.05\)</span></p></li>
+<li><p>The test statistic, <span class="math inline">\(t_{\bar{x}}\)</span> follows a student’s t-distribution with <span class="math inline">\(df = n-1 = 129\)</span></p></li>
+<li><p>The test statistic is: <span class="math inline">\(t_{\bar{x}} = \dfrac{\bar{x}-\mu_0}{\dfrac{s}{\sqrt{n}}}\)</span> and with the data: <span class="math inline">\(t_{\bar{x}} = \dfrac{98.25-98.6}{\dfrac{0.73}{\sqrt{130}}} = -5.45\)</span></p></li>
+<li><p>Calculate the p-value: <span class="math inline">\(p-value = P(t \leq -5.45) + P(t \geq 5.45)\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="dv">2</span><span class="sc">*</span><span class="fu">pt</span>(<span class="sc">-</span><span class="fl">5.4548</span>, <span class="at">df =</span> <span class="dv">130-1</span>, <span class="at">lower.tail=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.410889e-07</code></pre>
+</div>
+</div></li>
+<li><p>Conclusion: We reject the null hypothesis. There is sufficient evidence that the (population) mean body temperature after is different from 98.6 degree ( <span class="math inline">\(p-value &lt; 0.001\)</span>).</p></li>
+</ol>
 </section>
 <section id="example-one-sample-t-test-using-critical-values-approach" class="slide level2">
-<h2>Example: one sample t-test using critical values approach</h2>
+<h2>Example: one sample t-test using <em>critical values approach</em></h2>
+<p>We want to see what the mean population body temperature is.</p>
+<ol start="2" type="1">
+<li><p>State the null and alternative hypotheses:</p>
+<table>
+<colgroup>
+<col style="width: 26%">
+<col style="width: 73%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(H_0: \mu = 98.6\)</span></td>
+<td><span class="math inline">\(H_0\)</span>: The population mean body temperature is 98.6 degrees F</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(H_A: \mu \neq 98.6\)</span></td>
+<td><span class="math inline">\(H_A\)</span>: The population mean body temperature is <strong>not</strong> 98.6 degrees F</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>The significance level is <span class="math inline">\(\alpha = 0.05\)</span></p></li>
+<li><p>The test statistic, <span class="math inline">\(t_{\bar{x}}\)</span> follows a student’s t-distribution with <span class="math inline">\(df = n-1 = 129\)</span></p></li>
+<li><p>Decision rule (critical value): For <span class="math inline">\(\alpha=0.05\)</span> , <span class="math inline">\(2*P(t \geq t^*) = 0.05\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">qt</span>(<span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> <span class="dv">130-1</span>, <span class="at">lower.tail=</span>F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.978524</code></pre>
+</div>
+</div></li>
+<li><p>The test statistic is: <span class="math inline">\(t_{\bar{x}} = \dfrac{\bar{x}-\mu_0}{\dfrac{s}{\sqrt{n}}}\)</span> and with the data: <span class="math inline">\(t_{\bar{x}} = \dfrac{98.25-98.6}{\dfrac{0.73}{\sqrt{130}}} = -5.45\)</span></p></li>
+<li><p>Conclusion: We reject the null hypothesis. There is sufficient evidence that the (population) mean body temperature after is different from 98.6 degree ( 95% CI: <span class="math inline">\(98.12, 98.38\)</span>).</p></li>
+</ol>
+</section>
+<section id="how-did-we-get-the-95-ci" class="slide level2">
+<h2>How did we get the 95% CI?</h2>
+<ul>
+<li>The <code>t.test</code> function can help us answer this, and give us the needed information for both approaches.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>BodyTemps <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"data/BodyTemperatures.csv"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2"></a></span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="fu">t.test</span>(<span class="at">x =</span> BodyTemps<span class="sc">$</span>Temperature, </span>
+<span id="cb22-4"><a href="#cb22-4"></a>       <span class="co"># alternative = "two-sided", </span></span>
+<span id="cb22-5"><a href="#cb22-5"></a>       <span class="at">mu =</span> <span class="fl">98.6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One Sample t-test
+
+data:  BodyTemps$Temperature
+t = -5.4548, df = 129, p-value = 2.411e-07
+alternative hypothesis: true mean is not equal to 98.6
+95 percent confidence interval:
+ 98.12200 98.37646
+sample estimates:
+mean of x 
+ 98.24923 </code></pre>
+</div>
+</div>
 </section></section>
 <section>
 <section id="error-rates-and-power" class="title-slide slide level1 center">

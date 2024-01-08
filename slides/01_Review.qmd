@@ -3,7 +3,7 @@ title: "Review"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#213c96"
-date: "01/12/2023"
+date: "01/8/2023"
 categories: ["Week 1"]
 format: 
   revealjs:
@@ -24,11 +24,19 @@ format:
 ## What did we learn in 511?
 
 -   In 511, we talked about *categorical* and *continuous* outcomes (dependent variables)
+
+     
+
 -   We also talked about their relationship with 1-2 *continuous* or *categorical* exposure (independent variables or predictor)
+
+     
+
 -   We had many good ways to assess the relationship between an outcome and exposure:
 
+     
+
 |                      |                                                  |                                                                                                                  |
-|------------------|------------------|-------------------------------------|
+|-------------------|-------------------|----------------------------------|
 |                      | Continuous Outcome                               | Categorical Outcome                                                                                              |
 | Continuous Exposure  | Correlation, simple linear regression            | ??                                                                                                               |
 | Categorical Exposure | t-tests, paired t-tests, 2 sample t-tests, ANOVA | proportion t-test, Chi-squared goodness of fit test, Fisher's Exact test, Chi-squared test of independence, etc. |
@@ -37,17 +45,23 @@ format:
 
 ## What did we learn in 511?
 
--   You set up a really important foundation
+-   You set up a really **important foundation**
 
     -   Including distributions, mathematical definitions, hypothesis testing, and more!
 
+     
+
 -   Tests and statistical approaches learned are incredibly helpful!
+
+     
 
 -   While you had to learn a lot of different tests and approaches for each combination of categorical/continuous exposure with categorical/continuous outcome
 
-    -   Those tests cannot handle more complicated data
+    -   **Those tests cannot handle more complicated data**
 
--   What happens when other variables influence the relationship between your exposure and outcome?
+     
+
+-   **What happens when other variables influence the relationship between your exposure and outcome?**
 
     -   Do we just ignore them?
 
@@ -55,7 +69,11 @@ format:
 
 -   We will be building towards models that can handle many variables!
 
+     
+
     -   **Regression** is the building block for modeling multivariable relationships
+
+     
 
 -   In Linear Models we will *build, interpret, and evaluate* linear regression models
 
@@ -65,23 +83,23 @@ format:
 
 ## Main sections of the course
 
--   Review
+1.  Review
 
--   Intro to SLR: estimation and testing
+2.  Intro to SLR: estimation and testing
 
-    -   <span style="color:#34AC8B;">Model fitting</span>
+    -   [Model fitting]{style="color:#34AC8B;"}
 
--   Intro to MLR: estimation and testing
+3.  Intro to MLR: estimation and testing
 
-    -   <span style="color:#34AC8B;">Model fitting</span>
+    -   [Model fitting]{style="color:#34AC8B;"}
 
--   Diving into our predictors: categorical variables, interactions between variable
+4.  Diving into our predictors: categorical variables, interactions between variable
 
-    -   <span style="color:#34AC8B;">Model fitting</span>
+    -   [Model fitting]{style="color:#34AC8B;"}
 
--   Key ingredients: model evaluation, diagnostics, selection, and building
+5.  Key ingredients: model evaluation, diagnostics, selection, and building
 
-    -   <span style="color:#A7EA52;">Model evaluation </span> and <span style="color:#FF8021;">Model selection</span>
+    -   [Model evaluation]{style="color:#A7EA52;"} and [Model selection]{style="color:#FF8021;"}
 
 ```{r}
 library(ggplot2)
@@ -89,32 +107,36 @@ library(ggplot2)
 
 ```{css}
 code.sourceCode {
-  font-size: 1.4em;
+  font-size: 1.7em;
   /* or try font-size: xx-large; */
+}
+
+div.cell-output-stdout {
+  font-size: 1.5em;
 }
 ```
 
 ## Main sections of the course
 
 ::: lob
--   Review
+1.  Review
 :::
 
--   Intro to SLR: estimation and testing
+2.  Intro to SLR: estimation and testing
 
-    -   <span style="color:#34AC8B;">Model fitting</span>
+    -   [Model fitting]{style="color:#34AC8B;"}
 
--   Intro to MLR: estimation and testing
+3.  Intro to MLR: estimation and testing
 
-    -   <span style="color:#34AC8B;">Model fitting</span>
+    -   [Model fitting]{style="color:#34AC8B;"}
 
--   Diving into our predictors: categorical variables, interactions between variable
+4.  Diving into our predictors: categorical variables, interactions between variable
 
-    -   <span style="color:#34AC8B;">Model fitting</span>
+    -   [Model fitting]{style="color:#34AC8B;"}
 
--   Key ingredients: model evaluation, diagnostics, selection, and building
+5.  Key ingredients: model evaluation, diagnostics, selection, and building
 
-    -   <span style="color:#A7EA52;">Model evaluation </span> and <span style="color:#FF8021;">Model selection</span>
+    -   [Model evaluation]{style="color:#A7EA52;"} and [Model selection]{style="color:#FF8021;"}
 
 ## Before we begin
 
@@ -172,6 +194,8 @@ code.sourceCode {
     $$
 
 -   IQR
+
+    -   Range from 1st to 3rd quartile
 :::
 :::
 
@@ -339,6 +363,8 @@ ggplot(data = dds.discr,
 
 -   Notation: $Y\sim N(\mu,\sigma^2)$
 
+-   Arguably, the most important distribution in statistics
+
 -   If we know $E(Y)=\mu$, $Var(Y)=\sigma^2$ then
 
     -   2/3 of $Y$'s distribution lies within 1 $\sigma$ of $\mu$
@@ -347,19 +373,11 @@ ggplot(data = dds.discr,
 
     -   $>99$% $\ldots$ $\ldots$ lies within $\mu\pm 3\sigma$
 
--   Arguably, the most important distribution in statistics
-
--   Linear combinations of Normals are Normal\
+-   Linear combinations of Normal's are Normal\
     e.g., $(aY+b)\sim \mbox{N}(a\mu+b,\;a^2\sigma^2)$
 
--   Standard normal:
+-   Standard normal: $Z=\frac{Y-\mu}{\sigma} \sim \mbox{N}(0,1)$
 
-```{=tex}
-\begin{aligned}
-        Z=\frac{Y-\mu}{\sigma} \sim \mbox{N}(0,1) \nonumber
-        
-\end{aligned}
-```
 ## Chi-square Distribution
 
 -   Notation: $X \sim \chi^2_{df}$
@@ -429,7 +447,101 @@ ggplot(data = dds.discr,
 
 ## Confidence interval for one mean
 
+::: columns
+::: column
+The confidence interval for population mean $\mu$:
+
+$$
+\bar{x} \pm t^{*}\dfrac{s}{\sqrt{n}}
+$$
+
+-   where $t^*$ is the critical value for the 95% (or other percent) corresponding to the t-distribution and dependent on $df=n-1$
+
+::: proposition
+::: prop-title
+We can use `R` to find the critical t-value, $t^*$
+:::
+
+::: prop-cont
+For example the critical value for the 95% CI with $n=10$ subjects is...
+
+```{r}
+#| echo: true
+
+qt(0.975, df=9)
+```
+
+-   Recall, that as the $df$ increases, the t-distribution converges towards the Normal distribution
+:::
+:::
+:::
+
+::: column
+:::
+:::
+
+## Confidence interval for one mean
+
+::: columns
+::: column
+The confidence interval for population mean $\mu$:
+
+$$
+\bar{x} \pm t^{*}\dfrac{s}{\sqrt{n}}
+$$
+
+-   where $t^*$ is the critical value for the 95% (or other percent) corresponding to the t-distribution and dependent on $df=n-1$
+
+::: proposition
+::: prop-title
+We can use `R` to find the critical t-value, $t^*$
+:::
+
+::: prop-cont
+For example the critical value for the 95% CI with $n=10$ subjects is...
+
+```{r}
+#| echo: true
+
+qt(0.975, df=9)
+```
+
+-   Recall, that as the $df$ increases, the t-distribution converges towards the Normal distribution
+:::
+:::
+:::
+
+::: column
+We can also use `t.test` in R to calculate the confidence interval if we have a dataset.
+
+```{r}
+#| echo: true 
+
+t.test(dds.discr$age)
+```
+:::
+:::
+
 ## Confidence interval for two independent means
+
+::: columns
+::: column
+The confidence interval for difference in independent population means, $\mu_1$ and $\mu_2$:
+
+$$
+\bar{x}_1 - \bar{x}_2 \pm t^{*}\sqrt{\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}}
+$$
+
+-   where $t^*$ is the critical value for the 95% (or other percent) corresponding to the t-distribution and dependent on $df=n_1 + n_2 -2$
+:::
+
+::: column
+:::
+:::
+
+## Here's a decent source for other R code for tests in 511
+
+[Website from UCLA](https://stats.oarc.ucla.edu/r/whatstat/what-statistical-analysis-should-i-usestatistical-analyses-using-r/)
 
 # Statistical inference: Hypothesis testing
 
@@ -437,9 +549,73 @@ ggplot(data = dds.discr,
 
 ![](01_Review/hypothesis_test_steps.png){fig-align="center"}
 
-## Example: one sample t-test using p-value approach
+## Example: one sample t-test using ***p-value approach***
 
-## Example: one sample t-test using critical values approach
+We want to see what the mean population body temperature is.
+
+2.  State the null and alternative hypotheses:
+
+    |                      |                                                                       |
+    |-------------------|-----------------------------------------------------|
+    | $H_0: \mu = 98.6$    | $H_0$: The population mean body temperature is 98.6 degrees F         |
+    | $H_A: \mu \neq 98.6$ | $H_A$: The population mean body temperature is **not** 98.6 degrees F |
+
+3.  The significance level is $\alpha = 0.05$
+
+4.  The test statistic, $t_{\bar{x}}$ follows a student's t-distribution with $df = n-1 = 129$
+
+5.  The test statistic is: $t_{\bar{x}} = \dfrac{\bar{x}-\mu_0}{\dfrac{s}{\sqrt{n}}}$ and with the data: $t_{\bar{x}} = \dfrac{98.25-98.6}{\dfrac{0.73}{\sqrt{130}}} = -5.45$
+
+6.  Calculate the p-value: $p-value = P(t \leq -5.45) + P(t \geq 5.45)$
+
+    ```{r}
+    #| echo: true
+
+    2*pt(-5.4548, df = 130-1, lower.tail=T)
+    ```
+
+7.  Conclusion: We reject the null hypothesis. There is sufficient evidence that the (population) mean body temperature after is different from 98.6 degree ( $p-value < 0.001$).
+
+## Example: one sample t-test using *critical values approach*
+
+We want to see what the mean population body temperature is.
+
+2.  State the null and alternative hypotheses:
+
+    |                      |                                                                       |
+    |-------------------|-----------------------------------------------------|
+    | $H_0: \mu = 98.6$    | $H_0$: The population mean body temperature is 98.6 degrees F         |
+    | $H_A: \mu \neq 98.6$ | $H_A$: The population mean body temperature is **not** 98.6 degrees F |
+
+3.  The significance level is $\alpha = 0.05$
+
+4.  The test statistic, $t_{\bar{x}}$ follows a student's t-distribution with $df = n-1 = 129$
+
+5.  Decision rule (critical value): For $\alpha=0.05$ , $2*P(t \geq t^*) = 0.05$
+
+    ```{r}
+    #| echo: true
+
+    qt(0.05/2, df = 130-1, lower.tail=F)
+    ```
+
+6.  The test statistic is: $t_{\bar{x}} = \dfrac{\bar{x}-\mu_0}{\dfrac{s}{\sqrt{n}}}$ and with the data: $t_{\bar{x}} = \dfrac{98.25-98.6}{\dfrac{0.73}{\sqrt{130}}} = -5.45$
+
+7.  Conclusion: We reject the null hypothesis. There is sufficient evidence that the (population) mean body temperature after is different from 98.6 degree ( 95% CI: $98.12, 98.38$).
+
+## How did we get the 95% CI?
+
+-   The `t.test` function can help us answer this, and give us the needed information for both approaches.
+
+```{r}
+#| echo: true
+
+BodyTemps = read.csv("data/BodyTemperatures.csv")
+
+t.test(x = BodyTemps$Temperature, 
+       # alternative = "two-sided", 
+       mu = 98.6)
+```
 
 # Error Rates and Power
 
