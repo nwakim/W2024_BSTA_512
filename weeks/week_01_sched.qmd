@@ -43,6 +43,8 @@ For the slides, once they are opened, if you would like to print or save them as
 2.  Click on "Tools" with the gear icon at the top of the sidebar.
 3.  Click on "PDF Export Mode."
 4.  From there, you can print or save the PDF as you would normally from your internet browser.
+    1.  For example, in Chrome: I would click on the 3 vertical dots in the top right corner, then click Print, then change the Destination to "Save as PDF."
+    2.  It doesn't seem to work well in Safari... Let me know if you're having trouble.
 
 ## Announcements
 
@@ -53,9 +55,7 @@ For the slides, once they are opened, if you would like to print or save them as
     -   We definitely learned it in different ways
     -   Three components of 511/512/513
         -   Theory
-
         -   Application
-
         -   Coding
 -   There is a workshop on Friday, 1/12
     -   [Data Equity Primer](https://weallcount.com/the-data-equity-primer/) from We All Count

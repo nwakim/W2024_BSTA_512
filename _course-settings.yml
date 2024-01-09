@@ -7,7 +7,7 @@ schedule:
         calendar-color: "#F14124"
         calendar-color2: "#FFFFFF"
       - href: weeks/week_02_sched.qmd
-        date: 1/15/24
+        date: 1/17/24
         calendar-color: "#F14124"
         calendar-color2: "#FFFFFF"
       - href: weeks/week_03_sched.qmd
@@ -27,7 +27,7 @@ schedule:
         calendar-color: "#F14124"
         calendar-color2: "#FFFFFF"
       - href: weeks/week_07_sched.qmd
-        date: 2/19/24
+        date: 2/21/24
         calendar-color: "#F14124"
         calendar-color2: "#FFFFFF"
       - href: weeks/week_08_sched.qmd
@@ -83,7 +83,7 @@ schedule:
         calendar-color: "#FF8021"
         calendar-color2: "#FFFFFF" 
       - title: "Quiz 2"
-        date: 2/19/24        
+        date: 2/21/24        
         calendar-color: "#FF8021"
         calendar-color2: "#FFFFFF" 
       - title: "Quiz 3"
@@ -123,6 +123,15 @@ schedule:
         calendar-color2: "#FFFFFF" 
       - title: "Virtual Class"
         date: 2/28/24
+        calendar-color: "#A7EA52"
+        calendar-color2: "#FFFFFF" 
+        
+      - title: "No Class: MLKJ Day"
+        date: 1/15/24
+        calendar-color: "#A7EA52"
+        calendar-color2: "#FFFFFF" 
+      - title: "No Class: Pres Day"
+        date: 2/19/24
         calendar-color: "#A7EA52"
         calendar-color2: "#FFFFFF" 
 
