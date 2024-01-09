@@ -49,47 +49,28 @@ For the slides, once they are opened, if you would like to print or save them as
 ### Monday 1/8
 
 -   We came from two different sections of the same course
-
     -   While I am confident we all learned a lot and mostly the same material
-
     -   We definitely learned it in different ways
-
     -   Three components of 511/512/513
-
         -   Theory
 
         -   Application
 
         -   Coding
-
 -   There is a workshop on Friday, 1/12
-
     -   [Data Equity Primer](https://weallcount.com/the-data-equity-primer/) from We All Count
-
     -   ~~If you attend, I will give you an extra 3% on your project report.~~
-
     -   Unfortunately, I was in contact with the workshop, but they cannot offer free seats to the whole class.
-
     -   I am attending, and will try to see if I can share a recording afterwards!
-
 -   Here are a few resources if you’d like to practice R:
-
     -   [https://rladiessydney.org/courses/ryouwithme/](https://urldefense.com/v3/__https:/rladiessydney.org/courses/ryouwithme/__;!!Mi0JBg!IBoZPEa58_qilCqExXMIk05vR_PoK6BO5kH5n48vdJXKPK6dpuLSP4QwMqxk2n11HgCpsLCq7ufpNjA$ "https://urldefense.com/v3/__https:/rladiessydney.org/courses/ryouwithme/__;!!Mi0JBg!IBoZPEa58_qilCqExXMIk05vR_PoK6BO5kH5n48vdJXKPK6dpuLSP4QwMqxk2n11HgCpsLCq7ufpNjA$")
-
     -   [https://r-bootcamp.netlify.app/](https://urldefense.com/v3/__https:/r-bootcamp.netlify.app/__;!!Mi0JBg!IBoZPEa58_qilCqExXMIk05vR_PoK6BO5kH5n48vdJXKPK6dpuLSP4QwMqxk2n11HgCpsLCqkZiESbE$ "https://urldefense.com/v3/__https:/r-bootcamp.netlify.app/__;!!Mi0JBg!IBoZPEa58_qilCqExXMIk05vR_PoK6BO5kH5n48vdJXKPK6dpuLSP4QwMqxk2n11HgCpsLCqkZiESbE$")
-
         -   This is step by step, and lets you practice your code in real time
-
         -   We will use `ggplot2`, `dplyr`, and `tidyr` extensively in this class!
-
         -   I am happy to help with coding, but during our class time our focus will by statistics topics
-
             -   Coding help will mostly be done outside of class time
-
 -   We will also be using an attachment within Rstudio called Quarto
-
     -   Here is a great tutorial on Quarto: <https://quarto.org/docs/get-started/hello/rstudio.html>
-
         -   Mine is the Quarto queen!
 
         -   There is some expectation of knowledge with the above packages (`ggplot2`, `dplyr`, and `tidyr`)
@@ -148,3 +129,36 @@ Dr. Nuzzo is a statistician and a science journalist. Her work has appeared in *
 **Please note the statisticians of the week are taken directly from the [CURV project by Jo Hardin](https://hardin47.github.io/CURV/).** I also invite you to check out this [youtube video](https://www.youtube.com/watch?v=L9GUgL0f_Bc) of her Women Rise Keynote address where she discusses her hearing impairment, career growth, and her work with p-values.
 
 ## Muddiest Points
+
+### 1. Relationship between distributions
+
+Just to clarify! We will be using the distributions in the context of hypothesis testing. I just wanted you to see some of the cool connections between the distributions. (We don't need to know the connections for a lot of what we do in this class.)
+
+Also, I will discuss each distribution again as we hit the hypothesis tests that use them!
+
+There is a big, scary (but fun!) infographic at the end of a famous stat textbook (Casella and Berger) that shows all the connections between distributions:
+
+![](week_01/CB_distributions.png)
+
+We mostly talk about the red, circled area. Each line with the directional arrow represents a specific transformation that is needed to go from the starting distribution to the distribution at the end of the arrow.
+
+**Again, this is NOT information we need to perform regression, but it is really interesting to see the connections between these distributions.**
+
+### 2. A word about the distributions
+
+I feel like I might've scared us with all the distribution talk.
+
+I want to be clear: We will further discuss and explore the distributions as we use them within the course. It will be more important **to understand their use within regression** then knowing the distribution in depth. **Basically, when we implement specific hypothesis tests, we just need to know which distribution is most appropriate for the test.**
+
+### 3. Is the F distribution used for things outside of ANOVA?
+
+Yes! In regression, we often use the F-distribution through the F-test (same as ANOVA) However, in regression, we are comparing the variance of two models, that may differ by a coefficient. [See the STAT 501 page for more info if interested.](https://online.stat.psu.edu/stat501/lesson/6/6.2) In ANOVA, we are comparing variance between and within groups. Both use the same test, but with different goals!
+
+### 4. Multivariable vs multivariate?
+
+Some people misuse "multivariate" instead of "multivariable" modeling. In this class, we will only look at multivariable regression. Here's the big difference:
+
+-   **Multivariable:** model with **multiple independent variables** (covariates, predictors)
+    -   If we want to see how our outcome (height) is related to parent height, birth country, sex assigned at birth, etc.
+-   **Multivariate:** model with **multiple dependent variables** (outcome)
+    -   If we want to extend the outcome from height to height and head circumference. Multivariate modeling would try to model both outcomes together and see how they are related to other variables.
