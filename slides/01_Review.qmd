@@ -696,7 +696,7 @@ We want to see what the mean population body temperature is.
 2.  State the null and alternative hypotheses:
 
     |                      |                                                                       |
-    |----------------------|-------------------------------------------------|
+    |-----------------------|-------------------------------------------------|
     | $H_0: \mu = 98.6$    | $H_0$: The population mean body temperature is 98.6 degrees F         |
     | $H_A: \mu \neq 98.6$ | $H_A$: The population mean body temperature is **not** 98.6 degrees F |
 
@@ -723,7 +723,7 @@ We want to see what the mean population body temperature is.
 2.  State the null and alternative hypotheses:
 
     |                      |                                                                       |
-    |----------------------|-------------------------------------------------|
+    |-----------------------|-------------------------------------------------|
     | $H_0: \mu = 98.6$    | $H_0$: The population mean body temperature is 98.6 degrees F         |
     | $H_A: \mu \neq 98.6$ | $H_A$: The population mean body temperature is **not** 98.6 degrees F |
 
@@ -773,14 +773,22 @@ t.test(x = BodyTemps$Temperature,
 
 # Error Rates and Power
 
-## Type 1 and 2 errors
+## Outcomes of our hypothesis test
 
 ![](01_Review/Type_1_2_error.png){fig-align="center"}
 
-## Power
+## Prabilities of outcomes
+
+-   Type 1 error is $\alpha$
+
+    -   The probability that we falsly reject the null hypothesis (but the null is true!!)
 
 -   Power is $1-\beta$
 
     -   The probability of correctly rejecting the null hypothesis
 
 ![](01_Review/Power.png){fig-align="center"}
+
+## What I think is the most intuitive way to look at it
+
+![](01_Review/type-i-and-type-ii-error.png){fig-align="center"}

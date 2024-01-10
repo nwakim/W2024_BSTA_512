@@ -75,37 +75,25 @@ For the slides, once they are opened, if you would like to print or save them as
 -   We will also be using an attachment within Rstudio called Quarto
     -   Here is a great tutorial on Quarto: <https://quarto.org/docs/get-started/hello/rstudio.html>
         -   Mine is the Quarto queen!
-
         -   There is some expectation of knowledge with the above packages (`ggplot2`, `dplyr`, and `tidyr`)
 
 ### Wednesday 1/10
 
 -   Aha! I finally found the fun source on connecting tests from 511 to linear models!!
-
     -   [Here is the site](https://lindeloev.github.io/tests-as-linear/)
-
     -   And here is the cheat sheet: ![](week_01/linear_tests_cheat_sheet.png)
-
--   Please see the muddiest points below
-
-    -   I try to elaborate/answer questions from your exit tickets
-
--   Schedule updated to include Holidays
-
+-   Website updates
+    -   Please see the muddiest points below
+        -   I try to elaborate/answer questions from your exit tickets
+    -   Schedule updated to include Holidays
+    -   New resources tab that I will try to update after every class!
 -   Asking about getting a different room - seems like we're cramped
-
 -   Lab grading
-
     -   Each lab will be graded using a rubric (on each lab page)
-
     -   You will need to hit specific points to get full credit for the lab
-
     -   This is not a "turn in as is" assignment. You need to turn it in on time OR ask me for an extension.
-
         -   It is likely that I can give you a few more days to finish
-
     -   For labs, you will have ONE no-questions-asked, 3-day extension. Please use this wisely! You just need to send me a quick email saying "I am using my no-questions-asked extension for Lab \_\_."
-
         -   If you need another extension, then you need to email me to ask
 
 ## On the Horizon
