@@ -254,6 +254,36 @@ $presentation-heading-color: #213c96 !default;
   border: 15px solid #34AC8B;
 }
 
+// highlight
+.hl{
+  margin-left: 0em;
+  padding-left:  25px;
+  padding-top:  5px;
+  padding-bottom: 0.1em;
+  padding-right:  25px;
+  color: white;
+  background-color: #F14124;
+  font-size: 1em;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  border-radius: 15px;
+}
+
+
+code.sourceCode {
+  font-size: 1.7em;
+  /* or try font-size: xx-large; */
+}
+
+div.cell-output-stdout {
+  font-size: 1.5em;
+}
+
+.styled-output .cell-output {
+  font-size: 1.5em;
+}
+
 
 
 

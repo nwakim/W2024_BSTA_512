@@ -33,6 +33,7 @@ website:
           - href: syllabus.qmd
             text: Syllabus
           - schedule1.qmd
+          - resources.qmd
       - section: "Course Materials"
         contents:
           - href: schedule.qmd

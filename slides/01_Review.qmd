@@ -19,6 +19,7 @@ format:
     footer: Review
     mermaid: 
       theme: neutral
+    highlight-style: ayu
 ---
 
 ## What did we learn in 511?
@@ -103,17 +104,6 @@ format:
 
 ```{r}
 library(ggplot2)
-```
-
-```{css}
-code.sourceCode {
-  font-size: 1.7em;
-  /* or try font-size: xx-large; */
-}
-
-div.cell-output-stdout {
-  font-size: 1.5em;
-}
 ```
 
 ## Main sections of the course

@@ -32,10 +32,11 @@ editor_options:
 
 Below is a table with links to resources. Icons in [orange]{style="color:#E89543;"} mean there is an available file link.
 
-| Lesson | Topic  |                                             Slides                                              |                                                   Annotated Slides                                                    |                                                                                                                                                                                  Recording(s)                                                                                                                                                                                   |
+| Lesson | Topic           |                                                 Slides                                                  |                                                   Annotated Slides                                                    |                                                                                                                                                                                  Recording(s)                                                                                                                                                                                   |
 |---------------|---------------|:-------------:|:-------------:|:-------------:|
-|        | Intro  | [[{{< iconify ri slideshow-fill size=30px >}}](../slides/00_Intro.qmd)]{style="color:#f8f5f0;"} |                  [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                   |    [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F00%5FIntro%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"}    |
-| 1      | Review | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/01_Review.qmd)]{style="color:#f8f5f0;"}  | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/01_Review.pdf)]{style="color:#f8f5f0;"} | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F01%5FReview%5F01%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"} |
+|        | Intro           |     [[{{< iconify ri slideshow-fill size=30px >}}](../slides/00_Intro.qmd)]{style="color:#f8f5f0;"}     |                  [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                   |    [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F00%5FIntro%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"}    |
+| 1      | Review          |     [[{{< iconify ri slideshow-fill size=30px >}}](/slides/01_Review.qmd)]{style="color:#f8f5f0;"}      | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/01_Review.pdf)]{style="color:#f8f5f0;"} | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F01%5FReview%5F01%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"} |
+| 2      | Data Management | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/02_Data_Management.qmd)]{style="color:#f8f5f0;"} |                  [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                   |                                                                                                                                                          [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                          |
 
 For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
 
@@ -78,6 +79,12 @@ For the slides, once they are opened, if you would like to print or save them as
         -   There is some expectation of knowledge with the above packages (`ggplot2`, `dplyr`, and `tidyr`)
 
 ### Wednesday 1/10
+
+-   Aha! I finally found the fun source on connecting tests from 511 to linear models!!
+
+    -   [Here is the site](https://lindeloev.github.io/tests-as-linear/)
+
+    -   And here is the cheat sheet: ![](week_01/linear_tests_cheat_sheet.png)
 
 -   Please see the muddiest points below
 

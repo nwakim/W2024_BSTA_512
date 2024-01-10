@@ -52,6 +52,12 @@ The following questions were adapted from this textbook.
 
 -   Download the datasets from Sakai - see Week 2
 
+## Question 1
+
+Visit this site on dplyr. <https://dplyr.tidyverse.org/reference/index.html#groups>
+
+For one of the functions that we have not discussed in class, please use it on the `dds.discr` dataset.
+
 ### Question 1
 
 Please use R code to determine the following answers. *(adapted from problem 3.3)*

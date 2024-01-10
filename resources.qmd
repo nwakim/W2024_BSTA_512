@@ -1,0 +1,53 @@
+---
+title: "Resources"
+date-modified: "1/9/2024"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+  pdf: default
+editor_options: 
+  chunk_output_type: console
+---
+
+```{css, echo=FALSE}
+.title{
+  font-size: 40px;
+  color: #213c96;
+  background-color: #fff;
+  padding: 0px;
+}
+```
+
+```{r}
+#| echo: false
+g=3
+```
+
+Here is a list of the major resources that have been mentioned in class:
+
+### Course sites
+
+| Resource                           | Link                                                                                                             | Class Mentioned |
+|-------------------|---------------------------|---------------------------|
+| Meike's 511 Website                | [[{{< iconify ph link-fill size=29px >}}](https://niederhausen.github.io/BSTA_511_F23/)]{style="color:#f8f5f0;"} | Review          |
+| Jessica's R programming class site | [[{{< iconify ph link-fill size=29px >}}](https://sph-r-programming-2022.netlify.app/)]{style="color:#f8f5f0;"}  | Data Management |
+|                                    | [{{< iconify ph link-fill size=29px >}}]{style="color:#f8f5f0;"}                                                 |                 |
+
+### R coding
+
+| Resource                                   | Link                                                                                                                                                                           | Class Mentioned |
+|-------------------|---------------------------|---------------------------|
+| `ggplot` histograms                        | [[{{< iconify ph link-fill size=29px >}}](https://www.sharpsightlabs.com/blog/histogram-r-ggplot2/)]{style="color:#f8f5f0;"}                                                   | Review          |
+| Probability distributions and their R code | [[{{< iconify ph link-fill size=29px >}}](https://www.stat.umn.edu/geyer/5101/examp/rlook.html)]{style="color:#f8f5f0;"}                                                       | Review          |
+| Various hypothesis tests and their R code  | [[{{< iconify ph link-fill size=29px >}}](https://stats.oarc.ucla.edu/r/whatstat/what-statistical-analysis-should-i-usestatistical-analyses-using-r/)]{style="color:#f8f5f0;"} | Review          |
+| Jessica's R programming class site         | [[{{< iconify ph link-fill size=29px >}}](https://sph-r-programming-2022.netlify.app/)]{style="color:#f8f5f0;"}                                                                | Data Management |
+|                                            | [{{< iconify ph link-fill size=29px >}}]{style="color:#f8f5f0;"}                                                                                                               |                 |
+
+### Academic Help
+
+| Resource                          | Link                                                                                                                   | Class Mentioned |
+|-------------------|---------------------------|---------------------------|
+| Student Academic Support Services | [[{{< iconify ph link-fill size=29px >}}](https://sakai.ohsu.edu/portal/site/Student_Support)]{style="color:#f8f5f0;"} | Intro           |
+|                                   | [{{< iconify ph link-fill size=29px >}}]{style="color:#f8f5f0;"}                                                       |                 |
