@@ -42,6 +42,7 @@ website:
             text: Homework
           - href: project.qmd
             text: Project
+          - href: readings.qmd
           
 execute:
   freeze: auto

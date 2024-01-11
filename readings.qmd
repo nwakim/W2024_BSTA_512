@@ -1,10 +1,36 @@
 ---
-title: "Readings"
+title: "612 Readings"
+date-modified: "1/11/2023"
+categories: [""]
 format: 
   html:
-    listing: 
-      contents: readings
-      type: table
-      fields: [date, title, categories, reading-time]
-      table-hover: true
+    link-external-newwindow: true
+    toc: true
+  pdf: default
+editor_options: 
+  chunk_output_type: console
 ---
+
+These reading assignments are for 612 students only. 612 students, you must complete all the readings by 3/22. I have included some recommended due dates that will keep you on track if you would like.
+
+| Reading | Recommended Due Date | Link to Sakai                                                                                                                                                                 | Article                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|----------------|----------------------|--------------|----------------------|
+| 1       | 1/21 @ 11pm          | [[{{< iconify ph link-fill size=29px >}}](https://sakai.ohsu.edu/portal/site/BSTA-512-1-AB-W24/tool/961ec5ef-d7f9-4518-be16-25f7af3d6be4?panel=Main)]{style="color:#f8f5f0;"} | [{{< iconify material-symbols article size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/onedrive.aspx?FolderCTID=0x012000313CF7F10467BC479DC8A23F258AB10C&id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FReadings%5F612%2Freading1b%2Epdf&parent=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FReadings%5F612)                                                                             |
+| 2       | 2/4 @ 11pm           | [[{{< iconify ph link-fill size=29px >}}](https://sakai.ohsu.edu/portal/site/BSTA-512-1-AB-W24/tool/961ec5ef-d7f9-4518-be16-25f7af3d6be4?panel=Main)]{style="color:#f8f5f0;"} | [{{< iconify material-symbols article size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/onedrive.aspx?FolderCTID=0x012000313CF7F10467BC479DC8A23F258AB10C&id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FReadings%5F612%2Freading2b%2Epdf&parent=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FReadings%5F612)                                                                             |
+| 3       | 2/18 @ 11pm          | [[{{< iconify ph link-fill size=29px >}}](https://sakai.ohsu.edu/portal/site/BSTA-512-1-AB-W24/tool/961ec5ef-d7f9-4518-be16-25f7af3d6be4?panel=Main)]{style="color:#f8f5f0;"} | [{{< iconify material-symbols article size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/onedrive.aspx?FolderCTID=0x012000313CF7F10467BC479DC8A23F258AB10C&id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FReadings%5F612%2Freading3%2E2%2Epdf&parent=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FReadings%5F612)                                                                          |
+| 4       | 2/25 @ 11pm          | [[{{< iconify ph link-fill size=29px >}}](https://sakai.ohsu.edu/portal/site/BSTA-512-1-AB-W24/tool/961ec5ef-d7f9-4518-be16-25f7af3d6be4?panel=Main)]{style="color:#f8f5f0;"} | [{{< iconify material-symbols article size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/onedrive.aspx?FolderCTID=0x012000313CF7F10467BC479DC8A23F258AB10C&id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FReadings%5F612%2FNeighborhood%20Context%20and%20Youth%20Cardiovascular%20Health%20Behaviors%2Dreading4%2Epdf&parent=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FReadings%5F612) |
+| 5       | 3/10 @ 11pm          | [[{{< iconify ph link-fill size=29px >}}](https://sakai.ohsu.edu/portal/site/BSTA-512-1-AB-W24/tool/961ec5ef-d7f9-4518-be16-25f7af3d6be4?panel=Main)]{style="color:#f8f5f0;"} | [{{< iconify material-symbols article size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/onedrive.aspx?FolderCTID=0x012000313CF7F10467BC479DC8A23F258AB10C&id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FReadings%5F612%2FChanges%20in%20Sugar%2DSweetened%2Dreading5%2Epdf&parent=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FReadings%5F612)                                           |
+
+### Instructions for each assignment
+
+For each reading assignment, students will write a summary including:
+
+-   study background,
+
+-   why the author think the research important,
+
+-   statistical methods used to address the research question,
+
+-   and a discussion/critique on whether you agree or disagree with the authors'  science and statistics.
+
+You may write complete sentences under each bullet point. Please keep your summary to less than 1 page (margins are up to you). There are no requirements on formatting for references. 

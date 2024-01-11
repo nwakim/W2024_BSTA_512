@@ -43,7 +43,7 @@ Topics for SLR:
 -   estimation of variance?
 
 | Lesson | Topic                    | Readings |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
-|-----------|-----------|-----------|:---------:|:---------:|:------------------:|
+|------------|------------|------------|:----------:|:----------:|:-----------:|
 | 3      | Simple Linear Regression |          | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 4      |                          |          | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#49A3D1;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
@@ -58,13 +58,21 @@ For the slides, once they are opened, if you would like to print or save them as
 
 -   [Homework 1 due 10/5](../homework/HW1.qmd)
 
+## Announcements
+
+### Wednesday 
+
+-   Wanted to clear something up about attendance
+
+    -   If you miss the exit tickets for less than or equal to 5 classes, your grade will not be impacted
+
+    -   If you miss more than 5 exit tickets, then your attendance grade will be affected
+
 ## Class Exit Tickets
 
 [[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUNTlTWUZHM1RIN0Q1WkpKTjMwTTdRRTBVNC4u)]{style="color:#f8f5f0;"} Monday (10/2)
 
 [[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhURDVVMlpFT0RKQU5aQTMyNzhIWTRNTzk2My4u)]{style="color:#f8f5f0;"} Wednesday (10/4)
-
-## Statistician of the Week
 
 ## Muddiest Points
 
