@@ -1501,7 +1501,8 @@ $ expenditures &lt;int&gt; 2113, 41924, 1454, 6400, 4412, 4566, 3915, 3873, 5021
 <span id="cb28-3"><a href="#cb28-3"></a>  <span class="fu">tbl_summary</span>(<span class="at">label =</span> <span class="fu">c</span>(age <span class="sc">~</span> <span class="st">"Age"</span>, </span>
 <span id="cb28-4"><a href="#cb28-4"></a>                        R_E <span class="sc">~</span> <span class="st">"Race/Ethnicity"</span>, </span>
 <span id="cb28-5"><a href="#cb28-5"></a>                        SAB <span class="sc">~</span> <span class="st">"Sex Assigned at Birth"</span>, </span>
-<span id="cb28-6"><a href="#cb28-6"></a>                        expenditures <span class="sc">~</span> <span class="st">"Expenditures"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-6"><a href="#cb28-6"></a>                        expenditures <span class="sc">~</span> <span class="st">"Expenditures"</span>) ,</span>
+<span id="cb28-7"><a href="#cb28-7"></a>              <span class="at">statistic =</span> <span class="fu">list</span>(<span class="fu">all_continuous</span>() <span class="sc">~</span> <span class="st">"{mean} ({sd})"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:30%;">
 <div class="cell">

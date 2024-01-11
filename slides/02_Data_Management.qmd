@@ -587,7 +587,8 @@ dds.discr2 %>%
   tbl_summary(label = c(age ~ "Age", 
                         R_E ~ "Race/Ethnicity", 
                         SAB ~ "Sex Assigned at Birth", 
-                        expenditures ~ "Expenditures"))
+                        expenditures ~ "Expenditures") ,
+              statistic = list(all_continuous() ~ "{mean} ({sd})"))
 ```
 :::
 
