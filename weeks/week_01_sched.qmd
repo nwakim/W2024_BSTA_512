@@ -8,8 +8,7 @@ format:
   html:
     link-external-newwindow: true
     toc: true
-editor_options: 
-  chunk_output_type: console
+highlight-style: ayu
 ---
 
 ```{css, echo=FALSE}
@@ -153,6 +152,63 @@ Some people misuse "multivariate" instead of "multivariable" modeling. In this c
     -   If we want to see how our outcome (height) is related to parent height, birth country, sex assigned at birth, etc.
 -   **Multivariate:** model with **multiple dependent variables** (outcome)
     -   If we want to extend the outcome from height to height and head circumference. Multivariate modeling would try to model both outcomes together and see how they are related to other variables.
+
+### 5. More on the functions and problems we had in class!
+
+#### `mutate()`
+
+coming soon
+
+#### pipe `%>%`
+
+coming soon
+
+#### `select()` everything but a certain variable
+
+coming soon
+
+#### `pivot_longer()` the negative sign that appears before variables that you're managing in pivot_longer and one other time
+
+coming soon
+
+#### `across()`
+
+coming soon
+
+#### `tbl_summary()`: Trying to figure out how to change the median values to mean
+
+Oh, wow! Turns out we solved it in class, but I made big mistake with my slides. The code for the table was in two places, but we fixed the one that was NOT running and showing on the slide!
+
+So turns out, it worked!!
+
+Here's the code:
+
+```{r}
+#| message: false
+
+library(tidyverse)  ## Need to load to use selec() and %>%
+library(gtsummary)  ## Needed package for tbl_summary()
+
+data("dds.discr")
+
+dds.discr1 = dds.discr %>% 
+  rename(SAB = gender, 
+         R_E = ethnicity)
+
+dds.discr1 %>%
+  select(-id, -age.cohort) %>%
+  tbl_summary(label = c(age ~ "Age", 
+                        R_E ~ "Race/Ethnicity", 
+                        SAB ~ "Sex Assigned at Birth", 
+                        expenditures ~ "Expenditures") ,
+              statistic = list(all_continuous() ~ "{mean} ({sd})"))
+```
+
+### 6. Are there benefits to ggplot compared to the base R graphing functions?
+
+The main benefit I see for `ggplot` is that the syntax and grammar of our coding in `tidyr` and `dplyr` is very similar to `ggplot`. Your effort in strengthening one will help with the others.
+
+I am certainly not going to force you to use `ggplot` over base R. At the end of the day, it is really whatever makes the most sense to you. I will say: `ggplot2` seems to be where most statisticians and epidemiologists are headed. And I really believe that `ggplot` is more efficient with coding.
 
 ## Statistician of the Week: Regina Nuzzo
 

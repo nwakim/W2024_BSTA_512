@@ -42,15 +42,15 @@ Welcome to BSTA 512/612! In this course, we will focus on linear models, and bui
 
 [OH with Nicky](https://ohsu.webex.com/meet/wakim)
 
-{{< iconify icon-park-solid time size=24px >}} TBD
+{{< iconify icon-park-solid time size=24px >}} Thursdays, 11:30am - 1pm
 
-[OH with Antara](https://ohsu.webex.com/meet/wakim)
+[OH with Antara](https://pdx.zoom.us/j/84711194675)
 
-{{< iconify icon-park-solid time size=24px >}} TBD
+{{< iconify icon-park-solid time size=24px >}} Wednesdays, 4:30 - 6 pm
 
-[OH with Ariel](https://ohsu.webex.com/meet/wakim)
+[OH with Ariel](https://ohsu.webex.com/meet/weingara)
 
-{{< iconify icon-park-solid time size=24px >}} TBD
+{{< iconify icon-park-solid time size=24px >}} Tuesdays, 2:30 - 4 pm
 
 :::
 
@@ -59,7 +59,7 @@ Welcome to BSTA 512/612! In this course, we will focus on linear models, and bui
 
 {{< iconify fa6-solid calendar-days size=24px >}} Mondays, Wednesdays
 
-{{< iconify fa6-solid calendar size=24px >}} Jan 8 - March 18
+{{< iconify fa6-solid calendar size=24px >}} Jan 8 - March 20
 
 {{< iconify icon-park-solid time size=24px >}} 1:00 PM - 2:50 PM
 
