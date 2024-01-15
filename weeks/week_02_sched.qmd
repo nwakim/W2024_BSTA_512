@@ -2,7 +2,7 @@
 title: "Week 2"
 description: "Simple Linear Regression"
 date: "1/15/2024"
-date-modified: "12/5/2023"
+date-modified: "1/11/2023"
 categories: [""]
 format: 
   html:
@@ -30,22 +30,9 @@ editor_options:
 
 ## Resources
 
-Topics for SLR:
-
--   assumptions
-
-    -   
-
--   parameter estimation and interpretation
-
--   properties of LSE
-
--   estimation of variance?
-
-| Lesson | Topic                    | Readings |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
-|------------|------------|------------|:----------:|:----------:|:-----------:|
-| 3      | Simple Linear Regression |          | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 4      |                          |          | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#49A3D1;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| Lesson | Topic                    |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
+|------------|------------|:----------:|:----------:|:----------:|
+| 3      | Simple Linear Regression | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
 For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
 
@@ -56,11 +43,12 @@ For the slides, once they are opened, if you would like to print or save them as
 
 ## On the Horizon
 
--   [Homework 1 due 10/5](../homework/HW1.qmd)
+-   [Lab 1 due 1/18](../labs/Lab_01.qmd)
+-   [Homework 1 due 1/25](../homework/HW1.qmd)
 
 ## Announcements
 
-### Wednesday 
+### Wednesday
 
 -   Wanted to clear something up about attendance
 

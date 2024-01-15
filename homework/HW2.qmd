@@ -26,7 +26,7 @@ library(readxl)
 ```
 
 ::: callout-important
-**THIS PAGE IS UNDER CONSTRUCTION!!**
+**THIS PAGE IS UNDER CONSTRUCTION!! It's likely that I will be making changes to this assignment at this time!**
 :::
 
 ## Directions

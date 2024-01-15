@@ -29,34 +29,32 @@ library(here)
 ```
 
 ::: callout-important
-**THIS PAGE IS UNDER CONSTRUCTION!!**
+**THIS PAGE IS UNDER CONSTRUCTION!! It's likely that I will be making changes to this assignment at this time!**
 :::
 
 ## Directions
 
--   Please upload your homework to Sakai. **Upload both your .Rmd code file and the knitted .html file**.
+-   Please upload your homework to Sakai. **Upload both your `.qmd` code file and the rendered `.html` file**
 
--   For each question, make sure to include all code and resulting output in the html file to support your answers.
+-   For each question, make sure to include all code and resulting output in the html file to support your answers
 
--   Show the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the knitted html file.
+-   Show the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the rendered html file. This is the default setting.
 
 -   Write all answers in complete sentences as if communicating the results to a collaborator.
 
 ::: callout-tip
-It is a good idea to try rendering your document from time to time as you go along! Note that rendering automatically saves your qmd file and rendering frequently helps you catch your errors more quickly.
+It is a good idea to try rendering your document from time to time as you go along! Note that rendering automatically saves your `.qmd` file and rendering frequently helps you catch your errors more quickly.
 :::
 
 ## Questions
 
-The following questions were adapted from this textbook.
+The following questions were adapted from this textbook. Questions 1-4 are optional if you would like a short review of 511.
 
--   Download the datasets from Sakai - see Week 2
+You will need to download the following datasets:
 
-## Question 1
+-   CH05Q01
 
-Visit this site on dplyr. <https://dplyr.tidyverse.org/reference/index.html#groups>
-
-For one of the functions that we have not discussed in class, please use it on the `dds.discr` dataset.
+-   CH05Q04
 
 ### Question 1
 
@@ -129,6 +127,12 @@ e.  the power of the test.
 
 ### Question 5
 
+Visit this site on dplyr. <https://dplyr.tidyverse.org/reference/index.html#groups>
+
+For one of the functions that we have not discussed in class, please use it on the `dds.discr` dataset.
+
+### Question 6
+
 The accompanying table gives the dry weights (Y ) of 11 chick embryos ranging in age from 6 to 16 days (X ). Also given in the table are the values of the common logarithms of the weights (Z).
 
 -   Load the dataset using the `readxl` package.
@@ -142,11 +146,11 @@ library(readxl)
 ch05q01 <- read_excel("./data/CH05Q01.xls")
 ```
 
-### Part a
+#### Part a
 
 Create the scatterplots in R using ggplot the above dataset. Observe the following two scatter diagrams. Describe the relationships between age (X) and dry weight (Y) and between age and log10 dry weight (Z).
 
-### Part b
+#### Part b
 
 State the simple linear regression models for these two regressions: Y regressed on X and Z regressed on X.
 
@@ -154,7 +158,7 @@ State the simple linear regression models for these two regressions: Y regressed
 This is asking for the regression models BEFORE you find the values of the coefficients.
 :::
 
-### Part c
+#### Part c
 
 Determine the least-squares estimates of each of the regression lines in part (b).
 
@@ -162,11 +166,11 @@ Determine the least-squares estimates of each of the regression lines in part (b
 Now get the regression coefficients using R and plug them into the regression models from (b). You can get the coefficients from the R output - you don't have to use the formulas.
 :::
 
-### Part d
+#### Part d
 
 Create a line on your plots. Which of the two regression lines has the better fit? Based on your answers to parts (a)–(c), is it more appropriate to run a linear regression of Y on X or of Z on X? Explain.
 
-### Part e
+#### Part e
 
 For the regression that you chose as being more appropriate in part (d), find 95% confidence intervals for the true slope and intercept. Interpret each interval with regard to the null hypothesis that the true value is 0.
 
@@ -174,34 +178,10 @@ For the regression that you chose as being more appropriate in part (d), find 95
 You can get the CI's from the R output - you don't have to use the formulas.
 :::
 
-### Part f
+#### Part f
 
 For the regression that you chose as being more appropriate in part (d), add 95% confidence and prediction bands. Using your sketch, find and interpret an approximate 95% confidence interval for the mean response of an 8-day-old chick.
 
-## 5.4 (a - g)
+## Question 7
 
-```{r}
-ch05q04 <- read_excel("./data/CH05Q04.xls")
-```
-
-### (a)
-
-<font color="green">Additional instructions: Run the model to get the regression coefficients and create a scatterplot with the regression line using ggplot.</font>
-
-### (b)
-
-### (c)
-
-<font color="green">Additional instructions: Calculate the CI using the formula. The problem gives the values for $S_{Y|X}$ and $S_X$. Verify these values using R.</font>
-
-### (d)
-
-### (e)
-
-<font color="green">Additional instructions: Create a new dataset without the outlier. Verify the regression coefficients using R and create a new scatterplot with regression line for the dataset without the outlier. Then "decide whether this outlier has any effect on your estimate of the IQ–DI relationship."</font>
-
-### (f)
-
-<font color="green">Additional instructions: Calculate the test statistic using the formula and find the p-value using the test statistic value. The problem gives the values for $S_{Y|X}$ and $S_X$. Verify these values using R. Check your work by comparing your answers to the linear model output. </font>
-
-### (g)
+Below are the mathematical steps for solving OLS for SLR. For each blank explanation, please describe in words why we made the mathematical step.

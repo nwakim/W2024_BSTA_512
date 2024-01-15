@@ -4726,6 +4726,12 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
  <span class="menu-text">Project</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../readings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">612 Readings</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -4739,31 +4745,16 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
    
   <ul>
   <li><a href="#directions" id="toc-directions" class="nav-link active" data-scroll-target="#directions">Directions</a></li>
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
-  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a>
   <ul class="collapse">
-  <li><a href="#question-1-1" id="toc-question-1-1" class="nav-link" data-scroll-target="#question-1-1">Question 1</a></li>
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
   <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
   <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
   <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
   <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
-  <li><a href="#part-a-2" id="toc-part-a-2" class="nav-link" data-scroll-target="#part-a-2">Part a</a></li>
-  <li><a href="#part-b-2" id="toc-part-b-2" class="nav-link" data-scroll-target="#part-b-2">Part b</a></li>
-  <li><a href="#part-c-1" id="toc-part-c-1" class="nav-link" data-scroll-target="#part-c-1">Part c</a></li>
-  <li><a href="#part-d" id="toc-part-d" class="nav-link" data-scroll-target="#part-d">Part d</a></li>
-  <li><a href="#part-e" id="toc-part-e" class="nav-link" data-scroll-target="#part-e">Part e</a></li>
-  <li><a href="#part-f" id="toc-part-f" class="nav-link" data-scroll-target="#part-f">Part f</a></li>
+  <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
   </ul></li>
-  <li><a href="#a---g" id="toc-a---g" class="nav-link" data-scroll-target="#a---g">5.4 (a - g)</a>
-  <ul class="collapse">
-  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">(a)</a></li>
-  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">(b)</a></li>
-  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">(c)</a></li>
-  <li><a href="#d" id="toc-d" class="nav-link" data-scroll-target="#d">(d)</a></li>
-  <li><a href="#e" id="toc-e" class="nav-link" data-scroll-target="#e">(e)</a></li>
-  <li><a href="#f" id="toc-f" class="nav-link" data-scroll-target="#f">(f)</a></li>
-  <li><a href="#g" id="toc-g" class="nav-link" data-scroll-target="#g">(g)</a></li>
-  </ul></li>
+  <li><a href="#question-7" id="toc-question-7" class="nav-link" data-scroll-target="#question-7">Question 7</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="HW1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -4821,15 +4812,15 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>THIS PAGE IS UNDER CONSTRUCTION!!</strong></p>
+<p><strong>THIS PAGE IS UNDER CONSTRUCTION!! It’s likely that I will be making changes to this assignment at this time!</strong></p>
 </div>
 </div>
 <section id="directions" class="level2">
 <h2 class="anchored" data-anchor-id="directions">Directions</h2>
 <ul>
-<li><p>Please upload your homework to Sakai. <strong>Upload both your .Rmd code file and the knitted .html file</strong>.</p></li>
-<li><p>For each question, make sure to include all code and resulting output in the html file to support your answers.</p></li>
-<li><p>Show the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the knitted html file.</p></li>
+<li><p>Please upload your homework to Sakai. <strong>Upload both your <code>.qmd</code> code file and the rendered <code>.html</code> file</strong></p></li>
+<li><p>For each question, make sure to include all code and resulting output in the html file to support your answers</p></li>
+<li><p>Show the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the rendered html file. This is the default setting.</p></li>
 <li><p>Write all answers in complete sentences as if communicating the results to a collaborator.</p></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -4842,23 +4833,20 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>It is a good idea to try rendering your document from time to time as you go along! Note that rendering automatically saves your qmd file and rendering frequently helps you catch your errors more quickly.</p>
+<p>It is a good idea to try rendering your document from time to time as you go along! Note that rendering automatically saves your <code>.qmd</code> file and rendering frequently helps you catch your errors more quickly.</p>
 </div>
 </div>
 </section>
 <section id="questions" class="level2">
 <h2 class="anchored" data-anchor-id="questions">Questions</h2>
-<p>The following questions were adapted from this textbook.</p>
+<p>The following questions were adapted from this textbook. Questions 1-4 are optional if you would like a short review of 511.</p>
+<p>You will need to download the following datasets:</p>
 <ul>
-<li>Download the datasets from Sakai - see Week 2</li>
+<li><p>CH05Q01</p></li>
+<li><p>CH05Q04</p></li>
 </ul>
-</section>
-<section id="question-1" class="level2">
-<h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
-<p>Visit this site on dplyr. <a href="https://dplyr.tidyverse.org/reference/index.html#groups" class="uri">https://dplyr.tidyverse.org/reference/index.html#groups</a></p>
-<p>For one of the functions that we have not discussed in class, please use it on the <code>dds.discr</code> dataset.</p>
-<section id="question-1-1" class="level3">
-<h3 class="anchored" data-anchor-id="question-1-1">Question 1</h3>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
 <p>Please use R code to determine the following answers. <em>(adapted from problem 3.3)</em></p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
@@ -4941,6 +4929,11 @@ Tip
 </section>
 <section id="question-5" class="level3">
 <h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
+<p>Visit this site on dplyr. <a href="https://dplyr.tidyverse.org/reference/index.html#groups" class="uri">https://dplyr.tidyverse.org/reference/index.html#groups</a></p>
+<p>For one of the functions that we have not discussed in class, please use it on the <code>dds.discr</code> dataset.</p>
+</section>
+<section id="question-6" class="level3">
+<h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
 <p>The accompanying table gives the dry weights (Y ) of 11 chick embryos ranging in age from 6 to 16 days (X ). Also given in the table are the values of the common logarithms of the weights (Z).</p>
 <ul>
 <li>Load the dataset using the <code>readxl</code> package.
@@ -4955,13 +4948,12 @@ Tip
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># you can choose whatever name you like for the tibble when loading it into R&#39;s workspace </span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>ch05q01 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;./data/CH05Q01.xls&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="part-a-2" class="level3">
-<h3 class="anchored" data-anchor-id="part-a-2">Part a</h3>
+<section id="part-a-2" class="level4">
+<h4 class="anchored" data-anchor-id="part-a-2">Part a</h4>
 <p>Create the scatterplots in R using ggplot the above dataset. Observe the following two scatter diagrams. Describe the relationships between age (X) and dry weight (Y) and between age and log10 dry weight (Z).</p>
 </section>
-<section id="part-b-2" class="level3">
-<h3 class="anchored" data-anchor-id="part-b-2">Part b</h3>
+<section id="part-b-2" class="level4">
+<h4 class="anchored" data-anchor-id="part-b-2">Part b</h4>
 <p>State the simple linear regression models for these two regressions: Y regressed on X and Z regressed on X.</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
@@ -4974,8 +4966,8 @@ Tip
 </div>
 </div>
 </section>
-<section id="part-c-1" class="level3">
-<h3 class="anchored" data-anchor-id="part-c-1">Part c</h3>
+<section id="part-c-1" class="level4">
+<h4 class="anchored" data-anchor-id="part-c-1">Part c</h4>
 <p>Determine the least-squares estimates of each of the regression lines in part (b).</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
@@ -4988,12 +4980,12 @@ Tip
 </div>
 </div>
 </section>
-<section id="part-d" class="level3">
-<h3 class="anchored" data-anchor-id="part-d">Part d</h3>
+<section id="part-d" class="level4">
+<h4 class="anchored" data-anchor-id="part-d">Part d</h4>
 <p>Create a line on your plots. Which of the two regression lines has the better fit? Based on your answers to parts (a)–(c), is it more appropriate to run a linear regression of Y on X or of Z on X? Explain.</p>
 </section>
-<section id="part-e" class="level3">
-<h3 class="anchored" data-anchor-id="part-e">Part e</h3>
+<section id="part-e" class="level4">
+<h4 class="anchored" data-anchor-id="part-e">Part e</h4>
 <p>For the regression that you chose as being more appropriate in part (d), find 95% confidence intervals for the true slope and intercept. Interpret each interval with regard to the null hypothesis that the true value is 0.</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
@@ -5006,43 +4998,17 @@ Tip
 </div>
 </div>
 </section>
-<section id="part-f" class="level3">
-<h3 class="anchored" data-anchor-id="part-f">Part f</h3>
+<section id="part-f" class="level4">
+<h4 class="anchored" data-anchor-id="part-f">Part f</h4>
 <p>For the regression that you chose as being more appropriate in part (d), add 95% confidence and prediction bands. Using your sketch, find and interpret an approximate 95% confidence interval for the mean response of an 8-day-old chick.</p>
 </section>
 </section>
-<section id="a---g" class="level2">
-<h2 class="anchored" data-anchor-id="a---g">5.4 (a - g)</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ch05q04 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;./data/CH05Q04.xls&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="a" class="level3">
-<h3 class="anchored" data-anchor-id="a">(a)</h3>
-<p><font color="green">Additional instructions: Run the model to get the regression coefficients and create a scatterplot with the regression line using ggplot.</font></p>
 </section>
-<section id="b" class="level3">
-<h3 class="anchored" data-anchor-id="b">(b)</h3>
-</section>
-<section id="c" class="level3">
-<h3 class="anchored" data-anchor-id="c">(c)</h3>
-<p><font color="green">Additional instructions: Calculate the CI using the formula. The problem gives the values for <span class="math inline">\(S_{Y|X}\)</span> and <span class="math inline">\(S_X\)</span>. Verify these values using R.</font></p>
-</section>
-<section id="d" class="level3">
-<h3 class="anchored" data-anchor-id="d">(d)</h3>
-</section>
-<section id="e" class="level3">
-<h3 class="anchored" data-anchor-id="e">(e)</h3>
-<p><font color="green">Additional instructions: Create a new dataset without the outlier. Verify the regression coefficients using R and create a new scatterplot with regression line for the dataset without the outlier. Then “decide whether this outlier has any effect on your estimate of the IQ–DI relationship.”</font></p>
-</section>
-<section id="f" class="level3">
-<h3 class="anchored" data-anchor-id="f">(f)</h3>
-<p><font color="green">Additional instructions: Calculate the test statistic using the formula and find the p-value using the test statistic value. The problem gives the values for <span class="math inline">\(S_{Y|X}\)</span> and <span class="math inline">\(S_X\)</span>. Verify these values using R. Check your work by comparing your answers to the linear model output. </font></p>
-</section>
-<section id="g" class="level3">
-<h3 class="anchored" data-anchor-id="g">(g)</h3>
+<section id="question-7" class="level2">
+<h2 class="anchored" data-anchor-id="question-7">Question 7</h2>
+<p>Below are the mathematical steps for solving OLS for SLR. For each blank explanation, please describe in words why we made the mathematical step.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

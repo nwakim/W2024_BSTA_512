@@ -8,7 +8,7 @@ format:
   html:
     link-external-newwindow: true
     toc: true
-highlight-style: ayu
+    highlight-style: ayu
 ---
 
 ```{css, echo=FALSE}
@@ -31,17 +31,17 @@ highlight-style: ayu
 
 Below is a table with links to resources. Icons in [orange]{style="color:#E89543;"} mean there is an available file link.
 
-+-------------+-----------------+---------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Lesson      | Topic           | Slides                                                                                                  | Annotated Slides                                                                                                               | Recording(s)                                                                                                                                                                                                                                                                                                                                                                          |
-+=============+=================+:=======================================================================================================:+:==============================================================================================================================:+:=====================================================================================================================================================================================================================================================================================================================================================================================:+
-|             | Intro           | [[{{< iconify ri slideshow-fill size=30px >}}](../slides/00_Intro.qmd)]{style="color:#f8f5f0;"}         | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                                             | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F00%5FIntro%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"}             |
-+-------------+-----------------+---------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 1           | Review          | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/01_Review.qmd)]{style="color:#f8f5f0;"}          | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/01_Review.pdf)]{style="color:#f8f5f0;"}          | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F01%5FReview%5F01%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"}       |
-|             |                 |                                                                                                         |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                       |
-|             |                 |                                                                                                         |                                                                                                                                | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F01%5FReview%5F02%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"}       |
-+-------------+-----------------+---------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 2           | Data Management | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/02_Data_Management.qmd)]{style="color:#f8f5f0;"} | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/02_Data_Management.pdf)]{style="color:#f8f5f0;"} | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F02%5FData%5FManagement%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"} |
-+-------------+-----------------+---------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++--------+-----------------+---------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Lesson | Topic           | Slides                                                                                                  | Annotated Slides                                                                                                               | Recording(s)                                                                                                                                                                                                                                                                                                                                                                          |
++========+=================+:=======================================================================================================:+:==============================================================================================================================:+:=====================================================================================================================================================================================================================================================================================================================================================================================:+
+|        | Intro           | [[{{< iconify ri slideshow-fill size=30px >}}](../slides/00_Intro.qmd)]{style="color:#f8f5f0;"}         | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                                             | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F00%5FIntro%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"}             |
++--------+-----------------+---------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 1      | Review          | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/01_Review.qmd)]{style="color:#f8f5f0;"}          | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/01_Review.pdf)]{style="color:#f8f5f0;"}          | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F01%5FReview%5F01%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"}       |
+|        |                 |                                                                                                         |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                       |
+|        |                 |                                                                                                         |                                                                                                                                | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F01%5FReview%5F02%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"}       |
++--------+-----------------+---------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 2      | Data Management | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/02_Data_Management.qmd)]{style="color:#f8f5f0;"} | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/02_Data_Management.pdf)]{style="color:#f8f5f0;"} | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F02%5FData%5FManagement%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"} |
++--------+-----------------+---------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
 
@@ -155,27 +155,235 @@ Some people misuse "multivariate" instead of "multivariable" modeling. In this c
 
 ### 5. More on the functions and problems we had in class!
 
+::: callout-important
+This section has some examples from [this YouTube video series](https://www.youtube.com/watch?v=THGFXV4RW8U&list=PLiC1doDIe9rC8RgWPAWqDETE-VbKOWfWl&ab_channel=DataDaft). There is a video on mutate, pipe, filter, select, rename, arrange, and summarize. Note that some of the function in the series is outdated. The use of `if_else()` in the video is outdated, and it is more common to use `case_when()` now. The use of `gather` and `spread` have been replaced by `pivot_longer` and `pivot_wider`.
+:::
+
+To discuss these functions below, I want to use a different dataset than what we used for examples in class. I'm hoping this allows us to see each function from a different angle. I'll use the dataset that we used for some of the `ggplot` examples: `mtcars`. Let's load the tidyverse and take a look at the dataset:
+
+```{r}
+#| message: false
+
+library(tidyverse)
+glimpse(mtcars)
+```
+
 #### `mutate()`
 
-coming soon
+For mutate, there are a few common uses:
+
+-   create another numeric variable by manipulating other variables
+
+-   create a categorical variable by creating cases from other variables
+
+##### Create another numeric variable by manipulating other variables
+
+The `wt` variable is the weight of the car in tons. Let's say we want the full weight in pounds (lbs). I'll create a new variable that is 1000 times (1 ton = 1000 lbs) the weight in the dataset.
+
+```{r}
+mtcars1 = mtcars %>%
+  mutate(weight_lb = wt * 1000)
+
+glimpse(mtcars1)
+```
+
+We can also perform several mutations at the same time. Let's say we want the weight in pounds AND the horse power per cylinder (`hp` per `cyl`). We can perform both manipulations:
+
+```{r}
+mtcars2 = mtcars %>%
+  mutate(weight_lb = wt * 1000, 
+         hp_per_cyl = hp/cyl)
+
+glimpse(mtcars2)
+```
+
+You can even use the same syntax if you need to change a variable that depends on a previous mutation. Let's say I want the ratio of weight in pounds to the car's horse power.
+
+```{r}
+mtcars3 = mtcars %>%
+  mutate(weight_lb = wt * 1000, 
+         w_to_hp = weight_lb / hp)
+
+glimpse(mtcars3)
+```
+
+##### Create a categorical variable by creating cases from other variables
+
+Recall in class we used mutate to label the numeric values of `am` to a categorical variable `transmission`. We create a new categorical variable from a binary, numeric variable.
+
+```{r}
+mtcars4 = mtcars %>%
+  mutate(transmission = case_when(am == 0 ~ "automatic",
+                                  am == 1 ~ "manual"))
+glimpse(mtcars4)
+```
+
+We can also create a categorical variable from a continuous numeric variable. Let's say we want to divide the miles per gallon into three categories: low, medium, and high. We can use `mutate()` and `case_when()` to do so:
+
+```{r}
+mtcars5 = mtcars %>%
+  mutate(mpg_cat = case_when(mpg > 22 ~ "high",
+                             mpg > 15 ~ "medium", 
+                             .default = "low"))
+glimpse(mtcars5)
+```
+
+Notice that I used `.default` in the last case. This means "for all other values of mpg, assign it to 'low'."
 
 #### pipe `%>%`
 
-coming soon
+[Check out the videos explanation!](https://www.youtube.com/watch?v=ui3VZeuN8QY&list=PLiC1doDIe9rC8RgWPAWqDETE-VbKOWfWl&index=2&ab_channel=DataDaft) I can't explain it much better!!
 
 #### `select()` everything but a certain variable
 
-coming soon
+It seems like we're mostly okay with the `select()` function, but want more information on selecting everything but a certain varaible.
 
-#### `pivot_longer()` the negative sign that appears before variables that you're managing in pivot_longer and one other time
+When we select variables, we have the option to identify variables we want to keep or remove. If we want to keep a variable, we would just list the variable's column name. If we want to remove a variable, we use the minus sign to let R know that we do NOT want that variable. We typically do not tell R to remove and keep variables within the same `select()` function. Let's recall the variables within the original `mtcars` dataset:
 
-coming soon
+```{r}
+glimpse(mtcars)
+```
+
+Now we want to keep the following variables: `cyl`, `mpg`, `disp`, and `qsec`.
+
+```{r}
+mtcars6 = mtcars %>%
+  select(mpg, cyl, disp, qsec)
+glimpse(mtcars6)
+```
+
+In this case there was less typing to ID the variables we wanted to keep, so we inputted the column names. If we wanted to ID the variables we wanted to remove, what variables would identify to get the same remaining variables that are in `mtcars6`?
+
+So we want to remove the following variables:
+
+```{r}
+mtcars7 = mtcars %>%
+  select(-hp, -drat, -wt, -vs, -am, -gear, -carb)
+glimpse(mtcars7)
+```
+
+So both get the job done, but one is definitely quicker to type!
+
+::: callout-note
+## We don't have to write the minus in front of every variable
+
+When we are removing several variables, we can combine them into a vector to remove:
+
+```{r}
+mtcars8 = mtcars %>%
+  select(-c(hp, drat, wt, vs, am, gear, carb))
+glimpse(mtcars8)
+
+```
+
+The vector above is: `c(hp, drat, wt, vs, am, gear, carb)` and the minus sign in front of the vector will be applied to each variable.
+:::
+
+#### `pivot_longer()` 
+
+I want to address the function with the faculty dataset from class.
+
+```{r}
+#| message: false
+
+# Note, I've put the data in a folder "data" that is in the same folder as this page's file
+staff = read_csv("data/instructional-staff.csv")
+staff
+```
+
+Note that I am not using `glimpse()` here because we only have 5 rows corresponding to the faculty type. What would a glimpse of the data look like?
+
+```{r}
+glimpse(staff)
+```
+
+Both views are indicators that the dataset is in a "wide" format where each year has its own column. We want our data to be in a tidy format, which means each column is a variable and each cell has a value. However, the years are actually values for a variable "year." By using `pivot_longer()`, we can tell R to take those columns for years and make them their own column where year is the value. That means for a year like 1975, there are five numbers corresponding to the five faculty types. Those five numbers are the percentage of the specific faculty type in that year. So we want to end with columns: faculty type, year, and percentage.
+
+To start with an easier implementation of `pivot_longer()`, let's remove the faculty type using `select()`
+
+```{r}
+staff2 = staff %>%
+  select(-faculty_type)
+staff2
+```
+
+Now we can pivot the years! We first identify the columns that we want to pivot. To pivot all the columns, we say `cols = everything()`. `pivot_longer()` knows you want the column names to now become values of a variable, but it does not know what to call that variable. So now we identify the new variable name of the column that will contain all the years (our old column names). We identify the new variable name with: `names_to`. Finally, we need to adress the old cell values that were under each year in our wide dataset. Those cell values will make up a new column/variable. Remember that each year had 5 values underneath it, so we need to include all 55 cell values. Similar to `names_to`, we need to identify the new column names for all those values. We use `values_to` to identify the column name for the cell values of our old wide formatted data.
+
+```{r}
+staff_long = staff2 %>%
+  pivot_longer(
+    cols = everything(),    # columns to pivot
+    names_to = "year",       # name of new column for variable names
+    values_to = "percentage" # name of new column for values
+  ) %>%
+  mutate(percentage = as.numeric(percentage))
+
+head(staff_long, 20) # I'm asking R to show me the first 20 rows
+```
+
+I included the first 20 rows so we could see that the years repeat. This is because there were 5 percentages for each year. While this is in the desired long format, we now see that we're missing the information on faculty type. Each percentage in each year corresponded to a specific faculty type:
+
+```{r}
+staff_long %>% filter(year == 1975)
+```
+
+Which percentage is for which faculty??
+
+We could use another function called `join()` to try to remedy the situation, but it's much easier to redo the pivot function. We will go back to `staff` which still has the faculty type:
+
+```{r}
+staff
+```
+
+Now we can implement `pivot_longer()`. We will identify the columns we want to pivot as column 2 through 12 so we exclude the faculty type from the pivoting. BUT the really nice thing is that `pivot_longer()` will remember the percentages that correspond to a specific combination of faculty type and year! Let's try it again:
+
+```{r}
+staff_long2 = staff %>%
+  pivot_longer(
+    cols = 2:12,    # columns to pivot
+    names_to = "year",       # name of new column for variable names
+    values_to = "percentage" # name of new column for values
+  ) %>%
+  mutate(percentage = as.numeric(percentage))
+
+head(staff_long2, 20) # I'm asking R to show me the first 20 rows
+```
+
+And now I'll just dump a couple other ways to identify the columns we want to pivot:
+
+-   In this one, we name the column years. It's like 2:12, but it's helpful when it's hard to see what number the column is. Also, this is a special case because the columns are numbers, so we need to use ' to wrap around the year. In the `mtcars` dataset, a similar approach would be `cyl:vs` to select all the variables between `cyl` and `vs`. You can also make a vector of variable names if they are not next to each other.
+
+```{r}
+staff_long3 = staff %>%
+  pivot_longer(
+    cols = '1975':'2011',    # columns to pivot
+    names_to = "year",       # name of new column for variable names
+    values_to = "percentage" # name of new column for values
+  ) %>%
+  mutate(percentage = as.numeric(percentage))
+
+head(staff_long3, 20) # I'm asking R to show me the first 20 rows
+```
+
+-   This one is the same as our in-class code. We "remove" faculty type from our identified columns
+
+```{r}
+staff_long4 = staff %>%
+  pivot_longer(
+    cols = -faculty_type,    # columns to pivot
+    names_to = "year",       # name of new column for variable names
+    values_to = "percentage" # name of new column for values
+  ) %>%
+  mutate(percentage = as.numeric(percentage))
+
+head(staff_long4, 20) # I'm asking R to show me the first 20 rows
+```
 
 #### `across()`
 
-coming soon
+I really ran out of time before getting to this one. For now, you can look at the [examples from this site](https://dplyr.tidyverse.org/reference/across.html#ref-examples) to see the capabilities of `across()` . I invite you to try them out on the various datasets in our lecture.
 
-#### `tbl_summary()`: Trying to figure out how to change the median values to mean
+### 6. `tbl_summary()`: Trying to figure out how to change the median values to mean
 
 Oh, wow! Turns out we solved it in class, but I made big mistake with my slides. The code for the table was in two places, but we fixed the one that was NOT running and showing on the slide!
 

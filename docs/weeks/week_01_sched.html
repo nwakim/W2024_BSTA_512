@@ -235,6 +235,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Project</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../readings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">612 Readings</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -263,6 +269,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#is-the-f-distribution-used-for-things-outside-of-anova" id="toc-is-the-f-distribution-used-for-things-outside-of-anova" class="nav-link" data-scroll-target="#is-the-f-distribution-used-for-things-outside-of-anova">3. Is the F distribution used for things outside of ANOVA?</a></li>
   <li><a href="#multivariable-vs-multivariate" id="toc-multivariable-vs-multivariate" class="nav-link" data-scroll-target="#multivariable-vs-multivariate">4. Multivariable vs multivariate?</a></li>
   <li><a href="#more-on-the-functions-and-problems-we-had-in-class" id="toc-more-on-the-functions-and-problems-we-had-in-class" class="nav-link" data-scroll-target="#more-on-the-functions-and-problems-we-had-in-class">5. More on the functions and problems we had in class!</a></li>
+  <li><a href="#tbl_summary-trying-to-figure-out-how-to-change-the-median-values-to-mean" id="toc-tbl_summary-trying-to-figure-out-how-to-change-the-median-values-to-mean" class="nav-link" data-scroll-target="#tbl_summary-trying-to-figure-out-how-to-change-the-median-values-to-mean">6. <code>tbl_summary()</code>: Trying to figure out how to change the median values to mean</a></li>
   <li><a href="#are-there-benefits-to-ggplot-compared-to-the-base-r-graphing-functions" id="toc-are-there-benefits-to-ggplot-compared-to-the-base-r-graphing-functions" class="nav-link" data-scroll-target="#are-there-benefits-to-ggplot-compared-to-the-base-r-graphing-functions">6. Are there benefits to ggplot compared to the base R graphing functions?</a></li>
   </ul></li>
   <li><a href="#statistician-of-the-week-regina-nuzzo" id="toc-statistician-of-the-week-regina-nuzzo" class="nav-link" data-scroll-target="#statistician-of-the-week-regina-nuzzo">Statistician of the Week: Regina Nuzzo</a></li>
@@ -509,67 +516,544 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="more-on-the-functions-and-problems-we-had-in-class" class="level3">
 <h3 class="anchored" data-anchor-id="more-on-the-functions-and-problems-we-had-in-class">5. More on the functions and problems we had in class!</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This section has some examples from <a href="https://www.youtube.com/watch?v=THGFXV4RW8U&amp;list=PLiC1doDIe9rC8RgWPAWqDETE-VbKOWfWl&amp;ab_channel=DataDaft">this YouTube video series</a>. There is a video on mutate, pipe, filter, select, rename, arrange, and summarize. Note that some of the function in the series is outdated. The use of <code>if_else()</code> in the video is outdated, and it is more common to use <code>case_when()</code> now. The use of <code>gather</code> and <code>spread</code> have been replaced by <code>pivot_longer</code> and <code>pivot_wider</code>.</p>
+</div>
+</div>
+<p>To discuss these functions below, I want to use a different dataset than what we used for examples in class. I’m hoping this allows us to see each function from a different angle. I’ll use the dataset that we used for some of the <code>ggplot</code> examples: <code>mtcars</code>. Let’s load the tidyverse and take a look at the dataset:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 32
+Columns: 11
+$ mpg  &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8,…
+$ cyl  &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8,…
+$ disp &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 16…
+$ hp   &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180…
+$ drat &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92,…
+$ wt   &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.…
+$ qsec &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18…
+$ vs   &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0,…
+$ am   &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0,…
+$ gear &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3,…
+$ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2,…</code></pre>
+</div>
+</div>
 <section id="mutate" class="level4">
 <h4 class="anchored" data-anchor-id="mutate"><code>mutate()</code></h4>
-<p>coming soon</p>
+<p>For mutate, there are a few common uses:</p>
+<ul>
+<li><p>create another numeric variable by manipulating other variables</p></li>
+<li><p>create a categorical variable by creating cases from other variables</p></li>
+</ul>
+<section id="create-another-numeric-variable-by-manipulating-other-variables" class="level5">
+<h5 class="anchored" data-anchor-id="create-another-numeric-variable-by-manipulating-other-variables">Create another numeric variable by manipulating other variables</h5>
+<p>The <code>wt</code> variable is the weight of the car in tons. Let’s say we want the full weight in pounds (lbs). I’ll create a new variable that is 1000 times (1 ton = 1000 lbs) the weight in the dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mtcars1 <span class="ot">=</span> mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">weight_lb =</span> wt <span class="sc">*</span> <span class="dv">1000</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mtcars1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 32
+Columns: 12
+$ mpg       &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, …
+$ cyl       &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, …
+$ disp      &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.…
+$ hp        &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180…
+$ drat      &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, …
+$ wt        &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.15…
+$ qsec      &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.9…
+$ vs        &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, …
+$ am        &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, …
+$ gear      &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, …
+$ carb      &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, …
+$ weight_lb &lt;dbl&gt; 2620, 2875, 2320, 3215, 3440, 3460, 3570, 3190, 3150, 3440, …</code></pre>
+</div>
+</div>
+<p>We can also perform several mutations at the same time. Let’s say we want the weight in pounds AND the horse power per cylinder (<code>hp</code> per <code>cyl</code>). We can perform both manipulations:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mtcars2 <span class="ot">=</span> mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">weight_lb =</span> wt <span class="sc">*</span> <span class="dv">1000</span>, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">hp_per_cyl =</span> hp<span class="sc">/</span>cyl)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mtcars2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 32
+Columns: 13
+$ mpg        &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2,…
+$ cyl        &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4,…
+$ disp       &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140…
+$ hp         &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 18…
+$ drat       &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92,…
+$ wt         &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.1…
+$ qsec       &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.…
+$ vs         &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1,…
+$ am         &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1,…
+$ gear       &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4,…
+$ carb       &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1,…
+$ weight_lb  &lt;dbl&gt; 2620, 2875, 2320, 3215, 3440, 3460, 3570, 3190, 3150, 3440,…
+$ hp_per_cyl &lt;dbl&gt; 18.33333, 18.33333, 23.25000, 18.33333, 21.87500, 17.50000,…</code></pre>
+</div>
+</div>
+<p>You can even use the same syntax if you need to change a variable that depends on a previous mutation. Let’s say I want the ratio of weight in pounds to the car’s horse power.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mtcars3 <span class="ot">=</span> mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">weight_lb =</span> wt <span class="sc">*</span> <span class="dv">1000</span>, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">w_to_hp =</span> weight_lb <span class="sc">/</span> hp)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mtcars3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 32
+Columns: 13
+$ mpg       &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, …
+$ cyl       &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, …
+$ disp      &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.…
+$ hp        &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180…
+$ drat      &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, …
+$ wt        &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.15…
+$ qsec      &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.9…
+$ vs        &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, …
+$ am        &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, …
+$ gear      &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, …
+$ carb      &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, …
+$ weight_lb &lt;dbl&gt; 2620, 2875, 2320, 3215, 3440, 3460, 3570, 3190, 3150, 3440, …
+$ w_to_hp   &lt;dbl&gt; 23.81818, 26.13636, 24.94624, 29.22727, 19.65714, 32.95238, …</code></pre>
+</div>
+</div>
+</section>
+<section id="create-a-categorical-variable-by-creating-cases-from-other-variables" class="level5">
+<h5 class="anchored" data-anchor-id="create-a-categorical-variable-by-creating-cases-from-other-variables">Create a categorical variable by creating cases from other variables</h5>
+<p>Recall in class we used mutate to label the numeric values of <code>am</code> to a categorical variable <code>transmission</code>. We create a new categorical variable from a binary, numeric variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mtcars4 <span class="ot">=</span> mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">transmission =</span> <span class="fu">case_when</span>(am <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"automatic"</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                                  am <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"manual"</span>))</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mtcars4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 32
+Columns: 12
+$ mpg          &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.…
+$ cyl          &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, …
+$ disp         &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 1…
+$ hp           &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, …
+$ drat         &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.9…
+$ wt           &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3…
+$ qsec         &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 2…
+$ vs           &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, …
+$ am           &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, …
+$ gear         &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, …
+$ carb         &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, …
+$ transmission &lt;chr&gt; "manual", "manual", "manual", "automatic", "automatic", "…</code></pre>
+</div>
+</div>
+<p>We can also create a categorical variable from a continuous numeric variable. Let’s say we want to divide the miles per gallon into three categories: low, medium, and high. We can use <code>mutate()</code> and <code>case_when()</code> to do so:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mtcars5 <span class="ot">=</span> mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mpg_cat =</span> <span class="fu">case_when</span>(mpg <span class="sc">&gt;</span> <span class="dv">22</span> <span class="sc">~</span> <span class="st">"high"</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                             mpg <span class="sc">&gt;</span> <span class="dv">15</span> <span class="sc">~</span> <span class="st">"medium"</span>, </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">.default =</span> <span class="st">"low"</span>))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mtcars5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 32
+Columns: 12
+$ mpg     &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17…
+$ cyl     &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4,…
+$ disp    &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8,…
+$ hp      &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, …
+$ drat    &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.…
+$ wt      &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150,…
+$ qsec    &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90,…
+$ vs      &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1,…
+$ am      &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0,…
+$ gear    &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3,…
+$ carb    &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1,…
+$ mpg_cat &lt;chr&gt; "medium", "medium", "high", "medium", "medium", "medium", "low…</code></pre>
+</div>
+</div>
+<p>Notice that I used <code>.default</code> in the last case. This means “for all other values of mpg, assign it to ‘low’.”</p>
+</section>
 </section>
 <section id="pipe" class="level4">
 <h4 class="anchored" data-anchor-id="pipe">pipe <code>%&gt;%</code></h4>
-<p>coming soon</p>
+<p><a href="https://www.youtube.com/watch?v=ui3VZeuN8QY&amp;list=PLiC1doDIe9rC8RgWPAWqDETE-VbKOWfWl&amp;index=2&amp;ab_channel=DataDaft">Check out the videos explanation!</a> I can’t explain it much better!!</p>
 </section>
 <section id="select-everything-but-a-certain-variable" class="level4">
 <h4 class="anchored" data-anchor-id="select-everything-but-a-certain-variable"><code>select()</code> everything but a certain variable</h4>
-<p>coming soon</p>
+<p>It seems like we’re mostly okay with the <code>select()</code> function, but want more information on selecting everything but a certain varaible.</p>
+<p>When we select variables, we have the option to identify variables we want to keep or remove. If we want to keep a variable, we would just list the variable’s column name. If we want to remove a variable, we use the minus sign to let R know that we do NOT want that variable. We typically do not tell R to remove and keep variables within the same <code>select()</code> function. Let’s recall the variables within the original <code>mtcars</code> dataset:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 32
+Columns: 11
+$ mpg  &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8,…
+$ cyl  &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8,…
+$ disp &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 16…
+$ hp   &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180…
+$ drat &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92,…
+$ wt   &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.…
+$ qsec &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18…
+$ vs   &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0,…
+$ am   &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0,…
+$ gear &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3,…
+$ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2,…</code></pre>
+</div>
+</div>
+<p>Now we want to keep the following variables: <code>cyl</code>, <code>mpg</code>, <code>disp</code>, and <code>qsec</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mtcars6 <span class="ot">=</span> mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mpg, cyl, disp, qsec)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mtcars6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 32
+Columns: 4
+$ mpg  &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8,…
+$ cyl  &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8,…
+$ disp &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 16…
+$ qsec &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18…</code></pre>
+</div>
+</div>
+<p>In this case there was less typing to ID the variables we wanted to keep, so we inputted the column names. If we wanted to ID the variables we wanted to remove, what variables would identify to get the same remaining variables that are in <code>mtcars6</code>?</p>
+<p>So we want to remove the following variables:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mtcars7 <span class="ot">=</span> mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>hp, <span class="sc">-</span>drat, <span class="sc">-</span>wt, <span class="sc">-</span>vs, <span class="sc">-</span>am, <span class="sc">-</span>gear, <span class="sc">-</span>carb)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mtcars7)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 32
+Columns: 4
+$ mpg  &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8,…
+$ cyl  &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8,…
+$ disp &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 16…
+$ qsec &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18…</code></pre>
+</div>
+</div>
+<p>So both get the job done, but one is definitely quicker to type!</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+We don’t have to write the minus in front of every variable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When we are removing several variables, we can combine them into a vector to remove:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>mtcars8 <span class="ot">=</span> mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(hp, drat, wt, vs, am, gear, carb))</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mtcars8)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 32
+Columns: 4
+$ mpg  &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8,…
+$ cyl  &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8,…
+$ disp &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 16…
+$ qsec &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18…</code></pre>
+</div>
+</div>
+<p>The vector above is: <code>c(hp, drat, wt, vs, am, gear, carb)</code> and the minus sign in front of the vector will be applied to each variable.</p>
+</div>
+</div>
 </section>
-<section id="pivot_longer-the-negative-sign-that-appears-before-variables-that-youre-managing-in-pivot_longer-and-one-other-time" class="level4">
-<h4 class="anchored" data-anchor-id="pivot_longer-the-negative-sign-that-appears-before-variables-that-youre-managing-in-pivot_longer-and-one-other-time"><code>pivot_longer()</code> the negative sign that appears before variables that you’re managing in pivot_longer and one other time</h4>
-<p>coming soon</p>
+<section id="pivot_longer" class="level4">
+<h4 class="anchored" data-anchor-id="pivot_longer"><code>pivot_longer()</code></h4>
+<p>I want to address the function with the faculty dataset from class.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note, I've put the data in a folder "data" that is in the same folder as this page's file</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>staff <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"data/instructional-staff.csv"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>staff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 12
+  faculty_type    `1975` `1989` `1993` `1995` `1999` `2001` `2003` `2005` `2007`
+  &lt;chr&gt;            &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 Full-Time Tenu…   29     27.6   25     24.8   21.8   20.3   19.3   17.8   17.2
+2 Full-Time Tenu…   16.1   11.4   10.2    9.6    8.9    9.2    8.8    8.2    8  
+3 Full-Time Non-…   10.3   14.1   13.6   13.6   15.2   15.5   15     14.8   14.9
+4 Part-Time Facu…   24     30.4   33.1   33.2   35.5   36     37     39.3   40.5
+5 Graduate Stude…   20.5   16.5   18.1   18.8   18.7   19     20     19.9   19.5
+# ℹ 2 more variables: `2009` &lt;dbl&gt;, `2011` &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>Note that I am not using <code>glimpse()</code> here because we only have 5 rows corresponding to the faculty type. What would a glimpse of the data look like?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(staff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 5
+Columns: 12
+$ faculty_type &lt;chr&gt; "Full-Time Tenured Faculty", "Full-Time Tenure-Track Facu…
+$ `1975`       &lt;dbl&gt; 29.0, 16.1, 10.3, 24.0, 20.5
+$ `1989`       &lt;dbl&gt; 27.6, 11.4, 14.1, 30.4, 16.5
+$ `1993`       &lt;dbl&gt; 25.0, 10.2, 13.6, 33.1, 18.1
+$ `1995`       &lt;dbl&gt; 24.8, 9.6, 13.6, 33.2, 18.8
+$ `1999`       &lt;dbl&gt; 21.8, 8.9, 15.2, 35.5, 18.7
+$ `2001`       &lt;dbl&gt; 20.3, 9.2, 15.5, 36.0, 19.0
+$ `2003`       &lt;dbl&gt; 19.3, 8.8, 15.0, 37.0, 20.0
+$ `2005`       &lt;dbl&gt; 17.8, 8.2, 14.8, 39.3, 19.9
+$ `2007`       &lt;dbl&gt; 17.2, 8.0, 14.9, 40.5, 19.5
+$ `2009`       &lt;dbl&gt; 16.8, 7.6, 15.1, 41.1, 19.4
+$ `2011`       &lt;dbl&gt; 16.7, 7.4, 15.4, 41.3, 19.3</code></pre>
+</div>
+</div>
+<p>Both views are indicators that the dataset is in a “wide” format where each year has its own column. We want our data to be in a tidy format, which means each column is a variable and each cell has a value. However, the years are actually values for a variable “year.” By using <code>pivot_longer()</code>, we can tell R to take those columns for years and make them their own column where year is the value. That means for a year like 1975, there are five numbers corresponding to the five faculty types. Those five numbers are the percentage of the specific faculty type in that year. So we want to end with columns: faculty type, year, and percentage.</p>
+<p>To start with an easier implementation of <code>pivot_longer()</code>, let’s remove the faculty type using <code>select()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>staff2 <span class="ot">=</span> staff <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>faculty_type)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>staff2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 11
+  `1975` `1989` `1993` `1995` `1999` `2001` `2003` `2005` `2007` `2009` `2011`
+   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1   29     27.6   25     24.8   21.8   20.3   19.3   17.8   17.2   16.8   16.7
+2   16.1   11.4   10.2    9.6    8.9    9.2    8.8    8.2    8      7.6    7.4
+3   10.3   14.1   13.6   13.6   15.2   15.5   15     14.8   14.9   15.1   15.4
+4   24     30.4   33.1   33.2   35.5   36     37     39.3   40.5   41.1   41.3
+5   20.5   16.5   18.1   18.8   18.7   19     20     19.9   19.5   19.4   19.3</code></pre>
+</div>
+</div>
+<p>Now we can pivot the years! We first identify the columns that we want to pivot. To pivot all the columns, we say <code>cols = everything()</code>. <code>pivot_longer()</code> knows you want the column names to now become values of a variable, but it does not know what to call that variable. So now we identify the new variable name of the column that will contain all the years (our old column names). We identify the new variable name with: <code>names_to</code>. Finally, we need to adress the old cell values that were under each year in our wide dataset. Those cell values will make up a new column/variable. Remember that each year had 5 values underneath it, so we need to include all 55 cell values. Similar to <code>names_to</code>, we need to identify the new column names for all those values. We use <code>values_to</code> to identify the column name for the cell values of our old wide formatted data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>staff_long <span class="ot">=</span> staff2 <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">everything</span>(),    <span class="co"># columns to pivot</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"year"</span>,       <span class="co"># name of new column for variable names</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"percentage"</span> <span class="co"># name of new column for values</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percentage =</span> <span class="fu">as.numeric</span>(percentage))</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(staff_long, <span class="dv">20</span>) <span class="co"># I'm asking R to show me the first 20 rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 2
+   year  percentage
+   &lt;chr&gt;      &lt;dbl&gt;
+ 1 1975        29  
+ 2 1989        27.6
+ 3 1993        25  
+ 4 1995        24.8
+ 5 1999        21.8
+ 6 2001        20.3
+ 7 2003        19.3
+ 8 2005        17.8
+ 9 2007        17.2
+10 2009        16.8
+11 2011        16.7
+12 1975        16.1
+13 1989        11.4
+14 1993        10.2
+15 1995         9.6
+16 1999         8.9
+17 2001         9.2
+18 2003         8.8
+19 2005         8.2
+20 2007         8  </code></pre>
+</div>
+</div>
+<p>I included the first 20 rows so we could see that the years repeat. This is because there were 5 percentages for each year. While this is in the desired long format, we now see that we’re missing the information on faculty type. Each percentage in each year corresponded to a specific faculty type:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>staff_long <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1975</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  year  percentage
+  &lt;chr&gt;      &lt;dbl&gt;
+1 1975        29  
+2 1975        16.1
+3 1975        10.3
+4 1975        24  
+5 1975        20.5</code></pre>
+</div>
+</div>
+<p>Which percentage is for which faculty??</p>
+<p>We could use another function called <code>join()</code> to try to remedy the situation, but it’s much easier to redo the pivot function. We will go back to <code>staff</code> which still has the faculty type:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>staff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 12
+  faculty_type    `1975` `1989` `1993` `1995` `1999` `2001` `2003` `2005` `2007`
+  &lt;chr&gt;            &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 Full-Time Tenu…   29     27.6   25     24.8   21.8   20.3   19.3   17.8   17.2
+2 Full-Time Tenu…   16.1   11.4   10.2    9.6    8.9    9.2    8.8    8.2    8  
+3 Full-Time Non-…   10.3   14.1   13.6   13.6   15.2   15.5   15     14.8   14.9
+4 Part-Time Facu…   24     30.4   33.1   33.2   35.5   36     37     39.3   40.5
+5 Graduate Stude…   20.5   16.5   18.1   18.8   18.7   19     20     19.9   19.5
+# ℹ 2 more variables: `2009` &lt;dbl&gt;, `2011` &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>Now we can implement <code>pivot_longer()</code>. We will identify the columns we want to pivot as column 2 through 12 so we exclude the faculty type from the pivoting. BUT the really nice thing is that <code>pivot_longer()</code> will remember the percentages that correspond to a specific combination of faculty type and year! Let’s try it again:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>staff_long2 <span class="ot">=</span> staff <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">12</span>,    <span class="co"># columns to pivot</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"year"</span>,       <span class="co"># name of new column for variable names</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"percentage"</span> <span class="co"># name of new column for values</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percentage =</span> <span class="fu">as.numeric</span>(percentage))</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(staff_long2, <span class="dv">20</span>) <span class="co"># I'm asking R to show me the first 20 rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 3
+   faculty_type                   year  percentage
+   &lt;chr&gt;                          &lt;chr&gt;      &lt;dbl&gt;
+ 1 Full-Time Tenured Faculty      1975        29  
+ 2 Full-Time Tenured Faculty      1989        27.6
+ 3 Full-Time Tenured Faculty      1993        25  
+ 4 Full-Time Tenured Faculty      1995        24.8
+ 5 Full-Time Tenured Faculty      1999        21.8
+ 6 Full-Time Tenured Faculty      2001        20.3
+ 7 Full-Time Tenured Faculty      2003        19.3
+ 8 Full-Time Tenured Faculty      2005        17.8
+ 9 Full-Time Tenured Faculty      2007        17.2
+10 Full-Time Tenured Faculty      2009        16.8
+11 Full-Time Tenured Faculty      2011        16.7
+12 Full-Time Tenure-Track Faculty 1975        16.1
+13 Full-Time Tenure-Track Faculty 1989        11.4
+14 Full-Time Tenure-Track Faculty 1993        10.2
+15 Full-Time Tenure-Track Faculty 1995         9.6
+16 Full-Time Tenure-Track Faculty 1999         8.9
+17 Full-Time Tenure-Track Faculty 2001         9.2
+18 Full-Time Tenure-Track Faculty 2003         8.8
+19 Full-Time Tenure-Track Faculty 2005         8.2
+20 Full-Time Tenure-Track Faculty 2007         8  </code></pre>
+</div>
+</div>
+<p>And now I’ll just dump a couple other ways to identify the columns we want to pivot:</p>
+<ul>
+<li>In this one, we name the column years. It’s like 2:12, but it’s helpful when it’s hard to see what number the column is. Also, this is a special case because the columns are numbers, so we need to use ’ to wrap around the year. In the <code>mtcars</code> dataset, a similar approach would be <code>cyl:vs</code> to select all the variables between <code>cyl</code> and <code>vs</code>. You can also make a vector of variable names if they are not next to each other.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>staff_long3 <span class="ot">=</span> staff <span class="sc">%&gt;%</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="st">'1975'</span><span class="sc">:</span><span class="st">'2011'</span>,    <span class="co"># columns to pivot</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"year"</span>,       <span class="co"># name of new column for variable names</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"percentage"</span> <span class="co"># name of new column for values</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percentage =</span> <span class="fu">as.numeric</span>(percentage))</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(staff_long3, <span class="dv">20</span>) <span class="co"># I'm asking R to show me the first 20 rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 3
+   faculty_type                   year  percentage
+   &lt;chr&gt;                          &lt;chr&gt;      &lt;dbl&gt;
+ 1 Full-Time Tenured Faculty      1975        29  
+ 2 Full-Time Tenured Faculty      1989        27.6
+ 3 Full-Time Tenured Faculty      1993        25  
+ 4 Full-Time Tenured Faculty      1995        24.8
+ 5 Full-Time Tenured Faculty      1999        21.8
+ 6 Full-Time Tenured Faculty      2001        20.3
+ 7 Full-Time Tenured Faculty      2003        19.3
+ 8 Full-Time Tenured Faculty      2005        17.8
+ 9 Full-Time Tenured Faculty      2007        17.2
+10 Full-Time Tenured Faculty      2009        16.8
+11 Full-Time Tenured Faculty      2011        16.7
+12 Full-Time Tenure-Track Faculty 1975        16.1
+13 Full-Time Tenure-Track Faculty 1989        11.4
+14 Full-Time Tenure-Track Faculty 1993        10.2
+15 Full-Time Tenure-Track Faculty 1995         9.6
+16 Full-Time Tenure-Track Faculty 1999         8.9
+17 Full-Time Tenure-Track Faculty 2001         9.2
+18 Full-Time Tenure-Track Faculty 2003         8.8
+19 Full-Time Tenure-Track Faculty 2005         8.2
+20 Full-Time Tenure-Track Faculty 2007         8  </code></pre>
+</div>
+</div>
+<ul>
+<li>This one is the same as our in-class code. We “remove” faculty type from our identified columns</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>staff_long4 <span class="ot">=</span> staff <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="sc">-</span>faculty_type,    <span class="co"># columns to pivot</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"year"</span>,       <span class="co"># name of new column for variable names</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"percentage"</span> <span class="co"># name of new column for values</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percentage =</span> <span class="fu">as.numeric</span>(percentage))</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(staff_long4, <span class="dv">20</span>) <span class="co"># I'm asking R to show me the first 20 rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 3
+   faculty_type                   year  percentage
+   &lt;chr&gt;                          &lt;chr&gt;      &lt;dbl&gt;
+ 1 Full-Time Tenured Faculty      1975        29  
+ 2 Full-Time Tenured Faculty      1989        27.6
+ 3 Full-Time Tenured Faculty      1993        25  
+ 4 Full-Time Tenured Faculty      1995        24.8
+ 5 Full-Time Tenured Faculty      1999        21.8
+ 6 Full-Time Tenured Faculty      2001        20.3
+ 7 Full-Time Tenured Faculty      2003        19.3
+ 8 Full-Time Tenured Faculty      2005        17.8
+ 9 Full-Time Tenured Faculty      2007        17.2
+10 Full-Time Tenured Faculty      2009        16.8
+11 Full-Time Tenured Faculty      2011        16.7
+12 Full-Time Tenure-Track Faculty 1975        16.1
+13 Full-Time Tenure-Track Faculty 1989        11.4
+14 Full-Time Tenure-Track Faculty 1993        10.2
+15 Full-Time Tenure-Track Faculty 1995         9.6
+16 Full-Time Tenure-Track Faculty 1999         8.9
+17 Full-Time Tenure-Track Faculty 2001         9.2
+18 Full-Time Tenure-Track Faculty 2003         8.8
+19 Full-Time Tenure-Track Faculty 2005         8.2
+20 Full-Time Tenure-Track Faculty 2007         8  </code></pre>
+</div>
+</div>
 </section>
 <section id="across" class="level4">
 <h4 class="anchored" data-anchor-id="across"><code>across()</code></h4>
-<p>coming soon</p>
+<p>I really ran out of time before getting to this one. For now, you can look at the <a href="https://dplyr.tidyverse.org/reference/across.html#ref-examples">examples from this site</a> to see the capabilities of <code>across()</code> . I invite you to try them out on the various datasets in our lecture.</p>
 </section>
-<section id="tbl_summary-trying-to-figure-out-how-to-change-the-median-values-to-mean" class="level4">
-<h4 class="anchored" data-anchor-id="tbl_summary-trying-to-figure-out-how-to-change-the-median-values-to-mean"><code>tbl_summary()</code>: Trying to figure out how to change the median values to mean</h4>
+</section>
+<section id="tbl_summary-trying-to-figure-out-how-to-change-the-median-values-to-mean" class="level3">
+<h3 class="anchored" data-anchor-id="tbl_summary-trying-to-figure-out-how-to-change-the-median-values-to-mean">6. <code>tbl_summary()</code>: Trying to figure out how to change the median values to mean</h3>
 <p>Oh, wow! Turns out we solved it in class, but I made big mistake with my slides. The code for the table was in two places, but we fixed the one that was NOT running and showing on the slide!</p>
 <p>So turns out, it worked!!</p>
 <p>Here’s the code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="do">## Need to load to use selec() and %&gt;%</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)  <span class="do">## Needed package for tbl_summary()</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"dds.discr"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>dds.discr1 <span class="ot">=</span> dds.discr <span class="sc">%&gt;%</span> </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">SAB =</span> gender, </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">R_E =</span> ethnicity)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>dds.discr1 <span class="sc">%&gt;%</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>id, <span class="sc">-</span>age.cohort) <span class="sc">%&gt;%</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">label =</span> <span class="fu">c</span>(age <span class="sc">~</span> <span class="st">"Age"</span>, </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                        R_E <span class="sc">~</span> <span class="st">"Race/Ethnicity"</span>, </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                        SAB <span class="sc">~</span> <span class="st">"Sex Assigned at Birth"</span>, </span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                        expenditures <span class="sc">~</span> <span class="st">"Expenditures"</span>) ,</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>              <span class="at">statistic =</span> <span class="fu">list</span>(<span class="fu">all_continuous</span>() <span class="sc">~</span> <span class="st">"{mean} ({sd})"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="do">## Need to load to use selec() and %&gt;%</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)  <span class="do">## Needed package for tbl_summary()</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"dds.discr"</span>)</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>dds.discr1 <span class="ot">=</span> dds.discr <span class="sc">%&gt;%</span> </span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">SAB =</span> gender, </span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">R_E =</span> ethnicity)</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>dds.discr1 <span class="sc">%&gt;%</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>id, <span class="sc">-</span>age.cohort) <span class="sc">%&gt;%</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">label =</span> <span class="fu">c</span>(age <span class="sc">~</span> <span class="st">"Age"</span>, </span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>                        R_E <span class="sc">~</span> <span class="st">"Race/Ethnicity"</span>, </span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>                        SAB <span class="sc">~</span> <span class="st">"Sex Assigned at Birth"</span>, </span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>                        expenditures <span class="sc">~</span> <span class="st">"Expenditures"</span>) ,</span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>              <span class="at">statistic =</span> <span class="fu">list</span>(<span class="fu">all_continuous</span>() <span class="sc">~</span> <span class="st">"{mean} ({sd})"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="vuipvbvrtj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#vuipvbvrtj table {
+<div id="rymrxmeoco" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rymrxmeoco table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#vuipvbvrtj thead, #vuipvbvrtj tbody, #vuipvbvrtj tfoot, #vuipvbvrtj tr, #vuipvbvrtj td, #vuipvbvrtj th {
+#rymrxmeoco thead, #rymrxmeoco tbody, #rymrxmeoco tfoot, #rymrxmeoco tr, #rymrxmeoco td, #rymrxmeoco th {
   border-style: none;
 }
 
-#vuipvbvrtj p {
+#rymrxmeoco p {
   margin: 0;
   padding: 0;
 }
 
-#vuipvbvrtj .gt_table {
+#rymrxmeoco .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -595,12 +1079,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#vuipvbvrtj .gt_caption {
+#rymrxmeoco .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#vuipvbvrtj .gt_title {
+#rymrxmeoco .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -612,7 +1096,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#vuipvbvrtj .gt_subtitle {
+#rymrxmeoco .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -624,7 +1108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#vuipvbvrtj .gt_heading {
+#rymrxmeoco .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -636,13 +1120,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#vuipvbvrtj .gt_bottom_border {
+#rymrxmeoco .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#vuipvbvrtj .gt_col_headings {
+#rymrxmeoco .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -657,7 +1141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#vuipvbvrtj .gt_col_heading {
+#rymrxmeoco .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -677,7 +1161,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#vuipvbvrtj .gt_column_spanner_outer {
+#rymrxmeoco .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -689,15 +1173,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#vuipvbvrtj .gt_column_spanner_outer:first-child {
+#rymrxmeoco .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vuipvbvrtj .gt_column_spanner_outer:last-child {
+#rymrxmeoco .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vuipvbvrtj .gt_column_spanner {
+#rymrxmeoco .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -709,11 +1193,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#vuipvbvrtj .gt_spanner_row {
+#rymrxmeoco .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#vuipvbvrtj .gt_group_heading {
+#rymrxmeoco .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -739,7 +1223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#vuipvbvrtj .gt_empty_group_heading {
+#rymrxmeoco .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -754,15 +1238,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#vuipvbvrtj .gt_from_md > :first-child {
+#rymrxmeoco .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vuipvbvrtj .gt_from_md > :last-child {
+#rymrxmeoco .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vuipvbvrtj .gt_row {
+#rymrxmeoco .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -781,7 +1265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#vuipvbvrtj .gt_stub {
+#rymrxmeoco .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -794,7 +1278,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#vuipvbvrtj .gt_stub_row_group {
+#rymrxmeoco .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -808,15 +1292,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#vuipvbvrtj .gt_row_group_first td {
+#rymrxmeoco .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vuipvbvrtj .gt_row_group_first th {
+#rymrxmeoco .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#vuipvbvrtj .gt_summary_row {
+#rymrxmeoco .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -826,16 +1310,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#vuipvbvrtj .gt_first_summary_row {
+#rymrxmeoco .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vuipvbvrtj .gt_first_summary_row.thick {
+#rymrxmeoco .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vuipvbvrtj .gt_last_summary_row {
+#rymrxmeoco .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -845,7 +1329,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#vuipvbvrtj .gt_grand_summary_row {
+#rymrxmeoco .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -855,7 +1339,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#vuipvbvrtj .gt_first_grand_summary_row {
+#rymrxmeoco .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -865,7 +1349,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#vuipvbvrtj .gt_last_grand_summary_row_top {
+#rymrxmeoco .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -875,11 +1359,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#vuipvbvrtj .gt_striped {
+#rymrxmeoco .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#vuipvbvrtj .gt_table_body {
+#rymrxmeoco .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -888,7 +1372,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#vuipvbvrtj .gt_footnotes {
+#rymrxmeoco .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -902,7 +1386,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#vuipvbvrtj .gt_footnote {
+#rymrxmeoco .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -911,7 +1395,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#vuipvbvrtj .gt_sourcenotes {
+#rymrxmeoco .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -925,7 +1409,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#vuipvbvrtj .gt_sourcenote {
+#rymrxmeoco .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -933,63 +1417,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#vuipvbvrtj .gt_left {
+#rymrxmeoco .gt_left {
   text-align: left;
 }
 
-#vuipvbvrtj .gt_center {
+#rymrxmeoco .gt_center {
   text-align: center;
 }
 
-#vuipvbvrtj .gt_right {
+#rymrxmeoco .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vuipvbvrtj .gt_font_normal {
+#rymrxmeoco .gt_font_normal {
   font-weight: normal;
 }
 
-#vuipvbvrtj .gt_font_bold {
+#rymrxmeoco .gt_font_bold {
   font-weight: bold;
 }
 
-#vuipvbvrtj .gt_font_italic {
+#rymrxmeoco .gt_font_italic {
   font-style: italic;
 }
 
-#vuipvbvrtj .gt_super {
+#rymrxmeoco .gt_super {
   font-size: 65%;
 }
 
-#vuipvbvrtj .gt_footnote_marks {
+#rymrxmeoco .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#vuipvbvrtj .gt_asterisk {
+#rymrxmeoco .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vuipvbvrtj .gt_indent_1 {
+#rymrxmeoco .gt_indent_1 {
   text-indent: 5px;
 }
 
-#vuipvbvrtj .gt_indent_2 {
+#rymrxmeoco .gt_indent_2 {
   text-indent: 10px;
 }
 
-#vuipvbvrtj .gt_indent_3 {
+#rymrxmeoco .gt_indent_3 {
   text-indent: 15px;
 }
 
-#vuipvbvrtj .gt_indent_4 {
+#rymrxmeoco .gt_indent_4 {
   text-indent: 20px;
 }
 
-#vuipvbvrtj .gt_indent_5 {
+#rymrxmeoco .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1041,7 +1525,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section>
 </section>
 <section id="are-there-benefits-to-ggplot-compared-to-the-base-r-graphing-functions" class="level3">
 <h3 class="anchored" data-anchor-id="are-there-benefits-to-ggplot-compared-to-the-base-r-graphing-functions">6. Are there benefits to ggplot compared to the base R graphing functions?</h3>
