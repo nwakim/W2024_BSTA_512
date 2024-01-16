@@ -9,6 +9,7 @@ format:
     link-external-newwindow: true
     toc: true
     highlight-style: ayu
+  pdf: default
 ---
 
 ```{css, echo=FALSE}
@@ -279,7 +280,7 @@ glimpse(mtcars8)
 The vector above is: `c(hp, drat, wt, vs, am, gear, carb)` and the minus sign in front of the vector will be applied to each variable.
 :::
 
-#### `pivot_longer()` 
+#### `pivot_longer()`
 
 I want to address the function with the faculty dataset from class.
 

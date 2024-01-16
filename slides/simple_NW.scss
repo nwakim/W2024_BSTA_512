@@ -48,7 +48,7 @@ $presentation-heading-color: #213c96 !default;
   margin-left: 0em;
   padding-top: 5px;
   padding-left: 15px;
-  padding-right: 10px;
+  padding-right: 15px;
   color: black;
   background-color: white;
   border-bottom-right-radius: 15px;
@@ -78,7 +78,7 @@ $presentation-heading-color: #213c96 !default;
   margin-left: 0em;
   padding-top: 5px;
   padding-left: 15px;
-  padding-right: 10px;
+  padding-right: 15px;
   color: black;
   background-color: white;
   border-bottom-right-radius: 10px;
@@ -109,6 +109,7 @@ $presentation-heading-color: #213c96 !default;
   margin-left: 0em;
   padding-top: 5px;
   padding-left: 15px;
+  padding-right: 15px;
   color: black;
   background-color: white;
   border-bottom-right-radius: 10px;
@@ -139,6 +140,7 @@ $presentation-heading-color: #213c96 !default;
   margin-left: 0em;
   padding-top: 5px;
   padding-left: 15px;
+  padding-right: 15px;
   color: black;
   background-color: white;
   border-bottom-right-radius: 10px;
@@ -170,6 +172,7 @@ $presentation-heading-color: #213c96 !default;
   margin-left: 0em;
   padding-top: 5px;
   padding-left: 15px;
+  padding-right: 15px;
   color: black;
   background-color: white;
 }
@@ -199,6 +202,7 @@ $presentation-heading-color: #213c96 !default;
   margin-left: 0em;
   padding-top: 5px;
   padding-left: 15px;
+  padding-right: 15px;
   color: black;
   background-color: white;
   border-bottom-right-radius: 10px;
@@ -217,6 +221,7 @@ $presentation-heading-color: #213c96 !default;
   padding-left:  15px;
   padding-top:  5px;
   padding-bottom: 0.1em;
+  padding-right: 15px;
   color: white;
   background-color: #34AC8B;
   font-size: 1em;
@@ -295,6 +300,98 @@ div.cell-output-stdout {
 .styled-output .cell-output {
   font-size: 1.5em;
 }
+
+
+// regression analysis process 1
+.RAP1{
+  margin: 1em 0;
+  border: 7px solid #FF8021;
+  border-radius: 10px;
+}
+
+.RAP1-title {
+  margin-left: 0em;
+  padding-left:  15px;
+  padding-top:  5px;
+  padding-bottom: 0.1em;
+  color: white;
+  background-color: #FF8021;
+  font-size: 1em;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  //background-image: url("goal.png");
+}
+
+.RAP1-cont {
+  margin-left: 0em;
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: black;
+  background-color: #FAD3B7;
+}
+
+// regression analysis process 2
+.RAP2{
+  margin: 1em 0;
+  border: 7px solid #34AC8B;
+  border-radius: 10px;
+}
+
+.RAP2-title {
+  margin-left: 0em;
+  padding-left:  15px;
+  padding-top:  5px;
+  padding-bottom: 0.1em;
+  color: white;
+  background-color: #34AC8B;
+  font-size: 1em;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  //background-image: url("goal.png");
+}
+
+.RAP2-cont {
+  margin-left: 0em;
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: black;
+  background-color: #BCDCD0;
+}
+
+// regression analysis process 3
+.RAP3{
+  margin: 1em 0;
+  border: 7px solid #A7EA52;
+  border-radius: 10px;
+}
+
+.RAP3-title {
+  margin-left: 0em;
+  padding-left:  15px;
+  padding-top:  5px;
+  padding-bottom: 0.1em;
+  color: white;
+  background-color: #A7EA52;
+  font-size: 1em;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  //background-image: url("goal.png");
+}
+
+.RAP3-cont {
+  margin-left: 0em;
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: black;
+  background-color: #E3F6C6;
+}
+
 
 
 

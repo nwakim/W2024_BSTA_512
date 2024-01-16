@@ -136,9 +136,9 @@ Average life expectancy vs. female literacy rate $\beta$
 
 -   Each point on the plot is for a different country
 
--   $x$ = country's adult female literacy rate
+-   $X$ = country's adult female literacy rate
 
--   $y$ = country's average life expectancy (years)
+-   $Y$ = country's average life expectancy (years)
 
 -   Data are from Gapminder (2011)
 :::
@@ -370,12 +370,12 @@ gapm %>% select(life_expectancy_years_2011, female_literacy_rate_2011) %>%
 
 ::: columns
 ::: {.column width="33%"}
-::: fact
-::: fact-title
+::: definition
+::: def-title
 Experiment
 :::
 
-::: fact-cont
+::: def-cont
 -   Observational units are randomly assigned to important predictor
     levels
 
@@ -390,12 +390,12 @@ Experiment
 :::
 
 ::: {.column width="33%"}
-::: proof1
-::: proof-title
+::: example
+::: ex-title
 Quasi-experiment
 :::
 
-::: proof-cont
+::: ex-cont
 -   Participants are assigned to intervention levels without
     randomization
 
@@ -405,12 +405,12 @@ Quasi-experiment
 :::
 
 ::: {.column width="33%"}
-::: theorem
-::: thm-title
+::: proposition
+::: prop-title
 Observational
 :::
 
-::: thm-cont
+::: prop-cont
 -   No randomization or assignment of intervention conditions
 
 -   In general cannot infer causality
@@ -421,7 +421,75 @@ Observational
 :::
 :::
 
-## Slide with my regression analysis process!!!
+## Let's revisit the regression analysis process
+
+   
+
+![](images/arrow2.png){.absolute top="17%" right="63.15%" width="155"}
+![](images/arrow2.png){.absolute top="17%" right="28.7%"
+width="155"}![](images/arrow_back4.png){.absolute top="10%"
+right="30.7%" width="840"}
+
+::: columns
+::: {.column width="30%"}
+::: RAP1
+::: RAP1-title
+Model Selection
+:::
+
+::: RAP1-cont
+-   Building a model
+
+-   Prediction vs interpretation
+
+-   Comparing models
+:::
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="30%"}
+::: RAP2
+::: RAP2-title
+Model Fitting
+:::
+
+::: RAP2-cont
+-   Parameter estimation
+
+-   Interpret model parameters
+
+-   Hypothesis tests for coefficients
+
+-   Categorical covariates
+
+-   Interactions
+:::
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="30%"}
+::: RAP3
+::: RAP3-title
+Model Evaluation
+:::
+
+::: RAP3-cont
+-   Evaluation of full and reduced models
+-   Testing model assumptions
+-   Residuals
+-   Transformations
+-   Influential points
+-   Multicollinearity
+:::
+:::
+:::
+:::
 
 # Learning Objectives
 
@@ -443,19 +511,19 @@ Observational
 
 ## Simple Linear Regression Model
 
-The (population) regression line is denoted by:
+The (population) regression model is denoted by:
+
+ 
 
 ::: heq
-$$\begin{aligned}
-Y & =  \beta_0 + \beta_1X + \epsilon \nonumber
-\end{aligned}$$
+$$Y =  \beta_0 + \beta_1X + \epsilon$$
 :::
 
  
 
 ::: columns
 ::: column
-#### Observed sample data
+#### Observable sample data
 
 -   $Y$ is our dependent variable
 
@@ -467,7 +535,7 @@ Y & =  \beta_0 + \beta_1X + \epsilon \nonumber
 :::
 
 ::: column
-#### Population parameters
+#### Unobservable population parameters
 
 -   $\beta_0$ and $\beta_1$ are **unknown** population parameters
 
@@ -482,52 +550,147 @@ Y & =  \beta_0 + \beta_1X + \epsilon \nonumber
 :::
 :::
 
-::: hl
-Our goal in regression is to estimate $\beta_0$, $\beta_1$, and
-$\sigma^2$
+## Simple Linear Regression Model (another way to view components)
 
--   The point estimates based on a sample are denoted by
-    $\hat{\beta}_0$, $\hat{\beta}_1$, and $\widehat{\sigma^2}$
+The (population) regression model is denoted by:
+
+ 
+
+::: heq
+$$Y =  \beta_0 + \beta_1X + \epsilon$$
 :::
+
+ 
+
+### Components
+
+|            |                                            |
+|------------|--------------------------------------------|
+| $Y$        | response, outcome, dependent variable      |
+| $\beta_0$  | intercept                                  |
+| $\beta_1$  | slope                                      |
+| $X$        | predictor, covariate, independent variable |
+| $\epsilon$ | residuals, error term                      |
+
+## If the population parameters are unobservable, how did we get the line for life expectancy?
+
+```{r}
+#| fig-height: 8
+#| fig-width: 11
+#| echo: false
+#| fig-align: center
+
+gapm <- read_csv("data/lifeexp_femlit_2011.csv")
+ggplot(gapm, aes(x = female_literacy_rate_2011,
+                 y = life_expectancy_years_2011)) +
+  geom_point(size = 4) +
+  geom_smooth(method = "lm", se = FALSE, size = 3, colour="#F14124") +
+  labs(x = "Female literacy rate (%)", 
+       y = "Life expectancy (years)",
+       title = "Relationship between life expectancy and \n the female literacy rate in 2011") +
+    theme(axis.title = element_text(size = 30), 
+        axis.text = element_text(size = 25), 
+        title = element_text(size = 30))
+
+```
+
+::: hl
+Note: the **population model is the true, underlying model** that we are
+trying to estimate using our sample data
+
+-   Our goal in simple linear regression is to estimate $\beta_0$ and
+    $\beta_1$
+:::
+
+## Okay, so how do we estimate the regression line?
+
+ 
+
+At this point, we are going to move over to an R shiny app that I made.
+
+ 
+
+Let's see if we can eyeball the best-fit line!
 
 ## Regression line = best-fit line
 
 ::: columns
-::: {.column width="60%"}
-$$\widehat{y} = b_0 + b_1 \cdot x $$
+::: {.column width="50%"}
+$$\widehat{Y} = \widehat{\beta}_0 + \widehat{\beta}_1 X $$
 
--   $\hat{y}$ is the predicted outcome for a specific value of $x$.
--   $b_0$ is the intercept
--   $b_1$ is the slope of the line, i.e., the increase in $\hat{y}$ for
-    every increase of one (unit increase) in $x$.
+-   $\widehat{Y}$ is the predicted outcome for a specific value of $X$
+-   $\widehat{\beta}_0$ is the intercept *of the best-fit line*
+-   $\widehat{\beta}_1$ is the slope *of the best-fit line*, i.e., the
+    increase in $\widehat{Y}$ for every increase of one (unit increase)
+    in $X$
     -   slope = *rise over run*
 :::
 
-::: {.column width="40%"}
+::: {.column width="50%"}
 ```{r}
+#| fig-height: 8
+#| fig-width: 11
 #| echo: false
-#| fig.height: 6.0
-#| fig.width: 8.0
+
+gapm <- read_csv("data/lifeexp_femlit_2011.csv")
 ggplot(gapm, aes(x = female_literacy_rate_2011,
                  y = life_expectancy_years_2011)) +
-  geom_point() +
-  labs(x = "female literacy rate", 
-       y = "life expectancy",
-       title = "Life expectancy vs. female literacy rate") +  
-  geom_smooth(method = "lm", se = FALSE)
+  geom_point(size = 4) +
+  geom_smooth(method = "lm", se = FALSE, size = 3, colour="#F14124") +
+  labs(x = "Female literacy rate (%)", 
+       y = "Life expectancy (years)",
+       title = "Relationship between life expectancy and \n the female literacy rate in 2011") +
+    theme(axis.title = element_text(size = 30), 
+        axis.text = element_text(size = 25), 
+        title = element_text(size = 30))
 ```
 :::
 :::
 
--   **Intercept**
-    -   The expected outcome for the $y$-variable when the $x$-variable
-        is 0.
--   **Slope**
-    -   For every increase of 1 unit in the $x$-variable, there is an
-        expected increase of, on average, $b_1$ units in the
-        $y$-variable.
-    -   We only say that there is an expected increase and not
-        necessarily a causal increase.
+## Simple Linear Regression Model
+
+::: columns
+::: {.column width="50%"}
+#### Population regression line
+
+::: lob
+$$Y =  \beta_0 + \beta_1X + \epsilon$$
+:::
+
+ 
+
+##### Components
+
+|            |                                            |
+|------------|--------------------------------------------|
+| $Y$        | response, outcome, dependent variable      |
+| $\beta_0$  | intercept                                  |
+| $\beta_1$  | slope                                      |
+| $X$        | predictor, covariate, independent variable |
+| $\epsilon$ | residuals, error term                      |
+:::
+
+::: {.column width="50%"}
+#### Estimated regression line
+
+::: hl
+$$\widehat{Y} =  \widehat{\beta}_0 + \widehat{\beta}_1X$$
+:::
+
+ 
+
+##### Components
+
+|                     |                                                   |
+|---------------------|---------------------------------------------------|
+| $\widehat{Y}$       | *estimated expected* response given predictor $X$ |
+| $\widehat{\beta}_0$ | *estimated* intercept                             |
+| $\widehat{\beta}_1$ | *estimated* slope                                 |
+| $X$                 | predictor, covariate, independent variable        |
+:::
+:::
+
+## We get it, Nicky! How do we estimate the regression line?
 
 # Learning Objectives
 
@@ -547,17 +710,93 @@ ggplot(gapm, aes(x = female_literacy_rate_2011,
 
 5.  Apply OLS in R for simple linear regression of real data
 
-## Make it clear on same slide that 
+## It all starts with a residual...
 
-![](images/Screenshot 2024-01-13 at 11.41.10 AM.png)
+::: columns
+::: {.column width="50%"}
+-   Recall, one characteristic of our population model was that the
+    residuals, $\epsilon$, were Normally distributed:
+    $\epsilon \sim N(0, \sigma^2)$
 
-## How do we get the best fit line?
+-   In our population regression model, we had:
+    $$Y =  \beta_0 + \beta_1X + \epsilon$$
 
-example of us trying to eyeball it?
+-   We can also take the average (expected) value of the population
+    model
+
+-   We take the expected value of both sides and get:
+
+$$\begin{aligned} 
+        E[Y] & = E[\beta_0 + \beta_1X + \epsilon] \\
+        E[Y] & = E[\beta_0] + E[\beta_1X] + E[\epsilon] \\
+        E[Y] & = \beta_0 + \beta_1X + E[\epsilon] \\
+        E[Y|X] & = \beta_0 + \beta_1X \\
+\end{aligned}$$
+
+-   We call $E[Y|X]$ the expected value of $Y$ given $X$
+:::
+
+::: {.column width="50%"}
+![](03_SLR_01/OLSassumptions-1.png){fig-align="center"}
+:::
+:::
+
+## So now we have two representations of our population model
+
+::: columns
+::: {.column width="50%"}
+
+::: definition
+::: def-title
+With observed values:
+:::
+
+::: def-cont
+$$Y =  \beta_0 + \beta_1X + \epsilon$$
+:::
+:::
+:::
+
+::: {.column width="50%"}
+
+::: fact
+::: fact-title
+With the population expected value of $Y$ given $X$:
+:::
+
+::: fact-cont
+$$E[Y|X] = \beta_0 + \beta_1X$$
+:::
+:::
+:::
+:::
+
+Using the two forms of the model, we can figure out a formula for our
+residuals:
+
+$$\begin{aligned}
+Y & = (\beta_0 + \beta_1X) + \epsilon \\
+Y & = E[Y|X] + \epsilon \\
+Y - E[Y|X] & = \epsilon \\ 
+\epsilon & = Y - E[Y|X]
+\end{aligned}$$
+
+And so we have our true, population model, residuals!
+
+::: hl
+This is an important fact! For the population model, the residuals: $\epsilon  = Y - E[Y|X]$
+:::
+
+## Back to our estimated model
+
+Get to: $\widehat{\epsilon}  = Y - \widehat{E}[Y|X] = Y - \widehat{Y}$
+
 
 ## Translate eyeballing to mathematical form??
 
-![](images/Screenshot 2024-01-13 at 11.41.54 AM.png)
+![](images/Screenshot%202024-01-13%20at%2011.41.54%20AM.png)
+
+## Coefficient estimates
 
 # Learning Objectives
 
@@ -569,7 +808,7 @@ example of us trying to eyeball it?
 
 3.  Illustrate how ordinary least squares (OLS) finds the best model
     parameter estimates
-    
+
 ::: lob
 4.  Solve the optimal coefficient estimates for simple linear regression
     using OLS
@@ -613,6 +852,8 @@ $$\widehat{\textrm{life expectancy}} = 50.9 + 0.232 \cdot \textrm{female literac
 model1 <- lm(life_expectancy_years_2011 ~ female_literacy_rate_2011,
                  data = gapm)
 regression_points <- augment(model1)
+summary(model1)
+sum(model1$residuals^2)
 
 ggplot(regression_points, 
        aes(x = female_literacy_rate_2011,
@@ -668,6 +909,18 @@ $$Y = \beta_0 + \beta_1 \cdot X + \epsilon$$
 
     -   Note: also common notation is
         $\widehat{\beta}_0, \widehat{\beta}_1, \widehat{\sigma}^2$
+
+## How do we interpret the coefficients?
+
+-   **Intercept**
+    -   The expected outcome for the $y$-variable when the $x$-variable
+        is 0
+-   **Slope**
+    -   For every increase of 1 unit in the $x$-variable, there is an
+        expected increase of, on average, $b_1$ units in the
+        $y$-variable.
+    -   We only say that there is an expected increase and not
+        necessarily a causal increase.
 
 # Next class???
 
