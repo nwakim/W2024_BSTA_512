@@ -48,28 +48,34 @@ For the slides, once they are opened, if you would like to print or save them as
 
 ## Announcements
 
-### Wednesday
+### Wednesday 1/17
 
--   Any questions on the lab? (10 minutes)
-
+-   Our physical classroom space will be changing...
+    -   It's a little confusing - our time will be split between three classrooms in the RLSB
+    -   2 are right next to each other
+    -   To start, our classes for next week are in:
+        -   on Monday, 1/22: RLSB 3A003**B**
+        -   on Wednesday, 1/22: RLSB 3A003**A**
 -   HW 1 IS NOT DUE THIS WEEK!!! This is my mistake!!
-
     -   Homework 1 is due 1/25!!
-
+    -   The finalized HW1 is finally up! Thank you for your patience!
+-   Muddiest points for Week 1 are added
+-   Office hours starting this week!
+    -   First one is today at 4:30 with Antara
+-   If you are in 612, the reading assignments are posted
 -   Wanted to clear something up about attendance
-
     -   If you miss the exit tickets for less than or equal to 5 classes, your grade will not be impacted
-
     -   If you miss more than 5 exit tickets, then your attendance grade will be affected
+-   Any questions on the lab? (10 minutes)
 
 ## Class Exit Tickets
 
-[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUNTlTWUZHM1RIN0Q1WkpKTjMwTTdRRTBVNC4u)]{style="color:#f8f5f0;"} Monday (10/2)
-
-[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhURDVVMlpFT0RKQU5aQTMyNzhIWTRNTzk2My4u)]{style="color:#f8f5f0;"} Wednesday (10/4)
+[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUN0NNQklQRUxFMFQ5VkxNUUpXTjIzWEcwNC4u)]{style="color:#f8f5f0;"} Wednesday (1/17)
 
 ## Muddiest Points
 
 ```{r}
+#| echo: false
+
 g=3
 ```
