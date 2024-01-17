@@ -30,9 +30,9 @@ editor_options:
 
 ## Resources
 
-| Lesson | Topic                    |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
-|------------|------------|:----------:|:----------:|:----------:|
-| 3      | Simple Linear Regression | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| Lesson | Topic                    |                                           Slides                                            |                                  Annotated Slides                                  |                           Recording                           |
+|---------------|---------------|:-------------:|:-------------:|:-------------:|
+| 3      | Simple Linear Regression | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/03_SLR.qmd)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
 For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
 
@@ -49,6 +49,10 @@ For the slides, once they are opened, if you would like to print or save them as
 ## Announcements
 
 ### Wednesday
+
+-   HW 1 IS NOT DUE THIS WEEK!!! This is my mistake!!
+
+    -   Homework 1 is due 1/25!!
 
 -   Wanted to clear something up about attendance
 

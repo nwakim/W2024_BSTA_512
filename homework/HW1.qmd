@@ -3,7 +3,7 @@ title: "Homework 1"
 subtitle: "BSTA 512/612"
 author: "Your name here - update this!!!!"
 description: "Due: Thursday January 25, 2023"
-date-modified: "12/22/2023"
+date-modified: "1/16/2024"
 date: "1/25/2024"
 categories: [""]
 format: 
@@ -29,10 +29,14 @@ library(here)
 ```
 
 ::: callout-important
-**THIS PAGE IS UNDER CONSTRUCTION!! It's likely that I will be making changes to this assignment at this time!**
+**This page is no longer under construction. You may start this homework! (1/16/24)**
 :::
 
 ## Directions
+
+-   [Download the `.qmd` file here.](https://github.com/nwakim/W2024_BSTA_512/blob/main/homework/HW1.qmd)
+
+-   You will need to download the datasets. Use [this link to download](https://ohsuitg-my.sharepoint.com/:f:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W2024_BSTA_512_612/Student_files/Data/HW1?csf=1&web=1&e=gwjUHZ) the HW1 datasets needed in this assignment. If you do not want to make changes to the paths set in this document, then make sure the files are stored in a folder named "data" that is housed in the same location as your HW1 `.qmd` file.
 
 -   Please upload your homework to Sakai. **Upload both your `.qmd` code file and the rendered `.html` file**
 
@@ -48,17 +52,11 @@ It is a good idea to try rendering your document from time to time as you go alo
 
 ## Questions
 
-The following questions were adapted from this textbook. Questions 1-4 are optional if you would like a short review of 511.
-
-You will need to download the following datasets:
-
--   CH05Q01
-
--   CH05Q04
+The following questions were adapted from [this textbook](https://catalog.lib.uchicago.edu/vufind/Record/7546272).
 
 ### Question 1
 
-Please use R code to determine the following answers. *(adapted from problem 3.3)*
+Please use R code to determine the following answers. *(adapted from problem 3.3 in Applied Regression Analysis and Other Multivariable Methods)*
 
 ::: {.callout-note appearance="simple"}
 Type `?pnorm` in the console to get some information on a potentially helpful function.
@@ -74,7 +72,7 @@ From a normal distribution with mean 4 and standard deviation 6, for what value 
 
 ### Question 2
 
-Suppose that the height ($H$) of assigned-male-at-birth (AMAB) patients registered at a clinic has the normal distribution with mean 70 inches and variance 4. *(adapted from problem 3.11)*
+Suppose that the height ($H$) of assigned-male-at-birth (AMAB) patients registered at a clinic has the normal distribution with mean 70 inches and variance 4. *(adapted from problem 3.11 in Applied Regression Analysis and Other Multivariable Methods)*
 
 #### Part a
 
@@ -113,7 +111,7 @@ grp2 = c(67.54, 68.51, 71.84, 70.59, 71.52, 71.50)
 
 ### Question 4
 
-The choice of an alternative hypothesis ($H_A$ or $H_1$) should depend primarily on (choose all that apply)
+The choice of an alternative hypothesis ($H_A$ or $H_1$) should depend primarily on (choose all that apply). Explain your reasoning.
 
 a.  the data obtained from the study.
 
@@ -127,13 +125,15 @@ e.  the power of the test.
 
 ### Question 5
 
-Visit this site on dplyr. <https://dplyr.tidyverse.org/reference/index.html#groups>
+[Visit this site on dplyr.](https://dplyr.tidyverse.org/reference/)
 
-For one of the functions that we have not discussed in class, please use it on the `dds.discr` dataset.
+For one of the functions that we have not discussed in class, please use it on the `dds.discr` dataset. Please write in words what you would like to perform, then write the code.
+
+Note: the `dds.discr` dataset is an `.Rda` file. Instead of using `read_csv()` or `read_excel()`, you can use `load()`.
 
 ### Question 6
 
-The accompanying table gives the dry weights (Y ) of 11 chick embryos ranging in age from 6 to 16 days (X ). Also given in the table are the values of the common logarithms of the weights (Z).
+The accompanying data `CH05Q01` gives the dry weights (Y) of 11 chick embryos ranging in age from 6 to 16 days (X ). Also given in the data are the values of the common logarithms of the weights (Z).
 
 -   Load the dataset using the `readxl` package.
     -   This `readxl` package was installed as a part of the tidyverse, however it does not get loaded when you load the tidyverse package and thus you need to do that separately.
@@ -148,7 +148,13 @@ ch05q01 <- read_excel("./data/CH05Q01.xls")
 
 #### Part a
 
-Create the scatterplots in R using ggplot the above dataset. Observe the following two scatter diagrams. Describe the relationships between age (X) and dry weight (Y) and between age and log10 dry weight (Z).
+Create two scatterplots in R using ggplot:
+
+1.  Between age (X) and dry weight (Y)
+
+2.  Between age (X) and log10 dry weight (Z)
+
+Observe the following two scatter diagrams. Describe the relationships between age (X) and dry weight (Y) and between age and log10 dry weight (Z).
 
 #### Part b
 
@@ -163,25 +169,41 @@ This is asking for the regression models BEFORE you find the values of the coeff
 Determine the least-squares estimates of each of the regression lines in part (b).
 
 ::: {.callout-note appearance="simple"}
-Now get the regression coefficients using R and plug them into the regression models from (b). You can get the coefficients from the R output - you don't have to use the formulas.
+Now get the regression coefficients using R and plug them into the regression models from (b). You can get the coefficients from the R output!
 :::
 
 #### Part d
 
-Create a line on your plots. Which of the two regression lines has the better fit? Based on your answers to parts (a)–(c), is it more appropriate to run a linear regression of Y on X or of Z on X? Explain.
+Using `ggplot`, create the respective best-fit lines on your plots. Which of the two regression lines has the better fit? Based on your answers to parts (a)–(c), is it more appropriate to run a linear regression of Y on X or of Z on X? Explain.
 
-#### Part e
+#### Part e (to be covered on Monday 1/22)
 
 For the regression that you chose as being more appropriate in part (d), find 95% confidence intervals for the true slope and intercept. Interpret each interval with regard to the null hypothesis that the true value is 0.
 
 ::: {.callout-note appearance="simple"}
-You can get the CI's from the R output - you don't have to use the formulas.
+You can get the CI's from the R output
 :::
 
-#### Part f
+#### Part f (to be covered on Monday 1/22)
 
 For the regression that you chose as being more appropriate in part (d), add 95% confidence and prediction bands. Using your sketch, find and interpret an approximate 95% confidence interval for the mean response of an 8-day-old chick.
 
 ## Question 7
 
-Below are the mathematical steps for solving OLS for SLR. For each blank explanation, please describe in words why we made the mathematical step.
+Go to the [R Documentation](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm) of the `lm()` function. Please answer the following questions about the function arguments and output.
+
+### Part a
+
+If you wanted to perform weighted least squares in R, what argument would you need to change?
+
+### Part b
+
+What is the default method in `lm()`? Can it be used to solve OLS? (Hint: check out the Wiki page for the method)
+
+### Part c
+
+In linear regression, a singular fit means that the estimated standard deviation of your residuals is very close to zero. In the `lm()` function, will you get an error if you have a singular fit?
+
+## Question 8
+
+**Quick True/False question:** Is ordinary least squares the only way to find the best fit line for linear regression?

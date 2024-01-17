@@ -8,9 +8,6 @@ categories: ["Week 1"]
 format: 
   revealjs:
     theme: [default, simple_NW.scss]
-    toc: true
-    toc-depth: 1
-    toc-title: Class Overview
     chalkboard: true
     slide-number: true
     show-slide-number: all
@@ -71,42 +68,6 @@ theme_set(theme_gray(base_size = 22))
 
 5.  Apply OLS in R for simple linear regression of real data
 
-## Topics
-
-Topics for SLR:
-
-assumptions
-
-parameter estimation and interpretation
-
-properties of LSE
-
-estimation of variance?
-
-Topics
-
--   Inference for slope and intercept
-
-    -   CI’s and hypothesis tests
-
--   Inference for mean value of y at specific values of x
-
-    -   Confidence bands of best-fit line
-
--   Prediction intervals for individual predictions
-
-    -   Prediction bands
-
--   *F-test for the slope*
-
--   *Pearson correlation coefficient r*
-
--   *Coefficient of determination R2*
-
--   *Testing the correlation coefficient !*
-
--   *CI for the correlation coefficient !*
-
 ## Let's start with an example
 
 ::: columns
@@ -132,15 +93,21 @@ ggplot(gapm, aes(x = female_literacy_rate_2011,
 :::
 
 ::: {.column width="45%"}
-Average life expectancy vs. female literacy rate $\beta$
+ 
+
+Average life expectancy vs. female literacy rate
+
+ 
 
 -   Each point on the plot is for a different country
 
+ 
+
 -   $X$ = country's adult female literacy rate
 
--   $Y$ = country's average life expectancy (years)
+ 
 
--   Data are from Gapminder (2011)
+-   $Y$ = country's average life expectancy (years)
 :::
 :::
 
@@ -148,9 +115,9 @@ Average life expectancy vs. female literacy rate $\beta$
 $$\widehat{\text{life expectancy}} =  50.9 + 0.232\cdot\text{female literacy rate}$$
 :::
 
-## Reference: How did I code that?
+## Reference: How did I code that? {.smaller}
 
-![](pause.png){.absolute top="100%" right="0%" width="120" height="120"}
+![](pause.png){.absolute top="83%" right="0%" width="120" height="120"}
 
 ```{r}
 #| fig-height: 6.5
@@ -170,6 +137,96 @@ ggplot(gapm, aes(x = female_literacy_rate_2011,
 
 ```
 
+## Dataset description
+
+-   Data files
+
+    -   Cleaned: `lifeexp_femlit_2011.csv`
+
+    -   Needs cleaning: `lifeexp_femlit_water_2011.csv`
+
+-   Data were downloaded from
+    [Gapminder](https://www.gapminder.org/data/){.uri}
+
+-   2011 is the most recent year with the most complete data
+
+-   [**Life
+    expectancy**](https://www.gapminder.org/data/documentation/gd004/) =
+    the average number of years a newborn child would live if current
+    mortality patterns were to stay the same.
+
+-   [**Adult literacy rate**](http://data.uis.unesco.org/) is the
+    percentage of people ages 15 and above who can, with understanding,
+    read and write a short, simple statement on their everyday life.
+
+## Get to know the data (1/2)
+
+-   Load data
+
+```{r}
+gapm_original <- read_csv(here::here("data", "lifeexp_femlit_water_2011.csv"))
+```
+
+-   Glimpse of the data
+
+```{r}
+glimpse(gapm_original)
+```
+
+-   Note the missing values for our variables of interest
+
+## Get to know the data (2/2)
+
+-   Get a sense of the summary statistics
+
+```{r}
+gapm_original %>% 
+  select(life_expectancy_years_2011, female_literacy_rate_2011) %>% 
+  summary()
+```
+
+## Remove missing values (1/2)
+
+-   Remove rows with missing data for life expectancy and female
+    literacy rate
+
+```{r}
+gapm <- gapm_original %>% 
+  drop_na(life_expectancy_years_2011, female_literacy_rate_2011)
+
+glimpse(gapm)
+
+```
+
+-   No missing values now for our variables of interest
+
+## Remove missing values (2/2)
+
+-   And no more missing values when we look only at our two variables of
+    interest
+
+```{r}
+gapm %>% select(life_expectancy_years_2011, female_literacy_rate_2011) %>% 
+  get_summary_stats()
+```
+
+::: definition
+::: def-title
+Note
+:::
+
+::: def-cont
+-   Removing the rows with missing data was not needed to run the
+    regression model.
+-   I did this step since later we will be calculating the standard
+    deviations of the explanatory and response variables for *just the
+    values included in the regression model*. It'll be easier to do this
+    if we remove the missing values now.
+:::
+:::
+
+## Poll Everywhere Question 1
+
 # Learning Objectives
 
 ::: lob
@@ -188,10 +245,10 @@ ggplot(gapm, aes(x = female_literacy_rate_2011,
 
 5.  Apply OLS in R for simple linear regression of real data
 
-## Questions we can ask with this model
+## Questions we can ask with a simple linear regression model
 
 ::: columns
-::: {.column width="55%"}
+::: {.column width="50%"}
 ```{r}
 #| fig-height: 8
 #| fig-width: 11
@@ -215,7 +272,7 @@ ggplot(gapm, aes(x = female_literacy_rate_2011,
 ```
 :::
 
-::: {.column width="45%"}
+::: {.column width="50%"}
 -   How do we...
     -   calculate slope & intercept?
     -   interpret slope & intercept?
@@ -289,82 +346,6 @@ ggplot(gapm, aes(x = female_literacy_rate_2011,
         size = 30))
 
 ```
-
-## Dataset description
-
--   Data file: `lifeexp_femlit_water_2011.csv`
-
--   Data were downloaded from <https://www.gapminder.org/data/>
-
--   2011 is the most recent year with the most complete data
-
--   **Life expectancy** = the average number of years a newborn child
-    would live if current mortality patterns were to stay the same.
-    Source: <https://www.gapminder.org/data/documentation/gd004/>
-
--   **Adult literacy rate** is the percentage of people ages 15 and
-    above who can, with understanding, read and write a short, simple
-    statement on their everyday life. Source:
-    <http://data.uis.unesco.org/>
-
--   **At least basic water source (%)** = the percentage of people using
-    at least basic water services. This indicator encompasses both
-    people using basic water services as well as those using safely
-    managed water services. Basic drinking water services is defined as
-    drinking water from an improved source, provided collection time is
-    not more than 30 minutes for a round trip. Improved water sources
-    include piped water, boreholes or tubewells, protect dug wells,
-    protected springs, and packaged or delivered water.
-
-## Get to know the data
-
--   Load data
-
-```{r}
-gapm_original <- read_csv(here::here("data", "lifeexp_femlit_water_2011.csv"))
-```
-
--   Glimpse of the data
-
-```{r}
-glimpse(gapm_original)
-```
-
--   Note the missing values for our variables of interest
-
-```{r}
-gapm_original %>% select(life_expectancy_years_2011, female_literacy_rate_2011) %>% 
-  get_summary_stats()
-```
-
-## Remove missing values
-
--   Remove rows with missing data for life expectancy and female
-    literacy rate
-
-```{r}
-gapm <- gapm_original %>% 
-  drop_na(life_expectancy_years_2011, female_literacy_rate_2011)
-
-glimpse(gapm)
-
-```
-
--   No missing values now for our variables of interest
-
-```{r}
-gapm %>% select(life_expectancy_years_2011, female_literacy_rate_2011) %>% 
-  get_summary_stats()
-```
-
-::: callout-important
--   Removing the rows with missing data was not needed to run the
-    regression model.
--   I did this step since later we will be calculating the standard
-    deviations of the explanatory and response variables for *just the
-    values included in the regression model*. It'll be easier to do this
-    if we remove the missing values now.
-:::
 
 ## Three types of study design (there are more)
 
@@ -491,6 +472,8 @@ Model Evaluation
 :::
 :::
 
+## Poll Everywhere Question 2
+
 # Learning Objectives
 
 1.  Identify the aims of your research and see how they align with the
@@ -574,6 +557,20 @@ $$Y =  \beta_0 + \beta_1X + \epsilon$$
 
 ## If the population parameters are unobservable, how did we get the line for life expectancy?
 
+::: columns
+::: {.column width="40%"}
+ 
+
+::: hl
+Note: the **population model is the true, underlying model** that we are
+trying to estimate using our sample data
+
+-   Our goal in simple linear regression is to estimate $\beta_0$ and
+    $\beta_1$
+:::
+:::
+
+::: {.column width="60%"}
 ```{r}
 #| fig-height: 8
 #| fig-width: 11
@@ -593,14 +590,10 @@ ggplot(gapm, aes(x = female_literacy_rate_2011,
         title = element_text(size = 30))
 
 ```
-
-::: hl
-Note: the **population model is the true, underlying model** that we are
-trying to estimate using our sample data
-
--   Our goal in simple linear regression is to estimate $\beta_0$ and
-    $\beta_1$
 :::
+:::
+
+## Poll Everywhere Question 3
 
 ## Okay, so how do we estimate the regression line?
 
@@ -651,7 +644,7 @@ ggplot(gapm, aes(x = female_literacy_rate_2011,
 
 ::: columns
 ::: {.column width="50%"}
-#### Population regression line
+#### Population regression *model*
 
 ::: lob
 $$Y =  \beta_0 + \beta_1X + \epsilon$$
@@ -671,7 +664,7 @@ $$Y =  \beta_0 + \beta_1X + \epsilon$$
 :::
 
 ::: {.column width="50%"}
-#### Estimated regression line
+#### Estimated regression *line*
 
 ::: hl
 $$\widehat{Y} =  \widehat{\beta}_0 + \widehat{\beta}_1X$$
@@ -691,6 +684,8 @@ $$\widehat{Y} =  \widehat{\beta}_0 + \widehat{\beta}_1X$$
 :::
 
 ## We get it, Nicky! How do we estimate the regression line?
+
+First let's take a break!!
 
 # Learning Objectives
 
@@ -745,10 +740,9 @@ $$\begin{aligned}
 
 ::: columns
 ::: {.column width="50%"}
-
 ::: definition
 ::: def-title
-With observed values:
+With observed $Y$ values and residuals:
 :::
 
 ::: def-cont
@@ -758,7 +752,6 @@ $$Y =  \beta_0 + \beta_1X + \epsilon$$
 :::
 
 ::: {.column width="50%"}
-
 ::: fact
 ::: fact-title
 With the population expected value of $Y$ given $X$:
@@ -781,22 +774,201 @@ Y - E[Y|X] & = \epsilon \\
 \epsilon & = Y - E[Y|X]
 \end{aligned}$$
 
-And so we have our true, population model, residuals!
+And so we have our **true, population model**, residuals!
 
 ::: hl
-This is an important fact! For the population model, the residuals: $\epsilon  = Y - E[Y|X]$
+This is an important fact! For the **population model**, the residuals:
+$\epsilon = Y - E[Y|X]$
 :::
 
 ## Back to our estimated model
 
-Get to: $\widehat{\epsilon}  = Y - \widehat{E}[Y|X] = Y - \widehat{Y}$
+We have the same two representations of our estimated/fitted model:
 
+::: columns
+::: {.column width="50%"}
+::: definition
+::: def-title
+With observed values:
+:::
 
-## Translate eyeballing to mathematical form??
+::: def-cont
+$$Y =  \widehat{\beta}_0 + \widehat{\beta}_1X + \widehat{\epsilon}$$
+:::
+:::
+:::
 
-![](images/Screenshot%202024-01-13%20at%2011.41.54%20AM.png)
+::: {.column width="50%"}
+::: fact
+::: fact-title
+With the estimated expected value of $Y$ given $X$:
+:::
 
-## Coefficient estimates
+::: fact-cont
+$$\begin{aligned} 
+\widehat{E}[Y|X] & = \widehat{\beta}_0 + \widehat{\beta}_1X \\
+\widehat{E[Y|X]} & = \widehat{\beta}_0 + \widehat{\beta}_1X \\
+\widehat{Y} & = \widehat{\beta}_0 + \widehat{\beta}_1X \\
+\end{aligned}$$
+:::
+:::
+:::
+:::
+
+Using the two forms of the model, we can figure out a formula for our
+estimated residuals:
+
+$$\begin{aligned}
+Y & = (\widehat{\beta}_0 + \widehat{\beta}_1X) + \widehat\epsilon \\
+Y & = \widehat{Y} + \widehat\epsilon \\
+\widehat\epsilon & = Y - \widehat{Y}
+\end{aligned}$$
+
+::: lob
+This is an important fact! For the **estimated/fitted model**, the
+residuals: $\widehat\epsilon = Y - \widehat{Y}$
+:::
+
+## *Individual* $i$ residuals in the estimated/fitted model
+
+::: columns
+::: {.column width="45%"}
+-   **Observed values for each individual** $i$: $Y_i$
+    -   Value in the dataset for individual $i$
+-   **Fitted value for each individual** $i$: $\widehat{Y}_i$
+    -   Value that falls on the best-fit line for a specific $X_i$
+    -   If two individuals have the same $X_i$, then they have the same
+        $\widehat{Y}_i$
+:::
+
+::: {.column width="55%"}
+```{r}
+#| message: false
+#| echo: false
+#| fig-height: 8
+#| fig-width: 11
+#| fig-align: center
+# code from https://drsimonj.svbtle.com/visualising-residuals
+
+model1 <- lm(life_expectancy_years_2011 ~ female_literacy_rate_2011,
+                 data = gapm)
+regression_points <- augment(model1)
+# summary(model1)
+# sum(model1$residuals^2)
+
+ggplot(regression_points, 
+       aes(x = female_literacy_rate_2011,
+                 y = life_expectancy_years_2011)) +
+  # geom_segment(aes(
+  #   xend = female_literacy_rate_2011, 
+  #   yend = .fitted), 
+  #   alpha = 1) +
+  geom_smooth(method = "lm", se = FALSE, color = "#F14124", size=3) +
+  # > Color adjustments made here...
+  geom_point(color = "black", size = 4) +  # Color mapped here
+  #scale_color_gradient2(low = "#213c96", mid = "white", high = "#F14124") +  # Colors to use here
+    #guides(color = "none") +
+  geom_point(aes(y = .fitted), shape = 1, size = 4) +
+labs(x = "Female literacy rate (%)", 
+       y = "Life expectancy (years)",
+       title = "Relationship between life expectancy and \n the female literacy rate in 2011") +
+    theme(axis.title = element_text(size = 30), 
+        axis.text = element_text(size = 25), 
+        title = element_text(size = 30))  
+```
+:::
+:::
+
+## *Individual* $i$ residuals in the estimated/fitted model
+
+::: columns
+::: {.column width="45%"}
+-   **Observed values for each individual** $i$: $Y_i$
+
+    -   Value in the dataset for individual $i$
+
+-   **Fitted value for each individual** $i$: $\widehat{Y}_i$
+
+    -   Value that falls on the best-fit line for a specific $X_i$
+    -   If two individuals have the same $X_i$, then they have the same
+        $\widehat{Y}_i$
+
+::: hl3
+-   **Residual for each individual:**
+    $\widehat\epsilon_i = Y_i - \widehat{Y}_i$
+
+    -   Difference between the observed and fitted value
+:::
+:::
+
+::: {.column width="55%"}
+```{r}
+#| message: false
+#| echo: false
+#| fig-height: 8
+#| fig-width: 11
+#| fig-align: center
+# code from https://drsimonj.svbtle.com/visualising-residuals
+
+model1 <- lm(life_expectancy_years_2011 ~ female_literacy_rate_2011,
+                 data = gapm)
+regression_points <- augment(model1)
+# summary(model1)
+# sum(model1$residuals^2)
+
+ggplot(regression_points, 
+       aes(x = female_literacy_rate_2011,
+                 y = life_expectancy_years_2011)) +
+  geom_segment(aes(
+    xend = female_literacy_rate_2011, 
+    yend = .fitted), 
+    alpha = 1, 
+    color = "#4FADF3", 
+    size = 2) +
+  geom_smooth(method = "lm", se = FALSE, color = "#F14124", size=3) +
+  # > Color adjustments made here...
+  geom_point(color = "black", size = 4) +  # Color mapped here
+  #scale_color_gradient2(low = "#213c96", mid = "white", high = "#F14124") +  # Colors to use here
+    #guides(color = "none") +
+  geom_point(aes(y = .fitted), shape = 1, size = 4) +
+labs(x = "Female literacy rate (%)", 
+       y = "Life expectancy (years)",
+       title = "Relationship between life expectancy and \n the female literacy rate in 2011") +
+    theme(axis.title = element_text(size = 30), 
+        axis.text = element_text(size = 25), 
+        title = element_text(size = 30))  
+```
+:::
+:::
+
+## Poll Everywhere Question 4
+
+## So what do we do with the residuals?
+
+-   We want to **minimize the residuals**
+
+    -   Aka minimize the difference between the observed $Y$ value and
+        the estimated expected response given the predictor (
+        $\widehat{E}[Y|X]$ )
+
+-   **We can use ordinary least squares (OLS) to do this in linear
+    regression!**
+
+-   Idea behind this: reduce the total error between the fitted line and
+    the observed point (error between is called residuals)
+
+    -   Vague use of total error: more precisely, we want to **reduce
+        the sum of squared errors**
+    -   Think back to my R Shiny app!
+    -   We need to mathematically define this!
+
+ 
+
+ 
+
+-   Note: there are other ways to estimate the best-fit line!!
+
+    -   Example: Maximum likelihood estimation
 
 # Learning Objectives
 
@@ -816,1307 +988,305 @@ Get to: $\widehat{\epsilon}  = Y - \widehat{E}[Y|X] = Y - \widehat{Y}$
 
 5.  Apply OLS in R for simple linear regression of real data
 
-## Regression in R: `lm()`, `summary()`, & `tidy()`
-
-```{r}
-model1 <- lm(life_expectancy_years_2011 ~ female_literacy_rate_2011,
-                 data = gapm)
-summary(model1)
-
-tidy(model1) %>% gt()
-```
-
-Regression equation for our model:
-
-$$\widehat{\textrm{life expectancy}} = 50.9 + 0.232 \cdot \textrm{female literacy rate} $$
-
-## Residuals
+## Setting up for ordinary least squares
 
 ::: columns
-::: {.column width="40%"}
--   **Observed values** $y_i$
-    -   the values in the dataset
--   **Fitted values** $\widehat{y}_i$
-    -   the values that fall on the best-fit line for a specific $x_i$
--   **Residuals** $e_i = y_i - \widehat{y}_i$
-    -   the differences between the observed and fitted values
+::: {.column width="75%"}
+-   Sum of Squared Errors (SSE)
+
+$$ \begin{aligned}
+SSE & = \displaystyle\sum^n_{i=1} \widehat\epsilon_i^2 \\
+SSE & = \displaystyle\sum^n_{i=1} (Y_i - \widehat{Y}_i)^2 \\
+SSE & = \displaystyle\sum^n_{i=1} (Y_i - (\widehat{\beta}_0+\widehat{\beta}_1X_i))^2 \\
+SSE & = \displaystyle\sum^n_{i=1} (Y_i - \widehat{\beta}_0-\widehat{\beta}_1X_i)^2
+\end{aligned}$$
 :::
 
-::: {.column width="60%"}
-```{r}
-#| echo: false
-#| fig.height: 7.0
-#| fig.width: 8.0
-# code from https://drsimonj.svbtle.com/visualising-residuals
+::: {.column width="25%"}
+::: fact
+::: fact-title
+Things to use
+:::
 
-model1 <- lm(life_expectancy_years_2011 ~ female_literacy_rate_2011,
-                 data = gapm)
-regression_points <- augment(model1)
-summary(model1)
-sum(model1$residuals^2)
+::: fact-cont
+-   $\widehat\epsilon_i = Y_i - \widehat{Y}_i$
 
-ggplot(regression_points, 
-       aes(x = female_literacy_rate_2011,
-                 y = life_expectancy_years_2011)) +
-  geom_smooth(method = "lm", se = FALSE, color = "lightgrey") +
-  geom_segment(aes(
-    xend = female_literacy_rate_2011, 
-    yend = .fitted), 
-    alpha = .2) +
-  # > Color adjustments made here...
-  geom_point(aes(color = .resid), size = 4) +  # Color mapped here
-  scale_color_gradient2(low = "blue", mid = "white", high = "red") +  # Colors to use here
-  guides(color = "none") +
-  geom_point(aes(y = .fitted), shape = 1, size = 3) +
-  labs(x = "Female literacy rate", 
-       y = "Average life expectancy",
-       title = "Regression line with residuals") +
-  theme_bw() + 
-  theme(text = element_text(size = 20))    
-```
+-   $\widehat{Y}_i = \widehat\beta_0 + \widehat\beta_1X_i$
+:::
+:::
 :::
 :::
 
-## The (population) regression model
+::: hl
+Then we want to find the estimated coefficient values that minimize the
+SSE!
+:::
+
+## Steps to estimate coefficients using OLS
+
+1.  Set up SSE (previous slide)
+
+2.  Minimize SSE with respect to coefficient estimates
+
+    -   Need to solve a system of equations
+
+3.  Compute derivative of SSE wrt $\widehat\beta_0$
+
+4.  Set derivative of SSE wrt $\widehat\beta_0 = 0$
+
+5.  Compute derivative of SSE wrt $\widehat\beta_1$
+
+6.  Set derivative of SSE wrt $\widehat\beta_1 = 0$
+
+7.  Substitute $\widehat\beta_1$ back into $\widehat\beta_0$
+
+## 2. Minimize SSE with respect to coefficients
+
+-   Want to minimize with respect to (wrt) the potential coefficient
+    estimates ( $\widehat\beta_0$ and $\widehat\beta_1$)
+
+-   Take derivative of SSE wrt $\widehat\beta_0$ and $\widehat\beta_1$
+    and set equal to zero to find minimum SSE
+
+$$
+\dfrac{\partial SSE}{\partial \widehat\beta_0} = 0 \text{ and } \dfrac{\partial SSE}{\partial \widehat\beta_1} = 0
+$$
+
+-   Solve the above system of equations in steps 3-6
+
+## 3. Compute derivative of SSE wrt $\widehat\beta_0$
+
+::: columns
+::: {.column width="80%"}
+$$
+SSE = \displaystyle\sum^n_{i=1} (Y_i - \widehat{\beta}_0-\widehat{\beta}_1X_i)^2
+$$
+
+$$\begin{aligned}
+\frac{\partial SSE}{\partial{\widehat{\beta}}_0}& =\frac{\partial\sum_{i=1}^{n}\left(Y_i-{\widehat{\beta}}_0-{\widehat{\beta}}_1X_i\right)^2}{\partial{\widehat{\beta}}_0}=
+\sum_{i=1}^{n}\frac{{\partial\left(Y_i-{\widehat{\beta}}_0-{\widehat{\beta}}_1X_i\right)}^2}{\partial{\widehat{\beta}}_0} \\
+& =\sum_{i=1}^{n}{2\left(Y_i-{\widehat{\beta}}_0-{\widehat{\beta}}_1X_i\right)\left(-1\right)}=\sum_{i=1}^{n}{-2\left(Y_i-{\widehat{\beta}}_0-{\widehat{\beta}}_1X_i\right)} \\
+\frac{\partial SSE}{\partial{\widehat{\beta}}_0} & = -2\sum_{i=1}^{n}\left(Y_i-{\widehat{\beta}}_0-{\widehat{\beta}}_1X_i\right)
+\end{aligned}$$
+:::
+
+::: {.column width="20%"}
+::: fact
+::: fact-title
+Things to use
+:::
+
+::: fact-cont
+-   Derivative rule: derivative of sum is sum of derivative
+
+-   Derivative rule: chain rule
+:::
+:::
+:::
+:::
+
+## 4. Set derivative of SSE wrt $\widehat\beta_0 = 0$
+
+::: columns
+::: {.column width="75%"}
+$$\begin{aligned}
+\frac{\partial SSE}{\partial{\widehat{\beta}}_0} & =0 \\ -2\sum_{i=1}^{n}\left(Y_i-{\widehat{\beta}}_0-{\widehat{\beta}}_1X_i\right) & =0 \\
+\sum_{i=1}^{n}\left(Y_i-{\widehat{\beta}}_0-{\widehat{\beta}}_1X_i\right) & =0 \\ \sum_{i=1}^{n}Y_i-n{\widehat{\beta}}_0-{\widehat{\beta}}_1\sum_{i=1}^{n}X_i & =0 \\
+\frac{1}{n}\sum_{i=1}^{n}Y_i-{\widehat{\beta}}_0-{\widehat{\beta}}_1\frac{1}{n}\sum_{i=1}^{n}X_i & =0 \\ 
+\overline{Y}-{\widehat{\beta}}_0-{\widehat{\beta}}_1\overline{X} & =0 \\
+{\widehat{\beta}}_0 & =\overline{Y}-{\widehat{\beta}}_1\overline{X}
+\end{aligned}$$
+:::
+
+::: {.column width="25%"}
+::: fact
+::: fact-title
+Things to use
+:::
+
+::: fact-cont
+-   $\overline{Y}=\frac{1}{n}\sum_{i=1}^{n}Y_i$
+-   $\overline{X}=\frac{1}{n}\sum_{i=1}^{n}X_i$
+:::
+:::
+:::
+:::
+
+## 5. Compute derivative of SSE wrt $\widehat\beta_1$
+
+::: columns
+::: {.column width="80%"}
+$$
+SSE = \displaystyle\sum^n_{i=1} (Y_i - \widehat{\beta}_0-\widehat{\beta}_1X_i)^2
+$$
+
+$$\begin{aligned}
+\frac{\partial SSE}{\partial{\widehat{\beta}}_1}& =\frac{\partial\sum_{i=1}^{n}{(Y_i-{\widehat{\beta}}_0-{\widehat{\beta}}_1X_i)}^2}{\partial{\widehat{\beta}}_1}=\sum_{i=1}^{n}\frac{{\partial(Y_i-{\widehat{\beta}}_0-{\widehat{\beta}}_1X_i)}^2}{\partial{\widehat{\beta}}_1} \\
+&=\sum_{i=1}^{n}{2\left(Y_i-{\widehat{\beta}}_0-{\widehat{\beta}}_1X_i\right)(-X_i)}=\sum_{i=1}^{n}{-2X_i\left(Y_i-{\widehat{\beta}}_0-{\widehat{\beta}}_1X_i\right)} \\ &=-2\sum_{i=1}^{n}{X_i\left(Y_i-{\widehat{\beta}}_0-{\widehat{\beta}}_1X_i\right)}
+\end{aligned}$$
+:::
+
+::: {.column width="20%"}
+::: fact
+::: fact-title
+Things to use
+:::
+
+::: fact-cont
+-   Derivative rule: derivative of sum is sum of derivative
+
+-   Derivative rule: chain rule
+:::
+:::
+:::
+:::
+
+## 6. Set derivative of SSE wrt $\widehat\beta_1 = 0$
+
+::: columns
+::: {.column width="70%"}
+$$\begin{aligned}
+\frac{\partial SSE}{\partial{\widehat{\beta}}_1} & =0 \\ \sum_{i=1}^{n}\left({X_iY}_i-{\widehat{\beta}}_0X_i-{\widehat{\beta}}_1{X_i}^2\right)&=0 \\
+\sum_{i=1}^{n}{X_iY_i}-\sum_{i=1}^{n}{X_i{\widehat{\beta}}_0}-\sum_{i=1}^{n}{{X_i}^2{\widehat{\beta}}_1}&=0 \\
+\sum_{i=1}^{n}{X_iY_i}-\sum_{i=1}^{n}{X_i\left(\overline{Y}-{\widehat{\beta}}_1\overline{X}\right)}-\sum_{i=1}^{n}{{X_i}^2{\widehat{\beta}}_1} &=0 \\
+\sum_{i=1}^{n}{X_iY_i}-\sum_{i=1}^{n}{X_i\overline{Y}}+\sum_{i=1}^{n}{{\widehat{\beta}}_1X_i\overline{X}}-\sum_{i=1}^{n}{{X_i}^2{\widehat{\beta}}_1} &=0 \\
+\sum_{i=1}^{n}{X_i(Y_i-\overline{Y})}+\sum_{i=1}^{n}{({\widehat{\beta}}_1X_i\overline{X}}-{X_i}^2{\widehat{\beta}}_1) &=0 \\
+\sum_{i=1}^{n}{X_i(Y_i-\overline{Y})}+{\widehat{\beta}}_1\sum_{i=1}^{n}{X_i(\overline{X}}-X_i) &=0 \\
+\end{aligned}$$
+:::
+
+::: {.column width="30%"}
+::: fact
+::: fact-title
+Things to use
+:::
+
+::: fact-cont
+-   ${\widehat{\beta}}_0=\overline{Y}-{\widehat{\beta}}_1\overline{X}$
+-   $\overline{Y}=\frac{1}{n}\sum_{i=1}^{n}Y_i$
+-   $\overline{X}=\frac{1}{n}\sum_{i=1}^{n}X_i$
+:::
+:::
+
+         
+
+ 
+
+::: heq
+$${\widehat{\beta}}_1 =\frac{\sum_{i=1}^{n}{X_i(Y_i-\overline{Y})}}{\sum_{i=1}^{n}{X_i(}X_i-\overline{X})}$$
+:::
+:::
+:::
+
+## 7. Substitute $\widehat\beta_1$ back into $\widehat\beta_0$
+
+### Final coefficient estimates for SLR
 
 ::: columns
 ::: {.column width="50%"}
--   The (population) regression model is denoted by
+::: proof1
+::: proof-title
+Coefficient estimate for $\widehat\beta_1$
+:::
 
-$$Y = \beta_0 + \beta_1 \cdot X + \epsilon$$
-
--   $\beta_0$ and $\beta_1$ are unknown population parameters
--   $\epsilon$ (epsilon) is the error about the line
-    -   It is assumed to be a random variable:
-        -   $\epsilon \sim N(0, \sigma^2)$
-        -   variance $\sigma^2$ is constant
+::: proof-cont
+$${\widehat{\beta}}_1 =\frac{\sum_{i=1}^{n}{X_i(Y_i-\overline{Y})}}{\sum_{i=1}^{n}{X_i(}X_i-\overline{X})}$$
+:::
+:::
 :::
 
 ::: {.column width="50%"}
-![](/img_slides/OLSassumptions-1.png){fig-align="center"}
+::: fact
+::: fact-title
+Coefficient estimate for $\widehat\beta_0$
+:::
 
-::: {style="font-size: 60%;"}
-<https://bookdown.org/roback/bookdown-bysh/ch-MLRreview.html#ordinary-least-squares-ols-assumptions>
+::: fact-cont
+$$\begin{aligned}
+{\widehat{\beta}}_0 & =\overline{Y}-{\widehat{\beta}}_1\overline{X} \\
+{\widehat{\beta}}_0 & = \overline{Y} - \frac{\sum_{i=1}^{n}{X_i(Y_i-\overline{Y})}}{\sum_{i=1}^{n}{X_i(}X_i-\overline{X})} \overline{X} \\
+\end{aligned}$$
 :::
 :::
 :::
+:::
 
--   The [**line**]{style="color:blue"} is the average (expected) value
-    of $Y$ given a value of $x$: [$E(Y|x)$]{style="color:blue"}.
+## Poll Everywhere Question 5
 
--   The point estimates for $\beta_0$ and $\beta_1$ based on a sample
-    are denoted by $b_0, b_1, s_{residuals}^2$
+## Do I need to do all that work every time??
 
-    -   Note: also common notation is
-        $\widehat{\beta}_0, \widehat{\beta}_1, \widehat{\sigma}^2$
+![](03_SLR_01/hoopla.jpeg){fig-align="center"}
+
+## Regression in R: `lm()`
+
+-   Let's discuss the syntax of this function
+
+```{r}
+#| out-height: 800px 
+
+model1 <- lm(life_expectancy_years_2011 ~ female_literacy_rate_2011,
+                 data = gapm)
+```
+
+## Regression in R: `lm()` + `summary()`
+
+```{r}
+#| out-height: 800px 
+
+model1 <- lm(life_expectancy_years_2011 ~ female_literacy_rate_2011,
+                 data = gapm)
+summary(model1)
+```
+
+![](03_SLR_01/summary.png){fig-align="center"}
+
+## Regression in R: `lm()` + `tidy()`
+
+ 
+
+```{r}
+tidy(model1) %>% 
+  gt() %>% 
+  tab_options(table.font.size = 45)
+```
+
+ 
+
+-   Regression equation for our model (which we saw a looong time ago):
+
+::: heq
+$$\widehat{\text{life expectancy}} =  50.9 + 0.232\cdot\text{female literacy rate}$$
+:::
 
 ## How do we interpret the coefficients?
 
+::: heq
+$$\widehat{\text{life expectancy}} =  50.9 + 0.232\cdot\text{female literacy rate}$$
+:::
+
 -   **Intercept**
-    -   The expected outcome for the $y$-variable when the $x$-variable
+    -   The expected outcome for the $Y$-variable when the $X$-variable
         is 0
+    -   **Example:** The expected/average life expectancy is 50.9 years
+        for a country with 0% female literacy.
 -   **Slope**
-    -   For every increase of 1 unit in the $x$-variable, there is an
-        expected increase of, on average, $b_1$ units in the
-        $y$-variable.
+    -   For every increase of 1 unit in the $X$-variable, there is an
+        expected increase of, on average, $\widehat\beta_1$ units in the
+        $Y$-variable.
+
     -   We only say that there is an expected increase and not
         necessarily a causal increase.
 
-# Next class???
+    -   **Example:** For every 1 percent increase in the female literacy
+        rate, the expected/average life expectancy increases, on
+        average, 0.232 years.
 
-## What are the LINE conditions?
+## Next time
 
-For "good" model fit and to be able to make inferences and predictions
-based on our models, 4 conditions need to be satisfied.
+-   Inference of our estimated coefficients
 
-Briefly:
+-   Inference of estimated expected $Y$ given $X$
 
--   **L** inearity of relationship between variables
--   **I** ndependence of the Y values
--   **N** ormality of the residuals
--   **E** quality of variance of the residuals (homoscedasticity)
+-   Prediction
 
-[More in
-depth](https://bookdown.org/roback/bookdown-bysh/ch-MLRreview.html#ordinary-least-squares-ols-assumptions):
-
--   **L** : there is a linear relationship between the mean response (Y)
-    and the explanatory variable (X),
--   **I** : the errors are independent—there’s no connection between how
-    far any two points lie from the regression line,
--   **N** : the responses are normally distributed at each level of X,
-    and
--   **E** : the variance or, equivalently, the standard deviation of the
-    responses is equal for all levels of X.
-
-## L: Linearity of relationship between variables
-
-Is the association between the variables linear?
-
--   Diagnostic tools:
-    -   Scatterplot
-    -   Residual plot (see later section for E : Equality of variance of
-        the residuals)
-
-```{r}
-#| echo: false
-#| fig.width: 12.0
-#| fig.height: 7.0
-ggplot(gapm, aes(x = female_literacy_rate_2011,
-                 y = life_expectancy_years_2011)) +
-  geom_point() +
-  labs(x = "female literacy rate", 
-       y = "life expectancy",
-       title = "Life expectancy vs. female literacy rate in 2011") +  
-  geom_smooth(method = "lm", se = FALSE) +
-  geom_smooth(se = FALSE, color = "black")
-```
-
-## I: Independence of the residuals ($Y$ values)
-
--   **Are the data points independent of each other?**
-
--   Examples of when they are *not* independent, include
-
-    -   repeated measures (such as baseline, 3 months, 6 months)
-    -   data from clusters, such as different hospitals or families
-
--   This condition is checked by reviewing the study *design* and not by
-    inspecting the data
-
--   How to analyze data using regression models when the $Y$-values are
-    not independent is covered in BSTA 519 (Longitudinal data)
-
-# N: Normality of the residuals
-
--   Extract residuals from regression model in R
--   Diagnostic tools:
-    -   Distribution plots of residuals
-    -   QQ plots
-
-## N: Normality of the residuals
-
--   The responses Y are normally distributed at each level of x
-
-![](/img_slides/OLSassumptions-1.png){fig-align="center"}
-
-::: {style="font-size: 60%;"}
-<https://bookdown.org/roback/bookdown-bysh/ch-MLRreview.html#ordinary-least-squares-ols-assumptions>
-:::
-
-## Extract model's residuals in R
-
--   First extract the residuals' values from the model output using the
-    `augment()` function from the `broom` package.
--   Get a tibble with the orginal data, as well as the residuals and
-    some other important values.
-
-```{r}
-model1 <- lm(life_expectancy_years_2011 ~ female_literacy_rate_2011, 
-                data = gapm)
-aug1 <- augment(model1) 
-
-glimpse(aug1)
-```
-
-## Check normality with "usual" distribution plots
-
-Note that below I save each figure, and then combine them together in
-one row of output using `grid.arrange()` from the `gridExtra` package.
-
-```{r}
-#| fig.height: 4.0
-#| fig.width: 12.0
-hist1 <- ggplot(aug1, aes(x = .resid)) +
-  geom_histogram()
-
-density1 <- ggplot(aug1, aes(x = .resid)) +
-  geom_density()
-
-box1 <- ggplot(aug1, aes(x = .resid)) +
-  geom_boxplot()
-
-library(gridExtra) # NEW!!!
-grid.arrange(hist1, density1, box1, nrow = 1)
-```
-
-## Normal QQ plots (QQ = quantile-quantile)
-
--   It can be tricky to eyeball with a histogram or density plot whether
-    the residuals are normal or not
--   QQ plots are often used to help with this
-
-::: columns
-::: {.column width="60%"}
--   *Vertical axis*: **data quantiles**
-    -   data points are sorted in order and
-    -   assigned quantiles based on how many data points there are
--   *Horizontal axis*: **theoretical quantiles**
-    -   mean and standard deviation (SD) calculated from the data points
-    -   theoretical quantiles are calculated for each point, assuming
-        the data are modeled by a normal distribution with the mean and
-        SD of the data
-:::
-
-::: {.column width="40%"}
-```{r}
-#| fig.width: 5.0
-#| fig.height: 5.0
-#| echo: false
-ggplot(aug1, aes(sample = .resid)) + 
-  stat_qq() +     # points
-  stat_qq_line()  # line
-```
-:::
-:::
-
--   **Data are approximately normal if points fall on a line.**
-
-See more info at
-<https://data.library.virginia.edu/understanding-QQ-plots/>
-
-## Examples of Normal QQ plots (1/5)
-
--   **Data**:
-    -   Body measurements from 507 physically active individuals
-    -   in their 20's or early 30's
-    -   within normal weight range.
-
-![](/img_slides/qq_wristdiam.png){fig-align="center"}
-
-## Examples of Normal QQ plots (2/5)
-
-Skewed right distribution
-
-<br>
-
-![](/img_slides/qq_weights.png){fig-align="center"}
-
-## Examples of Normal QQ plots (3/5)
-
-Long tails in distribution
-
-<br>
-
-![](/img_slides/qq_biliac.png){fig-align="center"}
-
-## Examples of Normal QQ plots (4/5)
-
-Bimodal distribution
-
-<br>
-
-![](/img_slides/qq_forearm.png){fig-align="center"}
-
-## Examples of Normal QQ plots (5/5)
-
-![](/img_slides/qq_forearm_gender.png){fig-align="center"}
-
-## QQ plot of residuals of `model1`
-
-```{r}
-#| fig.width: 12.0
-#| fig.height: 3.0
-#| echo: false
-grid.arrange(hist1, density1, box1, nrow = 1)
-```
-
-::: columns
-::: {.column width="50%"}
-<br>
-
-```{r}
-#| label: QQresid
-#| fig.show: hide
-#| fig.width: 5.0
-#| fig.height: 5.0
-
-ggplot(aug1, aes(sample = .resid)) + 
-  stat_qq() +     # points
-  stat_qq_line()  # line
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| ref.label: QQresid
-#| echo: false
-#| fig.width: 5.0
-#| fig.height: 4.0
-```
-:::
-:::
-
-## Compare to randomly generated Normal QQ plots
-
-How "*good*" we can expect a QQ plot to look depends on the sample size.
-
--   The QQ plots on the next slides are randomly generated
-
-    -   using random samples from actual standard normal distributions
-        $N(0,1)$.
-
--   Thus, all the points in the QQ plots **should theoretically** fall
-    in a line
-
--   However, there is sampling variability...
-
-## Randomly generated Normal QQ plots: n=100
-
--   Note that `stat_qq_line()` doesn't work with randomly generated
-    samples, and thus the code below manually creates the line that the
-    points should be on (which is $y=x$ in this case.)
-
-::: columns
-::: {.column width="50%"}
-::: {style="font-size: 90%;"}
-```{r}
-#| fig.height: 5.0
-#| fig.width: 5.0
-samplesize <- 100
-
-rand_qq1 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  # line y=x
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue") 
-
-rand_qq2 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue")
-
-rand_qq3 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue")
-
-rand_qq4 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue")
-```
-:::
-:::
-
-::: {.column width="50%"}
-```{r}
-#| fig.height: 8.0
-#| fig.width: 8.0
-
-grid.arrange(rand_qq1, rand_qq2, 
-             rand_qq3, rand_qq4, ncol =2)
-```
-:::
-:::
-
-## Examples of simulated Normal QQ plots: n=10
-
-With fewer data points,
-
--   simulated QQ plots are more likely to look "less normal"
--   even though the data points were sampled from normal distributions.
-
-::: columns
-::: {.column width="50%"}
-::: {style="font-size: 90%;"}
-```{r}
-#| fig.height: 5.0
-#| fig.width: 5.0
-samplesize <- 10  # only change made to code!
-
-rand_qq1 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  # line y=x
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue") 
-
-rand_qq2 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue")
-
-rand_qq3 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue")
-
-rand_qq4 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue")
-```
-:::
-:::
-
-::: {.column width="50%"}
-```{r}
-#| fig.height: 8.0
-#| fig.width: 8.0
-
-grid.arrange(rand_qq1, rand_qq2, 
-             rand_qq3, rand_qq4, ncol =2)
-```
-:::
-:::
-
-## Examples of simulated Normal QQ plots: n=1,000
-
-With more data points,
-
--   simulated QQ plots are more likely to look "more normal"
-
-::: columns
-::: {.column width="50%"}
-::: {style="font-size: 90%;"}
-```{r}
-#| fig.height: 5.0
-#| fig.width: 5.0
-samplesize <- 1000 # only change made to code!
-
-rand_qq1 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  # line y=x
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue") 
-
-rand_qq2 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue")
-
-rand_qq3 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue")
-
-rand_qq4 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue")
-```
-:::
-:::
-
-::: {.column width="50%"}
-```{r}
-#| fig.height: 8.0
-#| fig.width: 8.0
-
-grid.arrange(rand_qq1, rand_qq2, 
-             rand_qq3, rand_qq4, ncol =2)
-```
-:::
-:::
-
-## Back to our example
-
-::: columns
-::: {.column width="40%"}
-Residuals from Life Expectancy vs. Female Literacy Rate Regression
-
-```{r}
-#| label: QQplot
-#| fig.show: hide
-ggplot(aug1, 
-      aes(sample = .resid)) + 
-  stat_qq() + 
-  stat_qq_line() 
-```
-:::
-
-::: {.column width="60%"}
-```{r}
-#| ref.label: QQplot
-#| echo: false
-```
-:::
-:::
-
-Simulated QQ plot of Normal Residuals with n = 80
-
-::: columns
-::: {.column width="40%"}
-```{r}
-# number of observations 
-# in fitted model
-nobs(model1) 
-```
-
-```{r}
-#| label: QQplot_sim
-#| fig.show: hide
-ggplot() +
-  stat_qq(aes(
-    sample = rnorm(80))) + 
-  geom_abline(
-    intercept = 0, slope = 1, 
-    color = "blue")
-```
-:::
-
-::: {.column width="60%"}
-```{r}
-#| ref.label: QQplot_sim
-#| echo: false
-```
-:::
-:::
-
-# E: Equality of variance of the residuals {.nostretch}
-
--   Homoscedasticity
--   Diagnostic tool: **residual plot**
-
-![](/img_slides/OLSassumptions-1.png){fig-align="center" width="60%"}
-
-::: {style="font-size: 60%;"}
-<https://bookdown.org/roback/bookdown-bysh/ch-MLRreview.html#ordinary-least-squares-ols-assumptions>
-:::
-
-## Residual plot
-
--   $x$ = explanatory variable from regression model
-    -   (or the fitted values for a multiple regression)
--   $y$ = residuals from regression model
-
-::: columns
-::: {.column width="50%"}
-```{r}
-names(aug1)
-```
-
-<br>
-
-```{r}
-#| label: resids_plot
-#| fig.show: hide
-ggplot(aug1, 
-       aes(x = female_literacy_rate_2011, 
-           y = .resid)) + 
-  geom_point() +
-  geom_abline(
-    intercept = 0, 
-    slope = 0, 
-    color = "orange") +
-  labs(title = "Residual plot")
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| ref.label: resids_plot
-#| echo: false
-#| fig.height: 6
-#| fig.width: 6
-```
-:::
-:::
-
-## E: Equality of variance of the residuals (Homoscedasticity)
-
--   The **variance** or, equivalently, the standard deviation of the
-    responses is **equal for all values of x**.
--   This is called **homoskedasticity** (top row)
--   If there is **heteroskedasticity** (bottom row), then the assumption
-    is not met.
-
-![](/img_slides/heteroskedastic.png){fig-align="center"}
-
-# $R^2$ = Coefficient of determination
-
-Another way to assess model fit
-
-## $R^2$ = Coefficient of determination (1/2)
-
--   Recall that the correlation coefficient $r$ measures the strength of
-    the linear relationship between two numerical variables
--   $R^2$ is usually used to measure the strength of a *linear fit*
-    -   For a simple linear regression model (one numerical predictor),
-        $R^2$ is just the square of the correlation coefficient
--   In general, $R^2$ is the proportion of the variability of the
-    dependent variable that is **explained** by the independent
-    variable(s)
-
-$$R^2 = \frac{\textrm{variance of predicted y-values}}
-{\textrm{variance of observed y-values}} = \frac{\sum_{i=1}^n(\widehat{y}_i-\bar{y})^2}
-{\sum_{i=1}^n(y_i-\bar{y})^2} 
- = \frac{s_y^2 - s_{\textrm{residuals}}^2}
-{s_y^2}$$ $$R^2 = 1- \frac{s_{\textrm{residuals}}^2}
-{s_y^2}$$ where $\frac{s_{\textrm{residuals}}^2}{s_y^2}$ is the
-proportion of "unexplained" variability in the $y$ values,\
-and thus $R^2 = 1- \frac{s_{\textrm{residuls}}^2}{s_y^2}$ is the
-proportion of "explained" variability in the $y$ values
-
-## $R^2$ = Coefficient of determination (2/2)
-
--   Recall, $-1<r<1$
-
--   Thus, $0<R^2<1$
-
--   In practice, we want "high" $R^2$ values, i.e. $R^2$ as close to 1
-    as possible.
-
-Calculating $R^2$ in R using `glance()` from the `broom` package:
-
-```{r}
-glance(model1)
-glance(model1)$r.squared
-```
-
-::: callout-warning
--   A model can have a high $R^2$ value when there is a curved pattern.
--   Always first check whether a linear model is reasonable or not.
-:::
-
-## $R^2$ in `summary()` R output
-
-```{r}
-summary(model1)
-```
-
-Compare to the square of the correlation coefficient $r$:
-
-```{r}
-r <- cor(x = gapm$life_expectancy_years_2011, 
-    y = gapm$female_literacy_rate_2011,
-    use =  "complete.obs")
-r
-r^2
-```
-
-# Regression inference
-
-1.  Inference for population [**slope**]{style="color:green"} $\beta_1$
-2.  CI for mean response $\mu_{Y|x^*}$
-3.  Prediction interval for predicting **individual** observations
-
-## Inference for population [**slope**]{style="color:green"} $\beta_1$
-
-```{r}
-# Fit regression model:
-model1 <- lm(life_expectancy_years_2011 ~ female_literacy_rate_2011,
-                 data = gapm)
-# Get regression table:
-tidy(model1, conf.int = TRUE) %>% gt() # conf.int = TRUE part is new! 
-```
-
-```{=tex}
-\begin{align}
-\widehat{y} =& b_0 + b_1 \cdot x\\
-\widehat{\text{life expectancy}} =& 50.9 + 0.232 \cdot \text{female literacy rate}
-\end{align}
-```
--   What are $H_0$ and $H_A$?
--   How do we calculate the standard error, statistic, *p*-value, and
-    CI?
-
-::: callout-note
--   We can also test & calculate CI for the population intercept
--   This will be covered in BSTA 512
-:::
-
-## Inference for the population [**slope**]{style="color:green"}: CI and hypothesis test
-
-::: columns
-::: {.column width="50%"}
-**Population model**\
-*line + random "noise"*
-
-$$Y = \beta_0 + \beta_1 \cdot X + \varepsilon$$ with
-$\varepsilon \sim N(0,\sigma)$\
-$\sigma$ is the variability (SD) of the residuals
-
-<br>
-
-**Sample best-fit (least-squares) line:**
-
-$$\widehat{y} = b_0 + b_1 \cdot x $$
-
-Note: Some sources use $\widehat{\beta}$ instead of $b$.
-:::
-
-::: {.column width="50%"}
--   Construct a **95% confidence interval** for the **population slope**
-    $\beta_1$
-
-<br>
-
--   Conduct the **hypothesis test**
-
-```{=tex}
-\begin{align}
-H_0 &: \beta_1 = 0\\
-\text{vs. } H_A&: \beta_1 \neq 0
-\end{align}
-```
-<br>
-
-*Note: R reports p-values for 2-sided tests*
-:::
-:::
-
-## CI for population [**slope**]{style="color:green"} $\beta_1$
-
-Recall the general CI formula:
-
-$$\textrm{Point Estimate} \pm t^*\cdot SE_{\textrm{Point Estimate}}$$
-
-For the CI of the coefficient $b_1$ this translates to
-
-$$b_1 \pm t^*\cdot SE_{b_1}$$ where $t^*$ is the critical value from a
-$t$-distribution with $df = n -2$.
-
-<br>
-
-*How is* $\text{SE}_{b_1}$ *calculated?* See next slide.
-
-<br>
-
-```{r}
-tidy(model1, conf.int = TRUE)
-```
-
-## Standard error of fitted slope $b_1$
-
-::: columns
-::: {.column width="50%"}
-$$\text{SE}_{b_1} = \frac{s_{\textrm{residuals}}}{s_x\sqrt{n-1}}$$
-:::
-
-::: {.column width="50%"}
-$\text{SE}_{b_1}$ is the **variability** of the statistic $b_1$
-:::
-:::
-
-::: {style="font-size: 90%;"}
-::: columns
-::: {.column width="32%"}
--   $s_{\textrm{residuals}}^2$ is the sd of the residuals
-:::
-
-::: {.column width="1%"}
-:::
-
-::: {.column width="32%"}
--   $s_x$ is the sample sd of the explanatory variable $x$
-:::
-
-::: {.column width="1%"}
-:::
-
-::: {.column width="32%"}
--   $n$ is the sample size, or the number of (complete) pairs of points
-:::
-:::
-:::
-
-```{r}
-glance(model1)
-
-# standard deviation of the residuals (Residual standard error in summary() output)
-(s_resid <- glance(model1)$sigma)
-
-# standard deviation of x's
-(s_x <- sd(gapm$female_literacy_rate_2011))
-
-# number of pairs of complete observations
-(n <- nobs(model1))
-
-(se_b1 <- s_resid/(s_x * sqrt(n-1))) # compare to SE in regression output
-```
-
-## Calculate CI for population [**slope**]{style="color:green"} $\beta_1$
-
-::: columns
-::: {.column width="50%"}
-$$b_1 \pm t^*\cdot SE_{b_1}$$
-:::
-
-::: {.column width="50%"}
-where $t^*$ is the $t$-distribution critical value with $df = n -2$.
-:::
-:::
-
-```{r}
-tidy(model1, conf.int = TRUE) %>% gt()
-```
-
-Save regression output for the row with the slope's information:
-
-```{r}
-model1_b1 <-tidy(model1) %>% filter(term == "female_literacy_rate_2011")
-model1_b1 %>% gt()
-```
-
-::: columns
-::: {.column width="50%"}
-Save values needed for CI:
-
-```{r}
-b1 <- model1_b1$estimate
-SE_b1 <- model1_b1$std.error
-```
-
-```{r}
-nobs(model1) # sample size n
-(tstar <- qt(.975, df = 80-2))
-```
-:::
-
-::: {.column width="50%"}
-Compare CI bounds below with the ones in the regression table above.
-
-```{r}
-(CI_LB <- b1 - tstar*SE_b1)
-(CI_UB <- b1 + tstar*SE_b1)
-```
-:::
-:::
-
-## Hypothesis test for population [**slope**]{style="color:green"} $\beta_1$
-
-::: columns
-::: {.column width="40%"}
-```{=tex}
-\begin{align}
-H_0 &: \beta_1 = 0\\
-\text{vs. } H_A&: \beta_1 \neq 0
-\end{align}
-```
-:::
-
-::: {.column width="60%"}
-The **test statistic** for $b_1$ is
-
-$$t = \frac{ b_1 - \beta_1}{ \text{SE}_{b_1}} = \frac{ b_1}{ \text{SE}_{b_1}}$$
-
-when we assume $H_0: \beta_1 = 0$ is true.
-:::
-:::
-
-```{r}
-tidy(model1, conf.int = TRUE) %>% gt()
-```
-
-Calculate the test statistic using the values in the regression table:
-
-```{r}
-# recall model1_b1 is regression table restricted to b1 row
-(TestStat <- model1_b1$estimate / model1_b1$std.error)
-```
-
-Compare this test statistic value to the one from the regression table
-above
-
-## $p$-value for testing population [**slope**]{style="color:green"} $\beta_1$
-
--   As usual, the $p$-value is the *probability of obtaining a test
-    statistic* **just as extreme or more extreme** *than the observed
-    test statistic assuming the null hypothesis* $H_0$ *is true.*
-
--   To calculate the $p$-value, we need to know the probability
-    distribution of the test statistic (the *null distribution*)
-    assuming $H_0$ is true.
-
--   Statistical theory tells us that the test statistic $t$ can be
-    modeled by a [$t$-distribution]{style="color:green"} with
-    [$df = n-2$]{style="color:green"}.
-
--   Recall that this is a 2-sided test:
-
-```{r}
-(pv = 2*pt(TestStat, df=80-2, lower.tail=F))
-```
-
-Compare the $p$-value to the one from the regression table below
-
-```{r}
-tidy(model1, conf.int = TRUE) %>% gt()  # compare p-value calculated above to p-value in table
-```
-
-# Prediction (& inference)
-
-1.  Prediction for mean response
-2.  Prediction for new individual observation
-
-## Prediction with regression line
-
-```{r}
-#| echo: false
-tidy(model1) %>% gt()
-```
-
-$$\widehat{\textrm{life expectancy}} = 50.9 + 0.232 \cdot \textrm{female literacy rate} $$
-
-What is the predicted life expectancy for a country with female literacy
-rate 60%?
-
-$$\widehat{\textrm{life expectancy}} = 50.9 + 0.232 \cdot 60 = `r 50.9 + 0.232*60`$$
-
-```{r}
-(y_60 <- 50.9 + 0.232*60)
-```
-
-<br>
-
--   How do we interpret the predicted value?
--   How variable is it?
-
-## Prediction with regression line
-
-::: columns
-::: {.column width="50%"}
-Recall the population model:
-
-*line + random "noise"*
-
-$$Y = \beta_0 + \beta_1 \cdot X + \varepsilon$$ with
-$\varepsilon \sim N(0,\sigma)$\
-$\sigma$ is the variability (SD) of the residuals
-
-<br>
-
--   When we take the expected value, at a given value $x^*$, we have
-    that the predicted response is the average expected response at
-    $x^*$:
-
-$$\widehat{E[Y|x^*]} = b_0 + b_1 x^*$$
-:::
-
-::: {.column width="50%"}
-```{r}
-#| echo: false
-#| fig.height: 8.0
-#| fig.width: 8.0
-ggplot(gapm, aes(x = female_literacy_rate_2011,
-                 y = life_expectancy_years_2011)) +
-  geom_point() +
-  labs(x = "female literacy rate", 
-       y = "life expectancy",
-       title = "Life expectancy vs. female literacy rate") +  
-  geom_smooth(method = "lm", se = TRUE) +
-  geom_vline(xintercept = 60, color = "green3")
-```
-:::
-:::
-
--   These are the points on the regression line.
--   The mean responses has variability, and we can calculate a CI for
-    it, for every value of $x^*$.
-
-## CI for mean response $\mu_{Y|x^*}$
-
-$$\widehat{E[Y|x^*]} \pm t_{n-2}^* \cdot SE_{\widehat{E[Y|x^*]}}$$
-
--   $SE_{\widehat{E[Y|x^*]}}$ is calculated using
-
-$$SE_{\widehat{E[Y|x^*]}} = s_{residuals} \sqrt{\frac{1}{n} + \frac{(x^* - \bar{x})^2}{(n-1)s_x^2}}$$
-
--   $\widehat{E[Y|x^*]}$ is the predicted value at the specified point
-    $x^*$ of the explanatory variable
--   $s_{\textrm{residuals}}^2$ is the sd of the residuals
--   $n$ is the sample size, or the number of (complete) pairs of points
--   $\bar{x}$ is the sample mean of the explanatory variable $x$
--   $s_x$ is the sample sd of the explanatory variable $x$
-
-<br>
-
--   Recall that $t_{n-2}^*$ is calculated using `qt()` and depends on
-    the confidence level.
-
-## Example: CI for mean response $\mu_{Y|x^*}$
-
-**Find the 95% CI for the mean life expectancy when the female literacy
-rate is 60.**
-
-::: {style="font-size: 80%;"}
-```{=tex}
-\begin{align}
-\widehat{E[Y|x^*]} &\pm t_{n-2}^* \cdot SE_{\widehat{E[Y|x^*]}}\\
-64.8596 &\pm 1.990847 \cdot s_{residuals} \sqrt{\frac{1}{n} + \frac{(x^* - \bar{x})^2}{(n-1)s_x^2}}\\
-64.8596 &\pm 1.990847 \cdot 6.142157 \sqrt{\frac{1}{80} + \frac{(60 - 81.65375)^2}{(80-1)21.95371^2}}\\
-64.8596 &\pm 1.990847 \cdot 0.9675541\\
-64.8596 &\pm 1.926252\\
-(62.93335 &, 66.78586)
-\end{align}
-```
-:::
-
-::: {style="font-size: 90%;"}
-::: columns
-::: {.column width="50%"}
-```{r}
-(Y60 <- 50.9278981 + 0.2321951 * 60)
-(tstar <- qt(.975, df = 78))
-(s_resid <- glance(model1)$sigma)
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-(n <- nobs(model1))
-(mx <- mean(gapm$female_literacy_rate_2011))
-(s_x <- sd(gapm$female_literacy_rate_2011))
-```
-:::
-:::
-
-```{r}
-(SE_Yx <- s_resid *sqrt(1/n + (60 - mx)^2/((n-1)*s_x^2)))
-```
-
-::: columns
-::: {.column width="32%"}
-```{r}
-(MOE_Yx <- SE_Yx*tstar)
-```
-:::
-
-::: {.column width="1%"}
-:::
-
-::: {.column width="32%"}
-```{r}
-Y60 - MOE_Yx
-```
-:::
-
-::: {.column width="1%"}
-:::
-
-::: {.column width="32%"}
-```{r}
-Y60 + MOE_Yx
-```
-:::
-:::
-:::
-
-## Example: Using R for CI for mean response $\mu_{Y|x^*}$
-
-**Find the 95% CI's for the mean life expectancy when the female
-literacy rate is 40, 60, and 80.**
-
--   Use the base R `predict()` function
--   Requires specification of a `newdata` "value"
-    -   The `newdata` value is $x^*$
-    -   This has to be in the format of a data frame though
-    -   with column name identical to the predictor variable in the
-        model
-
-```{r}
-newdata <- data.frame(female_literacy_rate_2011 = c(40, 60, 80)) 
-newdata
-```
-
-::: columns
-::: {.column width="50%"}
-```{r}
-predict(model1, 
-        newdata=newdata, 
-        interval="confidence")
-```
-:::
-
-::: {.column width="50%"}
-### Interpretation
-
-We are 95% confident that the **average** life expectancy for a country
-with a 60% female literacy rate will be between 62.9 and 66.8 years.
-:::
-:::
-
-## Confidence bands for mean response $\mu_{Y|x^*}$
-
--   Often we plot the CI for many values of X, creating **confidence
-    bands**
--   The confidence bands are what ggplot creates when we set `se = TRUE`
-    within `geom_smooth`
--   For what values of x are the confidence bands (intervals) narrowest?
-
-```{r}
-ggplot(gapm,
-       aes(x=female_literacy_rate_2011, 
-           y=life_expectancy_years_2011)) +
-  geom_point()+
-  geom_smooth(method = lm, se=TRUE)+
-  ggtitle("Life expectancy vs. female literacy rate") 
-```
-
-## Width of confidence bands for mean response $\mu_{Y|x^*}$
-
--   For what values of $x^*$ are the confidence bands (intervals)
-    narrowest? widest?
-
-```{=tex}
-\begin{align}
-\widehat{E[Y|x^*]} &\pm t_{n-2}^* \cdot SE_{\widehat{E[Y|x^*]}}\\
-\widehat{E[Y|x^*]} &\pm t_{n-2}^* \cdot s_{residuals} \sqrt{\frac{1}{n} + \frac{(x^* - \bar{x})^2}{(n-1)s_x^2}}
-\end{align}
-```
-```{r}
-#| echo: false
-ggplot(gapm,
-       aes(x=female_literacy_rate_2011, 
-           y=life_expectancy_years_2011)) +
-  geom_point()+
-  geom_smooth(method = lm, se=TRUE)+
-  ggtitle("Life expectancy vs. female literacy rate") +
-  geom_vline(xintercept = mx, color = "purple")
-```
-
-## Prediction interval for predicting **individual** observations
-
--   We do not call this interval a CI since $Y$ is a random variable
-    instead of a parameter
--   The form is similar to a CI though:
-
-$$\widehat{Y|x^*} \pm t_{n-2}^* \cdot s_{residuals} \sqrt{1 + \frac{1}{n} + \frac{(x^* - \bar{x})^2}{(n-1)s_x^2}}$$
-
--   Note that the only difference to the CI for a mean value of y is the
-    additional `1+` under the square root.
-    -   Thus the width is wider!
-
-## Example: Prediction interval
-
-**Find the 95% prediction interval for the life expectancy when the
-female literacy rate is 60.**
-
-```{=tex}
-\begin{align}
-\widehat{Y|x^*} &\pm t_{n-2}^* \cdot s_{residuals} \sqrt{1 + \frac{1}{n} + \frac{(x^* - \bar{x})^2}{(n-1)s_x^2}}\\
-64.8596 &\pm 1.990847 \cdot 6.142157 \sqrt{1+\frac{1}{80} + \frac{(60 - 81.65375)^2}{(80-1)21.95371^2}}\\
-(52.48072 &, 77.23849)
-\end{align}
-```
-::: {style="font-size: 90%;"}
-::: columns
-::: {.column width="50%"}
-```{r}
-(Y60 <- 50.9278981 + 0.2321951 * 60)
-(tstar <- qt(.975, df = 78))
-(s_resid <- glance(model1)$sigma)
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-(n <- nobs(model1))
-(mx <- mean(gapm$female_literacy_rate_2011))
-(s_x <- sd(gapm$female_literacy_rate_2011))
-```
-:::
-:::
-
-```{r}
-(SE_Ypred <- s_resid *sqrt(1 + 1/n + (60 - mx)^2/((n-1)*s_x^2)))
-```
-
-::: columns
-::: {.column width="36%"}
-```{r}
-(MOE_Ypred <- SE_Ypred*tstar)
-```
-:::
-
-::: {.column width="1%"}
-:::
-
-::: {.column width="30%"}
-```{r}
-Y60 - MOE_Ypred
-```
-:::
-
-::: {.column width="1%"}
-:::
-
-::: {.column width="30%"}
-```{r}
-Y60 + MOE_Ypred
-```
-:::
-:::
-:::
-
-## Example: Using R for prediction interval
-
-**Find the 95% prediction intervals for the life expectancy when the
-female literacy rate is 40, 60, and 80.**
-
-```{r}
-newdata  # previously defined for CI's
-
-predict(model1, 
-        newdata=newdata, 
-        interval="prediction")  # prediction instead of "confidence"
-```
-
-<br>
-
-### Interpretation
-
-We are 95% confident that a new selected country with a 60% female
-literacy rate will have a life expectancy between 52.5 and 77.2 years.
-
-## Prediction bands vs. confidence bands (1/2)
-
-Create a scatterplot with the regression line, 95% confidence bands, and
-95% prediction bands.
-
--   First create a data frame with the original data points (both x and
-    y values), their respective predicted values, andtheir respective
-    prediction intervals
--   Can do this with `augment()` from the `broom` package.
-
-```{r}
-model1_pred_bands <- augment(model1, interval = "prediction")
-
-# take a look at new object:
-names(model1_pred_bands) 
-
-# glimpse of select variables of interest:
-model1_pred_bands %>% 
-  select(life_expectancy_years_2011, female_literacy_rate_2011, 
-         .fitted:.upper) %>% 
-  glimpse()
-```
-
-## Prediction bands vs. confidence bands (2/2)
-
-```{r}
-names(model1_pred_bands) 
-```
-
-```{r}
-ggplot(model1_pred_bands, 
-       aes(x=female_literacy_rate_2011, y=life_expectancy_years_2011)) +
-  geom_point() +
-  geom_ribbon(aes(ymin = .lower, ymax = .upper), # prediction bands
-              alpha = 0.2, fill = "red") +
-  geom_smooth(method=lm) +  # confidence bands
-  labs(title = "SLR with Confidence & Prediction Bands") 
-
-```
-
-# Caution...
-
-## Corrrelation doesn't imply causation`*`!
-
--   This might seem obvious, but make sure to not write your analysis
-    results in a way that implies causation if the study design doesn't
-    warrant it (such as an observational study).
-
--   Beware of spurious correlations:
-    <http://www.tylervigen.com/spurious-correlations>
-
-![](/img_slides/spurious_corr_2.png)
-
--   `*`Caveat: there is a whole field of statistics/epidemiology on
-    causal inference. <https://ftp.cs.ucla.edu/pub/stat_ser/r350.pdf>
-
-## What's next?
-
-<br> <br>
-
-![](/img_slides/flowchart_only_continuous.jpg){fig-align="center"}
+-   Hypothesis testing!

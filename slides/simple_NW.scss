@@ -287,6 +287,36 @@ $presentation-heading-color: #213c96 !default;
   border-radius: 15px;
 }
 
+.hl2{
+  margin-left: 0em;
+  padding-left:  25px;
+  padding-top:  5px;
+  padding-bottom: 0.1em;
+  padding-right:  25px;
+  color: white;
+  background-color: #34AC8B;
+  font-size: 1em;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  border-radius: 15px;
+}
+
+.hl3{
+  margin-left: 0em;
+  padding-left:  25px;
+  padding-top:  5px;
+  padding-bottom: 0.1em;
+  padding-right:  25px;
+  color: white;
+  background-color: #4FADF3;
+  font-size: 1em;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  border-radius: 15px;
+}
+
 
 code.sourceCode {
   font-size: 1.7em;
