@@ -158,7 +158,7 @@ Observe the following two scatter diagrams. Describe the relationships between a
 
 #### Part b
 
-State the simple linear regression models for these two regressions: Y regressed on X and Z regressed on X.
+State the population simple linear regression models for these two regressions: Y regressed on X and Z regressed on X.
 
 ::: {.callout-note appearance="simple"}
 This is asking for the regression models BEFORE you find the values of the coefficients.

@@ -1,7 +1,7 @@
 ---
 title: "Lab 2 Work"
 subtitle: "BSTA 512/612"
-description: "Due: Thursday February 8, 2024"
+description: "Due: Thursday February 8, 2024 at 11pm"
 date-modified: "1/17/2024"
 date: "2/8/2024"
 categories: [""]
@@ -80,7 +80,7 @@ library(here)
 Using R, load the data (`csv` file) into this document. Note that this is a `csv` file that we can load with basic R packages. Name your dataset something that feels intuitive to you and will distinguish it from other datasets that you work with.
 
 ```{r}
-iat_2021_raw = read.csv(file = here("labs", "data", "Weight_IAT.public.2021.csv"))
+iat_2021_raw = read.csv(file = here("../TA_files/Project/data/Weight_IAT.public.2021.csv"))
 ```
 
 Take a glimpse at the data to make sure you loaded it correctly.

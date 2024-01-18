@@ -30,9 +30,11 @@ editor_options:
 
 ## Resources
 
-| Lesson | Topic                    |                                           Slides                                            |                                  Annotated Slides                                  |                           Recording                           |
-|---------------|---------------|:-------------:|:-------------:|:-------------:|
-| 3      | Simple Linear Regression | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/03_SLR.qmd)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
++--------+--------------------------+---------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Lesson | Topic                    | Slides                                                                                      | Annotated Slides                                                                                                      | Recording                                                                                                                                                                                                                                                                                                                                                                    |
++========+==========================+:===========================================================================================:+:=====================================================================================================================:+:============================================================================================================================================================================================================================================================================================================================================================================:+
+| 3      | Simple Linear Regression | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/03_SLR.qmd)]{style="color:#f8f5f0;"} | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/03_SLR_01.pdf)]{style="color:#f8f5f0;"} | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F03%5FSLR%5F01%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"} |
++--------+--------------------------+---------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
 
@@ -73,6 +75,52 @@ For the slides, once they are opened, if you would like to print or save them as
 [[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUN0NNQklQRUxFMFQ5VkxNUUpXTjIzWEcwNC4u)]{style="color:#f8f5f0;"} Wednesday (1/17)
 
 ## Muddiest Points
+
+### 1. What does the epsilon mean and how does it relate to the line in the linear model?
+
+$\epsilon$ is our error term, our residual. It is the difference between our observed value $Y$ and the expected value of $Y$ given $X$. It's a mathematical way to represent the fact that not every oberved $Y$ value directly falls on our line. $\epsilon$ is the difference between our line and our observed value for $Y$.
+
+### 2. Different betas and stuff: make the table for the class!! and epsilon
+
+Below is a table that I started to construct with a student after class. We often use the model or the line to represent linear regression. When we refer to the model, most people think of the row named model. The line is just another way to represent the model. Remember that $\epsilon = Y - E(Y|X)$ and $\widehat\epsilon = Y - \widehat{E}(Y|X)$. Try substituting $\epsilon = Y - E(Y|X)$ into the population model $Y = \beta_0 + \beta_1X + \epsilon$. Does it simplify to the population line?
+
+I think it can help a lot with this confusion.
+
++---------------+----------------------------------------+---------------------------------------------------------------------+
+|               | Population                             | Estimated                                                           |
++===============+:======================================:+:===================================================================:+
+| Model         | $$Y =  \beta_0 + \beta_1X + \epsilon$$ | $$Y = \widehat{\beta}_0 + \widehat{\beta}_1 X + \widehat\epsilon $$ |
++---------------+----------------------------------------+---------------------------------------------------------------------+
+| Line          | $$E(Y|X) = \beta_0 + \beta_1 X $$ OR   | $$\widehat{Y} = \widehat{\beta}_0 + \widehat{\beta}_1 X $$          |
+|               |                                        |                                                                     |
+|               | $$\mu_Y = \beta_0 + \beta_1 X $$       | OR                                                                  |
+|               |                                        |                                                                     |
+|               |                                        | $$                                                                  |
+|               |                                        | \widehat{E}[Y|X] = \widehat{\beta}_0 + \widehat{\beta}_1X           |
+|               |                                        | $$                                                                  |
+|               |                                        |                                                                     |
+|               |                                        | OR                                                                  |
+|               |                                        |                                                                     |
+|               |                                        | $$                                                                  |
+|               |                                        | \widehat{E[Y|X]} = \widehat{\beta}_0 + \widehat{\beta}_1X           |
+|               |                                        | $$                                                                  |
++---------------+----------------------------------------+---------------------------------------------------------------------+
+
+#### 2.1 Someone else asked: Why does the population model have an error term epsilon in the equation but the estimated line does not?
+
+I think this is referring to [this slide](https://nwakim.github.io/W2024_BSTA_512/slides/03_SLR.html#/simple-linear-regression-model-1). This was because I wanted to put the population ***model*** next to the estimated ***line***. I realize this is very confusing. Both estimated and population models can be represented as the lines and models in the above table.
+
+#### 2.2 Someone else asked: Why does the population equation even matter?
+
+Huh, I'm scratching my head with this one. Why does it matter? We basically mirror all the mathematical manipulations with the estimated model anyway...
+
+But then I thought: What would our world or our class lectures look like without the population model? The answer might be more philosophical than mathematical. The representation of the true, underlying model that we are aspiring for with our sample data reminds us that our estimated model is not perfect. That we are just trying out best to uncover some fraction of the truth. And at the end of the day, when we perform hypothesis tests, we're working to provide evidence fro the value of the coefficient parameters from the population model. We know what the estimated values are, but can they help us get an idea of what the parameter values are?
+
+### 3. Math for minimizing SSE (aka OLS process)
+
+I am very sorry that this math was intimidating! Most of us don't need to see the math, but there are a handful of students that should see it, and get a sense of the underlying math. Just wanted to make sure they saw it!
+
+The important things for us to know is the information on the slide for Step 1 and 2, where we talk about the process itself. If I asked you why we minimize the SSE with respect to our coefficients, would you be able to answer?
 
 ```{r}
 #| echo: false

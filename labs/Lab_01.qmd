@@ -1,7 +1,7 @@
 ---
 title: "Lab 1"
 subtitle: "BSTA 512/612"
-description: "Due: Thursday January 18, 2024"
+description: "Due: Thursday January 18, 2024 at 11pm"
 date-modified: "1/5/2024"
 date: "1/18/2024"
 categories: [""]
@@ -66,6 +66,8 @@ Please read sections 1 - 2, through 2.2 ("Procedures and measures"). Answer the 
     -   Awareness of societal standards
 
     -   Internalization of societal standards
+
+    For example, for Self-perception of weight, the italicized statement is the following statement outlined in red:![](images/example_lab_01.png)
 
 #### 1.2 Podcast: [Anti-Fat Bias by Maintenance Phase](https://maintenancephase.buzzsprout.com/1411126/6524683-anti-fat-bias)
 
