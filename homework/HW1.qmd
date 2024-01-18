@@ -36,7 +36,7 @@ library(here)
 
 -   [Download the `.qmd` file here.](https://github.com/nwakim/W2024_BSTA_512/blob/main/homework/HW1.qmd)
 
--   You will need to download the datasets. Use [this link to download](https://ohsuitg-my.sharepoint.com/:f:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W2024_BSTA_512_612/Student_files/Data/HW1?csf=1&web=1&e=gwjUHZ) the HW1 datasets needed in this assignment. If you do not want to make changes to the paths set in this document, then make sure the files are stored in a folder named "data" that is housed in the same location as your HW1 `.qmd` file.
+-   You will need to download the datasets. Use [this link to download](https://ohsuitg-my.sharepoint.com/:f:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W2024_BSTA_512_612/Student_files/Data/Homework/HW1?csf=1&web=1&e=fPDqYu) the HW1 datasets needed in this assignment. If you do not want to make changes to the paths set in this document, then make sure the files are stored in a folder named "data" that is housed in the same location as your HW1 `.qmd` file.
 
 -   Please upload your homework to Sakai. **Upload both your `.qmd` code file and the rendered `.html` file**
 
