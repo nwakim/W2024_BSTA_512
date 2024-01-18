@@ -80,6 +80,6 @@ E-mail or Slack is the best way to get in contact with me. I will try to respond
 :::
 
 ::: g-col-3
-[{{< iconify icomoon-free github size=24px >}} View the source on GitHub](https://github.com/nwakim/F2023_BSTA_550)
+[{{< iconify icomoon-free github size=24px >}} View the source on GitHub](https://github.com/nwakim/W2024_BSTA_512)
 :::
 :::
