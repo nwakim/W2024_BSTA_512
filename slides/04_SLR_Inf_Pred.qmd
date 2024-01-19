@@ -1,0 +1,764 @@
+---
+title: "SLR: Inference and Prediction"
+author: "Nicky Wakim"
+title-slide-attributes:
+    data-background-color: "#213c96"
+date: "01/17/2023"
+categories: ["Week 1"]
+format: 
+  revealjs:
+    theme: [default, simple_NW.scss]
+    toc: true
+    toc-depth: 1
+    toc-title: Class Overview
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1955
+    height: 1100
+    footer: SLR 1
+    html-math-method: mathjax
+    highlight-style: ayu
+execute:
+  echo: true
+  freeze: auto  # re-render only when source changes
+---
+
+```{r}
+#| label: "setup" 
+#| include: false
+#| message: false
+#| warning: false
+
+library(tidyverse)    
+library(openintro)
+library(janitor)
+library(rstatix)
+library(knitr)
+library(gtsummary)
+library(moderndive)
+library(gt)
+library(broom) 
+library(here) 
+library(pwr) 
+library(gridExtra) # NEW!!!
+
+# terminal: for icons
+# quarto install extension quarto-ext/fontawesome
+
+# set ggplot theme for slides 
+theme_set(theme_gray(base_size = 22))
+# theme_update(text = element_text(size=16))  # set global text size for ggplots
+
+```
+
+
+```{r}
+gapm <- read_csv("data/lifeexp_femlit_2011.csv")
+```
+
+```{r}
+# Fit regression model:
+model1 <- lm(life_expectancy_years_2011 ~ female_literacy_rate_2011,
+             data = gapm)
+
+# some output, but not complete
+model1
+```
+
+## vfknmbv
+
+```{r}
+summary(model1)
+
+# Regression table:
+# library(broom)  # for tidy() command
+# library(gt)  # for gt() command
+tidy(model1) %>% gt()
+```
+
+
+# Learning Objectives
+
+1.  Estimate the variance?
+1.  Inference for population [**slope**]{style="color:green"} $\beta_1$
+2.  CI for mean response $\mu_{Y|x^*}$
+3.  Prediction interval for predicting **individual** observations
+
+## Topics
+
+Day 3: slide 13-end
+
+-   Inference for slope and intercept
+
+    -   CI’s and hypothesis tests
+
+-   Inference for mean value of y at specific values of x
+
+    -   Confidence bands of best-fit line
+
+-   Inference for the estimated variance???
+
+-   Prediction intervals for individual predictions
+
+    -   Prediction bands
+
+
+# Regression inference
+
+1.  Inference for population [**slope**]{style="color:green"} $\beta_1$
+2.  CI for mean response $\mu_{Y|x^*}$
+3.  Prediction interval for predicting **individual** observations
+
+## $\widehat\sigma^2$: Needed ingredient for inference
+
+* Recall that the *variance* of the errors (residuals) is estimated by $\widehat{\sigma}^2$:
+
+$$\widehat{\sigma}^2 = S_{y|x}^2= \frac{1}{n-2}\sum_{i=1}^n (y_i - \widehat{y}_i)^2 =\frac{1}{n-2}SSE = MSE$$
+* The *standard deviation* $\widehat{\sigma}$ is given in the R output as the `Residual standard error`, 
+    * $4^{th}$ line from the bottom in the `summary()` output of the model:
+
+```{r}
+summary(model1)
+# number of observations (pairs of data) used to run the model
+nobs(model1) 
+```
+
+* Using the `Residual standard error`, we can calculate the SSE:
+
+$$\widehat{\sigma}^2 = \frac{1}{n-2}SSE\\
+6.142^2 = \frac{1}{80-2}SSE\\
+SSE = 78 \cdot 6.142^2 = `r 78 * 6.142^2` $$
+
+* `r 78 * 6.142^2` is the smallest sums of squares of all possible regression lines through the data. 
+
+## Inference for population [**slope**]{style="color:green"} $\beta_1$
+
+```{r}
+# Fit regression model:
+model1 <- lm(life_expectancy_years_2011 ~ female_literacy_rate_2011,
+                 data = gapm)
+# Get regression table:
+tidy(model1, conf.int = TRUE) %>% gt() # conf.int = TRUE part is new! 
+```
+
+```{=tex}
+\begin{align}
+\widehat{y} =& b_0 + b_1 \cdot x\\
+\widehat{\text{life expectancy}} =& 50.9 + 0.232 \cdot \text{female literacy rate}
+\end{align}
+```
+-   What are $H_0$ and $H_A$?
+-   How do we calculate the standard error, statistic, *p*-value, and
+    CI?
+
+::: callout-note
+-   We can also test & calculate CI for the population intercept
+-   This will be covered in BSTA 512
+:::
+
+## Inference for the population [**slope**]{style="color:green"}: CI and hypothesis test
+
+::: columns
+::: {.column width="50%"}
+**Population model**\
+*line + random "noise"*
+
+$$Y = \beta_0 + \beta_1 \cdot X + \varepsilon$$ with
+$\varepsilon \sim N(0,\sigma)$\
+$\sigma$ is the variability (SD) of the residuals
+
+<br>
+
+**Sample best-fit (least-squares) line:**
+
+$$\widehat{y} = b_0 + b_1 \cdot x $$
+
+Note: Some sources use $\widehat{\beta}$ instead of $b$.
+:::
+
+::: {.column width="50%"}
+-   Construct a **95% confidence interval** for the **population slope**
+    $\beta_1$
+
+<br>
+
+-   Conduct the **hypothesis test**
+
+```{=tex}
+\begin{align}
+H_0 &: \beta_1 = 0\\
+\text{vs. } H_A&: \beta_1 \neq 0
+\end{align}
+```
+<br>
+
+*Note: R reports p-values for 2-sided tests*
+:::
+:::
+
+## CI for population [**slope**]{style="color:green"} $\beta_1$
+
+Recall the general CI formula:
+
+$$\textrm{Point Estimate} \pm t^*\cdot SE_{\textrm{Point Estimate}}$$
+
+For the CI of the coefficient $b_1$ this translates to
+
+$$b_1 \pm t^*\cdot SE_{b_1}$$ where $t^*$ is the critical value from a
+$t$-distribution with $df = n -2$.
+
+<br>
+
+*How is* $\text{SE}_{b_1}$ *calculated?* See next slide.
+
+<br>
+
+```{r}
+tidy(model1, conf.int = TRUE)
+```
+
+## Standard error of fitted slope $b_1$
+
+::: columns
+::: {.column width="50%"}
+$$\text{SE}_{b_1} = \frac{s_{\textrm{residuals}}}{s_x\sqrt{n-1}}$$
+:::
+
+::: {.column width="50%"}
+$\text{SE}_{b_1}$ is the **variability** of the statistic $b_1$
+:::
+:::
+
+::: {style="font-size: 90%;"}
+::: columns
+::: {.column width="32%"}
+-   $s_{\textrm{residuals}}^2$ is the sd of the residuals
+:::
+
+::: {.column width="1%"}
+:::
+
+::: {.column width="32%"}
+-   $s_x$ is the sample sd of the explanatory variable $x$
+:::
+
+::: {.column width="1%"}
+:::
+
+::: {.column width="32%"}
+-   $n$ is the sample size, or the number of (complete) pairs of points
+:::
+:::
+:::
+
+```{r}
+glance(model1)
+
+# standard deviation of the residuals (Residual standard error in summary() output)
+(s_resid <- glance(model1)$sigma)
+
+# standard deviation of x's
+(s_x <- sd(gapm$female_literacy_rate_2011))
+
+# number of pairs of complete observations
+(n <- nobs(model1))
+
+(se_b1 <- s_resid/(s_x * sqrt(n-1))) # compare to SE in regression output
+```
+
+## Calculate CI for population [**slope**]{style="color:green"} $\beta_1$
+
+::: columns
+::: {.column width="50%"}
+$$b_1 \pm t^*\cdot SE_{b_1}$$
+:::
+
+::: {.column width="50%"}
+where $t^*$ is the $t$-distribution critical value with $df = n -2$.
+:::
+:::
+
+```{r}
+tidy(model1, conf.int = TRUE) %>% gt()
+```
+
+Save regression output for the row with the slope's information:
+
+```{r}
+model1_b1 <-tidy(model1) %>% filter(term == "female_literacy_rate_2011")
+model1_b1 %>% gt()
+```
+
+::: columns
+::: {.column width="50%"}
+Save values needed for CI:
+
+```{r}
+b1 <- model1_b1$estimate
+SE_b1 <- model1_b1$std.error
+```
+
+```{r}
+nobs(model1) # sample size n
+(tstar <- qt(.975, df = 80-2))
+```
+:::
+
+::: {.column width="50%"}
+Compare CI bounds below with the ones in the regression table above.
+
+```{r}
+(CI_LB <- b1 - tstar*SE_b1)
+(CI_UB <- b1 + tstar*SE_b1)
+```
+:::
+:::
+
+## Hypothesis test for population [**slope**]{style="color:green"} $\beta_1$
+
+::: columns
+::: {.column width="40%"}
+```{=tex}
+\begin{align}
+H_0 &: \beta_1 = 0\\
+\text{vs. } H_A&: \beta_1 \neq 0
+\end{align}
+```
+:::
+
+::: {.column width="60%"}
+The **test statistic** for $b_1$ is
+
+$$t = \frac{ b_1 - \beta_1}{ \text{SE}_{b_1}} = \frac{ b_1}{ \text{SE}_{b_1}}$$
+
+when we assume $H_0: \beta_1 = 0$ is true.
+:::
+:::
+
+```{r}
+tidy(model1, conf.int = TRUE) %>% gt()
+```
+
+Calculate the test statistic using the values in the regression table:
+
+```{r}
+# recall model1_b1 is regression table restricted to b1 row
+(TestStat <- model1_b1$estimate / model1_b1$std.error)
+```
+
+Compare this test statistic value to the one from the regression table
+above
+
+## $p$-value for testing population [**slope**]{style="color:green"} $\beta_1$
+
+-   As usual, the $p$-value is the *probability of obtaining a test
+    statistic* **just as extreme or more extreme** *than the observed
+    test statistic assuming the null hypothesis* $H_0$ *is true.*
+
+-   To calculate the $p$-value, we need to know the probability
+    distribution of the test statistic (the *null distribution*)
+    assuming $H_0$ is true.
+
+-   Statistical theory tells us that the test statistic $t$ can be
+    modeled by a [$t$-distribution]{style="color:green"} with
+    [$df = n-2$]{style="color:green"}.
+
+-   Recall that this is a 2-sided test:
+
+```{r}
+(pv = 2*pt(TestStat, df=80-2, lower.tail=F))
+```
+
+Compare the $p$-value to the one from the regression table below
+
+```{r}
+tidy(model1, conf.int = TRUE) %>% gt()  # compare p-value calculated above to p-value in table
+```
+
+# Prediction (& inference)
+
+1.  Prediction for mean response
+2.  Prediction for new individual observation
+
+## Prediction with regression line
+
+```{r}
+#| echo: false
+tidy(model1) %>% gt()
+```
+
+$$\widehat{\textrm{life expectancy}} = 50.9 + 0.232 \cdot \textrm{female literacy rate} $$
+
+What is the predicted life expectancy for a country with female literacy
+rate 60%?
+
+$$\widehat{\textrm{life expectancy}} = 50.9 + 0.232 \cdot 60 = `r 50.9 + 0.232*60`$$
+
+```{r}
+(y_60 <- 50.9 + 0.232*60)
+```
+
+<br>
+
+-   How do we interpret the predicted value?
+-   How variable is it?
+
+## Prediction with regression line
+
+::: columns
+::: {.column width="50%"}
+Recall the population model:
+
+*line + random "noise"*
+
+$$Y = \beta_0 + \beta_1 \cdot X + \varepsilon$$ with
+$\varepsilon \sim N(0,\sigma)$\
+$\sigma$ is the variability (SD) of the residuals
+
+<br>
+
+-   When we take the expected value, at a given value $x^*$, we have
+    that the predicted response is the average expected response at
+    $x^*$:
+
+$$\widehat{E[Y|x^*]} = b_0 + b_1 x^*$$
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig.height: 8.0
+#| fig.width: 8.0
+ggplot(gapm, aes(x = female_literacy_rate_2011,
+                 y = life_expectancy_years_2011)) +
+  geom_point() +
+  labs(x = "female literacy rate", 
+       y = "life expectancy",
+       title = "Life expectancy vs. female literacy rate") +  
+  geom_smooth(method = "lm", se = TRUE) +
+  geom_vline(xintercept = 60, color = "green3")
+```
+:::
+:::
+
+-   These are the points on the regression line.
+-   The mean responses has variability, and we can calculate a CI for
+    it, for every value of $x^*$.
+
+## CI for mean response $\mu_{Y|x^*}$
+
+$$\widehat{E[Y|x^*]} \pm t_{n-2}^* \cdot SE_{\widehat{E[Y|x^*]}}$$
+
+-   $SE_{\widehat{E[Y|x^*]}}$ is calculated using
+
+$$SE_{\widehat{E[Y|x^*]}} = s_{residuals} \sqrt{\frac{1}{n} + \frac{(x^* - \bar{x})^2}{(n-1)s_x^2}}$$
+
+-   $\widehat{E[Y|x^*]}$ is the predicted value at the specified point
+    $x^*$ of the explanatory variable
+-   $s_{\textrm{residuals}}^2$ is the sd of the residuals
+-   $n$ is the sample size, or the number of (complete) pairs of points
+-   $\bar{x}$ is the sample mean of the explanatory variable $x$
+-   $s_x$ is the sample sd of the explanatory variable $x$
+
+<br>
+
+-   Recall that $t_{n-2}^*$ is calculated using `qt()` and depends on
+    the confidence level.
+
+## Example: CI for mean response $\mu_{Y|x^*}$
+
+**Find the 95% CI for the mean life expectancy when the female literacy
+rate is 60.**
+
+::: {style="font-size: 80%;"}
+```{=tex}
+\begin{align}
+\widehat{E[Y|x^*]} &\pm t_{n-2}^* \cdot SE_{\widehat{E[Y|x^*]}}\\
+64.8596 &\pm 1.990847 \cdot s_{residuals} \sqrt{\frac{1}{n} + \frac{(x^* - \bar{x})^2}{(n-1)s_x^2}}\\
+64.8596 &\pm 1.990847 \cdot 6.142157 \sqrt{\frac{1}{80} + \frac{(60 - 81.65375)^2}{(80-1)21.95371^2}}\\
+64.8596 &\pm 1.990847 \cdot 0.9675541\\
+64.8596 &\pm 1.926252\\
+(62.93335 &, 66.78586)
+\end{align}
+```
+:::
+
+::: {style="font-size: 90%;"}
+::: columns
+::: {.column width="50%"}
+```{r}
+(Y60 <- 50.9278981 + 0.2321951 * 60)
+(tstar <- qt(.975, df = 78))
+(s_resid <- glance(model1)$sigma)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+(n <- nobs(model1))
+(mx <- mean(gapm$female_literacy_rate_2011))
+(s_x <- sd(gapm$female_literacy_rate_2011))
+```
+:::
+:::
+
+```{r}
+(SE_Yx <- s_resid *sqrt(1/n + (60 - mx)^2/((n-1)*s_x^2)))
+```
+
+::: columns
+::: {.column width="32%"}
+```{r}
+(MOE_Yx <- SE_Yx*tstar)
+```
+:::
+
+::: {.column width="1%"}
+:::
+
+::: {.column width="32%"}
+```{r}
+Y60 - MOE_Yx
+```
+:::
+
+::: {.column width="1%"}
+:::
+
+::: {.column width="32%"}
+```{r}
+Y60 + MOE_Yx
+```
+:::
+:::
+:::
+
+## Example: Using R for CI for mean response $\mu_{Y|x^*}$
+
+**Find the 95% CI's for the mean life expectancy when the female
+literacy rate is 40, 60, and 80.**
+
+-   Use the base R `predict()` function
+-   Requires specification of a `newdata` "value"
+    -   The `newdata` value is $x^*$
+    -   This has to be in the format of a data frame though
+    -   with column name identical to the predictor variable in the
+        model
+
+```{r}
+newdata <- data.frame(female_literacy_rate_2011 = c(40, 60, 80)) 
+newdata
+```
+
+::: columns
+::: {.column width="50%"}
+```{r}
+predict(model1, 
+        newdata=newdata, 
+        interval="confidence")
+```
+:::
+
+::: {.column width="50%"}
+### Interpretation
+
+We are 95% confident that the **average** life expectancy for a country
+with a 60% female literacy rate will be between 62.9 and 66.8 years.
+:::
+:::
+
+## Confidence bands for mean response $\mu_{Y|x^*}$
+
+-   Often we plot the CI for many values of X, creating **confidence
+    bands**
+-   The confidence bands are what ggplot creates when we set `se = TRUE`
+    within `geom_smooth`
+-   For what values of x are the confidence bands (intervals) narrowest?
+
+```{r}
+ggplot(gapm,
+       aes(x=female_literacy_rate_2011, 
+           y=life_expectancy_years_2011)) +
+  geom_point()+
+  geom_smooth(method = lm, se=TRUE)+
+  ggtitle("Life expectancy vs. female literacy rate") 
+```
+
+## Width of confidence bands for mean response $\mu_{Y|x^*}$
+
+-   For what values of $x^*$ are the confidence bands (intervals)
+    narrowest? widest?
+
+```{=tex}
+\begin{align}
+\widehat{E[Y|x^*]} &\pm t_{n-2}^* \cdot SE_{\widehat{E[Y|x^*]}}\\
+\widehat{E[Y|x^*]} &\pm t_{n-2}^* \cdot s_{residuals} \sqrt{\frac{1}{n} + \frac{(x^* - \bar{x})^2}{(n-1)s_x^2}}
+\end{align}
+```
+```{r}
+#| echo: false
+ggplot(gapm,
+       aes(x=female_literacy_rate_2011, 
+           y=life_expectancy_years_2011)) +
+  geom_point()+
+  geom_smooth(method = lm, se=TRUE)+
+  ggtitle("Life expectancy vs. female literacy rate") +
+  geom_vline(xintercept = mx, color = "purple")
+```
+
+## Prediction interval for predicting **individual** observations
+
+-   We do not call this interval a CI since $Y$ is a random variable
+    instead of a parameter
+-   The form is similar to a CI though:
+
+$$\widehat{Y|x^*} \pm t_{n-2}^* \cdot s_{residuals} \sqrt{1 + \frac{1}{n} + \frac{(x^* - \bar{x})^2}{(n-1)s_x^2}}$$
+
+-   Note that the only difference to the CI for a mean value of y is the
+    additional `1+` under the square root.
+    -   Thus the width is wider!
+
+## Example: Prediction interval
+
+**Find the 95% prediction interval for the life expectancy when the
+female literacy rate is 60.**
+
+```{=tex}
+\begin{align}
+\widehat{Y|x^*} &\pm t_{n-2}^* \cdot s_{residuals} \sqrt{1 + \frac{1}{n} + \frac{(x^* - \bar{x})^2}{(n-1)s_x^2}}\\
+64.8596 &\pm 1.990847 \cdot 6.142157 \sqrt{1+\frac{1}{80} + \frac{(60 - 81.65375)^2}{(80-1)21.95371^2}}\\
+(52.48072 &, 77.23849)
+\end{align}
+```
+::: {style="font-size: 90%;"}
+::: columns
+::: {.column width="50%"}
+```{r}
+(Y60 <- 50.9278981 + 0.2321951 * 60)
+(tstar <- qt(.975, df = 78))
+(s_resid <- glance(model1)$sigma)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+(n <- nobs(model1))
+(mx <- mean(gapm$female_literacy_rate_2011))
+(s_x <- sd(gapm$female_literacy_rate_2011))
+```
+:::
+:::
+
+```{r}
+(SE_Ypred <- s_resid *sqrt(1 + 1/n + (60 - mx)^2/((n-1)*s_x^2)))
+```
+
+::: columns
+::: {.column width="36%"}
+```{r}
+(MOE_Ypred <- SE_Ypred*tstar)
+```
+:::
+
+::: {.column width="1%"}
+:::
+
+::: {.column width="30%"}
+```{r}
+Y60 - MOE_Ypred
+```
+:::
+
+::: {.column width="1%"}
+:::
+
+::: {.column width="30%"}
+```{r}
+Y60 + MOE_Ypred
+```
+:::
+:::
+:::
+
+## Example: Using R for prediction interval
+
+**Find the 95% prediction intervals for the life expectancy when the
+female literacy rate is 40, 60, and 80.**
+
+```{r}
+newdata  # previously defined for CI's
+
+predict(model1, 
+        newdata=newdata, 
+        interval="prediction")  # prediction instead of "confidence"
+```
+
+<br>
+
+### Interpretation
+
+We are 95% confident that a new selected country with a 60% female
+literacy rate will have a life expectancy between 52.5 and 77.2 years.
+
+## Prediction bands vs. confidence bands (1/2)
+
+Create a scatterplot with the regression line, 95% confidence bands, and
+95% prediction bands.
+
+-   First create a data frame with the original data points (both x and
+    y values), their respective predicted values, andtheir respective
+    prediction intervals
+-   Can do this with `augment()` from the `broom` package.
+
+```{r}
+model1_pred_bands <- augment(model1, interval = "prediction")
+
+# take a look at new object:
+names(model1_pred_bands) 
+
+# glimpse of select variables of interest:
+model1_pred_bands %>% 
+  select(life_expectancy_years_2011, female_literacy_rate_2011, 
+         .fitted:.upper) %>% 
+  glimpse()
+```
+
+## Prediction bands vs. confidence bands (2/2)
+
+```{r}
+names(model1_pred_bands) 
+```
+
+```{r}
+ggplot(model1_pred_bands, 
+       aes(x=female_literacy_rate_2011, y=life_expectancy_years_2011)) +
+  geom_point() +
+  geom_ribbon(aes(ymin = .lower, ymax = .upper), # prediction bands
+              alpha = 0.2, fill = "red") +
+  geom_smooth(method=lm) +  # confidence bands
+  labs(title = "SLR with Confidence & Prediction Bands") 
+
+```
+
+# Caution...
+
+## Corrrelation doesn't imply causation`*`!
+
+-   This might seem obvious, but make sure to not write your analysis
+    results in a way that implies causation if the study design doesn't
+    warrant it (such as an observational study).
+
+-   Beware of spurious correlations:
+    <http://www.tylervigen.com/spurious-correlations>
+
+![](/img_slides/spurious_corr_2.png)
+
+-   `*`Caveat: there is a whole field of statistics/epidemiology on
+    causal inference. <https://ftp.cs.ucla.edu/pub/stat_ser/r350.pdf>
+
+## What's next?
+
+<br> <br>
+
+![](/img_slides/flowchart_only_continuous.jpg){fig-align="center"}

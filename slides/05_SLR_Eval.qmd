@@ -1,0 +1,648 @@
+---
+title: "SLR: Model Evaluation"
+author: "Nicky Wakim"
+title-slide-attributes:
+    data-background-color: "#213c96"
+date: "01/17/2023"
+categories: ["Week 1"]
+format: 
+  revealjs:
+    theme: [default, simple_NW.scss]
+    toc: true
+    toc-depth: 1
+    toc-title: Class Overview
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1955
+    height: 1100
+    footer: SLR 1
+    html-math-method: mathjax
+    highlight-style: ayu
+execute:
+  echo: true
+  freeze: auto  # re-render only when source changes
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+```{r}
+#| label: "setup" 
+#| include: false
+#| message: false
+#| warning: false
+
+library(tidyverse)    
+library(openintro)
+library(janitor)
+library(rstatix)
+library(knitr)
+library(gtsummary)
+library(moderndive)
+library(gt)
+library(broom) 
+library(here) 
+library(pwr) 
+library(gridExtra) # NEW!!!
+
+# terminal: for icons
+# quarto install extension quarto-ext/fontawesome
+
+# set ggplot theme for slides 
+theme_set(theme_gray(base_size = 22))
+# theme_update(text = element_text(size=16))  # set global text size for ggplots
+
+```
+
+```{r}
+gapm <- read_csv("data/lifeexp_femlit_2011.csv")
+```
+
+# Learning Objectives
+
+1.  Identify the aims of your research and see how they align with the
+    intended purpose of simple linear regression
+
+2.  Identify the simple linear regression model and define statistics
+    language for key notation
+
+3.  Illustrate how ordinary least squares (OLS) finds the best model
+    parameter estimates
+
+4.  Solve the optimal coefficient estimates for simple linear regression
+    using OLS
+
+5.  Apply OLS in R for simple linear regression of real data
+
+## Topics
+
+
+-   LINE assumptions
+
+-   checking assumptions
+-   residual analysis
+-   outlier detection 
+
+# Next class???
+
+## What are the LINE conditions?
+
+For "good" model fit and to be able to make inferences and predictions
+based on our models, 4 conditions need to be satisfied.
+
+Briefly:
+
+-   **L** inearity of relationship between variables
+-   **I** ndependence of the Y values
+-   **N** ormality of the residuals
+-   **E** quality of variance of the residuals (homoscedasticity)
+
+[More in
+depth](https://bookdown.org/roback/bookdown-bysh/ch-MLRreview.html#ordinary-least-squares-ols-assumptions):
+
+-   **L** : there is a linear relationship between the mean response (Y)
+    and the explanatory variable (X),
+-   **I** : the errors are independent—there’s no connection between how
+    far any two points lie from the regression line,
+-   **N** : the responses are normally distributed at each level of X,
+    and
+-   **E** : the variance or, equivalently, the standard deviation of the
+    responses is equal for all levels of X.
+
+## L: Linearity of relationship between variables
+
+Is the association between the variables linear?
+
+-   Diagnostic tools:
+    -   Scatterplot
+    -   Residual plot (see later section for E : Equality of variance of
+        the residuals)
+
+```{r}
+#| echo: false
+#| fig.width: 12.0
+#| fig.height: 7.0
+ggplot(gapm, aes(x = female_literacy_rate_2011,
+                 y = life_expectancy_years_2011)) +
+  geom_point() +
+  labs(x = "female literacy rate", 
+       y = "life expectancy",
+       title = "Life expectancy vs. female literacy rate in 2011") +  
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_smooth(se = FALSE, color = "black")
+```
+
+## I: Independence of the residuals ($Y$ values)
+
+-   **Are the data points independent of each other?**
+
+-   Examples of when they are *not* independent, include
+
+    -   repeated measures (such as baseline, 3 months, 6 months)
+    -   data from clusters, such as different hospitals or families
+
+-   This condition is checked by reviewing the study *design* and not by
+    inspecting the data
+
+-   How to analyze data using regression models when the $Y$-values are
+    not independent is covered in BSTA 519 (Longitudinal data)
+
+# N: Normality of the residuals
+
+-   Extract residuals from regression model in R
+-   Diagnostic tools:
+    -   Distribution plots of residuals
+    -   QQ plots
+
+## N: Normality of the residuals
+
+-   The responses Y are normally distributed at each level of x
+
+![](/img_slides/OLSassumptions-1.png){fig-align="center"}
+
+::: {style="font-size: 60%;"}
+<https://bookdown.org/roback/bookdown-bysh/ch-MLRreview.html#ordinary-least-squares-ols-assumptions>
+:::
+
+## Extract model's residuals in R
+
+-   First extract the residuals' values from the model output using the
+    `augment()` function from the `broom` package.
+-   Get a tibble with the orginal data, as well as the residuals and
+    some other important values.
+
+```{r}
+model1 <- lm(life_expectancy_years_2011 ~ female_literacy_rate_2011, 
+                data = gapm)
+aug1 <- augment(model1) 
+
+glimpse(aug1)
+```
+
+## Check normality with "usual" distribution plots
+
+Note that below I save each figure, and then combine them together in
+one row of output using `grid.arrange()` from the `gridExtra` package.
+
+```{r}
+#| fig.height: 4.0
+#| fig.width: 12.0
+hist1 <- ggplot(aug1, aes(x = .resid)) +
+  geom_histogram()
+
+density1 <- ggplot(aug1, aes(x = .resid)) +
+  geom_density()
+
+box1 <- ggplot(aug1, aes(x = .resid)) +
+  geom_boxplot()
+
+library(gridExtra) # NEW!!!
+grid.arrange(hist1, density1, box1, nrow = 1)
+```
+
+## Normal QQ plots (QQ = quantile-quantile)
+
+-   It can be tricky to eyeball with a histogram or density plot whether
+    the residuals are normal or not
+-   QQ plots are often used to help with this
+
+::: columns
+::: {.column width="60%"}
+-   *Vertical axis*: **data quantiles**
+    -   data points are sorted in order and
+    -   assigned quantiles based on how many data points there are
+-   *Horizontal axis*: **theoretical quantiles**
+    -   mean and standard deviation (SD) calculated from the data points
+    -   theoretical quantiles are calculated for each point, assuming
+        the data are modeled by a normal distribution with the mean and
+        SD of the data
+:::
+
+::: {.column width="40%"}
+```{r}
+#| fig.width: 5.0
+#| fig.height: 5.0
+#| echo: false
+ggplot(aug1, aes(sample = .resid)) + 
+  stat_qq() +     # points
+  stat_qq_line()  # line
+```
+:::
+:::
+
+-   **Data are approximately normal if points fall on a line.**
+
+See more info at
+<https://data.library.virginia.edu/understanding-QQ-plots/>
+
+## Examples of Normal QQ plots (1/5)
+
+-   **Data**:
+    -   Body measurements from 507 physically active individuals
+    -   in their 20's or early 30's
+    -   within normal weight range.
+
+![](/img_slides/qq_wristdiam.png){fig-align="center"}
+
+## Examples of Normal QQ plots (2/5)
+
+Skewed right distribution
+
+<br>
+
+![](/img_slides/qq_weights.png){fig-align="center"}
+
+## Examples of Normal QQ plots (3/5)
+
+Long tails in distribution
+
+<br>
+
+![](/img_slides/qq_biliac.png){fig-align="center"}
+
+## Examples of Normal QQ plots (4/5)
+
+Bimodal distribution
+
+<br>
+
+![](/img_slides/qq_forearm.png){fig-align="center"}
+
+## Examples of Normal QQ plots (5/5)
+
+![](/img_slides/qq_forearm_gender.png){fig-align="center"}
+
+## QQ plot of residuals of `model1`
+
+```{r}
+#| fig.width: 12.0
+#| fig.height: 3.0
+#| echo: false
+grid.arrange(hist1, density1, box1, nrow = 1)
+```
+
+::: columns
+::: {.column width="50%"}
+<br>
+
+```{r}
+#| label: QQresid
+#| fig.show: hide
+#| fig.width: 5.0
+#| fig.height: 5.0
+
+ggplot(aug1, aes(sample = .resid)) + 
+  stat_qq() +     # points
+  stat_qq_line()  # line
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: QQresid
+#| echo: false
+#| fig.width: 5.0
+#| fig.height: 4.0
+```
+:::
+:::
+
+## Compare to randomly generated Normal QQ plots
+
+How "*good*" we can expect a QQ plot to look depends on the sample size.
+
+-   The QQ plots on the next slides are randomly generated
+
+    -   using random samples from actual standard normal distributions
+        $N(0,1)$.
+
+-   Thus, all the points in the QQ plots **should theoretically** fall
+    in a line
+
+-   However, there is sampling variability...
+
+## Randomly generated Normal QQ plots: n=100
+
+-   Note that `stat_qq_line()` doesn't work with randomly generated
+    samples, and thus the code below manually creates the line that the
+    points should be on (which is $y=x$ in this case.)
+
+::: columns
+::: {.column width="50%"}
+::: {style="font-size: 90%;"}
+```{r}
+#| fig.height: 5.0
+#| fig.width: 5.0
+samplesize <- 100
+
+rand_qq1 <- ggplot() +
+  stat_qq(aes(sample = rnorm(samplesize))) + 
+  # line y=x
+  geom_abline(intercept = 0, slope = 1, 
+              color = "blue") 
+
+rand_qq2 <- ggplot() +
+  stat_qq(aes(sample = rnorm(samplesize))) + 
+  geom_abline(intercept = 0, slope = 1, 
+              color = "blue")
+
+rand_qq3 <- ggplot() +
+  stat_qq(aes(sample = rnorm(samplesize))) + 
+  geom_abline(intercept = 0, slope = 1, 
+              color = "blue")
+
+rand_qq4 <- ggplot() +
+  stat_qq(aes(sample = rnorm(samplesize))) + 
+  geom_abline(intercept = 0, slope = 1, 
+              color = "blue")
+```
+:::
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig.height: 8.0
+#| fig.width: 8.0
+
+grid.arrange(rand_qq1, rand_qq2, 
+             rand_qq3, rand_qq4, ncol =2)
+```
+:::
+:::
+
+## Examples of simulated Normal QQ plots: n=10
+
+With fewer data points,
+
+-   simulated QQ plots are more likely to look "less normal"
+-   even though the data points were sampled from normal distributions.
+
+::: columns
+::: {.column width="50%"}
+::: {style="font-size: 90%;"}
+```{r}
+#| fig.height: 5.0
+#| fig.width: 5.0
+samplesize <- 10  # only change made to code!
+
+rand_qq1 <- ggplot() +
+  stat_qq(aes(sample = rnorm(samplesize))) + 
+  # line y=x
+  geom_abline(intercept = 0, slope = 1, 
+              color = "blue") 
+
+rand_qq2 <- ggplot() +
+  stat_qq(aes(sample = rnorm(samplesize))) + 
+  geom_abline(intercept = 0, slope = 1, 
+              color = "blue")
+
+rand_qq3 <- ggplot() +
+  stat_qq(aes(sample = rnorm(samplesize))) + 
+  geom_abline(intercept = 0, slope = 1, 
+              color = "blue")
+
+rand_qq4 <- ggplot() +
+  stat_qq(aes(sample = rnorm(samplesize))) + 
+  geom_abline(intercept = 0, slope = 1, 
+              color = "blue")
+```
+:::
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig.height: 8.0
+#| fig.width: 8.0
+
+grid.arrange(rand_qq1, rand_qq2, 
+             rand_qq3, rand_qq4, ncol =2)
+```
+:::
+:::
+
+## Examples of simulated Normal QQ plots: n=1,000
+
+With more data points,
+
+-   simulated QQ plots are more likely to look "more normal"
+
+::: columns
+::: {.column width="50%"}
+::: {style="font-size: 90%;"}
+```{r}
+#| fig.height: 5.0
+#| fig.width: 5.0
+samplesize <- 1000 # only change made to code!
+
+rand_qq1 <- ggplot() +
+  stat_qq(aes(sample = rnorm(samplesize))) + 
+  # line y=x
+  geom_abline(intercept = 0, slope = 1, 
+              color = "blue") 
+
+rand_qq2 <- ggplot() +
+  stat_qq(aes(sample = rnorm(samplesize))) + 
+  geom_abline(intercept = 0, slope = 1, 
+              color = "blue")
+
+rand_qq3 <- ggplot() +
+  stat_qq(aes(sample = rnorm(samplesize))) + 
+  geom_abline(intercept = 0, slope = 1, 
+              color = "blue")
+
+rand_qq4 <- ggplot() +
+  stat_qq(aes(sample = rnorm(samplesize))) + 
+  geom_abline(intercept = 0, slope = 1, 
+              color = "blue")
+```
+:::
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig.height: 8.0
+#| fig.width: 8.0
+
+grid.arrange(rand_qq1, rand_qq2, 
+             rand_qq3, rand_qq4, ncol =2)
+```
+:::
+:::
+
+## Back to our example
+
+::: columns
+::: {.column width="40%"}
+Residuals from Life Expectancy vs. Female Literacy Rate Regression
+
+```{r}
+#| label: QQplot
+#| fig.show: hide
+ggplot(aug1, 
+      aes(sample = .resid)) + 
+  stat_qq() + 
+  stat_qq_line() 
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| ref.label: QQplot
+#| echo: false
+```
+:::
+:::
+
+Simulated QQ plot of Normal Residuals with n = 80
+
+::: columns
+::: {.column width="40%"}
+```{r}
+# number of observations 
+# in fitted model
+nobs(model1) 
+```
+
+```{r}
+#| label: QQplot_sim
+#| fig.show: hide
+ggplot() +
+  stat_qq(aes(
+    sample = rnorm(80))) + 
+  geom_abline(
+    intercept = 0, slope = 1, 
+    color = "blue")
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| ref.label: QQplot_sim
+#| echo: false
+```
+:::
+:::
+
+# E: Equality of variance of the residuals {.nostretch}
+
+-   Homoscedasticity
+-   Diagnostic tool: **residual plot**
+
+![](/img_slides/OLSassumptions-1.png){fig-align="center" width="60%"}
+
+::: {style="font-size: 60%;"}
+<https://bookdown.org/roback/bookdown-bysh/ch-MLRreview.html#ordinary-least-squares-ols-assumptions>
+:::
+
+## Residual plot
+
+-   $x$ = explanatory variable from regression model
+    -   (or the fitted values for a multiple regression)
+-   $y$ = residuals from regression model
+
+::: columns
+::: {.column width="50%"}
+```{r}
+names(aug1)
+```
+
+<br>
+
+```{r}
+#| label: resids_plot
+#| fig.show: hide
+ggplot(aug1, 
+       aes(x = female_literacy_rate_2011, 
+           y = .resid)) + 
+  geom_point() +
+  geom_abline(
+    intercept = 0, 
+    slope = 0, 
+    color = "orange") +
+  labs(title = "Residual plot")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| ref.label: resids_plot
+#| echo: false
+#| fig.height: 6
+#| fig.width: 6
+```
+:::
+:::
+
+## E: Equality of variance of the residuals (Homoscedasticity)
+
+-   The **variance** or, equivalently, the standard deviation of the
+    responses is **equal for all values of x**.
+-   This is called **homoskedasticity** (top row)
+-   If there is **heteroskedasticity** (bottom row), then the assumption
+    is not met.
+
+![](/img_slides/heteroskedastic.png){fig-align="center"}
+
+# $R^2$ = Coefficient of determination
+
+Another way to assess model fit
+
+## $R^2$ = Coefficient of determination (1/2)
+
+-   Recall that the correlation coefficient $r$ measures the strength of
+    the linear relationship between two numerical variables
+-   $R^2$ is usually used to measure the strength of a *linear fit*
+    -   For a simple linear regression model (one numerical predictor),
+        $R^2$ is just the square of the correlation coefficient
+-   In general, $R^2$ is the proportion of the variability of the
+    dependent variable that is **explained** by the independent
+    variable(s)
+
+$$R^2 = \frac{\textrm{variance of predicted y-values}}
+{\textrm{variance of observed y-values}} = \frac{\sum_{i=1}^n(\widehat{y}_i-\bar{y})^2}
+{\sum_{i=1}^n(y_i-\bar{y})^2} 
+ = \frac{s_y^2 - s_{\textrm{residuals}}^2}
+{s_y^2}$$ $$R^2 = 1- \frac{s_{\textrm{residuals}}^2}
+{s_y^2}$$ where $\frac{s_{\textrm{residuals}}^2}{s_y^2}$ is the
+proportion of "unexplained" variability in the $y$ values,\
+and thus $R^2 = 1- \frac{s_{\textrm{residuls}}^2}{s_y^2}$ is the
+proportion of "explained" variability in the $y$ values
+
+## $R^2$ = Coefficient of determination (2/2)
+
+-   Recall, $-1<r<1$
+
+-   Thus, $0<R^2<1$
+
+-   In practice, we want "high" $R^2$ values, i.e. $R^2$ as close to 1
+    as possible.
+
+Calculating $R^2$ in R using `glance()` from the `broom` package:
+
+```{r}
+glance(model1)
+glance(model1)$r.squared
+```
+
+::: callout-warning
+-   A model can have a high $R^2$ value when there is a curved pattern.
+-   Always first check whether a linear model is reasonable or not.
+:::
+
+## $R^2$ in `summary()` R output
+
+```{r}
+summary(model1)
+```
+
+Compare to the square of the correlation coefficient $r$:
+
+```{r}
+r <- cor(x = gapm$life_expectancy_years_2011, 
+    y = gapm$female_literacy_rate_2011,
+    use =  "complete.obs")
+r
+r^2
+```
+

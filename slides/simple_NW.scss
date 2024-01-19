@@ -22,6 +22,10 @@ $selection-bg: rgba(0, 0, 0, 0.99);
 $presentation-heading-font: Signika, sans-serif !default;
 $presentation-heading-color: #213c96 !default;
 
+// code blocks
+// $code-block-border-color: lighten($link-color, 30%) !default;
+// $code-block-bg: transparent !default;
+
 // My added divs
 
 // Definitions 
@@ -317,19 +321,26 @@ $presentation-heading-color: #213c96 !default;
   border-radius: 15px;
 }
 
-
 code.sourceCode {
   font-size: 1.7em;
-  /* or try font-size: xx-large; */
+  // or try font-size: xx-large; 
 }
+
 
 div.cell-output-stdout {
   font-size: 1.5em;
 }
 
-.styled-output .cell-output {
-  font-size: 1.5em;
+
+/*
+.reveal div.cell-output {
+  border-color: #000;
+  border-style: solid;
+  border-width: 4px;
+  max-height: 1800px;
+  margin-bottom: 500px;
 }
+*/
 
 
 // regression analysis process 1

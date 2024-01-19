@@ -1,0 +1,70 @@
+---
+title: "SLR: Inference and Prediction"
+author: "Nicky Wakim"
+title-slide-attributes:
+    data-background-color: "#213c96"
+date: "01/17/2023"
+categories: ["Week 1"]
+format: html
+execute:
+  echo: true
+  freeze: auto  # re-render only when source changes
+engine: knitr
+---
+
+```{r}
+#| label: "setup" 
+#| include: false
+#| message: false
+#| warning: false
+
+library(tidyverse)    
+library(openintro)
+library(janitor)
+library(rstatix)
+library(knitr)
+library(gtsummary)
+library(moderndive)
+library(gt)
+library(broom) 
+library(here) 
+library(pwr) 
+library(gridExtra) # NEW!!!
+
+# terminal: for icons
+# quarto install extension quarto-ext/fontawesome
+
+# set ggplot theme for slides 
+theme_set(theme_gray(base_size = 22))
+# theme_update(text = element_text(size=16))  # set global text size for ggplots
+
+```
+
+```{css, echo=FALSE}
+.watch-out {
+  overflow-y: auto;
+  font-weight: bold;
+```
+
+```{r}
+gapm <- read_csv("data/lifeexp_femlit_2011.csv")
+```
+
+```{r class.source="bg-success"}
+#| class-output: "watch-out"
+
+# Fit regression model:
+model1 <- lm(life_expectancy_years_2011 ~ female_literacy_rate_2011,
+             data = gapm)
+
+# some output, but not complete
+model1
+
+# better output
+summary(model1)
+
+# Regression table:
+# library(broom)  # for tidy() command
+# library(gt)  # for gt() command
+tidy(model1) %>% gt()
+```

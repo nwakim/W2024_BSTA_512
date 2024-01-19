@@ -1,6 +1,6 @@
 ---
 title: "Week 4"
-description: "Multiple Linear Regression (MLR)"
+description: "SLR + Multivariable/Multiple Linear Regression "
 date: "1/29/2024"
 date-modified: "1/17/2024"
 categories: [""]

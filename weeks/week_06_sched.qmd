@@ -1,6 +1,6 @@
 ---
 title: "Week 6"
-description: "Categorical Covariates"
+description: "Categorical Covariates + Interactions"
 date: "2/12/2024"
 date-modified: "12/15/2023"
 categories: [""]

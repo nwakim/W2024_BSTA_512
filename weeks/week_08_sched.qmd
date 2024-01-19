@@ -1,6 +1,6 @@
 ---
 title: "Week 8"
-description: "Model Evaluation and Diagnostics"
+description: "Model Building and Selection"
 date: "2/26/2024"
 date-modified: "12/11/2023"
 categories: [""]

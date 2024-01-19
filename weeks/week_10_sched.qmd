@@ -1,6 +1,6 @@
 ---
 title: "Week 10"
-description: "Model Selection and Building"
+description: "Model Diagnostics"
 date: "3/11/2024"
 date-modified: "12/15/2023"
 categories: [""]

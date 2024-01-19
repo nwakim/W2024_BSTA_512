@@ -46,9 +46,13 @@ These learning objectives were adapted from [Maria Tackett's Regression Analysis
 
 ## Meeting Times
 
-Mondays          1:00 PM -- 2:50 PM PST in Rood Family Pavilion Room 1217
+Mondays          1:00 PM -- 2:50 PM PST in RLSB 3A003 A/B
 
-Wednesdays    1:00 PM -- 2:50 PM PST in Rood Family Pavilion Room 1217
+Wednesdays    1:00 PM -- 2:50 PM PST in RLSB 3A003 A/B
+
+Here is the full schedule:
+
+![](images/room_sched.png)
 
 ### Known Exceptions
 

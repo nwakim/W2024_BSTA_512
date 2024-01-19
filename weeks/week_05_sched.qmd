@@ -1,6 +1,6 @@
 ---
 title: "Week 5"
-description: "MLR Hypothesis Testing"
+description: "MLR Continued"
 date: "2/5/2024"
 date-modified: "1/17/2024"
 categories: [""]

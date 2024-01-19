@@ -1,6 +1,6 @@
 ---
 title: "Week 7"
-description: "Interactions"
+description: "Data Transformations"
 date: "2/19/2024"
 date-modified: "12/15/2023"
 categories: [""]

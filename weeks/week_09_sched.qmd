@@ -1,6 +1,6 @@
 ---
 title: "Week 9"
-description: "Model Diagnostics"
+description: "Model Evaluation and Diagnostics"
 date: "3/4/2024"
 date-modified: "12/15/2023"
 categories: [""]
