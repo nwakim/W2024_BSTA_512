@@ -3,20 +3,17 @@ title: "SLR: Model Evaluation"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#213c96"
-date: "01/17/2023"
+date: "01/24/2023"
 categories: ["Week 1"]
 format: 
   revealjs:
     theme: [default, simple_NW.scss]
-    toc: true
-    toc-depth: 1
-    toc-title: Class Overview
     chalkboard: true
     slide-number: true
     show-slide-number: all
     width: 1955
     height: 1100
-    footer: SLR 1
+    footer: SLR 3
     html-math-method: mathjax
     highlight-style: ayu
 execute:
@@ -53,536 +50,674 @@ library(gridExtra) # NEW!!!
 theme_set(theme_gray(base_size = 22))
 # theme_update(text = element_text(size=16))  # set global text size for ggplots
 
-```
-
-```{r}
 gapm <- read_csv("data/lifeexp_femlit_2011.csv")
+
+model1 <- lm(life_expectancy_years_2011 ~
+               female_literacy_rate_2011,
+                 data = gapm)
+# Get regression table:
+reg_tabel = tidy(model1) %>% gt() %>% 
+ tab_options(table.font.size = 40) %>%
+ fmt_number(decimals = 3)
 ```
-
-# Learning Objectives
-
-1.  Identify the aims of your research and see how they align with the
-    intended purpose of simple linear regression
-
-2.  Identify the simple linear regression model and define statistics
-    language for key notation
-
-3.  Illustrate how ordinary least squares (OLS) finds the best model
-    parameter estimates
-
-4.  Solve the optimal coefficient estimates for simple linear regression
-    using OLS
-
-5.  Apply OLS in R for simple linear regression of real data
 
 ## Topics
 
+-   ANOVA table
+-   Explained and unexplained variation
+-   F test
+-   
 
--   LINE assumptions
+# Learning Objectives
 
--   checking assumptions
--   residual analysis
--   outlier detection 
+1.  
 
-# Next class???
+## So far in our regression example...
 
-## What are the LINE conditions?
+::: columns
+::: {.column width="49%"}
+**Lesson 1 of SLR:**
 
-For "good" model fit and to be able to make inferences and predictions
-based on our models, 4 conditions need to be satisfied.
+-   Fit regression line
+-   Calculate slope & intercept
+-   Interpret slope & intercept
 
-Briefly:
+**Lesson 2 of SLR:**
 
--   **L** inearity of relationship between variables
--   **I** ndependence of the Y values
--   **N** ormality of the residuals
--   **E** quality of variance of the residuals (homoscedasticity)
+-   Estimate variance of the residuals
+-   Inference for slope & intercept: CI, p-value
+-   Confidence bands of regression line for mean value of Y\|X
+:::
 
-[More in
-depth](https://bookdown.org/roback/bookdown-bysh/ch-MLRreview.html#ordinary-least-squares-ols-assumptions):
+::: {.column width="2%"}
+:::
 
--   **L** : there is a linear relationship between the mean response (Y)
-    and the explanatory variable (X),
--   **I** : the errors are independent—there’s no connection between how
-    far any two points lie from the regression line,
--   **N** : the responses are normally distributed at each level of X,
-    and
--   **E** : the variance or, equivalently, the standard deviation of the
-    responses is equal for all levels of X.
-
-## L: Linearity of relationship between variables
-
-Is the association between the variables linear?
-
--   Diagnostic tools:
-    -   Scatterplot
-    -   Residual plot (see later section for E : Equality of variance of
-        the residuals)
-
+::: {.column width="49%"}
 ```{r}
+#| fig-height: 8
+#| fig-width: 11
 #| echo: false
-#| fig.width: 12.0
-#| fig.height: 7.0
+
+gapm <- read_csv("data/lifeexp_femlit_2011.csv")
 ggplot(gapm, aes(x = female_literacy_rate_2011,
                  y = life_expectancy_years_2011)) +
-  geom_point() +
-  labs(x = "female literacy rate", 
-       y = "life expectancy",
-       title = "Life expectancy vs. female literacy rate in 2011") +  
-  geom_smooth(method = "lm", se = FALSE) +
-  geom_smooth(se = FALSE, color = "black")
+  geom_point(size = 4) +
+  geom_smooth(method = "lm", se = FALSE, size = 3, colour="#F14124") +
+  labs(x = "Female literacy rate (%)", 
+       y = "Life expectancy (years)",
+       title = "Relationship between life expectancy and \n the female literacy rate in 2011") +
+    theme(axis.title = element_text(size = 30), 
+        axis.text = element_text(size = 25), 
+        title = element_text(size = 30))
+
 ```
-
-## I: Independence of the residuals ($Y$ values)
-
--   **Are the data points independent of each other?**
-
--   Examples of when they are *not* independent, include
-
-    -   repeated measures (such as baseline, 3 months, 6 months)
-    -   data from clusters, such as different hospitals or families
-
--   This condition is checked by reviewing the study *design* and not by
-    inspecting the data
-
--   How to analyze data using regression models when the $Y$-values are
-    not independent is covered in BSTA 519 (Longitudinal data)
-
-# N: Normality of the residuals
-
--   Extract residuals from regression model in R
--   Diagnostic tools:
-    -   Distribution plots of residuals
-    -   QQ plots
-
-## N: Normality of the residuals
-
--   The responses Y are normally distributed at each level of x
-
-![](/img_slides/OLSassumptions-1.png){fig-align="center"}
-
-::: {style="font-size: 60%;"}
-<https://bookdown.org/roback/bookdown-bysh/ch-MLRreview.html#ordinary-least-squares-ols-assumptions>
+:::
 :::
 
-## Extract model's residuals in R
-
--   First extract the residuals' values from the model output using the
-    `augment()` function from the `broom` package.
--   Get a tibble with the orginal data, as well as the residuals and
-    some other important values.
-
-```{r}
-model1 <- lm(life_expectancy_years_2011 ~ female_literacy_rate_2011, 
-                data = gapm)
-aug1 <- augment(model1) 
-
-glimpse(aug1)
+```{=tex}
+\begin{aligned}
+\widehat{Y} &= \widehat\beta_0 + \widehat\beta_1 \cdot X\\
+\widehat{\text{life expectancy}} &= 50.9 + 0.232 \cdot \text{female literacy rate}
+\end{aligned}
 ```
+## Let's revisit the regression analysis process
 
-## Check normality with "usual" distribution plots
-
-Note that below I save each figure, and then combine them together in
-one row of output using `grid.arrange()` from the `gridExtra` package.
-
-```{r}
-#| fig.height: 4.0
-#| fig.width: 12.0
-hist1 <- ggplot(aug1, aes(x = .resid)) +
-  geom_histogram()
-
-density1 <- ggplot(aug1, aes(x = .resid)) +
-  geom_density()
-
-box1 <- ggplot(aug1, aes(x = .resid)) +
-  geom_boxplot()
-
-library(gridExtra) # NEW!!!
-grid.arrange(hist1, density1, box1, nrow = 1)
-```
-
-## Normal QQ plots (QQ = quantile-quantile)
-
--   It can be tricky to eyeball with a histogram or density plot whether
-    the residuals are normal or not
--   QQ plots are often used to help with this
+::: box
+![](images/arrow2.png){.absolute top="13.5%" right="62.1%" width="155"}
+![](images/arrow2.png){.absolute top="13.5%" right="28.4%"
+width="155"}![](images/arrow_back4.png){.absolute top="7.5%"
+right="30.5%" width="820"} ![](images/arrow_down.png){.absolute
+top="60.5%" right="48%" width="85"}
 
 ::: columns
-::: {.column width="60%"}
--   *Vertical axis*: **data quantiles**
-    -   data points are sorted in order and
-    -   assigned quantiles based on how many data points there are
--   *Horizontal axis*: **theoretical quantiles**
-    -   mean and standard deviation (SD) calculated from the data points
-    -   theoretical quantiles are calculated for each point, assuming
-        the data are modeled by a normal distribution with the mean and
-        SD of the data
+::: {.column width="30%"}
+::: RAP1
+::: RAP1-title
+Model Selection
 :::
 
-::: {.column width="40%"}
+::: RAP1-cont
+-   Building a model
+
+-   Selecting variables
+
+-   Prediction vs interpretation
+
+-   Comparing potential models
+:::
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="30%"}
+::: RAP2
+::: RAP2-title
+Model Fitting
+:::
+
+::: RAP2-cont
+-   Find best fit line
+
+-   Using OLS in this class
+
+-   Parameter estimation
+
+-   Categorical covariates
+
+-   Interactions
+:::
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="30%"}
+::: RAP3
+::: RAP3-title
+Model Evaluation
+:::
+
+::: RAP3-cont
+-   Evaluation of model fit
+-   Testing model assumptions
+-   Residuals
+-   Transformations
+-   Influential points
+-   Multicollinearity
+:::
+:::
+:::
+:::
+:::
+
+::: RAP4
+::: RAP4-title
+Model Use (Inference)
+:::
+
+::: RAP4-cont
+::: columns
+::: {.column width="50%"}
+-   Inference for coefficients
+-   Hypothesis testing for coefficients
+:::
+
+::: {.column width="50%"}
+-   Inference for expected $Y$ given $X$
+-   Prediction of new $Y$ given $X$
+:::
+:::
+:::
+:::
+
+## Quickly go over our estimates from last class???
+
+Now we are making sure our whole model is trustworthy
+
+# Learning Objectives
+
+1.  
+
+## Explained vs. Unexplained Variation
+
 ```{r}
-#| fig.width: 5.0
-#| fig.height: 5.0
 #| echo: false
-ggplot(aug1, aes(sample = .resid)) + 
-  stat_qq() +     # points
-  stat_qq_line()  # line
-```
-:::
-:::
+#| fig-align: center
 
--   **Data are approximately normal if points fall on a line.**
+regression_points <- augment(model1)
+# summary(model1)
+# sum(model1$residuals^2)
 
-See more info at
-<https://data.library.virginia.edu/understanding-QQ-plots/>
-
-## Examples of Normal QQ plots (1/5)
-
--   **Data**:
-    -   Body measurements from 507 physically active individuals
-    -   in their 20's or early 30's
-    -   within normal weight range.
-
-![](/img_slides/qq_wristdiam.png){fig-align="center"}
-
-## Examples of Normal QQ plots (2/5)
-
-Skewed right distribution
-
-<br>
-
-![](/img_slides/qq_weights.png){fig-align="center"}
-
-## Examples of Normal QQ plots (3/5)
-
-Long tails in distribution
-
-<br>
-
-![](/img_slides/qq_biliac.png){fig-align="center"}
-
-## Examples of Normal QQ plots (4/5)
-
-Bimodal distribution
-
-<br>
-
-![](/img_slides/qq_forearm.png){fig-align="center"}
-
-## Examples of Normal QQ plots (5/5)
-
-![](/img_slides/qq_forearm_gender.png){fig-align="center"}
-
-## QQ plot of residuals of `model1`
-
-```{r}
-#| fig.width: 12.0
-#| fig.height: 3.0
-#| echo: false
-grid.arrange(hist1, density1, box1, nrow = 1)
+ggplot(regression_points, 
+       aes(x = female_literacy_rate_2011,
+                 y = life_expectancy_years_2011)) +
+  geom_segment(aes(
+    xend = female_literacy_rate_2011, 
+    yend = .fitted), 
+    alpha = 1, 
+    color = "#4FADF3", 
+    size = 2) +
+  geom_smooth(method = "lm", se = FALSE, color = "#F14124", size=3) +
+  # > Color adjustments made here...
+  geom_point(color = "black", size = 4) +  # Color mapped here
+  #scale_color_gradient2(low = "#213c96", mid = "white", high = "#F14124") +  # Colors to use here
+    #guides(color = "none") +
+  geom_point(aes(y = .fitted), shape = 1, size = 4) +
+labs(x = "Female literacy rate (%)", 
+       y = "Life expectancy (years)",
+       title = "Average life expectancy vs. female literacy rate in 2011") +
+    theme(axis.title = element_text(size = 20), 
+        axis.text = element_text(size = 20), 
+        title = element_text(size = 20))  
 ```
 
-::: columns
-::: {.column width="50%"}
-<br>
+$$ \begin{aligned}
+Y_i - \bar{Y} & = & (Y_i - \hat{Y}_i) & + (\hat{Y}_i- \bar{Y})\\
+\text{Total unexplained variation} & = & \text{Variation due to regression} & + \text{Residual variation after regression}
+\end{aligned}$$
 
-```{r}
-#| label: QQresid
-#| fig.show: hide
-#| fig.width: 5.0
-#| fig.height: 5.0
-
-ggplot(aug1, aes(sample = .resid)) + 
-  stat_qq() +     # points
-  stat_qq_line()  # line
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| ref.label: QQresid
-#| echo: false
-#| fig.width: 5.0
-#| fig.height: 4.0
-```
-:::
-:::
-
-## Compare to randomly generated Normal QQ plots
-
-How "*good*" we can expect a QQ plot to look depends on the sample size.
-
--   The QQ plots on the next slides are randomly generated
-
-    -   using random samples from actual standard normal distributions
-        $N(0,1)$.
-
--   Thus, all the points in the QQ plots **should theoretically** fall
-    in a line
-
--   However, there is sampling variability...
-
-## Randomly generated Normal QQ plots: n=100
-
--   Note that `stat_qq_line()` doesn't work with randomly generated
-    samples, and thus the code below manually creates the line that the
-    points should be on (which is $y=x$ in this case.)
-
-::: columns
-::: {.column width="50%"}
-::: {style="font-size: 90%;"}
-```{r}
-#| fig.height: 5.0
-#| fig.width: 5.0
-samplesize <- 100
-
-rand_qq1 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  # line y=x
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue") 
-
-rand_qq2 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue")
-
-rand_qq3 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue")
-
-rand_qq4 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue")
-```
-:::
-:::
-
-::: {.column width="50%"}
-```{r}
-#| fig.height: 8.0
-#| fig.width: 8.0
-
-grid.arrange(rand_qq1, rand_qq2, 
-             rand_qq3, rand_qq4, ncol =2)
-```
-:::
-:::
-
-## Examples of simulated Normal QQ plots: n=10
-
-With fewer data points,
-
--   simulated QQ plots are more likely to look "less normal"
--   even though the data points were sampled from normal distributions.
-
-::: columns
-::: {.column width="50%"}
-::: {style="font-size: 90%;"}
-```{r}
-#| fig.height: 5.0
-#| fig.width: 5.0
-samplesize <- 10  # only change made to code!
-
-rand_qq1 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  # line y=x
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue") 
-
-rand_qq2 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue")
-
-rand_qq3 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue")
-
-rand_qq4 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue")
-```
-:::
-:::
-
-::: {.column width="50%"}
-```{r}
-#| fig.height: 8.0
-#| fig.width: 8.0
-
-grid.arrange(rand_qq1, rand_qq2, 
-             rand_qq3, rand_qq4, ncol =2)
-```
-:::
-:::
-
-## Examples of simulated Normal QQ plots: n=1,000
-
-With more data points,
-
--   simulated QQ plots are more likely to look "more normal"
-
-::: columns
-::: {.column width="50%"}
-::: {style="font-size: 90%;"}
-```{r}
-#| fig.height: 5.0
-#| fig.width: 5.0
-samplesize <- 1000 # only change made to code!
-
-rand_qq1 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  # line y=x
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue") 
-
-rand_qq2 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue")
-
-rand_qq3 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue")
-
-rand_qq4 <- ggplot() +
-  stat_qq(aes(sample = rnorm(samplesize))) + 
-  geom_abline(intercept = 0, slope = 1, 
-              color = "blue")
-```
-:::
-:::
-
-::: {.column width="50%"}
-```{r}
-#| fig.height: 8.0
-#| fig.width: 8.0
-
-grid.arrange(rand_qq1, rand_qq2, 
-             rand_qq3, rand_qq4, ncol =2)
-```
-:::
-:::
-
-## Back to our example
+## More of the equation
 
 ::: columns
 ::: {.column width="40%"}
-Residuals from Life Expectancy vs. Female Literacy Rate Regression
+$$Y_i - \bar{Y} = (Y_i - \hat{Y}_i) + (\hat{Y}_i- \bar{Y})$$
 
-```{r}
-#| label: QQplot
-#| fig.show: hide
-ggplot(aug1, 
-      aes(sample = .resid)) + 
-  stat_qq() + 
-  stat_qq_line() 
-```
+-   $Y_i - \bar{Y}$ = the deviation of $Y_i$ around the mean $\bar{Y}$
+    -   (the **total** amount deviation unexplained at $X_i$ ).
+-   $Y_i - \hat{Y}_i$ = the deviation of the observation $Y$ around the
+    fitted regression line
+    -   (the amount deviation **unexplained** by the regression at $X_i$
+        ).
+-   $\hat{Y}_i- \bar{Y}$ = the deviation of the fitted value $\hat{Y}_i$
+    around the mean $\bar{Y}$
+    -   (the amount deviation **explained** by the regression at $X_i$ )
 :::
 
 ::: {.column width="60%"}
-```{r}
-#| ref.label: QQplot
-#| echo: false
-```
+   
+
+![](05_SLR_Eval/SS.png){fig-align="center"}
 :::
 :::
 
-Simulated QQ plot of Normal Residuals with n = 80
+## How is this actually calculated for our fitted model?
+
+$$ \begin{aligned}
+Y_i - \bar{Y} & = & (Y_i - \hat{Y}_i) & + (\hat{Y}_i- \bar{Y})\\
+\text{Total unexplained variation} & = & \text{Variation due to regression} & + \text{Residual variation after regression}
+\end{aligned}$$
+
+$$\begin{aligned}
+\sum_{i=1}^n (Y_i - \bar{Y})^2 & = \sum_{i=1}^n (\hat{Y}_i- \bar{Y})^2 + \sum_{i=1}^n (Y_i - \hat{Y}_i)^2 \\
+SSY & = SSR + SSE 
+\end{aligned}$$
+$$\text{Total Sum of Squares} = \text{Sum of Squares due to Regression} + \text{Sum of Squares due to Error (residuals)}$$
 
 ::: columns
-::: {.column width="40%"}
-```{r}
-# number of observations 
-# in fitted model
-nobs(model1) 
-```
-
-```{r}
-#| label: QQplot_sim
-#| fig.show: hide
-ggplot() +
-  stat_qq(aes(
-    sample = rnorm(80))) + 
-  geom_abline(
-    intercept = 0, slope = 1, 
-    color = "blue")
-```
+::: {.column width="7%"}
 :::
 
-::: {.column width="60%"}
-```{r}
-#| ref.label: QQplot_sim
-#| echo: false
-```
+::: {.column width="86%"}
+ANOVA table:
+
+| Variation Source | df    | SS    | MS                      | test statistic        | p-value |
+|------------------|-------|-------|-------------------------|-----------------------|---------|
+| Regression       | $1$   | $SSR$ | $MSR = \frac{SSR}{1}$   | $F = \frac{MSR}{MSE}$ |         |
+| Error            | $n-2$ | $SSE$ | $MSE = \frac{SSE}{n-2}$ |                       |         |
+| Total            | $n-1$ | $SSY$ |                         |                       |         |
+:::
+
+::: {.column width="7%"}
 :::
 :::
 
-# E: Equality of variance of the residuals {.nostretch}
-
--   Homoscedasticity
--   Diagnostic tool: **residual plot**
-
-![](/img_slides/OLSassumptions-1.png){fig-align="center" width="60%"}
-
-::: {style="font-size: 60%;"}
-<https://bookdown.org/roback/bookdown-bysh/ch-MLRreview.html#ordinary-least-squares-ols-assumptions>
-:::
-
-## Residual plot
-
--   $x$ = explanatory variable from regression model
-    -   (or the fitted values for a multiple regression)
--   $y$ = residuals from regression model
-
-::: columns
-::: {.column width="50%"}
-```{r}
-names(aug1)
-```
-
-<br>
+## ANOVA table in R
 
 ```{r}
-#| label: resids_plot
-#| fig.show: hide
-ggplot(aug1, 
-       aes(x = female_literacy_rate_2011, 
-           y = .resid)) + 
-  geom_point() +
-  geom_abline(
-    intercept = 0, 
-    slope = 0, 
-    color = "orange") +
-  labs(title = "Residual plot")
-```
-:::
+# Fit regression model:
+model1 <- lm(life_expectancy_years_2011 ~ female_literacy_rate_2011,
+             data = gapm)
 
-::: {.column width="50%"}
+anova(model1)
+anova(model1) %>% tidy() %>% gt() %>%
+   tab_options(table.font.size = 40) %>%
+   fmt_number(decimals = 3)
+```
+
+## What is the F statistic testing?
+
+$$F = \frac{MSR}{MSE}$$
+
+-   It can be shown that
+
+$$E(MSE)=\sigma^2\ \text{and}\ E(MSR) = \sigma^2 + \beta_1^2\sum_{i=1}^n (X_i- \bar{X})^2$$
+
+-   Recall that $\sigma^2$ is the variance of the residuals
+-   Thus if
+    -   $\beta_1 = 0$, then
+        $F \approx \frac{\hat{\sigma}^2}{\hat{\sigma}^2} = 1$
+    -   $\beta_1 \neq 0$, then
+        $F \approx \frac{\hat{\sigma}^2 + \hat{\beta}_1^2\sum_{i=1}^n (X_i- \bar{X})^2}{\hat{\sigma}^2} > 1$
+-   So the $F$ statistic can be used to test $\beta_1$
+
+## F-test for the slope
+
+**Hypotheses**
+
+$$H_0: \beta_1 = 0\\
+H_A: \beta_1 \neq 0$$
+
+**Test statistic and probability distribution**
+
+$$F = \frac{MSR}{MSE} \sim F_{1, n-2}$$
+
+-   The F statistic has an $F$-distribution with numerator $df = 1$ and
+    denominator $df = n-2$.
+
+**Decision**
+
+**Critical value** approach:
+
+Let $F_{1, n-2, 1-\alpha}$ be the critical value for the $F_{1, n-2}$
+distribution with area $\alpha$ to the right.
+
+-   If $F > F_{1, n-2, 1-\alpha}$, then reject $H_0$
+-   If $F \leq F_{1, n-2, 1-\alpha}$, then fail to reject $H_0$
+
+$p$-value approach:
+
+-   If $p$-value $< \alpha$, then reject $H_0$
+-   If $p$-value $\geq \alpha$, then fail to reject $H_0$
+
+**Conclusion**
+
+If $H_0$ is rejected, we conclude there is sufficient evidence that
+there exists a linear relationship between $X$ and $Y$
+($\beta_1 \neq 0$).
+
+## F-test vs. t-test for the slope
+
+The square of a $t$-distribution with $df = \nu$ is an $F$-distribution
+with $df = 1, \nu$
+
+$$T_{\nu}^2 \sim F_{1,\nu}$$
+
+## Example: F-test for the slope
+
+**Hypotheses**
+
+$$H_0: \beta_1 = 0\\
+H_A: \beta_1 \neq 0$$
+
+**Test statistic and probability distribution**
+
+$$F = \frac{MSR}{MSE} = \frac{2052.81}{37.73} = 54.414 \sim F_{1, 78}$$
+
+**Decision**
+
+**Critical value** approach:
+
 ```{r}
-#| ref.label: resids_plot
-#| echo: false
-#| fig.height: 6
-#| fig.width: 6
+# critical value for F 1,78 with alpha = 0.05:
+qf(.95, df1 = 1, df2 = 78)
 ```
-:::
-:::
 
-## E: Equality of variance of the residuals (Homoscedasticity)
+Since $F = 54.414 > `r qf(.95, df1 = 1, df2 = 78)`$, we reject $H_0$.
 
--   The **variance** or, equivalently, the standard deviation of the
-    responses is **equal for all values of x**.
--   This is called **homoskedasticity** (top row)
--   If there is **heteroskedasticity** (bottom row), then the assumption
-    is not met.
+$p$-value approach:
 
-![](/img_slides/heteroskedastic.png){fig-align="center"}
+```{r}
+# p-value is ALWAYS the right tail for F-test
+pf(54.414, df1 = 1, df2 = 78, lower.tail = FALSE)
+```
+
+Since
+$p\text{-value} = `r pf(54.414, df1 = 1, df2 = 78, lower.tail = FALSE)` < 0.05$,
+we reject $H_0$.
+
+**Conclusion**
+
+There is sufficient evidence that there exists a linear relationship
+between countries' female literacy rate and average life expectancy (p
+\< 0.001).
+
+# Chapter 6: The Correlation Coefficient and Straight-line Regression Analysis
+
+## Correlation coefficient
+
+The (Peasron) correlation coefficient $r$ of variables $X$ and $Y$ can
+be computed using the formula:
+
+$$r = \frac{\sum_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})}{\Big(\sum_{i=1}^n (X_i - \bar{X})^2 \sum_{i=1}^n (Y_i - \bar{Y})^2\Big)^{1/2}} 
+= \frac{SSXY}{\sqrt{SSX \cdot SSY}}$$
+
+Since (see Ch 5)
+
+$$\widehat{\beta}_1 = \frac{\sum_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})}{\sum_{i=1}^n (X_i - \bar{X})^2}$$
+we have the relationship
+
+$$\widehat{\beta}_1 = r\frac{s_Y}{s_X},\ \ \text{or},\ \  r = \widehat{\beta}_1\frac{s_X}{s_Y}$$
+
+## Coefficient of determination: $R^2$
+
+It can be shown that the square of the correlation coefficient $r$ is
+equal to
+
+$$R^2 = \frac{SSR}{SSY} = \frac{SSY - SSE}{SSY}$$
+
+-   $R^2$ is called the **coefficient of determination**.
+-   Interpretation #1
+    -   Numerator is the **reduction** in $SSY$ due to using $X$ to
+        predict $Y$
+    -   Thus the fraction is the proportionate reduction
+-   Interpretation #2
+    -   The proportion of variation in the $Y$ values explained by the
+        regression model
+-   $R^2$ measures the strength of the linear relationship between $X$
+    and $Y$:
+    -   $R^2 = \pm 1$: Perfect relationship
+        -   Happens when $SSE = 0$, i.e. no error, all points on the
+            line
+    -   $R^2 = 0$: No relationship
+        -   Happens when $SSY = SSE$, i.e. using the line doesn't not
+            improve model fit over using $\bar{Y}$ to model the $Y$
+            values.
+
+## R Example
+
+```{r}
+cor(x = gapm$life_expectancy_years_2011, 
+    y = gapm$female_literacy_rate_2011)
+
+r <- cor(x = gapm$life_expectancy_years_2011, 
+    y = gapm$female_literacy_rate_2011,
+    use =  "complete.obs")
+r
+r^2
+summary(model1) # for R^2 value
+```
+
+## Test $\rho = 0$
+
+$\rho$ is the population parameter for the correlation coefficient $r$
+
+**Hypotheses**
+
+$$H_0: \rho = 0 \ \ \text{vs.} \ \ H_A: \rho \neq 0$$
+
+**Test statistic and probability distribution**
+
+$$T = \frac{r\sqrt{n-2}}{\sqrt{1-r^2}} \sim t_{n-2}$$
+
+-   The t statistic has a Student's $t$-distribution with $df = n-2$.
+
+**Decision**
+
+**Critical value** approach:
+
+Let $t_{n-2, 1-\alpha/2}$ be the critical value for the $t_{n-2}$
+distribution with area $\alpha/2$ in each of the tails.
+
+-   If $|T| > t_{n-2, 1-\alpha/2}$, then reject $H_0$
+-   If $|T| \leq t_{n-2, 1-\alpha/2}$, then fail to reject $H_0$
+
+$p$-value approach:
+
+-   If $p$-value $< \alpha$, then reject $H_0$
+-   If $p$-value $\geq \alpha$, then fail to reject $H_0$
+
+**Conclusion**
+
+If $H_0$ is rejected, we conclude there is sufficient evidence that
+there exists a linear correlation between $X$ and $Y$ ($\rho \neq 0$).
+
+### Example: Test $\rho = 0$
+
+**Hypotheses**
+
+$$H_0: \rho = 0 \ \ \text{vs.} \ \ H_A: \rho \neq 0$$
+
+**Test statistic and probability distribution**
+
+```{r}
+r # calculated previously
+(teststat <- r*sqrt(78)/sqrt(1-r^2))
+```
+
+$$T = \frac{r\sqrt{n-2}}{\sqrt{1-r^2}} = 
+\frac{`r r`\sqrt{80-2}}{\sqrt{1-`r r`^2}} = `r teststat` \sim t_{78}$$
+
+```{r}
+# critical value for t78 with alpha = 0.05:
+qt(.975, df = 78)
+```
+
+Since $t = 7.376557 > `r qt(.975, df = 78)`$, we reject $H_0$.
+
+$p$-value approach:
+
+```{r}
+2*pt(7.376557, df = 78, lower.tail = FALSE)
+```
+
+Since
+$p\text{-value} = `r 2*pt(7.376557, df = 78, lower.tail = FALSE)` < 0.05$,
+we reject $H_0$.
+
+```{r}
+cor.test(x = gapm$life_expectancy_years_2011, 
+         y = gapm$female_literacy_rate_2011)
+
+cor.test(x = gapm$life_expectancy_years_2011, 
+         y = gapm$female_literacy_rate_2011) %>% tidy()
+
+cor.test(x = gapm$life_expectancy_years_2011, 
+         y = gapm$female_literacy_rate_2011) %>% tidy() %>% gt()
+```
+
+## CI for $\rho$
+
+```{r}
+r
+(tstar <- qt(.975, 78))
+(SErho <- sqrt((1-r^2)/sqrt(78)))
+r + tstar*SErho
+r - tstar*SErho
+```
+
+$$r \pm t^* \cdot \frac{\sqrt{1-r^2}}{\sqrt{n-2}}\\
+`r r` \pm `r qt(.975, 78)` \cdot `r SErho`\\
+(`r r - tstar*SErho`, `r r + tstar*SErho`) \\
+(`r r - tstar*SErho`, 1)$$
+
+## Testing $\rho$ for some value $\rho_0 \neq 0$
+
+**Hypotheses**
+
+$$H_0: \rho = \rho_0 \ \ \text{vs.} \ \ H_A: \rho \neq \rho_0$$
+
+**Test statistic and probability distribution**
+
+-   When $\rho \neq 0$, the distribution of the test statistic we used
+    before is skewed
+-   Thus we apply Fisher's Z transformation:
+    $\frac{1}{2} \ln \frac{1+r}{1-r}$, with which the test statistic has
+    an approximately standard normal distribution:
+
+$$Z = \frac{\frac{1}{2} \ln \frac{1+r}{1-r} - \frac{1}{2} \ln \frac{1+\rho_0}{1-\rho_0}}{\frac{1}{\sqrt{n-3}}} \sim N(0,1)$$
+
+**Decision**
+
+**Critical value** approach:
+
+Let $z_{1-\alpha/2}$ be the critical value for the $N(0,1)$ distribution
+with area $\alpha/2$ in each of the tails.
+
+-   If $|Z| > z_{1-\alpha/2}$, then reject $H_0$
+-   If $|Z| \leq z_{1-\alpha/2}$, then fail to reject $H_0$
+
+$p$-value approach:
+
+-   If $p$-value $< \alpha$, then reject $H_0$
+-   If $p$-value $\geq \alpha$, then fail to reject $H_0$
+
+**Conclusion**
+
+If $H_0$ is rejected, we conclude there is sufficient evidence that the
+linear correlation between $X$ and $Y$ is significantly different from
+$\rho_0$.
+
+### Example
+
+Test whether the correlation is different from 0.5.
+
+**Hypotheses**
+
+$$H_0: \rho = 0.5 \ \ \text{vs.} \ \ H_A: \rho \neq 0.5$$
+
+**Test statistic and probability distribution**
+
+```{r}
+r # calculated previously
+rho0 <- 0.5
+(fisher_r <- 0.5*log((1+r)/(1-r)))
+(fisher_rho0 <- 0.5*log((1+rho0)/(1-rho0)))
+(z_stat <- (fisher_r - fisher_rho0) * sqrt(77))
+
+```
+
+$$Z = \frac{\frac{1}{2} \ln \frac{1+r}{1-r} - \frac{1}{2} \ln \frac{1+\rho_0}{1-\rho_0}}{\frac{1}{\sqrt{n-3}}} \\
+= \frac{\frac{1}{2} \ln \frac{1+`r r`}{1-`r r`} - \frac{1}{2} \ln \frac{1+0.5}{1-0.5}}{\frac{1}{\sqrt{80-3}}} \\
+= `r z_stat`$$
+
+```{r}
+# critical value for N(0,1) with alpha = 0.05:
+qnorm(.975)
+```
+
+Since $Z = 1.848331 < `r qnorm(.975)`$, we fail to reject $H_0$.
+
+$p$-value approach:
+
+```{r}
+2*pnorm(1.848331, lower.tail = FALSE)
+```
+
+Since
+$p\text{-value} = `r 2*pnorm(1.848331, lower.tail = FALSE)` > 0.05$, we
+fail to reject $H_0$.
+
+**Conclusion**
+
+There is insufficient evidence that the linear correlation between
+countries' female literacy rate and average life expectancy is
+significantly different from 0.5 (p = 0.06).
+
+## CI for $\rho$ when $\rho \neq 0$
+
+-   CI bounds for the Fisher transformed correlations:
+
+$$\frac{1}{2} \ln \frac{1+r}{1-r} \pm z^* \cdot \frac{1}{\sqrt{n-3}}$$
+\* After finding CI bounds ($z$), back transform the values to $r$:
+
+$$r = \frac{e^{2z}-1}{e^{2z}+1}$$
+
+### Example: CI for $\rho$ when $\rho \neq 0$
+
+```{r}
+fisher_r
+(zstar <- qnorm(.975))
+(SE_fisher <- 1/sqrt(77))
+
+# Fisher transformed CI bounds
+(LB_fish <- fisher_r - zstar * SE_fisher)
+(UB_fish <- fisher_r + zstar * SE_fisher)
+
+# Back transform to r values
+(LB_r <- (exp(2*LB_fish) - 1)/(exp(2*LB_fish)+1))
+(UB_r <- (exp(2*UB_fish) - 1)/(exp(2*UB_fish)+1))
+
+```
+
+-   CI bounds for the Fisher transformed correlations:
+
+$$\frac{1}{2} \ln \frac{1+r}{1-r} \pm z^* \cdot \frac{1}{\sqrt{n-3}}\\
+\frac{1}{2} \ln \frac{1+`r r`}{1-`r r`} \pm `r zstar` \cdot \frac{1}{\sqrt{77}}\\
+`r fisher_r` \pm `r zstar` \cdot `r SE_fisher`\\
+(`r LB_fish`, `r UB_fish`)$$ \* After finding CI bounds ($z$), back
+transform the values to $r$:
+
+$$LB = \frac{e^{2z}-1}{e^{2z}+1} = \frac{e^{2`r LB_fish`}-1}{e^{2`r LB_fish`}+1} = `r LB_r`\\
+UB = \frac{e^{2z}-1}{e^{2z}+1} = \frac{e^{2`r UB_fish`}-1}{e^{2`r UB_fish`}+1} = `r UB_r`$$
+
+We are 95% confident that the linear correlation coefficient between
+countries' female literacy rate and average life expectancy is within
+(`r round(LB_r, 2)`, `r round(UB_r, 2)`).
+
+## CI using `psych` package
+
+```{r}
+# First install the psych package
+# install.packages("psych")
+library(psych)
+
+# Fisher transformed values
+fisherz(0.5)
+fisherz(r)
+# compare with values from computations above
+fisher_rho0
+fisher_r
+
+#----
+# CI with back transformed values
+r.con(rho = r, n = 80, p=.95, twotailed=TRUE)
+# compare with values from computations above
+LB_r 
+UB_r 
+```
 
 # $R^2$ = Coefficient of determination
 
@@ -645,4 +780,3 @@ r <- cor(x = gapm$life_expectancy_years_2011,
 r
 r^2
 ```
-

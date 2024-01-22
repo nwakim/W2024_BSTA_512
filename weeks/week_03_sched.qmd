@@ -1,8 +1,8 @@
 ---
 title: "Week 3"
-description: "SLR: Hypothesis Testing and Diagnostics"
+description: "SLR: Hypothesis Testing and Evaluation"
 date: "1/22/2024"
-date-modified: "1/18/2024"
+date-modified: "1/22/2024"
 categories: [""]
 format: 
   html:

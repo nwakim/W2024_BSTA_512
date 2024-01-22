@@ -24,6 +24,9 @@ library(broom)
 library(gt)
 library(janitor)
 library(readxl)
+library(haven)
+library(here)
+
 ```
 
 ::: callout-important
@@ -55,96 +58,139 @@ library(readxl)
 It is a good idea to try rendering your document from time to time as you go along! Note that rendering automatically saves your qmd file and rendering frequently helps you catch your errors more quickly.
 :::
 
-## Question 1 
+## Question 1
 
-This homework assignment is based on data collected as part of an observational study of patients who suffered from stroke. Dataset: The main goal was to study various psychological factors: optimism, fatalism, depression, spirituality, and their relationship with stroke severity and other health outcomes among the study participants. Data were collected using questionnaires during a baseline interview and also medical chart review. More information about this study can be found in the article Fatalism, Optimism, Spirituality, Depressive Symptoms and Stroke Outcome: A population based analysis published in the journal Stroke (2011; 42: 3518-3523). The article can be found on the course website.
+This homework assignment is based on data collected as part of an observational study of patients who suffered from stroke.
 
-The dataset that you will work with is called Completedata. It is SIMILAR but does not exactly match the data in the article. It contains information on complete cases (i.e. excludes participants who had missing data on one or more variables of interest) who suffered a stroke. The variables Optimism (higher=more optimism), Fatalism (higher=feels less control of their life), Depression (higher is more depressed), Spirituality (higher is more belief in a higher power) are variables generated from the observational study. For our homework purposes we will assume they are continuous. NIHScore is the NIH Stroke Severity score, with low numbers representing mild stroke, and larger number more severe stroke, and will also be assumed continuous. Notice that the assumptions in linear regression do not require X to be continuous.
+Dataset: The main goal was to study various psychological factors: optimism, fatalism, depression, spirituality, and their relationship with stroke severity and other health outcomes among the study participants. Data were collected using questionnaires during a baseline interview and also medical chart review. More information about this study can be found in the article [Fatalism, optimism, spirituality, depressive symptoms and stroke outcome: a population based analysis](https://pubmed.ncbi.nlm.nih.gov/21940963/).
 
-### Part a 
+The dataset that you will work with is called `completedata.sas7bdat`. It is SIMILAR but does not exactly match the data in the article. It contains information on complete cases (i.e. excludes participants who had missing data on one or more variables of interest) who suffered a stroke. The two variables we are interested in are:
 
-Obtain a scatterplot, with title and axis labels, Depression (y-axis) vs. Fatalism (x-axis). Comment on what you see.
+-   Covariate: `Fatalism` (larger values indicate that the individual feels less control of their life)
+
+    -   Scores range from 8 to 40
+
+-   Outcome: `Depression` (larger values imply increased depression)
+
+    -   Scores range from 0 to 27
+
+For our homework purposes we will assume they are continuous.
+
+```{r}
+fatal_dep = read_sas(here("./homework/data/completedata.sas7bdat"))
+```
+
+### Part a
+
+Plot the data, with title and axis labels, for Depression (y-axis) vs. Fatalism (x-axis). Comment on what you see.
 
 ### Part b
 
-Fit a linear regression model to estimate the association between the predictor Fatalism and the outcome Depression (do this using proc reg in SAS, or lm() in R), and interpret the association in plain language. (\textbf{Note}: Please provide interpretation on both point estimates [coefficients] and inference [either F or t test].) 
+Fit a linear regression model to estimate the association between the predictor Fatalism and the outcome Depression.
+
+Interpret the slope and intercept. Does the intercept make sense?
+
+::: callout-note
+Make sure to include the confidence interval. The "units" for fatalism and depression are scores.
+:::
 
 ### Part c
 
-Re-do b) with your own code (either SAS proc iml, in R, or other). Submit your code.
+Obtain the interquartile range (IQR) for fatalism (IQR is Q3-Q1). Make a new variable FatalismIQR, equal to Fatalism centered at its median, and divided by the IQR. This is one way of standardizing a variable, and can be used for variables that have symmetric or skewed distribution.
+
+Re-run the regression from Part b using this new variable. Interpret the new slope and intercept. Which of the following are the same as in 1b: intercept, slope?
 
 ### Part d
-Obtain the interquartile range (IQR) for fatalism (IQR is Q3-Q1). Make a new variable FatalismIQR, equal to Fatalism centered at its median, and divided by the IQR. This is an alternative way of standardizing a variable, and can be used for variables that have symmetric or skewed distribution. Re-run the regression from (b) using this new variable, and interpret its coefficient. Which of the following are the same as in 1b: intercept, slope? (\textbf{Note}: Please provide by-hand calculation of both point estimates [coefficients] and inference [either F or t test].) 
 
-## Chapter 7
+F-test???
 
-<font color="green">Use the data from Chapter 5 Question 9 to answer the following questions. Use the log-transformed values as given in the dataset.</font>
+## Question 2
 
-<font color="darkorange">Note: the question numbers below do not refer to questions from the textbook. Complete the problems below instead of the ones in the book.</font>
+This question and data are adapted from [this textbook](https://catalog.lib.uchicago.edu/vufind/Record/7546272).
 
+In an experiment designed to describe the dose–response curve for vitamin K, individual rats were depleted of their vitamin K reserves and then fed dried liver for 4 days at different dosage levels. The response of each rat was measured as the concentration of a clotting agent needed to clot a sample of its blood in 3 minutes. The results of the experiment on 12 rats are given in the following table; values are expressed in common logarithms for both dose and response.
 
+```{r}
+clot = read_excel(here("./homework/data/CH05Q09.xls"))
+clot %>% gt() %>%
+  cols_label(RAT = md("**Rat**"),
+             LOGCONC = md("**Log10 Concentration (Y)**"),
+             LOGDOSE = md("**Log10 Dose (X)**"))
+```
 
-### (1)
+Use the log-transformed values as given in the dataset.
 
-<font color="green">Use R to create the ANOVA table for the regression described in the exercise.</font>
+Use the following scatterplot to build your answers off of:
 
+```{r}
+#| fig-height: 5
+#| fig-width: 6.5
+#| fig-align: center
+#| echo: false
 
+ggplot(clot, aes(x = LOGDOSE,
+                 y = LOGCONC)) +
+  geom_point(size = 2) +
+  labs(x = "Log10 dose (X)", 
+       y = "Log10 concentration (Y)",
+       title = "Concentration of clotting agent needed vs. dosage levels of liver") +
+    theme(axis.title = element_text(size = 12), 
+        axis.text = element_text(size = 12), 
+        title = element_text(size = 12))
+```
 
-### (2)
+### Part a
 
-<font color="green">Using the values in the `Df` and `Sum Sq` columns, show how the remaining values in the table are calculated.</font>
+Fit the data and add the regression line onto the plot.
 
-### (3)
+### Part b
 
-<font color="green">Calculate the SSY and its degrees of freedom. Use these values to calculate the standard deviation of the outcome variable. </font>
+Use R to create the ANOVA table for the regression described in the exercise.
 
+### Part c
 
+Using the values in the `Df` and `Sum Sq` columns, show how the remaining values in the table are calculated.
 
-### (4)
+### Part d
 
-<font color="green">What are the hypotheses being tested in the ANOVA table? Make sure to include a description of the parameter being tested in the context of the research question.</font>
+Calculate the SSY and its degrees of freedom. Use these values to calculate the standard deviation of the outcome variable.
 
+### Part e
 
-### (5)
+What are the hypotheses being tested in the ANOVA table? Make sure to include a description of the parameter being tested in the context of the research question.
 
-<font color="green">Using just the values in the ANOVA table, find the value of the t-distribution test statistic for testing the slope that one would find in the regression output of the linear model. What are the degrees of freedom for that t-distribution?</font>
+### Part f
 
-### (6)
+Using just the values in the ANOVA table, find the value of the t-distribution test statistic for testing the slope that one would find in the regression output of the linear model. What are the degrees of freedom for that t-distribution?
 
-<font color="green">Show the regression output for the linear model. Using just the regression output, calculate the SSR and SSE values in the ANOVA table.</font>
+### Part g
+
+Show the regression output for the linear model. Using just the regression output, calculate the SSR and SSE values in the ANOVA table.
 
 ## Question 1 (chapter 6)
 
-<font color="green">Use the data from Chapter 5 Question 9 to answer the following questions. Use the log-transformed values as given in the dataset.</font>
-
-<font color="darkorange">Note: the question numbers below do not refer to questions from the textbook. Complete the problems below instead of the ones in the book.</font>
-
-### (1)
-
-<font color="green">Create a scatterplot of the dependent and independent variables, and in words describe the their relationship. Is it reasonable to use a linear regression to model the relationship?</font>
+Use the data from Chapter 5 Question 9 to answer the following questions. Use the log-transformed values as given in the dataset.
 
 ### (2)
 
-<font color="green">Find the correlation coefficient between the two variables. Is the value consistent with your description of the relationship in the previous question? Why or why not?</font>
+Find the correlation coefficient between the two variables. Is the value consistent with your description of the relationship in the previous question? Why or why not?
 
 ### (3)
 
-<font color="green">Test whether the two variables are significantly correlated. Do this using the formula and then check your work with R's test for correlations. Make sure to include the hypotheses and a conclusion. </font>
+Test whether the two variables are significantly correlated. Do this using the formula and then check your work with R's test for correlations. Make sure to include the hypotheses and a conclusion.
 
 ### (4)
 
-<font color="green">Calculate the confidence interval for $\rho$ using the formula and verify that it matches the confidence interval in R's test output. Include an interpretation of the confidence interval and also explain why the confidence interval is consistent with the p-value.</font>
+Calculate the confidence interval for $\rho$ using the formula and verify that it matches the confidence interval in R's test output. Include an interpretation of the confidence interval and also explain why the confidence interval is consistent with the p-value.
 
 ### (5)
 
-<font color="green">Calculate the coefficient of determination using the ANOVA table output, and confirm that it matches the value in the R output (what R output shows this and what is it labeled as?). </font>
+Calculate the coefficient of determination using the ANOVA table output, and confirm that it matches the value in the R output (what R output shows this and what is it labeled as?).
 
 ### (6)
 
-<font color="green">What is another way to calculate the coefficient of determination? Do the calculation and verify that you have the same answer.</font>
+What is another way to calculate the coefficient of determination? Do the calculation and verify that you have the same answer.
 
 ### (7)
 
-<font color="green">Give an interpretation of the coefficient of determination in the context of the study.</font>
-
-<font color="darkorange">Note: the question numbers below do not refer to questions from the textbook. Complete the problems below instead of the ones in the book.</font>
+Give an interpretation of the coefficient of determination in the context of the study.

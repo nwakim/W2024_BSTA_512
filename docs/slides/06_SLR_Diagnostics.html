@@ -287,12 +287,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#residual-plot" id="toc-residual-plot" class="nav-link" data-scroll-target="#residual-plot">Residual plot</a></li>
   <li><a href="#e-equality-of-variance-of-the-residuals-homoscedasticity" id="toc-e-equality-of-variance-of-the-residuals-homoscedasticity" class="nav-link" data-scroll-target="#e-equality-of-variance-of-the-residuals-homoscedasticity">E: Equality of variance of the residuals (Homoscedasticity)</a></li>
   </ul></li>
-  <li><a href="#r2-coefficient-of-determination" id="toc-r2-coefficient-of-determination" class="nav-link" data-scroll-target="#r2-coefficient-of-determination"><span class="math inline">\(R^2\)</span> = Coefficient of determination</a>
-  <ul class="collapse">
-  <li><a href="#r2-coefficient-of-determination-12" id="toc-r2-coefficient-of-determination-12" class="nav-link" data-scroll-target="#r2-coefficient-of-determination-12"><span class="math inline">\(R^2\)</span> = Coefficient of determination (1/2)</a></li>
-  <li><a href="#r2-coefficient-of-determination-22" id="toc-r2-coefficient-of-determination-22" class="nav-link" data-scroll-target="#r2-coefficient-of-determination-22"><span class="math inline">\(R^2\)</span> = Coefficient of determination (2/2)</a></li>
-  <li><a href="#r2-in-summary-r-output" id="toc-r2-in-summary-r-output" class="nav-link" data-scroll-target="#r2-in-summary-r-output"><span class="math inline">\(R^2\)</span> in <code>summary()</code> R output</a></li>
-  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="06_SLR_Diagnostics.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
@@ -878,109 +872,6 @@ $ .std.resid                 &lt;dbl&gt; 0.48238134, 0.58332052, -0.59972251, 0.
 <figure class="figure">
 <p><img src="../img_slides/heteroskedastic.png" class="img-fluid figure-img"></p>
 </figure>
-</div>
-</section>
-</section>
-<section id="r2-coefficient-of-determination" class="level1">
-<h1><span class="math inline">\(R^2\)</span> = Coefficient of determination</h1>
-<p>Another way to assess model fit</p>
-<section id="r2-coefficient-of-determination-12" class="level2">
-<h2 class="anchored" data-anchor-id="r2-coefficient-of-determination-12"><span class="math inline">\(R^2\)</span> = Coefficient of determination (1/2)</h2>
-<ul>
-<li>Recall that the correlation coefficient <span class="math inline">\(r\)</span> measures the strength of the linear relationship between two numerical variables</li>
-<li><span class="math inline">\(R^2\)</span> is usually used to measure the strength of a <em>linear fit</em>
-<ul>
-<li>For a simple linear regression model (one numerical predictor), <span class="math inline">\(R^2\)</span> is just the square of the correlation coefficient</li>
-</ul></li>
-<li>In general, <span class="math inline">\(R^2\)</span> is the proportion of the variability of the dependent variable that is <strong>explained</strong> by the independent variable(s)</li>
-</ul>
-<p><span class="math display">\[R^2 = \frac{\textrm{variance of predicted y-values}}
-{\textrm{variance of observed y-values}} = \frac{\sum_{i=1}^n(\widehat{y}_i-\bar{y})^2}
-{\sum_{i=1}^n(y_i-\bar{y})^2}
-= \frac{s_y^2 - s_{\textrm{residuals}}^2}
-{s_y^2}\]</span> <span class="math display">\[R^2 = 1- \frac{s_{\textrm{residuals}}^2}
-{s_y^2}\]</span> where <span class="math inline">\(\frac{s_{\textrm{residuals}}^2}{s_y^2}\)</span> is the proportion of “unexplained” variability in the <span class="math inline">\(y\)</span> values,<br>
-and thus <span class="math inline">\(R^2 = 1- \frac{s_{\textrm{residuls}}^2}{s_y^2}\)</span> is the proportion of “explained” variability in the <span class="math inline">\(y\)</span> values</p>
-</section>
-<section id="r2-coefficient-of-determination-22" class="level2">
-<h2 class="anchored" data-anchor-id="r2-coefficient-of-determination-22"><span class="math inline">\(R^2\)</span> = Coefficient of determination (2/2)</h2>
-<ul>
-<li><p>Recall, <span class="math inline">\(-1&lt;r&lt;1\)</span></p></li>
-<li><p>Thus, <span class="math inline">\(0&lt;R^2&lt;1\)</span></p></li>
-<li><p>In practice, we want “high” <span class="math inline">\(R^2\)</span> values, i.e.&nbsp;<span class="math inline">\(R^2\)</span> as close to 1 as possible.</p></li>
-</ul>
-<p>Calculating <span class="math inline">\(R^2\)</span> in R using <code>glance()</code> from the <code>broom</code> package:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 12
-  r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
-      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1     0.411         0.403  6.14      54.4 1.50e-10     1  -258.  521.  529.
-# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(model1)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4109366</code></pre>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>A model can have a high <span class="math inline">\(R^2\)</span> value when there is a curved pattern.</li>
-<li>Always first check whether a linear model is reasonable or not.</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="r2-in-summary-r-output" class="level2">
-<h2 class="anchored" data-anchor-id="r2-in-summary-r-output"><span class="math inline">\(R^2\)</span> in <code>summary()</code> R output</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = life_expectancy_years_2011 ~ female_literacy_rate_2011, 
-    data = gapm)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--22.299  -2.670   1.145   4.114   9.498 
-
-Coefficients:
-                          Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)               50.92790    2.66041  19.143  &lt; 2e-16 ***
-female_literacy_rate_2011  0.23220    0.03148   7.377  1.5e-10 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 6.142 on 78 degrees of freedom
-  (108 observations deleted due to missingness)
-Multiple R-squared:  0.4109,    Adjusted R-squared:  0.4034 
-F-statistic: 54.41 on 1 and 78 DF,  p-value: 1.501e-10</code></pre>
-</div>
-</div>
-<p>Compare to the square of the correlation coefficient <span class="math inline">\(r\)</span>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">cor</span>(<span class="at">x =</span> gapm<span class="sc">$</span>life_expectancy_years_2011, </span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> gapm<span class="sc">$</span>female_literacy_rate_2011,</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">use =</span>  <span class="st">"complete.obs"</span>)</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>r</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.6410434</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>r<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4109366</code></pre>
-</div>
 </div>
 
 

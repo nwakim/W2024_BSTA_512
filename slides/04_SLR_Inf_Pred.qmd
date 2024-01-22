@@ -13,7 +13,7 @@ format:
     show-slide-number: all
     width: 1955
     height: 1100
-    footer: SLR 1
+    footer: SLR 2
     html-math-method: mathjax
     highlight-style: ayu
 execute:
@@ -296,7 +296,8 @@ $$\widehat{\sigma}^2 = S_{y|x}^2= \frac{1}{n-2}\sum_{i=1}^n (Y_i - \widehat{Y}_i
         model:
 
 ```{r}
-summary(model1)
+(m1_sum = summary(model1))
+m1_sum$sigma
 # number of observations (pairs of data) used to run the model
 nobs(model1) 
 ```
