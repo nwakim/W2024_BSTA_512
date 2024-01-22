@@ -66,6 +66,88 @@ library(readxl)
 -   You will be running *a lot* of different tests below. I highly recommend coming up with a naming convention that will easily help you keep track of what variables are being included in which models.
     -   The names model1, model2, etc. will not be helpful.
 
+# Chapter 14
+
+<font color="green">Use the data from Chapter 5 Question 8 to answer the following questions.</font>
+
+<font color="darkorange">Note: the question numbers below do not refer to questions from the textbook. Complete the problems below instead of the ones in the book.</font>
+
+## (1)
+
+<font color="green">Create a scatterplot of the dependent and independent variables with both the best-fit line and a smoothed curve through the points. Describe the relationship between the dependent and independent variables, and also comment on whether you think it is reasonable to use a linear regression to model the relationship. Are their any outliers in the data? If so, describe the points and why you think they are outliers.</font>
+
+## (2)
+
+<font color="green">Write out the regression equation for the simple linear regression model. </font>
+
+## (3)
+
+<font color="green">Assess the normality of the model's (ordinary) residuals by creating a histogram, density plot, and boxplot of the residuals to visually inspect the distribution of the residuals, and describe any deviations from normality.</font>
+
+## (4)
+
+<font color="green">Assess the normality of the model's (ordinary) residuals by creating a normal probability plot of the residuals. Compare the normality probability plot to 8 such plots simulated from normal data, and discuss why or why not the residuals could have come from a normal distribution.</font>
+
+## (5)
+
+<font color="green">Test the normality of the model's (ordinary) residuals and comment on whether the test's conclusion is consistent with your visual inspection or not. Make sure to include the hypotheses and a conclusion to the test based on the p-value.</font>
+
+## (6)
+
+<font color="green">Create a residual plot using ggplot and the standardized residuals and discuss what this shows us in terms of whether the model assumptions have been met or not. </font>
+
+## (7)
+
+<font color="green">Determine whether there are any observations with high leverage. If there are observations with high leverage, identify their coordinates and describe how they relate to the other observations. Why would these points have high leverage compared to the other observations? Do you think removing the points would change the linear model much? (you do not need to remove the points and rerun the model, just comment on whether you think they are influential)</font>
+
+## (8)
+
+<font color="green">Determine whether there are any observations with high Cook's distance. If there are observations with high Cook's distance, identify their coordinates and describe how they relate to the other observations. Why would these points have high Cook's distance compared to the other observations? Do you think removing the points would change the linear model much? (you do not need to remove the points and rerun the model, just comment on whether you think they are influential)</font>
+
+## (9)
+
+<font color="green">Create histograms and density plots of the dependent and independent variables and describe their distribution shapes.</font>
+
+## (10)
+
+<font color="green">Use Tukey's ladder of transformations to choose two possible transformations for the dependent variable. Explain why you chose them. Note: questions below will ask about model fit with the transformations. For now, just explain why you chose the ones that you did.</font>
+
+## (11)
+
+<font color="green">Use Tukey's ladder of transformations to choose two possible transformations for the independent variable. Explain why you chose them. Note: questions below will ask about model fit with the transformations. For now, just explain why you chose the ones that you did.</font>
+
+## (12)
+
+<font color="green">Add the 4 transformations you chose above (2 for the dependent variable and 2 for the independent variable) to the dataset.</font>
+
+## (13)
+
+<font color="green">Create scatterplots using the transformed variables and discuss whether any of the transformations improve the model fit and why (or why not). Include plots with just the x or y variables transformed, and at least one plot with both the x and y variables transformed.</font>
+
+## (14)
+
+<font color="green">Run the various transformed models and save the output to use for the diagnostic questions below.</font>
+
+## (15)
+
+<font color="green">Compare the normal QQ plots of the different models and discuss whether any of the transformations improve the model fit and why (or why not).</font>
+
+## (16)
+
+<font color="green">Compare the residual plots of the different models and discuss whether any of the transformations improve the model fit and why (or why not).</font>
+
+## (17)
+
+<font color="green">Compare the leverage & Cook’s distance of the different models and discuss whether any of the transformations improve the model fit and why (or why not).</font>
+
+## (18)
+
+<font color="green">Compare the $R^2$ values and F-test p-values of the different models and discuss whether any of the transformations improve the model fit and why (or why not).</font>
+
+## (19)
+
+<font color="green">Which of the models would you recommend using for analyses? Discuss why you chose the model and why you did not choose the other models.</font>
+
 # Problem 9.7 (a, b, e, f) from book
 
 *Note: (c) is in recommended problems below.*

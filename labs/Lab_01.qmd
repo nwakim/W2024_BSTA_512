@@ -4,11 +4,11 @@ subtitle: "BSTA 512/612"
 description: "Due: Thursday January 18, 2024 at 11pm"
 date-modified: "1/5/2024"
 date: "1/18/2024"
-categories: [""]
 format: 
   html:
     link-external-newwindow: true
     toc: true
+    embed-resources: true
     self-contained: true
   pdf: default 
 editor_options: 

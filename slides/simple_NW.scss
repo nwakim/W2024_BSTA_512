@@ -263,9 +263,7 @@ $presentation-heading-color: #213c96 !default;
 // highlight equation
 .heq{
   margin-left: 0em;
-  padding-left:  25px;
-  padding-top:  5px;
-  padding-bottom: 0.1em;
+  padding: 5px 5px 5px 5px;
   color: white;
   background-color: #75bfab;
   font-size: 1em;
@@ -273,6 +271,23 @@ $presentation-heading-color: #213c96 !default;
   background-repeat: no-repeat;
   background-position: 15px center;
   border: 15px solid #34AC8B;
+  width: auto;
+}
+
+.box{
+  margin-left: 0em;
+  padding-left:  25px;
+  padding-top:  5px;
+  padding-bottom: 0.1em;
+  color: white;
+  font-size: 1em;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  border: 10px solid #E7E6E6;
+  background-color: #E7E6E6;
+  border-radius: 15px;
+
 }
 
 // highlight
@@ -432,6 +447,68 @@ div.cell-output-stdout {
   color: black;
   background-color: #E3F6C6;
 }
+
+// regression analysis process 3
+.RAP4{
+  margin: 1em 0;
+  border: 7px solid #4FADF3;
+  border-radius: 10px;
+}
+
+.RAP4-title {
+  margin-left: 0em;
+  padding-left:  15px;
+  padding-top:  5px;
+  padding-bottom: 0.1em;
+  color: white;
+  background-color: #4FADF3;
+  font-size: 1em;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  //background-image: url("goal.png");
+}
+
+.RAP4-cont {
+  margin-left: 0em;
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: black;
+  background-color: #C9E0F9;
+}
+
+.container {
+  line-height: 1.4;
+  text-align: center;
+  padding: 44px;
+  color: #333;
+}
+
+.highlight-container, .highlight {
+  position: relative;
+}
+
+.highlight-container {
+  display: inline-block;
+}
+.highlight-container:before {
+  content: " ";
+  display: block;
+  height: 90%;
+  width: 100%;
+  margin-left: -3px;
+  margin-right: -3px;
+  position: absolute;
+  background: #F5B686;
+  transform: rotate(1deg);
+  top: -1px;
+  left: -1px;
+  border-radius: 10% 10% 10% 10%;
+  padding: 5px 3px 3px 5px;
+}
+
+
 
 
 

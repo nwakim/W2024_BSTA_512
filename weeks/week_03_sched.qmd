@@ -39,10 +39,10 @@ editor_options:
 
 Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
-| Lesson | Topic                            |                                Slides                                 |                                  Annotated Slides                                  |                                                          Recording                                                          |
-|-------------|-------------|:-----------:|:-----------:|:--------------------:|
-| 4      | SLR: Inference and Testing       | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 5      | SLR: Assumptions and Diagnostics | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} |                                [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                |
+| Lesson | Topic                         |                                                Slides                                                |                                  Annotated Slides                                  |                                                          Recording                                                          |
+|---------------|---------------|:-------------:|:-------------:|:-------------:|
+| 4      | SLR: Inference and Prediction | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/04_SLR_Inf_Pred.qmd)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 5      | SLR: Model Evaluation         |                [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                 | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} |                                [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                |
 
 For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
 
@@ -57,6 +57,8 @@ For the slides, once they are opened, if you would like to print or save them as
 
 -   Quiz 1 on 1/29!
 
+    -   Will cover up through today and HW1
+
 -   Homework 2 due 2/1
 
 ## Class Exit Tickets
@@ -66,6 +68,25 @@ For the slides, once they are opened, if you would like to print or save them as
 [[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUMU5YTFZRRzNaUlNFMElGQ0E1MDVMS0dZMC4u)]{style="color:#f8f5f0;"} Wednesday (1/24)
 
 ## Announcements
+
+### Monday 1/22
+
+-   Clarification on the homework
+
+    -   You can always turn in homework late for credit
+
+    -   The only way to secure feedback from the TAs is by turning it in on time (unless you and I have discussed something else)
+
+-   HW 1: changes some wording in 6f (less work to do! Yay!)
+
+### Wednesday 1/24
+
+-   Student Leadership Council has set this year’s OHSU-PSU SPH **National Public Health Week Conference** for **Thursday, April 4th, 2024.**
+    -   Present your research in a low pressure situation!
+
+    -   You can even present on your project from this class!
+
+        -   I can help you polish it up!
 
 ## Muddiest Points
 

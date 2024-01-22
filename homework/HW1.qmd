@@ -5,7 +5,6 @@ author: "Your name here - update this!!!!"
 description: "Due: Thursday January 25, 2023"
 date-modified: "1/16/2024"
 date: "1/25/2024"
-categories: [""]
 format: 
   html: 
     link-external-newwindow: true
@@ -179,15 +178,27 @@ Using `ggplot`, create the respective best-fit lines on your plots. Which of the
 
 #### Part e (to be covered on Monday 1/22)
 
-For the regression that you chose as being more appropriate in part (d), find 95% confidence intervals for the true slope and intercept. Interpret each interval with regard to the null hypothesis that the true value is 0.
+For the regression that you chose as being more appropriate in part (d), find 95% confidence intervals for the true slope and intercept. Interpret each interval ~~with regard to the null hypothesis that the true value is 0~~.
 
 ::: {.callout-note appearance="simple"}
 You can get the CI's from the R output
 :::
 
+::: callout-important
+## Update 1/21/2024
+
+I removed some of the instructions because they were a little confusing. No need to go through the formal process of a hypothesis test.
+:::
+
 #### Part f (to be covered on Monday 1/22)
 
-For the regression that you chose as being more appropriate in part (d), add 95% confidence and prediction bands. Using your sketch, find and interpret an approximate 95% confidence interval for the mean response of an 8-day-old chick.
+For the regression that you chose as being more appropriate in part (d), add 95% confidence ~~and prediction~~ bands. Using your sketch, find and interpret an approximate 95% confidence interval for the mean response of an 8-day-old chick.
+
+::: callout-important
+## Update 1/21/2024
+
+I removed prediction bands because we did not cover them!
+:::
 
 ## Question 7
 

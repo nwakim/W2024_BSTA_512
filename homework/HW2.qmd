@@ -32,16 +32,21 @@ library(readxl)
 
 ## Directions
 
--   Please upload your homework to Sakai. **Upload both your .Rmd code file and the knitted .html file**.
+-   [Download the `.qmd` file here.](https://github.com/nwakim/W2024_BSTA_512/blob/main/homework/HW2.qmd)
+
+-   You will need to download the datasets. Use [this link to download](https://ohsuitg-my.sharepoint.com/:f:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W2024_BSTA_512_612/Student_files/Data/Homework?csf=1&web=1&e=QEsqb9) the homework datasets needed in this assignment. If you do not want to make changes to the paths set in this document, then make sure the files are stored in a folder named "data" that is housed in the same location as this homework `.qmd` file.
+
+-   Please upload your homework to [Sakai](https://sakai.ohsu.edu/portal/site/BSTA-512-1-AB-W24/tool/961ec5ef-d7f9-4518-be16-25f7af3d6be4). **Upload both your `.qmd` code file and the rendered `.html` file**
 
 -   For each question, make sure to include all code and resulting output in the html file to support your answers.
 
--   Show the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the knitted html file.
+-   Show the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the rendered html file. This is the default setting.
 
--   Write all answers in complete sentences as if communicating the results to a collaborator.
+-   If you are computing something by hand, you may take a picture of your work and insert the image in this file. You may also use LaTeX to write it inline.
 
-    -   Points (usually 0.5-1) will be deducted for not including a sentence summarizing results in the context of the research study.
-    -   Questions not requiring a sentence are
+-   Write all answers in complete sentences as if communicating the results to a collaborator. This means including a sentence summarizing results in the context of the research study.
+
+    -   Questions **not requiring a sentence are**
         -   Ch 7 \# 1, 2, 5
         -   Ch 6 \# 5, 6
         -   Ch 14 \# 2, 12, 14
@@ -50,120 +55,96 @@ library(readxl)
 It is a good idea to try rendering your document from time to time as you go along! Note that rendering automatically saves your qmd file and rendering frequently helps you catch your errors more quickly.
 :::
 
+## Question 1 
+
+This homework assignment is based on data collected as part of an observational study of patients who suffered from stroke. Dataset: The main goal was to study various psychological factors: optimism, fatalism, depression, spirituality, and their relationship with stroke severity and other health outcomes among the study participants. Data were collected using questionnaires during a baseline interview and also medical chart review. More information about this study can be found in the article Fatalism, Optimism, Spirituality, Depressive Symptoms and Stroke Outcome: A population based analysis published in the journal Stroke (2011; 42: 3518-3523). The article can be found on the course website.
+
+The dataset that you will work with is called Completedata. It is SIMILAR but does not exactly match the data in the article. It contains information on complete cases (i.e. excludes participants who had missing data on one or more variables of interest) who suffered a stroke. The variables Optimism (higher=more optimism), Fatalism (higher=feels less control of their life), Depression (higher is more depressed), Spirituality (higher is more belief in a higher power) are variables generated from the observational study. For our homework purposes we will assume they are continuous. NIHScore is the NIH Stroke Severity score, with low numbers representing mild stroke, and larger number more severe stroke, and will also be assumed continuous. Notice that the assumptions in linear regression do not require X to be continuous.
+
+### Part a 
+
+Obtain a scatterplot, with title and axis labels, Depression (y-axis) vs. Fatalism (x-axis). Comment on what you see.
+
+### Part b
+
+Fit a linear regression model to estimate the association between the predictor Fatalism and the outcome Depression (do this using proc reg in SAS, or lm() in R), and interpret the association in plain language. (\textbf{Note}: Please provide interpretation on both point estimates [coefficients] and inference [either F or t test].) 
+
+### Part c
+
+Re-do b) with your own code (either SAS proc iml, in R, or other). Submit your code.
+
+### Part d
+Obtain the interquartile range (IQR) for fatalism (IQR is Q3-Q1). Make a new variable FatalismIQR, equal to Fatalism centered at its median, and divided by the IQR. This is an alternative way of standardizing a variable, and can be used for variables that have symmetric or skewed distribution. Re-run the regression from (b) using this new variable, and interpret its coefficient. Which of the following are the same as in 1b: intercept, slope? (\textbf{Note}: Please provide by-hand calculation of both point estimates [coefficients] and inference [either F or t test].) 
+
+## Chapter 7
+
+<font color="green">Use the data from Chapter 5 Question 9 to answer the following questions. Use the log-transformed values as given in the dataset.</font>
+
+<font color="darkorange">Note: the question numbers below do not refer to questions from the textbook. Complete the problems below instead of the ones in the book.</font>
+
+
+
+### (1)
+
+<font color="green">Use R to create the ANOVA table for the regression described in the exercise.</font>
+
+
+
+### (2)
+
+<font color="green">Using the values in the `Df` and `Sum Sq` columns, show how the remaining values in the table are calculated.</font>
+
+### (3)
+
+<font color="green">Calculate the SSY and its degrees of freedom. Use these values to calculate the standard deviation of the outcome variable. </font>
+
+
+
+### (4)
+
+<font color="green">What are the hypotheses being tested in the ANOVA table? Make sure to include a description of the parameter being tested in the context of the research question.</font>
+
+
+### (5)
+
+<font color="green">Using just the values in the ANOVA table, find the value of the t-distribution test statistic for testing the slope that one would find in the regression output of the linear model. What are the degrees of freedom for that t-distribution?</font>
+
+### (6)
+
+<font color="green">Show the regression output for the linear model. Using just the regression output, calculate the SSR and SSE values in the ANOVA table.</font>
+
 ## Question 1 (chapter 6)
 
 <font color="green">Use the data from Chapter 5 Question 9 to answer the following questions. Use the log-transformed values as given in the dataset.</font>
 
 <font color="darkorange">Note: the question numbers below do not refer to questions from the textbook. Complete the problems below instead of the ones in the book.</font>
 
-## (1)
+### (1)
 
 <font color="green">Create a scatterplot of the dependent and independent variables, and in words describe the their relationship. Is it reasonable to use a linear regression to model the relationship?</font>
 
-## (2)
+### (2)
 
 <font color="green">Find the correlation coefficient between the two variables. Is the value consistent with your description of the relationship in the previous question? Why or why not?</font>
 
-## (3)
+### (3)
 
 <font color="green">Test whether the two variables are significantly correlated. Do this using the formula and then check your work with R's test for correlations. Make sure to include the hypotheses and a conclusion. </font>
 
-## (4)
+### (4)
 
 <font color="green">Calculate the confidence interval for $\rho$ using the formula and verify that it matches the confidence interval in R's test output. Include an interpretation of the confidence interval and also explain why the confidence interval is consistent with the p-value.</font>
 
-## (5)
+### (5)
 
 <font color="green">Calculate the coefficient of determination using the ANOVA table output, and confirm that it matches the value in the R output (what R output shows this and what is it labeled as?). </font>
 
-## (6)
+### (6)
 
 <font color="green">What is another way to calculate the coefficient of determination? Do the calculation and verify that you have the same answer.</font>
 
-## (7)
+### (7)
 
 <font color="green">Give an interpretation of the coefficient of determination in the context of the study.</font>
 
 <font color="darkorange">Note: the question numbers below do not refer to questions from the textbook. Complete the problems below instead of the ones in the book.</font>
-
-# Chapter 14
-
-<font color="green">Use the data from Chapter 5 Question 8 to answer the following questions.</font>
-
-<font color="darkorange">Note: the question numbers below do not refer to questions from the textbook. Complete the problems below instead of the ones in the book.</font>
-
-## (1)
-
-<font color="green">Create a scatterplot of the dependent and independent variables with both the best-fit line and a smoothed curve through the points. Describe the relationship between the dependent and independent variables, and also comment on whether you think it is reasonable to use a linear regression to model the relationship. Are their any outliers in the data? If so, describe the points and why you think they are outliers.</font>
-
-## (2)
-
-<font color="green">Write out the regression equation for the simple linear regression model. </font>
-
-## (3)
-
-<font color="green">Assess the normality of the model's (ordinary) residuals by creating a histogram, density plot, and boxplot of the residuals to visually inspect the distribution of the residuals, and describe any deviations from normality.</font>
-
-## (4)
-
-<font color="green">Assess the normality of the model's (ordinary) residuals by creating a normal probability plot of the residuals. Compare the normality probability plot to 8 such plots simulated from normal data, and discuss why or why not the residuals could have come from a normal distribution.</font>
-
-## (5)
-
-<font color="green">Test the normality of the model's (ordinary) residuals and comment on whether the test's conclusion is consistent with your visual inspection or not. Make sure to include the hypotheses and a conclusion to the test based on the p-value.</font>
-
-## (6)
-
-<font color="green">Create a residual plot using ggplot and the standardized residuals and discuss what this shows us in terms of whether the model assumptions have been met or not. </font>
-
-## (7)
-
-<font color="green">Determine whether there are any observations with high leverage. If there are observations with high leverage, identify their coordinates and describe how they relate to the other observations. Why would these points have high leverage compared to the other observations? Do you think removing the points would change the linear model much? (you do not need to remove the points and rerun the model, just comment on whether you think they are influential)</font>
-
-## (8)
-
-<font color="green">Determine whether there are any observations with high Cook's distance. If there are observations with high Cook's distance, identify their coordinates and describe how they relate to the other observations. Why would these points have high Cook's distance compared to the other observations? Do you think removing the points would change the linear model much? (you do not need to remove the points and rerun the model, just comment on whether you think they are influential)</font>
-
-## (9)
-
-<font color="green">Create histograms and density plots of the dependent and independent variables and describe their distribution shapes.</font>
-
-## (10)
-
-<font color="green">Use Tukey's ladder of transformations to choose two possible transformations for the dependent variable. Explain why you chose them. Note: questions below will ask about model fit with the transformations. For now, just explain why you chose the ones that you did.</font>
-
-## (11)
-
-<font color="green">Use Tukey's ladder of transformations to choose two possible transformations for the independent variable. Explain why you chose them. Note: questions below will ask about model fit with the transformations. For now, just explain why you chose the ones that you did.</font>
-
-## (12)
-
-<font color="green">Add the 4 transformations you chose above (2 for the dependent variable and 2 for the independent variable) to the dataset.</font>
-
-## (13)
-
-<font color="green">Create scatterplots using the transformed variables and discuss whether any of the transformations improve the model fit and why (or why not). Include plots with just the x or y variables transformed, and at least one plot with both the x and y variables transformed.</font>
-
-## (14)
-
-<font color="green">Run the various transformed models and save the output to use for the diagnostic questions below.</font>
-
-## (15)
-
-<font color="green">Compare the normal QQ plots of the different models and discuss whether any of the transformations improve the model fit and why (or why not).</font>
-
-## (16)
-
-<font color="green">Compare the residual plots of the different models and discuss whether any of the transformations improve the model fit and why (or why not).</font>
-
-## (17)
-
-<font color="green">Compare the leverage & Cook’s distance of the different models and discuss whether any of the transformations improve the model fit and why (or why not).</font>
-
-## (18)
-
-<font color="green">Compare the $R^2$ values and F-test p-values of the different models and discuss whether any of the transformations improve the model fit and why (or why not).</font>
-
-## (19)
-
-<font color="green">Which of the models would you recommend using for analyses? Discuss why you chose the model and why you did not choose the other models.</font>
