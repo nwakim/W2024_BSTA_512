@@ -200,6 +200,12 @@ For the regression that you chose as being more appropriate in part (d), add 95%
 I removed prediction bands because we did not cover them!
 :::
 
+::: callout-note
+## Update 1/22/2024
+
+You do NOT need to do this problem (Question 6, part f). We did NOT get to it on Monday, so I don't expect you to do it for the homework.
+:::
+
 ## Question 7
 
 Go to the [R Documentation](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/lm) of the `lm()` function. Please answer the following questions about the function arguments and output.
