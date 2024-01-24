@@ -53,12 +53,40 @@ Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B
 | 5      | SLR: Inference + Evaluation   | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/05_SLR_Eval.qmd)]{style="color:#f8f5f0;"}     | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                                          | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                                                                                                                                                                                             |
 +--------+-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
+### Quiz 1 Information
 
-1.  Click on the icon with three horizontal bars on the bottom left of the browser.
-2.  Click on "Tools" with the gear icon at the top of the sidebar.
-3.  Click on "PDF Export Mode."
-4.  From there, you can print or save the PDF as you would normally from your internet browser.
+-   General structure
+
+    -   It will be a maximum of 15 questions
+
+        -   \~ 10 multiple choice questions (including T/F)
+        -   \~ 3 free response questions
+
+-   What will it cover?
+
+    -   Lesson 2 (Data Management) to Lesson 4 ([SLR: Inference](/slides/04_SLR_Inf_Pred.qmd), except the mean response)
+        -   So up to what we covered on Monday 1/22
+    -   HW 0 - 1
+
+-   What can you expect?
+
+    -   Mostly concept questions
+    -   You may need to recognize what certain, important functions do
+    -   You may need to recognize a number from R output (like the regression table on slide 4 in [Lesson 4 slides](/slides/04_SLR_Inf_Pred.qmd))
+
+-   Instructions that will be on the quiz:
+
+    > 1.  I have written a "30 minute" quiz. However, you have 50 minutes from 2:00 - 2:50pm.
+    >
+    > 2.  The quiz is open book and open notes. You may use books other than the class textbook, you may use anything on our course webpage, and you may use reference websites (like Wikipedia, Googling expected value of specific distribution, etc.).
+    >
+    > 3.  No cheating will be tolerated. Cheating includes:
+    >
+    >     -   Using ChatGPT
+    >
+    >     -   Using question and answer threads typically seen on sites like StackExchange, WikiHow, Quora, Reddit, StackOverflow, Chegg, etc.
+    >
+    >     -   Asking other students in the room or looking at other students' quiz work.
 
 ## On the Horizon
 
@@ -92,6 +120,7 @@ For the slides, once they are opened, if you would like to print or save them as
 
 ### Wednesday 1/24
 
+-   HW 1: You do not need to do Question 6f!!
 -   While grading Lab 1
     -   I noticed some really good answers that might have sources attached to them
     -   It was not required that you cite resources in your lab, but it will be required in the project report
