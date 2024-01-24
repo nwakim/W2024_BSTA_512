@@ -279,7 +279,7 @@ labs(x = "Female literacy rate (%)",
 
 $$ \begin{aligned}
 Y_i - \overline{Y} & = (Y_i - \hat{Y}_i) + (\hat{Y}_i- \overline{Y})\\
-\text{Total unexplained variation} & = \text{Variation due to regression} + \text{Residual variation after regression}
+\text{Total unexplained variation} & = \text{Residual variation after regression} + \text{Variation explained by regression}
 \end{aligned}$$
 
 ## More on the equation

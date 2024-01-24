@@ -3112,7 +3112,7 @@
     "href": "weeks/week_03_sched.html#resources",
     "title": "Week 3",
     "section": "Resources",
-    "text": "Resources\nBelow is a table with links to resources. Icons in orange mean there is an available file link.\n\n\n\nLesson\nTopic\nSlides\nAnnotated Slides\nRecording\n\n\n\n\n3\nSimple Linear Regression\ncontinued\n\n\n\n\n\n\n4\nSLR: Inference and Prediction\n\n\n\n\n\n\n5\nSLR: Inference + Evaluation\n\n\n\n\n\n\n\nQuiz 1 Information\n\nGeneral structure\n\nIt will be a maximum of 15 questions\n\n~ 10 multiple choice questions (including T/F)\n~ 3 free response questions\n\n\nWhat will it cover?\n\nLesson 2 (Data Management) to Lesson 4 (SLR: Inference, except the mean response)\n\nSo up to what we covered on Monday 1/22\n\nHW 0 - 1\n\nWhat can you expect?\n\nMostly concept questions\nYou may need to recognize what certain, important functions do\nYou may need to recognize a number from R output (like the regression table on slide 4 in Lesson 4 slides)\n\nInstructions that will be on the quiz:\n\n\nI have written a “30 minute” quiz. However, you have 50 minutes from 2:00 - 2:50pm.\nThe quiz is open book and open notes. You may use books other than the class textbook, you may use anything on our course webpage, and you may use reference websites (like Wikipedia, Googling expected value of specific distribution, etc.).\nNo cheating will be tolerated. Cheating includes:\n\nUsing ChatGPT\nUsing question and answer threads typically seen on sites like StackExchange, WikiHow, Quora, Reddit, StackOverflow, Chegg, etc.\nAsking other students in the room or looking at other students’ quiz work."
+    "text": "Resources\nBelow is a table with links to resources. Icons in orange mean there is an available file link.\n\n\n\nLesson\nTopic\nSlides\nAnnotated Slides\nRecording\n\n\n\n\n3\nSimple Linear Regression\ncontinued\n\n\n\n\n\n\n4\nSLR: Inference and Prediction\n\n\n\n\n\n\n\n5\nSLR: More Inference\n\n\n\n\n\n\n\nQuiz 1 Information\n\nWe will be in RLSB 3A003 B!!!\nGeneral structure\n\nIt will be a maximum of 15 questions\n\n~ 10 multiple choice questions (including T/F)\n~ 3 free response questions\n\n\nWhat will it cover?\n\nLesson 2 (Data Management) to Lesson 4 (SLR: Inference, except the mean response)\n\nSo up to what we covered on Monday 1/22\n\nHW 0 - 1\n\nWhat can you expect?\n\nMostly concept questions\nYou may need to recognize what certain, important functions do\nYou may need to recognize a number from R output (like the regression table on slide 4 in Lesson 4 slides)\n\nInstructions that will be on the quiz:\n\n\nI have written a “30 minute” quiz. However, you have 50 minutes from 2:00 - 2:50pm.\nThe quiz is open book and open notes. You may use books other than the class textbook, you may use anything on our course webpage, and you may use reference websites (like Wikipedia, Googling expected value of specific distribution, etc.).\nNo cheating will be tolerated. Cheating includes:\n\nUsing ChatGPT\nUsing question and answer threads typically seen on sites like StackExchange, WikiHow, Quora, Reddit, StackOverflow, Chegg, etc.\nAsking other students in the room or looking at other students’ quiz work."
   },
   {
     "objectID": "weeks/week_03_sched.html#on-the-horizon",
@@ -8775,7 +8775,7 @@
     "href": "slides/06_SLR_Diagnostics.html#l-linearity-of-relationship-between-variables",
     "title": "SLR: Model Diagnostics",
     "section": "L: Linearity of relationship between variables",
-    "text": "L: Linearity of relationship between variables\nIs the association between the variables linear?\n\nDiagnostic tools:\n\nScatterplot\nResidual plot (see later section for E : Equality of variance of the residuals)\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: Removed 108 rows containing non-finite values (`stat_smooth()`).\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\nWarning: Removed 108 rows containing non-finite values (`stat_smooth()`).\n\n\nWarning: Removed 108 rows containing missing values (`geom_point()`)."
+    "text": "L: Linearity of relationship between variables\nIs the association between the variables linear?\n\nDiagnostic tools:\n\nScatterplot\nResidual plot (see later section for E : Equality of variance of the residuals)"
   },
   {
     "objectID": "slides/06_SLR_Diagnostics.html#i-independence-of-the-residuals-y-values",
@@ -8789,7 +8789,7 @@
     "href": "slides/06_SLR_Diagnostics.html#n-normality-of-the-residuals-1",
     "title": "SLR: Model Diagnostics",
     "section": "N: Normality of the residuals",
-    "text": "N: Normality of the residuals\n\nThe responses Y are normally distributed at each level of x\n\n\n\n\n\n\n\nhttps://bookdown.org/roback/bookdown-bysh/ch-MLRreview.html#ordinary-least-squares-ols-assumptions"
+    "text": "N: Normality of the residuals\n\nThe responses Y are normally distributed at each level of x\n\n\n\nhttps://bookdown.org/roback/bookdown-bysh/ch-MLRreview.html#ordinary-least-squares-ols-assumptions"
   },
   {
     "objectID": "slides/06_SLR_Diagnostics.html#extract-models-residuals-in-r",
@@ -8803,7 +8803,7 @@
     "href": "slides/06_SLR_Diagnostics.html#check-normality-with-usual-distribution-plots",
     "title": "SLR: Model Diagnostics",
     "section": "Check normality with “usual” distribution plots",
-    "text": "Check normality with “usual” distribution plots\nNote that below I save each figure, and then combine them together in one row of output using grid.arrange() from the gridExtra package.\n\nhist1 &lt;- ggplot(aug1, aes(x = .resid)) +\n  geom_histogram()\n\ndensity1 &lt;- ggplot(aug1, aes(x = .resid)) +\n  geom_density()\n\nbox1 &lt;- ggplot(aug1, aes(x = .resid)) +\n  geom_boxplot()\n\nlibrary(gridExtra) # NEW!!!\ngrid.arrange(hist1, density1, box1, nrow = 1)\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+    "text": "Check normality with “usual” distribution plots\nNote that below I save each figure, and then combine them together in one row of output using grid.arrange() from the gridExtra package.\n\nhist1 &lt;- ggplot(aug1, aes(x = .resid)) +\n  geom_histogram()\n\ndensity1 &lt;- ggplot(aug1, aes(x = .resid)) +\n  geom_density()\n\nbox1 &lt;- ggplot(aug1, aes(x = .resid)) +\n  geom_boxplot()\n\nlibrary(gridExtra) # NEW!!!\ngrid.arrange(hist1, density1, box1, nrow = 1)"
   },
   {
     "objectID": "slides/06_SLR_Diagnostics.html#normal-qq-plots-qq-quantile-quantile",
@@ -8852,7 +8852,7 @@
     "href": "slides/06_SLR_Diagnostics.html#qq-plot-of-residuals-of-model1",
     "title": "SLR: Model Diagnostics",
     "section": "QQ plot of residuals of model1",
-    "text": "QQ plot of residuals of model1\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nggplot(aug1, aes(sample = .resid)) + \n  stat_qq() +     # points\n  stat_qq_line()  # line"
+    "text": "QQ plot of residuals of model1\n\n\n\n\n\n\n\n\n\nggplot(aug1, aes(sample = .resid)) + \n  stat_qq() +     # points\n  stat_qq_line()  # line"
   },
   {
     "objectID": "slides/06_SLR_Diagnostics.html#compare-to-randomly-generated-normal-qq-plots",
@@ -8901,7 +8901,7 @@
     "href": "slides/06_SLR_Diagnostics.html#e-equality-of-variance-of-the-residuals-homoscedasticity",
     "title": "SLR: Model Diagnostics",
     "section": "E: Equality of variance of the residuals (Homoscedasticity)",
-    "text": "E: Equality of variance of the residuals (Homoscedasticity)\n\nThe variance or, equivalently, the standard deviation of the responses is equal for all values of x.\nThis is called homoskedasticity (top row)\nIf there is heteroskedasticity (bottom row), then the assumption is not met."
+    "text": "E: Equality of variance of the residuals (Homoscedasticity)\n\nThe variance or, equivalently, the standard deviation of the responses is equal for all values of x.\nThis is called homoskedasticity (top row)\nIf there is heteroskedasticity (bottom row), then the assumption is not met.\n\n\n\n\nSLR 1"
   },
   {
     "objectID": "slides/06_SLR_Diagnostics.html#r2-coefficient-of-determination-12",
@@ -9510,7 +9510,7 @@
     "href": "slides/05_SLR_Eval.html#explained-vs.-unexplained-variation",
     "title": "SLR: More inference + Evaluation",
     "section": "Explained vs. Unexplained Variation",
-    "text": "Explained vs. Unexplained Variation\n\n\\[ \\begin{aligned}\nY_i - \\overline{Y} & = (Y_i - \\hat{Y}_i) + (\\hat{Y}_i- \\overline{Y})\\\\\n\\text{Total unexplained variation} & = \\text{Variation due to regression} + \\text{Residual variation after regression}\n\\end{aligned}\\]"
+    "text": "Explained vs. Unexplained Variation\n\n\\[ \\begin{aligned}\nY_i - \\overline{Y} & = (Y_i - \\hat{Y}_i) + (\\hat{Y}_i- \\overline{Y})\\\\\n\\text{Total unexplained variation} & = \\text{Residual variation after regression} + \\text{Variation explained by regression}\n\\end{aligned}\\]"
   },
   {
     "objectID": "slides/05_SLR_Eval.html#what-is-the-f-statistic-testing",
@@ -9896,5 +9896,68 @@
     "title": "Prediction Bands",
     "section": "Prediction interval for predicting individual values",
     "text": "Prediction interval for predicting individual values\n\nWe do not call this interval a CI since Y is a random variables instead of a parameter\nThe form is similar to a CI though:\n\n\\[\\widehat{Y}_{X_0} \\pm t_{n-2}^* \\cdot s_{Y|X} \\sqrt{1 + \\frac{1}{n} + \\frac{(x_0 - \\bar{x})^2}{(n-1)s_x^2}}\\]\n\nNote that the only difference to the CI for a mean value of y is the additional 1+ under the square root.\n\nThus the width is wider!\n\n\n\nExample: Prediction interval\nFind the 95% prediction interval for the life expectancy when the female literacy rate is 60.\n\\[\\widehat{Y}_{X_0} \\pm t_{n-2}^* \\cdot s_{Y|X} \\sqrt{1 + \\frac{1}{n} + \\frac{(x_0 - \\bar{x})^2}{(n-1)s_x^2}}\\\\\n64.82 \\pm 1.990847 \\cdot 6.142157 \\sqrt{1+\\frac{1}{80} + \\frac{(60 - 81.65375)^2}{(80-1)21.95371^2}}\\\\\n(52.44112, 77.19888)\\]\n\n(Y_X0 &lt;- 50.9 + 0.232*60)\n\n[1] 64.82\n\n(tstar &lt;- qt(.975, df = 78))\n\n[1] 1.990847\n\nsd(gapm$female_literacy_rate_2011, na.rm = T)\n\n[1] 21.95371\n\nmean(gapm$female_literacy_rate_2011, na.rm = T)\n\n[1] 81.65375\n\n(pred_SE_Y_X0 &lt;- 6.142157 *sqrt(1 + 1/80 + (60 - 81.65375)^2/((80-1)*21.95371^2)))\n\n[1] 6.217898\n\n(pred_MOE_Y_X0 &lt;- pred_SE_Y_X0*tstar)\n\n[1] 12.37888\n\nY_X0 - pred_MOE_Y_X0\n\n[1] 52.44112\n\nY_X0 + pred_MOE_Y_X0\n\n[1] 77.19888\n\n\n\n\nUsing R\n\nnewdata\n\n  female_literacy_rate_2011\n1                        60\n\npredict(model1, \n        newdata=newdata, \n        interval=\"prediction\")\n\n       fit      lwr      upr\n1 64.85961 52.48072 77.23849\n\n\n\n\nPrediction bands\nCreate a scatterplot with the regression line, 95% confidence bands, and 95% prediction bands.\n\nnames(model1)\n\n [1] \"coefficients\"  \"residuals\"     \"effects\"       \"rank\"         \n [5] \"fitted.values\" \"assign\"        \"qr\"            \"df.residual\"  \n [9] \"na.action\"     \"xlevels\"       \"call\"          \"terms\"        \n[13] \"model\"        \n\n# data used to create the regression model are stored in `model`\n# Useful since rows with missing values already removed\nhead(model1$model)  \n\n  life_expectancy_years_2011 female_literacy_rate_2011\n1                       56.7                      13.0\n2                       76.7                      95.7\n5                       60.9                      58.6\n6                       76.9                      99.4\n7                       76.0                      97.9\n8                       73.8                      99.5\n\npred &lt;- predict(model1, \n                interval=\"prediction\")\n\nWarning in predict.lm(model1, interval = \"prediction\"): predictions on current data refer to _future_ responses\n\nhead(pred)\n\n       fit      lwr      upr\n1 53.94643 40.91166 66.98121\n2 73.14897 60.81324 85.48470\n5 64.53453 52.14572 76.92334\n6 74.00809 61.65365 86.36253\n7 73.65980 61.31347 86.00613\n8 74.03131 61.67631 86.38632\n\n# cbind is column bind to merge datasets together\ndata_pred_bands &lt;- cbind(model1$model, pred)\nglimpse(data_pred_bands)\n\nRows: 80\nColumns: 5\n$ life_expectancy_years_2011 &lt;dbl&gt; 56.7, 76.7, 60.9, 76.9, 76.0, 73.8, 71.0, 7…\n$ female_literacy_rate_2011  &lt;dbl&gt; 13.0, 95.7, 58.6, 99.4, 97.9, 99.5, 53.4, 9…\n$ fit                        &lt;dbl&gt; 53.94643, 73.14897, 64.53453, 74.00809, 73.…\n$ lwr                        &lt;dbl&gt; 40.91166, 60.81324, 52.14572, 61.65365, 61.…\n$ upr                        &lt;dbl&gt; 66.98121, 85.48470, 76.92334, 86.36253, 86.…\n\nggplot(data_pred_bands, \n       aes(x=female_literacy_rate_2011,\n           y=life_expectancy_years_2011)) +\n  geom_point() +\n  geom_smooth(method=lm) +\n  geom_line(aes(y=lwr), \n            color=\"violet\", \n            linetype=\"dashed\")+\n  geom_line(aes(y=upr), \n            color=\"violet\", \n            linetype=\"dashed\")\n\n`geom_smooth()` using formula = 'y ~ x'"
+  },
+  {
+    "objectID": "slides/06_SLR_Diagnostics.html#least-squares-model-assumptions-eline",
+    "href": "slides/06_SLR_Diagnostics.html#least-squares-model-assumptions-eline",
+    "title": "SLR: Model Diagnostics",
+    "section": "Least-squares model assumptions: eLINE",
+    "text": "Least-squares model assumptions: eLINE\nThese are the model assumptions made in ordinary least squares:\n \n\ne xistence: For any \\(X\\), there exists a distribution for \\(Y\\)\n\n \n\nL inearity of relationship between variables\n\n \n\nI ndependence of the \\(Y\\) values\n\n \n\nN ormality of the \\(Y\\)’s given \\(X\\) (residuals)\n\n \n\nE quality of variance of the residuals (homoscedasticity)"
+  },
+  {
+    "objectID": "slides/06_SLR_Diagnostics.html#e-existence-of-ys-distribution",
+    "href": "slides/06_SLR_Diagnostics.html#e-existence-of-ys-distribution",
+    "title": "SLR: Model Diagnostics",
+    "section": "e: Existence of Y’s distribution",
+    "text": "e: Existence of Y’s distribution\n\nFor any fixed value of the variable \\(X\\), \\(Y\\) is a\n\nrandom variable with a certain probability distribution\nhaving finite\n\nmean and\nvariance\n\n\nThis leads to the normality assumption\nNote: This is not about \\(Y\\) alone, but \\(Y|X\\)"
+  },
+  {
+    "objectID": "slides/06_SLR_Diagnostics.html#l-linearity",
+    "href": "slides/06_SLR_Diagnostics.html#l-linearity",
+    "title": "SLR: Model Diagnostics",
+    "section": "L: Linearity",
+    "text": "L: Linearity\n\nThe relationship between the variables is linear (a straight line):\n\nThe mean value of \\(Y\\) given \\(X\\), \\(\\mu_{y|x}\\) or \\(E[Y|X]\\), is a straight-line function of \\(X\\)\n\n\n\\[\\mu_{y|x} = \\beta_0 + \\beta_1 \\cdot X\\]"
+  },
+  {
+    "objectID": "slides/06_SLR_Diagnostics.html#i-independence-of-observations",
+    "href": "slides/06_SLR_Diagnostics.html#i-independence-of-observations",
+    "title": "SLR: Model Diagnostics",
+    "section": "I: Independence of observations",
+    "text": "I: Independence of observations\n\nThe \\(Y\\)-values are statistically independent of one another\n\n \n\nExamples of when they are not independent, include\n \n\nrepeated measures (such as baseline, 3 months, 6 months)\n\n \n\ndata from clusters, such as different hospitals or families\n\n\n \n\nThis condition is checked by reviewing the study design and not by inspecting the data\n\n \n\nHow to analyze data using regression models when the \\(Y\\)-values are not independent is covered in BSTA 519 (Longitudinal data)"
+  },
+  {
+    "objectID": "slides/06_SLR_Diagnostics.html#poll-everywhere-question",
+    "href": "slides/06_SLR_Diagnostics.html#poll-everywhere-question",
+    "title": "SLR: Model Diagnostics",
+    "section": "Poll Everywhere Question",
+    "text": "Poll Everywhere Question"
+  },
+  {
+    "objectID": "slides/06_SLR_Diagnostics.html#n-normality",
+    "href": "slides/06_SLR_Diagnostics.html#n-normality",
+    "title": "SLR: Model Diagnostics",
+    "section": "N: Normality",
+    "text": "N: Normality\n\nFor any fixed value of \\(X\\), \\(Y\\) has normal distribution.\n\nNote: This is not about \\(Y\\) alone, but \\(Y|X\\)\n\nEquivalently, the measurement (random) errors \\(\\epsilon_i\\) ’s normally distributed\n\nThis is more often what we check\n\nWe will discuss how to assess this in practice in Chapter 14 (Regression Diagnostics)"
+  },
+  {
+    "objectID": "slides/06_SLR_Diagnostics.html#e-equality-of-variance-of-the-residuals",
+    "href": "slides/06_SLR_Diagnostics.html#e-equality-of-variance-of-the-residuals",
+    "title": "SLR: Model Diagnostics",
+    "section": "E: Equality of variance of the residuals",
+    "text": "E: Equality of variance of the residuals\n\nThe variance of \\(Y\\) given \\(X\\) (\\(\\sigma_{Y|X}^2\\)), is the same for any \\(X\\)\n\nWe use just \\(\\sigma^2\\) to denote the common variance\n\nThis is also called homoscedasticity\nWe will discuss how to assess this in practice in Chapter 14 (Regression Diagnostics)"
+  },
+  {
+    "objectID": "slides/06_SLR_Diagnostics.html#summary-of-eline-model-assumptions",
+    "href": "slides/06_SLR_Diagnostics.html#summary-of-eline-model-assumptions",
+    "title": "SLR: Model Diagnostics",
+    "section": "Summary of eLINE model assumptions",
+    "text": "Summary of eLINE model assumptions\n\n\\(Y\\) values are independent (check study design!)\n\n\n\n\n\nThe distribution of \\(Y\\) given \\(X\\) is\n\nnormal\nwith mean \\(\\mu_{y|x} = \\beta_0 + \\beta_1 \\cdot X\\)\nand common variance \\(\\sigma^2\\)\n\n\n\n\nThis means that the residuals are\n\nnormal\nwith mean = 0\nand common variance \\(\\sigma^2\\)"
+  },
+  {
+    "objectID": "slides/06_SLR_Diagnostics.html#anscombes-quartet",
+    "href": "slides/06_SLR_Diagnostics.html#anscombes-quartet",
+    "title": "SLR: Model Diagnostics",
+    "section": "Anscombe’s Quartet",
+    "text": "Anscombe’s Quartet"
   }
 ]

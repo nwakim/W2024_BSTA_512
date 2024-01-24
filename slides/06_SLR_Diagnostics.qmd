@@ -84,7 +84,193 @@ gapm <- read_csv("data/lifeexp_femlit_2011.csv")
 -   residual analysis
 -   outlier detection 
 
-# Next class???
+# Learning Objectives
+
+1.  Identify different sources of variation in an Analysis of Variance
+    (ANOVA) table
+
+2.  Using the F-test, determine if there is enough evidence that
+    population slope $\beta_1$ is not 0
+
+3.  Calculate and interpret the coefficient of determination
+
+::: lob
+4.  Describe the model assumptions made in linear regression using
+    ordinary least squares
+:::
+
+## Least-squares model assumptions: eLINE
+
+These are the model assumptions made in ordinary least squares:
+
+ 
+
+-   **e** xistence: For any $X$, there exists a distribution for $Y$
+
+ 
+
+-   **L** inearity of relationship between variables
+
+ 
+
+-   **I** ndependence of the $Y$ values
+
+ 
+
+-   **N** ormality of the $Y$'s given $X$ (residuals)
+
+ 
+
+-   **E** quality of variance of the residuals (homoscedasticity)
+
+## e: Existence of Y’s distribution
+
+-   For any fixed value of the variable $X$, $Y$ is a
+    -   random variable with a certain probability distribution
+    -   having finite
+        -   mean and
+        -   variance
+-   This leads to the normality assumption
+-   Note: This is not about $Y$ alone, but $Y|X$
+
+## L: Linearity
+
+-   The relationship between the variables is linear (a straight line):
+    -   The mean value of $Y$ given $X$, $\mu_{y|x}$ or $E[Y|X]$, is a
+        straight-line function of $X$
+
+$$\mu_{y|x} = \beta_0 + \beta_1 \cdot X$$
+
+```{r}
+#| echo: false
+#| fig-align: center
+
+ggplot(gapm, aes(x = female_literacy_rate_2011,
+                 y = life_expectancy_years_2011)) +
+  geom_point(size = 3, se=FALSE) +
+  geom_smooth(method = "lm", se = FALSE, size = 2, colour="#F14124") +
+  geom_smooth(size=2) +
+  labs(x = "Female literacy rate (%)", 
+       y = "Life expectancy (years)") +
+    theme(axis.title = element_text(size = 20), 
+        axis.text = element_text(size = 18))
+```
+
+## I: Independence of observations
+
+-   The $Y$-values are statistically independent of one another
+
+ 
+
+-   Examples of when they are *not* independent, include
+
+     
+
+    -   repeated measures (such as baseline, 3 months, 6 months)
+
+     
+
+    -   data from clusters, such as different hospitals or families
+
+ 
+
+-   This condition is checked by reviewing the study *design* and not by
+    inspecting the data
+
+ 
+
+-   How to analyze data using regression models when the $Y$-values are
+    not independent is covered in BSTA 519 (Longitudinal data)
+
+## Poll Everywhere Question
+
+## N: Normality
+
+-   For any fixed value of $X$, $Y$ has normal distribution.
+    -   Note: This is not about $Y$ alone, but $Y|X$
+-   Equivalently, the measurement (random) errors $\epsilon_i$ ’s
+    normally distributed
+    -   This is more often what we check
+-   We will discuss how to assess this in practice in Chapter 14
+    (Regression Diagnostics)
+
+```{r}
+#| message: false
+#| echo: false
+#| fig-height: 8
+#| fig-width: 11
+#| fig-align: center
+# code from https://drsimonj.svbtle.com/visualising-residuals
+
+model1 <- lm(life_expectancy_years_2011 ~ female_literacy_rate_2011,
+                 data = gapm)
+regression_points <- augment(model1)
+# summary(model1)
+# sum(model1$residuals^2)
+
+ggplot(regression_points, 
+       aes(x = female_literacy_rate_2011,
+                 y = life_expectancy_years_2011)) +
+  geom_segment(aes(
+    xend = female_literacy_rate_2011, 
+    yend = .fitted), 
+    alpha = 1, 
+    color = "#4FADF3", 
+    size = 2) +
+  geom_smooth(method = "lm", se = FALSE, color = "#F14124", size=3) +
+  # > Color adjustments made here...
+  geom_point(color = "black", size = 4) +  # Color mapped here
+  #scale_color_gradient2(low = "#213c96", mid = "white", high = "#F14124") +  # Colors to use here
+    #guides(color = "none") +
+  geom_point(aes(y = .fitted), shape = 1, size = 4) +
+labs(x = "Female literacy rate (%)", 
+       y = "Life expectancy (years)",
+       title = "Relationship between life expectancy and \n the female literacy rate in 2011") +
+    theme(axis.title = element_text(size = 30), 
+        axis.text = element_text(size = 25), 
+        title = element_text(size = 30))  
+```
+
+## E: Equality of variance of the residuals
+
+-   The variance of $Y$ given $X$ ($\sigma_{Y|X}^2$), is the same for
+    any $X$
+
+    -   We use just $\sigma^2$ to denote the common variance
+
+-   This is also called **homoscedasticity**
+
+-   We will discuss how to assess this in practice in Chapter 14
+    (Regression Diagnostics)
+
+![](05_SLR_Eval/homosced.webp){fig-align="center"}
+
+## Summary of eLINE model assumptions
+
+-   $Y$ values are independent (check study design!)
+
+<br>
+
+::: columns
+::: column
+-   The distribution of $Y$ given $X$ is
+    -   normal
+    -   with mean $\mu_{y|x} = \beta_0 + \beta_1 \cdot X$
+    -   and common variance $\sigma^2$
+:::
+
+::: column
+-   This means that the residuals are
+    -   normal
+    -   with mean = 0
+    -   and common variance $\sigma^2$
+:::
+:::
+
+## Anscombe's Quartet
+
+![](05_SLR_Eval/anscombe.png){fig-align="center"}
+
 
 ## What are the LINE conditions?
 

@@ -28,6 +28,13 @@ editor_options:
 }
 ```
 
+::: callout-important
+## Room Locations for the week
+
+-   On Monday, 1/22,        we will be in **RLSB 3A003 B**
+-   On Wednesday, 1/24,  we will be in **RLSB 3A003 A**
+:::
+
 ### Topics: {.hidden}
 
 -   SLR vs MLR
@@ -47,7 +54,7 @@ editor_options:
 Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
 | Lesson | Topic                                      |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
-|---------------|---------------|:-------------:|:-------------:|:-------------:|
+|--------|--------------------------------------------|:---------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:-------------------------------------------------------------:|
 | 6      | SLR: Model Diagnostics                     | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 7      | Introduction to Multiple Linear Regression | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
