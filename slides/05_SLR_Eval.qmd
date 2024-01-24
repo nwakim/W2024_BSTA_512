@@ -1,5 +1,5 @@
 ---
-title: "SLR: Model Evaluation"
+title: "SLR: More inference + Evaluation"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#213c96"
@@ -50,7 +50,7 @@ library(gridExtra) # NEW!!!
 theme_set(theme_gray(base_size = 22))
 # theme_update(text = element_text(size=16))  # set global text size for ggplots
 
-gapm <- read_csv("data/lifeexp_femlit_2011.csv")
+gapm <- read_csv("data/lifeexp_femlit_2011.csv") %>% na.omit()
 
 model1 <- lm(life_expectancy_years_2011 ~
                female_literacy_rate_2011,
@@ -61,16 +61,18 @@ reg_tabel = tidy(model1) %>% gt() %>%
  fmt_number(decimals = 3)
 ```
 
-## Topics
-
--   ANOVA table
--   Explained and unexplained variation
--   F test
--   
-
 # Learning Objectives
 
-1.  
+1.  Identify different sources of variation in an Analysis of Variance
+    (ANOVA) table
+
+2.  Using the F-test, determine if there is enough evidence that
+    population slope $\beta_1$ is not 0
+
+3.  Calculate and interpret the coefficient of determination
+
+4.  Describe the model assumptions made in linear regression using
+    ordinary least squares
 
 ## So far in our regression example...
 
@@ -98,7 +100,6 @@ reg_tabel = tidy(model1) %>% gt() %>%
 #| fig-width: 11
 #| echo: false
 
-gapm <- read_csv("data/lifeexp_femlit_2011.csv")
 ggplot(gapm, aes(x = female_literacy_rate_2011,
                  y = life_expectancy_years_2011)) +
   geom_point(size = 4) +
@@ -213,13 +214,35 @@ Model Use (Inference)
 :::
 :::
 
-## Quickly go over our estimates from last class???
-
-Now we are making sure our whole model is trustworthy
-
 # Learning Objectives
 
-1.  
+::: lob
+1.  Identify different sources of variation in an Analysis of Variance
+    (ANOVA) table
+:::
+
+2.  Using the F-test, determine if there is enough evidence that
+    population slope $\beta_1$ is not 0
+
+3.  Calculate and interpret the coefficient of determination
+
+4.  Describe the model assumptions made in linear regression using
+    ordinary least squares
+
+## Getting to the F-test
+
+The F statistic in linear regression is essentially a proportion of the
+variance explained by the model vs. the variance not explained by the
+model
+
+1.  Start with visual of explained vs. unexplained variation
+
+2.  Figure out the mathematical representations of this variation
+
+3.  Look at the ANOVA table to establish key values measuring our
+    variance from our model
+
+4.  Build the F-test
 
 ## Explained vs. Unexplained Variation
 
@@ -255,24 +278,25 @@ labs(x = "Female literacy rate (%)",
 ```
 
 $$ \begin{aligned}
-Y_i - \bar{Y} & = & (Y_i - \hat{Y}_i) & + (\hat{Y}_i- \bar{Y})\\
-\text{Total unexplained variation} & = & \text{Variation due to regression} & + \text{Residual variation after regression}
+Y_i - \overline{Y} & = (Y_i - \hat{Y}_i) + (\hat{Y}_i- \overline{Y})\\
+\text{Total unexplained variation} & = \text{Variation due to regression} + \text{Residual variation after regression}
 \end{aligned}$$
 
-## More of the equation
+## More on the equation
 
 ::: columns
 ::: {.column width="40%"}
-$$Y_i - \bar{Y} = (Y_i - \hat{Y}_i) + (\hat{Y}_i- \bar{Y})$$
+$$Y_i - \overline{Y} = (Y_i - \hat{Y}_i) + (\hat{Y}_i- \overline{Y})$$
 
--   $Y_i - \bar{Y}$ = the deviation of $Y_i$ around the mean $\bar{Y}$
+-   $Y_i - \overline{Y}$ = the deviation of $Y_i$ around the mean
+    $\overline{Y}$
     -   (the **total** amount deviation unexplained at $X_i$ ).
 -   $Y_i - \hat{Y}_i$ = the deviation of the observation $Y$ around the
     fitted regression line
     -   (the amount deviation **unexplained** by the regression at $X_i$
         ).
--   $\hat{Y}_i- \bar{Y}$ = the deviation of the fitted value $\hat{Y}_i$
-    around the mean $\bar{Y}$
+-   $\hat{Y}_i- \overline{Y}$ = the deviation of the fitted value
+    $\hat{Y}_i$ around the mean $\overline{Y}$
     -   (the amount deviation **explained** by the regression at $X_i$ )
 :::
 
@@ -283,38 +307,40 @@ $$Y_i - \bar{Y} = (Y_i - \hat{Y}_i) + (\hat{Y}_i- \bar{Y})$$
 :::
 :::
 
+## Poll Everywhere Question 1
+
 ## How is this actually calculated for our fitted model?
 
 $$ \begin{aligned}
-Y_i - \bar{Y} & = & (Y_i - \hat{Y}_i) & + (\hat{Y}_i- \bar{Y})\\
-\text{Total unexplained variation} & = & \text{Variation due to regression} & + \text{Residual variation after regression}
+Y_i - \overline{Y} & = (Y_i - \hat{Y}_i) + (\hat{Y}_i- \overline{Y})\\
+\text{Total unexplained variation} & = \text{Variation due to regression} + \text{Residual variation after regression}
 \end{aligned}$$
 
 $$\begin{aligned}
-\sum_{i=1}^n (Y_i - \bar{Y})^2 & = \sum_{i=1}^n (\hat{Y}_i- \bar{Y})^2 + \sum_{i=1}^n (Y_i - \hat{Y}_i)^2 \\
+\sum_{i=1}^n (Y_i - \overline{Y})^2 & = \sum_{i=1}^n (\hat{Y}_i- \overline{Y})^2 + \sum_{i=1}^n (Y_i - \hat{Y}_i)^2 \\
 SSY & = SSR + SSE 
 \end{aligned}$$
 $$\text{Total Sum of Squares} = \text{Sum of Squares due to Regression} + \text{Sum of Squares due to Error (residuals)}$$
 
 ::: columns
-::: {.column width="7%"}
+::: {.column width="9%"}
 :::
 
-::: {.column width="86%"}
+::: {.column width="82%"}
 ANOVA table:
 
 | Variation Source | df    | SS    | MS                      | test statistic        | p-value |
-|------------------|-------|-------|-------------------------|-----------------------|---------|
+|------------|------------|------------|------------|------------|------------|
 | Regression       | $1$   | $SSR$ | $MSR = \frac{SSR}{1}$   | $F = \frac{MSR}{MSE}$ |         |
 | Error            | $n-2$ | $SSE$ | $MSE = \frac{SSE}{n-2}$ |                       |         |
 | Total            | $n-1$ | $SSY$ |                         |                       |         |
 :::
 
-::: {.column width="7%"}
+::: {.column width="9%"}
 :::
 :::
 
-## ANOVA table in R
+## Analysis of Variance (ANOVA) table in R
 
 ```{r}
 # Fit regression model:
@@ -327,119 +353,431 @@ anova(model1) %>% tidy() %>% gt() %>%
    fmt_number(decimals = 3)
 ```
 
+# Learning Objectives
+
+1.  Identify different sources of variation in an Analysis of Variance
+    (ANOVA) table
+
+::: lob
+2.  Using the F-test, determine if there is enough evidence that
+    population slope $\beta_1$ is not 0
+:::
+
+3.  Calculate and interpret the coefficient of determination
+
+4.  Describe the model assumptions made in linear regression using
+    ordinary least squares
+
 ## What is the F statistic testing?
 
 $$F = \frac{MSR}{MSE}$$
 
 -   It can be shown that
 
-$$E(MSE)=\sigma^2\ \text{and}\ E(MSR) = \sigma^2 + \beta_1^2\sum_{i=1}^n (X_i- \bar{X})^2$$
+$$E(MSE)=\sigma^2\ \text{and}\ E(MSR) = \sigma^2 + \beta_1^2\sum_{i=1}^n (X_i- \overline{X})^2$$
 
 -   Recall that $\sigma^2$ is the variance of the residuals
 -   Thus if
     -   $\beta_1 = 0$, then
         $F \approx \frac{\hat{\sigma}^2}{\hat{\sigma}^2} = 1$
     -   $\beta_1 \neq 0$, then
-        $F \approx \frac{\hat{\sigma}^2 + \hat{\beta}_1^2\sum_{i=1}^n (X_i- \bar{X})^2}{\hat{\sigma}^2} > 1$
--   So the $F$ statistic can be used to test $\beta_1$
+        $F \approx \frac{\hat{\sigma}^2 + \hat{\beta}_1^2\sum_{i=1}^n (X_i- \overline{X})^2}{\hat{\sigma}^2} > 1$
+-   So the $F$ statistic can also be used to test $\beta_1$
 
-## F-test for the slope
-
-**Hypotheses**
-
-$$H_0: \beta_1 = 0\\
-H_A: \beta_1 \neq 0$$
-
-**Test statistic and probability distribution**
-
-$$F = \frac{MSR}{MSE} \sim F_{1, n-2}$$
-
--   The F statistic has an $F$-distribution with numerator $df = 1$ and
-    denominator $df = n-2$.
-
-**Decision**
-
-**Critical value** approach:
-
-Let $F_{1, n-2, 1-\alpha}$ be the critical value for the $F_{1, n-2}$
-distribution with area $\alpha$ to the right.
-
--   If $F > F_{1, n-2, 1-\alpha}$, then reject $H_0$
--   If $F \leq F_{1, n-2, 1-\alpha}$, then fail to reject $H_0$
-
-$p$-value approach:
-
--   If $p$-value $< \alpha$, then reject $H_0$
--   If $p$-value $\geq \alpha$, then fail to reject $H_0$
-
-**Conclusion**
-
-If $H_0$ is rejected, we conclude there is sufficient evidence that
-there exists a linear relationship between $X$ and $Y$
-($\beta_1 \neq 0$).
-
-## F-test vs. t-test for the slope
+## F-test vs. t-test for the population slope
 
 The square of a $t$-distribution with $df = \nu$ is an $F$-distribution
 with $df = 1, \nu$
 
 $$T_{\nu}^2 \sim F_{1,\nu}$$
 
-## Example: F-test for the slope
+-   We can use either F-test or t-test to run the following hypothesis
+    test:
 
-**Hypotheses**
+```{=tex}
+\begin{align}
+H_0 &: \beta_1 = 0\\
+\text{vs. } H_A&: \beta_1 \neq 0
+\end{align}
+```
+-   Note that the F-test does not support one-sided alternative tests,
+    but the t-test does!
 
-$$H_0: \beta_1 = 0\\
-H_A: \beta_1 \neq 0$$
+## Planting a seed about the F-test
 
-**Test statistic and probability distribution**
+We can think about the hypothesis test for the slope...
 
-$$F = \frac{MSR}{MSE} = \frac{2052.81}{37.73} = 54.414 \sim F_{1, 78}$$
+::: columns
+::: {.column width="17%"}
+:::
 
-**Decision**
+::: {.column width="33%"}
+::: proof1
+::: proof-title
+Null $H_0$
+:::
 
-**Critical value** approach:
+::: proof-cont
+$\beta_1=0$
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: definition
+::: def-title
+Alternative $H_1$
+:::
+
+::: def-cont
+$\beta_1\neq0$
+:::
+:::
+:::
+:::
+
+in a slightly different way...
+
+::: columns
+::: {.column width="17%"}
+:::
+
+::: {.column width="33%"}
+::: proof1
+::: proof-title
+Null model ($\beta_1=0$)
+:::
+
+::: proof-cont
+-   $Y = \beta_0 + \epsilon$
+-   Smaller (reduced) model
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: definition
+::: def-title
+Alternative model ($\beta_1\neq0$)
+:::
+
+::: def-cont
+-   $Y = \beta_0 + \beta_1 X + \epsilon$
+-   Larger (full) model
+:::
+:::
+:::
+:::
+
+-   In multiple linear regression, we can start using this framework to
+    test multiple coefficient parameters at once
+
+    -   Decide whether or not to reject the smaller reduced model in
+        favor of the larger full model
+
+    -   Cannot do this with the t-test!
+
+## Poll Everywhere Question 2
+
+## F-test: general steps for hypothesis test for population **slope** $\beta_1$
+
+::: columns
+::: {.column width="48%"}
+::: highlight-container
+::: highlight
+1.  For today's class, we are assuming that we have met the underlying
+    assumptions
+:::
+:::
+
+::: highlight-container
+::: highlight
+2.  State the null hypothesis.
+:::
+:::
+
+Often, we are curious if the coefficient is 0 or not:
+
+```{=tex}
+\begin{align}
+H_0 &: \beta_1 = 0\\
+\text{vs. } H_A&: \beta_1 \neq 0
+\end{align}
+```
+::: highlight-container
+::: highlight
+3.  Specify the significance level.
+:::
+:::
+
+Often we use $\alpha = 0.05$
+
+::: highlight-container
+::: highlight
+4.  Specify the test statistic and its distribution under the null
+:::
+:::
+
+The test statistic is $F$, and follows an F-distribution with numerator
+$df=1$ and denominator $df=n-2$.
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+::: highlight-container
+::: highlight
+5.  Compute the value of the test statistic
+:::
+:::
+
+The calculated **test statistic** for $\widehat\beta_1$ is
+
+$$F = \frac{MSR}{MSE}$$
+
+::: highlight-container
+::: highlight
+6.  Calculate the p-value
+:::
+:::
+
+We are generally calculating: $P(F_{1, n-2} > F)$
+
+::: highlight-container
+::: highlight
+7.  Write conclusion for hypothesis test
+:::
+:::
+
+-   Reject: $P(F_{1, n-2} > F) < \alpha$
+-   Fail to reject: $P(F_{1, n-2} > F) \geq \alpha$
+
+We (reject/fail to reject) the null hypothesis that the slope is 0 at
+the $100\alpha\%$ significiance level. There is
+(sufficient/insufficient) evidence that there is significant association
+between ($Y$) and ($X$) (p-value = $P(F_{1, n-2} > F)$).
+:::
+:::
+
+## Life expectancy example: hypothesis test for population **slope** $\beta_1$
+
+-   Steps 1-4 are setting up our hypothesis test: not much change from
+    the general steps
+
+::: highlight-container
+::: highlight
+1.  For today's class, we are assuming that we have met the underlying
+    assumptions
+:::
+:::
+
+::: highlight-container
+::: highlight
+2.  State the null hypothesis.
+:::
+:::
+
+We are testing if the slope is 0 or not:
+
+```{=tex}
+\begin{align}
+H_0 &: \beta_1 = 0\\
+\text{vs. } H_A&: \beta_1 \neq 0
+\end{align}
+```
+::: highlight-container
+::: highlight
+3.  Specify the significance level.
+:::
+:::
+
+Often we use $\alpha = 0.05$
+
+::: highlight-container
+::: highlight
+4.  Specify the test statistic and its distribution under the null
+:::
+:::
+
+::: columns
+::: {.column width="70%"}
+The test statistic is $F$, and follows an F-distribution with numerator
+$df=1$ and denominator $df=n-2 = 80-2$.
+:::
+
+::: {.column width="30%"}
+```{r}
+nobs(model1)
+```
+:::
+:::
+
+## Life expectancy example: hypothesis test for population **slope** $\beta_1$ (2/4)
+
+::: highlight-container
+::: highlight
+5.  Compute the value of the test statistic
+:::
+:::
 
 ```{r}
-# critical value for F 1,78 with alpha = 0.05:
-qf(.95, df1 = 1, df2 = 78)
+anova(model1) %>% tidy() %>% gt() %>%
+  tab_options(table.font.size = 40)
 ```
 
-Since $F = 54.414 > `r qf(.95, df1 = 1, df2 = 78)`$, we reject $H_0$.
+-   **Option 1:** Calculate the test statistic using the values in the
+    ANOVA table
 
-$p$-value approach:
+$$F = \frac{MSR}{MSE} = \frac{2052.81}{37.73}=54.414$$
+
+-   **Option 2:** Get the test statistic value (F) from the ANOVA table
+
+::: hl
+I tend to skip this step because I can do it all with step 6
+:::
+
+## Life expectancy example: hypothesis test for population **slope** $\beta_1$ (3/4)
+
+::: highlight-container
+::: highlight
+6.  Calculate the p-value
+:::
+:::
+
+-   As per Step 4, test statistic $F$ can be modeled by a
+    $F$-distribution with $df1 = 1$ and $df2 = n-2$.
+
+    -   We had 80 countries' data, so $n=80$
+
+-   **Option 1:** Use `pf()` and our calculated test statistic
 
 ```{r}
 # p-value is ALWAYS the right tail for F-test
 pf(54.414, df1 = 1, df2 = 78, lower.tail = FALSE)
 ```
 
-Since
-$p\text{-value} = `r pf(54.414, df1 = 1, df2 = 78, lower.tail = FALSE)` < 0.05$,
-we reject $H_0$.
+-   **Option 2:** Use the ANOVA table
 
-**Conclusion**
+```{r}
+anova(model1) %>% tidy() %>% gt() %>%
+  tab_options(table.font.size = 40)
+```
 
-There is sufficient evidence that there exists a linear relationship
-between countries' female literacy rate and average life expectancy (p
-\< 0.001).
+## Life expectancy example: hypothesis test for population **slope** $\beta_1$ (4/4)
 
-# Chapter 6: The Correlation Coefficient and Straight-line Regression Analysis
+::: highlight-container
+::: highlight
+7.  Write conclusion for the hypothesis test
+:::
+:::
+
+We reject the null hypothesis that the slope is 0 at the $5\%$
+significance level. There is sufficient evidence that there is
+significant association between female life expectancy and female
+literacy rates (p-value \< 0.0001).
+
+## Did you notice anything about the p-value?
+
+The p-value of the t-test and F-test are the same!!
+
+-   For the t-test:
+
+```{r}
+tidy(model1) %>% gt() %>%
+  tab_options(table.font.size = 40)
+```
+
+-   For the F-test:
+
+```{r}
+anova(model1) %>% tidy() %>% gt() %>%
+  tab_options(table.font.size = 40)
+```
+
+This is true when we use the F-test for a single coefficient!
+
+# Learning Objectives
+
+1.  Identify different sources of variation in an Analysis of Variance
+    (ANOVA) table
+
+2.  Using the F-test, determine if there is enough evidence that
+    population slope $\beta_1$ is not 0
+
+::: lob
+3.  Calculate and interpret the coefficient of determination
+:::
+
+4.  Describe the model assumptions made in linear regression using
+    ordinary least squares
+
+## Correlation coefficient from 511
+
+::: columns
+::: {.column width="45%"}
+Correlation coefficient $r$ can tell us about the strength of a
+relationship
+
+-   If $r = -1$, then there is a perfect negative linear relationship
+    between $X$ and $Y$
+
+-   If $r = 1$, then there is a perfect positive linear relationship
+    between $X$ and $Y$
+
+-   If $r = 0$, then there is no linear relationship between $X$ and $Y$
+
+Note: All other values of $r$ tell us that the relationship between $X$
+and $Y$ is not perfect. The closer $r$ is to 0, the weaker the linear
+relationship.
+:::
+
+::: {.column width="55%"}
+![](05_SLR_Eval/corr_coef.png){fig-align="center" width="878"}
+:::
+:::
 
 ## Correlation coefficient
 
-The (Peasron) correlation coefficient $r$ of variables $X$ and $Y$ can
+::: columns
+::: column
+The (Pearson) correlation coefficient $r$ of variables $X$ and $Y$ can
 be computed using the formula:
 
-$$r = \frac{\sum_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})}{\Big(\sum_{i=1}^n (X_i - \bar{X})^2 \sum_{i=1}^n (Y_i - \bar{Y})^2\Big)^{1/2}} 
-= \frac{SSXY}{\sqrt{SSX \cdot SSY}}$$
+$$\begin{aligned}
+r  & = \frac{\sum_{i=1}^n (X_i - \overline{X})(Y_i - \overline{Y})}{\Big(\sum_{i=1}^n (X_i - \overline{X})^2 \sum_{i=1}^n (Y_i - \overline{Y})^2\Big)^{1/2}} \\
+& = \frac{SSXY}{\sqrt{SSX \cdot SSY}}
+\end{aligned}$$
 
-Since (see Ch 5)
-
-$$\widehat{\beta}_1 = \frac{\sum_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})}{\sum_{i=1}^n (X_i - \bar{X})^2}$$
 we have the relationship
 
-$$\widehat{\beta}_1 = r\frac{s_Y}{s_X},\ \ \text{or},\ \  r = \widehat{\beta}_1\frac{s_X}{s_Y}$$
+$$\widehat{\beta}_1 = r\frac{SSY}{SSX},\ \ \text{or},\ \  r = \widehat{\beta}_1\frac{SSX}{SSY}$$
+:::
+::: column
+```{r}
+#| fig-height: 8
+#| fig-width: 11
+#| echo: false
+
+mx <- mean(gapm$female_literacy_rate_2011, na.rm=T)
+my <- mean(gapm$life_expectancy_years_2011, na.rm=T)
+
+
+ggplot(gapm, aes(x = female_literacy_rate_2011,
+                 y = life_expectancy_years_2011)) +
+  geom_point(size = 4) +
+  geom_vline(xintercept = mx, color = "#FF8021", size = 3) +
+   geom_hline(yintercept = my, color = "#A7EA52", size = 3) +
+  labs(x = "Female literacy rate (%)", 
+       y = "Life expectancy (years)",
+       title = "Relationship between life expectancy and \n the female literacy rate in 2011") +
+    theme(axis.title = element_text(size = 30), 
+        axis.text = element_text(size = 25), 
+        title = element_text(size = 30))
+
+```
+:::
+:::
 
 ## Coefficient of determination: $R^2$
 
@@ -449,12 +787,7 @@ equal to
 $$R^2 = \frac{SSR}{SSY} = \frac{SSY - SSE}{SSY}$$
 
 -   $R^2$ is called the **coefficient of determination**.
--   Interpretation #1
-    -   Numerator is the **reduction** in $SSY$ due to using $X$ to
-        predict $Y$
-    -   Thus the fraction is the proportionate reduction
--   Interpretation #2
-    -   The proportion of variation in the $Y$ values explained by the
+-   **Interpretation**: The proportion of variation in the $Y$ values explained by the
         regression model
 -   $R^2$ measures the strength of the linear relationship between $X$
     and $Y$:
@@ -463,320 +796,245 @@ $$R^2 = \frac{SSR}{SSY} = \frac{SSY - SSE}{SSY}$$
             line
     -   $R^2 = 0$: No relationship
         -   Happens when $SSY = SSE$, i.e. using the line doesn't not
-            improve model fit over using $\bar{Y}$ to model the $Y$
+            improve model fit over using $\overline{Y}$ to model the $Y$
             values.
 
-## R Example
+## Poll Everywhere Question
 
+## Life expectancy example: correlation coeffiicent $r$ and coefficient of determination $R^2$
+
+::: columns
+::: {.column width="75%"}
 ```{r}
-cor(x = gapm$life_expectancy_years_2011, 
-    y = gapm$female_literacy_rate_2011)
-
-r <- cor(x = gapm$life_expectancy_years_2011, 
+(r = cor(x = gapm$life_expectancy_years_2011, 
     y = gapm$female_literacy_rate_2011,
-    use =  "complete.obs")
-r
+    use =  "complete.obs"))
 r^2
-summary(model1) # for R^2 value
+(sum_m1 = summary(model1)) # for R^2 value
+sum_m1$r.squared
 ```
-
-## Test $\rho = 0$
-
-$\rho$ is the population parameter for the correlation coefficient $r$
-
-**Hypotheses**
-
-$$H_0: \rho = 0 \ \ \text{vs.} \ \ H_A: \rho \neq 0$$
-
-**Test statistic and probability distribution**
-
-$$T = \frac{r\sqrt{n-2}}{\sqrt{1-r^2}} \sim t_{n-2}$$
-
--   The t statistic has a Student's $t$-distribution with $df = n-2$.
-
-**Decision**
-
-**Critical value** approach:
-
-Let $t_{n-2, 1-\alpha/2}$ be the critical value for the $t_{n-2}$
-distribution with area $\alpha/2$ in each of the tails.
-
--   If $|T| > t_{n-2, 1-\alpha/2}$, then reject $H_0$
--   If $|T| \leq t_{n-2, 1-\alpha/2}$, then fail to reject $H_0$
-
-$p$-value approach:
-
--   If $p$-value $< \alpha$, then reject $H_0$
--   If $p$-value $\geq \alpha$, then fail to reject $H_0$
-
-**Conclusion**
-
-If $H_0$ is rejected, we conclude there is sufficient evidence that
-there exists a linear correlation between $X$ and $Y$ ($\rho \neq 0$).
-
-### Example: Test $\rho = 0$
-
-**Hypotheses**
-
-$$H_0: \rho = 0 \ \ \text{vs.} \ \ H_A: \rho \neq 0$$
-
-**Test statistic and probability distribution**
-
-```{r}
-r # calculated previously
-(teststat <- r*sqrt(78)/sqrt(1-r^2))
-```
-
-$$T = \frac{r\sqrt{n-2}}{\sqrt{1-r^2}} = 
-\frac{`r r`\sqrt{80-2}}{\sqrt{1-`r r`^2}} = `r teststat` \sim t_{78}$$
-
-```{r}
-# critical value for t78 with alpha = 0.05:
-qt(.975, df = 78)
-```
-
-Since $t = 7.376557 > `r qt(.975, df = 78)`$, we reject $H_0$.
-
-$p$-value approach:
-
-```{r}
-2*pt(7.376557, df = 78, lower.tail = FALSE)
-```
-
-Since
-$p\text{-value} = `r 2*pt(7.376557, df = 78, lower.tail = FALSE)` < 0.05$,
-we reject $H_0$.
-
-```{r}
-cor.test(x = gapm$life_expectancy_years_2011, 
-         y = gapm$female_literacy_rate_2011)
-
-cor.test(x = gapm$life_expectancy_years_2011, 
-         y = gapm$female_literacy_rate_2011) %>% tidy()
-
-cor.test(x = gapm$life_expectancy_years_2011, 
-         y = gapm$female_literacy_rate_2011) %>% tidy() %>% gt()
-```
-
-## CI for $\rho$
-
-```{r}
-r
-(tstar <- qt(.975, 78))
-(SErho <- sqrt((1-r^2)/sqrt(78)))
-r + tstar*SErho
-r - tstar*SErho
-```
-
-$$r \pm t^* \cdot \frac{\sqrt{1-r^2}}{\sqrt{n-2}}\\
-`r r` \pm `r qt(.975, 78)` \cdot `r SErho`\\
-(`r r - tstar*SErho`, `r r + tstar*SErho`) \\
-(`r r - tstar*SErho`, 1)$$
-
-## Testing $\rho$ for some value $\rho_0 \neq 0$
-
-**Hypotheses**
-
-$$H_0: \rho = \rho_0 \ \ \text{vs.} \ \ H_A: \rho \neq \rho_0$$
-
-**Test statistic and probability distribution**
-
--   When $\rho \neq 0$, the distribution of the test statistic we used
-    before is skewed
--   Thus we apply Fisher's Z transformation:
-    $\frac{1}{2} \ln \frac{1+r}{1-r}$, with which the test statistic has
-    an approximately standard normal distribution:
-
-$$Z = \frac{\frac{1}{2} \ln \frac{1+r}{1-r} - \frac{1}{2} \ln \frac{1+\rho_0}{1-\rho_0}}{\frac{1}{\sqrt{n-3}}} \sim N(0,1)$$
-
-**Decision**
-
-**Critical value** approach:
-
-Let $z_{1-\alpha/2}$ be the critical value for the $N(0,1)$ distribution
-with area $\alpha/2$ in each of the tails.
-
--   If $|Z| > z_{1-\alpha/2}$, then reject $H_0$
--   If $|Z| \leq z_{1-\alpha/2}$, then fail to reject $H_0$
-
-$p$-value approach:
-
--   If $p$-value $< \alpha$, then reject $H_0$
--   If $p$-value $\geq \alpha$, then fail to reject $H_0$
-
-**Conclusion**
-
-If $H_0$ is rejected, we conclude there is sufficient evidence that the
-linear correlation between $X$ and $Y$ is significantly different from
-$\rho_0$.
-
-### Example
-
-Test whether the correlation is different from 0.5.
-
-**Hypotheses**
-
-$$H_0: \rho = 0.5 \ \ \text{vs.} \ \ H_A: \rho \neq 0.5$$
-
-**Test statistic and probability distribution**
-
-```{r}
-r # calculated previously
-rho0 <- 0.5
-(fisher_r <- 0.5*log((1+r)/(1-r)))
-(fisher_rho0 <- 0.5*log((1+rho0)/(1-rho0)))
-(z_stat <- (fisher_r - fisher_rho0) * sqrt(77))
-
-```
-
-$$Z = \frac{\frac{1}{2} \ln \frac{1+r}{1-r} - \frac{1}{2} \ln \frac{1+\rho_0}{1-\rho_0}}{\frac{1}{\sqrt{n-3}}} \\
-= \frac{\frac{1}{2} \ln \frac{1+`r r`}{1-`r r`} - \frac{1}{2} \ln \frac{1+0.5}{1-0.5}}{\frac{1}{\sqrt{80-3}}} \\
-= `r z_stat`$$
-
-```{r}
-# critical value for N(0,1) with alpha = 0.05:
-qnorm(.975)
-```
-
-Since $Z = 1.848331 < `r qnorm(.975)`$, we fail to reject $H_0$.
-
-$p$-value approach:
-
-```{r}
-2*pnorm(1.848331, lower.tail = FALSE)
-```
-
-Since
-$p\text{-value} = `r 2*pnorm(1.848331, lower.tail = FALSE)` > 0.05$, we
-fail to reject $H_0$.
-
-**Conclusion**
-
-There is insufficient evidence that the linear correlation between
-countries' female literacy rate and average life expectancy is
-significantly different from 0.5 (p = 0.06).
-
-## CI for $\rho$ when $\rho \neq 0$
-
--   CI bounds for the Fisher transformed correlations:
-
-$$\frac{1}{2} \ln \frac{1+r}{1-r} \pm z^* \cdot \frac{1}{\sqrt{n-3}}$$
-\* After finding CI bounds ($z$), back transform the values to $r$:
-
-$$r = \frac{e^{2z}-1}{e^{2z}+1}$$
-
-### Example: CI for $\rho$ when $\rho \neq 0$
-
-```{r}
-fisher_r
-(zstar <- qnorm(.975))
-(SE_fisher <- 1/sqrt(77))
-
-# Fisher transformed CI bounds
-(LB_fish <- fisher_r - zstar * SE_fisher)
-(UB_fish <- fisher_r + zstar * SE_fisher)
-
-# Back transform to r values
-(LB_r <- (exp(2*LB_fish) - 1)/(exp(2*LB_fish)+1))
-(UB_r <- (exp(2*UB_fish) - 1)/(exp(2*UB_fish)+1))
-
-```
-
--   CI bounds for the Fisher transformed correlations:
-
-$$\frac{1}{2} \ln \frac{1+r}{1-r} \pm z^* \cdot \frac{1}{\sqrt{n-3}}\\
-\frac{1}{2} \ln \frac{1+`r r`}{1-`r r`} \pm `r zstar` \cdot \frac{1}{\sqrt{77}}\\
-`r fisher_r` \pm `r zstar` \cdot `r SE_fisher`\\
-(`r LB_fish`, `r UB_fish`)$$ \* After finding CI bounds ($z$), back
-transform the values to $r$:
-
-$$LB = \frac{e^{2z}-1}{e^{2z}+1} = \frac{e^{2`r LB_fish`}-1}{e^{2`r LB_fish`}+1} = `r LB_r`\\
-UB = \frac{e^{2z}-1}{e^{2z}+1} = \frac{e^{2`r UB_fish`}-1}{e^{2`r UB_fish`}+1} = `r UB_r`$$
-
-We are 95% confident that the linear correlation coefficient between
-countries' female literacy rate and average life expectancy is within
-(`r round(LB_r, 2)`, `r round(UB_r, 2)`).
-
-## CI using `psych` package
-
-```{r}
-# First install the psych package
-# install.packages("psych")
-library(psych)
-
-# Fisher transformed values
-fisherz(0.5)
-fisherz(r)
-# compare with values from computations above
-fisher_rho0
-fisher_r
-
-#----
-# CI with back transformed values
-r.con(rho = r, n = 80, p=.95, twotailed=TRUE)
-# compare with values from computations above
-LB_r 
-UB_r 
-```
-
-# $R^2$ = Coefficient of determination
-
-Another way to assess model fit
-
-## $R^2$ = Coefficient of determination (1/2)
-
--   Recall that the correlation coefficient $r$ measures the strength of
-    the linear relationship between two numerical variables
--   $R^2$ is usually used to measure the strength of a *linear fit*
-    -   For a simple linear regression model (one numerical predictor),
-        $R^2$ is just the square of the correlation coefficient
--   In general, $R^2$ is the proportion of the variability of the
-    dependent variable that is **explained** by the independent
-    variable(s)
-
-$$R^2 = \frac{\textrm{variance of predicted y-values}}
-{\textrm{variance of observed y-values}} = \frac{\sum_{i=1}^n(\widehat{y}_i-\bar{y})^2}
-{\sum_{i=1}^n(y_i-\bar{y})^2} 
- = \frac{s_y^2 - s_{\textrm{residuals}}^2}
-{s_y^2}$$ $$R^2 = 1- \frac{s_{\textrm{residuals}}^2}
-{s_y^2}$$ where $\frac{s_{\textrm{residuals}}^2}{s_y^2}$ is the
-proportion of "unexplained" variability in the $y$ values,\
-and thus $R^2 = 1- \frac{s_{\textrm{residuls}}^2}{s_y^2}$ is the
-proportion of "explained" variability in the $y$ values
-
-## $R^2$ = Coefficient of determination (2/2)
-
--   Recall, $-1<r<1$
-
--   Thus, $0<R^2<1$
-
--   In practice, we want "high" $R^2$ values, i.e. $R^2$ as close to 1
-    as possible.
-
-Calculating $R^2$ in R using `glance()` from the `broom` package:
-
-```{r}
-glance(model1)
-glance(model1)$r.squared
-```
-
-::: callout-warning
--   A model can have a high $R^2$ value when there is a curved pattern.
--   Always first check whether a linear model is reasonable or not.
 :::
 
-## $R^2$ in `summary()` R output
+::: {.column width="25%"}
+   
+
+::: fact
+::: fact-title
+Interpretation
+:::
+
+::: fact-cont
+41.1% of the variation in countries' average life expectancy is
+explained by the linear model with female literacy rate as the
+independent variable.
+:::
+:::
+:::
+:::
+
+## What does $R^2$ not measure?
+
+::: columns
+::: {.column width="37%"}
+-   $R^2$ is not a measure of the magnitude of the slope of the
+    regression line
+
+    -   Example: can have $R^2 = 1$ for many different slopes!!
+
+-   $R^2$ is not a measure of the appropriateness of the straight-line
+    model
+
+    -   Example: figure
+:::
+
+::: {.column width="63%"}
+![](05_SLR_Eval/anscombe.png){fig-align="center"}
+:::
+:::
+
+# Learning Objectives
+
+1.  Identify different sources of variation in an Analysis of Variance
+    (ANOVA) table
+
+2.  Using the F-test, determine if there is enough evidence that
+    population slope $\beta_1$ is not 0
+
+3.  Calculate and interpret the coefficient of determination
+
+::: lob
+4.  Describe the model assumptions made in linear regression using
+    ordinary least squares
+:::
+
+## Least-squares model assumptions: eLINE
+
+These are the model assumptions made in ordinary least squares:
+
+ 
+
+-   **e** xistence: For any $X$, there exists a distribution for $Y$
+
+ 
+
+-   **L** inearity of relationship between variables
+
+ 
+
+-   **I** ndependence of the $Y$ values
+
+ 
+
+-   **N** ormality of the $Y$'s given $X$ (residuals)
+
+ 
+
+-   **E** quality of variance of the residuals (homoscedasticity)
+
+## e: Existence of Y’s distribution
+
+-   For any fixed value of the variable $X$, $Y$ is a
+    -   random variable with a certain probability distribution
+    -   having finite
+        -   mean and
+        -   variance
+-   This leads to the normality assumption
+-   Note: This is not about $Y$ alone, but $Y|X$
+
+## L: Linearity
+
+-   The relationship between the variables is linear (a straight line):
+    -   The mean value of $Y$ given $X$, $\mu_{y|x}$ or $E[Y|X]$, is a
+        straight-line function of $X$
+
+$$\mu_{y|x} = \beta_0 + \beta_1 \cdot X$$
 
 ```{r}
-summary(model1)
+#| echo: false
+#| fig-align: center
+
+ggplot(gapm, aes(x = female_literacy_rate_2011,
+                 y = life_expectancy_years_2011)) +
+  geom_point(size = 3, se=FALSE) +
+  geom_smooth(method = "lm", se = FALSE, size = 2, colour="#F14124") +
+  geom_smooth(size=2) +
+  labs(x = "Female literacy rate (%)", 
+       y = "Life expectancy (years)") +
+    theme(axis.title = element_text(size = 20), 
+        axis.text = element_text(size = 18))
 ```
 
-Compare to the square of the correlation coefficient $r$:
+## I: Independence of observations
+
+-   The $Y$-values are statistically independent of one another
+
+ 
+
+-   Examples of when they are *not* independent, include
+
+     
+
+    -   repeated measures (such as baseline, 3 months, 6 months)
+
+     
+
+    -   data from clusters, such as different hospitals or families
+
+ 
+
+-   This condition is checked by reviewing the study *design* and not by
+    inspecting the data
+
+ 
+
+-   How to analyze data using regression models when the $Y$-values are
+    not independent is covered in BSTA 519 (Longitudinal data)
+
+## Poll Everywhere Question
+
+## N: Normality
+
+-   For any fixed value of $X$, $Y$ has normal distribution.
+    -   Note: This is not about $Y$ alone, but $Y|X$
+-   Equivalently, the measurement (random) errors $\epsilon_i$ ’s
+    normally distributed
+    -   This is more often what we check
+-   We will discuss how to assess this in practice in Chapter 14
+    (Regression Diagnostics)
 
 ```{r}
-r <- cor(x = gapm$life_expectancy_years_2011, 
-    y = gapm$female_literacy_rate_2011,
-    use =  "complete.obs")
-r
-r^2
+#| message: false
+#| echo: false
+#| fig-height: 8
+#| fig-width: 11
+#| fig-align: center
+# code from https://drsimonj.svbtle.com/visualising-residuals
+
+model1 <- lm(life_expectancy_years_2011 ~ female_literacy_rate_2011,
+                 data = gapm)
+regression_points <- augment(model1)
+# summary(model1)
+# sum(model1$residuals^2)
+
+ggplot(regression_points, 
+       aes(x = female_literacy_rate_2011,
+                 y = life_expectancy_years_2011)) +
+  geom_segment(aes(
+    xend = female_literacy_rate_2011, 
+    yend = .fitted), 
+    alpha = 1, 
+    color = "#4FADF3", 
+    size = 2) +
+  geom_smooth(method = "lm", se = FALSE, color = "#F14124", size=3) +
+  # > Color adjustments made here...
+  geom_point(color = "black", size = 4) +  # Color mapped here
+  #scale_color_gradient2(low = "#213c96", mid = "white", high = "#F14124") +  # Colors to use here
+    #guides(color = "none") +
+  geom_point(aes(y = .fitted), shape = 1, size = 4) +
+labs(x = "Female literacy rate (%)", 
+       y = "Life expectancy (years)",
+       title = "Relationship between life expectancy and \n the female literacy rate in 2011") +
+    theme(axis.title = element_text(size = 30), 
+        axis.text = element_text(size = 25), 
+        title = element_text(size = 30))  
 ```
+
+## E: Equality of variance of the residuals
+
+-   The variance of $Y$ given $X$ ($\sigma_{Y|X}^2$), is the same for
+    any $X$
+
+    -   We use just $\sigma^2$ to denote the common variance
+
+-   This is also called **homoscedasticity**
+
+-   We will discuss how to assess this in practice in Chapter 14
+    (Regression Diagnostics)
+
+![](05_SLR_Eval/homosced.webp){fig-align="center"}
+
+## Summary of eLINE model assumptions
+
+-   $Y$ values are independent (check study design!)
+
+<br>
+
+::: columns
+::: column
+-   The distribution of $Y$ given $X$ is
+    -   normal
+    -   with mean $\mu_{y|x} = \beta_0 + \beta_1 \cdot X$
+    -   and common variance $\sigma^2$
+:::
+
+::: column
+-   This means that the residuals are
+    -   normal
+    -   with mean = 0
+    -   and common variance $\sigma^2$
+:::
+:::
+
+## Anscombe's Quartet
+
+![](05_SLR_Eval/anscombe.png){fig-align="center"}

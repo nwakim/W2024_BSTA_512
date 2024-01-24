@@ -63,6 +63,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -227,7 +229,15 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#monday-122" id="toc-monday-122" class="nav-link" data-scroll-target="#monday-122">Monday 1/22</a></li>
   <li><a href="#wednesday-124" id="toc-wednesday-124" class="nav-link" data-scroll-target="#wednesday-124">Wednesday 1/24</a></li>
   </ul></li>
-  <li><a href="#muddiest-points" id="toc-muddiest-points" class="nav-link" data-scroll-target="#muddiest-points">Muddiest Points</a></li>
+  <li><a href="#muddiest-points" id="toc-muddiest-points" class="nav-link" data-scroll-target="#muddiest-points">Muddiest Points</a>
+  <ul class="collapse">
+  <li><a href="#the-lecture-materials-dont-always-feel-like-they-apply-to-the-homework.-if-asked-to-state-the-linear-regression-models-are-we-just-running-lm" id="toc-the-lecture-materials-dont-always-feel-like-they-apply-to-the-homework.-if-asked-to-state-the-linear-regression-models-are-we-just-running-lm" class="nav-link" data-scroll-target="#the-lecture-materials-dont-always-feel-like-they-apply-to-the-homework.-if-asked-to-state-the-linear-regression-models-are-we-just-running-lm">1. The lecture materials don’t always feel like they apply to the homework. If asked to “state the linear regression models,” are we just running <code>lm()</code>?</a></li>
+  <li><a href="#all-of-the-different-manifestations-of-t" id="toc-all-of-the-different-manifestations-of-t" class="nav-link" data-scroll-target="#all-of-the-different-manifestations-of-t">2. “all of the different manifestations of t”</a></li>
+  <li><a href="#whats-the-difference-between-sd-and-variance" id="toc-whats-the-difference-between-sd-and-variance" class="nav-link" data-scroll-target="#whats-the-difference-between-sd-and-variance">3. What’s the difference between SD and variance?</a></li>
+  <li><a href="#why-is-it-important-to-test-if-beta_1-is-equal-to-zero-is-beta_10-the-same-as-the-x-and-y-variables-having-no-correlation" id="toc-why-is-it-important-to-test-if-beta_1-is-equal-to-zero-is-beta_10-the-same-as-the-x-and-y-variables-having-no-correlation" class="nav-link" data-scroll-target="#why-is-it-important-to-test-if-beta_1-is-equal-to-zero-is-beta_10-the-same-as-the-x-and-y-variables-having-no-correlation">4. Why is it important to test if <span class="math inline">\(\beta_1\)</span> is equal to zero? Is <span class="math inline">\(\beta_1=0\)</span> the same as the x and y variables having no correlation?</a></li>
+  <li><a href="#sse-and-sigma" id="toc-sse-and-sigma" class="nav-link" data-scroll-target="#sse-and-sigma">5. SSE and sigma</a></li>
+  <li><a href="#it-would-be-helpful-to-get-some-clarification-on-the-notations-that-we-need-to-use-in-this-class.-perhaps-a-chart-or-the-types-of-notations-for-this-class-could-be-helpful-to-organize-this" id="toc-it-would-be-helpful-to-get-some-clarification-on-the-notations-that-we-need-to-use-in-this-class.-perhaps-a-chart-or-the-types-of-notations-for-this-class-could-be-helpful-to-organize-this" class="nav-link" data-scroll-target="#it-would-be-helpful-to-get-some-clarification-on-the-notations-that-we-need-to-use-in-this-class.-perhaps-a-chart-or-the-types-of-notations-for-this-class-could-be-helpful-to-organize-this">6. It would be helpful to get some clarification on the notations that we need to use in this class. Perhaps, a chart or the types of notations for this class could be helpful to organize this?</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -334,8 +344,8 @@ Room Locations for the week
 </tr>
 <tr class="odd">
 <td>5</td>
-<td>SLR: Model Evaluation</td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></span></td>
+<td>SLR: Inference + Evaluation</td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/05_SLR_Eval.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
 </tr>
@@ -382,6 +392,15 @@ Room Locations for the week
 <section id="wednesday-124" class="level3">
 <h3 class="anchored" data-anchor-id="wednesday-124">Wednesday 1/24</h3>
 <ul>
+<li>While grading Lab 1
+<ul>
+<li>I noticed some really good answers that might have sources attached to them</li>
+<li>It was not required that you cite resources in your lab, but it will be required in the project report</li>
+<li>Just wanted to let you know before some of your found sources leave your mind
+<ul>
+<li>They might by the end of the quarter</li>
+</ul></li>
+</ul></li>
 <li>Student Leadership Council has set this year’s OHSU-PSU SPH&nbsp;<strong>National Public Health Week Conference</strong> for <strong>Thursday, April 4th, 2024.</strong>
 <ul>
 <li><p>Present your research in a low pressure situation!</p></li>
@@ -395,8 +414,44 @@ Room Locations for the week
 </section>
 <section id="muddiest-points" class="level2">
 <h2 class="anchored" data-anchor-id="muddiest-points">Muddiest Points</h2>
+<section id="the-lecture-materials-dont-always-feel-like-they-apply-to-the-homework.-if-asked-to-state-the-linear-regression-models-are-we-just-running-lm" class="level3">
+<h3 class="anchored" data-anchor-id="the-lecture-materials-dont-always-feel-like-they-apply-to-the-homework.-if-asked-to-state-the-linear-regression-models-are-we-just-running-lm">1. The lecture materials don’t always feel like they apply to the homework. If asked to “state the linear regression models,” are we just running <code>lm()</code>?</h3>
+<p>Stating the linear regression model is asking us to show the population model that we are fitting. This is just to make sure we are aware of the model that we plan to fit. So the generic form of this is: <span class="math inline">\(Y = \beta_0 + \beta_1 X + \epsilon\)</span>.</p>
+<p>Running <code>lm()</code> is the equivalent of <em>fitting</em> the model.</p>
+</section>
+<section id="all-of-the-different-manifestations-of-t" class="level3">
+<h3 class="anchored" data-anchor-id="all-of-the-different-manifestations-of-t">2. “all of the different manifestations of t”</h3>
+<p>I love the way this person said it!</p>
+<p>So I’ve sorted this out:</p>
+<ul>
+<li><p>We say <span class="math inline">\(T\)</span> follows a t-distribution</p>
+<ul>
+<li><span class="math inline">\(T\)</span> is the general name for the variable (like <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span>)</li>
+</ul></li>
+<li><p>We calculate a given <span class="math inline">\(t\)</span>-value and call that <span class="math inline">\(t\)</span></p>
+<ul>
+<li>We also call this the test statistic</li>
+</ul></li>
+<li><p>The critical value that corresponds to a specific confidence interval and <span class="math inline">\(\alpha\)</span> is labelled <span class="math inline">\(t^*\)</span></p></li>
+</ul>
+</section>
+<section id="whats-the-difference-between-sd-and-variance" class="level3">
+<h3 class="anchored" data-anchor-id="whats-the-difference-between-sd-and-variance">3. What’s the difference between SD and variance?</h3>
+</section>
+<section id="why-is-it-important-to-test-if-beta_1-is-equal-to-zero-is-beta_10-the-same-as-the-x-and-y-variables-having-no-correlation" class="level3">
+<h3 class="anchored" data-anchor-id="why-is-it-important-to-test-if-beta_1-is-equal-to-zero-is-beta_10-the-same-as-the-x-and-y-variables-having-no-correlation">4. Why is it important to test if <span class="math inline">\(\beta_1\)</span> is equal to zero? Is <span class="math inline">\(\beta_1=0\)</span> the same as the x and y variables having no correlation?</h3>
+<p>Let’s answer the second question: Yes! It is the same in simple linear regression. When we get to multiple linear regression, and have several variables/coefficients in our model, testing <span class="math inline">\(\beta_1=0\)</span> won’t be the same as testing the correlation.</p>
+<p>In simple linear regression, it is important to test <span class="math inline">\(\beta_1\)</span> mostly for pedagogical reasons. It’s just helpful to establish the process in a simpler setting.</p>
+</section>
+<section id="sse-and-sigma" class="level3">
+<h3 class="anchored" data-anchor-id="sse-and-sigma">5. SSE and sigma</h3>
+</section>
+<section id="it-would-be-helpful-to-get-some-clarification-on-the-notations-that-we-need-to-use-in-this-class.-perhaps-a-chart-or-the-types-of-notations-for-this-class-could-be-helpful-to-organize-this" class="level3">
+<h3 class="anchored" data-anchor-id="it-would-be-helpful-to-get-some-clarification-on-the-notations-that-we-need-to-use-in-this-class.-perhaps-a-chart-or-the-types-of-notations-for-this-class-could-be-helpful-to-organize-this">6. It would be helpful to get some clarification on the notations that we need to use in this class. Perhaps, a chart or the types of notations for this class could be helpful to organize this?</h3>
+<p>I can certainly work on this! In all honesty, I am a little overwhelmed with work this week, so I don’t think this is something I can produce by the quiz. If you want to get one started, I can share it! I think would be a really good thing to help you study, too!</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

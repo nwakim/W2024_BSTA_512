@@ -85,7 +85,23 @@ Using R, load the data (`csv` file) into this document. Note that this is a `csv
 iat_2021_raw = read.csv(file = here("../TA_files/Project/data/Weight_IAT.public.2021.csv"))
 ```
 
-Take a glimpse at the data to make sure you loaded it correctly.
+Loading the `csv` file every time you render will take a long time. One way to speed this up is by saving the data as an `rda` file (R data file). Change the following R code to save the `rda` file. You will also need to remove the `#| eval: false` at the top of the code chunk once you have corrected the code. If you are confused on the syntax, don't forget that you can use `?save` for more information.
+
+```{r}
+#| eval: false
+save(<whatever you called the read csv file>, file = "Where you would like to save the file with its name")
+```
+
+Check that you have an `rda` file where you save it. Now use `load()` with the file path to load the `rda` data here.
+
+```{r}
+#| eval: false
+load(file = "Where you would like to save the file with its name")
+```
+
+At this point, if you think you loaded the file correctly, add `#| eval: false` to the code chunk where you loaded the `csv` file and back to the chunk where you saved the `rda` file.
+
+Take a glimpse at the data to make sure you loaded it correctly. This should be able to run with just the code chunk with your `load()` command.
 
 ```{r}
 glimpse(iat_2021_raw)
@@ -95,7 +111,52 @@ How many rows and columns are in the dataset? Do you think we will need all thes
 
 ### 3. Data wrangling
 
+As you go through this process, it is important that you look at the codebook for more information on each variable.
+
+#### 3.1 What's our target population?
+
+As many of you mentioned in Lab 1, individuals taking the IAT test are not necessarily representative of the world population. I want you to articulate the target population that you think our analysis can give information about. To what population can we generalize our analysis results? We can get very specific with this population, but try to restrict your population to 3-5 characteristics.
+
+After you articulate the population, I want to add one more restriction to our population: US residency. The sample includes individuals residing in many different countries. Since we are discussing attitudes and beliefs that are connected to our society, I think it is important that we restrict our analysis and discussion to a country that we have some social experience in. Thus, let's restrict our data to the US only by filtering the variable `countryres` to category 1 (corresponding to the US).
+
 #### 3.1 Restrict your analysis to 1 outcome and 10 possible covariates/predictors
+
+We are going to restrict our analysis to the single outcome, IAT score, which is named `D_biep.Thin_Good_all`.
+
+We will also restrict our analysis to the following 10 potential variables so our work is a little more manageable.
+
+From the following 7 attitudes and beliefs, please select 3 that you think will be the most important variables related to your research question. In 1-2 lines, briefly explain why you chose each variable. This can be informal and bulleted.
+
+(Make sure you chose the variable that is part of your research question!)
+
+1.  Self-perception of weight (`iam_001`)
+2.  Fat group identity (`identfat_001` )
+3.  Thin group identity (`identthen_001` )
+4.  Controllability of weight of others (`controlother_001`)
+5.  Controllability of weight of yourself (`controlyou_001`)
+6.  Awareness of societal standards (`mostpref_001` )
+7.  Internalization of societal standards (`important_001`)
+
+We will start our data exploration with the following 4 demographic variables:
+
+1.  Age
+2.  Race
+3.  Ethnicity
+4.  Gender
+
+You may pick 3 additional variables to include in your analysis:
+
+1.  Education
+2.  Sex assigned at birth
+3.  Self-reported BMI
+4.  Political identity
+5.  Religion
+
+I have chosen these variables for a mixture of reasons. For example, I have left out variables about residence and occuptation because those variables have hundreds of categories that would be overwhelming in linear regression. For the 4 required demographic variables, I chose age because I really want us to get practice with a continuous variable. I chose race and ethnicity because of the intertwined history of racism and anti-fat bias in the Western countries (including the U.S. where most participants reside). Finally, I chose gender because diet culture has historically targeted genders in different ways.
+
+If you would like to investigate a variable outside the list, please let me know by emailing or chatting with me.
+
+Using R, select your identified variables from your dataset. Your new dataset should have 11 columns for the 11 variables.
 
 #### 3.1 Manipulating variables that are coded as numeric variables
 

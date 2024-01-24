@@ -407,9 +407,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>iat_2021_raw <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="fu">here</span>(<span class="st">"../TA_files/Project/data/Weight_IAT.public.2021.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Take a glimpse at the data to make sure you loaded it correctly.</p>
+<p>Loading the <code>csv</code> file every time you render will take a long time. One way to speed this up is by saving the data as an <code>rda</code> file (R data file). Change the following R code to save the <code>rda</code> file. You will also need to remove the <code>#| eval: false</code> at the top of the code chunk once you have corrected the code. If you are confused on the syntax, don’t forget that you can use <code>?save</code> for more information.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(iat_2021_raw)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(<span class="sc">&lt;</span>whatever you called the read csv file<span class="sc">&gt;</span>, <span class="at">file =</span> <span class="st">"Where you would like to save the file with its name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Check that you have an <code>rda</code> file where you save it. Now use <code>load()</code> with the file path to load the <code>rda</code> data here.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"Where you would like to save the file with its name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>At this point, if you think you loaded the file correctly, add <code>#| eval: false</code> to the code chunk where you loaded the <code>csv</code> file and back to the chunk where you saved the <code>rda</code> file.</p>
+<p>Take a glimpse at the data to make sure you loaded it correctly. This should be able to run with just the code chunk with your <code>load()</code> command.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(iat_2021_raw)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 465,886
 Columns: 92
@@ -511,8 +520,45 @@ $ previous_session_schema &lt;chr&gt; " ", "s", " ", "s", " ", " ", "s", " ", "s
 </section>
 <section id="data-wrangling" class="level3">
 <h3 class="anchored" data-anchor-id="data-wrangling">3. Data wrangling</h3>
+<p>As you go through this process, it is important that you look at the codebook for more information on each variable.</p>
+<section id="whats-our-target-population" class="level4">
+<h4 class="anchored" data-anchor-id="whats-our-target-population">3.1 What’s our target population?</h4>
+<p>As many of you mentioned in Lab 1, individuals taking the IAT test are not necessarily representative of the world population. I want you to articulate the target population that you think our analysis can give information about. To what population can we generalize our analysis results? We can get very specific with this population, but try to restrict your population to 3-5 characteristics.</p>
+<p>After you articulate the population, I want to add one more restriction to our population: US residency. The sample includes individuals residing in many different countries. Since we are discussing attitudes and beliefs that are connected to our society, I think it is important that we restrict our analysis and discussion to a country that we have some social experience in. Thus, let’s restrict our data to the US only by filtering the variable <code>countryres</code> to category 1 (corresponding to the US).</p>
+</section>
 <section id="restrict-your-analysis-to-1-outcome-and-10-possible-covariatespredictors" class="level4">
 <h4 class="anchored" data-anchor-id="restrict-your-analysis-to-1-outcome-and-10-possible-covariatespredictors">3.1 Restrict your analysis to 1 outcome and 10 possible covariates/predictors</h4>
+<p>We are going to restrict our analysis to the single outcome, IAT score, which is named <code>D_biep.Thin_Good_all</code>.</p>
+<p>We will also restrict our analysis to the following 10 potential variables so our work is a little more manageable.</p>
+<p>From the following 7 attitudes and beliefs, please select 3 that you think will be the most important variables related to your research question. In 1-2 lines, briefly explain why you chose each variable. This can be informal and bulleted.</p>
+<p>(Make sure you chose the variable that is part of your research question!)</p>
+<ol type="1">
+<li>Self-perception of weight (<code>iam_001</code>)</li>
+<li>Fat group identity (<code>identfat_001</code> )</li>
+<li>Thin group identity (<code>identthen_001</code> )</li>
+<li>Controllability of weight of others (<code>controlother_001</code>)</li>
+<li>Controllability of weight of yourself (<code>controlyou_001</code>)</li>
+<li>Awareness of societal standards (<code>mostpref_001</code> )</li>
+<li>Internalization of societal standards (<code>important_001</code>)</li>
+</ol>
+<p>We will start our data exploration with the following 4 demographic variables:</p>
+<ol type="1">
+<li>Age</li>
+<li>Race</li>
+<li>Ethnicity</li>
+<li>Gender</li>
+</ol>
+<p>You may pick 3 additional variables to include in your analysis:</p>
+<ol type="1">
+<li>Education</li>
+<li>Sex assigned at birth</li>
+<li>Self-reported BMI</li>
+<li>Political identity</li>
+<li>Religion</li>
+</ol>
+<p>I have chosen these variables for a mixture of reasons. For example, I have left out variables about residence and occuptation because those variables have hundreds of categories that would be overwhelming in linear regression. For the 4 required demographic variables, I chose age because I really want us to get practice with a continuous variable. I chose race and ethnicity because of the intertwined history of racism and anti-fat bias in the Western countries (including the U.S. where most participants reside). Finally, I chose gender because diet culture has historically targeted genders in different ways.</p>
+<p>If you would like to investigate a variable outside the list, please let me know by emailing or chatting with me.</p>
+<p>Using R, select your identified variables from your dataset. Your new dataset should have 11 columns for the 11 variables.</p>
 </section>
 <section id="manipulating-variables-that-are-coded-as-numeric-variables" class="level4">
 <h4 class="anchored" data-anchor-id="manipulating-variables-that-are-coded-as-numeric-variables">3.1 Manipulating variables that are coded as numeric variables</h4>

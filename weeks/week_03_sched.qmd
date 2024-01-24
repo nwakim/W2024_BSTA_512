@@ -50,7 +50,7 @@ Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B
 |        |                               |                                                                                                      |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                           |
 |        |                               |                                                                                                      |                                                                                                                             | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F03%5FSLR%5FInf%5FPred%5F02%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"} |
 +--------+-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 5      | SLR: Model Evaluation         | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                                | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                                          | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                                                                                                                                                                                             |
+| 5      | SLR: Inference + Evaluation   | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/05_SLR_Eval.qmd)]{style="color:#f8f5f0;"}     | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                                          | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                                                                                                                                                                                             |
 +--------+-------------------------------+------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 For the slides, once they are opened, if you would like to print or save them as a PDF, the best way to do this is:
@@ -92,6 +92,11 @@ For the slides, once they are opened, if you would like to print or save them as
 
 ### Wednesday 1/24
 
+-   While grading Lab 1
+    -   I noticed some really good answers that might have sources attached to them
+    -   It was not required that you cite resources in your lab, but it will be required in the project report
+    -   Just wanted to let you know before some of your found sources leave your mind
+        -   They might by the end of the quarter
 -   Student Leadership Council has set this year’s OHSU-PSU SPH **National Public Health Week Conference** for **Thursday, April 4th, 2024.**
     -   Present your research in a low pressure situation!
 
@@ -100,6 +105,42 @@ For the slides, once they are opened, if you would like to print or save them as
         -   I can help you polish it up!
 
 ## Muddiest Points
+
+### 1. The lecture materials don't always feel like they apply to the homework. If asked to "state the linear regression models," are we just running `lm()`?
+
+Stating the linear regression model is asking us to show the population model that we are fitting. This is just to make sure we are aware of the model that we plan to fit. So the generic form of this is: $Y = \beta_0 + \beta_1 X + \epsilon$.
+
+Running `lm()` is the equivalent of *fitting* the model.
+
+### 2. "all of the different manifestations of t"
+
+I love the way this person said it!
+
+So I've sorted this out:
+
+-   We say $T$ follows a t-distribution
+
+    -   $T$ is the general name for the variable (like $X$ or $Y$)
+
+-   We calculate a given $t$-value and call that $t$
+
+    -   We also call this the test statistic
+
+-   The critical value that corresponds to a specific confidence interval and $\alpha$ is labelled $t^*$
+
+### 3. What's the difference between SD and variance?
+
+### 4. Why is it important to test if $\beta_1$ is equal to zero? Is $\beta_1=0$ the same as the x and y variables having no correlation?
+
+Let's answer the second question: Yes! It is the same in simple linear regression. When we get to multiple linear regression, and have several variables/coefficients in our model, testing $\beta_1=0$ won't be the same as testing the correlation.
+
+In simple linear regression, it is important to test $\beta_1$ mostly for pedagogical reasons. It's just helpful to establish the process in a simpler setting.
+
+### 5. SSE and sigma
+
+### 6. It would be helpful to get some clarification on the notations that we need to use in this class. Perhaps, a chart or the types of notations for this class could be helpful to organize this?
+
+I can certainly work on this! In all honesty, I am a little overwhelmed with work this week, so I don't think this is something I can produce by the quiz. If you want to get one started, I can share it! I think would be a really good thing to help you study, too!
 
 ```{r}
 #| echo: false

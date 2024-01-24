@@ -420,7 +420,7 @@ H_0 &: \beta_1 = 0\\
 
 ![](01_Review/hypothesis_test_steps.png)
 
-## General steps for hypothesis test for population **slope** $\beta_1$
+## General steps for hypothesis test for population **slope** $\beta_1$ (t-test)
 
 ::: columns
 ::: {.column width="48%"}
