@@ -1,0 +1,129 @@
+---
+title: "Prediction Bands"
+author: "Meike Niederhausen"
+date: "BSTA 512/612"
+output:
+  html_document:
+    number_sections: yes
+    toc: yes
+    toc_float:
+      collapsed: yes
+      smooth_scroll: no
+    theme: cerulean
+    self_contained: true
+editor_options: 
+  chunk_output_type: console
+  markdown: 
+    wrap: 72
+---
+
+```{r message = FALSE, warning=FALSE}
+# Note that the R chunk includes `message = FALSE` and `warning=FALSE` in the first line. 
+# This is so that the messages & warnings that appear when loading the packages don't show up in the knitted html file.
+
+library(tidyverse)
+library(janitor)
+library(knitr)
+library(broom)
+library(rstatix)
+library(gt)
+```
+
+```{r}
+gapm <- read_csv("data/lifeexp_femlit_2011.csv")
+# Fit regression model:
+model1 <- lm(life_expectancy_years_2011 ~ female_literacy_rate_2011,
+             data = gapm)
+```
+
+```{r}
+newdata <- data.frame(female_literacy_rate_2011 = 60) 
+newdata
+predict(model1, 
+        newdata=newdata, 
+        interval="confidence")
+```
+
+# Prediction of new value of Y at $X_0$ (Section 5.10)
+
+-   We can use the regression equation to predict values of Y given X.
+    -   Regression equation for our model:
+
+$$\widehat{\textrm{life expectancy}} = 50.9 + 0.232 \cdot \textrm{female literacy rate} $$
+
+-   What do we predict a country's life expectancy to be when its female literacy rate is 60?
+
+```{r}
+(Y_X0 <- 50.9 + 0.232*60)
+```
+
+## Prediction interval for predicting individual values
+
+-   We do not call this interval a CI since Y is a random variables instead of a parameter
+-   The form is similar to a CI though:
+
+$$\widehat{Y}_{X_0} \pm t_{n-2}^* \cdot s_{Y|X} \sqrt{1 + \frac{1}{n} + \frac{(x_0 - \bar{x})^2}{(n-1)s_x^2}}$$
+
+-   Note that the only difference to the CI for a mean value of y is the additional `1+` under the square root.
+    -   Thus the width is wider!
+
+### Example: Prediction interval
+
+**Find the 95% prediction interval for the life expectancy when the female literacy rate is 60.**
+
+$$\widehat{Y}_{X_0} \pm t_{n-2}^* \cdot s_{Y|X} \sqrt{1 + \frac{1}{n} + \frac{(x_0 - \bar{x})^2}{(n-1)s_x^2}}\\
+64.82 \pm 1.990847 \cdot 6.142157 \sqrt{1+\frac{1}{80} + \frac{(60 - 81.65375)^2}{(80-1)21.95371^2}}\\
+(52.44112, 77.19888)$$
+
+```{r}
+(Y_X0 <- 50.9 + 0.232*60)
+(tstar <- qt(.975, df = 78))
+sd(gapm$female_literacy_rate_2011, na.rm = T)
+mean(gapm$female_literacy_rate_2011, na.rm = T)
+
+(pred_SE_Y_X0 <- 6.142157 *sqrt(1 + 1/80 + (60 - 81.65375)^2/((80-1)*21.95371^2)))
+(pred_MOE_Y_X0 <- pred_SE_Y_X0*tstar)
+
+Y_X0 - pred_MOE_Y_X0
+Y_X0 + pred_MOE_Y_X0
+```
+
+### Using R
+
+```{r}
+newdata
+predict(model1, 
+        newdata=newdata, 
+        interval="prediction")
+```
+
+### Prediction bands
+
+Create a scatterplot with the regression line, 95% confidence bands, and 95% prediction bands.
+
+```{r}
+names(model1)
+# data used to create the regression model are stored in `model`
+# Useful since rows with missing values already removed
+head(model1$model)  
+
+pred <- predict(model1, 
+                interval="prediction")
+head(pred)
+
+# cbind is column bind to merge datasets together
+data_pred_bands <- cbind(model1$model, pred)
+glimpse(data_pred_bands)
+
+ggplot(data_pred_bands, 
+       aes(x=female_literacy_rate_2011,
+           y=life_expectancy_years_2011)) +
+  geom_point() +
+  geom_smooth(method=lm) +
+  geom_line(aes(y=lwr), 
+            color="violet", 
+            linetype="dashed")+
+  geom_line(aes(y=upr), 
+            color="violet", 
+            linetype="dashed")
+```

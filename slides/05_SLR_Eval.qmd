@@ -551,7 +551,6 @@ We are generally calculating: $P(F_{1, n-2} > F)$
 :::
 
 -   Reject: $P(F_{1, n-2} > F) < \alpha$
--   Fail to reject: $P(F_{1, n-2} > F) \geq \alpha$
 
 We (reject/fail to reject) the null hypothesis that the slope is 0 at
 the $100\alpha\%$ significiance level. There is
