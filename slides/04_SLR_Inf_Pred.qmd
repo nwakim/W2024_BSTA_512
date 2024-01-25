@@ -474,7 +474,7 @@ The test statistic is $t$, and follows a Student's t-distribution.
 
 The calculated **test statistic** for $\widehat\beta_1$ is
 
-$$t^* = \frac{ \widehat\beta_1 - \beta_1}{ \text{SE}_{\widehat\beta_1}} = \frac{ \widehat\beta_1}{ \text{SE}_{\widehat\beta_1}}$$
+$$t = \frac{ \widehat\beta_1 - \beta_1}{ \text{SE}_{\widehat\beta_1}} = \frac{ \widehat\beta_1}{ \text{SE}_{\widehat\beta_1}}$$
 
 when we assume $H_0: \beta_1 = 0$ is true.
 
@@ -484,7 +484,7 @@ when we assume $H_0: \beta_1 = 0$ is true.
 :::
 :::
 
-We are generally calculating: $P(t > t*)$
+We are generally calculating: $2\cdot P(T > t)$
 
 ::: highlight-container
 ::: highlight
@@ -495,7 +495,7 @@ We are generally calculating: $P(t > t*)$
 We (reject/fail to reject) the null hypothesis that the slope is 0 at
 the $100\alpha\%$ significiance level. There is
 (sufficient/insufficient) evidence that there is significant association
-between ($Y$) and ($X$) (p-value = $P(t > t*)$).
+between ($Y$) and ($X$) (p-value = $P(T > t)$).
 :::
 :::
 

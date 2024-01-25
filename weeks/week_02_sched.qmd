@@ -88,25 +88,25 @@ Below is a table that I started to construct with a student after class. We ofte
 
 I think it can help a lot with this confusion.
 
-+-------------+----------------------------------------+---------------------------------------------------------------------+
-|             | Population                             | Estimated                                                           |
-+=============+:======================================:+:===================================================================:+
-| Model       | $$Y =  \beta_0 + \beta_1X + \epsilon$$ | $$Y = \widehat{\beta}_0 + \widehat{\beta}_1 X + \widehat\epsilon $$ |
-+-------------+----------------------------------------+---------------------------------------------------------------------+
-| Line        | $$E(Y|X) = \beta_0 + \beta_1 X $$ OR   | $$\widehat{Y} = \widehat{\beta}_0 + \widehat{\beta}_1 X $$          |
-|             |                                        |                                                                     |
-|             | $$\mu_Y = \beta_0 + \beta_1 X $$       | OR                                                                  |
-|             |                                        |                                                                     |
-|             |                                        | $$                                                                  |
-|             |                                        | \widehat{E}[Y|X] = \widehat{\beta}_0 + \widehat{\beta}_1X           |
-|             |                                        | $$                                                                  |
-|             |                                        |                                                                     |
-|             |                                        | OR                                                                  |
-|             |                                        |                                                                     |
-|             |                                        | $$                                                                  |
-|             |                                        | \widehat{E[Y|X]} = \widehat{\beta}_0 + \widehat{\beta}_1X           |
-|             |                                        | $$                                                                  |
-+-------------+----------------------------------------+---------------------------------------------------------------------+
++-------+----------------------------------------+---------------------------------------------------------------------+
+|       | Population                             | Estimated                                                           |
++=======+:======================================:+:===================================================================:+
+| Model | $$Y =  \beta_0 + \beta_1X + \epsilon$$ | $$Y = \widehat{\beta}_0 + \widehat{\beta}_1 X + \widehat\epsilon $$ |
++-------+----------------------------------------+---------------------------------------------------------------------+
+| Line  | $$E(Y|X) = \beta_0 + \beta_1 X $$ OR   | $$\widehat{Y} = \widehat{\beta}_0 + \widehat{\beta}_1 X $$          |
+|       |                                        |                                                                     |
+|       | $$\mu_Y = \beta_0 + \beta_1 X $$       | OR                                                                  |
+|       |                                        |                                                                     |
+|       |                                        | $$                                                                  |
+|       |                                        | \widehat{E}[Y|X] = \widehat{\beta}_0 + \widehat{\beta}_1X           |
+|       |                                        | $$                                                                  |
+|       |                                        |                                                                     |
+|       |                                        | OR                                                                  |
+|       |                                        |                                                                     |
+|       |                                        | $$                                                                  |
+|       |                                        | \widehat{E[Y|X]} = \widehat{\beta}_0 + \widehat{\beta}_1X           |
+|       |                                        | $$                                                                  |
++-------+----------------------------------------+---------------------------------------------------------------------+
 
 #### 2.1 Someone else asked: Why does the population model have an error term epsilon in the equation but the estimated line does not?
 
