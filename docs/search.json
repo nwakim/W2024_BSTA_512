@@ -11,7 +11,7 @@
     "href": "schedule.html",
     "title": "Weekly Pages",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nDescription\n\n\n\n\n\n\n1/8/24\n\n\nWeek 1\n\n\nIntroduction; Review; and Data Wrangling\n\n\n\n\n1/15/24\n\n\nWeek 2\n\n\nSimple Linear Regression\n\n\n\n\n1/22/24\n\n\nWeek 3\n\n\nSLR: Hypothesis Testing and Evaluation\n\n\n\n\n1/29/24\n\n\nWeek 4\n\n\nSLR + Multiple/Multivariable Linear Regression\n\n\n\n\n2/5/24\n\n\nWeek 5\n\n\nMLR Continued\n\n\n\n\n2/12/24\n\n\nWeek 6\n\n\nCategorical Covariates + Interactions\n\n\n\n\n2/19/24\n\n\nWeek 7\n\n\nData Transformations\n\n\n\n\n2/26/24\n\n\nWeek 8\n\n\nModel Building and Selection\n\n\n\n\n3/4/24\n\n\nWeek 9\n\n\nModel Evaluation and Diagnostics\n\n\n\n\n3/11/24\n\n\nWeek 10\n\n\nModel Diagnostics\n\n\n\n\n3/18/24\n\n\nWeek 11\n\n\nSpill-Over Week\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nDescription\n\n\n\n\n\n\n1/8/24\n\n\nWeek 1\n\n\nIntroduction; Review; and Data Wrangling\n\n\n\n\n1/15/24\n\n\nWeek 2\n\n\nSimple Linear Regression\n\n\n\n\n1/22/24\n\n\nWeek 3\n\n\nSLR: Hypothesis Testing and Evaluation\n\n\n\n\n1/29/24\n\n\nWeek 4\n\n\nSLR: Diagnostics\n\n\n\n\n2/5/24\n\n\nWeek 5\n\n\nMultiple Linear Regression\n\n\n\n\n2/12/24\n\n\nWeek 6\n\n\nCategorical Covariates + Interactions\n\n\n\n\n2/19/24\n\n\nWeek 7\n\n\nData Transformations\n\n\n\n\n2/26/24\n\n\nWeek 8\n\n\nModel Building and Selection\n\n\n\n\n3/4/24\n\n\nWeek 9\n\n\nModel Evaluation and Diagnostics\n\n\n\n\n3/11/24\n\n\nWeek 10\n\n\nModel Diagnostics\n\n\n\n\n3/18/24\n\n\nWeek 11\n\n\nSpill-Over Week\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "syllabus.html",
@@ -3063,7 +3063,7 @@
     "href": "weeks/week_04_sched.html#resources",
     "title": "Week 4",
     "section": "Resources",
-    "text": "Resources\nBelow is a table with links to resources. Icons in orange mean there is an available file link.\n\n\n\n\n\n\n\n\n\n\nLesson\nTopic\nSlides\nAnnotated Slides\nRecording\n\n\n\n\n6\nSLR: Model Diagnostics\n\n\n\n\n\n7\nIntroduction to Multiple Linear Regression"
+    "text": "Resources\nBelow is a table with links to resources. Icons in orange mean there is an available file link.\n\n\n\n\n\n\n\n\n\n\nLesson\nTopic\nSlides\nAnnotated Slides\nRecording\n\n\n\n\n6\nSLR: Model Diagnostics 1\n\n\n\n\n\n7\nSLR: Model Diagnostics 2"
   },
   {
     "objectID": "weeks/week_04_sched.html#on-the-horizon",
@@ -8390,7 +8390,7 @@
     "href": "weeks/week_04_sched.html#announcements",
     "title": "Week 4",
     "section": "Announcements",
-    "text": "Announcements"
+    "text": "Announcements\n\nMonday 1/29\n\n\nWednesday 1/31"
   },
   {
     "objectID": "weeks/week_05_sched.html#announcements",

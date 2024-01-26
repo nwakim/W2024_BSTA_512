@@ -22,7 +22,7 @@ format:
 
 | Homework | Solutions                                                                                                                                                                                                                                             |
 |-----------|-------------------------------------------------------------|
-| 1        | [[{{< iconify ph key-fill size=29px >}}](https://ohsuitg-my.sharepoint.com/:u:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W2024_BSTA_512_612/Student_files/HW_solns/HW1_solns_512_W2024.html?csf=1&web=1&e=KClnbc)]{style="color:#f8f5f0;"} |
+| 1        | [[{{< iconify ph key-fill size=29px >}}](https://ohsuitg-my.sharepoint.com/:u:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W2024_BSTA_512_612/Student_files/HW_solns/HW1_solns_512_W2024.html?csf=1&web=1&e=duvjci)]{style="color:#f8f5f0;"} |
 | 2        | [{{< iconify ph key-fill size=29px >}}]{style="color:#f8f5f0;"}                                                                                                                                                                                       |
 | 3        | [{{< iconify ph key-fill size=29px >}}]{style="color:#f8f5f0;"}                                                                                                                                                                                       |
 | 4        | [{{< iconify ph key-fill size=29px >}}]{style="color:#f8f5f0;"}                                                                                                                                                                                       |

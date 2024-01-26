@@ -1,6 +1,6 @@
 ---
 title: "Week 5"
-description: "MLR Continued"
+description: "Multiple Linear Regression"
 date: "2/5/2024"
 date-modified: "1/17/2024"
 categories: [""]
@@ -30,6 +30,15 @@ editor_options:
 
 ### topics {.hidden}
 
+interpreting model parameters
+
+matrix representation
+
+parameter estimation (OLS)
+
+properties of estimators
+
+sums of squares
 -   hypothesis testing is overall topic
 -   sums of squares
 -   F test

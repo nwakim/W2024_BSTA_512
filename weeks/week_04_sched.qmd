@@ -1,6 +1,6 @@
 ---
 title: "Week 4"
-description: "SLR + Multiple/Multivariable Linear Regression"
+description: "SLR: Diagnostics"
 date: "1/29/2024"
 date-modified: "1/17/2024"
 categories: [""]
@@ -53,23 +53,27 @@ editor_options:
 
 Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
-| Lesson | Topic                                      |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
-|--------------|--------------|:-------------:|:----------------:|:------------:|
-| 6      | SLR: Model Diagnostics                     | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 7      | Introduction to Multiple Linear Regression | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| Lesson | Topic                    |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
+|---------------|---------------|:-------------:|:-------------:|:-------------:|
+| 6      | SLR: Model Diagnostics 1 | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 7      | SLR: Model Diagnostics 2 | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
 ## On the Horizon
 
--   Homework 2 due 2/1
+-   [Homework 2 due 2/1](/homework/HW2.qmd)
 -   Lab 2 due 2/8
 
 ## Class Exit Tickets
 
-[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUMEJVQVc5Rjk2NkhGR0pQOVJQSzAzNlI2Ry4u)]{style="color:#f8f5f0;"} Monday (1/29)
+[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUN1Y2VVNPQk5ONkFUSzI1TjcwNVM3R1JDUS4u)]{style="color:#f8f5f0;"} Monday (1/29)
 
-[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUQlJaRE5FVTZCWDlSTlZYSVFSVzZSVEFFOS4u)]{style="color:#f8f5f0;"} Wednesday (1/31)
+[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhURTIwRVlSSVgzSDJPWlNYTDlBR0dYTTIwSC4u)]{style="color:#f8f5f0;"} Wednesday (1/31)
 
 ## Announcements
+
+### Monday 1/29
+
+### Wednesday 1/31
 
 ## Muddiest Points
 
