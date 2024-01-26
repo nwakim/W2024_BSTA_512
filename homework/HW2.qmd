@@ -1,8 +1,9 @@
 ---
 title: "Homework 2"
 subtitle: "BSTA 512/612"
+author: "Your name here - update this!!!!"
 description: "Due: Thursday February 1, 2024"
-date-modified: "12/22/2024"
+date-modified: "1/25/2024"
 date: "2/1/2024"
 categories: [""]
 format: 
@@ -26,11 +27,12 @@ library(janitor)
 library(readxl)
 library(haven)
 library(here)
+library(gtsummary) ## Added this package!!
 
 ```
 
 ::: callout-important
-**THIS PAGE IS UNDER CONSTRUCTION!! It's likely that I will be making changes to this assignment at this time!**
+**This page is no longer under construction. You may start this homework! (1/25/24)**
 :::
 
 ## Directions
@@ -48,11 +50,6 @@ library(here)
 -   If you are computing something by hand, you may take a picture of your work and insert the image in this file. You may also use LaTeX to write it inline.
 
 -   Write all answers in complete sentences as if communicating the results to a collaborator. This means including a sentence summarizing results in the context of the research study.
-
-    -   Questions **not requiring a sentence are**
-        -   Ch 7 \# 1, 2, 5
-        -   Ch 6 \# 5, 6
-        -   Ch 14 \# 2, 12, 14
 
 ::: callout-tip
 It is a good idea to try rendering your document from time to time as you go along! Note that rendering automatically saves your qmd file and rendering frequently helps you catch your errors more quickly.
@@ -91,18 +88,36 @@ Fit a linear regression model to estimate the association between the predictor 
 Interpret the slope and intercept. Does the intercept make sense?
 
 ::: callout-note
-Make sure to include the confidence interval. The "units" for fatalism and depression are scores.
+Make sure to include the confidence interval. Whenever asked to interpret coefficients, you must include confidence intervals. Also, the "units" for fatalism and depression are scores.
 :::
 
 ### Part c
 
-Obtain the interquartile range (IQR) for fatalism (IQR is Q3-Q1). Make a new variable FatalismIQR, equal to Fatalism centered at its median, and divided by the IQR. This is one way of standardizing a variable, and can be used for variables that have symmetric or skewed distribution.
+In your dataset, make a new variable FatalismC, equal to Fatalism centered at its median (C is for centered).
 
-Re-run the regression from Part b using this new variable. Interpret the new slope and intercept. Which of the following are the same as in 1b: intercept, slope?
+$$
+\text{FatalismC} = \text{Fatalism} - \text{median of Fatalism}
+$$
+
+This is one way of centering a variable, and can be used when the intercept estimate does not make sense. (Hint: the `mutate()` function will work well here!)
+
+Plot the data, with title and axis labels, for Depression (y-axis) vs. FatalismC (x-axis).
 
 ### Part d
 
-F-test???
+Re-run the regression from Part b using this new variable for FatalismC. Interpret the new slope and intercept. Which of the following are the same as Part b: intercept, slope?
+
+::: callout-note
+Make sure to include the confidence interval. Whenever asked to interpret coefficients, you must include confidence intervals. Also, the "units" for the centered fatalism is still the score.
+:::
+
+### Part e
+
+From the above interpretations, what would be the equivalent conclusion from a hypothesis test for the association between Depression and Fatalism?
+
+::: callout-note
+You do not need to go through the whole process for the hypothesis test. You only need to state whether it is rejected or not and site the confidence interval as evidence.
+:::
 
 ## Question 2
 
@@ -141,7 +156,7 @@ ggplot(clot, aes(x = LOGDOSE,
 
 ### Part a
 
-Fit the data and add the regression line onto the plot.
+Fit a linear regression model to the data and add the regression line to the plot.
 
 ### Part b
 
@@ -149,48 +164,36 @@ Use R to create the ANOVA table for the regression described in the exercise.
 
 ### Part c
 
-Using the values in the `Df` and `Sum Sq` columns, show how the remaining values in the table are calculated.
+Using the F-test, determine whether there is an association between the log10 concentration and log10 dose.
+
+::: callout-note
+Make sure to include all needed steps for an F-test. Calculating the F test statistic (step 5) is not needed if you use the ANOVA table. Make sure your conclusion connects back the research context.
+:::
 
 ### Part d
 
-Calculate the SSY and its degrees of freedom. Use these values to calculate the standard deviation of the outcome variable.
+Rewrite your hypothesis test in Part e to show the null and alternative models that we are testing. Did we reject the smaller (reduced) model?
 
-### Part e
+::: callout-note
+You do not need to go through the hypothesis test process again. A quick statement on rejecting or not is okay.
+:::
 
-What are the hypotheses being tested in the ANOVA table? Make sure to include a description of the parameter being tested in the context of the research question.
+::: callout-tip
+If you prefer to write out the models by hand, remember that you can take a picture of your work and insert it into this document. HW0 can be a good reference for how we've done this before.
+:::
 
-### Part f
+## Question 3
 
-Using just the values in the ANOVA table, find the value of the t-distribution test statistic for testing the slope that one would find in the regression output of the linear model. What are the degrees of freedom for that t-distribution?
+We will continue to work with the study and dataset from Question 2 above.
 
-### Part g
+### Part a
 
-Show the regression output for the linear model. Using just the regression output, calculate the SSR and SSE values in the ANOVA table.
+Find the correlation coefficient between the two variables. Is the value consistent with your description of the relationship in Question 2? Why or why not?
 
-## Question 1 (chapter 6)
+### Part b
 
-Use the data from Chapter 5 Question 9 to answer the following questions. Use the log-transformed values as given in the dataset.
+Calculate the coefficient of determination using linear regression summary output. Can we also calculate the coefficient of determination from the ANOVA in Question 2?
 
-### (2)
-
-Find the correlation coefficient between the two variables. Is the value consistent with your description of the relationship in the previous question? Why or why not?
-
-### (3)
-
-Test whether the two variables are significantly correlated. Do this using the formula and then check your work with R's test for correlations. Make sure to include the hypotheses and a conclusion.
-
-### (4)
-
-Calculate the confidence interval for $\rho$ using the formula and verify that it matches the confidence interval in R's test output. Include an interpretation of the confidence interval and also explain why the confidence interval is consistent with the p-value.
-
-### (5)
-
-Calculate the coefficient of determination using the ANOVA table output, and confirm that it matches the value in the R output (what R output shows this and what is it labeled as?).
-
-### (6)
-
-What is another way to calculate the coefficient of determination? Do the calculation and verify that you have the same answer.
-
-### (7)
+### Part c
 
 Give an interpretation of the coefficient of determination in the context of the study.
