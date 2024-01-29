@@ -53,6 +53,19 @@ theme_set(theme_gray(base_size = 22))
 gapm <- read_csv("data/lifeexp_femlit_2011.csv")
 ```
 
+# Learning Objectives
+
+1.  Describe the model assumptions made in linear regression using
+    ordinary least squares
+
+2.  Determine if the relationship between our sampled X and Y is linear
+
+3.  Use QQ plots to determine if our fitted model holds the normality
+    assumption
+
+4.  Use residual plots to determine if our fitted model holds the
+    equality of variance assumption
+
 ## Let's remind ourselves of the model that we have been working with
 
 -   We have been looking at the association between life expectancy and
@@ -401,6 +414,21 @@ equal for all levels of X
 :::
 :::
 
+# Learning Objectives
+
+1.  Describe the model assumptions made in linear regression using
+    ordinary least squares
+
+::: lob
+2.  Determine if the relationship between our sampled X and Y is linear
+:::
+
+3.  Use QQ plots to determine if our fitted model holds the normality
+    assumption
+
+4.  Use residual plots to determine if our fitted model holds the
+    equality of variance assumption
+
 ## L: Linearity of relationship between variables
 
 ::: columns
@@ -441,6 +469,21 @@ ggplot(gapm, aes(x = female_literacy_rate_2011,
 
 -   **Diagnostic tool:** reviewing the study *design* and not by
     inspecting the data
+    
+# Learning Objectives
+
+1.  Describe the model assumptions made in linear regression using
+    ordinary least squares
+
+2.  Determine if the relationship between our sampled X and Y is linear
+
+::: lob
+3.  Use QQ plots to determine if our fitted model holds the normality
+    assumption
+:::
+
+4.  Use residual plots to determine if our fitted model holds the
+    equality of variance assumption
 
 ## N: Normality of the residuals
 
@@ -778,6 +821,21 @@ Reject the null. Data are not from a normal distribution.
 :::
 :::
 :::
+:::
+
+# Learning Objectives
+
+1.  Describe the model assumptions made in linear regression using
+    ordinary least squares
+
+2.  Determine if the relationship between our sampled X and Y is linear
+
+3.  Use QQ plots to determine if our fitted model holds the normality
+    assumption
+
+::: lob
+4.  Use residual plots to determine if our fitted model holds the
+    equality of variance assumption
 :::
 
 ## E: Equality of variance of the residuals {.nostretch}
