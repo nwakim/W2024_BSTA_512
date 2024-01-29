@@ -3063,7 +3063,7 @@
     "href": "weeks/week_04_sched.html#resources",
     "title": "Week 4",
     "section": "Resources",
-    "text": "Resources\nBelow is a table with links to resources. Icons in orange mean there is an available file link.\n\n\n\n\n\n\n\n\n\n\nLesson\nTopic\nSlides\nAnnotated Slides\nRecording\n\n\n\n\n6\nSLR: Model Diagnostics 1\n\n\n\n\n\n7\nSLR: Model Diagnostics 2"
+    "text": "Resources\nBelow is a table with links to resources. Icons in orange mean there is an available file link.\n\n\n\nLesson\nTopic\nSlides\nAnnotated Slides\nRecording\n\n\n\n\n6\nSLR: Model Diagnostics 1\n\n\n\n\n\n7\nSLR: Model Diagnostics 2"
   },
   {
     "objectID": "weeks/week_04_sched.html#on-the-horizon",
@@ -8775,7 +8775,7 @@
     "href": "slides/06_SLR_Diagnostics.html#l-linearity-of-relationship-between-variables",
     "title": "SLR: Model Evaluation and Diagnostics",
     "section": "L: Linearity of relationship between variables",
-    "text": "L: Linearity of relationship between variables\n\n\n\n\n\nIs the association between the variables linear?\n\n\n\n\nDiagnostic tool: Scatterplot of \\(X\\) vs. \\(Y\\)\n\n\n\nWarning in geom_point(size = 3, se = FALSE): Ignoring unknown parameters: `se`\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: Removed 108 rows containing non-finite values (`stat_smooth()`).\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\nWarning: Removed 108 rows containing non-finite values (`stat_smooth()`).\n\n\nWarning: Removed 108 rows containing missing values (`geom_point()`)."
+    "text": "L: Linearity of relationship between variables\n\n\n\n\n\nIs the association between the variables linear?\n\n\n\n\nDiagnostic tool: Scatterplot of \\(X\\) vs. \\(Y\\)"
   },
   {
     "objectID": "slides/06_SLR_Diagnostics.html#i-independence-of-the-residuals-y-values",
@@ -9916,7 +9916,7 @@
     "href": "slides/06_SLR_Diagnostics.html#l-linearity",
     "title": "SLR: Model Evaluation and Diagnostics",
     "section": "L: Linearity",
-    "text": "L: Linearity\n\n\n\nThe relationship between the variables is linear (a straight line):\n\nThe mean value of \\(Y\\) given \\(X\\), \\(\\mu_{y|x}\\) or \\(E[Y|X]\\), is a straight-line function of \\(X\\)\n\n\n\\[\\mu_{y|x} = \\beta_0 + \\beta_1 \\cdot X\\]\n\n\n\nWarning in geom_point(size = 3, se = FALSE): Ignoring unknown parameters: `se`\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: Removed 108 rows containing non-finite values (`stat_smooth()`).\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\nWarning: Removed 108 rows containing non-finite values (`stat_smooth()`).\n\n\nWarning: Removed 108 rows containing missing values (`geom_point()`)."
+    "text": "L: Linearity\n\n\n\nThe relationship between the variables is linear (a straight line):\n\nThe mean value of \\(Y\\) given \\(X\\), \\(\\mu_{y|x}\\) or \\(E[Y|X]\\), is a straight-line function of \\(X\\)\n\n\n\\[\\mu_{y|x} = \\beta_0 + \\beta_1 \\cdot X\\]"
   },
   {
     "objectID": "slides/06_SLR_Diagnostics.html#i-independence-of-observations",
@@ -10623,7 +10623,7 @@
     "href": "slides/06_SLR_Diagnostics.html#n-check-normality-with-usual-distribution-plots",
     "title": "SLR: Model Evaluation and Diagnostics",
     "section": "N: Check normality with “usual” distribution plots",
-    "text": "N: Check normality with “usual” distribution plots\nNote that below I save each figure as an object, and then combine them together in one row of output using grid.arrange() from the gridExtra package\n\nhist1 &lt;- ggplot(aug1, aes(x = .resid)) + geom_histogram()\n\ndensity1 &lt;- ggplot(aug1, aes(x = .resid)) + geom_density()\n\nbox1 &lt;- ggplot(aug1, aes(x = .resid)) + geom_boxplot()\n\ngrid.arrange(hist1, density1, box1, nrow = 1)\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+    "text": "N: Check normality with “usual” distribution plots\nNote that below I save each figure as an object, and then combine them together in one row of output using grid.arrange() from the gridExtra package\n\nhist1 &lt;- ggplot(aug1, aes(x = .resid)) + geom_histogram()\n\ndensity1 &lt;- ggplot(aug1, aes(x = .resid)) + geom_density()\n\nbox1 &lt;- ggplot(aug1, aes(x = .resid)) + geom_boxplot()\n\ngrid.arrange(hist1, density1, box1, nrow = 1)"
   },
   {
     "objectID": "slides/06_SLR_Diagnostics.html#examples-of-normal-qq-plots",
@@ -10637,7 +10637,7 @@
     "href": "slides/06_SLR_Diagnostics.html#n-examples-of-normal-qq-plots-from-n10-observations",
     "title": "SLR: Model Evaluation and Diagnostics",
     "section": "N: Examples of Normal QQ plots (from \\(n=10\\) observations)",
-    "text": "N: Examples of Normal QQ plots (from \\(n=10\\) observations)\n\n\n\n\nNormal\n\nUniform\n\nT\n\nSkewed\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+    "text": "N: Examples of Normal QQ plots (from \\(n=10\\) observations)\n\n\n\n\nNormal\n\nUniform\n\nT\n\nSkewed"
   },
   {
     "objectID": "slides/06_SLR_Diagnostics.html#n-examples-of-normal-qq-plots-from-n10-observations-1",
@@ -10651,14 +10651,14 @@
     "href": "slides/06_SLR_Diagnostics.html#n-examples-of-normal-qq-plots-from-n1000-observations",
     "title": "SLR: Model Evaluation and Diagnostics",
     "section": "N: Examples of Normal QQ plots (from \\(n=1000\\) observations)",
-    "text": "N: Examples of Normal QQ plots (from \\(n=1000\\) observations)\n\n\n\n\nNormal\n\nUniform\n\nT\n\nSkewed\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+    "text": "N: Examples of Normal QQ plots (from \\(n=1000\\) observations)\n\n\n\n\nNormal\n\nUniform\n\nT\n\nSkewed"
   },
   {
     "objectID": "slides/06_SLR_Diagnostics.html#n-examples-of-normal-qq-plots-from-n100-observations",
     "href": "slides/06_SLR_Diagnostics.html#n-examples-of-normal-qq-plots-from-n100-observations",
     "title": "SLR: Model Evaluation and Diagnostics",
     "section": "N: Examples of Normal QQ plots (from \\(n=100\\) observations)",
-    "text": "N: Examples of Normal QQ plots (from \\(n=100\\) observations)\n\n\n\n\nNormal\n\nUniform\n\nT\n\nSkewed\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+    "text": "N: Examples of Normal QQ plots (from \\(n=100\\) observations)\n\n\n\n\nNormal\n\nUniform\n\nT\n\nSkewed"
   },
   {
     "objectID": "slides/06_SLR_Diagnostics.html#lets-go-back-to-the-life-expectancy-example",
@@ -10686,14 +10686,14 @@
     "href": "slides/06_SLR_Diagnostics.html#e-equality-of-variance-of-the-residuals-1",
     "title": "SLR: Model Evaluation and Diagnostics",
     "section": "E: Equality of variance of the residuals",
-    "text": "E: Equality of variance of the residuals\n\nHomoscedasticity\nDiagnostic tool: residual plot\n\n\n\n\n\n\n\nhttps://bookdown.org/roback/bookdown-bysh/ch-MLRreview.html#ordinary-least-squares-ols-assumptions"
+    "text": "E: Equality of variance of the residuals\n\nHomoscedasticity: How do we determine if the variance across X values is constant?\nDiagnostic tool: residual plot"
   },
   {
     "objectID": "slides/06_SLR_Diagnostics.html#summary-of-the-assumptions-and-their-diagnostic-tool",
     "href": "slides/06_SLR_Diagnostics.html#summary-of-the-assumptions-and-their-diagnostic-tool",
     "title": "SLR: Model Evaluation and Diagnostics",
     "section": "Summary of the assumptions and their diagnostic tool",
-    "text": "Summary of the assumptions and their diagnostic tool\n\n\n\n\n\n\n\n\nA ssumption\nWhat needs to hold?\nDiagnostic tool\n\n\n\n\nLinearity\n\nRelationship between \\(X\\) and \\(Y\\) is linear\n\n\nScatterplot of \\(Y\\) vs. \\(X\\)\n\n\n\nInd ependence\n\nObservations are independent from each other\n\n\nStudy design\n\n\n\nNormality\n\nResiduals (and thus \\(Y|X\\)) are normally distributed\n\n\nQQ plot of residuals\nDistribution of residuals\n\n\n\nEquality of variance\n\nVariance of residuals (and thus \\(Y|X\\)) is same across \\(X\\) values (homoscedasticity)\n\n\nResidual plot"
+    "text": "Summary of the assumptions and their diagnostic tool\n\n\n\n\n\n\n\n\nAssumption\nWhat needs to hold?\nDiagnostic tool\n\n\n\n\nLinearity\n\\(\\text{}\\)\n\nRelationship between \\(X\\) and \\(Y\\) is linear\n\n\nScatterplot of \\(Y\\) vs. \\(X\\)\n\n\\(\\text{}\\)\n\n\nIndependence\n\\(\\text{}\\)\n\nObservations are independent from each other\n\n\nStudy design\n\n\\(\\text{}\\)\n\n\nNormality\n\\(\\text{}\\)\n\nResiduals (and thus \\(Y|X\\)) are normally distributed\n\n\nQQ plot of residuals\nDistribution of residuals\n\n\n\nEquality of variance\n\\(\\text{}\\)\n\nVariance of residuals (and thus \\(Y|X\\)) is same across \\(X\\) values (homoscedasticity)\n\n\nResidual plot\n\n\\(\\text{}\\)\n\n\n\n\n\nSLR 4"
   },
   {
     "objectID": "slides/06_SLR_Diagnostics.html#n-normal-qq-plots-qq-quantile-quantile",
@@ -10721,7 +10721,7 @@
     "href": "slides/06_SLR_Diagnostics.html#e-residual-plot",
     "title": "SLR: Model Evaluation and Diagnostics",
     "section": "E: Residual plot",
-    "text": "E: Residual plot\n\n\\(x\\) = explanatory variable from regression model\n\n(or the fitted values for a multiple regression)\n\n\\(y\\) = residuals from regression model\n\n\n\n\nnames(aug1)\n\n[1] \".rownames\"                  \"life_expectancy_years_2011\"\n[3] \"female_literacy_rate_2011\"  \".fitted\"                   \n[5] \".resid\"                     \".hat\"                      \n[7] \".sigma\"                     \".cooksd\"                   \n[9] \".std.resid\"                \n\n\n\n\nggplot(aug1, \n       aes(x = female_literacy_rate_2011, \n           y = .resid)) + \n  geom_point() +\n  geom_abline(\n    intercept = 0, \n    slope = 0, \n    color = \"orange\") +\n  labs(title = \"Residual plot\")"
+    "text": "E: Residual plot\n\n\n\n\\(x\\) = explanatory variable from regression model\n\n(or the fitted values for a multiple regression)\n\n\\(y\\) = residuals from regression model\n\n\nggplot(aug1, \n       aes(x = female_literacy_rate_2011, \n           y = .resid)) + \n  geom_point(size = 2) +\n  geom_abline( intercept = 0, slope = 0,\n    size = 2, color = \"#FF8021\") +\n  labs(title = \"Residual plot\") +\n  theme(axis.title = element_text(size = 30), \n        axis.text = element_text(size = 30))"
   },
   {
     "objectID": "slides/06_SLR_Diagnostics.html#lets-remind-ourselves-of-the-model-that-we-fit-last-lesson",
@@ -10734,8 +10734,8 @@
     "objectID": "slides/06_SLR_Diagnostics.html#lets-remind-ourselves-of-the-model-that-we-have-been-working-with",
     "href": "slides/06_SLR_Diagnostics.html#lets-remind-ourselves-of-the-model-that-we-have-been-working-with",
     "title": "SLR: Model Evaluation and Diagnostics",
-    "section": "",
-    "text": "We have been looking at the association between life expectancy and female literacy rate\nWe used OLS to find the coefficient estimates of our best-fit line\n\n\n\n\\[Y = \\beta_0 + \\beta_1 X + \\epsilon\\]\n\n\n\n\n\n\n  \n    \n    \n      term\n      estimate\n      std.error\n      statistic\n      p.value\n    \n  \n  \n    (Intercept)\n50.93\n2.66\n19.14\n0.00\n    female_literacy_rate_2011\n0.23\n0.03\n7.38\n0.00\n  \n  \n  \n\n\n\n\n\\[\\begin{aligned}\n\\widehat{Y} &= \\widehat\\beta_0 + \\widehat\\beta_1 \\cdot X\\\\\n\\widehat{\\text{life expectancy}} &= 50.9 + 0.232 \\cdot \\text{female literacy rate}\n\\end{aligned}\\]\n\n\n\n\n\nRows: 188 Columns: 3\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): country\ndbl (2): life_expectancy_years_2011, female_literacy_rate_2011\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: Removed 108 rows containing non-finite values (`stat_smooth()`).\n\n\nWarning: Removed 108 rows containing missing values (`geom_point()`)."
+    "section": "Let’s remind ourselves of the model that we have been working with",
+    "text": "Let’s remind ourselves of the model that we have been working with\n\nWe have been looking at the association between life expectancy and female literacy rate\nWe used OLS to find the coefficient estimates of our best-fit line\n\n\n\n\\[Y = \\beta_0 + \\beta_1 X + \\epsilon\\]\n\n\n\n\n\n\n  \n    \n    \n      term\n      estimate\n      std.error\n      statistic\n      p.value\n    \n  \n  \n    (Intercept)\n50.93\n2.66\n19.14\n0.00\n    female_literacy_rate_2011\n0.23\n0.03\n7.38\n0.00\n  \n  \n  \n\n\n\n\n\\[\\begin{aligned}\n\\widehat{Y} &= \\widehat\\beta_0 + \\widehat\\beta_1 \\cdot X\\\\\n\\widehat{\\text{life expectancy}} &= 50.9 + 0.232 \\cdot \\text{female literacy rate}\n\\end{aligned}\\]"
   },
   {
     "objectID": "slides/06_SLR_Diagnostics.html#our-residuals-will-help-us-a-lot-in-our-diagnostics",
@@ -10784,6 +10784,20 @@
     "href": "slides/06_SLR_Diagnostics.html#n-shapiro-wilk-test-of-normality",
     "title": "SLR: Model Evaluation and Diagnostics",
     "section": "N: Shapiro-Wilk Test of Normality",
-    "text": "N: Shapiro-Wilk Test of Normality"
+    "text": "N: Shapiro-Wilk Test of Normality\n\nGoodness-of-fit test for the normal distribution: Is there evidence that our residuals are from a normal distribution?\nHypothesis test:\n\n\\[\\begin{aligned}\nH_0 & : \\text{data are from a normally distributed population} \\\\\nH_1 & : \\text{data are NOT from a normally distributed population}\n\\end{aligned}\\]\n\n\n\nshapiro.test(aug1$.resid)\n\n\n    Shapiro-Wilk normality test\n\ndata:  aug1$.resid\nW = 0.90575, p-value = 2.148e-05\n\n\n\n\n\nConclusion\n\n\nReject the null. Data are not from a normal distribution."
+  },
+  {
+    "objectID": "slides/06_SLR_Diagnostics.html#e-creating-a-residual-plot",
+    "href": "slides/06_SLR_Diagnostics.html#e-creating-a-residual-plot",
+    "title": "SLR: Model Evaluation and Diagnostics",
+    "section": "E: Creating a residual plot",
+    "text": "E: Creating a residual plot\n\n\n\n\\(x\\) = explanatory variable from regression model\n\n(or the fitted values for a multiple regression)\n\n\\(y\\) = residuals from regression model\n\n\nggplot(aug1, \n       aes(x = female_literacy_rate_2011, \n           y = .resid)) + \n  geom_point(size = 2) +\n  geom_abline( intercept = 0, slope = 0,\n    size = 2, color = \"#FF8021\") +\n  labs(title = \"Residual plot\") +\n  theme(axis.title = element_text(size = 30), \n        axis.text = element_text(size = 30))"
+  },
+  {
+    "objectID": "slides/06_SLR_Diagnostics.html#autoplot-can-be-a-helpful-tool",
+    "href": "slides/06_SLR_Diagnostics.html#autoplot-can-be-a-helpful-tool",
+    "title": "SLR: Model Evaluation and Diagnostics",
+    "section": "autoplot() can be a helpful tool",
+    "text": "autoplot() can be a helpful tool\n\nlibrary(ggfortify)\nautoplot(model1) + theme(text=element_text(size=14))"
   }
 ]

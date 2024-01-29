@@ -167,14 +167,17 @@ labs(x = "Female literacy rate (%)",
 # Learning Objectives
 
 ::: lob
-1.  Describe the model assumptions made in linear regression using ordinary least squares
+1.  Describe the model assumptions made in linear regression using
+    ordinary least squares
 :::
 
 2.  Determine if the relationship between our sampled X and Y is linear
 
-3.  Use QQ plots to determine if our fitted model holds the normality assumption
+3.  Use QQ plots to determine if our fitted model holds the normality
+    assumption
 
-4.  Use residual plots to determine if our fitted model holds the equality of variance assumption
+4.  Use residual plots to determine if our fitted model holds the
+    equality of variance assumption
 
 ## Least-squares model assumptions: LINE
 
@@ -311,7 +314,7 @@ labs(x = "Female literacy rate (%)",
 
 -   This is also called **homoscedasticity**
 
-![](05_SLR_Eval/homosced.webp){fig-align="center"}
+![](06_SLR_Diag_1/OLSassumptions-1.png){fig-align="center"}
 
 ## Summary of LINE model assumptions
 
@@ -375,7 +378,7 @@ Check that the observations are independent
 :::
 
 ::: thm-cont
-Check that the responses (at each level X) are normally distributed 
+Check that the responses (at each level X) are normally distributed
 
 -   Usually measured through the residuals
 :::
@@ -390,7 +393,7 @@ Check that the responses (at each level X) are normally distributed
 
 ::: fact-cont
 Check that the variance (or standard deviation) of the responses is
-equal for all levels of X 
+equal for all levels of X
 
 -   Usually measured through the residuals
 :::
@@ -436,8 +439,8 @@ ggplot(gapm, aes(x = female_literacy_rate_2011,
 
  
 
--   **Diagnostic tool:** reviewing the study *design* and not by inspecting
-    the data
+-   **Diagnostic tool:** reviewing the study *design* and not by
+    inspecting the data
 
 ## N: Normality of the residuals
 
@@ -525,7 +528,9 @@ ggplot(aug1, aes(sample = .resid)) +
   stat_qq() +     # points
   stat_qq_line() + # line
   theme(axis.title = element_text(size = 30), 
-        axis.text = element_text(size = 30))
+        axis.text = element_text(size = 30)) +
+  labs(x = "Theoretical quantiles", 
+       y = "Data quantiles")
 ```
 :::
 :::
@@ -745,87 +750,113 @@ ggplot() +
 
 ## N: Shapiro-Wilk Test of Normality
 
-## E: Equality of variance of the residuals {.nostretch}
+-   Goodness-of-fit test for the normal distribution: Is there evidence
+    that our residuals are from a normal distribution?
 
--   Homoscedasticity
--   Diagnostic tool: **residual plot**
+-   Hypothesis test:
 
-![](/img_slides/OLSassumptions-1.png){fig-align="center" width="60%"}
+$$\begin{aligned}
+H_0 & : \text{data are from a normally distributed population} \\
+H_1 & : \text{data are NOT from a normally distributed population}
+\end{aligned}$$
 
-::: {style="font-size: 60%;"}
-<https://bookdown.org/roback/bookdown-bysh/ch-MLRreview.html#ordinary-least-squares-ols-assumptions>
+::: columns
+::: column
+```{r}
+shapiro.test(aug1$.resid)
+```
 :::
 
-## E: Residual plot
+::: column
+::: theorem
+::: thm-title
+Conclusion
+:::
 
+::: thm-cont
+Reject the null. Data are not from a normal distribution.
+:::
+:::
+:::
+:::
+
+## E: Equality of variance of the residuals {.nostretch}
+
+-   Homoscedasticity: How do we determine if the variance across X
+    values is constant?
+-   Diagnostic tool: **residual plot**
+
+![](06_SLR_Diag_1/resid-plots.png){fig-align="center" width="1000"}
+
+## E: Creating a residual plot
+
+::: columns
+::: {.column width="60%"}
 -   $x$ = explanatory variable from regression model
     -   (or the fitted values for a multiple regression)
 -   $y$ = residuals from regression model
 
-::: columns
-::: {.column width="50%"}
-```{r}
-names(aug1)
-```
-
-<br>
-
 ```{r}
 #| label: resids_plot
-#| fig.show: hide
+#| fig-show: hide
+
 ggplot(aug1, 
        aes(x = female_literacy_rate_2011, 
            y = .resid)) + 
-  geom_point() +
-  geom_abline(
-    intercept = 0, 
-    slope = 0, 
-    color = "orange") +
-  labs(title = "Residual plot")
+  geom_point(size = 2) +
+  geom_abline( intercept = 0, slope = 0,
+    size = 2, color = "#FF8021") +
+  labs(title = "Residual plot") +
+  theme(axis.title = element_text(size = 30), 
+        axis.text = element_text(size = 30))
+  
 ```
 :::
 
-::: {.column width="50%"}
+::: {.column width="40%"}
 ```{r}
 #| ref.label: resids_plot
 #| echo: false
-#| fig.height: 6
-#| fig.width: 6
+#| fig-height: 7
+#| fig-width: 7
+#| fig-align: center
+
 ```
 :::
 :::
 
-## E: Equality of variance of the residuals (Homoscedasticity)
+## `autoplot()` can be a helpful tool
 
--   The **variance** or, equivalently, the standard deviation of the
-    responses is **equal for all values of x**.
--   This is called **homoskedasticity** (top row)
--   If there is **heteroskedasticity** (bottom row), then the assumption
-    is not met.
+```{r}
+#| fig-width: 8
+#| fig-align: center
 
-![](/img_slides/heteroskedastic.png){fig-align="center"}
+library(ggfortify)
+autoplot(model1) + theme(text=element_text(size=14))
+```
 
 ## Summary of the assumptions and their diagnostic tool
 
-+--------------+-------------------------------+-------------------+
-| A ssumption  | What needs to hold?           | Diagnostic tool   |
-+==============+===============================+===================+
-| Linearity    | -   Relationship between $X$  | -   Scatterplot   |
-|              |     and $Y$ is linear         |     of $Y$ vs.    |
-|              |                               |     $X$           |
-+--------------+-------------------------------+-------------------+
-| Ind          | -   Observations are          | -   Study design  |
-| ependence    |     independent from each     |                   |
-|              |     other                     |                   |
-+--------------+-------------------------------+-------------------+
-| Normality    | -   Residuals (and thus       | -   QQ plot of    |
-|              |     $Y|X$) are normally       |     residuals     |
-|              |     distributed               |                   |
-|              |                               | -   Distribution  |
-|              |                               |     of residuals  |
-+--------------+-------------------------------+-------------------+
-| Equality of  | -   Variance of residuals     | -   Residual plot |
-| variance     |     (and thus $Y|X$) is same  |                   |
-|              |     across $X$ values         |                   |
-|              |     (homoscedasticity)        |                   |
-+--------------+-------------------------------+-------------------+
++----------------+---------------------------------+-------------------------+
+| Assumption     | What needs to hold?             | Diagnostic tool         |
++:===============+:================================+:========================+
+| Linearity      | -   Relationship between $X$    | -   Scatterplot of $Y$  |
+|                |     and $Y$ is linear           |     vs. $X$             |
+| $\text{}$      |                                 |                         |
+|                |                                 | $\text{}$               |
++----------------+---------------------------------+-------------------------+
+| Independence   | -   Observations are            | -   Study design        |
+|                |     independent from each other |                         |
+| $\text{}$      |                                 | $\text{}$               |
++----------------+---------------------------------+-------------------------+
+| Normality      | -   Residuals (and thus $Y|X$)  | -   QQ plot of          |
+|                |     are normally distributed    |     residuals           |
+| $\text{}$      |                                 |                         |
+|                |                                 | -   Distribution of     |
+|                |                                 |     residuals           |
++----------------+---------------------------------+-------------------------+
+| Equality of    | -   Variance of residuals (and  | -   Residual plot       |
+| variance       |     thus $Y|X$) is same across  |                         |
+|                |     $X$ values                  | $\text{}$               |
+| $\text{}$      |     (homoscedasticity)          |                         |
++----------------+---------------------------------+-------------------------+
