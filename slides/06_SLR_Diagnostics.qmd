@@ -637,6 +637,8 @@ skewed_qq = ggplot(skewed, aes(sample = x)) + stat_qq() + stat_qq_line()
 grid.arrange(norm_qq, unif_qq, t_qq, skewed_qq, nrow = 1)
 ```
 
+ 
+
 ## N: Examples of Normal QQ plots (from $n=10$ observations)
 
 ::: columns

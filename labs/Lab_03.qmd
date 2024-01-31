@@ -14,3 +14,9 @@ format:
 editor_options: 
   chunk_output_type: console
 ---
+
+5. Make a Table 1
+
+bivariate data exploration
+multivariate data exploration
+
