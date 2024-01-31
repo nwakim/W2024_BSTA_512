@@ -172,7 +172,7 @@ Make sure to include all needed steps for an F-test. Calculating the F test stat
 
 ### Part d
 
-Rewrite your hypothesis test in Part e to show the null and alternative models that we are testing. Did we reject the smaller (reduced) model?
+Rewrite your hypothesis test in Part c to show the null and alternative models that we are testing. Did we reject the smaller (reduced) model?
 
 ::: callout-note
 You do not need to go through the hypothesis test process again. A quick statement on rejecting or not is okay.

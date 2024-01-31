@@ -296,17 +296,17 @@ Handling missing data is outside the scope of our class. While there are many te
 library(misty)
 #na.test(iat_2021)
 
-library(naniar)
-vis_miss(iat_2021 %>% slice_sample(n=1000))
-
-iat_miss = iat_2021 %>%
-  mutate(comp = anyNA())
-
-ggplot(data = iat_miss, aes(x=age, color = iat_miss)) +
-  geom_density()
-
-ggplot(data = iat_miss, aes(x=att7, color = iat_miss)) +
-  geom_histogram(aes(y = ..density..))
+# library(naniar)
+# vis_miss(iat_2021 %>% slice_sample(n=1000))
+# 
+# iat_miss = iat_2021 %>%
+#   mutate(comp = anyNA())
+# 
+# ggplot(data = iat_miss, aes(x=age, color = iat_miss)) +
+#   geom_density()
+# 
+# ggplot(data = iat_miss, aes(x=att7, color = iat_miss)) +
+#   geom_histogram(aes(y = ..density..))
 ```
 
 ### 4. Some exploratory data analysis

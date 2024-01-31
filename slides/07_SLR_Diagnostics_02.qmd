@@ -186,8 +186,10 @@ labs(x = "Female literacy rate (%)",
 
 # Learning Objectives
 
+::: lob
 1.  Use visualizations and cut off points to flag potentially
     influential points using residuals, leverage, and Cook's distance
+:::
 
 2.  Handle influential points and assumption violations by checking data
     errors, reassessing the model, and making data transformations.
@@ -523,8 +525,10 @@ I am okay with this!
 1.  Use visualizations and cut off points to flag potentially
     influential points using residuals, leverage, and Cook's distance
 
+::: lob
 2.  Handle influential points and assumption violations by checking data
     errors, reassessing the model, and making data transformations.
+:::
 
 3.  Implement a model with data transformations and determine if it
     improves the model fit.
@@ -589,8 +593,10 @@ regression model?
 2.  Handle influential points and assumption violations by checking data
     errors, reassessing the model, and making data transformations.
 
+::: lob
 3.  Implement a model with data transformations and determine if it
     improves the model fit.
+:::
 
 ## Transformations
 
