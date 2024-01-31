@@ -84,7 +84,7 @@ model1 <- lm(life_expectancy_years_2011 ~
                  data = gapm)
 # Get regression table:
 tidy(model1) %>% gt() %>% 
- tab_options(table.font.size = 40) %>%
+ tab_options(table.font.size = 37) %>%
  fmt_number(decimals = 2)
 ```
 
@@ -124,24 +124,18 @@ ggplot(gapm, aes(x = female_literacy_rate_2011,
 ## Our residuals will help us a lot in our diagnostics!
 
 ::: columns
-::: {.column width="43%"}
+::: {.column width="35%"}
+ 
+
 -   The **residuals** $\widehat\epsilon_i$ are the vertical distances
     between
 
     -   the observed data $(X_i, Y_i)$
     -   the fitted values (regression line)
         $\widehat{Y}_i = \widehat\beta_0 + \widehat\beta_1 X_i$
-
--   We ran the `augment()` function to get some diagnostic values,
-    including the residuals
-
-```{r}
-aug1 <- augment(model1) 
-colnames(aug1)
-```
 :::
 
-::: {.column width="57%"}
+::: {.column width="65%"}
 $$
 \widehat\epsilon_i =Y_i - \widehat{Y}_i \text{,   for } i=1, 2, ..., n
 $$
@@ -181,6 +175,86 @@ labs(x = "Female literacy rate (%)",
         axis.text = element_text(size = 25), 
         title = element_text(size = 30))  
 ```
+:::
+:::
+
+## `augment()`: getting extra information on the fitted model
+
+-   Run `model1` through `augment()` (`model1` is input)
+
+    -   So we assigned `model1` as the output of the `lm()` function
+        (`model1` is output)
+
+-   Will give us values about each observation in the context of the
+    fitted regression model
+
+    -   cook's distance (`.cooksd`), fitted value (`.fitted`,
+        $\widehat{Y}_i$), leverage (`.hat`), residual (`.resid`),
+        standardized residuals (`.std.resid`)
+
+```{r}
+aug1 <- augment(model1) 
+glimpse(aug1)
+```
+
+[RDocumentation on the `augment()`
+function.](https://www.rdocumentation.org/packages/broom/versions/1.0.4/topics/augment.lm)
+
+## Revisiting our LINE assumptions
+
+::: columns
+::: column
+::: definition
+::: def-title
+**\[L\] Linearity** of relationship between variables
+:::
+
+::: def-cont
+Check if there is a linear relationship between the mean response (Y)
+and the explanatory variable (X)
+:::
+:::
+:::
+
+::: column
+::: proof1
+::: proof-title
+**\[I\] Independence** of the $Y$ values
+:::
+
+::: proof-cont
+Check that the observations are independent
+:::
+:::
+:::
+
+::: column
+::: theorem
+::: thm-title
+**\[N\] Normality** of the $Y$'s given $X$ (residuals)
+:::
+
+::: thm-cont
+Check that the responses (at each level X) are normally distributed
+
+-   Usually measured through the residuals
+:::
+:::
+:::
+
+::: column
+::: fact
+::: fact-title
+**\[E\] Equality** of variance of the residuals (homoscedasticity)
+:::
+
+::: fact-cont
+Check that the variance (or standard deviation) of the responses is
+equal for all levels of X
+
+-   Usually measured through the residuals
+:::
+:::
 :::
 :::
 
@@ -253,8 +327,26 @@ labs(x = "Female literacy rate (%)",
 -   Use the internally standardized residual (aka studentized residual)
     to determine if an observation is an outlier
 
+## Poll Everywhere Question 1
+
 ## Identifying outliers
 
+::: columns
+::: {.column width="37%"}
+::: theorem
+::: thm-title
+Internally standardized residual
+:::
+
+::: thm-cont
+$$
+r_i = \frac{\widehat\epsilon_i}{\sqrt{\widehat\sigma^2(1-h_{ii})}}
+$$
+:::
+:::
+:::
+
+::: {.column width="63%"}
 -   We flag an observation if the standardized residual is "large"
 
     -   Different sources will define "large" differently
@@ -266,23 +358,34 @@ labs(x = "Female literacy rate (%)",
 
     -   Other sources use $|r_i| > 2$, which is a little more
         conservative
-        
-::: columns
-::: {.column width="35%"}
-Internally standardized residual
-
-$$
-r_i = \frac{\widehat\epsilon_i}{\sqrt{\widehat\sigma^2(1-h_{ii})}}
-$$
+:::
 :::
 
-::: {.column width="65%"}
+::: columns
+::: {.column width="55%"}
+ 
+
 ```{r}
-#| fig-height: 4
-#| fig-width: 5
+#| fig-height: 4.5
+#| fig-width: 7
 #| fig-align: center
-ggplot() + 
-  geom_histogram(data = aug1, aes(x = .std.resid))
+#| eval: false
+ggplot(data = aug1) + 
+  geom_histogram(aes(x = .std.resid))
+```
+:::
+
+::: {.column width="45%"}
+```{r}
+#| fig-height: 5
+#| fig-width: 7.5
+#| fig-align: center
+#| echo: false
+
+ggplot(data = aug1) + 
+  geom_histogram(aes(x = .std.resid))  +
+    theme(axis.title = element_text(size = 30), 
+        axis.text = element_text(size = 25))  
 ```
 :::
 :::
@@ -307,7 +410,8 @@ aug1 = left_join(aug1, gapm,
                         "life_expectancy_years_2011", 
                         "female_literacy_rate_2011"))
 aug1 = aug1 %>%
-  relocate(country, .after = .rownames)
+  relocate(country, .after = .rownames) %>%
+  relocate(.std.resid, .after = female_literacy_rate_2011)
 ```
 
 ```{r}
@@ -315,11 +419,12 @@ aug1 %>%
   filter(abs(.std.resid) > 2)
 ```
 
-
 ## High leverage observations
 
 -   An observation ($X_i, Y_i$) whose response $X_i$ is considered
     "extreme" compared to the other values of $X$
+
+ 
 
 -   How do we determine if a point has high leverage?
 
@@ -338,10 +443,10 @@ aug1 %>%
 
     -   PennState site uses $h_i > 3p/n$ where $p$ = number of
         regression coefficients
--   Leverage values are the `.hat` values in the "augment tibble"
 
 ```{r}
-aug1 %>% arrange(desc(.hat)) %>% head()
+aug1 = aug1 %>% relocate(.hat, .after = female_literacy_rate_2011)
+aug1 %>% arrange(desc(.hat))
 ```
 
 ## Countries with high leverage ($h_i > 4/n$)
@@ -361,6 +466,8 @@ aug1 %>%
   filter(.hat > 4/80) %>%
   arrange(desc(.hat))
 ```
+
+## Poll Everywhere Question 2
 
 ## Countries with high leverage ($h_i > 4/n$)
 
@@ -420,19 +527,26 @@ tidy(model1) %>% gt() %>% # With high leverage points
 
     -   Combines leverage and outlier information
 
-## Cook's distance
+## Identifying points with high Cook's distance
 
+::: columns
+::: column
 The Cook's distance for the $i^{th}$ observation is
 
 $$d_i = \frac{h_i}{2(1-h_i)} \cdot r_i^2$$ where $h_i$ is the leverage
 and $r_i$ is the studentized residual
+:::
 
+::: column
 -   Another rule for Cook's distance that is not strict:
     -   Investigate observations that have $d_i > 1$
 -   Cook's distance values are already in the augment tibble: `.cooksd`
+:::
+:::
 
 ```{r}
-colnames(aug1)
+aug1 = aug1 %>% relocate(.cooksd, .after = female_literacy_rate_2011)
+aug1 %>% arrange(desc(.cooksd))
 ```
 
 ## Plotting Cook's Distance
@@ -520,6 +634,27 @@ I am okay with this!
 -   You do not need to produce plots with the influential points taken
     out
 
+## Summary of how we identify influential points
+
+-   Use scatterplot of $Y$ vs. $X$ to see if any points fall outside of
+    range we expect
+
+-   Use standardized residuals, leverage, and Cook's distance to further
+    identify those points
+
+-   Look at the models run with and without the identified points to
+    check for drastic changes
+
+    -   Look at QQ plot and residuals to see if assumptions hold without
+        those points
+
+    -   Look at coefficient estimates to see if they change in sign and
+        large magnitude
+
+ 
+
+-   Next: how to handle? *It's a little wishy washy*
+
 # Learning Objectives
 
 1.  Use visualizations and cut off points to flag potentially
@@ -575,7 +710,8 @@ regression model?
 
     -   Nicky's thought for our life expectancy example
 
--   Try a transformation if there is an issue with linearity
+-   Try a transformation if there is an issue with linearity or
+    normality
 
 -   Try a transformation if there is unequal variance
 
@@ -615,8 +751,8 @@ regression model?
 
     -   It can also bring in or reduce outliers
 
--   We can transform the dependent ( $Y$ ) variable of the independnet (
-    $X$) variable
+-   We can transform the dependent ($Y$) variable of the independent
+    ($X$) variable
 
     -   Usually we want to try transforming the $X$ first
 
@@ -667,10 +803,8 @@ regression model?
 :::
 :::
 
-## Poll Everywhere Question
+## Poll Everywhere Question 3
 
-About the
-homework??![](images/Screenshot%202024-01-30%20at%202.39.18%20PM.png)
 
 ## Transform dependent variable?
 
@@ -797,6 +931,8 @@ We are going to call life expectancy $LE$ and female literacy rate $FLR$
 -   Model 6:
     $LE^3 = \beta_0 + \beta_1 FLR + \beta_2 FLR^2 +\beta_3 FLR^3 +\epsilon$
 
+## Poll Everywhere Question 4
+
 ## Compare Scatterplots: does linearity improve?
 
 ```{r fig.width=10, fig.height=5}
@@ -849,6 +985,7 @@ grid.arrange(plot_m1, plot_m2, plot_m3,
              nrow = 2)
 
 ```
+
 
 ## Run models with transformations: examples
 
@@ -983,6 +1120,21 @@ plot(model5, which = 1)
 plot(model6, which = 1)
 par(mfrow=c(1,1))  # set back to the standard 1 row x 1 column
 ```
+
+## Summary of transformations
+
+-   If the model without the transformation is blatantly violating a
+    LINE assumption
+    
+    -   Then a transformation is a good idea
+
+-   If the model without a transformation is not following the LINE assumptions very well, but is mostly okay
+
+    -   Then try to avoid a transformation
+    -   Think about what predictors might need to be added
+    -   Especially if you keep seeing the same points as influential
+    
+-   If interpretability is important in your final work, then transformations are not a great solution
 
 ## Models comparison {visibility="hidden"}
 

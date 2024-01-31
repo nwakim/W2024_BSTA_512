@@ -10217,7 +10217,7 @@
     "href": "slides/07_SLR_Diagnostics_02.html#leverage-h_i",
     "title": "SLR: Model Evaluation and Diagnostics",
     "section": "Leverage \\(h_i\\)",
-    "text": "Leverage \\(h_i\\)\n\nValues of leverage are: \\(0 \\leq h_i \\leq 1\\)\nWe flag an observation if the leverage is “high”\n\nDifferent sources will define “high” differently\nSome textbooks use \\(h_i &gt; 4/n\\) where \\(n\\) = sample size\nSome people suggest \\(h_i &gt; 6/n\\)\nPennState site uses \\(h_i &gt; 3p/n\\) where \\(p\\) = number of regression coefficients\n\nLeverage values are the .hat values in the “augment tibble”\n\n\naug1 %&gt;% arrange(desc(.hat)) %&gt;% head()\n\n# A tibble: 6 × 10\n  .rownames country life_expectancy_year…¹ female_literacy_rate…² .fitted .resid\n  &lt;chr&gt;     &lt;chr&gt;                    &lt;dbl&gt;                  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;\n1 1         Afghan…                   56.7                   13      53.9  2.75 \n2 104       Mali                      60                     24.6    56.6  3.36 \n3 34        Chad                      57                     25.4    56.8  0.174\n4 146       Sierra…                   55.7                   32.6    58.5 -2.80 \n5 62        Gambia                    66                     41.9    60.7  5.34 \n6 70        Guinea…                   56.2                   42.1    60.7 -4.50 \n# ℹ abbreviated names: ¹​life_expectancy_years_2011, ²​female_literacy_rate_2011\n# ℹ 4 more variables: .hat &lt;dbl&gt;, .sigma &lt;dbl&gt;, .cooksd &lt;dbl&gt;, .std.resid &lt;dbl&gt;"
+    "text": "Leverage \\(h_i\\)\n\nValues of leverage are: \\(0 \\leq h_i \\leq 1\\)\nWe flag an observation if the leverage is “high”\n\nDifferent sources will define “high” differently\nSome textbooks use \\(h_i &gt; 4/n\\) where \\(n\\) = sample size\nSome people suggest \\(h_i &gt; 6/n\\)\nPennState site uses \\(h_i &gt; 3p/n\\) where \\(p\\) = number of regression coefficients\n\n\n\naug1 = aug1 %&gt;% relocate(.hat, .after = female_literacy_rate_2011)\naug1 %&gt;% arrange(desc(.hat))\n\n# A tibble: 80 × 10\n   .rownames country        life_expectancy_year…¹ female_literacy_rate…²   .hat\n   &lt;chr&gt;     &lt;chr&gt;                           &lt;dbl&gt;                  &lt;dbl&gt;  &lt;dbl&gt;\n 1 1         Afghanistan                      56.7                   13   0.136 \n 2 104       Mali                             60                     24.6 0.0980\n 3 34        Chad                             57                     25.4 0.0956\n 4 146       Sierra Leone                     55.7                   32.6 0.0757\n 5 62        Gambia                           66                     41.9 0.0540\n 6 70        Guinea-Bissau                    56.2                   42.1 0.0536\n 7 33        Central Afric…                   48                     44.2 0.0493\n 8 118       Nepal                            68.7                   46.7 0.0446\n 9 42        Cote d'Ivoire                    56.9                   47.6 0.0430\n10 169       Togo                             59.6                   48   0.0422\n# ℹ 70 more rows\n# ℹ abbreviated names: ¹​life_expectancy_years_2011, ²​female_literacy_rate_2011\n# ℹ 5 more variables: .std.resid &lt;dbl&gt;, .fitted &lt;dbl&gt;, .resid &lt;dbl&gt;,\n#   .sigma &lt;dbl&gt;, .cooksd &lt;dbl&gt;"
   },
   {
     "objectID": "slides/07_SLR_Diagnostics_02.html#cooks-distance",
@@ -10392,7 +10392,7 @@
     "href": "slides/07_SLR_Diagnostics_02.html#countries-with-high-leverage-h_i-4n",
     "title": "SLR: Model Evaluation and Diagnostics",
     "section": "Countries with high leverage (\\(h_i > 4/n\\))",
-    "text": "Countries with high leverage (\\(h_i &gt; 4/n\\))\n\nWe can look at the countries that have high leverage\n\n\naug1 %&gt;% \n  filter(.hat &gt; 4/80) %&gt;%\n  arrange(desc(.hat))\n\n# A tibble: 6 × 10\n  .rownames country life_expectancy_year…¹ female_literacy_rate…² .fitted .resid\n  &lt;chr&gt;     &lt;chr&gt;                    &lt;dbl&gt;                  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;\n1 1         Afghan…                   56.7                   13      53.9  2.75 \n2 104       Mali                      60                     24.6    56.6  3.36 \n3 34        Chad                      57                     25.4    56.8  0.174\n4 146       Sierra…                   55.7                   32.6    58.5 -2.80 \n5 62        Gambia                    66                     41.9    60.7  5.34 \n6 70        Guinea…                   56.2                   42.1    60.7 -4.50 \n# ℹ abbreviated names: ¹​life_expectancy_years_2011, ²​female_literacy_rate_2011\n# ℹ 4 more variables: .hat &lt;dbl&gt;, .sigma &lt;dbl&gt;, .cooksd &lt;dbl&gt;, .std.resid &lt;dbl&gt;"
+    "text": "Countries with high leverage (\\(h_i &gt; 4/n\\))\n\nWe can look at the countries that have high leverage\n\n\naug1 %&gt;% \n  filter(.hat &gt; 4/80) %&gt;%\n  arrange(desc(.hat))\n\n# A tibble: 6 × 10\n  .rownames country       life_expectancy_years_…¹ female_literacy_rate…²   .hat\n  &lt;chr&gt;     &lt;chr&gt;                            &lt;dbl&gt;                  &lt;dbl&gt;  &lt;dbl&gt;\n1 1         Afghanistan                       56.7                   13   0.136 \n2 104       Mali                              60                     24.6 0.0980\n3 34        Chad                              57                     25.4 0.0956\n4 146       Sierra Leone                      55.7                   32.6 0.0757\n5 62        Gambia                            66                     41.9 0.0540\n6 70        Guinea-Bissau                     56.2                   42.1 0.0536\n# ℹ abbreviated names: ¹​life_expectancy_years_2011, ²​female_literacy_rate_2011\n# ℹ 5 more variables: .std.resid &lt;dbl&gt;, .fitted &lt;dbl&gt;, .resid &lt;dbl&gt;,\n#   .sigma &lt;dbl&gt;, .cooksd &lt;dbl&gt;"
   },
   {
     "objectID": "slides/07_SLR_Diagnostics_02.html#what-does-the-model-look-like-without-the-high-leverage-points",
@@ -10833,7 +10833,7 @@
     "href": "slides/07_SLR_Diagnostics_02.html#high-leverage-observations",
     "title": "SLR: Model Evaluation and Diagnostics",
     "section": "High leverage observations",
-    "text": "High leverage observations\n\nAn observation (\\(X_i, Y_i\\)) whose response \\(X_i\\) is considered “extreme” compared to the other values of \\(X\\)\nHow do we determine if a point has high leverage?\n\nScatterplot of \\(Y\\) vs. \\(X\\)\nCalculating the leverage of each observation"
+    "text": "High leverage observations\n\nAn observation (\\(X_i, Y_i\\)) whose response \\(X_i\\) is considered “extreme” compared to the other values of \\(X\\)\n\n \n\nHow do we determine if a point has high leverage?\n\nScatterplot of \\(Y\\) vs. \\(X\\)\nCalculating the leverage of each observation"
   },
   {
     "objectID": "slides/07_SLR_Diagnostics_02.html#countries-with-high-leverage-h_i-4n-1",
@@ -10847,7 +10847,7 @@
     "href": "slides/07_SLR_Diagnostics_02.html#cooks-distance-1",
     "title": "SLR: Model Evaluation and Diagnostics",
     "section": "Cook’s distance",
-    "text": "Cook’s distance\nThe Cook’s distance for the \\(i^{th}\\) observation is\n\\[d_i = \\frac{h_i}{2(1-h_i)} \\cdot r_i^2\\] where \\(h_i\\) is the leverage and \\(r_i\\) is the studentized residual\n\nAnother rule for Cook’s distance that is not strict:\n\nInvestigate observations that have \\(d_i &gt; 1\\)\n\nCook’s distance values are already in the augment tibble: .cooksd\n\n\ncolnames(aug1)\n\n [1] \".rownames\"                  \"country\"                   \n [3] \"life_expectancy_years_2011\" \"female_literacy_rate_2011\" \n [5] \".fitted\"                    \".resid\"                    \n [7] \".hat\"                       \".sigma\"                    \n [9] \".cooksd\"                    \".std.resid\""
+    "text": "Cook’s distance\n\n\nThe Cook’s distance for the \\(i^{th}\\) observation is\n\\[d_i = \\frac{h_i}{2(1-h_i)} \\cdot r_i^2\\] where \\(h_i\\) is the leverage and \\(r_i\\) is the studentized residual\n\n\nAnother rule for Cook’s distance that is not strict:\n\nInvestigate observations that have \\(d_i &gt; 1\\)\n\nCook’s distance values are already in the augment tibble: .cooksd\n\n\n\n\naug1 = aug1 %&gt;% relocate(.cooksd, .after = female_literacy_rate_2011)\naug1 %&gt;% arrange(desc(.cooksd))\n\n# A tibble: 80 × 10\n   .rownames country       life_expectancy_year…¹ female_literacy_rate…² .cooksd\n   &lt;chr&gt;     &lt;chr&gt;                          &lt;dbl&gt;                  &lt;dbl&gt;   &lt;dbl&gt;\n 1 33        Central Afri…                   48                     44.2  0.126 \n 2 161       Swaziland                       48.9                   87.3  0.0903\n 3 152       South Africa                    55.8                   92.2  0.0577\n 4 187       Zimbabwe                        51.9                   80.1  0.0531\n 5 114       Morocco                         73.8                   57.6  0.0350\n 6 118       Nepal                           68.7                   46.7  0.0311\n 7 14        Bangladesh                      71                     53.4  0.0280\n 8 23        Botswana                        58.9                   85.6  0.0249\n 9 54        Equatorial G…                   61.4                   91.1  0.0231\n10 62        Gambia                          66                     41.9  0.0228\n# ℹ 70 more rows\n# ℹ abbreviated names: ¹​life_expectancy_years_2011, ²​female_literacy_rate_2011\n# ℹ 5 more variables: .hat &lt;dbl&gt;, .std.resid &lt;dbl&gt;, .fitted &lt;dbl&gt;,\n#   .resid &lt;dbl&gt;, .sigma &lt;dbl&gt;"
   },
   {
     "objectID": "slides/07_SLR_Diagnostics_02.html#how-do-we-deal-with-influential-points",
@@ -10868,7 +10868,7 @@
     "href": "slides/07_SLR_Diagnostics_02.html#transformations",
     "title": "SLR: Model Evaluation and Diagnostics",
     "section": "Transformations",
-    "text": "Transformations\n\nWhen we have issues with our LINE (mostly linearity, normality, or equality of variance) assumptions\n\nWe can use transformations to improve the fit of the model\n\nTransformations can…\n\nMake the relationship more linear\nMake the residuals more normal\n“Stabilize” the variance so that it is more constant\nIt can also bring in or reduce outliers\n\nWe can transform the dependent ( \\(Y\\) ) variable of the independnet ( \\(X\\)) variable\n\nUsually we want to try transforming the \\(X\\) first\n\n\n \n\nRequires trial and error!!\nMajor drawback: interpreting the model becomes harder!"
+    "text": "Transformations\n\nWhen we have issues with our LINE (mostly linearity, normality, or equality of variance) assumptions\n\nWe can use transformations to improve the fit of the model\n\nTransformations can…\n\nMake the relationship more linear\nMake the residuals more normal\n“Stabilize” the variance so that it is more constant\nIt can also bring in or reduce outliers\n\nWe can transform the dependent (\\(Y\\)) variable of the independent (\\(X\\)) variable\n\nUsually we want to try transforming the \\(X\\) first\n\n\n \n\nRequires trial and error!!\nMajor drawback: interpreting the model becomes harder!"
   },
   {
     "objectID": "slides/07_SLR_Diagnostics_02.html#common-transformations-1",
@@ -10882,7 +10882,7 @@
     "href": "slides/07_SLR_Diagnostics_02.html#when-we-have-detected-problems-in-our-model",
     "title": "SLR: Model Evaluation and Diagnostics",
     "section": "When we have detected problems in our model…",
-    "text": "When we have detected problems in our model…\n\nWe have talked about influential points\nWe have talked about identifying issues with our LINE assumptions\n\nWhat are our options once we have identified issues in our linear regression model?\n\nSee if we need to add predictors to our model\n\nNicky’s thought for our life expectancy example\n\nTry a transformation if there is an issue with linearity\nTry a transformation if there is unequal variance\nTry a weighted least squares approach if unequal variance (might be lesson at end of course)\nTry a robust estimation procedure if we have a lot of outlier issues (outside scope of class)"
+    "text": "When we have detected problems in our model…\n\nWe have talked about influential points\nWe have talked about identifying issues with our LINE assumptions\n\nWhat are our options once we have identified issues in our linear regression model?\n\nSee if we need to add predictors to our model\n\nNicky’s thought for our life expectancy example\n\nTry a transformation if there is an issue with linearity or normality\nTry a transformation if there is unequal variance\nTry a weighted least squares approach if unequal variance (might be lesson at end of course)\nTry a robust estimation procedure if we have a lot of outlier issues (outside scope of class)"
   },
   {
     "objectID": "slides/07_SLR_Diagnostics_02.html#gladder-of-life-expectancy",
@@ -10987,20 +10987,90 @@
     "href": "slides/07_SLR_Diagnostics_02.html#our-residuals-will-help-us-a-lot-in-our-diagnostics",
     "title": "SLR: Model Evaluation and Diagnostics",
     "section": "Our residuals will help us a lot in our diagnostics!",
-    "text": "Our residuals will help us a lot in our diagnostics!\n\n\n\nThe residuals \\(\\widehat\\epsilon_i\\) are the vertical distances between\n\nthe observed data \\((X_i, Y_i)\\)\nthe fitted values (regression line) \\(\\widehat{Y}_i = \\widehat\\beta_0 + \\widehat\\beta_1 X_i\\)\n\nWe ran the augment() function to get some diagnostic values, including the residuals\n\n\naug1 &lt;- augment(model1) \ncolnames(aug1)\n\n[1] \".rownames\"                  \"life_expectancy_years_2011\"\n[3] \"female_literacy_rate_2011\"  \".fitted\"                   \n[5] \".resid\"                     \".hat\"                      \n[7] \".sigma\"                     \".cooksd\"                   \n[9] \".std.resid\"                \n\n\n\n\\[\n\\widehat\\epsilon_i =Y_i - \\widehat{Y}_i \\text{,   for } i=1, 2, ..., n\n\\]"
+    "text": "Our residuals will help us a lot in our diagnostics!\n\n\n \n\nThe residuals \\(\\widehat\\epsilon_i\\) are the vertical distances between\n\nthe observed data \\((X_i, Y_i)\\)\nthe fitted values (regression line) \\(\\widehat{Y}_i = \\widehat\\beta_0 + \\widehat\\beta_1 X_i\\)\n\n\n\n\\[\n\\widehat\\epsilon_i =Y_i - \\widehat{Y}_i \\text{,   for } i=1, 2, ..., n\n\\]"
   },
   {
     "objectID": "slides/07_SLR_Diagnostics_02.html#identifying-outliers",
     "href": "slides/07_SLR_Diagnostics_02.html#identifying-outliers",
     "title": "SLR: Model Evaluation and Diagnostics",
     "section": "Identifying outliers",
-    "text": "Identifying outliers\n\nWe flag an observation if the standardized residual is “large”\n\nDifferent sources will define “large” differently\nPennState site uses \\(|r_i| &gt; 3\\)\nautoplot() shows the 3 observations with the highest standardized residuals\nOther sources use \\(|r_i| &gt; 2\\), which is a little more conservative\n\n\n\n\nInternally standardized residual\n\\[\nr_i = \\frac{\\widehat\\epsilon_i}{\\sqrt{\\widehat\\sigma^2(1-h_{ii})}}\n\\]\n\n\nggplot() + \n  geom_histogram(data = aug1, aes(x = .std.resid))"
+    "text": "Identifying outliers\n\n\n\n\nInternally standardized residual\n\n\n\\[\nr_i = \\frac{\\widehat\\epsilon_i}{\\sqrt{\\widehat\\sigma^2(1-h_{ii})}}\n\\]\n\n\n\n\nWe flag an observation if the standardized residual is “large”\n\nDifferent sources will define “large” differently\nPennState site uses \\(|r_i| &gt; 3\\)\nautoplot() shows the 3 observations with the highest standardized residuals\nOther sources use \\(|r_i| &gt; 2\\), which is a little more conservative\n\n\n\n\n\n\n \n\nggplot(data = aug1) + \n  geom_histogram(aes(x = .std.resid))"
   },
   {
     "objectID": "slides/07_SLR_Diagnostics_02.html#countries-that-are-outliers-r_i-2",
     "href": "slides/07_SLR_Diagnostics_02.html#countries-that-are-outliers-r_i-2",
     "title": "SLR: Model Evaluation and Diagnostics",
     "section": "Countries that are outliers (\\(|r_i| > 2\\))",
-    "text": "Countries that are outliers (\\(|r_i| &gt; 2\\))\n\nWe can identify the countries that are outliers\n\n\naug1 %&gt;% \n  filter(abs(.std.resid) &gt; 2)\n\n# A tibble: 4 × 10\n  .rownames country life_expectancy_year…¹ female_literacy_rate…² .fitted .resid\n  &lt;chr&gt;     &lt;chr&gt;                    &lt;dbl&gt;                  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;\n1 33        Centra…                   48                     44.2    61.2  -13.2\n2 152       South …                   55.8                   92.2    72.3  -16.5\n3 161       Swazil…                   48.9                   87.3    71.2  -22.3\n4 187       Zimbab…                   51.9                   80.1    69.5  -17.6\n# ℹ abbreviated names: ¹​life_expectancy_years_2011, ²​female_literacy_rate_2011\n# ℹ 4 more variables: .hat &lt;dbl&gt;, .sigma &lt;dbl&gt;, .cooksd &lt;dbl&gt;, .std.resid &lt;dbl&gt;"
+    "text": "Countries that are outliers (\\(|r_i| &gt; 2\\))\n\nWe can identify the countries that are outliers\n\n\naug1 %&gt;% \n  filter(abs(.std.resid) &gt; 2)\n\n# A tibble: 4 × 10\n  .rownames country     life_expectancy_year…¹ female_literacy_rate…² .std.resid\n  &lt;chr&gt;     &lt;chr&gt;                        &lt;dbl&gt;                  &lt;dbl&gt;      &lt;dbl&gt;\n1 33        Central Af…                   48                     44.2      -2.20\n2 152       South Afri…                   55.8                   92.2      -2.71\n3 161       Swaziland                     48.9                   87.3      -3.65\n4 187       Zimbabwe                      51.9                   80.1      -2.89\n# ℹ abbreviated names: ¹​life_expectancy_years_2011, ²​female_literacy_rate_2011\n# ℹ 5 more variables: .fitted &lt;dbl&gt;, .resid &lt;dbl&gt;, .hat &lt;dbl&gt;, .sigma &lt;dbl&gt;,\n#   .cooksd &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/07_SLR_Diagnostics_02.html#getting-extra-information-on-the-fitted-model",
+    "href": "slides/07_SLR_Diagnostics_02.html#getting-extra-information-on-the-fitted-model",
+    "title": "SLR: Model Evaluation and Diagnostics",
+    "section": "Getting extra information on the fitted model",
+    "text": "Getting extra information on the fitted model\n\nWe ran the augment() function to get some diagnostic values, including the residuals\nTakes in a model object\n\nSo we assigned model1 as the output of the lm() function (model1 is output)\nAnd now we run model1 through augment() (model1 is input)\n\nWill give us values about each observation in the context of the fitted regression model\n\ncook’s distance (.cooksd), fitted value (.fitted, \\(\\widehat{Y}_i\\)), leverage (.hat), residual (.resid), standardized residuals (.std.resid)\n\n\n\naug1 &lt;- augment(model1) \nglimpse(aug1)\n\nRows: 80\nColumns: 9\n$ .rownames                  &lt;chr&gt; \"1\", \"2\", \"5\", \"6\", \"7\", \"8\", \"14\", \"22\", \"…\n$ life_expectancy_years_2011 &lt;dbl&gt; 56.7, 76.7, 60.9, 76.9, 76.0, 73.8, 71.0, 7…\n$ female_literacy_rate_2011  &lt;dbl&gt; 13.0, 95.7, 58.6, 99.4, 97.9, 99.5, 53.4, 9…\n$ .fitted                    &lt;dbl&gt; 53.94643, 73.14897, 64.53453, 74.00809, 73.…\n$ .resid                     &lt;dbl&gt; 2.7535654, 3.5510294, -3.6345319, 2.8919074…\n$ .hat                       &lt;dbl&gt; 0.13628996, 0.01768176, 0.02645854, 0.02077…\n$ .sigma                     &lt;dbl&gt; 6.172684, 6.168414, 6.167643, 6.172935, 6.1…\n$ .cooksd                    &lt;dbl&gt; 1.835891e-02, 3.062372e-03, 4.887448e-03, 2…\n$ .std.resid                 &lt;dbl&gt; 0.48238134, 0.58332052, -0.59972251, 0.4757…\n\n\nRDocumentation on the augment() function."
+  },
+  {
+    "objectID": "slides/07_SLR_Diagnostics_02.html#augment-getting-extra-information-on-the-fitted-model",
+    "href": "slides/07_SLR_Diagnostics_02.html#augment-getting-extra-information-on-the-fitted-model",
+    "title": "SLR: Model Evaluation and Diagnostics",
+    "section": "augment(): getting extra information on the fitted model",
+    "text": "augment(): getting extra information on the fitted model\n\nRun model1 through augment() (model1 is input)\n\nSo we assigned model1 as the output of the lm() function (model1 is output)\n\nWill give us values about each observation in the context of the fitted regression model\n\ncook’s distance (.cooksd), fitted value (.fitted, \\(\\widehat{Y}_i\\)), leverage (.hat), residual (.resid), standardized residuals (.std.resid)\n\n\n\naug1 &lt;- augment(model1) \nglimpse(aug1)\n\nRows: 80\nColumns: 9\n$ .rownames                  &lt;chr&gt; \"1\", \"2\", \"5\", \"6\", \"7\", \"8\", \"14\", \"22\", \"…\n$ life_expectancy_years_2011 &lt;dbl&gt; 56.7, 76.7, 60.9, 76.9, 76.0, 73.8, 71.0, 7…\n$ female_literacy_rate_2011  &lt;dbl&gt; 13.0, 95.7, 58.6, 99.4, 97.9, 99.5, 53.4, 9…\n$ .fitted                    &lt;dbl&gt; 53.94643, 73.14897, 64.53453, 74.00809, 73.…\n$ .resid                     &lt;dbl&gt; 2.7535654, 3.5510294, -3.6345319, 2.8919074…\n$ .hat                       &lt;dbl&gt; 0.13628996, 0.01768176, 0.02645854, 0.02077…\n$ .sigma                     &lt;dbl&gt; 6.172684, 6.168414, 6.167643, 6.172935, 6.1…\n$ .cooksd                    &lt;dbl&gt; 1.835891e-02, 3.062372e-03, 4.887448e-03, 2…\n$ .std.resid                 &lt;dbl&gt; 0.48238134, 0.58332052, -0.59972251, 0.4757…\n\n\nRDocumentation on the augment() function."
+  },
+  {
+    "objectID": "slides/07_SLR_Diagnostics_02.html#identifying-points-with-high-cooks-distance",
+    "href": "slides/07_SLR_Diagnostics_02.html#identifying-points-with-high-cooks-distance",
+    "title": "SLR: Model Evaluation and Diagnostics",
+    "section": "Identifying points with high Cook’s distance",
+    "text": "Identifying points with high Cook’s distance\n\n\nThe Cook’s distance for the \\(i^{th}\\) observation is\n\\[d_i = \\frac{h_i}{2(1-h_i)} \\cdot r_i^2\\] where \\(h_i\\) is the leverage and \\(r_i\\) is the studentized residual\n\n\nAnother rule for Cook’s distance that is not strict:\n\nInvestigate observations that have \\(d_i &gt; 1\\)\n\nCook’s distance values are already in the augment tibble: .cooksd\n\n\n\n\naug1 = aug1 %&gt;% relocate(.cooksd, .after = female_literacy_rate_2011)\naug1 %&gt;% arrange(desc(.cooksd))\n\n# A tibble: 80 × 10\n   .rownames country       life_expectancy_year…¹ female_literacy_rate…² .cooksd\n   &lt;chr&gt;     &lt;chr&gt;                          &lt;dbl&gt;                  &lt;dbl&gt;   &lt;dbl&gt;\n 1 33        Central Afri…                   48                     44.2  0.126 \n 2 161       Swaziland                       48.9                   87.3  0.0903\n 3 152       South Africa                    55.8                   92.2  0.0577\n 4 187       Zimbabwe                        51.9                   80.1  0.0531\n 5 114       Morocco                         73.8                   57.6  0.0350\n 6 118       Nepal                           68.7                   46.7  0.0311\n 7 14        Bangladesh                      71                     53.4  0.0280\n 8 23        Botswana                        58.9                   85.6  0.0249\n 9 54        Equatorial G…                   61.4                   91.1  0.0231\n10 62        Gambia                          66                     41.9  0.0228\n# ℹ 70 more rows\n# ℹ abbreviated names: ¹​life_expectancy_years_2011, ²​female_literacy_rate_2011\n# ℹ 5 more variables: .hat &lt;dbl&gt;, .std.resid &lt;dbl&gt;, .fitted &lt;dbl&gt;,\n#   .resid &lt;dbl&gt;, .sigma &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/07_SLR_Diagnostics_02.html#summary-of-how-we-identify-influential-points",
+    "href": "slides/07_SLR_Diagnostics_02.html#summary-of-how-we-identify-influential-points",
+    "title": "SLR: Model Evaluation and Diagnostics",
+    "section": "Summary of how we identify influential points",
+    "text": "Summary of how we identify influential points\n\nUse scatterplot of \\(Y\\) vs. \\(X\\) to see if any points fall outside of range we expect\nUse standardized residuals, leverage, and Cook’s distance to further identify those points\nLook at the models run with and without the identified points to check for drastic changes\n\nLook at QQ plot and residuals to see if assumptions hold without those points\nLook at coefficient estimates to see if they change in sign and large magnitude\n\n\n \n\nNext: how to handle? It’s a little wishy washy"
+  },
+  {
+    "objectID": "slides/07_SLR_Diagnostics_02.html#revisiting-our-line-assumptions",
+    "href": "slides/07_SLR_Diagnostics_02.html#revisiting-our-line-assumptions",
+    "title": "SLR: Model Evaluation and Diagnostics",
+    "section": "Revisiting our LINE assumptions",
+    "text": "Revisiting our LINE assumptions\n\n\n\n\n[L] Linearity of relationship between variables\n\n\nCheck if there is a linear relationship between the mean response (Y) and the explanatory variable (X)\n\n\n\n\n\n[I] Independence of the \\(Y\\) values\n\n\nCheck that the observations are independent\n\n\n\n\n\n[N] Normality of the \\(Y\\)’s given \\(X\\) (residuals)\n\n\nCheck that the responses (at each level X) are normally distributed\n\nUsually measured through the residuals\n\n\n\n\n\n\n[E] Equality of variance of the residuals (homoscedasticity)\n\n\nCheck that the variance (or standard deviation) of the responses is equal for all levels of X\n\nUsually measured through the residuals"
+  },
+  {
+    "objectID": "slides/07_SLR_Diagnostics_02.html#summary-of-transformations",
+    "href": "slides/07_SLR_Diagnostics_02.html#summary-of-transformations",
+    "title": "SLR: Model Evaluation and Diagnostics",
+    "section": "Summary of transformations",
+    "text": "Summary of transformations\n\nIf the model without the transformation is blatantly violating a LINE assumption\n\nThen a transformation is a good idea\n\nIf the model without a transformation is not following the LINE assumptions very well, but is mostly okay\n\nThen try to avoid a transformation\nThink about what predictors might need to be added\nEspecially if you keep seeing the same points as influential\n\nIf interpretability is important in your final work, then transformations are not a great solution"
+  },
+  {
+    "objectID": "slides/07_SLR_Diagnostics_02.html#poll-everywhere-question-1",
+    "href": "slides/07_SLR_Diagnostics_02.html#poll-everywhere-question-1",
+    "title": "SLR: Model Evaluation and Diagnostics",
+    "section": "Poll Everywhere Question 1",
+    "text": "Poll Everywhere Question 1"
+  },
+  {
+    "objectID": "slides/07_SLR_Diagnostics_02.html#poll-everywhere-question-2",
+    "href": "slides/07_SLR_Diagnostics_02.html#poll-everywhere-question-2",
+    "title": "SLR: Model Evaluation and Diagnostics",
+    "section": "Poll Everywhere Question 2",
+    "text": "Poll Everywhere Question 2"
+  },
+  {
+    "objectID": "slides/07_SLR_Diagnostics_02.html#poll-everywhere-question-3",
+    "href": "slides/07_SLR_Diagnostics_02.html#poll-everywhere-question-3",
+    "title": "SLR: Model Evaluation and Diagnostics",
+    "section": "Poll Everywhere Question 3",
+    "text": "Poll Everywhere Question 3"
+  },
+  {
+    "objectID": "slides/07_SLR_Diagnostics_02.html#poll-everywhere-question-4",
+    "href": "slides/07_SLR_Diagnostics_02.html#poll-everywhere-question-4",
+    "title": "SLR: Model Evaluation and Diagnostics",
+    "section": "Poll Everywhere Question 4",
+    "text": "Poll Everywhere Question 4"
   }
 ]
