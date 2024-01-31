@@ -1,23 +1,32 @@
 ---
 title: "Lab 2"
 subtitle: "BSTA 512/612"
-description: "Due: Thursday February 8, 2024"
-date-modified: "1/17/2024"
-date: "2/8/2024"
+description: "Due: Thursday February 8, 2024 at 11pm"
+date-modified: "1/31/2024"
 categories: [""]
 format: 
   html:
     link-external-newwindow: true
     toc: true
-    self-contained: true
+    toc-depth: 4
   pdf: default 
 editor_options: 
   chunk_output_type: console
 ---
 
+::: callout-warning
+## IMPORTANT TO READ
+
+-   Please do not delete the rubric from your `.qmd` file. I will use it to circle the grades!
+
+-   Please delete everything that I wrote below except the headers and the task bubbles from the file you turn in! And include your answers and code. This just helps keep the lab clean when I'm grading it.
+:::
+
 ## Directions
 
-Please turn in your `.html` file [on Sakai.](https://sakai.ohsu.edu/portal/site/BSTA-512-1-AB-W24/tool/961ec5ef-d7f9-4518-be16-25f7af3d6be4?panel=Main) Please let me know if you greatly prefer to submit a physical copy. We can work out another way for you to turn in homework.
+Please turn in your `.html` file [on Sakai.](https://sakai.ohsu.edu/portal/site/BSTA-512-1-AB-W24/tool/961ec5ef-d7f9-4518-be16-25f7af3d6be4?panel=Main) Please let me know if you greatly prefer to submit a physical copy.
+
+[You can download the `.qmd` file for this lab here.](https://github.com/nwakim/W2024_BSTA_512/blob/main/labs/Lab_02.qmd)
 
 The rest of this lab's instructions are embedded into the lab activities.
 
@@ -27,41 +36,346 @@ The main purpose of this lab is to introduce our dataset, codebook, and variable
 
 ### Grading
 
-This lab is graded out of 12 points. Nicky will use the following rubric to assign grades.
+**This lab is graded out of 12 points.** Nicky will use the following rubric to assign grades.
 
 #### Rubric
 
-|            | 4 points                                                                                                                                                                                                        | 3 points                                                                                                                                                                                       | 2 points                                                                                                                                                                                                   | 1 point                                                                                                                                 | 0 points                                                                                                |
+|             | 4 points                                                                                                                                                                                                        | 3 points                                                                                                                                                                                       | 2 points                                                                                                                                                                                                   | 1 point                                                                                                                                                                                  | 0 points                                                                                                               |
 |------------|------------|------------|------------|------------|------------|
-| Answers    | Answers demonstrate completion and understanding of the needed activity\*. Answers are thoughtful and can be easily integrated into the final report.                                                           | Answers demonstrate completion and understanding of the needed activity\*. Answers are thoughtful, but lack the clarity needed to easily integrate into the final report.                      | Answers demonstrate completion and minimal understanding of the needed activity\*. Answers are fairly thoughtful, but lack connection to the research.                                                     | Answers demonstrate completion of needed activities\*, although evidently rushed through. Answers seem rushed and with minimal thought. | It is evident that the needed activities\* were not completed. Answers seem rushed and without thought. |
-| Formatting | Lab submitted on Sakai with `.html` file. Answers are written in complete sentences with no major grammatical nor spelling errors. With little editing, the answer can be incorporated into the project report. | Lab submitted on Sakai with `.html` file. Answers are written in complete sentences with grammatical or spelling errors. With editing, the answer can be incorporated into the project report. | Lab submitted on Sakai with `.html` file. Answers are written in complete sentences with major grammatical or spelling errors. With major editing, the answer can be incorporated into the project report. | Lab submitted on Sakai with `.html` file. Answers are bulletted or do not use complete sentences.                                       | Lab *not* submitted on Sakai with `.html` file.                                                         |
-| Code       |                                                                                                                                                                                                                 |                                                                                                                                                                                                |                                                                                                                                                                                                            |                                                                                                                                         |                                                                                                         |
-| Reasoning  |                                                                                                                                                                                                                 |                                                                                                                                                                                                |                                                                                                                                                                                                            |                                                                                                                                         |                                                                                                         |
+| Formatting  | Lab submitted on Sakai with `.html` file. Answers are written in complete sentences with no major grammatical nor spelling errors. With little editing, the answer can be incorporated into the project report. | Lab submitted on Sakai with `.html` file. Answers are written in complete sentences with grammatical or spelling errors. With editing, the answer can be incorporated into the project report. | Lab submitted on Sakai with `.html` file. Answers are written in complete sentences with major grammatical or spelling errors. With major editing, the answer can be incorporated into the project report. | Lab submitted on Sakai with `.html` file. Answers are bulletted or do not use complete sentences.                                                                                        | Lab *not* submitted on Sakai with `.html` file.                                                                        |
+| Code/Work   | All tasks are directly followed or answered. This includes all the needed code, in code chunks, with the requested output.                                                                                      | All tasks are directly followed or answered. This includes all the needed code, in code chunks, with the requested output. In a few tasks, the code syntax or output is not quite right.       | Some tasks are directly followed or answered. This includes all the needed code, in code chunks, with the requested output.                                                                                | Some tasks are directly followed or answered.This includes all the needed code, in code chunks, with the requested output. In a few tasks, the code syntax or output is not quite right. | More than a quarter of the tasks are not completed properly.                                                           |
+| Reasoning\* | Answers demonstrate understanding of research context and investigation of the data. Answers are thoughtful and can be easily integrated into the final report.                                                 | Answers demonstrate understanding of research context and investigation of the data. Answers are thoughtful, but lack the clarity needed to easily integrate into the final report.            | Answers demonstrate some understanding of research context and investigation of the data. Answers are fairly thoughtful, but lack connection to the research.                                              | Answers demonstrate some understanding of research context and investigation of the data. Answers seem rushed and with minimal thought.                                                  | Answers lack understanding of research context and investigation of the data. Answers seem rushed and without thought. |
+
+\*Applies to questions with reasoning (like target population, choosing variables, revisiting research question)
 
 ## Lab activities
 
 ### 1. Access and download the data
 
-### 2. Load the data in R
+This serves as good practice for accessing data that is online or needs to be downloaded from a collaborator.
+
+Data can be accessed [here](https://osf.io/iay3x/). Under "Weight IAT 2004-2022" there are several drop down menus:
+
+![](images/data_access_1.png)
+
+I opened the first "Datasets & Codebooks," then selected "OSF Storage (United States)." Once selected, the "Download as zip" option pops up in the top right part of the Files section.
+
+![](images/data_access_2.png)
+
+We will be working with the `Weight_IAT.public.2021.csv` dataset. Please locate the `zip` file called `Weight IAT.public.2021-CSV.zip` . T0 download, you need to click the row of the zip file, but you can't click the name of the zip file. If a link opens, then you clicked the name. If the row is highlighted blue and clickable "Download" and "View" buttons appear on the top right, then you selected it correctly! (See below image for what it should look like.)
+
+![](images/data_access_3.png)
+
+Then click the "Download" button to download! Note that the name does not have an underscore between "Weight" and "IAT." I like to have my datasets named without spaces, so I will replace the space with an underscore.
+
+For the codebook, perform the same process for the file named: `Weight_IAT_public_2021_codebook.xlsx`
+
+You will need to unzip the actual data.
+
+Move the data to a folder that you can easily access as you work from this document. I like to have a folder named `data` to house my data.
+
+::: callout-important
+##### Task Summary
+
+Download the 2021 data and codebook from the archives and store in accessible folder.
+:::
+
+### 2. Load data and needed packages
+
+First, load the packages that you will need in the remainder of this lab. You can add to this as you need to. At the top of your R code chunk, you can add the following option to repress the messages from the loading packages:
+
+![](images/r_message.png)
+
+```{r}
+#| message: false
+
+library(tidyverse)
+library(gtsummary)
+library(here)
+if(!require(lubridate)) { install.packages("lubridate"); library(lubridate) }
+```
+
+Using R, load the data (`csv` file) into this document. Note that this is a `csv` file that we can load with basic R packages. Name your dataset something that feels intuitive to you and will distinguish it from other datasets that you work with.
+
+```{r}
+#| echo: false
+iat_2021_raw = read.csv(file = here("../TA_files/Project/data/Weight_IAT.public.2021.csv"))
+```
+
+Loading the `csv` file every time you render will take a long time. One way to speed this up is by saving the data as an `rda` file (R data file). Change the following R code to save the `rda` file. You will also need to remove the `#| eval: false` at the top of the code chunk once you have corrected the code. If you are confused on the syntax, don't forget that you can use `?save` for more information.
+
+```{r}
+#| eval: false
+save(<whatever you called the read csv file>, file = "Where you would like to save the file with its name")
+```
+
+Check that you have an `rda` file where you saved it. Now use `load()` with the file path to load the `rda` data here.
+
+```{r}
+#| eval: false
+load(file = "Where you would like to save the file with its name")
+```
+
+At this point, if you think you loaded the file correctly, add `#| eval: false` to the code chunk where you loaded the `csv` file and back to the chunk where you saved the `rda` file.
+
+Take a `glimpse` at the data to make sure you loaded it correctly.
+
+How many rows and columns are in the dataset? Do you think we will need all these variables for our analysis?
+
+::: callout-important
+##### Task Summary
+
+Read csv, save as rda, load rda, glimpse at data.
+
+How many rows and columns are in the dataset? Do you think we will need all these variables for our analysis?
+:::
 
 ### 3. Data wrangling
 
-#### 3.1 Restrict your analysis to 1 outcome and 10 possible covariates/predictors
+As you go through this process, it is important that you look at the codebook for more information on each variable.
 
-#### 3.1 Manipulating variables that are coded as numeric variables
+#### 3.1 What's our target population?
 
-#### 3.2 Converting categorical variables to continuous variables
+As many of you mentioned in Lab 1, individuals taking the IAT test are not necessarily representative of the world population. I want you to articulate the target population that you think our analysis can give information about. To what population can we generalize our analysis results? We can get very specific with this population, but try to restrict your population to 3-5 characteristics.
 
-#### 3.3 Make a new dataset with only complete cases
+After you articulate the population, I want to add one more restriction to our population: US residency. The sample includes individuals residing in many different countries. Since we are discussing attitudes and beliefs that is inherently connected to society and culture, I think it is important that we restrict our analysis and discussion to a country that we have some social experience in. **Thus, let's restrict our data to the US only by filtering the variable `countryres` to category 1 (corresponding to the US).**
 
-Quickly make sure that we are not introducing bias by using complete cases
+::: callout-important
+## Task
+
+Describe our target population. Keep your description to 3-5 characteristics, not including our restriction on the US population.
+:::
+
+#### 3.2 Restrict your analysis to 1 outcome and 9 possible covariates/predictors
+
+We are going to restrict our analysis to the single outcome, IAT score, which is named `D_biep.Thin_Good_all`. You can rename this variable.
+
+We will also restrict our analysis to the following 9 potential variables so our work is a little more manageable.
+
+::: callout-important
+##### Task
+
+From the following 7 attitudes and beliefs, please select 3 that you think will be the most important variables related to your research question. In 1-2 lines, briefly explain why you chose each variable. This can be informal and bulleted.
+:::
+
+(Make sure you chose the variable that is part of your research question!)
+
+1.  Self-perception of weight (`iam_001`)
+2.  Fat group identity (`identfat_001` )
+3.  Thin group identity (`identthen_001` )
+4.  Controllability of weight of others (`controlother_001`)
+5.  Controllability of weight of yourself (`controlyou_001`)
+6.  Awareness of societal standards (`mostpref_001` )
+7.  Internalization of societal standards (`important_001`)
+
+We will start our data exploration with the following 4 demographic variables:
+
+1.  Age (we need to construct)
+2.  Race (`raceomb_002` or `raceombmulti`)
+3.  Ethnicity
+4.  Sex assigned at birth (`birthSex`)
+
+Please pick 2 additional variables to include in your analysis:
+
+1.  Education (`edu`)
+2.  Gender (`genderIdentity`)
+3.  Self-reported BMI (through self-reported height and weight)
+4.  Political identity
+5.  Religion
+
+I have chosen these variables for a mixture of reasons. For example, I have left out variables about residence and occupation because those variables have hundreds of categories that would be overwhelming in linear regression. For the 4 required demographic variables, I chose age because I really want us to get practice with a continuous variable. I chose race and ethnicity because of the intertwined history of racism and anti-fat bias in Western countries (including the U.S. where most participants reside).
+
+::: callout-note
+## A note of the available variables on race
+
+The dataset has two separate race variables. One has mutually exclusive categories (`raceomb_002`) and the other allows participants to make multiple selections (`raceombmulti`). The former (`raceomb_002`) allows one participant to identify with only one race category.
+
+[Important lesson from We All Count](https://weallcount.com/2022/10/27/4-approaches-to-multiple-race-questions/) about using a multiple selection race question. We can try out all these options!
+:::
+
+Finally, I chose sex assigned at birth because adults in 2021 in the US were likely raised in a society where your sex assigned at birth impacted the gender stereotypes that you were raised in, which could impact exposure to diet culture. This in addition to the many medical conditions associated with one's sex assigned at birth that may affect weight. The reason why I am leaving gender as an optional variable is because the question on gender allows participants to chose multiple options. The binary sex assigned at birth will make our analysis a little easier from a statistics stand point. Unfortunately, we need to balance achievable learning objectives and the most appropriate variable. Since I have required race as a variable and has a multi-level option, I do not want to overload our analysis with another multi-level variable. Sex assigned at birth will not create more work for you (that is outside of the course objectives) while capturing medical conditions and *some* of the societal impact of diet culture. This is certainly a limitation in our analysis that we should address in our discussion. I do encourage you to look into gender if the binary sex assigned at birth does not feel right for you. I am happy to help!
+
+::: callout-note
+##### A word on self-reported BMI
+
+This variable is rooted in racism and anti-fat bias. The [American Medical Association made a few press releases](https://www.ama-assn.org/press-center/press-releases/ama-adopts-new-policy-clarifying-role-bmi-measure-medicine) on policies using BMI as a measure, with alternative measures (frankly, just other measures of fatness to use as a diagnostic tool instead of checking true indicators of health). However, I can think of a couple examples where BMI might help us understand some context in this research, so I have left it as an option. Although still self-reported, it might be interesting to see how BMI (which is the closest measurement available in this dataset to an "objective" measure of fatness) is related to individuals' attitudes and beliefs. I am not saying there is anything to the relationship, but it might be worth checking out if you are interested.
+
+I will also say, in this dataset, there are MANY issues constructing the variable for BMI from height and weight. *If you do not feel strongly about including it, I would suggest you avoid the variable self-reported BMI*. It is not worth bringing in a racist and anti-fat variable into the dataset if you do not have a specific use for it. If you do plan to use it, please come to me for help as early as possible!
+:::
+
+If you would like to investigate a variable outside the list, please let me know by emailing or chatting with me.
+
+::: callout-important
+##### Task
+
+Using R, select your identified variables from your dataset. Your new dataset should have 10 columns for the 10 variables.
+:::
+
+```{r}
+#| echo: false
+iat_2021 = iat_2021_raw %>% 
+  select(IAT_score = D_biep.Thin_Good_all, 
+         att7, iam_001, identfat_001, 
+         myweight_002, myheight_002,
+         identthin_001, controlother_001, 
+         controlyou_001, mostpref_001,
+         important_001, 
+         birthmonth, birthyear, month, year, 
+         raceomb_002, raceombmulti, ethnicityomb, 
+         edu, edu_14, 
+         genderIdentity, 
+         birthSex)
+```
+
+#### 3.3 Manipulating variables that are coded as numeric variables
+
+Many variables in this dataset are coded as numeric values, but have specific categories linking up to the numbers. Using `mutate()` and `cases()` similar to our Data Management lesson, please create a new categorical variable with the specified categories from the codebook. Make sure that you create a variable with a new name! Since some of these variables are ordered categories, we will investigate if it's appropriate to use the numeric or categorical version of the variable.
+
+::: callout-tip
+## Example of how I would create new variable for self-perception of weight (`iam_001`):
+
+By looking at the codebook, I see that respondents answer the following question: “Currently, I am:”
+
+-   “Very underweight”
+-   “Moderately underweight”
+-   “Slightly underweight”
+-   “Neither underweight nor underweight”
+-   “Slightly overweight”
+-   “Moderately overweight”
+-   “Very overweight”
+
+If I look at the data as is, I see that the variable is numeric.
+
+```{r}
+iat_2021 %>%
+  dplyr::select(iam_001) %>%
+  tbl_summary()
+```
+
+Again, I want to create a varaible with the answers instead of numbers, so I will change transform the variable to include the text:
+
+```{r}
+iat_2021 = iat_2021 %>%
+  mutate(iam_001_f = case_match(iam_001,
+                             7 ~ "Very overweight",
+                             6 ~ "Moderately overweight",
+                             5 ~ "Slightly overweight",
+                             4 ~ "Neither underweight nor underweight",
+                             3 ~ "Slightly underweight",
+                             2 ~ "Moderately underweight",
+                             1 ~ "Very underweight",
+                             .default = NA # to add NA if unknown
+                             ))
+```
+
+I have called the new variable `iam_001_f` to indicate that the variable is not in factor form. You can also call it something like `iam_001_cat` to indicate the categorical form.
+:::
+
+::: callout-important
+##### Task
+
+Identify and list the variables that are coded numerically and correspond to categories. Create a new variable for the categorical/factor version of the variable. It is up to you to check that your code ran properly!! If you are using multi-choice categorical variables (might include race, gender), then do not convert the variable yet!
+:::
+
+#### 3.4 Creating age from birth date and test date
+
+This dataset does not have an available "age" variable. However, we have enough information to determine each individual's age from the test date and their self-reported birth date. We can use the `lubridate` package to configure the age. First, we need to use `make_date()` to construct the birth date and test date. Below, I have implemented `make_date()` to make the birth date.
+
+::: callout-important
+##### Task
+
+From the codebook, find the variables that we can use to construct the test date. Then use `make_date()` to create the test date.
+:::
+
+```{r}
+iat_2021 = iat_2021 %>%
+  mutate(birthdate = make_date(month = birthmonth, year = birthyear), 
+         testdate = make_date(month = month, year = year))
+```
+
+Once the two dates are created, we can use further use `lubridate` to calculate the age in years. This code is a little complicated, so here is an example of how I have created age:
+
+```{r}
+#| eval: false
+
+iat_2021 = iat_2021 %>%
+  mutate(age = interval(start = birthdate, end = testdate) %>%
+          as.period() %>% year()) %>%
+  select(-birthmonth, -birthyear, -year, -month, 
+         -testdate, -birthdate)
+```
+
+Note that the name of my dataset is `iat_2021` and I feed it into `mutate()`. Within `mutate()`, I assigned `age` to the interval between the name of my birth date (`birthdate`) and the name of my test date (`testdate`). I need to convert the interval to a period of time (`as.period()`), then to a measurement of years (`year()`).
+
+::: callout-important
+##### Task
+
+Following the above example, create an age variable that measures the years between individuals' birth and test date. Then remove the variables used to make age.
+:::
+
+#### 3.5 If you chose BMI, create the variable
+
+Raw data from weight and height are categorical. This is according to the codebook associated with this dataset. Please find your codebook file named `Weight_IAT_public_2021_codebook.csv` . You can find the value names for `myweight_002` and `myheight_002`.
+
+-   For example, in the weight variable,
+
+    -   most categories identify a lower limit to the weight in the group. One example group is weight is greater than or equal to 200 pounds and less than 205 pounds (labelled as "200 lb :: 91 kg").
+
+    -   the first category for weight is "below 50lb:: 23kg" with 258 observations
+
+    -   the last category for weight is "above 440lb:: above 200kg" with 295 observations
+
+        -   While the 5 groups of weight leading up the last category have 33, 28, 34, 20, and 89 observations, respectively.
+
+I will post an extra resource outlining some of my work on the BMI variable.
+
+#### 3.6 Make a new dataset with only complete cases
+
+Handling missing data is outside the scope of our class. There are many techniques to handling missing data, but we will use complete case analysis. This means we will only use observations that have information for every variable we chose. The function `drop_na()` will give you the complete cases. You can feed your dataset into the function and assign it as a new dataframe.
+
+For example:
+
+```{r}
+#| eval: false
+new_df = old_df %>% drop_na()
+```
 
 ### 4. Some exploratory data analysis
 
-#### 4.1 Univariate exploratory data analysis
+#### 4.1 Peek at your outcome
 
-#### 4.2 Bivariate exploratory data analysis
+This serves as a check to make sure we are all looking at the correct outcome: IAT score.
 
-#### 4.3 Multivariate exploratory data analysis
+::: callout-important
+##### Task
 
-### 5. Make a Table 1
+Please plot a histogram of the IAT scores. What do you notice about the outcome?
+:::
+
+#### 4.2 Univariate exploratory data analysis
+
+::: callout-important
+##### Task
+
+Using `ggplot` or tables, visualize your variables. Get a sense of each variable's distribution. Do you notice anything out of the ordinary?
+:::
+
+#### 4.3 Bivariate exploratory data analysis
+
+::: callout-important
+##### Task
+
+Take a look at the scatterplot, violin, or box plot of IAT score and your variable of interest. Use R and `ggplot` to make this plot. If your variable of interest is categorical, then make sure to use a violin or boxplot.
+:::
+
+### 5. Revisit your research question
+
+::: callout-important
+##### Task
+
+Please restate the research question that you proposed in Lab 1. What are your thoughts on the research question now that we looked at the data? Feel free to change it now that we've looked at the data. If you change your question, make sure 4.2 reflects the new research question.
+:::
+
+::: callout-note
+In research, we typically do NOT change our research question after looking at the data! Researchers typically form their questions from other research and their expertise. We may not have expertise in this field and we have not been studying implicit bias, so I want to be a little more flexible with our analysis.
+:::

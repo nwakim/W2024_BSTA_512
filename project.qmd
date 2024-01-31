@@ -23,12 +23,12 @@ editor_options:
 
 ## Labs
 
-| Lab                       | Due Date | Topics                             |
-|---------------------------|----------|------------------------------------|
-| [Lab 1](/labs/Lab_01.qmd) | 1/18     | Exploring the question             |
-| [Lab 2](/labs/Lab_02.qmd) | 2/8      | Exploring the data                 |
-| [Lab 3](/labs/Lab_03.qmd) | 2/29     | Fitting and interpreting the model |
-| [Lab 4](/labs/Lab_04.qmd) | 3/14     | Building a model                   |
+| Lab                       | Due Date | Topics                                                            |
+|----------------------------|----------------|--------------------------------|
+| [Lab 1](/labs/Lab_01.qmd) | 1/18     | Exploring the question                                            |
+| [Lab 2](/labs/Lab_02.qmd) | 2/8      | Exploring the data                                                |
+| [Lab 3](/labs/Lab_03.qmd) | 2/29     | A little more data exploration + Fitting and interpreting a model |
+| [Lab 4](/labs/Lab_04.qmd) | 3/14     | Building a model                                                  |
 
 ## Report
 
