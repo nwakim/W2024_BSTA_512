@@ -338,8 +338,8 @@ Room Locations for the week
 <td>7</td>
 <td>SLR: Model Diagnostics 2</td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/07_SLR_Diagnostics_02.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/07_SLR_Diagnostics_2.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F07%5FSLR%5FDiagnostics%5F2%2Emp4&amp;referrer=StreamWebApp%2EWeb&amp;referrerScenario=AddressBarCopied%2Eview"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></td>
 </tr>
 </tbody>
 </table>
@@ -382,8 +382,59 @@ Room Locations for the week
 </section>
 <section id="muddiest-points" class="level2">
 <h2 class="anchored" data-anchor-id="muddiest-points">Muddiest Points</h2>
+<p>Equality of the residuals - what’s the bias refer in a residual plot? Is that suggesting a non linear relationship between two variables</p>
+<p>I’m still a little confused about what the values on the axes of the QQ plot mean, specifically what the “quantiles” mean, how they might vary for different datasets, and why normality would result in a straight line.</p>
+<p>What is a QQ plot</p>
+<p>I’m still a little confused on how to determine if a dataset has a normal distribution. I think I’m struggling with making the delineation because I’m not super confident with statistics and it feels like a more subjective decision.</p>
+<table class="table">
+<colgroup>
+<col style="width: 95%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><br>
+the small nuances in interpreting the normality through a QQ plot.</td>
+</tr>
+</tbody>
+</table>
+<p>1. Is there a threshold value to reference when utilizing residuals for determining normality? Is the threshold “0” or near zero itself? (Like when normal dist=mean of zero). In my last biostats class, we said we could assume this if it was “near zero”. For example, when plotted qq on slide 26, it nearly crosses “0,0” but isn’t precisely crossing 0,0. Then, if a plot DOES cross 0,0, but is irregular in some other way (like the t dist ex) is this no longer normal? I wasn’t sure if you were explicitly suggesting it was or was not normal… I had been taught that t dist is a type of normal distribution, so I was a bit confused.</p>
+<p>Explain formula for internally standardized residuals. 2. How do we determine WHAT the source of the issue is for an outlier… i.e.&nbsp;“outlier detection”. Is it just highly situational most times? 3. Leverage (h sub i) what is the significance of it? What does it “tell us” as values change?</p>
+<p>“cubic or square transformations must include original X, don’t do this for Y”</p>
+<p>The transformations of the X and Y started to feel really abstract and kinda confusing</p>
+<p>the relationship between what we’re learning about models and how we’ll actually apply that knowledge to a figure in a report, for example</p>
+<p>I understand the reasoning for transforming to make the data to fit the LINE assumptions, but if it makes it hard to interpret, why do we do it?</p>
+<section id="hi-and-hat-metrics-and-not-knowing-the-magnitude-or-reason-for-it-was-confusing." class="level4">
+<h4 class="anchored" data-anchor-id="hi-and-hat-metrics-and-not-knowing-the-magnitude-or-reason-for-it-was-confusing.">Hi and Hat metrics and not knowing the magnitude or reason for it was confusing.</h4>
+<p><a href="https://online.stat.psu.edu/stat501/lesson/11/11.2" class="uri">https://online.stat.psu.edu/stat501/lesson/11/11.2</a></p>
+</section>
+<section id="what-are-some-other-real-life-examples-of-influential-points-besides-human-error.-can-they-appear-more-organically" class="level4">
+<h4 class="anchored" data-anchor-id="what-are-some-other-real-life-examples-of-influential-points-besides-human-error.-can-they-appear-more-organically">what are some other real life examples of influential points besides human error. Can they appear more organically</h4>
+<p>I’m a little confused in the section about the power ladder – we’re supposed to be looking at the skew of the distribution of the residuals, but the examples shown were of different distributions (x alone, y alone, and x vs y). What should we be looking at to determine what transform, if any, to use?</p>
+<p>I’m not super clear on why transformations are even ok to do if they fundamentally change the shape of the data. You had a good sentence right at the end (second to last slide?) – “for every change in x, there’s a (…) change in longevity squared” or something like that? I think it’d be helpful to repeat or elaborate on that.</p>
+<p>I’m still not very clear on how to identify outliers vs high leveraged data points by looking at a plot alone.</p>
+</section>
+<section id="what-is-the-reasoning-behind-why-we-usually-want-to-transform-the-independent-variable-instead-of-the-dependent" class="level4">
+<h4 class="anchored" data-anchor-id="what-is-the-reasoning-behind-why-we-usually-want-to-transform-the-independent-variable-instead-of-the-dependent">What is the reasoning behind why we usually want to transform the independent variable instead of the dependent?</h4>
+<p>This is more about interpretations in multiple linear models. We can have a model with multiple variables as covariates (so multiple X’s on the right side of the equation). If we transform Y, then all the interpretations with every covariate changes. If we can fit model assumptions better with a transformation to one X, then we only change one interpretation!</p>
+<table class="table">
+<colgroup>
+<col style="width: 101%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><br>
+In the Tukey’s power ladder, is log(x) mean log10(x) or natural log(x)?</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="extra-materials-with-examples-of-transformations" class="level4">
+<h4 class="anchored" data-anchor-id="extra-materials-with-examples-of-transformations">Extra materials with examples of transformations</h4>
+<p><a href="https://www.youtube.com/watch?v=HIcqQhn3vSM&amp;ab_channel=jbstatistics" class="uri">https://www.youtube.com/watch?v=HIcqQhn3vSM&amp;ab_channel=jbstatistics</a></p>
+<p><a href="https://online.stat.psu.edu/stat501/lesson/9" class="uri">https://online.stat.psu.edu/stat501/lesson/9</a></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

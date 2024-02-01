@@ -373,7 +373,7 @@ Take a look at the scatterplot, violin, or box plot of IAT score and your variab
 ::: callout-important
 ##### Task
 
-Please restate the research question that you proposed in Lab 1. What are your thoughts on the research question now that we looked at the data? Feel free to change it now that we've looked at the data. If you change your question, make sure 4.2 reflects the new research question.
+Please restate the research question that you proposed in Lab 1. Please make sure it is only one question, one sentence long. What are your thoughts on the research question now that we looked at the data? Feel free to change it now that we've looked at the data. If you change your question, make sure 4.2 reflects the new research question.
 :::
 
 ::: callout-note

@@ -3,7 +3,7 @@ title: "SLR: Model Evaluation and Diagnostics"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#213c96"
-date: "01/29/2023"
+date: "01/31/2023"
 categories: ["Week 4"]
 format: 
   revealjs:
