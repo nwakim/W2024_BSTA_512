@@ -1,0 +1,42 @@
+---
+title: "Coefficient interpretations"
+date: "1/29/2024"
+date-modified: "1/17/2024"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+-   Keep in mind that words expected, average, and mean are interchangeable.
+
+-   The following are required parts of the interpretation
+
+    -   Units of Y
+
+    -   Units of X
+
+    -   Mean/average/expected before Y when discussing intercept
+
+    -   Mean/average/expected before difference, increase, or decrease when discussing coefficient for continuous covariate
+
+        -   You can also have expected/average/mean before the Y, but not necessary
+
+    -   Confidence interval
+
++--------------------------------------------+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---+
+| Population Model                           | Variable information        | Coefficient estimate interpretations                                                                                                          |   |
++============================================+=============================+===============================================================================================================================================+===+
+| $Y=\beta_0+\beta_1X_1+\epsilon$            | $X_1$: continuous covariate | -   $\widehat\beta_0$: Mean $Y$ when $X_1$ is 0                                                                                               |   |
+|                                            |                             |                                                                                                                                               |   |
+|                                            |                             |     -   Example: For someone who is 0 years old, the expected peak exercise heart rate is 214.233 beats per minute (95% CI: 204.918, 223.548) |   |
+|                                            |                             |                                                                                                                                               |   |
+|                                            |                             | -   $\widehat\beta_1$: Mean difference in $Y$ per 1 unit increase in $X_1$                                                                    |   |
+|                                            |                             |                                                                                                                                               |   |
+|                                            |                             |     -   Example: For every one year increase in age, the expected peak exercise heart rate decreases 0.834 bpm (95% CI: ....)                 |   |
++--------------------------------------------+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---+
+| $Y=\beta_0+\beta_1X_1+\beta_2X_2+\epsilon$ |                             |                                                                                                                                               |   |
++--------------------------------------------+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---+

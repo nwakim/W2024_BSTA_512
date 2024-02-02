@@ -1,0 +1,18 @@
+{
+  "hash": "385398ea76b88bd83a354d999af79fdb",
+  "result": {
+    "markdown": "---\ntitle: \"A word on Quiz 1 and Lab 1\"\nauthor: \"Nicky Wakim\"\ntitle-slide-attributes:\n    data-background-color: \"#213c96\"\ndate: \"2/5/2024\"\ncategories: [\"Week 5\"]\nformat: \n  revealjs:\n    theme: [default, simple_NW.scss]\n    chalkboard: true\n    slide-number: true\n    show-slide-number: all\n    width: 1955\n    height: 1100\n    footer: Quiz and Lab Notes\n    html-math-method: mathjax\n    highlight-style: ayu\nexecute:\n  echo: true\n  freeze: auto  # re-render only when source changes\neditor: \n  markdown: \n    wrap: 72\n---\n\n\n\n\n## Coefficient interpretations\n\nPopulation model:\n$$\nE[Y|X] = \\beta_0 + \\beta_1X\n$$\nWhat is $\\beta_1$ mean?\n\n-   Let's say we have $X = x_1$ and $X=x_2$\n-   The difference between $x_1$ and $x_2$ is 1: $x_1 - x_2 = 1$\n-   We don't have to know the actual values of the x's, just that their difference is 1\n-   Now, let's look at the expected values for each of those x's:\n    \n$$ \\begin{aligned}\n    E[Y|x_1] & = \\beta_0 + \\beta_1x_1 \\\\\n    E[Y|x_2] & = \\beta_0 + \\beta_1x_2\n\\end{aligned}$$\n-   If we take the difference between the expected values, we get:\n$$ \\begin{aligned}\n    E[Y|x_1] - E[Y|x_2] & = (\\beta_0 + \\beta_1x_1) - (\\beta_0 + \\beta_1x_2) \\\\\n    E[Y|x_1] - E[Y|x_2] & = \\beta_0 + \\beta_1x_1 - \\beta_0 - \\beta_1x_2 \\\\\n    E[Y|x_1] - E[Y|x_2] & = \\beta_1x_1 - \\beta_1x_2 \\\\\n    E[Y|x_1] - E[Y|x_2] & = \\beta_1 (x_1 - x_2) \\\\\n    \\beta_1 & = \\frac{E[Y|x_1] - E[Y|x_2]}{x_1 - x_2} \\\\\n    \\beta_1 & = \\frac{E[Y|x_1] - E[Y|x_2]}{1} \\\\\n    \\beta_1 & = E[Y|x_1] - E[Y|x_2]\n\\end{aligned}$$\n\n-   So, we can consider $\\beta_1$ as the difference in the expected Y for every 1 unit increase in X\n-   Or: we can look at $\\beta_1$ another way:\n$$ \\begin{aligned}\n    \\beta_1 & = E[Y|x_1] - E[Y|x_2] \\\\\n    \\beta_1 & = E\\big[ (Y|x_1) - (Y|x_2) \\big] \\\\\n\\end{aligned}$$\n\n    -   This would make $beta_1$ the expected difference in Y for every 1 unit increase in X\n\n\n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

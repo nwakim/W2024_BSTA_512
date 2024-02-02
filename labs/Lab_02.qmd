@@ -155,18 +155,19 @@ We will also restrict our analysis to the following 9 potential variables so our
 ::: callout-important
 ##### Task
 
-From the following 7 attitudes and beliefs, please select 3 that you think will be the most important variables related to your research question. In 1-2 lines, briefly explain why you chose each variable. This can be informal and bulleted.
+From the following 8 attitudes and beliefs, please select 3 that you think will be the most important variables related to your research question. In 1-2 lines, briefly explain why you chose each variable. This can be informal and bulleted.
 :::
 
 (Make sure you chose the variable that is part of your research question!)
 
-1.  Self-perception of weight (`iam_001`)
-2.  Fat group identity (`identfat_001` )
-3.  Thin group identity (`identthen_001` )
-4.  Controllability of weight of others (`controlother_001`)
-5.  Controllability of weight of yourself (`controlyou_001`)
-6.  Awareness of societal standards (`mostpref_001` )
-7.  Internalization of societal standards (`important_001`)
+1.  Explicit anti-fat bias (`att7`)
+2.  Self-perception of weight (`iam_001`)
+3.  Fat group identity (`identfat_001` )
+4.  Thin group identity (`identthen_001` )
+5.  Controllability of weight of others (`controlother_001`)
+6.  Controllability of weight of yourself (`controlyou_001`)
+7.  Awareness of societal standards (`mostpref_001` )
+8.  Internalization of societal standards (`important_001`)
 
 We will start our data exploration with the following 4 demographic variables:
 

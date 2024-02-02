@@ -48,6 +48,102 @@ library(car)  # vif()
 
 > Tip: It is a good idea to try kitting your document from time to time as you go along! Note that knitting automatically saves your Rmd file and knitting frequently helps you catch your errors more quickly.
 
+# Regression with one categorical predictor (Prequel to Ch 11 & 12)
+
+## Penguins: Flipper length vs. species
+
+For this problem we will be using the `penguins` dataset from the `palmerpenguins` R package.
+
+Description from help file:
+
+> Includes measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.
+
+More info about the data are at https://allisonhorst.github.io/palmerpenguins/.
+
+```{r}
+# first install the palmerpenguins package
+# install.packages("palmerpenguins")
+library(palmerpenguins)
+data(penguins)
+
+# run the command below to learn more about the variables in the penguins dataset
+# ?penguins
+```
+
+### (1) Outcome averages stratified by category levels
+
+<font color="green">Calculate the average flipper lengths stratified by each of the penguin species.</font>
+
+### (2) Visualize the "regression"
+
+<font color="green">Make a scatterplot of flipper lengths by species, and include diamond-shape points for the averages of the flipper lengths for each of the species.</font>
+
+### (3) Regression equations
+
+Before running the regression in R, we are going to find the regression equation"manually."
+
+<font color="green">Write out the regression equation using LaTeX math markup (see class notes) that models the flipper length by penguin species. Do not yet insert values for the regression coefficients, i.e. us the generic coefficients</font> $\widehat{\beta}_0, \widehat{\beta}_1,$ <font color="green">etc. Use Adelie as the reference level.</font>
+
+### (4) Interpret coefficients
+
+<font color="green">How do we interpret each of the regression coefficients for this model?</font> *Write out a separate interpretation for each of the coefficients.*
+
+### (5) Regression coefficients "manually"
+
+<font color="green">"Manually" calculate the values for each of the coefficients, and update the regression model with the values inserted.</font>\
+*You must show your work for this. Do not run the linear model in this step to get the values.*
+
+### (6) Regression table with `lm()` function
+
+<font color="green">Run the linear regression of flipper lengths vs. species in R, and display the regression table output. Which species did R choose as the reference level, and how did you determine this?</font>
+
+### (7) Mean calculation using regression output
+
+<font color="green">Calculate the mean flipper length of penguins in the Chinstrap and Gentoo species using *only* the results from the regression table.</font> *You must show your work.*
+
+# ----------------------------------
+
+# Recommended extra problems do not turn in (will be not graded)
+
+Below are some problems I *highly* recommend working on. They will not be graded and you do not need to turn them in.
+
+## Problem 9.7 (c)
+
+<font color="green">Do this problem after completing 9.7 (b) above</font>
+
+> Provide variables-added-in-order tests for the order $X_3, X_1$, and $X_2$.
+
+<font color="green">This means that there are 3 tests: (1) test model with just $X_3$, (2) test adding $X_1$ to the model given that $X_3$ is already in the model, and (3) test adding $X_2$ to the model given that $X_3, X_1$ are already in the model. See the subsections below to divide up the work.</font>
+
+### Test model with just $X_3$
+
+### Adding $X_1$ to the model given that $X_3$ is already in the model
+
+### Adding $X_2$ to the model given that $X_3, X_1$ are already in the model
+
+## Chapter 10 (c) using the formula
+
+Do this after completing Chapter 10 (c) above.
+
+<font color="green">Calculate $r_{YX1|X2}$ using the formula and check that your answer matches that of Chapter 10 (c) above.</font>
+
+## Regression with one categorical predictor (Prequel to Ch 11 & 12): Change the reference level to Gentoo
+
+After completing exercises (1) - (7) in the section *Regression with one categorical predictor (Prequel to Ch 11 & 12)*, do the problems below.
+
+### (8)
+
+<font color="green">Write out the regression equation using LaTeX math markup (see class notes) that models the flipper length by penguin species. Do not yet insert values for the regression coefficients, i.e. us the generic coefficients</font> $\widehat{\beta}_0, \widehat{\beta}_1,$ <font color="green">etc. Use Gentoo as the reference level.</font>
+
+### (9)
+
+<font color="green">How do we interpret each of the regression coefficients for this model?</font> *Write out a separate interpretation for each of the coefficients.*
+
+### (10)
+
+<font color="green">"Manually" calculate the values for each of the coefficients, and update the regression model with the values inserted.</font> *You must show your work for this. Do not run the linear model in this step to get the values.*
+
+
 # Chapter 11 & 12 (questions NOT from book)
 
 ## Question 1

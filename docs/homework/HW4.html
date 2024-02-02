@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
 }
+
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -4710,6 +4744,36 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
    
   <ul>
   <li><a href="#directions" id="toc-directions" class="nav-link active" data-scroll-target="#directions">Directions</a></li>
+  <li><a href="#regression-with-one-categorical-predictor-prequel-to-ch-11-12" id="toc-regression-with-one-categorical-predictor-prequel-to-ch-11-12" class="nav-link" data-scroll-target="#regression-with-one-categorical-predictor-prequel-to-ch-11-12">Regression with one categorical predictor (Prequel to Ch 11 &amp; 12)</a>
+  <ul class="collapse">
+  <li><a href="#penguins-flipper-length-vs.-species" id="toc-penguins-flipper-length-vs.-species" class="nav-link" data-scroll-target="#penguins-flipper-length-vs.-species">Penguins: Flipper length vs. species</a>
+  <ul class="collapse">
+  <li><a href="#outcome-averages-stratified-by-category-levels" id="toc-outcome-averages-stratified-by-category-levels" class="nav-link" data-scroll-target="#outcome-averages-stratified-by-category-levels">(1) Outcome averages stratified by category levels</a></li>
+  <li><a href="#visualize-the-regression" id="toc-visualize-the-regression" class="nav-link" data-scroll-target="#visualize-the-regression">(2) Visualize the “regression”</a></li>
+  <li><a href="#regression-equations" id="toc-regression-equations" class="nav-link" data-scroll-target="#regression-equations">(3) Regression equations</a></li>
+  <li><a href="#interpret-coefficients" id="toc-interpret-coefficients" class="nav-link" data-scroll-target="#interpret-coefficients">(4) Interpret coefficients</a></li>
+  <li><a href="#regression-coefficients-manually" id="toc-regression-coefficients-manually" class="nav-link" data-scroll-target="#regression-coefficients-manually">(5) Regression coefficients “manually”</a></li>
+  <li><a href="#regression-table-with-lm-function" id="toc-regression-table-with-lm-function" class="nav-link" data-scroll-target="#regression-table-with-lm-function">(6) Regression table with <code>lm()</code> function</a></li>
+  <li><a href="#mean-calculation-using-regression-output" id="toc-mean-calculation-using-regression-output" class="nav-link" data-scroll-target="#mean-calculation-using-regression-output">(7) Mean calculation using regression output</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">———————————-</a></li>
+  <li><a href="#recommended-extra-problems-do-not-turn-in-will-be-not-graded" id="toc-recommended-extra-problems-do-not-turn-in-will-be-not-graded" class="nav-link" data-scroll-target="#recommended-extra-problems-do-not-turn-in-will-be-not-graded">Recommended extra problems do not turn in (will be not graded)</a>
+  <ul class="collapse">
+  <li><a href="#problem-9.7-c" id="toc-problem-9.7-c" class="nav-link" data-scroll-target="#problem-9.7-c">Problem 9.7 (c)</a>
+  <ul class="collapse">
+  <li><a href="#test-model-with-just-x_3" id="toc-test-model-with-just-x_3" class="nav-link" data-scroll-target="#test-model-with-just-x_3">Test model with just <span class="math inline">\(X_3\)</span></a></li>
+  <li><a href="#adding-x_1-to-the-model-given-that-x_3-is-already-in-the-model" id="toc-adding-x_1-to-the-model-given-that-x_3-is-already-in-the-model" class="nav-link" data-scroll-target="#adding-x_1-to-the-model-given-that-x_3-is-already-in-the-model">Adding <span class="math inline">\(X_1\)</span> to the model given that <span class="math inline">\(X_3\)</span> is already in the model</a></li>
+  <li><a href="#adding-x_2-to-the-model-given-that-x_3-x_1-are-already-in-the-model" id="toc-adding-x_2-to-the-model-given-that-x_3-x_1-are-already-in-the-model" class="nav-link" data-scroll-target="#adding-x_2-to-the-model-given-that-x_3-x_1-are-already-in-the-model">Adding <span class="math inline">\(X_2\)</span> to the model given that <span class="math inline">\(X_3, X_1\)</span> are already in the model</a></li>
+  </ul></li>
+  <li><a href="#chapter-10-c-using-the-formula" id="toc-chapter-10-c-using-the-formula" class="nav-link" data-scroll-target="#chapter-10-c-using-the-formula">Chapter 10 (c) using the formula</a></li>
+  <li><a href="#regression-with-one-categorical-predictor-prequel-to-ch-11-12-change-the-reference-level-to-gentoo" id="toc-regression-with-one-categorical-predictor-prequel-to-ch-11-12-change-the-reference-level-to-gentoo" class="nav-link" data-scroll-target="#regression-with-one-categorical-predictor-prequel-to-ch-11-12-change-the-reference-level-to-gentoo">Regression with one categorical predictor (Prequel to Ch 11 &amp; 12): Change the reference level to Gentoo</a>
+  <ul class="collapse">
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">(8)</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">(9)</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">(10)</a></li>
+  </ul></li>
+  </ul></li>
   <li><a href="#chapter-11-12-questions-not-from-book" id="toc-chapter-11-12-questions-not-from-book" class="nav-link" data-scroll-target="#chapter-11-12-questions-not-from-book">Chapter 11 &amp; 12 (questions NOT from book)</a>
   <ul class="collapse">
   <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a>
@@ -4806,6 +4870,102 @@ Important
 <blockquote class="blockquote">
 <p>Tip: It is a good idea to try kitting your document from time to time as you go along! Note that knitting automatically saves your Rmd file and knitting frequently helps you catch your errors more quickly.</p>
 </blockquote>
+</section>
+<section id="regression-with-one-categorical-predictor-prequel-to-ch-11-12" class="level1">
+<h1>Regression with one categorical predictor (Prequel to Ch 11 &amp; 12)</h1>
+<section id="penguins-flipper-length-vs.-species" class="level2">
+<h2 class="anchored" data-anchor-id="penguins-flipper-length-vs.-species">Penguins: Flipper length vs. species</h2>
+<p>For this problem we will be using the <code>penguins</code> dataset from the <code>palmerpenguins</code> R package.</p>
+<p>Description from help file:</p>
+<blockquote class="blockquote">
+<p>Includes measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.</p>
+</blockquote>
+<p>More info about the data are at https://allisonhorst.github.io/palmerpenguins/.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first install the palmerpenguins package</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;palmerpenguins&quot;)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(penguins)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># run the command below to learn more about the variables in the penguins dataset</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ?penguins</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="outcome-averages-stratified-by-category-levels" class="level3">
+<h3 class="anchored" data-anchor-id="outcome-averages-stratified-by-category-levels">(1) Outcome averages stratified by category levels</h3>
+<p><font color="green">Calculate the average flipper lengths stratified by each of the penguin species.</font></p>
+</section>
+<section id="visualize-the-regression" class="level3">
+<h3 class="anchored" data-anchor-id="visualize-the-regression">(2) Visualize the “regression”</h3>
+<p><font color="green">Make a scatterplot of flipper lengths by species, and include diamond-shape points for the averages of the flipper lengths for each of the species.</font></p>
+</section>
+<section id="regression-equations" class="level3">
+<h3 class="anchored" data-anchor-id="regression-equations">(3) Regression equations</h3>
+<p>Before running the regression in R, we are going to find the regression equation”manually.”</p>
+<p><font color="green">Write out the regression equation using LaTeX math markup (see class notes) that models the flipper length by penguin species. Do not yet insert values for the regression coefficients, i.e. us the generic coefficients</font> <span class="math inline">\(\widehat{\beta}_0, \widehat{\beta}_1,\)</span> <font color="green">etc. Use Adelie as the reference level.</font></p>
+</section>
+<section id="interpret-coefficients" class="level3">
+<h3 class="anchored" data-anchor-id="interpret-coefficients">(4) Interpret coefficients</h3>
+<p><font color="green">How do we interpret each of the regression coefficients for this model?</font> <em>Write out a separate interpretation for each of the coefficients.</em></p>
+</section>
+<section id="regression-coefficients-manually" class="level3">
+<h3 class="anchored" data-anchor-id="regression-coefficients-manually">(5) Regression coefficients “manually”</h3>
+<p><font color="green">“Manually” calculate the values for each of the coefficients, and update the regression model with the values inserted.</font><br>
+<em>You must show your work for this. Do not run the linear model in this step to get the values.</em></p>
+</section>
+<section id="regression-table-with-lm-function" class="level3">
+<h3 class="anchored" data-anchor-id="regression-table-with-lm-function">(6) Regression table with <code>lm()</code> function</h3>
+<p><font color="green">Run the linear regression of flipper lengths vs. species in R, and display the regression table output. Which species did R choose as the reference level, and how did you determine this?</font></p>
+</section>
+<section id="mean-calculation-using-regression-output" class="level3">
+<h3 class="anchored" data-anchor-id="mean-calculation-using-regression-output">(7) Mean calculation using regression output</h3>
+<p><font color="green">Calculate the mean flipper length of penguins in the Chinstrap and Gentoo species using <em>only</em> the results from the regression table.</font> <em>You must show your work.</em></p>
+</section>
+</section>
+</section>
+<section id="section" class="level1">
+<h1>———————————-</h1>
+</section>
+<section id="recommended-extra-problems-do-not-turn-in-will-be-not-graded" class="level1">
+<h1>Recommended extra problems do not turn in (will be not graded)</h1>
+<p>Below are some problems I <em>highly</em> recommend working on. They will not be graded and you do not need to turn them in.</p>
+<section id="problem-9.7-c" class="level2">
+<h2 class="anchored" data-anchor-id="problem-9.7-c">Problem 9.7 (c)</h2>
+<p><font color="green">Do this problem after completing 9.7 (b) above</font></p>
+<blockquote class="blockquote">
+<p>Provide variables-added-in-order tests for the order <span class="math inline">\(X_3, X_1\)</span>, and <span class="math inline">\(X_2\)</span>.</p>
+</blockquote>
+<p><font color="green">This means that there are 3 tests: (1) test model with just <span class="math inline">\(X_3\)</span>, (2) test adding <span class="math inline">\(X_1\)</span> to the model given that <span class="math inline">\(X_3\)</span> is already in the model, and (3) test adding <span class="math inline">\(X_2\)</span> to the model given that <span class="math inline">\(X_3, X_1\)</span> are already in the model. See the subsections below to divide up the work.</font></p>
+<section id="test-model-with-just-x_3" class="level3">
+<h3 class="anchored" data-anchor-id="test-model-with-just-x_3">Test model with just <span class="math inline">\(X_3\)</span></h3>
+</section>
+<section id="adding-x_1-to-the-model-given-that-x_3-is-already-in-the-model" class="level3">
+<h3 class="anchored" data-anchor-id="adding-x_1-to-the-model-given-that-x_3-is-already-in-the-model">Adding <span class="math inline">\(X_1\)</span> to the model given that <span class="math inline">\(X_3\)</span> is already in the model</h3>
+</section>
+<section id="adding-x_2-to-the-model-given-that-x_3-x_1-are-already-in-the-model" class="level3">
+<h3 class="anchored" data-anchor-id="adding-x_2-to-the-model-given-that-x_3-x_1-are-already-in-the-model">Adding <span class="math inline">\(X_2\)</span> to the model given that <span class="math inline">\(X_3, X_1\)</span> are already in the model</h3>
+</section>
+</section>
+<section id="chapter-10-c-using-the-formula" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-10-c-using-the-formula">Chapter 10 (c) using the formula</h2>
+<p>Do this after completing Chapter 10 (c) above.</p>
+<p><font color="green">Calculate <span class="math inline">\(r_{YX1|X2}\)</span> using the formula and check that your answer matches that of Chapter 10 (c) above.</font></p>
+</section>
+<section id="regression-with-one-categorical-predictor-prequel-to-ch-11-12-change-the-reference-level-to-gentoo" class="level2">
+<h2 class="anchored" data-anchor-id="regression-with-one-categorical-predictor-prequel-to-ch-11-12-change-the-reference-level-to-gentoo">Regression with one categorical predictor (Prequel to Ch 11 &amp; 12): Change the reference level to Gentoo</h2>
+<p>After completing exercises (1) - (7) in the section <em>Regression with one categorical predictor (Prequel to Ch 11 &amp; 12)</em>, do the problems below.</p>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">(8)</h3>
+<p><font color="green">Write out the regression equation using LaTeX math markup (see class notes) that models the flipper length by penguin species. Do not yet insert values for the regression coefficients, i.e. us the generic coefficients</font> <span class="math inline">\(\widehat{\beta}_0, \widehat{\beta}_1,\)</span> <font color="green">etc. Use Gentoo as the reference level.</font></p>
+</section>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">(9)</h3>
+<p><font color="green">How do we interpret each of the regression coefficients for this model?</font> <em>Write out a separate interpretation for each of the coefficients.</em></p>
+</section>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3">(10)</h3>
+<p><font color="green">“Manually” calculate the values for each of the coefficients, and update the regression model with the values inserted.</font> <em>You must show your work for this. Do not run the linear model in this step to get the values.</em></p>
+</section>
+</section>
 </section>
 <section id="chapter-11-12-questions-not-from-book" class="level1">
 <h1>Chapter 11 &amp; 12 (questions NOT from book)</h1>
