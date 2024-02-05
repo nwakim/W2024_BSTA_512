@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-02-05">
-<meta name="description" content="Multiple Linear Regression">
 
-<title>Linear Models - Week 5</title>
+<title>Linear Models - Quizzes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,23 +23,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/iconify-1.0.0-beta.2/iconify-icon.min.js"></script>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/iconify-1.0.0-beta.2/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,10 +71,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-sm navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../images/bsta_512_hex.png" alt="" class="navbar-logo">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/bsta_512_hex.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Linear Models</span>
     </a>
   </div>
@@ -87,19 +85,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../syllabus.html" rel="" target="" aria-current="page">
+    <a class="nav-link active" href="./syllabus.html" rel="" target="" aria-current="page">
  <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../schedule1.html" rel="" target="">
+    <a class="nav-link" href="./schedule1.html" rel="" target="">
  <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../homeworks.html" rel="" target="">
+    <a class="nav-link" href="./homeworks.html" rel="" target="">
  <span class="menu-text">Homework</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../project.html" rel="" target="">
+    <a class="nav-link" href="./project.html" rel="" target="">
  <span class="menu-text">Projects</span></a>
   </li>  
 </ul>
@@ -113,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Week 5</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Quizzes</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -135,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -150,25 +148,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../instructors.html" class="sidebar-item-text sidebar-link">
+  <a href="./instructors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Instructors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../schedule1.html" class="sidebar-item-text sidebar-link">
+  <a href="./schedule1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../resources.html" class="sidebar-item-text sidebar-link">
+  <a href="./resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Resources</span></a>
   </div>
 </li>
@@ -185,25 +183,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+  <a href="./schedule.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Weekly Pages</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../homeworks.html" class="sidebar-item-text sidebar-link">
+  <a href="./homeworks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Homework</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project.html" class="sidebar-item-text sidebar-link">
+  <a href="./project.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Project</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../readings.html" class="sidebar-item-text sidebar-link">
+  <a href="./readings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">612 Readings</span></a>
   </div>
 </li>
@@ -219,43 +217,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#topics" id="toc-topics" class="nav-link active" data-scroll-target="#topics">topics</a></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
-  <li><a href="#on-the-horizon" id="toc-on-the-horizon" class="nav-link" data-scroll-target="#on-the-horizon">On the Horizon</a></li>
-  <li><a href="#class-exit-tickets" id="toc-class-exit-tickets" class="nav-link" data-scroll-target="#class-exit-tickets">Class Exit Tickets</a></li>
-  <li><a href="#announcements" id="toc-announcements" class="nav-link" data-scroll-target="#announcements">Announcements</a>
-  <ul class="collapse">
-  <li><a href="#monday-25" id="toc-monday-25" class="nav-link" data-scroll-target="#monday-25">Monday 2/5</a></li>
-  <li><a href="#wednesday-27" id="toc-wednesday-27" class="nav-link" data-scroll-target="#wednesday-27">Wednesday 2/7</a></li>
-  </ul></li>
-  <li><a href="#muddiest-points" id="toc-muddiest-points" class="nav-link" data-scroll-target="#muddiest-points">Muddiest Points</a></li>
+  <li><a href="#quiz-1-information" id="toc-quiz-1-information" class="nav-link active" data-scroll-target="#quiz-1-information">Quiz 1 Information</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="quizzes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 5</h1>
+<h1 class="title">Quizzes</h1>
 </div>
 
-<div>
-  <div class="description">
-    Multiple Linear Regression
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 5, 2024</p>
-    </div>
-  </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
@@ -269,117 +247,68 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div class="cell">
-<style type="text/css">
-.title{
-  font-size: 40px;
-  color: #213c96;
-  background-color: #fff;
-  padding: 10px;
-}
-
-.description{
-  font-size: 20px;
-  color: #fff;
-  background-color: #213c96;
-  padding: 10px;
-}
-</style>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Room Locations for the week
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>On Monday, 2/5, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;we will be in <strong>RLSB 3A001</strong>
-<ul>
-<li>When you look out from RLSB 3A003 A, across the atrium on the same floor-ish</li>
-</ul></li>
-<li>On Wednesday, 2/7, &nbsp;we will be in <strong>RLSB 3A003 A</strong></li>
-</ul>
-</div>
-</div>
-<section id="topics" class="level3 hidden">
-<h3 class="hidden anchored" data-anchor-id="topics">topics</h3>
-<p>interpreting model parameters</p>
-<p>matrix representation</p>
-<p>parameter estimation (OLS)</p>
-<p>properties of estimators</p>
-<p>sums of squares - hypothesis testing is overall topic - sums of squares - F test - nested models? - covariate subset test - single covariate test</p>
-</section>
-<section id="resources" class="level2">
-<h2 class="anchored" data-anchor-id="resources">Resources</h2>
-<p>Below is a table with links to resources. Icons in <span style="color:#E25D3B;">orange</span> mean there is an available file link.</p>
 <table class="table">
 <thead>
 <tr class="header">
-<th>Lesson</th>
-<th>Topic</th>
-<th style="text-align: center;">Slides</th>
-<th style="text-align: center;">Annotated Slides</th>
-<th style="text-align: center;">Recording</th>
+<th>Quiz</th>
+<th>Answer key</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td></td>
-<td>A word on Lab 1 and Quiz 1</td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/Quiz_1_Lab_1.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
+<td>1</td>
+<td><span style="color:#f8f5f0;"><a href="./quizzes/Quiz_01_Key_BSTA_512_W2024.pdf"><iconify-icon inline="" icon="ph:key-fill" style="font-size: 29px;"></iconify-icon></a></span></td>
 </tr>
 <tr class="even">
-<td>8</td>
-<td>Introduction to Multiple Linear Regression</td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/08_MLR_Intro.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
+<td>2</td>
+<td><span style="color:#f8f5f0;"><iconify-icon inline="" icon="ph:key-fill" style="font-size: 29px;"></iconify-icon></span></td>
 </tr>
 <tr class="odd">
-<td>9</td>
-<td>MLR: Inference</td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
+<td>3</td>
+<td><span style="color:#f8f5f0;"><iconify-icon inline="" icon="icon-park-twotone:file-code" style="font-size: 29px;"></iconify-icon></span></td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="on-the-horizon" class="level2">
-<h2 class="anchored" data-anchor-id="on-the-horizon">On the Horizon</h2>
+<section id="quiz-1-information" class="level3">
+<h3 class="anchored" data-anchor-id="quiz-1-information">Quiz 1 Information</h3>
 <ul>
-<li>Lab 2 due 2/8</li>
-<li>Homework 3 due 2/15</li>
-</ul>
-</section>
-<section id="class-exit-tickets" class="level2">
-<h2 class="anchored" data-anchor-id="class-exit-tickets">Class Exit Tickets</h2>
-<p><span style="color:#f8f5f0;"><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUQzNRMlJSM1NGOTJRUVExQ0hKWFlYMDFDNC4u"><iconify-icon inline="" icon="healthicons:health-worker-form-negative" style="font-size: 30px;"></iconify-icon></a></span> Monday (2/5)</p>
-<p><span style="color:#f8f5f0;"><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUMjFSMEVQTktEWEtGNk01M0dDNFE4U1pIWi4u"><iconify-icon inline="" icon="healthicons:health-worker-form-negative" style="font-size: 30px;"></iconify-icon></a></span> Wednesday (2/7)</p>
-</section>
-<section id="announcements" class="level2">
-<h2 class="anchored" data-anchor-id="announcements">Announcements</h2>
-<section id="monday-25" class="level3">
-<h3 class="anchored" data-anchor-id="monday-25">Monday 2/5</h3>
+<li><p>We will be in RLSB 3A003 B!!!</p></li>
+<li><p>General structure</p>
 <ul>
-<li>Adding a page for coefficient interpretations under resources</li>
-</ul>
-</section>
-<section id="wednesday-27" class="level3">
-<h3 class="anchored" data-anchor-id="wednesday-27">Wednesday 2/7</h3>
+<li><p>It will be a maximum of 15 questions</p>
 <ul>
-<li>Let’s check in on Lab 2</li>
+<li>~ 10 multiple choice questions (including T/F)</li>
+<li>~ 3 free response questions</li>
+</ul></li>
+</ul></li>
+<li><p>What will it cover?</p>
+<ul>
+<li>Lesson 2 (Data Management) to Lesson 4 (<a href="./slides/04_SLR_Inf_Pred.html">SLR: Inference</a>, except the mean response)
+<ul>
+<li>So up to what we covered on Monday 1/22</li>
+</ul></li>
+<li>HW 0 - 1</li>
+</ul></li>
+<li><p>What can you expect?</p>
+<ul>
+<li>Mostly concept questions</li>
+<li>You may need to recognize what certain, important functions do</li>
+<li>You may need to recognize a number from R output (like the regression table on slide 4 in <a href="./slides/04_SLR_Inf_Pred.html">Lesson 4 slides</a>)</li>
+</ul></li>
+<li><p>Instructions that will be on the quiz:</p>
+<blockquote class="blockquote">
+<ol type="1">
+<li><p>I have written a “30 minute” quiz. However, you have 50 minutes from 2:00 - 2:50pm.</p></li>
+<li><p>The quiz is open book and open notes. You may use books other than the class textbook, you may use anything on our course webpage, and you may use reference websites (like Wikipedia, Googling expected value of specific distribution, etc.).</p></li>
+<li><p>No cheating will be tolerated. Cheating includes:</p>
+<ul>
+<li><p>Using ChatGPT</p></li>
+<li><p>Using question and answer threads typically seen on sites like StackExchange, WikiHow, Quora, Reddit, StackOverflow, Chegg, etc.</p></li>
+<li><p>Asking other students in the room or looking at other students’ quiz work.</p></li>
+</ul></li>
+</ol>
+</blockquote></li>
 </ul>
-</section>
-</section>
-<section id="muddiest-points" class="level2">
-<h2 class="anchored" data-anchor-id="muddiest-points">Muddiest Points</h2>
 
 
 </section>

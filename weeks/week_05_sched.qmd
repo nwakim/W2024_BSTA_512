@@ -54,7 +54,7 @@ Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B
 
 | Lesson | Topic                                      |                                              Slides                                               |                                  Annotated Slides                                  |                           Recording                           |
 |---------------|---------------|:-------------:|:-------------:|:-------------:|
-|        | A word on Lab 1 and Quiz 1                 |               [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}               | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+|        | A word on Lab 1 and Quiz 1                 | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/Quiz_1_Lab_1.qmd)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 8      | Introduction to Multiple Linear Regression | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/08_MLR_Intro.qmd)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 9      | MLR: Inference                             |               [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}               | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 

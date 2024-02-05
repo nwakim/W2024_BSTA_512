@@ -1,0 +1,55 @@
+---
+title: "Quizzes"
+date-modified: "today"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+  pdf: default
+editor_options: 
+  chunk_output_type: console
+---
+
+| Quiz | Answer key                                                                                                 |
+|-------------|-------------------------------|
+| 1    | [[{{< iconify ph key-fill size=29px >}}](/quizzes/Quiz_01_Key_BSTA_512_W2024.pdf)]{style="color:#f8f5f0;"} |
+| 2    | [{{< iconify ph key-fill size=29px >}}]{style="color:#f8f5f0;"}                                            |
+| 3    | [{{< iconify icon-park-twotone file-code size=29px >}}]{style="color:#f8f5f0;"}                            |
+
+### Quiz 1 Information
+
+-   We will be in RLSB 3A003 B!!!
+
+-   General structure
+
+    -   It will be a maximum of 15 questions
+
+        -   \~ 10 multiple choice questions (including T/F)
+        -   \~ 3 free response questions
+
+-   What will it cover?
+
+    -   Lesson 2 (Data Management) to Lesson 4 ([SLR: Inference](/slides/04_SLR_Inf_Pred.qmd), except the mean response)
+        -   So up to what we covered on Monday 1/22
+    -   HW 0 - 1
+
+-   What can you expect?
+
+    -   Mostly concept questions
+    -   You may need to recognize what certain, important functions do
+    -   You may need to recognize a number from R output (like the regression table on slide 4 in [Lesson 4 slides](/slides/04_SLR_Inf_Pred.qmd))
+
+-   Instructions that will be on the quiz:
+
+    > 1.  I have written a "30 minute" quiz. However, you have 50 minutes from 2:00 - 2:50pm.
+    >
+    > 2.  The quiz is open book and open notes. You may use books other than the class textbook, you may use anything on our course webpage, and you may use reference websites (like Wikipedia, Googling expected value of specific distribution, etc.).
+    >
+    > 3.  No cheating will be tolerated. Cheating includes:
+    >
+    >     -   Using ChatGPT
+    >
+    >     -   Using question and answer threads typically seen on sites like StackExchange, WikiHow, Quora, Reddit, StackOverflow, Chegg, etc.
+    >
+    >     -   Asking other students in the room or looking at other students' quiz work.
