@@ -697,7 +697,7 @@
     "href": "homeworks.html",
     "title": "Homework Assignments and Solutions",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nReading Time\n\n\n\n\n\n\n1/11/24\n\n\nHomework 0\n\n\n4 min\n\n\n\n\n1/25/24\n\n\nHomework 1\n\n\n7 min\n\n\n\n\n2/1/24\n\n\nHomework 2\n\n\n7 min\n\n\n\n\n2/2/24\n\n\nHomework 3\n\n\n8 min\n\n\n\n\n2/22/24\n\n\nHomework 4\n\n\n7 min\n\n\n\n\n3/7/24\n\n\nHomework 5\n\n\n5 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nReading Time\n\n\n\n\n\n\n1/11/24\n\n\nHomework 0\n\n\n4 min\n\n\n\n\n1/25/24\n\n\nHomework 1\n\n\n7 min\n\n\n\n\n2/1/24\n\n\nHomework 2\n\n\n7 min\n\n\n\n\n2/5/24\n\n\nHomework 3\n\n\n8 min\n\n\n\n\n2/22/24\n\n\nHomework 4\n\n\n7 min\n\n\n\n\n3/7/24\n\n\nHomework 5\n\n\n5 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "readings.html",
@@ -1628,7 +1628,7 @@
     "href": "homeworks.html#assignments",
     "title": "Homework Assignments and Solutions",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nReading Time\n\n\n\n\n\n\n1/11/24\n\n\nHomework 0\n\n\n4 min\n\n\n\n\n1/25/24\n\n\nHomework 1\n\n\n7 min\n\n\n\n\n2/1/24\n\n\nHomework 2\n\n\n7 min\n\n\n\n\n2/2/24\n\n\nHomework 3\n\n\n8 min\n\n\n\n\n2/22/24\n\n\nHomework 4\n\n\n7 min\n\n\n\n\n3/7/24\n\n\nHomework 5\n\n\n5 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nReading Time\n\n\n\n\n\n\n1/11/24\n\n\nHomework 0\n\n\n4 min\n\n\n\n\n1/25/24\n\n\nHomework 1\n\n\n7 min\n\n\n\n\n2/1/24\n\n\nHomework 2\n\n\n7 min\n\n\n\n\n2/5/24\n\n\nHomework 3\n\n\n8 min\n\n\n\n\n2/22/24\n\n\nHomework 4\n\n\n7 min\n\n\n\n\n3/7/24\n\n\nHomework 5\n\n\n5 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "homeworks.html#solutions",
@@ -6458,7 +6458,7 @@
     "href": "resources.html",
     "title": "Resources",
     "section": "",
-    "text": "Here is a list of the major resources that have been mentioned in class:\n\nExtra materials for the class\n\nCoefficient interpretations\n\n\n\nCourse sites\n\n\n\nResource\nLink\nClass Mentioned\n\n\n\n\nMeike’s 511 Website\n\nReview\n\n\nJessica’s R programming class site\n\nData Management\n\n\n\n\n\n\n\n\n\n\nR coding\n\n\n\nResource\nLink\nClass Mentioned\n\n\n\n\nggplot histograms\n\nReview\n\n\nProbability distributions and their R code\n\nReview\n\n\nVarious hypothesis tests and their R code\n\nReview\n\n\nJessica’s R programming class site\n\nData Management\n\n\n\n\n\n\n\n\n\n\nAcademic Help\n\n\n\nResource\nLink\nClass Mentioned\n\n\n\n\nStudent Academic Support Services\n\nIntro"
+    "text": "Here is a list of the major resources that have been mentioned in class:\n\nExtra materials for the class\n\nCoefficient interpretations\nLaTeX in .qmd formatting by Ariel\n\n\n\nCourse sites\n\n\n\nResource\nLink\nClass Mentioned\n\n\n\n\nMeike’s 511 Website\n\nReview\n\n\nJessica’s R programming class site\n\nData Management\n\n\n\n\n\n\n\n\n\n\nR coding\n\n\n\nResource\nLink\nClass Mentioned\n\n\n\n\nggplot histograms\n\nReview\n\n\nProbability distributions and their R code\n\nReview\n\n\nVarious hypothesis tests and their R code\n\nReview\n\n\nJessica’s R programming class site\n\nData Management\n\n\n\n\n\n\n\n\n\n\nAcademic Help\n\n\n\nResource\nLink\nClass Mentioned\n\n\n\n\nStudent Academic Support Services\n\nIntro"
   },
   {
     "objectID": "resources.html#course-sites",
@@ -8397,7 +8397,7 @@
     "href": "weeks/week_05_sched.html#announcements",
     "title": "Week 5",
     "section": "Announcements",
-    "text": "Announcements\n\nMonday 2/5\n\nAdding a page for coefficient interpretations under resources\n\n\n\nWednesday 2/7\n\nLet’s check in on Lab 2"
+    "text": "Announcements\n\nMonday 2/5\n\nNew extra resources!!\n\nAdding a page for coefficient interpretations under resources\nAriel made a page on LaTeX formatting!\n\n\n\n\nWednesday 2/7\n\nLet’s check in on Lab 2"
   },
   {
     "objectID": "weeks/week_06_sched.html#announcements",
@@ -11099,7 +11099,7 @@
     "href": "homework/HW3.html#questions",
     "title": "Homework 3",
     "section": "Questions",
-    "text": "Questions\n\nQuestion 1\nA high respiratory rate is a potential diagnostic indicator of respiratory infection in children. To judge whether a respiratory rate is “high” however, a physician must have a clear picture of the distribution of normal rates. To this end, Italian researchers measured the respiratory rates of 618 children between the ages of 15 days and 3 years.\nThe data and problem framing came from the Sleuth3 package. Please make sure to run the following code to load the data. You can directly access the dataset ex0824 from the package. I have included a new assignment of the data to q1_data if you would like to use that.\n\nif(!require(Sleuth3)) { install.packages(\"Sleuth3\"); library(Sleuth3) }\nq1_data = ex0824\n\n\nPart a\nCreate a scatterplot of the dependent and independent variables with both the best-fit line and a smoothed curve through the points. Describe the relationship between the dependent and independent variables, and also comment on whether you think it is reasonable to use a linear regression to model the relationship. Are their any outliers in the data? If so, describe the points and why you think they are outliers."
+    "text": "Questions\n\nQuestion 1\nA high respiratory rate is a potential diagnostic indicator of respiratory infection in children. To judge whether a respiratory rate is “high” however, a physician must have a clear picture of the distribution of normal rates. To this end, Italian researchers measured the respiratory rates of 618 children between the ages of 15 days and 3 years.\nThe data and problem framing came from the Sleuth3 package. Please make sure to run the following code to load the data. You can directly access the dataset ex0824 from the package. I have included a new assignment of the data to q1_data if you would like to use that.\n\nif(!require(Sleuth3)) { install.packages(\"Sleuth3\"); library(Sleuth3) }\nq1_data = ex0824\n\n\nPart a\nCreate a scatterplot of the dependent and independent variables with both the best-fit line and a smoothed curve through the points. Describe the relationship between the dependent and independent variables, and also comment on whether you think it is reasonable to use a linear regression to model the relationship. Are there any outliers in the data? If so, describe the points and why you think they are outliers."
   },
   {
     "objectID": "homework/HW4.html#penguins-flipper-length-vs.-species",
@@ -11835,5 +11835,40 @@
     "title": "A word on Quiz 1 and Lab 1",
     "section": "Moving forward",
     "text": "Moving forward\n\nMake sure you articulate the motivation for your research question\n\nIf you are interested in it, then there is likely some research discussing the relationship\nContextualize why this is a research question worth exploring\n\nIf you want to review your intro, please come to me!\n\nRevising early will be helpful for the report\nI will grade each portion of the report expecting you make the needed changes\nI did not make notes on all edits - tried to identify the bigger things\n\nGood sources for report help\n\nStructuring research articles\nInclusive language practices\nGuide on improving readability\n\n\n\n\nQuiz and Lab 1"
+  },
+  {
+    "objectID": "extra_resources/Latex_qmd_formatting.html",
+    "href": "extra_resources/Latex_qmd_formatting.html",
+    "title": "LateX and R Markdown Formatting",
+    "section": "",
+    "text": "This style of coding has a bunch of different yet completely equivalent names. It is a form of coding within markdown files that helps us write equations in an easily readable format.\n\nLatex\nLateX\nLaTeX\nMay occasionally see it written with a K instead of an X\nPronounced as “lay-tek” or “lah-tek”"
+  },
+  {
+    "objectID": "extra_resources/Latex_qmd_formatting.html#centered",
+    "href": "extra_resources/Latex_qmd_formatting.html#centered",
+    "title": "LateX and R Markdown Formatting",
+    "section": "3.1 Centered",
+    "text": "3.1 Centered\nIf you want your equation to be centered in your output, use the double dollar sign ($$) on either side of your equation: $$\\alpha = 0.05$$\n\\[ \\alpha = 0.05 \\]\nTip: If you put your $$   $$ out first, whatever you type in between them will render as you’re typing! Sometimes this is helpful to catch if you’ve made a typo or misspelled a Greek letter or command you meant to use (more on these later)."
+  },
+  {
+    "objectID": "extra_resources/Latex_qmd_formatting.html#in-line",
+    "href": "extra_resources/Latex_qmd_formatting.html#in-line",
+    "title": "LateX and R Markdown Formatting",
+    "section": "3.2 In-Line",
+    "text": "3.2 In-Line\nIf you want your equation to be in-line with your markdown text, use the single dollar sign ($) on either side of your equation. Using this, you can write things like $\\alpha$ to output (\\(\\alpha\\) = 0.05)."
+  },
+  {
+    "objectID": "extra_resources/Latex_qmd_formatting.html#subscript",
+    "href": "extra_resources/Latex_qmd_formatting.html#subscript",
+    "title": "LateX and R Markdown Formatting",
+    "section": "5.1 Subscript",
+    "text": "5.1 Subscript\nOnly the first value (letter or number) following the subscript command will be subscripted, by default. If you want to make a value subscripted, use the underscore (_) like this:\nH_0: \\(H_0\\)\nWhatever you type next will not be subscripted:\nH_12: \\(H_12\\)\nTo subscript more than one value, use curly brackets:\nH_{12}: \\(H_{12}\\)"
+  },
+  {
+    "objectID": "extra_resources/Latex_qmd_formatting.html#superscript",
+    "href": "extra_resources/Latex_qmd_formatting.html#superscript",
+    "title": "LateX and R Markdown Formatting",
+    "section": "5.2 Superscript",
+    "text": "5.2 Superscript\nSometimes we want values to appear above others as a superscript, such as when we’re squaring or cubing them. As with the subscript, if you want more than one value following the carrot to be superscripted, use curly brackets:\nr^2: \\(r^2\\)\nr^12: \\(r^12\\)\nr^{12}: \\(r^{12}\\)"
   }
 ]

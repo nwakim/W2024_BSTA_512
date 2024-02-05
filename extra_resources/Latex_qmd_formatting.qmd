@@ -1,0 +1,230 @@
+---
+title: "LateX and R Markdown Formatting"
+author: "Ariel Weingarten"
+date: "today"
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+    toc_float:
+      collapsed: false
+    number-sections: true
+    number-depth: 4
+    self-contained: true
+    html-math-method: mathjax
+execute:
+  echo: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# What is LateX?
+
+__This style of coding has a bunch of different yet completely equivalent names. It is a form of coding within markdown files that helps us write equations in an easily readable format.__
+
+* Latex
+
+* LateX
+
+* LaTeX
+
+* May occasionally see it written with a K instead of an X
+
+* Pronounced as "lay-tek" or "lah-tek"
+
+# Why do we use it?
+
+__It's pretty! Ok, that's not the only reason. It also helps us to communicate complex concepts clearly using mathematical language.__
+
+Which is easier to read?
+
+__Option 1:__
+
+z*sqrt([sigma1^2]/n1 + [sigma2^2]/n2)
+
+__Option 2:__
+
+$$ z^* \sqrt{{\frac{\sigma_1^2}{n_1}}+{\frac{\sigma_2^2}{n_2}}}$$
+
+# Centered vs In-Line
+
+## Centered
+
+If you want your equation to be centered in your output, use the double dollar sign (`$$`) on either side of your equation: `$$\alpha = 0.05$$`
+
+$$ \alpha = 0.05 $$
+
+Tip: If you put your `$$   $$` out first, whatever you type in between them will render as you're typing! Sometimes this is helpful to catch if you've made a typo or misspelled a Greek letter or command you meant to use (more on these later).
+
+
+## In-Line
+
+If you want your equation to be in-line with your markdown text, use the single dollar sign (`$`) on either side of your equation. Using this, you can write things like `$\alpha$` to output ($\alpha$ = 0.05).
+
+# Greek letters
+
+Common letters used in equations are as follows:
+
+`\alpha`: $\alpha$
+
+`\beta`: $\beta$
+
+`\epsilon`: $\epsilon$
+
+`\sigma`: $\sigma$
+
+`\pi`: $\pi$
+
+`\tau`: $\tau$
+
+# Subscript and Superscript
+
+## Subscript
+
+Only the first value (letter or number) following the subscript command will be subscripted, by default. If you want to make a value subscripted, use the underscore (`_`) like this:
+
+`H_0`: $H_0$
+
+Whatever you type next will not be subscripted:
+
+`H_12`: $H_12$
+
+To subscript more than one value, use curly brackets:
+
+`H_{12}`: $H_{12}$
+
+## Superscript
+
+Sometimes we want values to appear above others as a superscript, such as when we're squaring or cubing them. As with the subscript, if you want more than one value following the carrot to be superscripted, use curly brackets:
+
+`r^2`: $r^2$
+
+`r^12`: $r^12$
+
+`r^{12}`: $r^{12}$
+
+# Fractions
+
+Fractions can be tricky, as they use multiple commands. To initiate a fraction, you'll use the `\frac` command. Then, you will put the top and bottom of the fraction in curly brackets following in this format: `\frac{top}{bottom}`
+
+`\frac{1}{2}`: $\frac{1}{2}$
+
+Sometimes you will have fractions within fractions, so be careful of your bracketing! Example:
+
+`\frac{\frac{n}{2} + x^2}{n+4}`:  $\frac{\frac{n}{2} + x^2}{n+4}$
+
+# Other Misc Mathematical Notation
+
+`\sum` : $\sum$
+
+`\rightarrow` : $\rightarrow$
+
+`\overset{n}{X}` : $\overset{n}{X}$
+
+`\binom{n}{k}` : $\binom{n}{k}$
+
+Two ways to show multiplication:
+
+`\times` : $\times$
+
+`\cdot` :   $\cdot$
+
+# Hats
+
+There are two kinds of hats you'll see:
+
+`\hat Y`: $\hat Y$
+
+`\widehat Y`: $\widehat Y$
+
+The widehat can be expanded using curly brackets:
+
+`\widehat{Llama}`: $\widehat{Llama}$
+
+
+# Spacing
+
+Sometimes you will want to use regular text in your LateX, for instance when using variable names or writing out hypotheses in words. It will read any regular letters just fine, __BUT__ it will not read the spaces between words. By default, it ignores spaces. You can use additional `\` to give spacing:
+
+`$These words are squished together$`: $These words are squished together$
+
+`$These \ words \ are \ not \ squished \ together$`: $These \ words \ are \ not \ squished \ together$
+
+
+# Inequalities
+
+There will be times in which you want signs other than just `=`. Here are some common other commands you can use:
+
+`\neq`: $\neq$
+
+`\leq`: $\leq$
+
+`\geq`: $\geq$
+
+# Getting Fancy
+
+Quarto comes with more options for ways to do Latex such as:
+
+>    ```{=tex}
+>    \begin{align}
+>    H_0 &: \beta_1 = 0\\
+>    \text{vs. } H_A&: \beta_1 \neq 0
+>    \end{align}
+>    ```
+
+    ```{=tex}
+    \begin{align}
+    H_0 &: \beta_1 = 0\\
+    \text{vs. } H_A&: \beta_1 \neq 0
+    \end{align}
+    ```
+
+In this case, the `\\` forces a line break (remember that spaces would normally be ignored), the `\text` will read as non-italicised text, and the `{=tex}` denotes the chunk as Latex, rather than a regular r code chunk. 
+
+Don't stress over trying to do the fancy stuff! Start small and simple, then as you grow more comfortable with the syntax of Latex, you'll expand to write some beautiful code.
+
+# Non-Latex Markdown Formatting
+
+There are a lot of cool formatting things we can do with the regular text in our markdown files (note: not within a LateX command). Here are some that you might find useful:
+
+`__Bold__` or `**Bold**`: __Bold__ or **Bold**
+
+`_Italics_` or `*Italics*`: _Italics_ or *Italics*
+
+` `Block` `: `Block`
+
+`Super^script^`: Super^script^
+
+`~~Strikethrough~~`: ~~Strikethrough~~
+
+`>block quote`: 
+
+> block quote
+
+Lists: `* Item1`:
+
+* Item 1
+
+* Item 2
+
+* Etc
+
+Calling an object you've defined in your code:
+
+```{r}
+object <- 0.57373
+```
+
+`My object value is 'r object' `: My object value is `r object`.
+
+Rounding values of objects that might be a lot of digits:
+
+`My object value with only 3 digits is 'r round(object, 3)'`: My object with only 3 digits is `r round(object, 3)`.
+
+Note: in order to make it show up in the purple text and not automatically render I have used ' instead of ` for this example. 
+
+You will want to use the ` to denote the beginning and end of your object output so that it renders correctly. See markdown code if this is unclear!
+
+
+
+

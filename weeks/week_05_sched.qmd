@@ -73,7 +73,9 @@ Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B
 
 ### Monday 2/5
 
--   Adding a page for coefficient interpretations under resources
+-   New extra resources!!
+    -   Adding a page for coefficient interpretations under resources
+    -   Ariel made a page on LaTeX formatting!
 
 ### Wednesday 2/7
 

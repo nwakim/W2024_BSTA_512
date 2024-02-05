@@ -58,10 +58,7 @@ It is a good idea to try rendering your document from time to time as you go alo
 
 ### Question 1
 
-A high respiratory rate is a potential diagnostic indicator of respiratory infection in children. To
-judge whether a respiratory rate is “high” however, a physician must have a clear picture of the
-distribution of normal rates. To this end, Italian researchers measured the respiratory rates of 618
-children between the ages of 15 days and 3 years.
+A high respiratory rate is a potential diagnostic indicator of respiratory infection in children. To judge whether a respiratory rate is “high” however, a physician must have a clear picture of the distribution of normal rates. To this end, Italian researchers measured the respiratory rates of 618 children between the ages of 15 days and 3 years.
 
 The data and problem framing came from the `Sleuth3` package. Please make sure to run the following code to load the data. You can directly access the dataset `ex0824` from the package. I have included a new assignment of the data to `q1_data` if you would like to use that.
 
@@ -74,7 +71,7 @@ q1_data = ex0824
 
 #### Part a
 
-Create a scatterplot of the dependent and independent variables with both the best-fit line and a smoothed curve through the points. Describe the relationship between the dependent and independent variables, and also comment on whether you think it is reasonable to use a linear regression to model the relationship. Are their any outliers in the data? If so, describe the points and why you think they are outliers.
+Create a scatterplot of the dependent and independent variables with both the best-fit line and a smoothed curve through the points. Describe the relationship between the dependent and independent variables, and also comment on whether you think it is reasonable to use a linear regression to model the relationship. Are there any outliers in the data? If so, describe the points and why you think they are outliers.
 
 ## (2)
 
