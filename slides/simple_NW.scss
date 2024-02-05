@@ -518,6 +518,24 @@ div.cell-output-stdout {
   border-radius: 15px;
 }
 
+.L1{
+  margin-left: 0em;
+  padding: 10px 10px 10px 25px;
+  color: white;
+  background-color: #4FADF3;
+  font-size: 1em;
+  border-radius: 15px;
+}
+
+.L2{
+  margin-left: 0em;
+  padding: 10px 10px 10px 25px;
+  color: black;
+  border: 7px solid #4FADF3;
+  font-size: 1em;
+  border-radius: 15px;
+}
+
 .I{
   margin-left: 0em;
   padding: 10px 10px 10px 50px;
@@ -541,6 +559,24 @@ div.cell-output-stdout {
   padding: 10px 10px 10px 50px;
   color: white;
   background-color: #34AC8B;
+  font-size: 1em;
+  border-radius: 15px;
+}
+
+.E1{
+  margin-left: 0em;
+  padding: 10px 10px 10px 25px;
+  color: white;
+  background-color: #34AC8B;
+  font-size: 1em;
+  border-radius: 15px;
+}
+
+.E2{
+  margin-left: 0em;
+  padding: 10px 10px 10px 25px;
+  color: black;
+  border: 7px solid #34AC8B;
   font-size: 1em;
   border-radius: 15px;
 }
