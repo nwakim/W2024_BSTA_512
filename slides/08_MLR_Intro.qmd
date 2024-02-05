@@ -889,7 +889,7 @@ Interpretation for $\widehat{\beta}_2$
 :::
 
 ::: proof-cont
-For every 1 kcal PPD increase in the food supply, adjusting for adjusting for female literacy rate, there is an expected increase of 0.008 years in life expectancy (95%: 0.005, 0.012).
+For every 1 kcal PPD increase in the food supply, adjusting for female literacy rate, there is an expected increase of 0.008 years in life expectancy (95%: 0.005, 0.012).
 :::
 :::
 :::
@@ -968,7 +968,7 @@ Interpretation for $\widehat{\beta}_2$
 :::
 
 ::: proof-cont
-For every 1 kcal PPD increase in the food supply, adjusting for adjusting for female literacy rate, there is an expected increase of 0.008 years in life expectancy (95%: 0.005, 0.012).
+For every 1 kcal PPD increase in the food supply, adjusting for female literacy rate, there is an expected increase of 0.008 years in life expectancy (95%: 0.005, 0.012).
 :::
 :::
 :::
