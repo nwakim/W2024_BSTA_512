@@ -34,6 +34,7 @@ website:
             text: Syllabus
           - schedule1.qmd
           - resources.qmd
+          - quizzes.qmd
       - section: "Course Materials"
         contents:
           - href: schedule.qmd

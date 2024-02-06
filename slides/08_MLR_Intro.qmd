@@ -752,10 +752,10 @@ SSY &= SSR + SSE
 
 -   $Y_i - \bar{Y}$ = the deviation of $Y_i$ around the mean $\bar{Y}$
     -   (the **total** amount deviation unexplained at $X_{i1},\ldots,X_{ik}$ ).
--   $Y_i - \widehat{Y}_i$ = the deviation of the observation $Y$ around the fitted regression line
-    -   (the amount deviation **unexplained** by the regression at $X_{i1},\ldots,X_{ik}$ ).
 -   $\widehat{Y}_i- \bar{Y}$ = the deviation of the fitted value $\widehat{Y}_i$ around the mean $\bar{Y}$
     -   (the amount deviation **explained** by the regression at $X_{i1},\ldots,X_{ik}$ ).
+-   $Y_i - \widehat{Y}_i$ = the deviation of the observation $Y$ around the fitted regression line
+    -   (the amount deviation **unexplained** by the regression at $X_{i1},\ldots,X_{ik}$ ).
 
 ## Poll Everywhere Question 3
 

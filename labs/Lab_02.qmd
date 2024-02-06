@@ -266,7 +266,13 @@ iat_2021 = iat_2021 %>%
                              2 ~ "Moderately underweight",
                              1 ~ "Very underweight",
                              .default = NA # to add NA if unknown
-                             ))
+                             ) %>% factor())
+iat_2021 %>%
+  dplyr::select(iam_001_f) %>%
+  tbl_summary()
+
+ggplot(data=iat_2021) +
+  geom_boxplot(aes(x = iam_001_f, y = IAT_score))
 ```
 
 I have called the new variable `iam_001_f` to indicate that the variable is not in factor form. You can also call it something like `iam_001_cat` to indicate the categorical form.

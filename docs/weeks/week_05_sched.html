@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -63,6 +97,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -172,6 +208,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Resources</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quizzes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quizzes</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -228,7 +270,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#monday-25" id="toc-monday-25" class="nav-link" data-scroll-target="#monday-25">Monday 2/5</a></li>
   <li><a href="#wednesday-27" id="toc-wednesday-27" class="nav-link" data-scroll-target="#wednesday-27">Wednesday 2/7</a></li>
   </ul></li>
-  <li><a href="#muddiest-points" id="toc-muddiest-points" class="nav-link" data-scroll-target="#muddiest-points">Muddiest Points</a></li>
+  <li><a href="#muddiest-points" id="toc-muddiest-points" class="nav-link" data-scroll-target="#muddiest-points">Muddiest Points</a>
+  <ul class="collapse">
+  <li><a href="#why-is-it-not-called-multivariate" id="toc-why-is-it-not-called-multivariate" class="nav-link" data-scroll-target="#why-is-it-not-called-multivariate">1. Why is it not called multivariate?</a></li>
+  <li><a href="#when-adjusting-for-another-variable-how-do-we-calculate-the-new-slope-and-intercept" id="toc-when-adjusting-for-another-variable-how-do-we-calculate-the-new-slope-and-intercept" class="nav-link" data-scroll-target="#when-adjusting-for-another-variable-how-do-we-calculate-the-new-slope-and-intercept">2. When adjusting for another variable, how do we calculate the new slope and intercept?</a></li>
+  <li><a href="#i-know-we-cant-really-do-visualizations-past-3-coefficients-but-i-still-cant-really-wrap-my-head-around-how-this-will-work-once-we-add-a-third-covariate-to-the-model." id="toc-i-know-we-cant-really-do-visualizations-past-3-coefficients-but-i-still-cant-really-wrap-my-head-around-how-this-will-work-once-we-add-a-third-covariate-to-the-model." class="nav-link" data-scroll-target="#i-know-we-cant-really-do-visualizations-past-3-coefficients-but-i-still-cant-really-wrap-my-head-around-how-this-will-work-once-we-add-a-third-covariate-to-the-model.">3. I know we can’t really do visualizations past 3 coefficients but I still can’t really wrap my head around how this will work once we add a third covariate to the model.</a></li>
+  <li><a href="#still-a-little-unsure-about-ols" id="toc-still-a-little-unsure-about-ols" class="nav-link" data-scroll-target="#still-a-little-unsure-about-ols">Still a little unsure about OLS</a></li>
+  <li><a href="#we-keep-getting-back-to-widehaty-y_i-and-overliney-and-their-relationship-to-the-population-parameter-estimates.-can-you-clarify-this" id="toc-we-keep-getting-back-to-widehaty-y_i-and-overliney-and-their-relationship-to-the-population-parameter-estimates.-can-you-clarify-this" class="nav-link" data-scroll-target="#we-keep-getting-back-to-widehaty-y_i-and-overliney-and-their-relationship-to-the-population-parameter-estimates.-can-you-clarify-this">We keep getting back to <span class="math inline">\(\widehat{Y}\)</span>, <span class="math inline">\(Y_i\)</span>, and <span class="math inline">\(\overline{Y}\)</span> and their relationship to the population parameter estimates. Can you clarify this?</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -331,15 +380,15 @@ Room Locations for the week
 <td></td>
 <td>A word on Lab 1 and Quiz 1</td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/Quiz_1_Lab_1.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/Quiz_1_Lab_1.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2FQuiz%5F1%5FLab%5F1%2Emp4&amp;referrer=StreamWebApp%2EWeb&amp;referrerScenario=AddressBarCopied%2Eview"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></td>
 </tr>
 <tr class="even">
 <td>8</td>
 <td>Introduction to Multiple Linear Regression</td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/08_MLR_Intro.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/08_MLR_Intro.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F08%5FMLR%5FIntro%2Emp4&amp;referrer=StreamWebApp%2EWeb&amp;referrerScenario=AddressBarCopied%2Eview"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></td>
 </tr>
 <tr class="odd">
 <td>9</td>
@@ -384,8 +433,156 @@ Room Locations for the week
 </section>
 <section id="muddiest-points" class="level2">
 <h2 class="anchored" data-anchor-id="muddiest-points">Muddiest Points</h2>
+<section id="why-is-it-not-called-multivariate" class="level3">
+<h3 class="anchored" data-anchor-id="why-is-it-not-called-multivariate">1. Why is it not called multivariate?</h3>
+<p>Multivariate models refer to models that have multiple outcomes. In multiple/multivariable models, we still only have one outcome, <span class="math inline">\(Y\)</span>, but multiple predictors.</p>
+</section>
+<section id="when-adjusting-for-another-variable-how-do-we-calculate-the-new-slope-and-intercept" class="level3">
+<h3 class="anchored" data-anchor-id="when-adjusting-for-another-variable-how-do-we-calculate-the-new-slope-and-intercept">2. When adjusting for another variable, how do we calculate the new slope and intercept?</h3>
+<p>First, I want to clarify one thing: in the case of two covariates, we only have the best fit plane. The intercept is really just a placeholder for when the covariates are 0. And the coefficients for each covariate are no longer stand alone slopes, unless we examine a specific instance when one covariate takes on a realized value. (Okay, that was kinda a lot of vague language. Let’s go to our example.)</p>
+<p>For <span class="math display">\[\widehat{\text{LE}} = 33.595 + 0.157\ \text{FLR}
++ 0.008\ \text{FS}\]</span>, we have a regression plane.</p>
+<p>When we derive the regression lines for either variable, FLR or FS, we can think of the other variable as part of the intercept for the line:</p>
+<p>For FLR: <span class="math display">\[\widehat{\text{LE}} = [33.595 + 0.008\ \text{FS}] + 0.157\ \text{FLR} \]</span> For FS: <span class="math display">\[\widehat{\text{LE}} = [33.595 + 0.157\ \text{FLR}]
++ 0.008\ \text{FS}\]</span></p>
+<p>For FLR, any given FS value will result in the same slope, but the intercept will change. That’s why we say “holding FS constant,” “adjusting for FS,” or “controlling for FS” when we discuss the <span class="math inline">\(\widehat\beta_1=0.157\)</span> estimate. Depending on the FS value, the intercept will change. So we can write: <span class="math display">\[(\widehat{\text{LE}}|FS=3000) = [33.595 + 0.008\cdot 3000] + 0.157\ \text{FLR}= 57.595 + 0.157\ \text{FLR}\]</span></p>
+<p>Try going through the same process for FS when FLR is 30%.</p>
+</section>
+<section id="i-know-we-cant-really-do-visualizations-past-3-coefficients-but-i-still-cant-really-wrap-my-head-around-how-this-will-work-once-we-add-a-third-covariate-to-the-model." class="level3">
+<h3 class="anchored" data-anchor-id="i-know-we-cant-really-do-visualizations-past-3-coefficients-but-i-still-cant-really-wrap-my-head-around-how-this-will-work-once-we-add-a-third-covariate-to-the-model.">3. I know we can’t really do visualizations past 3 coefficients but I still can’t really wrap my head around how this will work once we add a third covariate to the model.</h3>
+<p>Yeah… this is a tough one! You can try to think of the fitted Y <span class="math inline">\(\widehat{Y}|X\)</span> as being built from all the covariate values, and really just the equation for the best-fit line that we estimate. At three covariates, we need to let go of some of the visualizations.</p>
+</section>
+<section id="still-a-little-unsure-about-ols" class="level3">
+<h3 class="anchored" data-anchor-id="still-a-little-unsure-about-ols">Still a little unsure about OLS</h3>
+<p>I was going to write out an explanation to this, but then I wrote my explanation to the below question. I honestly think it helps bring context to OLS and talk about it in a new way that might help if it’s been confusing so far.</p>
+</section>
+<section id="we-keep-getting-back-to-widehaty-y_i-and-overliney-and-their-relationship-to-the-population-parameter-estimates.-can-you-clarify-this" class="level3">
+<h3 class="anchored" data-anchor-id="we-keep-getting-back-to-widehaty-y_i-and-overliney-and-their-relationship-to-the-population-parameter-estimates.-can-you-clarify-this">We keep getting back to <span class="math inline">\(\widehat{Y}\)</span>, <span class="math inline">\(Y_i\)</span>, and <span class="math inline">\(\overline{Y}\)</span> and their relationship to the population parameter estimates. Can you clarify this?</h3>
+<p>I think it’ll be helpful to use the dataset I created from our quiz. I still think this relationship is best communicated with simple linear regression. What you didn’t see on the quiz was that I simulated the data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">444</span>) <span class="co"># Set the seed so that every time I run this I get the same results</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">runif</span>(<span class="at">n=</span><span class="dv">200</span>, <span class="at">min =</span> <span class="dv">40</span>, <span class="at">max =</span> <span class="dv">85</span>) <span class="co"># I am sampling 200 points from a uniform distribution with minimum value 40 and maximum value 85</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">200</span>, <span class="dv">215</span> <span class="sc">-</span> <span class="fl">0.85</span><span class="sc">*</span>x, <span class="dv">13</span>) <span class="co"># Then I can construct my y-observations based on x. Notice that 215 is the true, underlying intercept and -0.85 is the true underlying slope</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">Age =</span> x, <span class="at">HR =</span> y) <span class="co"># Then I combine these into a dataframe</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then we can look at the scatterplot:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">colour=</span><span class="st">"#F14124"</span>) <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Age (years)"</span>, </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Peak exercise heart rate (bpm)"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Peak exercise heart rate vs. Age"</span>) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>), </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>), </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_05_sched_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Each point represents an observation <span class="math inline">\((X_i, Y_i)\)</span>. That is where we get <span class="math inline">\(Y_i\)</span> from</p></li>
+<li><p>The red line represents <span class="math inline">\(\widehat{Y}\)</span>. We can look at each <span class="math inline">\(\widehat{Y}|X\)</span>, so we look at the expected <span class="math inline">\(Y\)</span> at a specific age like 70 years old.</p></li>
+<li><p>Now we need to find <span class="math inline">\(\overline{Y}\)</span>. This does not take <span class="math inline">\(X\)</span> into account. So we can look at the observed <span class="math inline">\(Y\)</span>’s and find the mean</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(HR)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_05_sched_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>HR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 162.8725</code></pre>
+</div>
+</div></li>
+</ul>
+<p>Then we can draw a line on the scatterplot for <span class="math inline">\(\overline{Y}\)</span>:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">colour=</span><span class="st">"#F14124"</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Age (years)"</span>, </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Peak exercise heart rate (bpm)"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Peak exercise heart rate vs. Age"</span>) <span class="sc">+</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>), </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>), </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>)) <span class="sc">+</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">mean</span>(df<span class="sc">$</span>HR), <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">colour=</span><span class="st">"green"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_05_sched_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>When we talk about SSY (total variation), we can think of the histogram of the Y’s</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(HR)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() <span class="sc">+</span> <span class="fu">xlim</span>(<span class="dv">100</span>, <span class="dv">225</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_05_sched_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Then the total variation of these observed values is related to the <span class="math inline">\(\sum_{i=1}^n (Y_i - \overline{Y})^2\)</span>. Let’s plot <span class="math inline">\(Y_i - \overline{Y}\)</span>:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">y_center =</span> HR <span class="sc">-</span> <span class="fu">mean</span>(HR))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(y_center)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() <span class="sc">+</span> <span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">60</span>, <span class="dv">50</span>)<span class="sc">+</span><span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">35</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_05_sched_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>However, we can fit a regression line to show the relationship between Y and X. For every observation <span class="math inline">\(X_i\)</span> there is a specific <span class="math inline">\(\widehat{Y}\)</span> from the regression line. So if we take the difference between the mean Y and the fitted Y, then we get the variation that is explained by the regression.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">=</span> <span class="fu">lm</span>(HR <span class="sc">~</span> Age, <span class="at">data =</span> df)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>aug1 <span class="ot">=</span> <span class="fu">augment</span>(mod1)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">fitted_y =</span> aug1<span class="sc">$</span>.fitted, </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">diff_mean_fit =</span> fitted_y <span class="sc">-</span> <span class="fu">mean</span>(HR))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(diff_mean_fit)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() <span class="sc">+</span> <span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">60</span>, <span class="dv">50</span>)<span class="sc">+</span><span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">35</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_05_sched_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In the plot above, there is variation! And it means that some of the variation in the plot of Y alone is actually coming from this variation explained by the regression model!!</p>
+<p>But there is left over variation that is not explained by the model… What is that? It’s related to our residuals: <span class="math inline">\(\widehat\epsilon_i = Y_i - \widehat{Y}_i\)</span></p>
+<p>So we’ll calculate the residuals (or more appropriately, use the calculation of the residuals that R gave us)</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">=</span> <span class="fu">lm</span>(HR <span class="sc">~</span> Age, <span class="at">data =</span> df)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>aug1 <span class="ot">=</span> <span class="fu">augment</span>(mod1)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">diff_y_fitted =</span> aug1<span class="sc">$</span>.resid)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(diff_y_fitted)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() <span class="sc">+</span> <span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">60</span>, <span class="dv">50</span>) <span class="sc">+</span><span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">35</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week_05_sched_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Our aim in regression (through ordinary least squares) is to minimize the variance in the above plot. The more variance our model can explain, the less variance in the residuals. In SLR, we can only explain so much variance with a single predictor. As we include more predictors in our model, the model has the opportunity to explain even MORE variance.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
