@@ -36,18 +36,6 @@ editor_options:
 -   On Wednesday, 2/7,  we will be in **RLSB 3A003 A**
 :::
 
-### topics {.hidden}
-
-interpreting model parameters
-
-matrix representation
-
-parameter estimation (OLS)
-
-properties of estimators
-
-sums of squares - hypothesis testing is overall topic - sums of squares - F test - nested models? - covariate subset test - single covariate test
-
 ## Resources
 
 Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
@@ -109,11 +97,11 @@ Try going through the same process for FS when FLR is 30%.
 
 Yeah... this is a tough one! You can try to think of the fitted Y $\widehat{Y}|X$ as being built from all the covariate values, and really just the equation for the best-fit line that we estimate. At three covariates, we need to let go of some of the visualizations.
 
-### Still a little unsure about OLS
+### 4. Still a little unsure about OLS
 
 I was going to write out an explanation to this, but then I wrote my explanation to the below question. I honestly think it helps bring context to OLS and talk about it in a new way that might help if it's been confusing so far. 
 
-### We keep getting back to $\widehat{Y}$, $Y_i$, and $\overline{Y}$ and their relationship to the population parameter estimates. Can you clarify this?
+### 5. We keep getting back to $\widehat{Y}$, $Y_i$, and $\overline{Y}$ and their relationship to the population parameter estimates. Can you clarify this?
 
 I think it'll be helpful to use the dataset I created from our quiz. I still think this relationship is best communicated with simple linear regression. What you didn't see on the quiz was that I simulated the data:
 

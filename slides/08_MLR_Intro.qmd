@@ -63,7 +63,7 @@ library(ggiraphExtra)   # for ggPredict() command
 -   SLR helped us establish the foundation for a lot of regression
 
     -   But we do not usually use SLR in analysis
-    
+
 **What did we learn in SLR??**
 
 ::: columns
@@ -72,6 +72,7 @@ library(ggiraphExtra)   # for ggPredict() command
 ::: RAP2-title
 Model Fitting
 :::
+
 ::: RAP2-cont
 -   Ordinary least squares (OLS)
 -   `lm()` function in R
@@ -84,6 +85,7 @@ Model Fitting
 ::: RAP4-title
 Model Use
 :::
+
 ::: RAP4-cont
 -   Inference for variance of residuals
 -   Hypothesis testing for coefficients
@@ -99,6 +101,7 @@ Model Use
 ::: RAP3-title
 Model Evaluation/Diagnostics
 :::
+
 ::: RAP3-cont
 -   LINE Assumptions
 -   Influential points
@@ -769,7 +772,7 @@ ANOVA table ($k$ = \# of predictors, $n$ = \# of observations)
 
 ::: {.column width="84%"}
 | Variation Source | df      | SS    | MS                        | test statistic        | p-value                 |
-|------------|------------|------------|------------|------------|------------|
+|------------------|---------|-------|---------------------------|-----------------------|-------------------------|
 | Regression       | $k$     | $SSR$ | $MSR = \frac{SSR}{k}$     | $F = \frac{MSR}{MSE}$ | $F \sim F_{(k, n-k-1)}$ |
 | Error            | $n-k-1$ | $SSE$ | $MSE = \frac{SSE}{n-k-1}$ |                       |                         |
 | Total            | $n-1$   | $SSY$ |                           |                       |                         |
@@ -840,7 +843,6 @@ For every increase of 1 $X_2$-unit in the $X_2$-variable, adjusting/controlling 
 
 ## Poll Everywhere Question 4
 
-
 ## Getting these interpretations from our regression table
 
 We fit the regression model in R and printed the regression table:
@@ -894,7 +896,6 @@ For every 1 kcal PPD increase in the food supply, adjusting for female literacy 
 :::
 :::
 :::
-
 
 ## Let's just examine the general interpretation vs. the example {.smaller}
 

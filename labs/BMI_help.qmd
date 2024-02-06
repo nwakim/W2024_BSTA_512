@@ -1,0 +1,213 @@
+---
+title: "BMI Variable Help"
+subtitle: "BSTA 512/612"
+date-modified: "today"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+    toc-depth: 4
+  pdf: default 
+editor_options: 
+  chunk_output_type: console
+---
+
+Link to github page for `qmd` file
+
+#### Loading the needed packages:
+
+```{r}
+#| message: false
+
+library(tidyverse)
+library(gtsummary)
+library(here)
+if(!require(lubridate)) { install.packages("lubridate"); library(lubridate) }
+```
+
+#### Loading my IAT dataset (as it's Rda file):
+
+```{r}
+load(file = here("./labs/data/IAT_data.rda"))
+```
+
+#### Selecting the variables that I want to look at:
+
+```{r}
+iat_prep = iat_2021_raw %>% 
+  select(IAT_score = D_biep.Thin_Good_all, 
+         att7, iam_001, identfat_001, 
+         myweight_002, myheight_002,
+         identthin_001, controlother_001, 
+         controlyou_001, mostpref_001,
+         important_001, 
+         birthmonth, birthyear, month, year, 
+         raceomb_002, raceombmulti, ethnicityomb, 
+         edu, edu_14, 
+         genderIdentity, 
+         birthSex)
+```
+
+### Self-reported BMI
+
+I started investigating the BMI because I was curious how the paper [@elran-barak2018] used it and just wanted to check reproducibility. There are a few issues with the self-reported BMI that immediately stuck out:
+
+-   Components of BMI (weight and height) were self-reported
+
+    -   People told they are underweight often add pounds (REFERENCE)
+
+    -   People told they are overweight often subtract pounds (REFERENCE)
+
+-   Raw data from weight and height are categorical. This is according to the codebook associated with this dataset. Please find your codebook file named `Weight_IAT_public_2021_codebook.csv` . You can find the value names for `myweight_002` and `myheight_002`.
+
+    For example, in the weight variable,
+
+    -   most categories identify a lower limit to the weight in the group. One example group is weight is greater than or equal to 200 pounds and less than 205 pounds (labelled as "200 lb :: 91 kg").
+
+    -   the first category for weight is "below 50lb:: 23kg" with 258 observations
+
+    -   the last category for weight is "above 440lb:: above 200kg" with 295 observations
+
+        -   While the 5 groups of weight leading up the last category have 33, 28, 34, 20, and 89 observations, respectively.
+
+    -   My intention here is not the question anyone's weight, but keep in mind that surveys sometimes have people selecting the first or last option because they are not taking the survey seriously
+
+#### My exact steps
+
+1.  I wanted to get a table of the counts within each weight group. I used the `gt` package to make a table of what I thought was a categorical variable. It looks like R interprets the numbered categories as numbers.
+
+    ```{r}
+    iat_prep %>%
+      dplyr::select(myweight_002) %>%
+      tbl_summary()
+    ```
+
+2.  I will first check the class of the variable to make sure R is doing what I think it's doing.
+
+    ```{r}
+    class(iat_prep$myweight_002)
+    ```
+
+    So R is interpreting the values as integers. I will need to make them categories to view them through `gt` commands.
+
+3.  Let's make it a category:
+
+    ```{r}
+    iat_prep2 = iat_prep %>% 
+      mutate(myweight = as.factor(myweight_002))
+    ```
+
+4.  Now we make the table:
+
+    ```{r}
+    iat_prep2 %>%
+      dplyr::select(myweight) %>%
+      tbl_summary()
+    ```
+
+5.  The table is really long, so a histogram would work much better to visualize how many observations are in each category:
+
+    ```{r}
+    #| message: false
+    ggplot(data = iat_prep, aes(x = myweight_002)) + 
+      geom_histogram() +
+      geom_vline(aes(xintercept = mean(iat_prep$myweight_002, 
+                                       na.rm = T)), 
+                 color = "red", linewidth = 2)
+    ```
+
+We need to convert the heights and weights to their cm and kg respectively. Since I only have a number category, I've gone into the codebook to find what each numbered category represents. If you put 8, you are 43 inches tall; 16:51 in; and 32:67in. Now I can use a line to see if I can create an equation to convert these values.
+
+$$
+\begin{align}
+in & = m\times cat+b \\
+43 &= m \times 8 + b \\
+b & = 43-8m \\
+\\
+51 &= 16m + b \\
+51 &= 16m + (43-8m) \\
+m &=1 \\ 
+b&=43-8m = 43-8=35 \\
+\end{align}
+$$
+
+Then we double check with third set of points:
+
+$$
+\begin{align}
+67 & = 1 \times 32 + 35 \\
+67 & = 67 \\
+\end{align}
+$$
+
+```{r}
+iat_prep$myheight_in = 1*iat_prep$myheight_002 + 35
+```
+
+Then we need to convert height to meters since BMI is in $kg/m^2$.
+
+```{r}
+iat_prep$myheight_m = 0.0254*iat_prep$myheight_in
+```
+
+Okay, now we need to do something similar for weight. Three more points to find the conversion: 10:90lb; 20:140lb; and 30: 190lb.
+
+$$
+\begin{align}
+lb & = m\times cat+b \\
+90 &= m \times 10 + b \\
+b & = 90-10m \\
+\\
+140 &= 20m + b \\
+140 &= 20m + (90-10m) \\
+m &=5 \\ 
+b&=90-10m = 90-50=40 \\
+\end{align}
+$$
+
+Then we double check with third set of points:
+
+$$
+\begin{align}
+190 & = 5 \times 30 + 40 \\
+190 & = 190 \\
+\end{align}
+$$
+
+```{r}
+iat_prep$myweight_lb = 5*iat_prep$myweight_002 + 40
+```
+
+Then we need to convert height to meters since BMI is in $kg/m^2$.
+
+```{r}
+iat_prep$myweight_kg = 0.453592*iat_prep$myweight_lb
+```
+
+```{r}
+iat_prep$bmi = iat_prep$myweight_kg/(iat_prep$myheight_m)^2
+```
+
+```{r}
+ggplot(data = iat_prep, aes(x = bmi)) + 
+  geom_histogram(binwidth = 1) +
+  geom_vline(aes(xintercept = mean(bmi, 
+                                   na.rm = T)), 
+             color = "red", linewidth = 2)
+```
+
+From histogram, looks like there are a couple observations at BMIs greater than 200. Let's double check that.
+
+```{r}
+summary(iat_prep$bmi)
+```
+
+Okay, so we now know the max is 241.41. I want to see the observations that have BMIs this large. I'll take a look at their other values to see if there are any other issues.
+
+```{r}
+iat_prep_bmi = iat_prep %>% filter(bmi > 200)
+head(iat_prep_bmi, 10)
+```
+
+Looking at the subset of individuals with BMIs greater than 200, I am reminded that there is some serious quality control that needs to be done to this dataset. Other variable observations indicate that some of these rows are individuals who did not accurately fill out their survey. Right now, we keep them in our dataset, but we will need to examine them for outliers.

@@ -261,8 +261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#topics" id="toc-topics" class="nav-link active" data-scroll-target="#topics">topics</a></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link active" data-scroll-target="#resources">Resources</a></li>
   <li><a href="#on-the-horizon" id="toc-on-the-horizon" class="nav-link" data-scroll-target="#on-the-horizon">On the Horizon</a></li>
   <li><a href="#class-exit-tickets" id="toc-class-exit-tickets" class="nav-link" data-scroll-target="#class-exit-tickets">Class Exit Tickets</a></li>
   <li><a href="#announcements" id="toc-announcements" class="nav-link" data-scroll-target="#announcements">Announcements</a>
@@ -275,8 +274,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#why-is-it-not-called-multivariate" id="toc-why-is-it-not-called-multivariate" class="nav-link" data-scroll-target="#why-is-it-not-called-multivariate">1. Why is it not called multivariate?</a></li>
   <li><a href="#when-adjusting-for-another-variable-how-do-we-calculate-the-new-slope-and-intercept" id="toc-when-adjusting-for-another-variable-how-do-we-calculate-the-new-slope-and-intercept" class="nav-link" data-scroll-target="#when-adjusting-for-another-variable-how-do-we-calculate-the-new-slope-and-intercept">2. When adjusting for another variable, how do we calculate the new slope and intercept?</a></li>
   <li><a href="#i-know-we-cant-really-do-visualizations-past-3-coefficients-but-i-still-cant-really-wrap-my-head-around-how-this-will-work-once-we-add-a-third-covariate-to-the-model." id="toc-i-know-we-cant-really-do-visualizations-past-3-coefficients-but-i-still-cant-really-wrap-my-head-around-how-this-will-work-once-we-add-a-third-covariate-to-the-model." class="nav-link" data-scroll-target="#i-know-we-cant-really-do-visualizations-past-3-coefficients-but-i-still-cant-really-wrap-my-head-around-how-this-will-work-once-we-add-a-third-covariate-to-the-model.">3. I know we can’t really do visualizations past 3 coefficients but I still can’t really wrap my head around how this will work once we add a third covariate to the model.</a></li>
-  <li><a href="#still-a-little-unsure-about-ols" id="toc-still-a-little-unsure-about-ols" class="nav-link" data-scroll-target="#still-a-little-unsure-about-ols">Still a little unsure about OLS</a></li>
-  <li><a href="#we-keep-getting-back-to-widehaty-y_i-and-overliney-and-their-relationship-to-the-population-parameter-estimates.-can-you-clarify-this" id="toc-we-keep-getting-back-to-widehaty-y_i-and-overliney-and-their-relationship-to-the-population-parameter-estimates.-can-you-clarify-this" class="nav-link" data-scroll-target="#we-keep-getting-back-to-widehaty-y_i-and-overliney-and-their-relationship-to-the-population-parameter-estimates.-can-you-clarify-this">We keep getting back to <span class="math inline">\(\widehat{Y}\)</span>, <span class="math inline">\(Y_i\)</span>, and <span class="math inline">\(\overline{Y}\)</span> and their relationship to the population parameter estimates. Can you clarify this?</a></li>
+  <li><a href="#still-a-little-unsure-about-ols" id="toc-still-a-little-unsure-about-ols" class="nav-link" data-scroll-target="#still-a-little-unsure-about-ols">4. Still a little unsure about OLS</a></li>
+  <li><a href="#we-keep-getting-back-to-widehaty-y_i-and-overliney-and-their-relationship-to-the-population-parameter-estimates.-can-you-clarify-this" id="toc-we-keep-getting-back-to-widehaty-y_i-and-overliney-and-their-relationship-to-the-population-parameter-estimates.-can-you-clarify-this" class="nav-link" data-scroll-target="#we-keep-getting-back-to-widehaty-y_i-and-overliney-and-their-relationship-to-the-population-parameter-estimates.-can-you-clarify-this">5. We keep getting back to <span class="math inline">\(\widehat{Y}\)</span>, <span class="math inline">\(Y_i\)</span>, and <span class="math inline">\(\overline{Y}\)</span> and their relationship to the population parameter estimates. Can you clarify this?</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -354,14 +353,6 @@ Room Locations for the week
 </ul>
 </div>
 </div>
-<section id="topics" class="level3 hidden">
-<h3 class="hidden anchored" data-anchor-id="topics">topics</h3>
-<p>interpreting model parameters</p>
-<p>matrix representation</p>
-<p>parameter estimation (OLS)</p>
-<p>properties of estimators</p>
-<p>sums of squares - hypothesis testing is overall topic - sums of squares - F test - nested models? - covariate subset test - single covariate test</p>
-</section>
 <section id="resources" class="level2">
 <h2 class="anchored" data-anchor-id="resources">Resources</h2>
 <p>Below is a table with links to resources. Icons in <span style="color:#E25D3B;">orange</span> mean there is an available file link.</p>
@@ -453,11 +444,11 @@ Room Locations for the week
 <p>Yeah… this is a tough one! You can try to think of the fitted Y <span class="math inline">\(\widehat{Y}|X\)</span> as being built from all the covariate values, and really just the equation for the best-fit line that we estimate. At three covariates, we need to let go of some of the visualizations.</p>
 </section>
 <section id="still-a-little-unsure-about-ols" class="level3">
-<h3 class="anchored" data-anchor-id="still-a-little-unsure-about-ols">Still a little unsure about OLS</h3>
+<h3 class="anchored" data-anchor-id="still-a-little-unsure-about-ols">4. Still a little unsure about OLS</h3>
 <p>I was going to write out an explanation to this, but then I wrote my explanation to the below question. I honestly think it helps bring context to OLS and talk about it in a new way that might help if it’s been confusing so far.</p>
 </section>
 <section id="we-keep-getting-back-to-widehaty-y_i-and-overliney-and-their-relationship-to-the-population-parameter-estimates.-can-you-clarify-this" class="level3">
-<h3 class="anchored" data-anchor-id="we-keep-getting-back-to-widehaty-y_i-and-overliney-and-their-relationship-to-the-population-parameter-estimates.-can-you-clarify-this">We keep getting back to <span class="math inline">\(\widehat{Y}\)</span>, <span class="math inline">\(Y_i\)</span>, and <span class="math inline">\(\overline{Y}\)</span> and their relationship to the population parameter estimates. Can you clarify this?</h3>
+<h3 class="anchored" data-anchor-id="we-keep-getting-back-to-widehaty-y_i-and-overliney-and-their-relationship-to-the-population-parameter-estimates.-can-you-clarify-this">5. We keep getting back to <span class="math inline">\(\widehat{Y}\)</span>, <span class="math inline">\(Y_i\)</span>, and <span class="math inline">\(\overline{Y}\)</span> and their relationship to the population parameter estimates. Can you clarify this?</h3>
 <p>I think it’ll be helpful to use the dataset I created from our quiz. I still think this relationship is best communicated with simple linear regression. What you didn’t see on the quiz was that I simulated the data:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">444</span>) <span class="co"># Set the seed so that every time I run this I get the same results</span></span>
