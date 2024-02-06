@@ -13,7 +13,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-Link to github page for `qmd` file
+[Link to github page for `qmd` file](https://github.com/nwakim/W2024_BSTA_512/blob/main/labs/BMI_help.qmd)
 
 #### Loading the needed packages:
 
