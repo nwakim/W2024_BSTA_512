@@ -29,7 +29,7 @@ if(!require(lubridate)) { install.packages("lubridate"); library(lubridate) }
 #### Loading my IAT dataset (as it's Rda file):
 
 ```{r}
-load(file = here("./labs/data/IAT_data.rda"))
+load(file = here("../TA_files/Project/data/IAT_data.rda"))
 ```
 
 #### Selecting the variables that I want to look at:
