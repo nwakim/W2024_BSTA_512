@@ -61,7 +61,11 @@ glimpse(gapm_sub)
 
 # Learning Objectives
 
-5.  Interpret MLR (population) coefficient estimates with additional variable in model
+1.  Interpret MLR (population) coefficient estimates with additional variable in model
+2.  Understand the use of the general F-test and interpret what it measures.
+3.  Understand the context of the **Overall F-test**, conduct the needed hypothesis test, and interpret the results.
+4.  Understand the context of the **single covariate F-test**, conduct the needed hypothesis test, and interpret the results.
+5.  Understand the context of the **group of covariates F-test**, conduct the needed hypothesis test, and interpret the results.
 
 ## Let's map that to our regression analysis process
 
@@ -153,7 +157,13 @@ Model Use (Inference)
 
 # Learning Objectives
 
-5.  Interpret MLR (population) coefficient estimates with additional variable in model
+::: lob
+1.  Interpret MLR (population) coefficient estimates with additional variable in model
+:::
+2.  Understand the use of the general F-test and interpret what it measures.
+3.  Understand the context of the **Overall F-test**, conduct the needed hypothesis test, and interpret the results.
+4.  Understand the context of the **single covariate F-test**, conduct the needed hypothesis test, and interpret the results.
+5.  Understand the context of the **group of covariates F-test**, conduct the needed hypothesis test, and interpret the results.
 
 ## Interpreting the estimated population coefficients
 
@@ -362,7 +372,16 @@ For every 1 kcal PPD increase in the food supply, adjusting for female literacy 
 :::
 :::
 
-# Learning Objective
+# Learning Objectives
+
+1.  Interpret MLR (population) coefficient estimates with additional variable in model
+
+::: lob
+2.  Understand the use of the general F-test and interpret what it measures.
+:::
+3.  Understand the context of the **Overall F-test**, conduct the needed hypothesis test, and interpret the results.
+4.  Understand the context of the **single covariate F-test**, conduct the needed hypothesis test, and interpret the results.
+5.  Understand the context of the **group of covariates F-test**, conduct the needed hypothesis test, and interpret the results.
 
 ## We must revisit our dear friend, the F-test!
 
@@ -671,7 +690,16 @@ $$\begin{aligned}
 + 0.008\ \text{Food supply}
 \end{aligned}$$
 
-# Learning Objective
+# Learning Objectives
+
+1.  Interpret MLR (population) coefficient estimates with additional variable in model
+2.  Understand the use of the general F-test and interpret what it measures.
+
+::: lob
+3.  Understand the context of the **Overall F-test**, conduct the needed hypothesis test, and interpret the results.
+:::
+4.  Understand the context of the **single covariate F-test**, conduct the needed hypothesis test, and interpret the results.
+5.  Understand the context of the **group of covariates F-test**, conduct the needed hypothesis test, and interpret the results.
 
 ## Overall F-test
 
@@ -1036,7 +1064,16 @@ anova(mod_red1, mod_full1) %>% tidy() %>% gt() %>% tab_options(table.font.size =
 
 We reject the null hypothesis at the 5% significance level. There is sufficient evidence that either countries' female literacy rate or the food supply (or both) contributes significantly to the prediction of life expectancy (p-value < 0.001).
 
-# Learning Objective
+# Learning Objectives
+
+1.  Interpret MLR (population) coefficient estimates with additional variable in model
+2.  Understand the use of the general F-test and interpret what it measures.
+3.  Understand the context of the **Overall F-test**, conduct the needed hypothesis test, and interpret the results.
+
+::: lob
+4.  Understand the context of the **single covariate F-test**, conduct the needed hypothesis test, and interpret the results.
+:::
+5.  Understand the context of the **group of covariates F-test**, conduct the needed hypothesis test, and interpret the results.
 
 ## Covariate subset test: Single variable
 
@@ -1383,7 +1420,16 @@ anova(mod_red2, mod_full2) %>% tidy() %>% gt() %>% tab_options(table.font.size =
 
 We reject the null hypothesis at the 5% significance level. There is sufficient evidence that countries' food supply contributes significantly to the prediction of life expectancy, given that female literacy rate is already in the model (p-value < 0.001).
 
-# Learning Objective
+# Learning Objectives
+
+1.  Interpret MLR (population) coefficient estimates with additional variable in model
+2.  Understand the use of the general F-test and interpret what it measures.
+3.  Understand the context of the **Overall F-test**, conduct the needed hypothesis test, and interpret the results.
+4.  Understand the context of the **single covariate F-test**, conduct the needed hypothesis test, and interpret the results.
+
+::: lob
+5.  Understand the context of the **group of covariates F-test**, conduct the needed hypothesis test, and interpret the results.
+:::
 
 ## Covariate subset test: group of variables
 
