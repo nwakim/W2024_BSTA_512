@@ -67,9 +67,13 @@ Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B
 
 ### Wednesday 2/7
 
--   Let's check in on Lab 2
-
 -   Added BMI help page!
+
+-   Office hours tomorrow at 11:30 if you need help on Lab 2!!
+
+-   Don't forget that you can ask for a "no questions asked" extension
+
+-   I feel like I'm forgetting something...
 
 ## Muddiest Points
 
