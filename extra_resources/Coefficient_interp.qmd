@@ -19,13 +19,24 @@ editor_options:
 
     -   Units of X
 
-    -   Mean/average/expected before Y when discussing intercept
+    -   Discussing intercept: Mean or average or expected before Y
 
-    -   Mean/average/expected before difference, increase, or decrease when discussing coefficient for continuous covariate
+    -   Discussing coefficient for continuous covariate: Mean or average or expected before difference, increase, or decrease
 
-        -   You can also have expected/average/mean before the Y, but not necessary
+        -   OR: Mean or average or expected before Y
+        -   Only need before difference or Y!!
 
     -   Confidence interval
+
+    -   If other covariates in the model
+
+        -   Discussing intercept: Must state that variables are equal to 0
+
+            -   or at their centered value if centered!
+
+        -   Discussing coefficient for covariate: Must state "adjusting for all other variables", "Controlling for all other variables", or "Holding all other variables constant"
+
+            -   If only one other variable in the model, then replace "all other variables" with the single variable name
 
 -   When the estimate of the population coefficient is...
 

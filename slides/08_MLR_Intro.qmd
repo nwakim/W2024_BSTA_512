@@ -772,7 +772,7 @@ ANOVA table ($k$ = \# of predictors, $n$ = \# of observations)
 
 ::: {.column width="84%"}
 | Variation Source | df      | SS    | MS                        | test statistic        | p-value                 |
-|------------------|---------|-------|---------------------------|-----------------------|-------------------------|
+|------------|------------|------------|------------|------------|------------|
 | Regression       | $k$     | $SSR$ | $MSR = \frac{SSR}{k}$     | $F = \frac{MSR}{MSE}$ | $F \sim F_{(k, n-k-1)}$ |
 | Error            | $n-k-1$ | $SSE$ | $MSE = \frac{SSE}{n-k-1}$ |                       |                         |
 | Total            | $n-1$   | $SSY$ |                           |                       |                         |

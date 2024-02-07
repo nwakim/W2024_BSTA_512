@@ -1,0 +1,1742 @@
+---
+title: "MLR: Inference"
+author: "Nicky Wakim"
+title-slide-attributes:
+    data-background-color: "#213c96"
+date: "02/07/2024"
+categories: ["Week 5"]
+format: 
+  revealjs:
+    theme: [default, simple_NW.scss]
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1955
+    height: 1100
+    footer: MLR 2
+    html-math-method: mathjax
+    highlight-style: ayu
+execute:
+  echo: true
+  freeze: auto  # re-render only when source changes
+---
+
+```{r}
+#| label: "setup" 
+#| include: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(janitor)
+library(knitr)
+library(broom)
+library(rstatix)
+library(gt)
+library(readxl)
+#----------
+# new packages
+# install.packages("describedata")
+library(describedata) # gladder()
+library(gridExtra)   # grid.arrange()
+library(ggfortify)  # autoplot(model)
+# New Day 6
+library(gtsummary)
+
+# New Day 7
+library(plotly) # for plot_ly() command
+library(GGally) # for ggpairs() command 
+library(ggiraphExtra)   # for ggPredict() command
+
+# Load the data - update code if the csv file is not in the same location on your computer
+# If you need to download the file, please go to ur shared folder under Data > Slides
+gapm <- read_excel("data/Gapminder_vars_2011.xlsx", 
+                   na = "NA")  # important!!!! 
+
+gapm_sub <- gapm %>% 
+  drop_na(LifeExpectancyYrs, FemaleLiteracyRate, FoodSupplykcPPD)
+
+glimpse(gapm_sub)
+```
+
+# Learning Objectives
+
+5.  Interpret MLR (population) coefficient estimates with additional variable in model
+
+## Let's map that to our regression analysis process
+
+::: box
+![](images/arrow2.png){.absolute top="13.5%" right="62.1%" width="155"} ![](images/arrow2.png){.absolute top="13.5%" right="28.4%" width="155"}![](images/arrow_back4.png){.absolute top="7.5%" right="30.5%" width="820"} ![](images/arrow_down.png){.absolute top="60.5%" right="48%" width="85"}
+
+::: columns
+::: {.column width="30%"}
+::: RAP1
+::: RAP1-title
+Model Selection
+:::
+
+::: RAP1-cont
+-   Building a model
+
+-   Selecting variables
+
+-   Prediction vs interpretation
+
+-   Comparing potential models
+:::
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="30%"}
+::: RAP2
+::: RAP2-title
+Model Fitting
+:::
+
+::: RAP2-cont
+-   Find best fit line
+
+-   Using OLS in this class
+
+-   Parameter estimation
+
+-   Categorical covariates
+
+-   Interactions
+:::
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="30%"}
+::: RAP3
+::: RAP3-title
+Model Evaluation
+:::
+
+::: RAP3-cont
+-   Evaluation of model fit
+-   Testing model assumptions
+-   Residuals
+-   Transformations
+-   Influential points
+-   Multicollinearity
+:::
+:::
+:::
+:::
+:::
+
+::: RAP4
+::: RAP4-title
+Model Use (Inference)
+:::
+
+::: RAP4-cont
+::: columns
+::: {.column width="50%"}
+-   Inference for coefficients
+-   Hypothesis testing for coefficients
+:::
+
+::: {.column width="50%"}
+-   Inference for expected $Y$ given $X$
+:::
+:::
+:::
+:::
+
+# Learning Objectives
+
+5.  Interpret MLR (population) coefficient estimates with additional variable in model
+
+## Interpreting the estimated population coefficients
+
+-   For a population model: $$Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2+ \epsilon$$
+    -   Where $X_1$ and $X_2$ are continuous variables
+    -   No need to specify $Y$ because it required to be continuous in linear regression
+
+::: columns
+::: {.column width="33%"}
+::: fact
+::: fact-title
+General interpretation for $\widehat{\beta}_0$
+:::
+
+::: fact-cont
+The expected $Y$-variable is ($\widehat\beta_0$ units) when the $X_1$-variable is 0 $X_1$-units and $X_2$-variable is 0 $X_1$-units (95% CI: LB, UB).
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: definition
+::: def-title
+General interpretation for $\widehat{\beta}_1$
+:::
+
+::: def-cont
+For every increase of 1 $X_1$-unit in the $X_1$-variable, adjusting/controlling for $X_2$-variable, there is an expected increase/decrease of $|\widehat\beta_1|$ units in the $Y$-variable (95%: LB, UB).
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: proof1
+::: proof-title
+General interpretation for $\widehat{\beta}_2$
+:::
+
+::: proof-cont
+For every increase of 1 $X_2$-unit in the $X_2$-variable, adjusting/controlling for $X_1$-variable, there is an expected increase/decrease of $|\widehat\beta_2|$ units in the $Y$-variable (95%: LB, UB).
+:::
+:::
+:::
+:::
+
+## Getting these interpretations from our regression table
+
+We fit the regression model in R and printed the regression table:
+
+```{r}
+mr1 <- lm(LifeExpectancyYrs ~ FemaleLiteracyRate + FoodSupplykcPPD, 
+          data = gapm_sub)
+```
+
+```{r}
+#| echo: false
+tidy(mr1, conf.int=T) %>% gt() %>% tab_options(table.font.size = 30) %>% fmt_number(decimals = 3)
+```
+
+Fitted multiple regression model: $\widehat{\text{LE}} = 33.595 + 0.157 \text{ FLR} + 0.008 \text{ FS}$
+
+::: columns
+::: {.column width="33%"}
+::: fact
+::: fact-title
+Interpretation for $\widehat{\beta}_0$
+:::
+
+::: fact-cont
+The expected life expectancy is 33.595 years when the female literacy rate is 0% and food supply is 0 0 kcal PPD (95% CI: 24.674, 41.517).
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: definition
+::: def-title
+Interpretation for $\widehat{\beta}_1$
+:::
+
+::: def-cont
+For every 1% increase in the female literacy rate, adjusting for food supply, there is an expected increase of 0.157 years in the life expectancy (95%: 0.093, 0.221).
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: proof1
+::: proof-title
+Interpretation for $\widehat{\beta}_2$
+:::
+
+::: proof-cont
+For every 1 kcal PPD increase in the food supply, adjusting for female literacy rate, there is an expected increase of 0.008 years in life expectancy (95%: 0.005, 0.012).
+:::
+:::
+:::
+:::
+
+## Let's just examine the general interpretation vs. the example {.smaller}
+
+::: columns
+::: {.column width="33%"}
+::: fact
+::: fact-title
+General interpretation for $\widehat{\beta}_0$
+:::
+
+::: fact-cont
+The expected $Y$-variable is ($\widehat\beta_0$ units) when the $X_1$-variable is 0 $X_1$-units and $X_2$-variable is 0 $X_1$-units (95% CI: LB, UB).
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: definition
+::: def-title
+General interpretation for $\widehat{\beta}_1$
+:::
+
+::: def-cont
+For every increase of 1 $X_1$-unit in the $X_1$-variable, adjusting/controlling for $X_2$-variable, there is an expected increase/decrease of $|\widehat\beta_1|$ units in the $Y$-variable (95%: LB, UB).
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: proof1
+::: proof-title
+General interpretation for $\widehat{\beta}_2$
+:::
+
+::: proof-cont
+For every increase of 1 $X_2$-unit in the $X_2$-variable, adjusting/controlling for $X_1$-variable, there is an expected increase/decrease of $|\widehat\beta_2|$ units in the $Y$-variable (95%: LB, UB).
+:::
+:::
+:::
+:::
+
+::: columns
+::: {.column width="33%"}
+::: fact
+::: fact-title
+Interpretation for $\widehat{\beta}_0$
+:::
+
+::: fact-cont
+The expected life expectancy is 33.595 years when the female literacy rate is 0% and food supply is 0 0 kcal PPD (95% CI: 24.674, 41.517).
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: definition
+::: def-title
+Interpretation for $\widehat{\beta}_1$
+:::
+
+::: def-cont
+For every 1% increase in the female literacy rate, adjusting for food supply, there is an expected increase of 0.157 years in the life expectancy (95%: 0.093, 0.221).
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: proof1
+::: proof-title
+Interpretation for $\widehat{\beta}_2$
+:::
+
+::: proof-cont
+For every 1 kcal PPD increase in the food supply, adjusting for female literacy rate, there is an expected increase of 0.008 years in life expectancy (95%: 0.005, 0.012).
+:::
+:::
+:::
+:::
+
+## What we need in our interpretations of coefficients (reference)
+
+::: columns
+::: column
+-   Units of Y
+
+-   Units of X
+
+-   Discussing intercept: Mean or average or expected before Y
+
+-   Discussing coefficient for continuous covariate: Mean or average or expected before difference, increase, or decrease
+
+    -   OR: Mean or average or expected before Y
+    -   Only need before difference or Y!!
+
+-   Confidence interval
+:::
+
+::: column
+-   If other covariates in the model
+
+    -   Discussing intercept: Must state that variables are equal to 0
+
+        -   or at their centered value if centered!
+
+    -   Discussing coefficient for covariate: Must state "adjusting for all other variables", "Controlling for all other variables", or "Holding all other variables constant"
+
+        -   If only one other variable in the model, then replace "all other variables" with the single variable name
+:::
+:::
+
+# Learning Objective
+
+## We must revisit our dear friend, the F-test!
+
+![https://www.writerswrite.co.za/foreshadowing/](09_MLR_Inference/foreshadowing.jpg){fig-align="center"}
+
+## *Remember from Lesson 5:* F-test vs. t-test for the population slope
+
+The square of a $t$-distribution with $df = \nu$ is an $F$-distribution with $df = 1, \nu$
+
+$$T_{\nu}^2 \sim F_{1,\nu}$$
+
+-   We can use **either F-test** or **t-test** to run the following hypothesis test:
+
+```{=tex}
+\begin{align}
+H_0 &: \beta_1 = 0\\
+\text{vs. } H_A&: \beta_1 \neq 0
+\end{align}
+```
+-   Note that the F-test does not support one-sided alternative tests, but the t-test does!
+
+## *Remember from Lesson 5:* Planting a seed about the F-test
+
+We can think about the hypothesis test for the slope...
+
+::: columns
+::: {.column width="17%"}
+:::
+
+::: {.column width="33%"}
+::: proof1
+::: proof-title
+Null $H_0$
+:::
+
+::: proof-cont
+$\beta_1=0$
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: definition
+::: def-title
+Alternative $H_1$
+:::
+
+::: def-cont
+$\beta_1\neq0$
+:::
+:::
+:::
+:::
+
+in a slightly different way...
+
+::: columns
+::: {.column width="17%"}
+:::
+
+::: {.column width="33%"}
+::: proof1
+::: proof-title
+Null model ($\beta_1=0$)
+:::
+
+::: proof-cont
+-   $Y = \beta_0 + \epsilon$
+-   Smaller (reduced) model
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: definition
+::: def-title
+Alternative model ($\beta_1\neq0$)
+:::
+
+::: def-cont
+-   $Y = \beta_0 + \beta_1 X + \epsilon$
+-   Larger (full) model
+:::
+:::
+:::
+:::
+
+-   In multiple linear regression, we can start using this framework to test multiple coefficient parameters at once
+
+    -   Decide whether or not to reject the smaller reduced model in favor of the larger full model
+
+    -   Cannot do this with the t-test!
+
+## We can extend this!!
+
+We can create a hypothesis test for more than one coefficient at a time...
+
+::: columns
+::: {.column width="17%"}
+:::
+
+::: {.column width="33%"}
+::: proof1
+::: proof-title
+Null $H_0$
+:::
+
+::: proof-cont
+$\beta_1=\beta_2=0$
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: definition
+::: def-title
+Alternative $H_1$
+:::
+
+::: def-cont
+$\beta_1\neq0$ and/or $\beta_2\neq0$
+:::
+:::
+:::
+:::
+
+in a slightly different way...
+
+::: columns
+::: {.column width="17%"}
+:::
+
+::: {.column width="33%"}
+::: proof1
+::: proof-title
+Null model
+:::
+
+::: proof-cont
+-   $Y = \beta_0 + \epsilon$
+-   Smaller (reduced) model
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: definition
+::: def-title
+Alternative\* model
+:::
+
+::: def-cont
+-   $Y = \beta_0 + \beta_1 X + \beta_2 X + \epsilon$
+-   Larger (full) model
+:::
+:::
+:::
+:::
+
+\*This is **not quite** the alternative, but if we reject the null, then this is the model we move forward with
+
+## Building a very important toolkit: three types of tests
+
+::: fact
+::: fact-title
+Overall test
+:::
+
+::: fact-cont
+Does at least one of the covariates/predictors contribute significantly to the prediction of Y?
+:::
+:::
+
+::: example
+::: ex-title
+Test for addition of a single variable (covariate subset test)
+:::
+
+::: ex-cont
+Does the addition of one particular covariate add significantly to the prediction of Y achieved by other covariates already present in the model?
+:::
+:::
+
+::: proposition
+::: prop-title
+Test for addition of group of variables (covariate subset test)
+:::
+
+::: prop-cont
+Does the addition of some group of covariates add significantly to the prediction of Y achieved by other covariates already present in the model?
+:::
+:::
+
+## Variation: Explained vs. Unexplained
+
+$$\begin{aligned}
+\sum_{i=1}^n (Y_i - \overline{Y})^2 &= \sum_{i=1}^n (\widehat{Y}_i- \overline{Y})^2 + \sum_{i=1}^n (Y_i - \widehat{Y}_i)^2 \\
+SSY &= SSR + SSE
+\end{aligned}$$
+
+-   $Y_i - \overline{Y}$ = the deviation of $Y_i$ around the mean $\overline{Y}$
+    -   (the **total** amount deviation unexplained at $X_{i1},\ldots,X_{ik}$ ).
+-   $\widehat{Y}_i- \overline{Y}$ = the deviation of the fitted value $\widehat{Y}_i$ around the mean $\overline{Y}$
+    -   (the amount deviation **explained** by the regression at $X_{i1},\ldots,X_{ik}$ ).
+-   $Y_i - \widehat{Y}_i$ = the deviation of the observation $Y$ around the fitted regression line
+    -   (the amount deviation **unexplained** by the regression at $X_{i1},\ldots,X_{ik}$ )
+
+## Another way to think of SSY, SSR, and SSE
+
+-   Let's create a data frame of each component within the SS's
+
+    -   Difference in SSY: $Y_i - \overline{Y}$
+    -   Difference in SSR: $\widehat{Y}_i- \overline{Y}$
+    -   Difference in SSE: $Y_i - \widehat{Y}_i$
+
+-   Using our simple linear regression model as an example:
+
+```{r}
+slr1 = lm(LifeExpectancyYrs ~ FemaleLiteracyRate, data = gapm_sub)
+aug_slr1 = augment(slr1)
+SS_df = gapm_sub %>% select(LifeExpectancyYrs) %>%
+  mutate(SSY_diff = LifeExpectancyYrs - mean(LifeExpectancyYrs),
+         y_fit = aug_slr1$.fitted, 
+         SSR_diff = y_fit - mean(LifeExpectancyYrs), 
+         SSE_diff = aug_slr1$.resid)
+```
+
+## Plot the components of each sum of squares
+
+```{r}
+#| eval: false
+
+SSY_plot = ggplot(SS_df, aes(SSY_diff)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+SSR_plot = ggplot(SS_df, aes(SSR_diff)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+SSE_plot = ggplot(SS_df, aes(SSE_diff)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+grid.arrange(SSY_plot, SSR_plot, SSE_plot, nrow = 3)
+```
+
+::: columns
+::: column
+```{r}
+#| fig-align: right
+#| fig-width: 6
+#| fig-height: 6
+#| echo: false
+
+SSY_plot = ggplot(SS_df, aes(SSY_diff)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+SSR_plot = ggplot(SS_df, aes(SSR_diff)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+SSE_plot = ggplot(SS_df, aes(SSE_diff)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+grid.arrange(SSY_plot, SSR_plot, SSE_plot, nrow = 3)
+```
+:::
+
+::: column
+$$SSY = \sum_{i=1}^n (Y_i - \overline{Y})^2 = `r round(var(SS_df$SSY_diff), 2)`$$ 
+
+$$SSR = \sum_{i=1}^n (\widehat{Y}_i- \overline{Y})^2 = `r round(var(SS_df$SSR_diff), 2)`$$
+
+$$SSE =\sum_{i=1}^n (Y_i - \widehat{Y}_i)^2 = `r round(var(SS_df$SSE_diff), 2)`$$
+:::
+:::
+
+## When running a F-test for linear models...
+
+-   We need to define a larger, full model (more parameters)
+-   We need to define a smaller, reduced model (fewer parameters)
+-   Use the F-statistic to decide whether or not we reject the smaller model
+    -   The F-statistic compares the SSE of each model to determine if the full model explains a significant amount of additional variance
+
+::: columns
+::: {.column width="30%"}
+ 
+
+$$
+F = \dfrac{\frac{SSE(R) - SSE(F)}{df_R - df_F}}{\frac{SSE(F)}{df_F}}
+$$
+:::
+
+::: {.column width="70%"}
+-   $SSE(R) \geq SSE(F)$
+-   Numerator measures difference in **unexplained** variation between the models
+    -   Big difference = added parameters greatly reduce the unexplained variation (increase explained variation)
+    -   Smaller difference = added parameters don't reduce the unexplained variation
+-   Take ratio of difference to the unexplained variation in the full model
+:::
+:::
+
+## We will keep working with the MLR model from last class
+
+New population model for example:
+
+$$\text{Life expectancy} = \beta_0 + \beta_1 \text{Female literacy rate} + \beta_2 \text{Food supply} + \epsilon$$
+
+```{r}
+# Fit regression model:
+mr1 <- lm(LifeExpectancyYrs ~ FemaleLiteracyRate + FoodSupplykcPPD, 
+          data = gapm_sub)
+tidy(mr1, conf.int=T) %>% gt() %>% tab_options(table.font.size = 35) %>% fmt_number(decimals = 3)
+```
+
+Fitted multiple regression model:
+
+$$\begin{aligned}
+\widehat{\text{Life expectancy}} &= \widehat{\beta}_0 + \widehat{\beta}_1 \text{Female literacy rate} + \widehat{\beta}_2 \text{Food supply} \\
+\widehat{\text{Life expectancy}} &= 33.595 + 0.157\ \text{Female literacy rate} 
++ 0.008\ \text{Food supply}
+\end{aligned}$$
+
+# Learning Objective
+
+## Overall F-test
+
+Does at least one of the covariates/predictors contribute significantly to the prediction of Y?
+
+-   For a general population MLR model, $$Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2+ \ldots + \beta_k X_k + \epsilon$$
+
+We can create a hypothesis test for all the covariate coefficients...
+
+::: columns
+::: {.column width="5%"}
+:::
+
+::: {.column width="45%"}
+::: proof1
+::: proof-title
+Null $H_0$
+:::
+
+::: proof-cont
+$\beta_1=\beta_2= \ldots=\beta_k=0$
+:::
+:::
+:::
+
+::: {.column width="45%"}
+::: definition
+::: def-title
+Alternative $H_1$
+:::
+
+::: def-cont
+At least one $\beta_j\neq0$ (for $j=1, 2, \ldots, k$)
+:::
+:::
+:::
+
+::: {.column width="5%"}
+:::
+:::
+
+::: columns
+::: {.column width="5%"}
+:::
+
+::: {.column width="45%"}
+::: proof1
+::: proof-title
+Null / Smaller / Reduced model
+:::
+
+::: proof-cont
+$Y = \beta_0 + \epsilon$
+:::
+:::
+:::
+
+::: {.column width="45%"}
+::: definition
+::: def-title
+Alternative / Larger / Full model
+:::
+
+::: def-cont
+$Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \ldots + \beta_k X_k + \epsilon$
+:::
+:::
+:::
+
+::: {.column width="5%"}
+:::
+:::
+
+## Overall F-test: general steps for hypothesis test
+
+::: columns
+::: {.column width="48%"}
+::: highlight-container
+::: highlight
+1.  Met underlying LINE assumptions
+:::
+:::
+
+::: highlight-container
+::: highlight
+2.  State the null hypothesis
+:::
+:::
+
+```{=tex}
+\begin{align}
+H_0 &: \beta_1=\beta_2= \ldots=\beta_k=0\\
+\text{vs. } H_A&: \text{At least one } \beta_j\neq0, \text{for }j=1, 2, \ldots, k
+\end{align}
+```
+::: highlight-container
+::: highlight
+3.  Specify the significance level.
+:::
+:::
+
+Often we use $\alpha = 0.05$
+
+::: highlight-container
+::: highlight
+4.  Specify the test statistic and its distribution under the null
+:::
+:::
+
+The test statistic is $F$, and follows an F-distribution with numerator $df=k$ and denominator $df=n-k-1$. ($n$ = \# obversation, $k$ = \# covariates)
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+::: highlight-container
+::: highlight
+5.  Compute the value of the test statistic
+:::
+:::
+
+The calculated **test statistic** is
+
+$$F^ = \dfrac{\frac{SSE(R) - SSE(F)}{df_R - df_F}}{\frac{SSE(F)}{df_F}} = \frac{MSR_{full}}{MSE_{full}}$$
+
+::: highlight-container
+::: highlight
+6.  Calculate the p-value
+:::
+:::
+
+We are generally calculating: $P(F_{k, n-k-1} > F)$
+
+::: highlight-container
+::: highlight
+7.  Write conclusion for hypothesis test
+:::
+:::
+
+-   Reject if: $P(F_{k, n-k-1} > F) < \alpha$
+
+We (reject/fail to reject) the null hypothesis at the $100\alpha\%$ significance level. There is (sufficient/insufficient) evidence that at least one predictor's coefficient is not 0 (p-value = $P(F_{1, n-2} > F)$).
+:::
+:::
+
+## Overall F-test: a word on the conclusion
+
+-   If $H_0$ is rejected, we conclude there is sufficient evidence that at least one predictor's coefficient is different from zero.
+-   Same as: at least one independent variable contributes significantly to the prediction of $Y$
+
+ 
+
+-   If $H_0$ is not rejected, we conclude there is insufficient evidence that at least one predictor's coefficient is different from zero.
+-   Same as: Not enough evidence that at least one independent variable contributes significantly to the prediction of $Y$
+
+## Let's think about our MLR example for life expectancy
+
+Our proposed population model
+
+$$\text{LE} = \beta_0 + \beta_1 \text{FLR} + \beta_2 \text{FS} + \epsilon$$
+
+Fitted multiple regression model:
+
+$$\begin{aligned}
+\widehat{\text{LE}} &= \widehat{\beta}_0 + \widehat{\beta}_1 \text{FLR} + \widehat{\beta}_2 \text{FS} \\
+\widehat{\text{LE}} &= 33.595 + 0.157\ \text{FLR} 
++ 0.008\ \text{FS}
+\end{aligned}$$
+
+**Our main question for the Overall F-test:** Is the regression model containing female literacy rate and food supply useful in estimating countries' life expectancy?
+
+
+::: columns
+::: {.column width="5%"}
+:::
+
+::: {.column width="45%"}
+::: proof1
+::: proof-title
+Null / Smaller / Reduced model
+:::
+
+::: proof-cont
+$LE = \beta_0 + \epsilon$
+:::
+:::
+:::
+
+::: {.column width="45%"}
+::: definition
+::: def-title
+Alternative / Larger / Full model
+:::
+
+::: def-cont
+$LE = \beta_0 + \beta_1 FLR + \beta_2 FS + \epsilon$
+:::
+:::
+:::
+:::
+
+## Comparing the SSY, SSR, and SSE for reduced and full model
+
+```{r}
+mod_red1 = lm(LifeExpectancyYrs ~ 1, data = gapm_sub)
+aug_red1  = augment(mod_red1)
+
+mod_full1 = lm(LifeExpectancyYrs ~ FemaleLiteracyRate + FoodSupplykcPPD,
+               data = gapm_sub)
+aug_full1  = augment(mod_full1)
+
+SS_df2 = gapm_sub %>% select(LifeExpectancyYrs) %>%
+  mutate(SSY_diff_r1 = LifeExpectancyYrs - mean(LifeExpectancyYrs),
+         SSR_diff_r1 = aug_red1$.fitted - mean(LifeExpectancyYrs), 
+         SSE_diff_r1 = aug_red1$.resid, 
+         SSY_diff_f1 = LifeExpectancyYrs - mean(LifeExpectancyYrs),
+         SSR_diff_f1 = aug_full1$.fitted - mean(LifeExpectancyYrs), 
+         SSE_diff_f1 = aug_full1$.resid)
+```
+
+## Comparing the SSY, SSR, and SSE for reduced and full model
+
+::: columns
+::: column
+**Reduced / null model** $$LE = \beta_0 + \epsilon$$
+
+::: columns
+::: column
+```{r}
+#| fig-align: center
+#| fig-width: 6
+#| fig-height: 8
+#| echo: false
+
+SSY_plot_r1 = ggplot(SS_df2, aes(SSY_diff_r1)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+SSR_plot_r1 = ggplot(SS_df2, aes(SSR_diff_r1)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+SSE_plot_r1 = ggplot(SS_df2, aes(SSE_diff_r1)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+grid.arrange(SSY_plot_r1, SSR_plot_r1, SSE_plot_r1, nrow = 3)
+```
+:::
+
+::: {.column width="30%"}
+$$SSY = `r round(var(SS_df2$SSY_diff_r1), 2)`$$ 
+
+ 
+
+$$SSR = `r round(var(SS_df2$SSR_diff_r1), 2)`$$
+
+ 
+
+$$SSE = `r round(var(SS_df2$SSE_diff_r1), 2)`$$
+:::
+
+:::
+
+:::
+
+::: column
+**Full / Alternative model** $$LE = \beta_0 + \beta_1 FLR + \beta_2 FS + \epsilon$$
+
+::: columns
+::: column
+```{r}
+#| fig-align: center
+#| fig-width: 6
+#| fig-height: 8
+#| echo: false
+
+SSY_plot_f1 = ggplot(SS_df2, aes(SSY_diff_f1)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+SSR_plot_f1 = ggplot(SS_df2, aes(SSR_diff_f1)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+SSE_plot_f1 = ggplot(SS_df2, aes(SSE_diff_f1)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+grid.arrange(SSY_plot_f1, SSR_plot_f1, SSE_plot_f1, nrow = 3)
+```
+:::
+
+::: {.column width="30%"}
+$$SSY = `r round(var(SS_df2$SSY_diff_f1), 2)`$$ 
+
+ 
+
+$$SSR = `r round(var(SS_df2$SSR_diff_f1), 2)`$$
+
+ 
+
+$$SSE = `r round(var(SS_df2$SSE_diff_f1), 2)`$$
+:::
+
+:::
+
+:::
+:::
+
+## Poll Everywhere Question
+
+
+
+## So let's step through our hypothesis test (1/3)
+
+::: highlight-container
+::: highlight
+1.  Met underlying LINE assumptions
+:::
+:::
+
+ 
+
+::: highlight-container
+::: highlight
+2.  State the null hypothesis
+:::
+:::
+
+```{=tex}
+\begin{align}
+H_0 &: \beta_1=\beta_2=0\\
+\text{vs. } H_A&: \text{At least one } \beta_1\neq0 \text{ or } \beta_2\neq0
+\end{align}
+```
+::: highlight-container
+::: highlight
+3.  Specify the significance level
+:::
+:::
+
+Often we use $\alpha = 0.05$
+
+::: highlight-container
+::: highlight
+4.  Specify the test statistic and its distribution under the null
+:::
+:::
+
+The test statistic is $F$, and follows an F-distribution with numerator $df=k =2$ and denominator $df=n-k-1 = 72 - 2-1=69$. ($n$ = \# obversation, $k$ = \# covariates)
+
+## So let's step through our hypothesis test (2/3)
+
+::: highlight-container
+::: highlight
+5.  Compute the value of the test statistic / 6.  Calculate the p-value
+:::
+:::
+
+The calculated **test statistic** is
+
+$$F^ = \dfrac{\frac{SSE(R) - SSE(F)}{df_R - df_F}}{\frac{SSE(F)}{df_F}}=44.443$$
+OR use ANOVA table:
+
+```{r}
+anova(mod_red1, mod_full1) %>% tidy() %>% gt() %>% tab_options(table.font.size = 35) %>% fmt_number(decimals = 3)
+```
+
+## So let's step through our hypothesis test (3/3)
+
+::: highlight-container
+::: highlight
+7.  Write conclusion for hypothesis test
+:::
+:::
+
+ 
+
+We reject the null hypothesis at the 5% significance level. There is sufficient evidence that either countries' female literacy rate or the food supply (or both) contributes significantly to the prediction of life expectancy (p-value < 0.001).
+
+# Learning Objective
+
+## Covariate subset test: Single variable
+
+Does the addition of one particular covariate of interest add significantly to the prediction of Y achieved by other covariates already present in the model?
+
+-   For a general population MLR model, $$Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2+ \beta_j X_j +\ldots + \beta_k X_k + \epsilon$$
+
+We can create a hypothesis test for a single $j$ covariate coefficient (where $j$ can be any value $1, 2, \ldots, k$)...
+
+::: columns
+::: {.column width="5%"}
+:::
+
+::: {.column width="45%"}
+::: proof1
+::: proof-title
+Null $H_0$
+:::
+
+::: proof-cont
+$\beta_j=0$
+:::
+:::
+:::
+
+::: {.column width="45%"}
+::: definition
+::: def-title
+Alternative $H_1$
+:::
+
+::: def-cont
+$\beta_j\neq0$
+:::
+:::
+:::
+
+::: {.column width="5%"}
+:::
+:::
+
+::: columns
+::: {.column width="5%"}
+:::
+
+::: {.column width="45%"}
+::: proof1
+::: proof-title
+Null / Smaller / Reduced model
+:::
+
+::: proof-cont
+$Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \ldots + \beta_k X_k + \epsilon$
+:::
+:::
+:::
+
+::: {.column width="45%"}
+::: definition
+::: def-title
+Alternative / Larger / Full model
+:::
+
+::: def-cont
+$\begin{aligned}Y = &\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_j X_j +\\ &\ldots + \beta_k X_k + \epsilon \end{aligned}$
+:::
+:::
+:::
+
+::: {.column width="5%"}
+:::
+:::
+
+## Single covariate F-test: general steps for hypothesis test (reference)
+
+::: columns
+::: {.column width="48%"}
+::: highlight-container
+::: highlight
+1.  Met underlying LINE assumptions
+:::
+:::
+
+::: highlight-container
+::: highlight
+2.  State the null hypothesis
+:::
+:::
+
+```{=tex}
+\begin{align}
+H_0 &: \beta_j=0\\
+\text{vs. } H_A&: \beta_j\neq 0
+\end{align}
+```
+::: highlight-container
+::: highlight
+3.  Specify the significance level
+:::
+:::
+
+Often we use $\alpha = 0.05$
+
+::: highlight-container
+::: highlight
+4.  Specify the test statistic and its distribution under the null
+:::
+:::
+
+The test statistic is $F$, and follows an F-distribution with numerator $df=k$ and denominator $df=n-k-1$. ($n$ = \# obversation, $k$ = \# covariates)
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+::: highlight-container
+::: highlight
+5.  Compute the value of the test statistic
+:::
+:::
+
+The calculated **test statistic** is
+
+$$F^ = \dfrac{\frac{SSE(R) - SSE(F)}{df_R - df_F}}{\frac{SSE(F)}{df_F}}$$
+
+::: highlight-container
+::: highlight
+6.  Calculate the p-value
+:::
+:::
+
+We are generally calculating: $P(F_{k, n-k-1} > F)$
+
+::: highlight-container
+::: highlight
+7.  Write conclusion for hypothesis test
+:::
+:::
+
+We (reject/fail to reject) the null hypothesis at the $100\alpha\%$ significance level. There is (sufficient/insufficient) evidence that predictor/covariate $j$ significantly improves the prediction of Y, given all the other covariates are in the model (p-value = $P(F_{1, n-2} > F)$).
+:::
+:::
+
+## Let's think about our MLR example for life expectancy
+
+Our proposed population model
+
+$$\text{LE} = \beta_0 + \beta_1 \text{FLR} + \beta_2 \text{FS} + \epsilon$$
+
+Fitted multiple regression model:
+
+$$\begin{aligned}
+\widehat{\text{LE}} &= \widehat{\beta}_0 + \widehat{\beta}_1 \text{FLR} + \widehat{\beta}_2 \text{FS} \\
+\widehat{\text{LE}} &= 33.595 + 0.157\ \text{FLR} 
++ 0.008\ \text{FS}
+\end{aligned}$$
+
+**Our main question for the single covariate subset F-test:** Is the regression model containing food supply improve the estimation of countries' life expectancy, given female literacy rate is already in the model?
+
+::: columns
+::: {.column width="5%"}
+:::
+
+::: {.column width="45%"}
+::: proof1
+::: proof-title
+Null / Smaller / Reduced model
+:::
+
+::: proof-cont
+$LE = \beta_0 + \beta_1 FLR + \epsilon$
+:::
+:::
+:::
+
+::: {.column width="45%"}
+::: definition
+::: def-title
+Alternative / Larger / Full model
+:::
+
+::: def-cont
+$LE = \beta_0 + \beta_1 FLR + \beta_2 FS + \epsilon$
+:::
+:::
+:::
+:::
+
+## Comparing the SSY, SSR, and SSE for reduced and full model
+
+```{r}
+#| echo: false
+mod_red2 = lm(LifeExpectancyYrs ~ FemaleLiteracyRate, data = gapm_sub)
+aug_red2  = augment(mod_red2)
+
+mod_full2 = lm(LifeExpectancyYrs ~ FemaleLiteracyRate + FoodSupplykcPPD,
+               data = gapm_sub)
+aug_full2  = augment(mod_full2)
+
+SS_df2 = gapm_sub %>% select(LifeExpectancyYrs) %>%
+  mutate(SSY_diff_r2 = LifeExpectancyYrs - mean(LifeExpectancyYrs),
+         SSR_diff_r2 = aug_red2$.fitted - mean(LifeExpectancyYrs), 
+         SSE_diff_r2 = aug_red2$.resid, 
+         SSY_diff_f2 = LifeExpectancyYrs - mean(LifeExpectancyYrs),
+         SSR_diff_f2 = aug_full2$.fitted - mean(LifeExpectancyYrs), 
+         SSE_diff_f2 = aug_full2$.resid)
+```
+
+::: columns
+::: column
+**Reduced / null model** $$LE = \beta_0 + \beta_1 FLR + \epsilon$$
+
+::: columns
+::: column
+```{r}
+#| fig-align: center
+#| fig-width: 6
+#| fig-height: 8
+#| echo: false
+
+SSY_plot_r2 = ggplot(SS_df2, aes(SSY_diff_r2)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+SSR_plot_r2 = ggplot(SS_df2, aes(SSR_diff_r2)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+SSE_plot_r2 = ggplot(SS_df2, aes(SSE_diff_r2)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+grid.arrange(SSY_plot_r2, SSR_plot_r2, SSE_plot_r2, nrow = 3)
+```
+:::
+
+::: {.column width="30%"}
+$$SSY = `r round(var(SS_df2$SSY_diff_r2), 2)`$$ 
+
+ 
+
+$$SSR = `r round(var(SS_df2$SSR_diff_r2), 2)`$$
+
+ 
+
+$$SSE = `r round(var(SS_df2$SSE_diff_r2), 2)`$$
+:::
+
+:::
+
+:::
+
+::: column
+**Full / Alternative model** $$LE = \beta_0 + \beta_1 FLR + \beta_2 FS + \epsilon$$
+
+::: columns
+::: column
+```{r}
+#| fig-align: center
+#| fig-width: 6
+#| fig-height: 8
+#| echo: false
+
+SSY_plot_f2 = ggplot(SS_df2, aes(SSY_diff_f2)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+SSR_plot_f2 = ggplot(SS_df2, aes(SSR_diff_f2)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+SSE_plot_f2 = ggplot(SS_df2, aes(SSE_diff_f2)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+grid.arrange(SSY_plot_f2, SSR_plot_f2, SSE_plot_f2, nrow = 3)
+```
+:::
+
+::: {.column width="30%"}
+$$SSY = `r round(var(SS_df2$SSY_diff_f2), 2)`$$ 
+
+ 
+
+$$SSR = `r round(var(SS_df2$SSR_diff_f2), 2)`$$
+
+ 
+
+$$SSE = `r round(var(SS_df2$SSE_diff_f2), 2)`$$
+:::
+
+:::
+
+:::
+:::
+
+## So let's step through our hypothesis test (1/3)
+
+::: highlight-container
+::: highlight
+1.  Met underlying LINE assumptions
+:::
+:::
+
+ 
+
+::: highlight-container
+::: highlight
+2.  State the null hypothesis
+:::
+:::
+
+```{=tex}
+\begin{align}
+H_0 &: \beta_2=0\\
+\text{vs. } H_A&: \beta_2\neq0 
+\end{align}
+```
+::: highlight-container
+::: highlight
+3.  Specify the significance level
+:::
+:::
+
+Often we use $\alpha = 0.05$
+
+::: highlight-container
+::: highlight
+4.  Specify the test statistic and its distribution under the null
+:::
+:::
+
+The test statistic is $F$, and follows an F-distribution with numerator $df=k =2$ and denominator $df=n-k-1 = 72 - 2-1=69$. ($n$ = \# obversation, $k$ = \# covariates)
+
+## So let's step through our hypothesis test (2/3)
+
+::: highlight-container
+::: highlight
+5.  Compute the value of the test statistic / 6.  Calculate the p-value
+:::
+:::
+
+The calculated **test statistic** is
+
+$$F^ = \dfrac{\frac{SSE(R) - SSE(F)}{df_R - df_F}}{\frac{SSE(F)}{df_F}}$$
+ANOVA table:
+
+```{r}
+anova(mod_red2, mod_full2) %>% tidy() %>% gt() %>% tab_options(table.font.size = 35) %>% fmt_number(decimals = 3)
+```
+
+## So let's step through our hypothesis test (3/3)
+
+::: highlight-container
+::: highlight
+7.  Write conclusion for hypothesis test
+:::
+:::
+
+ 
+
+We reject the null hypothesis at the 5% significance level. There is sufficient evidence that countries' food supply contributes significantly to the prediction of life expectancy, given that female literacy rate is already in the model (p-value < 0.001).
+
+# Learning Objective
+
+## Covariate subset test: group of variables
+
+Does the addition of some group of covariates of interest add significantly to the prediction of Y obtained through other independent variables already present in the model?
+
+-   For a general population MLR model, $$Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2+ \ldots + \beta_k X_k + \epsilon$$
+
+We can create a hypothesis test for a group of covariate coefficients (subset of many)... **For example...**
+
+::: columns
+::: {.column width="5%"}
+:::
+
+::: {.column width="45%"}
+::: proof1
+::: proof-title
+Null $H_0$
+:::
+
+::: proof-cont
+$\beta_1=\beta_3 =0$ (this can be any coefficients)
+:::
+:::
+:::
+
+::: {.column width="45%"}
+::: definition
+::: def-title
+Alternative $H_1$
+:::
+
+::: def-cont
+At least one $\beta_j\neq0$ (for $j=2,3$)
+:::
+:::
+:::
+
+::: {.column width="5%"}
+:::
+:::
+
+::: columns
+::: {.column width="5%"}
+:::
+
+::: {.column width="45%"}
+::: proof1
+::: proof-title
+Null / Smaller / Reduced model
+:::
+
+::: proof-cont
+$Y = \beta_0 + \beta_2 X_2 + \epsilon$
+:::
+:::
+:::
+
+::: {.column width="45%"}
+::: definition
+::: def-title
+Alternative / Larger / Full model
+:::
+
+::: def-cont
+$Y = \beta_0 + \beta_1 X + \beta_2 X + \beta_3 X_3+\epsilon$
+:::
+:::
+:::
+
+::: {.column width="5%"}
+:::
+:::
+
+## Covariate subset F-test: general steps for hypothesis test (reference)
+
+::: columns
+::: {.column width="48%"}
+::: highlight-container
+::: highlight
+1.  Met underlying LINE assumptions
+:::
+:::
+
+::: highlight-container
+::: highlight
+2.  State the null hypothesis
+:::
+:::
+
+For example: 
+```{=tex}
+\begin{align}
+H_0 &: \beta_1 = \beta_3 = 0\\
+\text{vs. } H_A&: \text{At least one } \beta_j\neq0, \text{for }j=1,3
+\end{align}
+```
+::: highlight-container
+::: highlight
+3.  Specify the significance level
+:::
+:::
+
+Often we use $\alpha = 0.05$
+
+::: highlight-container
+::: highlight
+4.  Specify the test statistic and its distribution under the null
+:::
+:::
+
+The test statistic is $F$, and follows an F-distribution with numerator $df=k$ and denominator $df=n-k-1$. ($n$ = \# obversation, $k$ = \# covariates)
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+::: highlight-container
+::: highlight
+5.  Compute the value of the test statistic
+:::
+:::
+
+The calculated **test statistic** is
+
+$$F^ = \dfrac{\frac{SSE(R) - SSE(F)}{df_R - df_F}}{\frac{SSE(F)}{df_F}}$$
+
+::: highlight-container
+::: highlight
+6.  Calculate the p-value
+:::
+:::
+
+We are generally calculating: $P(F_{k, n-k-1} > F)$
+
+::: highlight-container
+::: highlight
+7.  Write conclusion for hypothesis test
+:::
+:::
+
+We (reject/fail to reject) the null hypothesis at the $100\alpha\%$ significance level. There is (sufficient/insufficient) evidence that predictors/covariates $2,3$ significantly improve the prediction of Y, given all the other covariates are in the model (p-value = $P(F_{1, n-2} > F)$).
+:::
+:::
+
+## We need to slightly alter our MLR example for life expectancy
+
+Our proposed population model to include water source percent (WS):
+
+$$\text{LE} = \beta_0 + \beta_1 \text{FLR} + \beta_2 \text{FS} + \beta_3 WS + \epsilon$$
+
+-   We don't have a fitted multiple regression model for this yet!
+
+**Our main question for the group covariate subset F-test:** Is the regression model containing food supply and water source percent improve the estimation of countries' life expectancy, given percent female literacy rate is already in the model?
+
+::: columns
+::: {.column width="5%"}
+:::
+
+::: {.column width="45%"}
+::: proof1
+::: proof-title
+Null / Smaller / Reduced model
+:::
+
+::: proof-cont
+$LE = \beta_0 + \beta_1 FLR + \epsilon$
+:::
+:::
+:::
+
+::: {.column width="45%"}
+::: definition
+::: def-title
+Alternative / Larger / Full model
+:::
+
+::: def-cont
+$LE = \beta_0 + \beta_1 FLR + \beta_2 FS + \beta_3 WS + \epsilon$
+:::
+:::
+:::
+:::
+
+## Comparing the SSY, SSR, and SSE for reduced and full model
+
+```{r}
+#| echo: false
+
+gapm_sub2 = gapm %>%
+  drop_na(LifeExpectancyYrs, FemaleLiteracyRate, 
+          FoodSupplykcPPD, WaterSourcePrct)
+mod_red3 = lm(LifeExpectancyYrs ~ FemaleLiteracyRate, data = gapm_sub2)
+aug_red3  = augment(mod_red3)
+
+mod_full3 = lm(LifeExpectancyYrs ~ FemaleLiteracyRate + FoodSupplykcPPD + WaterSourcePrct,
+               data = gapm_sub2)
+aug_full3  = augment(mod_full3)
+
+SS_df3 = gapm_sub2 %>% select(LifeExpectancyYrs) %>%
+  mutate(SSY_diff_r3 = LifeExpectancyYrs - mean(LifeExpectancyYrs),
+         SSR_diff_r3 = aug_red3$.fitted - mean(LifeExpectancyYrs), 
+         SSE_diff_r3 = aug_red3$.resid, 
+         SSY_diff_f3 = LifeExpectancyYrs - mean(LifeExpectancyYrs),
+         SSR_diff_f3 = aug_full3$.fitted - mean(LifeExpectancyYrs), 
+         SSE_diff_f3 = aug_full3$.resid)
+```
+
+::: columns
+::: column
+**Reduced / null model** $$LE = \beta_0 + \beta_1 FLR + \epsilon$$
+
+::: columns
+::: column
+```{r}
+#| fig-align: center
+#| fig-width: 6
+#| fig-height: 8
+#| echo: false
+
+SSY_plot_r3 = ggplot(SS_df3, aes(SSY_diff_r3)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+SSR_plot_r3 = ggplot(SS_df3, aes(SSR_diff_r3)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+SSE_plot_r3 = ggplot(SS_df3, aes(SSE_diff_r3)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+grid.arrange(SSY_plot_r3, SSR_plot_r3, SSE_plot_r3, nrow = 3)
+```
+:::
+
+::: {.column width="30%"}
+$$SSY = `r round(var(SS_df3$SSY_diff_r3), 2)`$$ 
+
+ 
+
+$$SSR = `r round(var(SS_df3$SSR_diff_r3), 2)`$$
+
+ 
+
+$$SSE = `r round(var(SS_df3$SSE_diff_r3), 2)`$$
+:::
+
+:::
+
+:::
+
+::: column
+**Full / Alternative model** $$LE = \beta_0 + \beta_1 FLR + \beta_2 FS + \beta_3 WS + \epsilon$$
+
+::: columns
+::: column
+```{r}
+#| fig-align: center
+#| fig-width: 6
+#| fig-height: 8
+#| echo: false
+
+SSY_plot_f3 = ggplot(SS_df3, aes(SSY_diff_f3)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+SSR_plot_f3 = ggplot(SS_df3, aes(SSR_diff_f3)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+SSE_plot_f3 = ggplot(SS_df3, aes(SSE_diff_f3)) + geom_histogram() + xlim(-30, 30) + ylim(0, 35) 
+grid.arrange(SSY_plot_f3, SSR_plot_f3, SSE_plot_f3, nrow = 3)
+```
+:::
+
+::: {.column width="30%"}
+$$SSY = `r round(var(SS_df3$SSY_diff_f3), 2)`$$ 
+
+ 
+
+$$SSR = `r round(var(SS_df3$SSR_diff_f3), 2)`$$
+
+ 
+
+$$SSE = `r round(var(SS_df3$SSE_diff_f3), 2)`$$
+:::
+
+:::
+
+:::
+:::
+
+## So let's step through our hypothesis test (1/3)
+
+::: highlight-container
+::: highlight
+1.  Met underlying LINE assumptions
+:::
+:::
+
+ 
+
+::: highlight-container
+::: highlight
+2.  State the null hypothesis
+:::
+:::
+
+```{=tex}
+\begin{align}
+H_0 &: \beta_2=\beta_3=0\\
+\text{vs. } H_A&: \beta_2\neq0 \text{ and/or } \beta_3\neq0
+\end{align}
+```
+::: highlight-container
+::: highlight
+3.  Specify the significance level
+:::
+:::
+
+Often we use $\alpha = 0.05$
+
+::: highlight-container
+::: highlight
+4.  Specify the test statistic and its distribution under the null
+:::
+:::
+
+The test statistic is $F$, and follows an F-distribution with numerator $df=k =2$ and denominator $df=n-k-1 = 72 - 2-1=69$. ($n$ = \# obversation, $k$ = \# covariates)
+
+## So let's step through our hypothesis test (2/3)
+
+::: highlight-container
+::: highlight
+5.  Compute the value of the test statistic / 6.  Calculate the p-value
+:::
+:::
+
+The calculated **test statistic** is
+
+$$F^ = \dfrac{\frac{SSE(R) - SSE(F)}{df_R - df_F}}{\frac{SSE(F)}{df_F}}$$
+ANOVA table:
+
+```{r}
+anova(mod_red3, mod_full3) %>% tidy() %>% gt() %>% tab_options(table.font.size = 35) %>% fmt_number(decimals = 3)
+```
+
+## So let's step through our hypothesis test (3/3)
+
+::: highlight-container
+::: highlight
+7.  Write conclusion for hypothesis test
+:::
+:::
+
+ 
+
+We reject the null hypothesis at the 5% significance level. There is sufficient evidence that countries' food supply or water source (or both) contribute significantly to the prediction of life expectancy, given that female literacy rate is already in the model (p-value < 0.001).
+
+## Other ways to word the hypothesis tests (reference)
+
+-   Single covariate subset F-test
+
+    -   $H_0:$ $X^*$ does not significantly improve the prediction of $Y$, given that $X_1, X_2, \ldots, X_p$ are already in the model
+    -   $H_A:$ $X^*$ significantly improves the prediction of $Y$, given that $X_1, X_2, \ldots, X_p$ are already in the model
+    
+-   Group covariate subset F-test
+
+    -   $H_0:$ The addition of the $s$ variables $X_1^*, X_2^*, \ldots, X_s^*$ does not significantly improve the prediction of $Y$, given that $X_1, X_2, \ldots, X_q$ are already in the model
+    -   $H_A:$ The addition of the $s$ variables $X_1^*, X_2^*, \ldots, X_s^*$ significantly improves the prediction of $Y$, given that $X_1, X_2, \ldots, X_q$ are already in the model

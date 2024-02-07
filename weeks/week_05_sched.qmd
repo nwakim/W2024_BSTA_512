@@ -40,11 +40,11 @@ editor_options:
 
 Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
-| Lesson | Topic                                      |                                              Slides                                               |                                                     Annotated Slides                                                     |                                                                                                                                                                                     Recording                                                                                                                                                                                     |
+| Lesson | Topic                                      |                                                Slides                                                 |                                                     Annotated Slides                                                     |                                                                                                                                                                                     Recording                                                                                                                                                                                     |
 |---------------|---------------|:-------------:|:-------------:|:-------------:|
-|        | A word on Lab 1 and Quiz 1                 | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/Quiz_1_Lab_1.qmd)]{style="color:#f8f5f0;"} | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/Quiz_1_Lab_1.pdf)]{style="color:#f8f5f0;"} | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2FQuiz%5F1%5FLab%5F1%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"} |
-| 8      | Introduction to Multiple Linear Regression | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/08_MLR_Intro.qmd)]{style="color:#f8f5f0;"} | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/08_MLR_Intro.pdf)]{style="color:#f8f5f0;"} |  [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F08%5FMLR%5FIntro%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"}  |
-| 9      | MLR: Inference                             |               [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}               |                    [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                    |                                                                                                                                                           [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                           |
+|        | A word on Lab 1 and Quiz 1                 |   [[{{< iconify ri slideshow-fill size=30px >}}](/slides/Quiz_1_Lab_1.qmd)]{style="color:#f8f5f0;"}   | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/Quiz_1_Lab_1.pdf)]{style="color:#f8f5f0;"} | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2FQuiz%5F1%5FLab%5F1%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"} |
+| 8      | Introduction to Multiple Linear Regression |   [[{{< iconify ri slideshow-fill size=30px >}}](/slides/08_MLR_Intro.qmd)]{style="color:#f8f5f0;"}   | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/08_MLR_Intro.pdf)]{style="color:#f8f5f0;"} |  [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F08%5FMLR%5FIntro%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"}  |
+| 9      | MLR: Inference                             | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/09_MLR_Inference.qmd)]{style="color:#f8f5f0;"} |                    [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                    |                                                                                                                                                           [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                           |
 
 ## On the Horizon
 
@@ -69,6 +69,8 @@ Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B
 
 -   Let's check in on Lab 2
 
+-   Added BMI help page!
+
 ## Muddiest Points
 
 ### 1. Why is it not called multivariate?
@@ -84,14 +86,12 @@ For $$\widehat{\text{LE}} = 33.595 + 0.157\ \text{FLR}
 
 When we derive the regression lines for either variable, FLR or FS, we can think of the other variable as part of the intercept for the line:
 
-For FLR: $$\widehat{\text{LE}} = [33.595 + 0.008\ \text{FS}] + 0.157\ \text{FLR} $$
-For FS: $$\widehat{\text{LE}} = [33.595 + 0.157\ \text{FLR}]
+For FLR: $$\widehat{\text{LE}} = [33.595 + 0.008\ \text{FS}] + 0.157\ \text{FLR} $$ For FS: $$\widehat{\text{LE}} = [33.595 + 0.157\ \text{FLR}]
 + 0.008\ \text{FS}$$
 
 For FLR, any given FS value will result in the same slope, but the intercept will change. That's why we say "holding FS constant," "adjusting for FS," or "controlling for FS" when we discuss the $\widehat\beta_1=0.157$ estimate. Depending on the FS value, the intercept will change. So we can write: $$(\widehat{\text{LE}}|FS=3000) = [33.595 + 0.008\cdot 3000] + 0.157\ \text{FLR}= 57.595 + 0.157\ \text{FLR}$$
 
-Try going through the same process for FS when FLR is 30%. 
-
+Try going through the same process for FS when FLR is 30%.
 
 ### 3. I know we can't really do visualizations past 3 coefficients but I still can't really wrap my head around how this will work once we add a third covariate to the model.
 
@@ -99,7 +99,7 @@ Yeah... this is a tough one! You can try to think of the fitted Y $\widehat{Y}|X
 
 ### 4. Still a little unsure about OLS
 
-I was going to write out an explanation to this, but then I wrote my explanation to the below question. I honestly think it helps bring context to OLS and talk about it in a new way that might help if it's been confusing so far. 
+I was going to write out an explanation to this, but then I wrote my explanation to the below question. I honestly think it helps bring context to OLS and talk about it in a new way that might help if it's been confusing so far.
 
 ### 5. We keep getting back to $\widehat{Y}$, $Y_i$, and $\overline{Y}$ and their relationship to the population parameter estimates. Can you clarify this?
 
@@ -222,6 +222,7 @@ In the plot above, there is variation! And it means that some of the variation i
 But there is left over variation that is not explained by the model... What is that? It's related to our residuals: $\widehat\epsilon_i = Y_i - \widehat{Y}_i$
 
 So we'll calculate the residuals (or more appropriately, use the calculation of the residuals that R gave us)
+
 ```{r}
 #| fig-align: center
 #| warning: false
@@ -233,4 +234,4 @@ df = df %>% mutate(diff_y_fitted = aug1$.resid)
 ggplot(df, aes(diff_y_fitted)) + geom_histogram() + xlim(-60, 50) +ylim(0, 35)
 ```
 
-Our aim in regression (through ordinary least squares) is to minimize the variance in the above plot. The more variance our model can explain, the less variance in the residuals. In SLR, we can only explain so much variance with a single predictor. As we include more predictors in our model, the model has the opportunity to explain even MORE variance. 
+Our aim in regression (through ordinary least squares) is to minimize the variance in the above plot. The more variance our model can explain, the less variance in the residuals. In SLR, we can only explain so much variance with a single predictor. As we include more predictors in our model, the model has the opportunity to explain even MORE variance.
