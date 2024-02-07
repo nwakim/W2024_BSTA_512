@@ -543,6 +543,8 @@ Alternative\* model
 
 \*This is **not quite** the alternative, but if we reject the null, then this is the model we move forward with
 
+## Poll Everywhere Question 1
+
 ## Building a very important toolkit: three types of tests
 
 ::: fact
@@ -668,6 +670,8 @@ $$
 -   Take ratio of difference to the unexplained variation in the full model
 :::
 :::
+
+## Poll Everywhere Question 2
 
 ## We will keep working with the MLR model from last class
 
@@ -993,7 +997,7 @@ $$SSE = `r round(var(SS_df2$SSE_diff_f1), 2)`$$
 :::
 :::
 
-## Poll Everywhere Question
+## Poll Everywhere Question 3
 
 
 
@@ -1352,6 +1356,8 @@ $$SSE = `r round(var(SS_df2$SSE_diff_f2), 2)`$$
 
 :::
 :::
+
+## Poll Everywhere Question 4
 
 ## So let's step through our hypothesis test (1/3)
 

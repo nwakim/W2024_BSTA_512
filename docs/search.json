@@ -12367,5 +12367,33 @@
     "title": "MLR: Inference",
     "section": "Covariate subset F-test: general steps for hypothesis test (reference)",
     "text": "Covariate subset F-test: general steps for hypothesis test (reference)\n\n\n\n\n\nMet underlying LINE assumptions\n\n\n\n\n\n\nState the null hypothesis\n\n\n\nFor example:\n\\[\\begin{align}\nH_0 &: \\beta_1 = \\beta_3 = 0\\\\\n\\text{vs. } H_A&: \\text{At least one } \\beta_j\\neq0, \\text{for }j=1,3\n\\end{align}\\]\n\n\n\nSpecify the significance level\n\n\n\nOften we use \\(\\alpha = 0.05\\)\n\n\n\nSpecify the test statistic and its distribution under the null\n\n\n\nThe test statistic is \\(F\\), and follows an F-distribution with numerator \\(df=k\\) and denominator \\(df=n-k-1\\). (\\(n\\) = # obversation, \\(k\\) = # covariates)\n\n\n\n\n\n\nCompute the value of the test statistic\n\n\n\nThe calculated test statistic is\n\\[F^ = \\dfrac{\\frac{SSE(R) - SSE(F)}{df_R - df_F}}{\\frac{SSE(F)}{df_F}}\\]\n\n\n\nCalculate the p-value\n\n\n\nWe are generally calculating: \\(P(F_{k, n-k-1} &gt; F)\\)\n\n\n\nWrite conclusion for hypothesis test\n\n\n\nWe (reject/fail to reject) the null hypothesis at the \\(100\\alpha\\%\\) significance level. There is (sufficient/insufficient) evidence that predictors/covariates \\(2,3\\) significantly improve the prediction of Y, given all the other covariates are in the model (p-value = \\(P(F_{1, n-2} &gt; F)\\))."
+  },
+  {
+    "objectID": "slides/09_MLR_Inference.html#poll-everywhere-question-1",
+    "href": "slides/09_MLR_Inference.html#poll-everywhere-question-1",
+    "title": "MLR: Inference",
+    "section": "Poll Everywhere Question 1",
+    "text": "Poll Everywhere Question 1"
+  },
+  {
+    "objectID": "slides/09_MLR_Inference.html#poll-everywhere-question-2",
+    "href": "slides/09_MLR_Inference.html#poll-everywhere-question-2",
+    "title": "MLR: Inference",
+    "section": "Poll Everywhere Question 2",
+    "text": "Poll Everywhere Question 2"
+  },
+  {
+    "objectID": "slides/09_MLR_Inference.html#poll-everywhere-question-3",
+    "href": "slides/09_MLR_Inference.html#poll-everywhere-question-3",
+    "title": "MLR: Inference",
+    "section": "Poll Everywhere Question 3",
+    "text": "Poll Everywhere Question 3"
+  },
+  {
+    "objectID": "slides/09_MLR_Inference.html#poll-everywhere-question-4",
+    "href": "slides/09_MLR_Inference.html#poll-everywhere-question-4",
+    "title": "MLR: Inference",
+    "section": "Poll Everywhere Question 4",
+    "text": "Poll Everywhere Question 4"
   }
 ]
