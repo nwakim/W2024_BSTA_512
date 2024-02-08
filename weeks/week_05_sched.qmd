@@ -40,11 +40,11 @@ editor_options:
 
 Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
-| Lesson | Topic                                      |                                                Slides                                                 |                                                     Annotated Slides                                                     |                                                                                                                                                                                     Recording                                                                                                                                                                                     |
+| Lesson | Topic                                      |                                                Slides                                                 |                                                       Annotated Slides                                                       |                                                                                                                                                                                      Recording                                                                                                                                                                                      |
 |---------------|---------------|:-------------:|:-------------:|:-------------:|
-|        | A word on Lab 1 and Quiz 1                 |   [[{{< iconify ri slideshow-fill size=30px >}}](/slides/Quiz_1_Lab_1.qmd)]{style="color:#f8f5f0;"}   | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/Quiz_1_Lab_1.pdf)]{style="color:#f8f5f0;"} | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2FQuiz%5F1%5FLab%5F1%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"} |
-| 8      | Introduction to Multiple Linear Regression |   [[{{< iconify ri slideshow-fill size=30px >}}](/slides/08_MLR_Intro.qmd)]{style="color:#f8f5f0;"}   | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/08_MLR_Intro.pdf)]{style="color:#f8f5f0;"} |  [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F08%5FMLR%5FIntro%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"}  |
-| 9      | MLR: Inference                             | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/09_MLR_Inference.qmd)]{style="color:#f8f5f0;"} |                    [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                    |                                                                                                                                                           [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                           |
+|        | A word on Lab 1 and Quiz 1                 |   [[{{< iconify ri slideshow-fill size=30px >}}](/slides/Quiz_1_Lab_1.qmd)]{style="color:#f8f5f0;"}   |   [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/Quiz_1_Lab_1.pdf)]{style="color:#f8f5f0;"}   |  [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2FQuiz%5F1%5FLab%5F1%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"}  |
+| 8      | Introduction to Multiple Linear Regression |   [[{{< iconify ri slideshow-fill size=30px >}}](/slides/08_MLR_Intro.qmd)]{style="color:#f8f5f0;"}   |   [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/08_MLR_Intro.pdf)]{style="color:#f8f5f0;"}   |   [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F08%5FMLR%5FIntro%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"}   |
+| 9      | MLR: Inference                             | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/09_MLR_Inference.qmd)]{style="color:#f8f5f0;"} | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/09_MLR_Inference.pdf)]{style="color:#f8f5f0;"} | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F09%5FMLR%5FInference%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"} |
 
 ## On the Horizon
 
@@ -239,3 +239,65 @@ ggplot(df, aes(diff_y_fitted)) + geom_histogram() + xlim(-60, 50) +ylim(0, 35)
 ```
 
 Our aim in regression (through ordinary least squares) is to minimize the variance in the above plot. The more variance our model can explain, the less variance in the residuals. In SLR, we can only explain so much variance with a single predictor. As we include more predictors in our model, the model has the opportunity to explain even MORE variance.
+
+### 6. I feel that I am understanding and beginning to memorize the "processes" but failing to understand the "how/when/why" we apply certain models. Like, if you let me loose into the world tomorrow, I feel I would not be able to implement anything that I have learned thus far out in the wild.
+
+I feel you. Today was meant to establish the tools and the process for the hypothesis tests. In the next few classes we are going to shape the how/when/why. There's so many that we can't cover them in one class. So I thought it would be best to introduce the tools on their own, and then discuss how we use each one.
+
+### 7. I'm struggling with how to use the SSE, SSR, and SSY graphs but I think I just need to spend more time with them.
+
+We're going to keep talking about this! I think I have a good visual explanation that will help us connect some ideas!
+
+### 8. Using R to conduct each F-test
+
+I show this a little bit for the overall test, but let's explicitly write it out for the example with the group of covariates.
+
+Let's say our proposed model is:
+
+$$\text{LE} = \beta_0 + \beta_1 \text{FLR} + \beta_2 \text{FS} + \beta_3 WS + \epsilon$$
+
+And we want to see if it fits the data significantly better than:
+
+$$LE = \beta_0 + \beta_1 FLR + \epsilon$$
+
+We need to fit both models first:
+
+```{r}
+#| echo: false
+gapm <- read_excel("../slides/data/Gapminder_vars_2011.xlsx", 
+                   na = "NA")
+gapm_sub2 = gapm %>%
+  drop_na(LifeExpectancyYrs, FemaleLiteracyRate, 
+          FoodSupplykcPPD, WaterSourcePrct)
+```
+
+```{r}
+# Reduced model
+mod_red3 = lm(LifeExpectancyYrs ~ FemaleLiteracyRate, data = gapm_sub2)
+
+# Full model
+mod_full3 = lm(LifeExpectancyYrs ~ FemaleLiteracyRate + FoodSupplykcPPD + WaterSourcePrct,
+               data = gapm_sub2)
+```
+
+And then all we need to do is call each model into the `anova()` function! The order of the models in the function will not matter for the F-test.
+
+```{r}
+anova(mod_red3, mod_full3) %>% tidy() %>% gt() %>% fmt_number(decimals = 2)
+```
+
+And then we have all the information we need for our conclusion! Because the statistic is 25.47 and its corresponding p-value \< 0.001, we reject the null!
+
+### 9. Calculating the F-statistic
+
+We will not need to know exactly how to calculate the F-statistic! We just need to understand the context of the calculation. With that poll everywhere question, I just wanted you to have a moment to interact with the fact the the F-test is measuring the difference in the sum of squares of the error.
+
+### 10. Why is SSE of the reduced model always greater than or equal to SSE of the full model?
+
+The more variables that we have in the model, the more variation in our outcome we can explain. The worst case scenario is that the added variable does not help explain variation, then we are left with the same SSE as a model without the variable. If the variable add any information about our outcome, then we decrease the SSE.
+
+### 11. How many variables would be too many to include in MLR? What if they all help explain the regression?
+
+What a fun question! The maximum number of variables that you can have in a model is the number of observations that you have. At that point, you can have a variable that is an indicator of each observation. Basically, a singular mapping from each individual observation to its respective outcome.
+
+And this will explain the variation in Y perfectly!! But it won't illuminate useful information. We cannot generalize it to the population. So with the number of variables that we include in the model, we need to balance generalizability and reduction of error.
