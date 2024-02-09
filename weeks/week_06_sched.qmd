@@ -2,7 +2,7 @@
 title: "Week 6"
 description: "Categorical Covariates + Interactions"
 date: "2/12/2024"
-date-modified: "12/15/2023"
+date-modified: "today"
 categories: [""]
 format: 
   html:
@@ -28,34 +28,34 @@ editor_options:
 }
 ```
 
-### Topics: {.hidden}
+::: callout-important
+## Room Locations for the week
 
--   qualitative covariates
-
--   coding schemes
-
--   interpretation of parameters
-
--   scoring cateogrical covariates
-
--   replacing continuous with categorical covariates
+-   On Monday, 2/12,        we will be in [**virtual**](https://ohsu.webex.com/meet/wakim)
+-   On Wednesday, 2/14,  we will be in **RLSB 3A003 A**
+:::
 
 ## Resources
 
 Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
-| Lesson | Topic |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
-|--------|-------|:---------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:-------------------------------------------------------------:|
-| 8      |       | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 9      |       | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| Lesson | Topic                  |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
+|--------------|--------------|:------------:|:--------------:|:------------:|
+| 10     | Categorical Covariates | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 11     | Interactions           | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
 ## On the Horizon
 
+-   Homework 3 due 2/15
+-   President's Day on 2/19 (no class)
+-   Quiz 2 due 2/21
+-   Homework 4 due 2/22
+
 ## Class Exit Tickets
 
-[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUMEJVQVc5Rjk2NkhGR0pQOVJQSzAzNlI2Ry4u)]{style="color:#f8f5f0;"} Monday (1/29)
+[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUNFFKR0RHN0hETVNHMTlZMFAwOTVGQUVDTS4u)]{style="color:#f8f5f0;"} Monday (2/12)
 
-[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUQlJaRE5FVTZCWDlSTlZYSVFSVzZSVEFFOS4u)]{style="color:#f8f5f0;"} Wednesday (1/31)
+[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUMVJHTkVBUFFDT1owSTZGS01KRVIzVDJQQS4u)]{style="color:#f8f5f0;"} Wednesday (2/14)
 
 ## Announcements
 
