@@ -4,6 +4,7 @@ subtitle: "BSTA 512/612"
 author: "Your name here!!!"
 description: "Due: Thursday February 15, 2024 at 11pm"
 date-modified: "today"
+date: "2/15/2024"
 format: 
   html:
     link-external-newwindow: true
