@@ -225,6 +225,10 @@ iat_2021 = iat_2021_raw %>%
          edu, edu_14, 
          genderIdentity, 
          birthSex)
+
+iat = iat_2021 %>%
+  mutate(id_man = grepl("1", genderIdentity))
+unique(iat_2021$genderIdentity)
 ```
 
 #### 3.3 Manipulating variables that are coded as numeric variables
@@ -338,6 +342,24 @@ For example:
 ```{r}
 #| eval: false
 new_df = old_df %>% drop_na()
+
+iat_2021 = iat_2021 %>%
+    mutate(iam_001_f = case_match(iam_001,
+                                  7 ~ "Very overweight",
+                                  6 ~ "Moderately overweight",
+                                  5 ~ "Slightly overweight",
+                                  4 ~ "Neither underweight nor underweight",
+                                  3 ~ "Slightly underweight",
+                                  2 ~ "Moderately underweight",
+                                  1 ~ "Very underweight",
+                                  .default = NA) %>% 
+             factor(levels = c("Very underweight", 
+                               "Moderately underweight", 
+                               "Slightly underweight", 
+                               "Neither underweight nor underweight", 
+                               "Slightly overweight", 
+                               "Moderately overweight", 
+                               "Very overweight")))
 ```
 
 ### 4. Some exploratory data analysis

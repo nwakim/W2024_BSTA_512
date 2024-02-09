@@ -1,0 +1,787 @@
+---
+title: "Categorical Covariates"
+author: "Nicky Wakim"
+title-slide-attributes:
+    data-background-color: "#213c96"
+date: "02/12/2024"
+categories: ["Week 6"]
+format: 
+  revealjs:
+    theme: [default, simple_NW.scss]
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1955
+    height: 1100
+    footer: Categorical Covariates
+    html-math-method: mathjax
+    highlight-style: ayu
+execute:
+  echo: true
+  freeze: auto  # re-render only when source changes
+---
+
+```{r}
+#| label: "setup" 
+#| include: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(lubridate)
+library(janitor)
+library(here)
+library(broom)
+library(knitr)
+library(readxl)
+library(gt)
+
+# Load the data - update code if the csv file is not in the same location on your computer
+# If you need to download the file, please go to ur shared folder under Data > Slides
+gapm <- read_excel("data/Gapminder_vars_2011.xlsx", 
+                   na = "NA")  # important!!!! 
+
+gapm_sub <- gapm %>% 
+  drop_na(LifeExpectancyYrs, FemaleLiteracyRate, FoodSupplykcPPD)
+
+glimpse(gapm_sub)
+```
+
+# Learning Objectives
+
+## Let's map that to our regression analysis process
+
+::: box
+![](images/arrow2.png){.absolute top="13.5%" right="62.1%" width="155"} ![](images/arrow2.png){.absolute top="13.5%" right="28.4%" width="155"}![](images/arrow_back4.png){.absolute top="7.5%" right="30.5%" width="820"} ![](images/arrow_down.png){.absolute top="60.5%" right="48%" width="85"}
+
+::: columns
+::: {.column width="30%"}
+::: RAP1
+::: RAP1-title
+Model Selection
+:::
+
+::: RAP1-cont
+-   Building a model
+
+-   Selecting variables
+
+-   Prediction vs interpretation
+
+-   Comparing potential models
+:::
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="30%"}
+::: RAP2
+::: RAP2-title
+Model Fitting
+:::
+
+::: RAP2-cont
+-   Find best fit line
+
+-   Using OLS in this class
+
+-   Parameter estimation
+
+-   Categorical covariates
+
+-   Interactions
+:::
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="30%"}
+::: RAP3
+::: RAP3-title
+Model Evaluation
+:::
+
+::: RAP3-cont
+-   Evaluation of model fit
+-   Testing model assumptions
+-   Residuals
+-   Transformations
+-   Influential points
+-   Multicollinearity
+:::
+:::
+:::
+:::
+:::
+
+::: RAP4
+::: RAP4-title
+Model Use (Inference)
+:::
+
+::: RAP4-cont
+::: columns
+::: {.column width="50%"}
+-   Inference for coefficients
+-   Hypothesis testing for coefficients
+:::
+
+::: {.column width="50%"}
+-   Inference for expected $Y$ given $X$
+:::
+:::
+:::
+:::
+
+## Another way of thinking about SSY, SSR, and SSE
+
+## Topics
+
+-   How to write out the regression equation
+
+-   How to calculate & interpret the coefficients
+
+-   Reference levels
+
+    -   Changing the reference level
+
+-   Running the model in R
+
+    -   Factor levels
+
+    -   Changing the reference level in R
+
+    -   Fitted values
+
+    -   Residuals
+
+-   Different ways to “code” categorical variables
+
+    -   Reference cell coding
+
+    -   Effect coding
+
+## Chapter 12 prequel
+
+-   Chapter 12 is on **dummy variables**, which I prefer to call **indicator variables**
+
+-   It covers models that have both a continuous predictor and a categorical predictor
+
+-   The book does not discuss **models with just one categorical predictor** from a regression perspective, which is what these notes cover
+
+-   For this topic we will continue to use the **2011 Gapminder data** with life expectancy as the numeric outcome, but world region (`four_regions`) as the predictor: Africa, Americas, Asia, and Europe
+
+### Suggested resources
+
+-   Modern Dive Section 5.2
+    -   https://moderndive.com/5-regression.html#model2
+    -   Note that they are using a different Gapminder dataset than we are.
+-   Vu & Harrington (text from BSTA 511)
+    -   Sections 6.3.3 & 7.5
+
+<!-- # Load data -->
+
+```{r echo=FALSE}
+# Load the data - update code if the csv file is not in the same location on your computer
+gapm <- read_excel("data/gapminder_vars_2011.xlsx", 
+                   na = "NA")  # important!!!! 
+# na = "NA" is telling R that the NA's in the Excel sheet are actual missing values and not character strings
+
+# glimpse(gapm)
+# Note that life expectancy and female literacy rate have different column names in this dataset
+
+# gapm %>% tabyl(four_regions) # no missing values
+
+# Removing all rows (countries) that have 
+# a missing value for any of the variables listed in drop_na()
+gapm2 <- gapm %>% # called it gapm2_sub3 to be consistent with Day 7 notes
+  drop_na(LifeExpectancyYrs)
+# dim(gapm)
+# dim(gapm2)
+```
+
+## Linear regression with one categorical explanatory variable
+
+<!-- <img src="img/hex_skimr.png" width="40%" height="78%"> -->
+
+::: columns
+::: column
+```{r fig.height=6, fig.width=8, warning=F, echo=FALSE, fig.align='center'}
+ggplot(gapm2, aes(x = four_regions, y = LifeExpectancyYrs, color = four_regions)) +
+  geom_point() +
+  labs(x = "World region", 
+       y = "Country life expectancy (years)",
+       title = "Countries' life expectancies vs. world region in 2011") +
+  theme(axis.title = element_text(size = 20), 
+        axis.text = element_text(size = 20), 
+        title = element_text(size = 20))
+```
+:::
+::: column
+```{r fig.height=6, fig.width=8, warning=F, echo=FALSE, fig.align='center'}
+ggplot(gapm2, aes(x = four_regions, 
+                  y = LifeExpectancyYrs, 
+                  color = four_regions)) +
+  geom_jitter(size = 1, alpha = .6, width = 0.2) +
+  stat_summary(fun = mean, geom = "point", size = 8, shape = 18) +
+  labs(x = "World region", 
+       y = "Country life expectancy (years)",
+       title = "Countries' life expectancies by world region in 2011",
+       caption = "Diamonds = region averages") +
+  theme(axis.title = element_text(size = 20), 
+        axis.text = element_text(size = 20), 
+        title = element_text(size = 20))
+```
+:::
+:::
+
+## Linear regression with one categorical explanatory variable
+
+::: columns
+::: columns
+-   When using a categorical explanatory variable,
+    -   we do **NOT** find a best-fit line.
+-   Instead we model the **means** of the outcome
+    -   for the different levels of the categorical variable.
+    
+:::
+
+::: column
+```{r fig.height=5, fig.width=7, warning=F, echo=FALSE}
+ggplot(gapm2, aes(x = four_regions, 
+                   y = LifeExpectancyYrs, 
+                   color = four_regions)) +
+  geom_jitter(size = 1, alpha = .6, width = 0.2) +
+  stat_summary(fun = mean, geom = "point", size = 8, shape = 18) +
+  labs(x = "World region", 
+       y = "Country life expectancy (years)",
+       title = "Countries' life expectancies by world region in 2011",
+       caption = "Diamonds = region averages")
+```
+:::
+:::
+
+## Regression equation (1/3)
+
+**Previously: simple linear regression**
+
+-   Outcome variable = y = numerical variable
+-   Explanatory variable = x = numerical variable
+
+The regression (best-fit) line is: $$\widehat{y} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot x $$
+
+**New: what if the explanatory variable is categorical?**
+
+*Naively*, we could write: $\widehat{y} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot x$
+
+Or, with our variables: $$\widehat{\textrm{life expectancy}} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot \textrm{world regions} $$
+
+-   But what does `world regions` mean in this equation?
+
+## Regression equation (2/3)
+
+-   Since the categorical variable has multiple levels (categories),
+    -   we need more variables in our equation to specify them.
+-   For this example, we have:
+
+$$\widehat{\textrm{life expectancy}} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot Americas + \widehat{\beta}_2 \cdot Asia + \widehat{\beta}_3 \cdot Europe$$
+
+Note that $Africa$ is not in the equation!
+
+-   When **interpreting this equation**, the world region **variables are replaced with 0 or 1**,
+    -   depending on which world region we are interpreting the regression for
+    -   we call these variable **indicators**, or indicator functions
+        -   textbook calls them **dummy variables**
+
+$$Americas = 
+\begin{cases} 
+1 & \text{if world region =} Americas \\
+0         & \text{else}
+\end{cases}$$
+
+## Regression equation (3/3)
+
+$$\widehat{\textrm{life expectancy}} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot Americas + \widehat{\beta}_2 \cdot Asia + \widehat{\beta}_3 \cdot Europe$$
+
+| World region | Regression equation for world region                                                                                  | Average Life Expectancy for world region              |
+|------------------|----------------------------|---------------------------|
+| Africa       | $\widehat{y} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot 0 + \widehat{\beta}_2 \cdot 0 + \widehat{\beta}_3 \cdot 0$ | $\widehat{y} = \widehat{\beta}_0$                     |
+| Americas     | $\widehat{y} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot 1 + \widehat{\beta}_2 \cdot 0 + \widehat{\beta}_3 \cdot 0$ | $\widehat{y} = \widehat{\beta}_0 + \widehat{\beta}_1$ |
+| Asia         | $\widehat{y} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot 0 + \widehat{\beta}_2 \cdot 1 + \widehat{\beta}_3 \cdot 0$ | $\widehat{y} = \widehat{\beta}_0 + \widehat{\beta}_2$ |
+| Europe       | $\widehat{y} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot 0 + \widehat{\beta}_2 \cdot 0 + \widehat{\beta}_3 \cdot 1$ | $\widehat{y} = \widehat{\beta}_0 + \widehat{\beta}_3$ |
+
+```{r fig.height=3, fig.width=5, warning=F, echo=FALSE}
+ggplot(gapm2, aes(x = four_regions, 
+                   y = LifeExpectancyYrs, 
+                   color = four_regions)) +
+  geom_jitter(size = 1, alpha = .6, width = 0.2) +
+  stat_summary(fun = mean, geom = "point", size = 8, shape = 18) 
+```
+
+## Interpretation of regression equation coefficients
+
+<!-- * Thus we have the following interpretations for the coefficients: -->
+
+| Coefficient         | Interpretation                                                    |
+|------------------|------------------------------------------------------|
+| $\widehat{\beta}_0$ | = mean life expectancy of Africa                                  |
+| $\widehat{\beta}_1$ | = difference in mean life expectancies of the Americas and Africa |
+| $\widehat{\beta}_2$ | = difference in mean life expectancies of Asia and Africa         |
+| $\widehat{\beta}_3$ | = difference in mean life expectancies of Europe and Africa       |
+
+```{r fig.height=6, fig.width=7, warning=F, echo=FALSE}
+ggplot(gapm2, aes(x = four_regions, 
+                   y = LifeExpectancyYrs, 
+                   color = four_regions)) +
+  geom_jitter(size = 1, alpha = .6, width = 0.2) +
+  stat_summary(fun = mean, geom = "point", size = 8, shape = 18) 
+```
+
+## (Manually) calculate coefficient values
+
+$$\widehat{\textrm{life expectancy}} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot Americas + \widehat{\beta}_2 \cdot Asia + \widehat{\beta}_3 \cdot Europe$$
+
+```{r fig.height=4, fig.width=5, warning=F, echo=FALSE}
+ggplot(gapm2, aes(x = four_regions, 
+                   y = LifeExpectancyYrs, 
+                   color = four_regions)) +
+  geom_jitter(size = 1, alpha = .6, width = 0.2) +
+  stat_summary(fun = mean, geom = "point", size = 8, shape = 18) 
+```
+
+```{r echo=FALSE}
+# means of each level of `four_regions`
+gapm2_ave <- gapm2 %>% 
+  group_by(four_regions) %>% 
+  summarise(
+    life_ave = mean(LifeExpectancyYrs))
+
+# mean of `africa`
+mean_africa <- gapm2_ave %>% 
+  filter(four_regions == "africa") %>% 
+  pull(life_ave)
+
+# differences in means between levels of `four_regions` and `africa`
+gapm2_ave_diff <- gapm2_ave %>% 
+  mutate(
+    `Difference with Africa` = life_ave - mean_africa
+  ) 
+
+# At the beginning of the Rmd we loaded knitr, which is where the kable command is from
+# library(knitr)
+gapm2_ave_diff %>% kable(
+  digits = 1,
+  format = "markdown"
+  ) 
+```
+
+*See code file for code that created the table above and equation below.*
+
+```{r echo=FALSE}
+b0 <- mean_africa
+
+coeff_africa <- gapm2_ave_diff$`Difference with Africa`
+# coeff_africa
+
+b1 <- coeff_africa[2]
+b2 <- coeff_africa[3]
+b3 <- coeff_africa[4]
+# b0; b1; b2; b3
+```
+
+$$\widehat{\textrm{life expectancy}} = `r round(b0,1)`+ `r round(b1,1)` \cdot Americas + `r round(b2,1)` \cdot Asia + `r round(b3,1)` \cdot Europe$$
+
+## Reference levels
+
+**Why is `Africa` not one of the variables in the regression equation?**
+
+$$\widehat{\textrm{life expectancy}} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot Americas + \widehat{\beta}_2 \cdot Asia + \widehat{\beta}_3 \cdot Europe$$
+
+-   Categorical variables have to have at least 2 levels. If they have 2 levels, we call them *binary*.
+
+-   We choose one of the levels as our **reference level** to which all other levels of the categorical variable are compared to.
+
+    -   The levels $Americas, Asia, Europe$ are compared to the level $Africa$
+
+-   The **intercept** of the regression equation is the *mean of the outcome restricted to the reference level*. (unless we use effect coding - see later slides)
+
+    -   Recall that the intercept is the mean life expectancy of Africa, which was our reference level.
+
+-   **If the categorical variable has k levels, then we need k-1 variables to model it!**
+
+## Reference levels example: Change the reference level to `Europe` (1/2)
+
+Suppose we want to compare the mean life expectancies of world regions to the $Europe$ level instead of $Africa$.
+
+-   Below is the regression equation for when $Africa$ is the reference level.
+
+$$\widehat{\textrm{life expectancy}} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot Americas + \widehat{\beta}_2 \cdot Asia + \widehat{\beta}_3 \cdot Europe$$ \* Update the variables to make $Europe$ the reference level:
+
+$$\widehat{\textrm{life expectancy}} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot Africa + \widehat{\beta}_2 \cdot Americas + \widehat{\beta}_3 \cdot Asia$$
+
+## Reference levels example: Change the reference level to `europe` (2/2)
+
+-   Now update the coefficients of the regression equation using the output below.
+
+```{r echo=FALSE}
+mean_europe <- gapm2_ave %>% 
+  filter(four_regions == "europe") %>% 
+  pull(life_ave)
+
+# mean_europe
+
+gapm2_ave_diff2 <- gapm2_ave %>% 
+  mutate(
+    `Difference with Europe` = life_ave - mean_europe
+  ) 
+
+# At the beginning of the Rmd I loaded knitr, which is where the kable command is from
+# library(knitr)
+gapm2_ave_diff2 %>% kable(
+  digits = 1,
+  format = "markdown"
+  ) 
+```
+
+```{r echo=FALSE}
+b0 <- mean_europe
+
+coeff_europe <- gapm2_ave_diff2$`Difference with Europe`
+# coeff_europe
+
+b1 <- coeff_europe[1]
+b2 <- coeff_europe[2]
+b3 <- coeff_europe[3]
+# b0; b1; b2; b3
+```
+
+$$\widehat{\textrm{life expectancy}} = `r round(mean_europe,1)`+ `r round(coeff_europe[1],1)` \cdot Africa + `r round(coeff_europe[2],1)` \cdot Americas + `r round(coeff_europe[3],1)` \cdot Asia$$
+
+## R: Regression table with `lm()` function
+
+```{r}
+model1 <- lm(LifeExpectancyYrs ~ four_regions, data = gapm2)
+tidy(model1) %>% gt()
+```
+
+$$\widehat{\textrm{life expectancy}} = `r round(b0,1)`+ `r round(b1,1)` \cdot Americas + `r round(b2,1)` \cdot Asia + `r round(b3,1)` \cdot Europe$$
+
+-   Which world region did R choose as the reference level?
+
+-   How you would calculate the mean life expectancies of world regions using *only* the results from the regression table?
+
+## R: Change reference level to `europe` (1/2)
+
+-   `four_regions` data type is currently `character` - check this with `str()`
+
+```{r}
+str(gapm2$four_regions) 
+```
+
+-   In order to change the reference level, we need to convert it to data type `factor`
+
+```{r}
+gapm2 <- gapm2 %>% 
+  mutate(four_regions = factor(four_regions))
+str(gapm2$four_regions) 
+levels(gapm2$four_regions) # order of factor levels
+```
+
+## R: Change reference level to `europe` (2/2)
+
+-   Now change the order of the factor levels
+-   Code below uses `fct_relevel()` from the `forcats` package that gets loaded as a part of the `tidyverse`
+-   *Any levels not mentioned will be left in their existing order, after the explicitly mentioned levels.*
+
+```{r}
+gapm2 <- gapm2 %>% 
+  mutate(four_regions = 
+      fct_relevel(four_regions, "europe"))
+
+levels(gapm2$four_regions)
+```
+
+## R: Run model with `europe` as the reference level
+
+```{r}
+levels(gapm2$four_regions)
+model2 <- lm(LifeExpectancyYrs ~ four_regions, data = gapm2)
+tidy(model2) %>% gt()
+```
+
+$$\widehat{\textrm{life expectancy}} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot Africa + \widehat{\beta}_2 \cdot Americas + \widehat{\beta}_3 \cdot Asia$$
+
+## Fitted values & residuals
+
+Similar to as before:
+
+-   **Observed values** $y$ are the values in the dataset
+
+-   **Fitted values** $\widehat{y}$ are the values that ~~fall on the best-fit line for a specific value of x~~ are the *means of the outcome stratified by the categorical predictor's levels*
+
+-   **Residuals** $y - \widehat{y}$ are the differences between the two.
+
+```{r fig.height=6, fig.width=7, warning=F, echo=FALSE}
+ggplot(gapm2, aes(x = four_regions, 
+                   y = LifeExpectancyYrs, 
+                   color = four_regions)) +
+  geom_jitter(size = 1, alpha = .6, width = 0.2) +
+  stat_summary(fun = mean, geom = "point", size = 8, shape = 18) 
+```
+
+## Fitted values
+
+```{r}
+regression_points <- augment(model1)
+```
+
+```{r fig.height=5, fig.width=7, warning=F}
+ggplot(regression_points, 
+       aes(x = four_regions, 
+           y = .fitted)) +
+  geom_point()
+```
+
+<!-- Why are there only 4 points on the plot? Let's `jitter` it: -->
+
+```{r fig.height=5, fig.width=7, warning=F}
+ggplot(regression_points, 
+       aes(x = four_regions, 
+           y = .fitted)) +
+  geom_jitter()
+
+```
+
+## Residual plots
+
+```{r fig.height=5, fig.width=7, warning=F}
+ggplot(regression_points, 
+       aes(x=.resid)) +
+  geom_histogram()
+```
+
+```{r fig.height=5, fig.width=7, warning=F}
+ggplot(regression_points, 
+       aes(y=.resid)) +
+  geom_boxplot()
+```
+
+## Different ways to code categorical variables
+
+-   **Reference cell coding**
+    -   **Intercept** is the **mean** of the outcome variable for the **reference level** of the categorical variable
+    -   k-1 levels are coded as 0, 1
+
+| World region | Var: Americas | Var: Asia | Var: Europe |
+|:------------:|:-------------:|:---------:|:-----------:|
+| Africa (ref) |       0       |     0     |      0      |
+|   Americas   |       1       |     0     |      0      |
+|     Asia     |       0       |     1     |      0      |
+|    Europe    |       0       |     0     |      1      |
+
+-   **Effect coding**: categorical variables
+    -   **Intercept** is the **mean of the k levels' means** of the outcome variable
+    -   This is the same as the overall mean if each of the levels has the same sample size
+    -   k-1 levels are coded as -1, 0, 1
+
+| World region | Var: Americas | Var: Asia | Var: Europe |
+|:------------:|:-------------:|:---------:|:-----------:|
+| Africa (ref) |      -1       |    -1     |     -1      |
+|   Americas   |       1       |     0     |      0      |
+|     Asia     |       0       |     1     |      0      |
+|    Europe    |       0       |     0     |      1      |
+
+## Regression equation with effect coding
+
+$$\widehat{\textrm{life expectancy}} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot Americas + \widehat{\beta}_2 \cdot Asia + \widehat{\beta}_3 \cdot Europe$$
+
+| World region | Regression equation for world region                                                                                           | Average Life Expectancy for world region                                                      |
+|------------------|----------------------------|---------------------------|
+| Africa       | $\widehat{y} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot (-1) + \widehat{\beta}_2 \cdot (-1) + \widehat{\beta}_3 \cdot (-1)$ | $\widehat{y} = \widehat{\beta}_0 - \widehat{\beta}_1 - \widehat{\beta}_2 - \widehat{\beta}_3$ |
+| Americas     | $\widehat{y} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot 1 + \widehat{\beta}_2 \cdot 0 + \widehat{\beta}_3 \cdot 0$          | $\widehat{y} = \widehat{\beta}_0 + \widehat{\beta}_1$                                         |
+| Asia         | $\widehat{y} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot 0 + \widehat{\beta}_2 \cdot 1 + \widehat{\beta}_3 \cdot 0$          | $\widehat{y} = \widehat{\beta}_0 + \widehat{\beta}_2$                                         |
+| Europe       | $\widehat{y} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot 0 + \widehat{\beta}_2 \cdot 0 + \widehat{\beta}_3 \cdot 1$          | $\widehat{y} = \widehat{\beta}_0 + \widehat{\beta}_3$                                         |
+
+```{r fig.height=3.5, fig.width=5, warning=F, echo=FALSE}
+ggplot(gapm2, aes(x = four_regions, 
+                   y = LifeExpectancyYrs, 
+                   color = four_regions)) +
+  geom_jitter(size = 1, alpha = .6, width = 0.2) +
+  stat_summary(fun = mean, geom = "point", size = 8, shape = 18) 
+```
+
+## (Manually) calculate coefficient values with effect coding
+
+$$\widehat{\textrm{life expectancy}} = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot Americas + \widehat{\beta}_2 \cdot Asia + \widehat{\beta}_3 \cdot Europe$$
+
+The mean of all 4 regions' mean life expectancy is `r round(mean(gapm2_ave$life_ave), 1)` years.
+
+```{r fig.height=4, fig.width=5, warning=F, echo=FALSE}
+ggplot(gapm2, aes(x = four_regions, 
+                   y = LifeExpectancyYrs, 
+                   color = four_regions)) +
+  geom_jitter(size = 1, alpha = .6, width = 0.2) +
+  stat_summary(fun = mean, geom = "point", size = 8, shape = 18) +
+  geom_hline(yintercept = mean(gapm2_ave$life_ave))
+```
+
+```{r echo=FALSE}
+# mean of region means
+mean_region_means <- mean(gapm2_ave$life_ave)
+
+# differences in means between levels of `four_regions` and `africa`
+gapm2_ave_effect <- gapm2_ave %>% 
+  mutate(
+    `Difference with mean of means` = life_ave - mean_region_means
+  ) 
+
+gapm2_ave_effect %>% kable(
+  digits = 1,
+  format = "markdown"
+  ) 
+```
+
+*See code file for code that created the table above & equation below.*
+
+```{r echo=FALSE}
+b0 <- mean_region_means
+
+coeff_africa_effect <- gapm2_ave_effect$`Difference with mean of means`
+# coeff_africa_effect
+
+b1 <- coeff_africa_effect[2]
+b2 <- coeff_africa_effect[3]
+b3 <- coeff_africa_effect[4]
+# b0; b1; b2; b3
+```
+
+$$\widehat{\textrm{life expectancy}} = `r round(b0,1)`+ `r round(b1,1)` \cdot Americas + `r round(b2,1)` \cdot Asia + `r round(b3,1)` \cdot Europe$$
+
+## Example: regression equation with effect coding
+
+$$\widehat{\textrm{life expectancy}} = `r round(b0,1)`+ `r round(b1,1)` \cdot Americas + `r round(b2,1)` \cdot Asia + `r round(b3,1)` \cdot Europe$$
+
+| World region | Regression equation for world region                                                                          | Average Life Expectancy for world region                                                                               |
+|------------------|----------------------------|---------------------------|
+| Africa       | $\widehat{y} = `r round(b0,1)` + `r round(b1,1)` (-1) + `r round(b2,1)` (-1) + `r round(b3,1)` (-1)$          | $\widehat{y} = `r round(b0,1)` - `r round(b1,1)` - `r round(b2,1)` - `r round(b3,1)` = `r round(b0 - b1 - b2 - b3,1)`$ |
+| Americas     | $\widehat{y} = `r round(b0,1)` + `r round(b1,1)` \cdot 1 + `r round(b2,1)` \cdot 0 + `r round(b3,1)` \cdot 0$ | $\widehat{y} = `r round(b0,1)` + `r round(b1,1)` = `r round(b0 + b1,1)`$                                               |
+| Asia         | $\widehat{y} = `r round(b0,1)` + `r round(b1,1)` \cdot 0 + `r round(b2,1)` \cdot 1 + `r round(b3,1)` \cdot 0$ | $\widehat{y} = `r round(b0,1)` + `r round(b2,1)`= `r round(b0 + b2,1)`$                                                |
+| Europe       | $\widehat{y} = `r round(b0,1)` + `r round(b1,1)` \cdot 0 + `r round(b2,1)` \cdot 0 + `r round(b3,1)` \cdot 1$ | $\widehat{y} = `r round(b0,1)` + `r round(b3,1)`= `r round(b0 + b3,1)`$                                                |
+
+```{r fig.height=3.5, fig.width=5, warning=F, echo=FALSE}
+ggplot(gapm2, aes(x = four_regions, 
+                   y = LifeExpectancyYrs, 
+                   color = four_regions)) +
+  geom_jitter(size = 1, alpha = .6, width = 0.2) +
+  stat_summary(fun = mean, geom = "point", size = 8, shape = 18) 
+```
+
+## Model in R with effect coding (brute force way)
+
+-   Create variables with the -1, 0, 1 values
+
+```{r}
+gapm2 <- gapm2 %>% 
+  mutate(
+    americas_eff = case_when(
+      four_regions == "americas" ~ 1,
+      four_regions == "africa" ~ -1,
+      TRUE ~ 0  # all other cases
+    ),
+    asia_eff = case_when(
+      four_regions == "asia" ~ 1,
+      four_regions == "africa" ~ -1,
+      TRUE ~ 0  # all other cases
+    ),
+    europe_eff = case_when(
+      four_regions == "europe" ~ 1,
+      four_regions == "africa" ~ -1,
+      TRUE ~ 0  # all other cases
+    )
+  )
+```
+
+<!-- Check:  -->
+
+```{r}
+gapm2 %>% tabyl(americas_eff, four_regions) %>% gt()
+gapm2 %>% tabyl(asia_eff, four_regions) %>% gt()
+gapm2 %>% tabyl(europe_eff, four_regions) %>% gt()
+```
+
+## Model in R with effect coding (brute force way)
+
+```{r}
+model3 <- lm(LifeExpectancyYrs ~ americas_eff + asia_eff + europe_eff, 
+             data = gapm2)
+tidy(model3) %>% gt()
+```
+
+$$\widehat{\textrm{life expectancy}} = `r round(b0,1)`+ `r round(b1,1)` \cdot Americas + `r round(b2,1)` \cdot Asia + `r round(b3,1)` \cdot Europe$$
+
+-   Note that all three of the effect coded variables we created need to be specified in the model, instead of the one `four_regions` variable
+-   How you would calculate the mean life expectancies of world regions using *only* the results from the regression table?
+
+------------------------------------------------------------------------
+
+## Model in R with effect coding using contrasts
+
+-   Contrasts are used to tell R what "coding system" we want to use when testing hypotheses
+
+**Reference cell coding** is the default type of coding used by R
+
+```{r}
+# 1st level is all 0's
+contr.treatment(4)  
+```
+
+**Effect coding**: note that R assigns the -1 values to the *last* level instead of the first level
+
+```{r}
+# 4th level is all -1's
+contr.sum(4)  
+```
+
+## Reorder levels so that Africa is last
+
+-   Doing this so that R's `lm()` output is consistent with what we calculated on previous slides when using effect coding
+-   R will assign -1 values to the *last* level of the categorical variable
+
+```{r}
+levels(gapm2$four_regions)
+gapm2 <- gapm2 %>% 
+  mutate(four_regions_africa_last = 
+      fct_relevel(four_regions, "americas", "asia", "europe", "africa"))
+
+levels(gapm2$four_regions_africa_last)
+gapm2 %>% tabyl(four_regions, four_regions_africa_last)
+```
+
+## Model in R with effect coding using contrasts
+
+```{r}
+model3 <- lm(LifeExpectancyYrs ~ four_regions_africa_last, 
+             contrasts = list(four_regions_africa_last = contr.sum(4)), 
+             data = gapm2)
+tidy(model3) %>% gt()
+```
+
+Regression equation we computed based on group means:
+
+$$\widehat{\textrm{life expectancy}} = `r round(b0,1)`+ `r round(b1,1)` \cdot Americas + `r round(b2,1)` \cdot Asia + `r round(b3,1)` \cdot Europe$$
+
+## Reference cell coding vs. effect coding
+
+-   Reference cell coding
+    -   R's default for regression
+-   Effect coding
+    -   This is what one-way ANOVA is from a regression point of view
+        -   See Section 17.4.2 of textbook
+-   Different statistical software packages have different defaults.
+    -   Important to know what the default is!!
+
+See https://stats.oarc.ucla.edu/r/library/r-library-contrast-coding-systems-for-categorical-variables/ for more on different ways to code categorical variables in R

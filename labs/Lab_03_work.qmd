@@ -1,0 +1,77 @@
+---
+title: "Lab 3 Work"
+subtitle: "BSTA 512/612"
+description: "Due: Thursday February 29, 2024"
+date-modified: "12/21/2024"
+date: "2/29/2024"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+    self-contained: true
+  pdf: default 
+editor_options: 
+  chunk_output_type: console
+---
+
+::: callout-warning
+## IMPORTANT TO READ
+
+-   Please do not delete the rubric from your `.qmd` file. I will use it to circle the grades!
+
+-   Please delete everything
+:::
+
+## Directions
+
+Please turn in your `.html` file [on Sakai.](https://sakai.ohsu.edu/portal/site/BSTA-512-1-AB-W24/tool/961ec5ef-d7f9-4518-be16-25f7af3d6be4?panel=Main) Please let me know if you greatly prefer to submit a physical copy.
+
+[You can download the `.qmd` file for this lab here.](https://github.com/nwakim/W2024_BSTA_512/blob/main/labs/Lab_02.qmd)
+
+The rest of this lab's instructions are embedded into the lab activities.
+
+### Purpose
+
+The main purpose of this lab is to introduce our dataset, codebook, and variables. We will continue to think about the context of our research question, but our main focus is to become familiar with the data.
+
+### Grading
+
+**This lab is graded out of 12 points.** Nicky will use the following rubric to assign grades.
+
+#### Rubric
+
+|             | 4 points                                                                                                                                                                                                        | 3 points                                                                                                                                                                                       | 2 points                                                                                                                                                                                                   | 1 point                                                                                                                                                                                  | 0 points                                                                                                               |
+|------------|------------|------------|------------|------------|------------|
+| Formatting  | Lab submitted on Sakai with `.html` file. Answers are written in complete sentences with no major grammatical nor spelling errors. With little editing, the answer can be incorporated into the project report. | Lab submitted on Sakai with `.html` file. Answers are written in complete sentences with grammatical or spelling errors. With editing, the answer can be incorporated into the project report. | Lab submitted on Sakai with `.html` file. Answers are written in complete sentences with major grammatical or spelling errors. With major editing, the answer can be incorporated into the project report. | Lab submitted on Sakai with `.html` file. Answers are bulletted or do not use complete sentences.                                                                                        | Lab *not* submitted on Sakai with `.html` file.                                                                        |
+| Code/Work   | All tasks are directly followed or answered. This includes all the needed code, in code chunks, with the requested output.                                                                                      | All tasks are directly followed or answered. This includes all the needed code, in code chunks, with the requested output. In a few tasks, the code syntax or output is not quite right.       | Some tasks are directly followed or answered. This includes all the needed code, in code chunks, with the requested output.                                                                                | Some tasks are directly followed or answered.This includes all the needed code, in code chunks, with the requested output. In a few tasks, the code syntax or output is not quite right. | More than a quarter of the tasks are not completed properly.                                                           |
+| Reasoning\* | Answers demonstrate understanding of research context and investigation of the data. Answers are thoughtful and can be easily integrated into the final report.                                                 | Answers demonstrate understanding of research context and investigation of the data. Answers are thoughtful, but lack the clarity needed to easily integrate into the final report.            | Answers demonstrate some understanding of research context and investigation of the data. Answers are fairly thoughtful, but lack connection to the research.                                              | Answers demonstrate some understanding of research context and investigation of the data. Answers seem rushed and with minimal thought.                                                  | Answers lack understanding of research context and investigation of the data. Answers seem rushed and without thought. |
+
+\*Applies to questions with reasoning (like target population, choosing variables, revisiting research question)
+
+## Lab activities
+
+### 0. Restate your research question 
+
+::: callout-important
+##### Task 
+
+Please restate your research question below using the following format. It's repetitive, but it helps me contextualize my feedback as I look through your lab.
+:::
+
+How is implicit anti-fat bias, as measured by the IAT score, associated with "insert main independent variable here"?
+
+### 1. Working with multi-level variables 
+
+### 2. Continuing data exploration
+bivariate data exploration
+multivariate data exploration
+
+### 3. Make a Table 1
+
+### 4. Fit the simple linear regression
+
+### 5. 
+
+
+

@@ -40,6 +40,7 @@
       "/slides/08_MLR_Intro.html",
       "/slides/Quiz_1_Lab_1.html",
       "/slides/09_MLR_Inference.html",
+      "/slides/10_Cat_covariates.html",
       "/slides/Slack_Pred_bands.html",
       "/slides/00_Quiz_Lab_1.html",
       "/slides/07_SLR_Diagnostics_ex_rats.html",
@@ -62,9 +63,9 @@
       "/homework/HW0.html",
       "/homework/HW1.html",
       "/homework/HW2.html",
-      "/homework/HW3.html",
       "/homework/HW4.html",
-      "/homework/HW5.html"
+      "/homework/HW5.html",
+      "/homework/HW3.html"
     ]
   },
   {

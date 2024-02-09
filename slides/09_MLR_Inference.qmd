@@ -1,5 +1,5 @@
 ---
-title: "MLR: Inference"
+title: "MLR: F-test"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#213c96"
@@ -534,7 +534,7 @@ Alternative\* model
 :::
 
 ::: def-cont
--   $Y = \beta_0 + \beta_1 X + \beta_2 X + \epsilon$
+-   $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \epsilon$
 -   Larger (full) model
 :::
 :::

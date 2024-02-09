@@ -3,8 +3,7 @@ title: "Homework 3"
 subtitle: "BSTA 512/612"
 author: "Your name here!!!"
 description: "Due: Thursday February 15, 2024 at 11pm"
-date-modified: "2/15/2024"
-date: "today"
+date-modified: "today"
 format: 
   html:
     link-external-newwindow: true
@@ -24,10 +23,16 @@ library(broom)
 library(gt)
 library(janitor)
 library(readxl)
+library(gridExtra)
+library(ggfortify)  # autoplot(model)
+library(gtsummary)
+library(describedata) # gladder()
+library(haven)
+library(here)
 ```
 
 ::: callout-important
-**THIS PAGE IS UNDER CONSTRUCTION!!**
+**This page is no longer under construction. You may start this homework! (2/9/24)**
 :::
 
 ## Directions
@@ -58,7 +63,7 @@ It is a good idea to try rendering your document from time to time as you go alo
 
 ### Question 1
 
-A high respiratory rate is a potential diagnostic indicator of respiratory infection in children. To judge whether a respiratory rate is “high” however, a physician must have a clear picture of the distribution of normal rates. To this end, Italian researchers measured the respiratory rates of 618 children between the ages of 15 days and 3 years.
+A high respiratory rate is a potential diagnostic indicator of respiratory infection in children. To judge whether a respiratory rate is “high” however, a physician must have a clear picture of the distribution of normal rates. To this end, Italian researchers measured the respiratory rates (in breaths/minute) of 618 children between the ages of 15 days and 3 years (measured in months).
 
 The data and problem framing came from the `Sleuth3` package. Please make sure to run the following code to load the data. You can directly access the dataset `ex0824` from the package. I have included a new assignment of the data to `q1_data` if you would like to use that.
 
@@ -66,127 +71,149 @@ The data and problem framing came from the `Sleuth3` package. Please make sure t
 #| message: false
 
 if(!require(Sleuth3)) { install.packages("Sleuth3"); library(Sleuth3) }
-q1_data = ex0824
+q1_data = ex0824 
 ```
 
 #### Part a
 
-Create a scatterplot of the dependent and independent variables with both the best-fit line and a smoothed curve through the points. Describe the relationship between the dependent and independent variables, and also comment on whether you think it is reasonable to use a linear regression to model the relationship. Are there any outliers in the data? If so, describe the points and why you think they are outliers.
+Create a scatterplot of the dependent and independent variables with both the best-fit line and a smoothed curve through the points. Describe the relationship between the dependent and independent variables, and also comment on whether you think it is reasonable to use a linear regression to model the relationship.
 
-## (2)
+#### Part b
 
-Write out the regression equation for the simple linear regression model.
+Write out the population regression model for the simple linear regression model. Please leave the variables untransformed for now.
 
-## (3)
+#### Part c
 
-Assess the normality of the model's (ordinary) residuals by creating a histogram, density plot, and boxplot of the residuals to visually inspect the distribution of the residuals, and describe any deviations from normality.
+Fit the regression model, display the regression table, and write out the fitted regression line.
 
-## (4)
+#### Part d
 
-Assess the normality of the model's (ordinary) residuals by creating a normal probability plot of the residuals. Compare the normality probability plot to 8 such plots simulated from normal data, and discuss why or why not the residuals could have come from a normal distribution.
+Assess the normality of the model's fitted residuals by creating a histogram, density plot, and boxplot of the residuals to visually inspect the distribution of the residuals, and describe any deviations from normality.
 
-## (5)
 
-Test the normality of the model's (ordinary) residuals and comment on whether the test's conclusion is consistent with your visual inspection or not. Make sure to include the hypotheses and a conclusion to the test based on the p-value.
+#### Part e
 
-## (6)
+Assess the normality of the model's fitted residuals by creating QQ plot of the residuals.
 
-Create a residual plot using ggplot and the standardized residuals and discuss what this shows us in terms of whether the model assumptions have been met or not.
+Bonus work, but not required: Compare the QQ plot to 4 such plots simulated from normal data, and discuss why or why not the residuals could have come from a normal distribution.
 
-## (7)
+#### Part f
 
-Determine whether there are any observations with high leverage. If there are observations with high leverage, identify their coordinates and describe how they relate to the other observations. Why would these points have high leverage compared to the other observations? Do you think removing the points would change the linear model much? (you do not need to remove the points and rerun the model, just comment on whether you think they are influential)
+Test the normality of the model's fitted residuals and comment on whether the test's conclusion is consistent with your visual inspection or not. Make sure to include the hypotheses, needed R code, and a conclusion to the test based on the p-value ([as shown in these slides](https://nwakim.github.io/W2024_BSTA_512/slides/06_SLR_Diagnostics.html#/n-shapiro-wilk-test-of-normality)).
 
-## (8)
+#### Part g
 
-Determine whether there are any observations with high Cook's distance. If there are observations with high Cook's distance, identify their coordinates and describe how they relate to the other observations. Why would these points have high Cook's distance compared to the other observations? Do you think removing the points would change the linear model much? (you do not need to remove the points and rerun the model, just comment on whether you think they are influential)
+Create a residual plot using ggplot and the residuals. Discuss what this means in the context of our model assumptions.
 
-## (9)
+#### Part h
 
-Create histograms and density plots of the dependent and independent variables and describe their distribution shapes.
+Determine whether there are any observations with high leverage. Please use the cutoff, $h_i > 6/n$. If there are observations with high leverage, print the observations and state how many high leverage points there are.
 
-## (10)
+#### Part i
 
-Use Tukey's ladder of transformations to choose two possible transformations for the dependent variable. Explain why you chose them. Note: questions below will ask about model fit with the transformations. For now, just explain why you chose the ones that you did.
+Print the 10 observations with highest Cook's distance. If there are observations with high Cook's distance ($d_i >1$), state how many observations have high Cook's distance.
 
-## (11)
+#### Part j
 
-Use Tukey's ladder of transformations to choose two possible transformations for the independent variable. Explain why you chose them. Note: questions below will ask about model fit with the transformations. For now, just explain why you chose the ones that you did.
+Create a histogram for rate. Describe its distribution shapes.
 
-## (12)
+#### Part k
 
-Add the 4 transformations you chose above (2 for the dependent variable and 2 for the independent variable) to the dataset.
+Using the above histogram, and Tukey's ladder of transformations, discuss the range of transformations that will be appropriate for **Rate**. Explain your reasoning.
 
-## (13)
+Then use `gladder()` to decide on two possible transformations. Explain your reasoning.
 
-Create scatterplots using the transformed variables and discuss whether any of the transformations improve the model fit and why (or why not). Include plots with just the x or y variables transformed, and at least one plot with both the x and y variables transformed.
+Note: questions below will ask about model fit with the transformations. For now, just explain why you chose the two that you did.
 
-## (14)
+#### Part l
 
-Run the various transformed models and save the output to use for the diagnostic questions below.
+Add the two rate transformations you chose above to the dataset. You do not need to print any output, just make sure the code is visible.
 
-## (15)
+#### Part m
 
-Compare the normal QQ plots of the different models and discuss whether any of the transformations improve the model fit and why (or why not).
+Create scatterplots using two transformed rates and age. Discuss if either transformation potentially improves the model fit. Explain why or why not. Note: including lines will help!
 
-## (16)
+#### Part n
 
-Compare the residual plots of the different models and discuss whether any of the transformations improve the model fit and why (or why not).
+Using one of the transoformed outcomes, fit the regression model, display the regression table, and write out the fitted regression line.
 
-## (17)
+#### Part o
 
-Compare the leverage & Cook’s distance of the different models and discuss whether any of the transformations improve the model fit and why (or why not).
+Assess the normality of the model’s fitted residuals by creating QQ plot of the residuals. Does the transformation improve the QQ plot?
 
-## (18)
+#### Part p
 
-Compare the $R^2$ values and F-test p-values of the different models and discuss whether any of the transformations improve the model fit and why (or why not).
+Create a residual plot using ggplot and the residuals. Discuss what this means in the context of our model assumptions. Does the transformation improve our model assumptions?
 
-## (19)
+#### Part q
 
-Which of the models would you recommend using for analyses? Discuss why you chose the model and why you did not choose the other models.
+Between the model with the untransformed outcome and the transformed outcome, which would you recommend using for analysis? (Hint: there are pros and cons to both models)
 
-# Problem 9.7 (a, b, e, f) from book
+### Question 2
 
-*Note: (c) is in recommended problems below.*
+This question uses the same dataset as HW 2, question 1.
 
-> Use the results from Problem 4 in Chapter 8, as well as the computer output given here, to answer the following questions about the data from that problem.
+This question is based on data collected as part of an observational study of patients who suffered from stroke.
 
-Note: Create all output you need using R instead of relying on the output given in the text.
+Dataset: The main goal was to study various psychological factors: optimism, fatalism, depression, spirituality, and their relationship with stroke severity and other health outcomes among the study participants. Data were collected using questionnaires during a baseline interview and also medical chart review. More information about this study can be found in the article [Fatalism, optimism, spirituality, depressive symptoms and stroke outcome: a population based analysis](https://pubmed.ncbi.nlm.nih.gov/21940963/).
 
-Problem 4 from Chapter 8:
+The dataset that you will work with is called `completedata.sas7bdat`. The two variables we are interested in are:
 
-> A sociologist investigating the recent increase in the incidence of homicide throughout the United States studied the extent to which the homicide rate per 100,000 population ($Y$) is associated with the city’s population size ($X_1$), the percentage of families with yearly income less than \$5,000 ($X_2$), and the rate of unemployment ($X_3$). Data are provided in the following table for a hypothetical sample of 20 cities.
+-   Covariate 1: `Fatalism` (larger values indicate that the individual feels less control of their life)
 
-## (a)
+    -   Potential scores range from 8 to 40
 
-> Conduct the overall regression F test for the model where $Y$ is regressed on $X_1, X_2$, and $X_3$. Use alpha = 0.05. Interpret your result.
+-   Covariate 2: `Optimism` (larger values indicate that the individual feels higher levels of optimism)
 
-## (b)
+    -   Potential scores range from 6 to 24
 
-> Provide variables-added-in-order tests for the order $X_2, X_1$, and $X_3$.
+-   Covariate 3: `Spirituality` (larger values indicate that the individual has more belief in a higher power)
 
-This means that there are 3 tests: (1) test model with just $X_2$, (2) test adding $X_1$ to the model given that $X_2$ is already in the model, and (3) test adding $X_3$ to the model given that $X_2, X_1$ are already in the model. See the subsections below to divide up the work.
+    -   Potential scores range from 2 to 8
 
-### Test model with just $X_2$
+-   Outcome: `Depression` (larger values imply increased depression)
 
-### Adding $X_1$ to the model given that $X_2$ is already in the model
+    -   Potential scores range from 0 to 27
 
-### Adding $X_3$ to the model given that $X_2, X_1$ are already in the model
+For our homework purposes we will assume each variable is continuous.
 
-## (e)
+```{r}
+dep_df = read_sas(here("./homework/data/completedata.sas7bdat"))
+```
 
-> Provide variables-added-last tests for $X_1, X_2$, and $X_3$.
+#### Part a
 
-This means that there are 3 tests: (1) test adding $X_1$ to the model given that $X_2, X_3$ are already in the model, (2) test adding $X_2$ to the model given that $X_1, X_3$ are already in the model, and (3) test adding $X_3$ to the model given that $X_1, X_2$ are already in the model. See the subsections below to divide up the work.
+Fit the regression model with all the covariates (Fatalism, Optimism, Spirituality), display the regression table, and write out the fitted regression line.
 
--   For adding $X_2$ and $X_3$ last to the model, you do not need to calculate the test statistic using the formula or the p-value directly using its probability distribution. You can instead run the appropriate tests in R.
+#### Part b
 
-### Adding $X_1$ to the model given that $X_2, X_3$ are already in the model
+Interpret each coefficient ($\beta_0$, $\beta_1$, $\beta_2$, $\beta_3$).
 
-### Adding $X_2$ to the model given that $X_1, X_3$ are already in the model
+Does the intercept make sense for the range of values that each covariate can take? Explain.
 
-### Adding $X_3$ to the model given that $X_1, X_2$ are already in the model
 
-## (f)
+#### Part c
 
-> Provide the variables-added-last test for $X_4 = X_2 X_3$ given that $X_2$ and $X_3$ are already in the model. Does $X_4$ significantly improve the prediction of $Y$ given that $X_2$ and $X_3$ are already in the model?
+Recall in Homework 2, we ran a simple linear regression model for Depression vs. Fatalism with the following interpretation for the coefficient: For every 1 point higher fatalism score, there is an expected difference of 0.25 points higher depression score (95%CI: 0.17, 0.32).
+
+Does the addition of Optimism and Spirituality change our coefficient estimate for Fatalism? (No need for an official hypothesis test here. I just want us to note some differences.)
+
+
+#### Part d
+
+From the fitted regression model, calculate the regression line when Optimism score is 10 and Spirituality score is 6.
+
+
+#### Part e
+
+Does at least one of the covariates contribute significantly to the prediction of Depression? (Note: this is an overall test. Please follow the hypothesis test steps. To complete step 4-6, simply output your ANOVA table.)
+
+
+#### Part f
+
+Does the addition of Spirituality add significantly to the prediction of Depression achieved by Fatalism and Optimism?
+
+
+#### Part g
+
+Does the addition of Spirituality and Optimism add significantly to the prediction of Depression achieved by Fatalism?
