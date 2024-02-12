@@ -39,10 +39,10 @@ editor_options:
 
 Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
 
-| Lesson | Topic                  |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
-|--------------|--------------|:------------:|:--------------:|:------------:|
-| 10     | Categorical Covariates | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 11     | Interactions           | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| Lesson | Topic                  |                                                 Slides                                                 |                                  Annotated Slides                                  |                           Recording                           |
+|---------------|---------------|:-------------:|:-------------:|:-------------:|
+| 10     | Categorical Covariates | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/10_Cat_covariates.qmd)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 11     | Interactions           |                 [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                  | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
 ## On the Horizon
 
@@ -58,6 +58,14 @@ Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B
 [[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUMVJHTkVBUFFDT1owSTZGS01KRVIzVDJQQS4u)]{style="color:#f8f5f0;"} Wednesday (2/14)
 
 ## Announcements
+
+### Monday 2/12
+
+-   Quiz 2 next week
+
+    -   Lesson 4 ([SLR: Inference](/slides/04_SLR_Inf_Pred.qmd), starting at mean response) to Lesson 9
+
+    -   HW 4 will not be on it!
 
 ## Muddiest Points
 

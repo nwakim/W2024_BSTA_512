@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Your name here!!!">
 <meta name="dcterms.date" content="2024-02-22">
 <meta name="description" content="Due: Thursday February 22, 2024 at 11pm">
 
@@ -4696,6 +4697,12 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
  <span class="menu-text">Resources</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quizzes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quizzes</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -4744,62 +4751,12 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
    
   <ul>
   <li><a href="#directions" id="toc-directions" class="nav-link active" data-scroll-target="#directions">Directions</a></li>
-  <li><a href="#regression-with-one-categorical-predictor-prequel-to-ch-11-12" id="toc-regression-with-one-categorical-predictor-prequel-to-ch-11-12" class="nav-link" data-scroll-target="#regression-with-one-categorical-predictor-prequel-to-ch-11-12">Regression with one categorical predictor (Prequel to Ch 11 &amp; 12)</a>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a>
   <ul class="collapse">
-  <li><a href="#penguins-flipper-length-vs.-species" id="toc-penguins-flipper-length-vs.-species" class="nav-link" data-scroll-target="#penguins-flipper-length-vs.-species">Penguins: Flipper length vs. species</a>
-  <ul class="collapse">
-  <li><a href="#outcome-averages-stratified-by-category-levels" id="toc-outcome-averages-stratified-by-category-levels" class="nav-link" data-scroll-target="#outcome-averages-stratified-by-category-levels">(1) Outcome averages stratified by category levels</a></li>
-  <li><a href="#visualize-the-regression" id="toc-visualize-the-regression" class="nav-link" data-scroll-target="#visualize-the-regression">(2) Visualize the “regression”</a></li>
-  <li><a href="#regression-equations" id="toc-regression-equations" class="nav-link" data-scroll-target="#regression-equations">(3) Regression equations</a></li>
-  <li><a href="#interpret-coefficients" id="toc-interpret-coefficients" class="nav-link" data-scroll-target="#interpret-coefficients">(4) Interpret coefficients</a></li>
-  <li><a href="#regression-coefficients-manually" id="toc-regression-coefficients-manually" class="nav-link" data-scroll-target="#regression-coefficients-manually">(5) Regression coefficients “manually”</a></li>
-  <li><a href="#regression-table-with-lm-function" id="toc-regression-table-with-lm-function" class="nav-link" data-scroll-target="#regression-table-with-lm-function">(6) Regression table with <code>lm()</code> function</a></li>
-  <li><a href="#mean-calculation-using-regression-output" id="toc-mean-calculation-using-regression-output" class="nav-link" data-scroll-target="#mean-calculation-using-regression-output">(7) Mean calculation using regression output</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">———————————-</a></li>
-  <li><a href="#recommended-extra-problems-do-not-turn-in-will-be-not-graded" id="toc-recommended-extra-problems-do-not-turn-in-will-be-not-graded" class="nav-link" data-scroll-target="#recommended-extra-problems-do-not-turn-in-will-be-not-graded">Recommended extra problems do not turn in (will be not graded)</a>
-  <ul class="collapse">
-  <li><a href="#problem-9.7-c" id="toc-problem-9.7-c" class="nav-link" data-scroll-target="#problem-9.7-c">Problem 9.7 (c)</a>
-  <ul class="collapse">
-  <li><a href="#test-model-with-just-x_3" id="toc-test-model-with-just-x_3" class="nav-link" data-scroll-target="#test-model-with-just-x_3">Test model with just <span class="math inline">\(X_3\)</span></a></li>
-  <li><a href="#adding-x_1-to-the-model-given-that-x_3-is-already-in-the-model" id="toc-adding-x_1-to-the-model-given-that-x_3-is-already-in-the-model" class="nav-link" data-scroll-target="#adding-x_1-to-the-model-given-that-x_3-is-already-in-the-model">Adding <span class="math inline">\(X_1\)</span> to the model given that <span class="math inline">\(X_3\)</span> is already in the model</a></li>
-  <li><a href="#adding-x_2-to-the-model-given-that-x_3-x_1-are-already-in-the-model" id="toc-adding-x_2-to-the-model-given-that-x_3-x_1-are-already-in-the-model" class="nav-link" data-scroll-target="#adding-x_2-to-the-model-given-that-x_3-x_1-are-already-in-the-model">Adding <span class="math inline">\(X_2\)</span> to the model given that <span class="math inline">\(X_3, X_1\)</span> are already in the model</a></li>
-  </ul></li>
-  <li><a href="#chapter-10-c-using-the-formula" id="toc-chapter-10-c-using-the-formula" class="nav-link" data-scroll-target="#chapter-10-c-using-the-formula">Chapter 10 (c) using the formula</a></li>
-  <li><a href="#regression-with-one-categorical-predictor-prequel-to-ch-11-12-change-the-reference-level-to-gentoo" id="toc-regression-with-one-categorical-predictor-prequel-to-ch-11-12-change-the-reference-level-to-gentoo" class="nav-link" data-scroll-target="#regression-with-one-categorical-predictor-prequel-to-ch-11-12-change-the-reference-level-to-gentoo">Regression with one categorical predictor (Prequel to Ch 11 &amp; 12): Change the reference level to Gentoo</a>
-  <ul class="collapse">
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">(8)</a></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">(9)</a></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">(10)</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#chapter-11-12-questions-not-from-book" id="toc-chapter-11-12-questions-not-from-book" class="nav-link" data-scroll-target="#chapter-11-12-questions-not-from-book">Chapter 11 &amp; 12 (questions NOT from book)</a>
-  <ul class="collapse">
-  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a>
-  <ul class="collapse">
-  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">a)</a></li>
-  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">b)</a></li>
-  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">c)</a></li>
-  <li><a href="#d" id="toc-d" class="nav-link" data-scroll-target="#d">d)</a></li>
-  </ul></li>
-  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a>
-  <ul class="collapse">
-  <li><a href="#a-1" id="toc-a-1" class="nav-link" data-scroll-target="#a-1">a)</a></li>
-  <li><a href="#b-1" id="toc-b-1" class="nav-link" data-scroll-target="#b-1">b)</a></li>
-  <li><a href="#c-1" id="toc-c-1" class="nav-link" data-scroll-target="#c-1">c)</a></li>
-  <li><a href="#d-1" id="toc-d-1" class="nav-link" data-scroll-target="#d-1">d)</a></li>
-  <li><a href="#e" id="toc-e" class="nav-link" data-scroll-target="#e">e)</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#chapter-15-polynomial-regression-questions-not-from-book" id="toc-chapter-15-polynomial-regression-questions-not-from-book" class="nav-link" data-scroll-target="#chapter-15-polynomial-regression-questions-not-from-book">Chapter 15: Polynomial Regression (questions NOT from book)</a>
-  <ul class="collapse">
-  <li><a href="#a-2" id="toc-a-2" class="nav-link" data-scroll-target="#a-2">a)</a></li>
-  <li><a href="#b-2" id="toc-b-2" class="nav-link" data-scroll-target="#b-2">b)</a></li>
-  <li><a href="#c-2" id="toc-c-2" class="nav-link" data-scroll-target="#c-2">c)</a></li>
-  <li><a href="#d-2" id="toc-d-2" class="nav-link" data-scroll-target="#d-2">d)</a></li>
-  <li><a href="#e-1" id="toc-e-1" class="nav-link" data-scroll-target="#e-1">e)</a></li>
-  <li><a href="#f" id="toc-f" class="nav-link" data-scroll-target="#f">f)</a></li>
+  <li><a href="#question-1-penguins-flipper-length-vs.-species" id="toc-question-1-penguins-flipper-length-vs.-species" class="nav-link" data-scroll-target="#question-1-penguins-flipper-length-vs.-species">Question 1: Penguins: Flipper length vs. species</a></li>
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#chapter-15-polynomial-regression-questions-not-from-book" id="toc-chapter-15-polynomial-regression-questions-not-from-book" class="nav-link" data-scroll-target="#chapter-15-polynomial-regression-questions-not-from-book">Chapter 15: Polynomial Regression (questions NOT from book)</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="HW4.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -4822,6 +4779,12 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Your name here!!! </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
@@ -4833,7 +4796,7 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">December 22, 2023</p>
+      <p class="date-modified">February 11, 2024</p>
     </div>
   </div>
     
@@ -4852,29 +4815,42 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>THIS PAGE IS UNDER CONSTRUCTION!!</strong></p>
+<p><strong>This page is under construction!!</strong></p>
 </div>
 </div>
 <section id="directions" class="level2">
 <h2 class="anchored" data-anchor-id="directions">Directions</h2>
 <ul>
-<li><p>Please upload your homework to Sakai. <strong>Upload both your .Rmd code file and the knitted .html file</strong>.</p></li>
-<li><p>For each question, make sure to include all code and resulting output in the html file to support your answers.</p></li>
-<li><p>Show the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the knitted html file.</p></li>
-<li><p>Write all answers in complete sentences as if communicating the results to a collaborator.</p>
+<li><p><a href="https://github.com/nwakim/W2024_BSTA_512/blob/main/homework/HW3.qmd">Download the <code>.qmd</code> file here.</a></p></li>
+<li><p>You will need to download the datasets. Use <a href="https://ohsuitg-my.sharepoint.com/:f:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W2024_BSTA_512_612/Student_files/Data/Homework?csf=1&amp;web=1&amp;e=QEsqb9">this link to download</a> the homework datasets needed in this assignment. If you do not want to make changes to the paths set in this document, then make sure the files are stored in a folder named “data” that is housed in the same location as this homework <code>.qmd</code> file.</p></li>
+<li><p>Please upload your homework to <a href="https://sakai.ohsu.edu/portal/site/BSTA-512-1-AB-W24/tool/961ec5ef-d7f9-4518-be16-25f7af3d6be4">Sakai</a>. <strong>Upload both your <code>.qmd</code> code file and the rendered <code>.html</code> file</strong></p>
 <ul>
-<li>Points (usually 0.5-1) will be deducted for not including a sentence summarizing results in the context of the research study.</li>
-<li>Questions not requiring a sentence are: <em>none - include a summary for all questions</em></li>
+<li><p><strong>Please rename you homework as <code>Lastname_Firstinitial_HW0.qmd</code>. This will help organize the homeworks when the TAs grade them.</strong></p></li>
+<li><p><strong>Please also add the following line under <code>subtitle: &quot;BSTA 512/612&quot;</code>: <code>author: First-name Last-name</code> with your first and last name so it is attached to the viewable document.</strong></p></li>
 </ul></li>
+<li><p>For each question, make sure to include all code and resulting output in the html file to support your answers.</p></li>
+<li><p>Show the work of your calculations using R code within a code chunk. Make sure that both your code and output are visible in the rendered html file. This is the default setting.</p></li>
+<li><p>If you are computing something by hand, you may take a picture of your work and insert the image in this file. You may also use LaTeX to write it inline.</p></li>
+<li><p>Write all answers in complete sentences as if communicating the results to a collaborator. This means including a sentence summarizing results in the context of the research study.</p></li>
 </ul>
-<blockquote class="blockquote">
-<p>Tip: It is a good idea to try kitting your document from time to time as you go along! Note that knitting automatically saves your Rmd file and knitting frequently helps you catch your errors more quickly.</p>
-</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is a good idea to try rendering your document from time to time as you go along! Note that rendering automatically saves your qmd file and rendering frequently helps you catch your errors more quickly.</p>
+</div>
+</div>
 </section>
-<section id="regression-with-one-categorical-predictor-prequel-to-ch-11-12" class="level1">
-<h1>Regression with one categorical predictor (Prequel to Ch 11 &amp; 12)</h1>
-<section id="penguins-flipper-length-vs.-species" class="level2">
-<h2 class="anchored" data-anchor-id="penguins-flipper-length-vs.-species">Penguins: Flipper length vs. species</h2>
+<section id="questions" class="level2">
+<h2 class="anchored" data-anchor-id="questions">Questions</h2>
+<section id="question-1-penguins-flipper-length-vs.-species" class="level3">
+<h3 class="anchored" data-anchor-id="question-1-penguins-flipper-length-vs.-species">Question 1: Penguins: Flipper length vs. species</h3>
 <p>For this problem we will be using the <code>penguins</code> dataset from the <code>palmerpenguins</code> R package.</p>
 <p>Description from help file:</p>
 <blockquote class="blockquote">
@@ -4890,160 +4866,125 @@ Important
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># run the command below to learn more about the variables in the penguins dataset</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ?penguins</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="outcome-averages-stratified-by-category-levels" class="level3">
-<h3 class="anchored" data-anchor-id="outcome-averages-stratified-by-category-levels">(1) Outcome averages stratified by category levels</h3>
+<section id="outcome-averages-stratified-by-category-levels" class="level4">
+<h4 class="anchored" data-anchor-id="outcome-averages-stratified-by-category-levels">(1) Outcome averages stratified by category levels</h4>
 <p><font color="green">Calculate the average flipper lengths stratified by each of the penguin species.</font></p>
 </section>
-<section id="visualize-the-regression" class="level3">
-<h3 class="anchored" data-anchor-id="visualize-the-regression">(2) Visualize the “regression”</h3>
+<section id="visualize-the-regression" class="level4">
+<h4 class="anchored" data-anchor-id="visualize-the-regression">(2) Visualize the “regression”</h4>
 <p><font color="green">Make a scatterplot of flipper lengths by species, and include diamond-shape points for the averages of the flipper lengths for each of the species.</font></p>
 </section>
-<section id="regression-equations" class="level3">
-<h3 class="anchored" data-anchor-id="regression-equations">(3) Regression equations</h3>
+<section id="regression-equations" class="level4">
+<h4 class="anchored" data-anchor-id="regression-equations">(3) Regression equations</h4>
 <p>Before running the regression in R, we are going to find the regression equation”manually.”</p>
 <p><font color="green">Write out the regression equation using LaTeX math markup (see class notes) that models the flipper length by penguin species. Do not yet insert values for the regression coefficients, i.e. us the generic coefficients</font> <span class="math inline">\(\widehat{\beta}_0, \widehat{\beta}_1,\)</span> <font color="green">etc. Use Adelie as the reference level.</font></p>
 </section>
-<section id="interpret-coefficients" class="level3">
-<h3 class="anchored" data-anchor-id="interpret-coefficients">(4) Interpret coefficients</h3>
+<section id="interpret-coefficients" class="level4">
+<h4 class="anchored" data-anchor-id="interpret-coefficients">(4) Interpret coefficients</h4>
 <p><font color="green">How do we interpret each of the regression coefficients for this model?</font> <em>Write out a separate interpretation for each of the coefficients.</em></p>
 </section>
-<section id="regression-coefficients-manually" class="level3">
-<h3 class="anchored" data-anchor-id="regression-coefficients-manually">(5) Regression coefficients “manually”</h3>
+<section id="regression-coefficients-manually" class="level4">
+<h4 class="anchored" data-anchor-id="regression-coefficients-manually">(5) Regression coefficients “manually”</h4>
 <p><font color="green">“Manually” calculate the values for each of the coefficients, and update the regression model with the values inserted.</font><br>
 <em>You must show your work for this. Do not run the linear model in this step to get the values.</em></p>
 </section>
-<section id="regression-table-with-lm-function" class="level3">
-<h3 class="anchored" data-anchor-id="regression-table-with-lm-function">(6) Regression table with <code>lm()</code> function</h3>
+<section id="regression-table-with-lm-function" class="level4">
+<h4 class="anchored" data-anchor-id="regression-table-with-lm-function">(6) Regression table with <code>lm()</code> function</h4>
 <p><font color="green">Run the linear regression of flipper lengths vs. species in R, and display the regression table output. Which species did R choose as the reference level, and how did you determine this?</font></p>
 </section>
-<section id="mean-calculation-using-regression-output" class="level3">
-<h3 class="anchored" data-anchor-id="mean-calculation-using-regression-output">(7) Mean calculation using regression output</h3>
+<section id="mean-calculation-using-regression-output" class="level4">
+<h4 class="anchored" data-anchor-id="mean-calculation-using-regression-output">(7) Mean calculation using regression output</h4>
 <p><font color="green">Calculate the mean flipper length of penguins in the Chinstrap and Gentoo species using <em>only</em> the results from the regression table.</font> <em>You must show your work.</em></p>
 </section>
-</section>
-</section>
-<section id="section" class="level1">
-<h1>———————————-</h1>
-</section>
-<section id="recommended-extra-problems-do-not-turn-in-will-be-not-graded" class="level1">
-<h1>Recommended extra problems do not turn in (will be not graded)</h1>
-<p>Below are some problems I <em>highly</em> recommend working on. They will not be graded and you do not need to turn them in.</p>
-<section id="problem-9.7-c" class="level2">
-<h2 class="anchored" data-anchor-id="problem-9.7-c">Problem 9.7 (c)</h2>
-<p><font color="green">Do this problem after completing 9.7 (b) above</font></p>
-<blockquote class="blockquote">
-<p>Provide variables-added-in-order tests for the order <span class="math inline">\(X_3, X_1\)</span>, and <span class="math inline">\(X_2\)</span>.</p>
-</blockquote>
-<p><font color="green">This means that there are 3 tests: (1) test model with just <span class="math inline">\(X_3\)</span>, (2) test adding <span class="math inline">\(X_1\)</span> to the model given that <span class="math inline">\(X_3\)</span> is already in the model, and (3) test adding <span class="math inline">\(X_2\)</span> to the model given that <span class="math inline">\(X_3, X_1\)</span> are already in the model. See the subsections below to divide up the work.</font></p>
-<section id="test-model-with-just-x_3" class="level3">
-<h3 class="anchored" data-anchor-id="test-model-with-just-x_3">Test model with just <span class="math inline">\(X_3\)</span></h3>
-</section>
-<section id="adding-x_1-to-the-model-given-that-x_3-is-already-in-the-model" class="level3">
-<h3 class="anchored" data-anchor-id="adding-x_1-to-the-model-given-that-x_3-is-already-in-the-model">Adding <span class="math inline">\(X_1\)</span> to the model given that <span class="math inline">\(X_3\)</span> is already in the model</h3>
-</section>
-<section id="adding-x_2-to-the-model-given-that-x_3-x_1-are-already-in-the-model" class="level3">
-<h3 class="anchored" data-anchor-id="adding-x_2-to-the-model-given-that-x_3-x_1-are-already-in-the-model">Adding <span class="math inline">\(X_2\)</span> to the model given that <span class="math inline">\(X_3, X_1\)</span> are already in the model</h3>
-</section>
-</section>
-<section id="chapter-10-c-using-the-formula" class="level2">
-<h2 class="anchored" data-anchor-id="chapter-10-c-using-the-formula">Chapter 10 (c) using the formula</h2>
-<p>Do this after completing Chapter 10 (c) above.</p>
-<p><font color="green">Calculate <span class="math inline">\(r_{YX1|X2}\)</span> using the formula and check that your answer matches that of Chapter 10 (c) above.</font></p>
-</section>
-<section id="regression-with-one-categorical-predictor-prequel-to-ch-11-12-change-the-reference-level-to-gentoo" class="level2">
-<h2 class="anchored" data-anchor-id="regression-with-one-categorical-predictor-prequel-to-ch-11-12-change-the-reference-level-to-gentoo">Regression with one categorical predictor (Prequel to Ch 11 &amp; 12): Change the reference level to Gentoo</h2>
-<p>After completing exercises (1) - (7) in the section <em>Regression with one categorical predictor (Prequel to Ch 11 &amp; 12)</em>, do the problems below.</p>
-<section id="section-1" class="level3">
-<h3 class="anchored" data-anchor-id="section-1">(8)</h3>
+<section id="section" class="level4">
+<h4 class="anchored" data-anchor-id="section">(8)</h4>
 <p><font color="green">Write out the regression equation using LaTeX math markup (see class notes) that models the flipper length by penguin species. Do not yet insert values for the regression coefficients, i.e. us the generic coefficients</font> <span class="math inline">\(\widehat{\beta}_0, \widehat{\beta}_1,\)</span> <font color="green">etc. Use Gentoo as the reference level.</font></p>
 </section>
-<section id="section-2" class="level3">
-<h3 class="anchored" data-anchor-id="section-2">(9)</h3>
+<section id="section-1" class="level4">
+<h4 class="anchored" data-anchor-id="section-1">(9)</h4>
 <p><font color="green">How do we interpret each of the regression coefficients for this model?</font> <em>Write out a separate interpretation for each of the coefficients.</em></p>
 </section>
-<section id="section-3" class="level3">
-<h3 class="anchored" data-anchor-id="section-3">(10)</h3>
+<section id="section-2" class="level4">
+<h4 class="anchored" data-anchor-id="section-2">(10)</h4>
 <p><font color="green">“Manually” calculate the values for each of the coefficients, and update the regression model with the values inserted.</font> <em>You must show your work for this. Do not run the linear model in this step to get the values.</em></p>
 </section>
 </section>
-</section>
-<section id="chapter-11-12-questions-not-from-book" class="level1">
-<h1>Chapter 11 &amp; 12 (questions NOT from book)</h1>
-<section id="question-1" class="level2">
-<h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
 <p><font color="green">Use the data from Chapter 12 Problem 3 to answer the questions below.</font></p>
-<section id="a" class="level3">
-<h3 class="anchored" data-anchor-id="a">a)</h3>
+<section id="a" class="level4">
+<h4 class="anchored" data-anchor-id="a">a)</h4>
 <p><strong>a. How many dummy variable(s) do you need to create for the categorical variable Diet (protein-rich vs. protein-poor)? Create the dummy variable(s) with the reference cell coding approach{0,1}.</strong></p>
 </section>
-<section id="b" class="level3">
-<h3 class="anchored" data-anchor-id="b">b)</h3>
+<section id="b" class="level4">
+<h4 class="anchored" data-anchor-id="b">b)</h4>
 <p><strong>b. At a level of significance alpha = .05, test whether if Age is significantly associated with Height. Would this association be modified depending on diet group (e.g., rich-protein or poor-protein)? In other words, is Diet an effect-modifier that changes the association between Height and Age? Justify your answer (e.g., perform a hypothesis test at a level of alpha =.1).</strong></p>
 <p><em>Note: recall that an effect modifier is an interaction.</em></p>
 </section>
-<section id="c" class="level3">
-<h3 class="anchored" data-anchor-id="c">c)</h3>
+<section id="c" class="level4">
+<h4 class="anchored" data-anchor-id="c">c)</h4>
 <p><strong>c. From the results obtained in part b, should we perform an assessment of a confounder for Diet? Justify your answer. Perform such an assessment if needed.</strong></p>
 </section>
-<section id="d" class="level3">
-<h3 class="anchored" data-anchor-id="d">d)</h3>
+<section id="d" class="level4">
+<h4 class="anchored" data-anchor-id="d">d)</h4>
 <p><strong>d. Perform a regression analysis on the model obtained from the results obtained from parts a- c. Write down a general regression equation that is applicable to both groups—rich-protein vs.poor-protein. Write down regression lines for each specific groups—rich-protein or poor-protein.</strong></p>
 </section>
 </section>
-<section id="question-2" class="level2">
-<h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
+<section id="question-2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
 <p><font color="green">Use the data from Chapter 9 Problem 5 to answer the questions below.</font></p>
-<section id="a-1" class="level3">
-<h3 class="anchored" data-anchor-id="a-1">a)</h3>
+<p>An experiment was conducted regarding a quantitative analysis of factors found in high-density lipoprotein (HDL) in a sample of human blood serum. Three variables thought to be predictive of, or associated with, HDL measurement (Y ) were the total cholesterol (X1) and total triglyceride (X2) concentrations in the sample, plus the presence or absence of a certain sticky component of the serum called sinking pre-beta or SPB (X3), coded as 0 if absent and 1 if present. The data obtained are shown in the following table.</p>
+<section id="a-1" class="level4">
+<h4 class="anchored" data-anchor-id="a-1">a)</h4>
 <p><strong>a. Use</strong> <span class="math inline">\(\alpha= 0.05\)</span>, test whether the (crude) association between Y and X1 could be established.</p>
 </section>
-<section id="b-1" class="level3">
-<h3 class="anchored" data-anchor-id="b-1">b)</h3>
+<section id="b-1" class="level4">
+<h4 class="anchored" data-anchor-id="b-1">b)</h4>
 <p><strong>b. Use</strong><span class="math inline">\(\alpha= 0.1\)</span>, test whether X3 is an effect modifier of the association between Y and X1.</p>
 <p><strong>Note: To identify effect modifiers, we perform a hypothesis test of interaction term, e.g.,X1<em>X3. That is: The full model includes X1, X3, X1</em>X3. the reduced model includes X1 and X3</strong></p>
 </section>
-<section id="c-1" class="level3">
-<h3 class="anchored" data-anchor-id="c-1">c)</h3>
+<section id="c-1" class="level4">
+<h4 class="anchored" data-anchor-id="c-1">c)</h4>
 <p><strong>c. From the result obtained in part b, do we need to perform an assessment of a confounder for X3? Justify your answer. Perform such an assessment if needed.</strong></p>
 </section>
-<section id="d-1" class="level3">
-<h3 class="anchored" data-anchor-id="d-1">d)</h3>
+<section id="d-1" class="level4">
+<h4 class="anchored" data-anchor-id="d-1">d)</h4>
 <p><strong>d. Perform an assessment of a confounder for X2 which potentially changes the association between Y and X1.</strong></p>
 </section>
-<section id="e" class="level3">
-<h3 class="anchored" data-anchor-id="e">e)</h3>
+<section id="e" class="level4">
+<h4 class="anchored" data-anchor-id="e">e)</h4>
 <p><strong>e. From the results in parts a-d, what is your final association model?</strong></p>
 </section>
 </section>
-</section>
-<section id="chapter-15-polynomial-regression-questions-not-from-book" class="level1">
-<h1>Chapter 15: Polynomial Regression (questions NOT from book)</h1>
+<section id="chapter-15-polynomial-regression-questions-not-from-book" class="level3">
+<h3 class="anchored" data-anchor-id="chapter-15-polynomial-regression-questions-not-from-book">Chapter 15: Polynomial Regression (questions NOT from book)</h3>
 <p><font color="green">Use the data from Chapter 5 Problem 18 to answer the questions below.</font></p>
-<section id="a-2" class="level2">
-<h2 class="anchored" data-anchor-id="a-2">a)</h2>
+<section id="a-2" class="level4">
+<h4 class="anchored" data-anchor-id="a-2">a)</h4>
 <p><strong>a. Obtain scatter plot: Y vs. X. Does linear trend support the relationship between Y and X?</strong></p>
 </section>
-<section id="b-2" class="level2">
-<h2 class="anchored" data-anchor-id="b-2">b)</h2>
+<section id="b-2" class="level4">
+<h4 class="anchored" data-anchor-id="b-2">b)</h4>
 <p><strong>b. At the level alpha =.05, test whether the linear relationship could be established between Y and X.</strong></p>
 </section>
-<section id="c-2" class="level2">
-<h2 class="anchored" data-anchor-id="c-2">c)</h2>
+<section id="c-2" class="level4">
+<h4 class="anchored" data-anchor-id="c-2">c)</h4>
 <p><strong>c. At the level alpha =.05, test whether the quadratic term (</strong><span class="math inline">\(X^2\)</span>) should be included in the model to improve the prediction in Y, given the linear term (<span class="math inline">\(X\)</span>) is already in the model.</p>
 </section>
-<section id="d-2" class="level2">
-<h2 class="anchored" data-anchor-id="d-2">d)</h2>
+<section id="d-2" class="level4">
+<h4 class="anchored" data-anchor-id="d-2">d)</h4>
 <p><strong>d. From the result obtained from part c, should we test if the linear term (X) is necessary to be included in the model, given the quadratic term is already in the model? Explain your answer.</strong></p>
 </section>
-<section id="e-1" class="level2">
-<h2 class="anchored" data-anchor-id="e-1">e)</h2>
+<section id="e-1" class="level4">
+<h4 class="anchored" data-anchor-id="e-1">e)</h4>
 <p><strong>e. From the results you obtain from parts c-d, should we further examine whether cubic term (</strong><span class="math inline">\(X^3\)</span>) or fourth polynomial degree (i.e., <span class="math inline">\(X^4\)</span>) to improve the prediction in Y? Explain your answer and report the result of such a test if needed.</p>
 </section>
-<section id="f" class="level2">
-<h2 class="anchored" data-anchor-id="f">f)</h2>
+<section id="f" class="level4">
+<h4 class="anchored" data-anchor-id="f">f)</h4>
 <p><strong>f. From parts a – e, what is the final model that you have obtained? Interpret the R-square result from this model in the context of the study. Plot fitted value curve vs. X overlaid with scatter plot. Comments about the fitting model.</strong></p>
 
 
+</section>
 </section>
 </section>
 
