@@ -441,13 +441,18 @@ Task Summary
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(lubridate)) { <span class="fu">install.packages</span>(<span class="st">"lubridate"</span>); <span class="fu">library</span>(lubridate) }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Using R, load the data (<code>csv</code> file) into this document. Note that this is a <code>csv</code> file that we can load with basic R packages. Name your dataset something that feels intuitive to you and will distinguish it from other datasets that you work with.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/Users/wakim/Library/CloudStorage/OneDrive-OregonHealth&amp;ScienceUniversity/Teaching/Classes/W2024_BSTA_512_612/W2024_BSTA_512"</code></pre>
+</div>
+</div>
 <p>Loading the <code>csv</code> file every time you render will take a long time. One way to speed this up is by saving the data as an <code>rda</code> file (R data file). Change the following R code to save the <code>rda</code> file. You will also need to remove the <code>#| eval: false</code> at the top of the code chunk once you have corrected the code. If you are confused on the syntax, don’t forget that you can use <code>?save</code> for more information.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(<span class="sc">&lt;</span>whatever you called the read csv file<span class="sc">&gt;</span>, <span class="at">file =</span> <span class="st">"Where you would like to save the file with its name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(<span class="sc">&lt;</span>whatever you called the read csv file<span class="sc">&gt;</span>, <span class="at">file =</span> <span class="st">"Where you would like to save the file with its name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Check that you have an <code>rda</code> file where you saved it. Now use <code>load()</code> with the file path to load the <code>rda</code> data here.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"Where you would like to save the file with its name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"Where you would like to save the file with its name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>At this point, if you think you loaded the file correctly, add <code>#| eval: false</code> to the code chunk where you loaded the <code>csv</code> file and back to the chunk where you saved the <code>rda</code> file.</p>
 <p>Take a <code>glimpse</code> at the data to make sure you loaded it correctly.</p>
@@ -617,28 +622,28 @@ Example of how I would create new variable for self-perception of weight (<code>
 </ul>
 <p>If I look at the data as is, I see that the variable is numeric.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>iat_2021 <span class="sc">%&gt;%</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(iam_001) <span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>iat_2021 <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(iam_001) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="wbztokacfq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wbztokacfq table {
+<div id="xociuchppr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xociuchppr table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wbztokacfq thead, #wbztokacfq tbody, #wbztokacfq tfoot, #wbztokacfq tr, #wbztokacfq td, #wbztokacfq th {
+#xociuchppr thead, #xociuchppr tbody, #xociuchppr tfoot, #xociuchppr tr, #xociuchppr td, #xociuchppr th {
   border-style: none;
 }
 
-#wbztokacfq p {
+#xociuchppr p {
   margin: 0;
   padding: 0;
 }
 
-#wbztokacfq .gt_table {
+#xociuchppr .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -664,12 +669,12 @@ Example of how I would create new variable for self-perception of weight (<code>
   border-left-color: #D3D3D3;
 }
 
-#wbztokacfq .gt_caption {
+#xociuchppr .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wbztokacfq .gt_title {
+#xociuchppr .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -681,7 +686,7 @@ Example of how I would create new variable for self-perception of weight (<code>
   border-bottom-width: 0;
 }
 
-#wbztokacfq .gt_subtitle {
+#xociuchppr .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -693,7 +698,7 @@ Example of how I would create new variable for self-perception of weight (<code>
   border-top-width: 0;
 }
 
-#wbztokacfq .gt_heading {
+#xociuchppr .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -705,13 +710,13 @@ Example of how I would create new variable for self-perception of weight (<code>
   border-right-color: #D3D3D3;
 }
 
-#wbztokacfq .gt_bottom_border {
+#xociuchppr .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wbztokacfq .gt_col_headings {
+#xociuchppr .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -726,7 +731,7 @@ Example of how I would create new variable for self-perception of weight (<code>
   border-right-color: #D3D3D3;
 }
 
-#wbztokacfq .gt_col_heading {
+#xociuchppr .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -746,7 +751,7 @@ Example of how I would create new variable for self-perception of weight (<code>
   overflow-x: hidden;
 }
 
-#wbztokacfq .gt_column_spanner_outer {
+#xociuchppr .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -758,15 +763,15 @@ Example of how I would create new variable for self-perception of weight (<code>
   padding-right: 4px;
 }
 
-#wbztokacfq .gt_column_spanner_outer:first-child {
+#xociuchppr .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wbztokacfq .gt_column_spanner_outer:last-child {
+#xociuchppr .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wbztokacfq .gt_column_spanner {
+#xociuchppr .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -778,11 +783,11 @@ Example of how I would create new variable for self-perception of weight (<code>
   width: 100%;
 }
 
-#wbztokacfq .gt_spanner_row {
+#xociuchppr .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wbztokacfq .gt_group_heading {
+#xociuchppr .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -808,7 +813,7 @@ Example of how I would create new variable for self-perception of weight (<code>
   text-align: left;
 }
 
-#wbztokacfq .gt_empty_group_heading {
+#xociuchppr .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -823,15 +828,15 @@ Example of how I would create new variable for self-perception of weight (<code>
   vertical-align: middle;
 }
 
-#wbztokacfq .gt_from_md > :first-child {
+#xociuchppr .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wbztokacfq .gt_from_md > :last-child {
+#xociuchppr .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wbztokacfq .gt_row {
+#xociuchppr .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -850,7 +855,7 @@ Example of how I would create new variable for self-perception of weight (<code>
   overflow-x: hidden;
 }
 
-#wbztokacfq .gt_stub {
+#xociuchppr .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -863,7 +868,7 @@ Example of how I would create new variable for self-perception of weight (<code>
   padding-right: 5px;
 }
 
-#wbztokacfq .gt_stub_row_group {
+#xociuchppr .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -877,15 +882,15 @@ Example of how I would create new variable for self-perception of weight (<code>
   vertical-align: top;
 }
 
-#wbztokacfq .gt_row_group_first td {
+#xociuchppr .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wbztokacfq .gt_row_group_first th {
+#xociuchppr .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wbztokacfq .gt_summary_row {
+#xociuchppr .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -895,16 +900,16 @@ Example of how I would create new variable for self-perception of weight (<code>
   padding-right: 5px;
 }
 
-#wbztokacfq .gt_first_summary_row {
+#xociuchppr .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wbztokacfq .gt_first_summary_row.thick {
+#xociuchppr .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wbztokacfq .gt_last_summary_row {
+#xociuchppr .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -914,7 +919,7 @@ Example of how I would create new variable for self-perception of weight (<code>
   border-bottom-color: #D3D3D3;
 }
 
-#wbztokacfq .gt_grand_summary_row {
+#xociuchppr .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -924,7 +929,7 @@ Example of how I would create new variable for self-perception of weight (<code>
   padding-right: 5px;
 }
 
-#wbztokacfq .gt_first_grand_summary_row {
+#xociuchppr .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -934,7 +939,7 @@ Example of how I would create new variable for self-perception of weight (<code>
   border-top-color: #D3D3D3;
 }
 
-#wbztokacfq .gt_last_grand_summary_row_top {
+#xociuchppr .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -944,11 +949,11 @@ Example of how I would create new variable for self-perception of weight (<code>
   border-bottom-color: #D3D3D3;
 }
 
-#wbztokacfq .gt_striped {
+#xociuchppr .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wbztokacfq .gt_table_body {
+#xociuchppr .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -957,7 +962,7 @@ Example of how I would create new variable for self-perception of weight (<code>
   border-bottom-color: #D3D3D3;
 }
 
-#wbztokacfq .gt_footnotes {
+#xociuchppr .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -971,7 +976,7 @@ Example of how I would create new variable for self-perception of weight (<code>
   border-right-color: #D3D3D3;
 }
 
-#wbztokacfq .gt_footnote {
+#xociuchppr .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -980,7 +985,7 @@ Example of how I would create new variable for self-perception of weight (<code>
   padding-right: 5px;
 }
 
-#wbztokacfq .gt_sourcenotes {
+#xociuchppr .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -994,7 +999,7 @@ Example of how I would create new variable for self-perception of weight (<code>
   border-right-color: #D3D3D3;
 }
 
-#wbztokacfq .gt_sourcenote {
+#xociuchppr .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1002,63 +1007,63 @@ Example of how I would create new variable for self-perception of weight (<code>
   padding-right: 5px;
 }
 
-#wbztokacfq .gt_left {
+#xociuchppr .gt_left {
   text-align: left;
 }
 
-#wbztokacfq .gt_center {
+#xociuchppr .gt_center {
   text-align: center;
 }
 
-#wbztokacfq .gt_right {
+#xociuchppr .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wbztokacfq .gt_font_normal {
+#xociuchppr .gt_font_normal {
   font-weight: normal;
 }
 
-#wbztokacfq .gt_font_bold {
+#xociuchppr .gt_font_bold {
   font-weight: bold;
 }
 
-#wbztokacfq .gt_font_italic {
+#xociuchppr .gt_font_italic {
   font-style: italic;
 }
 
-#wbztokacfq .gt_super {
+#xociuchppr .gt_super {
   font-size: 65%;
 }
 
-#wbztokacfq .gt_footnote_marks {
+#xociuchppr .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wbztokacfq .gt_asterisk {
+#xociuchppr .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wbztokacfq .gt_indent_1 {
+#xociuchppr .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wbztokacfq .gt_indent_2 {
+#xociuchppr .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wbztokacfq .gt_indent_3 {
+#xociuchppr .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wbztokacfq .gt_indent_4 {
+#xociuchppr .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wbztokacfq .gt_indent_5 {
+#xociuchppr .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1102,17 +1107,17 @@ Example of how I would create new variable for self-perception of weight (<code>
 </div>
 <p>Again, I want to create a varaible with the answers instead of numbers, so I will change transform the variable to include the text:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>iat_2021 <span class="ot">=</span> iat_2021 <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">iam_001_f =</span> <span class="fu">case_match</span>(iam_001,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                             <span class="dv">7</span> <span class="sc">~</span> <span class="st">"Very overweight"</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                             <span class="dv">6</span> <span class="sc">~</span> <span class="st">"Moderately overweight"</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                             <span class="dv">5</span> <span class="sc">~</span> <span class="st">"Slightly overweight"</span>,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                             <span class="dv">4</span> <span class="sc">~</span> <span class="st">"Neither underweight nor underweight"</span>,</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>                             <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Slightly underweight"</span>,</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                             <span class="dv">2</span> <span class="sc">~</span> <span class="st">"Moderately underweight"</span>,</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                             <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Very underweight"</span>,</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                             <span class="at">.default =</span> <span class="cn">NA</span> <span class="co"># to add NA if unknown</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>                             ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>iat_2021 <span class="ot">=</span> iat_2021 <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">iam_001_f =</span> <span class="fu">case_match</span>(iam_001,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                             <span class="dv">7</span> <span class="sc">~</span> <span class="st">"Very overweight"</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                             <span class="dv">6</span> <span class="sc">~</span> <span class="st">"Moderately overweight"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                             <span class="dv">5</span> <span class="sc">~</span> <span class="st">"Slightly overweight"</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                             <span class="dv">4</span> <span class="sc">~</span> <span class="st">"Neither underweight nor underweight"</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                             <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Slightly underweight"</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                             <span class="dv">2</span> <span class="sc">~</span> <span class="st">"Moderately underweight"</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                             <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Very underweight"</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                             <span class="at">.default =</span> <span class="cn">NA</span> <span class="co"># to add NA if unknown</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                             ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>I have called the new variable <code>iam_001_f</code> to indicate that the variable is not in factor form. You can also call it something like <code>iam_001_cat</code> to indicate the categorical form.</p>
 </div>
@@ -1148,17 +1153,17 @@ Task
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>iat_2021 <span class="ot">=</span> iat_2021 <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">birthdate =</span> <span class="fu">make_date</span>(<span class="at">month =</span> birthmonth, <span class="at">year =</span> birthyear), </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">testdate =</span> <span class="fu">make_date</span>(<span class="at">month =</span> month, <span class="at">year =</span> year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>iat_2021 <span class="ot">=</span> iat_2021 <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">birthdate =</span> <span class="fu">make_date</span>(<span class="at">month =</span> birthmonth, <span class="at">year =</span> birthyear), </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">testdate =</span> <span class="fu">make_date</span>(<span class="at">month =</span> month, <span class="at">year =</span> year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Once the two dates are created, we can use further use <code>lubridate</code> to calculate the age in years. This code is a little complicated, so here is an example of how I have created age:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>iat_2021 <span class="ot">=</span> iat_2021 <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age =</span> <span class="fu">interval</span>(<span class="at">start =</span> birthdate, <span class="at">end =</span> testdate) <span class="sc">%&gt;%</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>          <span class="fu">as.period</span>() <span class="sc">%&gt;%</span> <span class="fu">year</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>birthmonth, <span class="sc">-</span>birthyear, <span class="sc">-</span>year, <span class="sc">-</span>month, </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>         <span class="sc">-</span>testdate, <span class="sc">-</span>birthdate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>iat_2021 <span class="ot">=</span> iat_2021 <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age =</span> <span class="fu">interval</span>(<span class="at">start =</span> birthdate, <span class="at">end =</span> testdate) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>          <span class="fu">as.period</span>() <span class="sc">%&gt;%</span> <span class="fu">year</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>birthmonth, <span class="sc">-</span>birthyear, <span class="sc">-</span>year, <span class="sc">-</span>month, </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>         <span class="sc">-</span>testdate, <span class="sc">-</span>birthdate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note that the name of my dataset is <code>iat_2021</code> and I feed it into <code>mutate()</code>. Within <code>mutate()</code>, I assigned <code>age</code> to the interval between the name of my birth date (<code>birthdate</code>) and the name of my test date (<code>testdate</code>). I need to convert the interval to a period of time (<code>as.period()</code>), then to a measurement of years (<code>year()</code>).</p>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -1196,25 +1201,25 @@ Task
 <p>Handling missing data is outside the scope of our class. There are many techniques to handling missing data, but we will use complete case analysis. This means we will only use observations that have information for every variable we chose. The function <code>drop_na()</code> will give you the complete cases. You can feed your dataset into the function and assign it as a new dataframe.</p>
 <p>For example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>new_df <span class="ot">=</span> old_df <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>()</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>iat_2021 <span class="ot">=</span> iat_2021 <span class="sc">%&gt;%</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">iam_001_f =</span> <span class="fu">case_match</span>(iam_001,</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                                  <span class="dv">7</span> <span class="sc">~</span> <span class="st">"Very overweight"</span>,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                                  <span class="dv">6</span> <span class="sc">~</span> <span class="st">"Moderately overweight"</span>,</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                                  <span class="dv">5</span> <span class="sc">~</span> <span class="st">"Slightly overweight"</span>,</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                                  <span class="dv">4</span> <span class="sc">~</span> <span class="st">"Neither underweight nor underweight"</span>,</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                                  <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Slightly underweight"</span>,</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                                  <span class="dv">2</span> <span class="sc">~</span> <span class="st">"Moderately underweight"</span>,</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                                  <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Very underweight"</span>,</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">.default =</span> <span class="cn">NA</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>             <span class="fu">factor</span>(<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Very underweight"</span>, </span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Moderately underweight"</span>, </span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Slightly underweight"</span>, </span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Neither underweight nor underweight"</span>, </span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Slightly overweight"</span>, </span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Moderately overweight"</span>, </span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Very overweight"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>new_df <span class="ot">=</span> old_df <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>()</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>iat_2021 <span class="ot">=</span> iat_2021 <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">iam_001_f =</span> <span class="fu">case_match</span>(iam_001,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                                  <span class="dv">7</span> <span class="sc">~</span> <span class="st">"Very overweight"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                                  <span class="dv">6</span> <span class="sc">~</span> <span class="st">"Moderately overweight"</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                                  <span class="dv">5</span> <span class="sc">~</span> <span class="st">"Slightly overweight"</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                                  <span class="dv">4</span> <span class="sc">~</span> <span class="st">"Neither underweight nor underweight"</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>                                  <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Slightly underweight"</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                                  <span class="dv">2</span> <span class="sc">~</span> <span class="st">"Moderately underweight"</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>                                  <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Very underweight"</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">.default =</span> <span class="cn">NA</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>             <span class="fu">factor</span>(<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Very underweight"</span>, </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Moderately underweight"</span>, </span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Slightly underweight"</span>, </span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Neither underweight nor underweight"</span>, </span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Slightly overweight"</span>, </span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Moderately overweight"</span>, </span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Very overweight"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>

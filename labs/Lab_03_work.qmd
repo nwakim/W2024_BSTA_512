@@ -65,6 +65,10 @@ How is implicit anti-fat bias, as measured by the IAT score, associated with "in
 
 ### 2. Continuing data exploration
 bivariate data exploration
+
+-   Look at all other relationships between IAT score and each covariate.
+
+    -   For categorical variables, is there an inherent order? Does the ordered values follow a linear relationship? Are the categories evenly spaced? Think education - is there a natural place to divide the categories up??
 multivariate data exploration
 
 ### 3. Make a Table 1

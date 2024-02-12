@@ -4753,8 +4753,8 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
   <li><a href="#directions" id="toc-directions" class="nav-link active" data-scroll-target="#directions">Directions</a></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a>
   <ul class="collapse">
-  <li><a href="#question-1-penguins-flipper-length-vs.-species" id="toc-question-1-penguins-flipper-length-vs.-species" class="nav-link" data-scroll-target="#question-1-penguins-flipper-length-vs.-species">Question 1: Penguins: Flipper length vs. species</a></li>
   <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#question-1-1" id="toc-question-1-1" class="nav-link" data-scroll-target="#question-1-1">Question 1</a></li>
   <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
   <li><a href="#chapter-15-polynomial-regression-questions-not-from-book" id="toc-chapter-15-polynomial-regression-questions-not-from-book" class="nav-link" data-scroll-target="#chapter-15-polynomial-regression-questions-not-from-book">Chapter 15: Polynomial Regression (questions NOT from book)</a></li>
   </ul></li>
@@ -4796,7 +4796,7 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 11, 2024</p>
+      <p class="date-modified">February 12, 2024</p>
     </div>
   </div>
     
@@ -4825,7 +4825,7 @@ Important
 <li><p>You will need to download the datasets. Use <a href="https://ohsuitg-my.sharepoint.com/:f:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W2024_BSTA_512_612/Student_files/Data/Homework?csf=1&amp;web=1&amp;e=QEsqb9">this link to download</a> the homework datasets needed in this assignment. If you do not want to make changes to the paths set in this document, then make sure the files are stored in a folder named “data” that is housed in the same location as this homework <code>.qmd</code> file.</p></li>
 <li><p>Please upload your homework to <a href="https://sakai.ohsu.edu/portal/site/BSTA-512-1-AB-W24/tool/961ec5ef-d7f9-4518-be16-25f7af3d6be4">Sakai</a>. <strong>Upload both your <code>.qmd</code> code file and the rendered <code>.html</code> file</strong></p>
 <ul>
-<li><p><strong>Please rename you homework as <code>Lastname_Firstinitial_HW0.qmd</code>. This will help organize the homeworks when the TAs grade them.</strong></p></li>
+<li><p><strong>Please rename you homework as <code>Lastname_Firstinitial_HW4.qmd</code>. This will help organize the homeworks when the TAs grade them.</strong></p></li>
 <li><p><strong>Please also add the following line under <code>subtitle: &quot;BSTA 512/612&quot;</code>: <code>author: First-name Last-name</code> with your first and last name so it is attached to the viewable document.</strong></p></li>
 </ul></li>
 <li><p>For each question, make sure to include all code and resulting output in the html file to support your answers.</p></li>
@@ -4849,14 +4849,14 @@ Tip
 </section>
 <section id="questions" class="level2">
 <h2 class="anchored" data-anchor-id="questions">Questions</h2>
-<section id="question-1-penguins-flipper-length-vs.-species" class="level3">
-<h3 class="anchored" data-anchor-id="question-1-penguins-flipper-length-vs.-species">Question 1: Penguins: Flipper length vs. species</h3>
-<p>For this problem we will be using the <code>penguins</code> dataset from the <code>palmerpenguins</code> R package.</p>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
+<p>For this problem we will be using the <code>penguins</code> dataset from the <code>palmerpenguins</code> R package. We will look at the association between flipper length of penguins and specific species of penguins.</p>
 <p>Description from help file:</p>
 <blockquote class="blockquote">
 <p>Includes measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.</p>
 </blockquote>
-<p>More info about the data are at https://allisonhorst.github.io/palmerpenguins/.</p>
+<p><a href="https://allisonhorst.github.io/palmerpenguins/">More info about the data.</a></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first install the palmerpenguins package</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;palmerpenguins&quot;)</span></span>
@@ -4909,25 +4909,25 @@ Tip
 <p><font color="green">“Manually” calculate the values for each of the coefficients, and update the regression model with the values inserted.</font> <em>You must show your work for this. Do not run the linear model in this step to get the values.</em></p>
 </section>
 </section>
-<section id="question-1" class="level3">
-<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
+<section id="question-1-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1-1">Question 1</h3>
 <p><font color="green">Use the data from Chapter 12 Problem 3 to answer the questions below.</font></p>
 <section id="a" class="level4">
 <h4 class="anchored" data-anchor-id="a">a)</h4>
-<p><strong>a. How many dummy variable(s) do you need to create for the categorical variable Diet (protein-rich vs. protein-poor)? Create the dummy variable(s) with the reference cell coding approach{0,1}.</strong></p>
+<p>How many dummy variable(s) do you need to create for the categorical variable Diet (protein-rich vs. protein-poor)? Create the dummy variable(s) with the reference cell coding approach{0,1}.</p>
 </section>
 <section id="b" class="level4">
 <h4 class="anchored" data-anchor-id="b">b)</h4>
-<p><strong>b. At a level of significance alpha = .05, test whether if Age is significantly associated with Height. Would this association be modified depending on diet group (e.g., rich-protein or poor-protein)? In other words, is Diet an effect-modifier that changes the association between Height and Age? Justify your answer (e.g., perform a hypothesis test at a level of alpha =.1).</strong></p>
+<p>At a level of significance alpha = .05, test whether if Age is significantly associated with Height. Would this association be modified depending on diet group (e.g., rich-protein or poor-protein)? In other words, is Diet an effect-modifier that changes the association between Height and Age? Justify your answer (e.g., perform a hypothesis test at a level of alpha =.1).</p>
 <p><em>Note: recall that an effect modifier is an interaction.</em></p>
 </section>
 <section id="c" class="level4">
 <h4 class="anchored" data-anchor-id="c">c)</h4>
-<p><strong>c. From the results obtained in part b, should we perform an assessment of a confounder for Diet? Justify your answer. Perform such an assessment if needed.</strong></p>
+<p>From the results obtained in part b, should we perform an assessment of a confounder for Diet? Justify your answer. Perform such an assessment if needed.</p>
 </section>
 <section id="d" class="level4">
 <h4 class="anchored" data-anchor-id="d">d)</h4>
-<p><strong>d. Perform a regression analysis on the model obtained from the results obtained from parts a- c. Write down a general regression equation that is applicable to both groups—rich-protein vs.poor-protein. Write down regression lines for each specific groups—rich-protein or poor-protein.</strong></p>
+<p>Perform a regression analysis on the model obtained from the results obtained from parts a- c. Write down a general regression equation that is applicable to both groups—rich-protein vs.poor-protein. Write down regression lines for each specific groups—rich-protein or poor-protein.</p>
 </section>
 </section>
 <section id="question-2" class="level3">
@@ -4936,24 +4936,24 @@ Tip
 <p>An experiment was conducted regarding a quantitative analysis of factors found in high-density lipoprotein (HDL) in a sample of human blood serum. Three variables thought to be predictive of, or associated with, HDL measurement (Y ) were the total cholesterol (X1) and total triglyceride (X2) concentrations in the sample, plus the presence or absence of a certain sticky component of the serum called sinking pre-beta or SPB (X3), coded as 0 if absent and 1 if present. The data obtained are shown in the following table.</p>
 <section id="a-1" class="level4">
 <h4 class="anchored" data-anchor-id="a-1">a)</h4>
-<p><strong>a. Use</strong> <span class="math inline">\(\alpha= 0.05\)</span>, test whether the (crude) association between Y and X1 could be established.</p>
+<p>Use <span class="math inline">\(\alpha= 0.05\)</span>, test whether the (crude) association between Y and X1 could be established.</p>
 </section>
 <section id="b-1" class="level4">
 <h4 class="anchored" data-anchor-id="b-1">b)</h4>
-<p><strong>b. Use</strong><span class="math inline">\(\alpha= 0.1\)</span>, test whether X3 is an effect modifier of the association between Y and X1.</p>
+<p>Use <span class="math inline">\(\alpha= 0.1\)</span>, test whether X3 is an effect modifier of the association between Y and X1.</p>
 <p><strong>Note: To identify effect modifiers, we perform a hypothesis test of interaction term, e.g.,X1<em>X3. That is: The full model includes X1, X3, X1</em>X3. the reduced model includes X1 and X3</strong></p>
 </section>
 <section id="c-1" class="level4">
 <h4 class="anchored" data-anchor-id="c-1">c)</h4>
-<p><strong>c. From the result obtained in part b, do we need to perform an assessment of a confounder for X3? Justify your answer. Perform such an assessment if needed.</strong></p>
+<p>From the result obtained in part b, do we need to perform an assessment of a confounder for X3? Justify your answer. Perform such an assessment if needed.</p>
 </section>
 <section id="d-1" class="level4">
 <h4 class="anchored" data-anchor-id="d-1">d)</h4>
-<p><strong>d. Perform an assessment of a confounder for X2 which potentially changes the association between Y and X1.</strong></p>
+<p>Perform an assessment of a confounder for X2 which potentially changes the association between Y and X1.</p>
 </section>
 <section id="e" class="level4">
 <h4 class="anchored" data-anchor-id="e">e)</h4>
-<p><strong>e. From the results in parts a-d, what is your final association model?</strong></p>
+<p>From the results in parts a-d, what is your final association model?</p>
 </section>
 </section>
 <section id="chapter-15-polynomial-regression-questions-not-from-book" class="level3">

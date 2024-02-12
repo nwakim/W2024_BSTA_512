@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -232,7 +266,13 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#monday-212" id="toc-monday-212" class="nav-link" data-scroll-target="#monday-212">Monday 2/12</a></li>
   </ul></li>
-  <li><a href="#muddiest-points" id="toc-muddiest-points" class="nav-link" data-scroll-target="#muddiest-points">Muddiest Points</a></li>
+  <li><a href="#muddiest-points" id="toc-muddiest-points" class="nav-link" data-scroll-target="#muddiest-points">Muddiest Points</a>
+  <ul class="collapse">
+  <li><a href="#why-do-we-need-to-create-a-new-variable-for-ordinal-scoring" id="toc-why-do-we-need-to-create-a-new-variable-for-ordinal-scoring" class="nav-link" data-scroll-target="#why-do-we-need-to-create-a-new-variable-for-ordinal-scoring">1. Why do we need to create a new variable for ordinal / scoring?</a></li>
+  <li><a href="#im-a-little-confused-on-how-the-r-code-works-for-recodingreordering-our-variables-specifically-1-why-we-use-the-mutate-function-but-then-use-the-same-name-for-the-variablehow-that-works-and-2-why-you-need-to-include-the-list-of-each-variable-name-in-a-vector.-basically-what-each-piece-of-that-code-does-exactly-and-why-its-needed." id="toc-im-a-little-confused-on-how-the-r-code-works-for-recodingreordering-our-variables-specifically-1-why-we-use-the-mutate-function-but-then-use-the-same-name-for-the-variablehow-that-works-and-2-why-you-need-to-include-the-list-of-each-variable-name-in-a-vector.-basically-what-each-piece-of-that-code-does-exactly-and-why-its-needed." class="nav-link" data-scroll-target="#im-a-little-confused-on-how-the-r-code-works-for-recodingreordering-our-variables-specifically-1-why-we-use-the-mutate-function-but-then-use-the-same-name-for-the-variablehow-that-works-and-2-why-you-need-to-include-the-list-of-each-variable-name-in-a-vector.-basically-what-each-piece-of-that-code-does-exactly-and-why-its-needed.">2. I’m a little confused on how the R code works for recoding/reordering our variables, specifically 1) why we use the mutate function but then use the same name for the variable/how that works and 2) why you need to include the list of each variable name in a vector. Basically, what each piece of that code does exactly and why it’s needed.</a></li>
+  <li><a href="#is-there-a-rationale-or-strategy-in-choosing-the-most-appropriate-reference-group" id="toc-is-there-a-rationale-or-strategy-in-choosing-the-most-appropriate-reference-group" class="nav-link" data-scroll-target="#is-there-a-rationale-or-strategy-in-choosing-the-most-appropriate-reference-group">3. Is there a rationale or strategy in choosing the most appropriate reference group?</a></li>
+  <li><a href="#how-do-we-build-the-regression-indicators" id="toc-how-do-we-build-the-regression-indicators" class="nav-link" data-scroll-target="#how-do-we-build-the-regression-indicators">4. How do we build the regression indicators?</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -308,7 +348,6 @@ Room Locations for the week
 </div>
 <section id="resources" class="level2">
 <h2 class="anchored" data-anchor-id="resources">Resources</h2>
-<p>Below is a table with links to resources. Icons in <span style="color:#E25D3B;">orange</span> mean there is an available file link.</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -324,7 +363,7 @@ Room Locations for the week
 <td>10</td>
 <td>Categorical Covariates</td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/10_Cat_covariates.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/10_Cat_covariates.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
 </tr>
 <tr class="even">
@@ -358,7 +397,7 @@ Room Locations for the week
 <ul>
 <li><p>Lab 2: please resubmit with <code>self-contained: true</code></p>
 <ul>
-<li>The top of your file should have the following line:<img src="week_06/Lab_02_help.png" class="img-fluid"></li>
+<li>The top of your file should have the following line:<img src="week_06/Lab_02_help.png" class="img-fluid" width="475"></li>
 </ul></li>
 <li><p>Quiz 2 next week</p>
 <ul>
@@ -370,8 +409,41 @@ Room Locations for the week
 </section>
 <section id="muddiest-points" class="level2">
 <h2 class="anchored" data-anchor-id="muddiest-points">Muddiest Points</h2>
+<section id="why-do-we-need-to-create-a-new-variable-for-ordinal-scoring" class="level3">
+<h3 class="anchored" data-anchor-id="why-do-we-need-to-create-a-new-variable-for-ordinal-scoring">1. Why do we need to create a new variable for ordinal / scoring?</h3>
+<p>Otherwise R will treat income as non-ordinal, and use the default reference cell coding. So if we want our variables to be scored (and numeric) then we must put it in a form R can recognize.</p>
+</section>
+<section id="im-a-little-confused-on-how-the-r-code-works-for-recodingreordering-our-variables-specifically-1-why-we-use-the-mutate-function-but-then-use-the-same-name-for-the-variablehow-that-works-and-2-why-you-need-to-include-the-list-of-each-variable-name-in-a-vector.-basically-what-each-piece-of-that-code-does-exactly-and-why-its-needed." class="level3">
+<h3 class="anchored" data-anchor-id="im-a-little-confused-on-how-the-r-code-works-for-recodingreordering-our-variables-specifically-1-why-we-use-the-mutate-function-but-then-use-the-same-name-for-the-variablehow-that-works-and-2-why-you-need-to-include-the-list-of-each-variable-name-in-a-vector.-basically-what-each-piece-of-that-code-does-exactly-and-why-its-needed.">2. I’m a little confused on how the R code works for recoding/reordering our variables, specifically 1) why we use the mutate function but then use the same name for the variable/how that works and 2) why you need to include the list of each variable name in a vector. Basically, what each piece of that code does exactly and why it’s needed.</h3>
+<ol type="1">
+<li><p>Mutate is just a function to create/change a variable. So if we are not fundamentally changing any aspect of the variable, we can call it by the same name. Helps keep our data frame neat by not tacking on additional variables.</p></li>
+<li><p>When I am including the list of levels I am giving R the exact order to read each level. So if I want to go from high income to low income, I would reset the levels to the below code. Then R would read high income as the first level.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>gapm2 <span class="ot">=</span> gapm2 <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">mutate</span>(<span class="at">income_levels =</span> <span class="fu">factor</span>(income_levels, </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">ordered =</span> T, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"High income"</span>, </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Upper middle income"</span>, </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Lower middle income"</span>, </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Low income"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ol>
+</section>
+<section id="is-there-a-rationale-or-strategy-in-choosing-the-most-appropriate-reference-group" class="level3">
+<h3 class="anchored" data-anchor-id="is-there-a-rationale-or-strategy-in-choosing-the-most-appropriate-reference-group">3. Is there a rationale or strategy in choosing the most appropriate reference group?</h3>
+<p>Often no, not if the groups are not ordered. Things that you may consider:</p>
+<ul>
+<li><p>Is there a central group that you want to make comparisons to?</p></li>
+<li><p>Is there any social consequences of continually centering comparisons to one group? We may be consequentially centering the narrative around that group.</p></li>
+<li><p>When we interpret the coefficients, is there one group as the reference that makes it a little easier to interpret? (this has more of an effect in 513)</p></li>
+</ul>
+</section>
+<section id="how-do-we-build-the-regression-indicators" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-we-build-the-regression-indicators">4. How do we build the regression indicators?</h3>
+<p>In R, we don’t need to build the indicators. If we have a variable that is a facotr with mutually exclusive groups, then R will automatically create the indicators within the <code>lm()</code> function.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

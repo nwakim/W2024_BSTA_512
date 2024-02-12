@@ -37,12 +37,10 @@ editor_options:
 
 ## Resources
 
-Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B;"} mean there is an available file link.
-
-| Lesson | Topic                  |                                                 Slides                                                 |                                  Annotated Slides                                  |                           Recording                           |
+| Lesson | Topic                  |                                                 Slides                                                 |                                                       Annotated Slides                                                        |                           Recording                           |
 |---------------|---------------|:-------------:|:-------------:|:-------------:|
-| 10     | Categorical Covariates | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/10_Cat_covariates.qmd)]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 11     | Interactions           |                 [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                  | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 10     | Categorical Covariates | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/10_Cat_covariates.qmd)]{style="color:#f8f5f0;"} | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/10_Cat_covariates.pdf)]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 11     | Interactions           |                 [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                  |                      [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                       | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
 ## On the Horizon
 
@@ -63,7 +61,7 @@ Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B
 
 -   Lab 2: please resubmit with `self-contained: true`
 
-    -   The top of your file should have the following line:![](week_06/Lab_02_help.png)
+    -   The top of your file should have the following line:![](week_06/Lab_02_help.png){width="475"}
 
 -   Quiz 2 next week
 
@@ -72,6 +70,41 @@ Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B
     -   HW 4 will not be on it!
 
 ## Muddiest Points
+
+### 1. Why do we need to create a new variable for ordinal / scoring?
+
+Otherwise R will treat income as non-ordinal, and use the default reference cell coding. So if we want our variables to be scored (and numeric) then we must put it in a form R can recognize.
+
+### 2. I'm a little confused on how the R code works for recoding/reordering our variables, specifically 1) why we use the mutate function but then use the same name for the variable/how that works and 2) why you need to include the list of each variable name in a vector. Basically, what each piece of that code does exactly and why it's needed.
+
+1.  Mutate is just a function to create/change a variable. So if we are not fundamentally changing any aspect of the variable, we can call it by the same name. Helps keep our data frame neat by not tacking on additional variables.
+
+2.  When I am including the list of levels I am giving R the exact order to read each level. So if I want to go from high income to low income, I would reset the levels to the below code. Then R would read high income as the first level.
+
+    ```{r}
+    #| eval: false
+    gapm2 = gapm2 %>%
+     mutate(income_levels = factor(income_levels, 
+                ordered = T, 
+                levels = c("High income", 
+                           "Upper middle income", 
+                           "Lower middle income", 
+                           "Low income")))
+    ```
+
+### 3. Is there a rationale or strategy in choosing the most appropriate reference group?
+
+Often no, not if the groups are not ordered. Things that you may consider:
+
+-   Is there a central group that you want to make comparisons to?
+
+-   Is there any social consequences of continually centering comparisons to one group? We may be consequentially centering the narrative around that group.
+
+-   When we interpret the coefficients, is there one group as the reference that makes it a little easier to interpret? (this has more of an effect in 513)
+
+### 4. How do we build the regression indicators?
+
+In R, we don't need to build the indicators. If we have a variable that is a facotr with mutually exclusive groups, then R will automatically create the indicators within the `lm()` function.
 
 ```{r}
 #| echo: false

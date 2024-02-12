@@ -99,6 +99,9 @@ Using R, load the data (`csv` file) into this document. Note that this is a `csv
 
 ```{r}
 #| echo: false
+
+here()
+
 iat_2021_raw = read.csv(file = here("../TA_files/Project/data/Weight_IAT.public.2021.csv"))
 ```
 

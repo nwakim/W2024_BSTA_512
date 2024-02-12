@@ -1114,6 +1114,10 @@ $$\begin{aligned}
 
 -   We could make an indicator for each category, but individuals could be a part of multiple categories
 
+ 
+
+-   Also, thinking about income levels - can we combine two groups to make one??
+
 ## Next time, we'll start looking at interactions v. additive effects
 
 ```{r fig.height=7, fig.width=9, warning=F, fig.align='center'}

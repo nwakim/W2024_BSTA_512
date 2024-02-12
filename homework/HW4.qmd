@@ -44,7 +44,7 @@ library(here)
 
 -   Please upload your homework to [Sakai](https://sakai.ohsu.edu/portal/site/BSTA-512-1-AB-W24/tool/961ec5ef-d7f9-4518-be16-25f7af3d6be4). **Upload both your `.qmd` code file and the rendered `.html` file**
 
-    -   **Please rename you homework as `Lastname_Firstinitial_HW0.qmd`. This will help organize the homeworks when the TAs grade them.**
+    -   **Please rename you homework as `Lastname_Firstinitial_HW4.qmd`. This will help organize the homeworks when the TAs grade them.**
 
     -   **Please also add the following line under `subtitle: "BSTA 512/612"`: `author: First-name Last-name` with your first and last name so it is attached to the viewable document.**
 
@@ -62,15 +62,15 @@ It is a good idea to try rendering your document from time to time as you go alo
 
 ## Questions
 
-### Question 1: Penguins: Flipper length vs. species
+### Question 1
 
-For this problem we will be using the `penguins` dataset from the `palmerpenguins` R package.
+For this problem we will be using the `penguins` dataset from the `palmerpenguins` R package. We will look at the association between flipper length of penguins and specific species of penguins. 
 
 Description from help file:
 
 > Includes measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.
 
-More info about the data are at https://allisonhorst.github.io/palmerpenguins/.
+[More info about the data.](https://allisonhorst.github.io/palmerpenguins/)
 
 ```{r}
 # first install the palmerpenguins package
@@ -131,21 +131,21 @@ Before running the regression in R, we are going to find the regression equation
 
 #### a)
 
-**a. How many dummy variable(s) do you need to create for the categorical variable Diet (protein-rich vs. protein-poor)? Create the dummy variable(s) with the reference cell coding approach{0,1}.**
+How many dummy variable(s) do you need to create for the categorical variable Diet (protein-rich vs. protein-poor)? Create the dummy variable(s) with the reference cell coding approach{0,1}.
 
 #### b)
 
-**b. At a level of significance alpha = .05, test whether if Age is significantly associated with Height. Would this association be modified depending on diet group (e.g., rich-protein or poor-protein)? In other words, is Diet an effect-modifier that changes the association between Height and Age? Justify your answer (e.g., perform a hypothesis test at a level of alpha =.1).**
+At a level of significance alpha = .05, test whether if Age is significantly associated with Height. Would this association be modified depending on diet group (e.g., rich-protein or poor-protein)? In other words, is Diet an effect-modifier that changes the association between Height and Age? Justify your answer (e.g., perform a hypothesis test at a level of alpha =.1).
 
 *Note: recall that an effect modifier is an interaction.*
 
 #### c)
 
-**c. From the results obtained in part b, should we perform an assessment of a confounder for Diet? Justify your answer. Perform such an assessment if needed.**
+From the results obtained in part b, should we perform an assessment of a confounder for Diet? Justify your answer. Perform such an assessment if needed.
 
 #### d)
 
-**d. Perform a regression analysis on the model obtained from the results obtained from parts a- c. Write down a general regression equation that is applicable to both groups—rich-protein vs.poor-protein. Write down regression lines for each specific groups—rich-protein or poor-protein.**
+Perform a regression analysis on the model obtained from the results obtained from parts a- c. Write down a general regression equation that is applicable to both groups—rich-protein vs.poor-protein. Write down regression lines for each specific groups—rich-protein or poor-protein.
 
 ### Question 2
 
@@ -155,25 +155,25 @@ An experiment was conducted regarding a quantitative analysis of factors found i
 
 #### a)
 
-**a. Use** $\alpha= 0.05$, test whether the (crude) association between Y and X1 could be established.
+Use $\alpha= 0.05$, test whether the (crude) association between Y and X1 could be established.
 
 #### b)
 
-**b. Use**$\alpha= 0.1$, test whether X3 is an effect modifier of the association between Y and X1.
+Use $\alpha= 0.1$, test whether X3 is an effect modifier of the association between Y and X1.
 
 **Note: To identify effect modifiers, we perform a hypothesis test of interaction term, e.g.,X1*X3. That is: The full model includes X1, X3, X1*X3. the reduced model includes X1 and X3**
 
 #### c)
 
-**c. From the result obtained in part b, do we need to perform an assessment of a confounder for X3? Justify your answer. Perform such an assessment if needed.**
+From the result obtained in part b, do we need to perform an assessment of a confounder for X3? Justify your answer. Perform such an assessment if needed.
 
 #### d)
 
-**d. Perform an assessment of a confounder for X2 which potentially changes the association between Y and X1.**
+Perform an assessment of a confounder for X2 which potentially changes the association between Y and X1.
 
 #### e)
 
-**e. From the results in parts a-d, what is your final association model?**
+From the results in parts a-d, what is your final association model?
 
 ### Chapter 15: Polynomial Regression (questions NOT from book)
 
