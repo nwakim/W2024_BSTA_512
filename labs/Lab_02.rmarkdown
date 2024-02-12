@@ -15,6 +15,7 @@ editor_options:
   chunk_output_type: console
 ---
 
+
 ::: callout-warning
 ## IMPORTANT TO READ
 
@@ -95,6 +96,7 @@ First, load the packages that you will need in the remainder of this lab. You ca
 
 ![](images/r_message.png)
 
+
 ```{r}
 #| message: false
 
@@ -104,26 +106,33 @@ library(here)
 if(!require(lubridate)) { install.packages("lubridate"); library(lubridate) }
 ```
 
+
 Using R, load the data (`csv` file) into this document. Note that this is a `csv` file that we can load with basic R packages. Name your dataset something that feels intuitive to you and will distinguish it from other datasets that you work with.
+
 
 ```{r}
 #| echo: false
 iat_2021_raw = read.csv(file = here("../TA_files/Project/data/Weight_IAT.public.2021.csv"))
 ```
 
+
 Loading the `csv` file every time you render will take a long time. One way to speed this up is by saving the data as an `rda` file (R data file). Change the following R code to save the `rda` file. You will also need to remove the `#| eval: false` at the top of the code chunk once you have corrected the code. If you are confused on the syntax, don't forget that you can use `?save` for more information.
+
 
 ```{r}
 #| eval: false
 save(<whatever you called the read csv file>, file = "Where you would like to save the file with its name")
 ```
 
+
 Check that you have an `rda` file where you saved it. Now use `load()` with the file path to load the `rda` data here.
+
 
 ```{r}
 #| eval: false
 load(file = "Where you would like to save the file with its name")
 ```
+
 
 At this point, if you think you loaded the file correctly, add `#| eval: false` to the code chunk where you loaded the `csv` file and back to the chunk where you saved the `rda` file.
 
@@ -221,6 +230,7 @@ If you would like to investigate a variable outside the list, please let me know
 Using R, select your identified variables from your dataset. Your new dataset should have 10 columns for the 10 variables.
 :::
 
+
 ```{r}
 #| echo: false
 iat_2021 = iat_2021_raw %>% 
@@ -236,6 +246,7 @@ iat_2021 = iat_2021_raw %>%
          genderIdentity, 
          birthSex)
 ```
+
 
 #### 3.3 Manipulating variables that are coded as numeric variables
 
@@ -256,13 +267,16 @@ By looking at the codebook, I see that respondents answer the following question
 
 If I look at the data as is, I see that the variable is numeric.
 
+
 ```{r}
 iat_2021 %>%
   dplyr::select(iam_001) %>%
   tbl_summary()
 ```
 
+
 Again, I want to create a varaible with the answers instead of numbers, so I will change transform the variable to include the text:
+
 
 ```{r}
 iat_2021 = iat_2021 %>%
@@ -284,6 +298,7 @@ ggplot(data=iat_2021) +
   geom_boxplot(aes(x = iam_001_f, y = IAT_score))
 ```
 
+
 I have called the new variable `iam_001_f` to indicate that the variable is not in factor form. You can also call it something like `iam_001_cat` to indicate the categorical form.
 :::
 
@@ -303,13 +318,16 @@ This dataset does not have an available "age" variable. However, we have enough 
 From the codebook, find the variables that we can use to construct the test date. Then use `make_date()` to create the test date.
 :::
 
+
 ```{r}
 iat_2021 = iat_2021 %>%
   mutate(birthdate = make_date(month = birthmonth, year = birthyear), 
          testdate = make_date(month = month, year = year))
 ```
 
+
 Once the two dates are created, we can use further use `lubridate` to calculate the age in years. This code is a little complicated, so here is an example of how I have created age:
+
 
 ```{r}
 #| eval: false
@@ -320,6 +338,7 @@ iat_2021 = iat_2021 %>%
   select(-birthmonth, -birthyear, -year, -month, 
          -testdate, -birthdate)
 ```
+
 
 Note that the name of my dataset is `iat_2021` and I feed it into `mutate()`. Within `mutate()`, I assigned `age` to the interval between the name of my birth date (`birthdate`) and the name of my test date (`testdate`). I need to convert the interval to a period of time (`as.period()`), then to a measurement of years (`year()`).
 
@@ -351,10 +370,12 @@ Handling missing data is outside the scope of our class. There are many techniqu
 
 For example:
 
+
 ```{r}
 #| eval: false
 new_df = old_df %>% drop_na()
 ```
+
 
 ### 4. Some exploratory data analysis
 
@@ -395,3 +416,4 @@ Please restate the research question that you proposed in Lab 1. Please make sur
 ::: callout-note
 In research, we typically do NOT change our research question after looking at the data! Researchers typically form their questions from other research and their expertise. We may not have expertise in this field and we have not been studying implicit bias, so I want to be a little more flexible with our analysis.
 :::
+

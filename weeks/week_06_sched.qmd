@@ -61,6 +61,10 @@ Below is a table with links to resources. Icons in [orange]{style="color:#E25D3B
 
 ### Monday 2/12
 
+-   Lab 2: please resubmit with `self-contained: true`
+
+    -   The top of your file should have the following line:![](week_06/Lab_02_help.png)
+
 -   Quiz 2 next week
 
     -   Lesson 4 ([SLR: Inference](/slides/04_SLR_Inf_Pred.qmd), starting at mean response) to Lesson 9
