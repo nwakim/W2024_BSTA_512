@@ -12702,7 +12702,7 @@
     "href": "slides/10_Cat_covariates.html#building-the-regression-equation-how-do-we-map-categories-to-means",
     "title": "Categorical Covariates",
     "section": "Building the regression equation: how do we map categories to means?",
-    "text": "Building the regression equation: how do we map categories to means?\n\nIf we only have world region in our model and want to map it to an expected life expectancy…\n\n\n\n\nWe want to create a function that can map each region to life expectancy\nIf in Africa: \\[\\widehat{LE} = 61.32\\]\nIf in the Americas: \\[\\widehat{LE} = 74.64\\]\nIf in Asia: \\[\\widehat{LE} = 71.7\\]\nIf in Europe: \\[\\widehat{LE} = 77.61\\]\nCan we make one equation for \\(\\widehat{LE}\\) by putting the “if” statements within the equation?"
+    "text": "Building the regression equation: how do we map categories to means?\n\nIf we only have world region in our model and want to map it to an expected life expectancy…\n\n\n\n\nWe want to create a function that can map each region to life expectancy\n\nIf in Africa: \\(\\widehat{LE} = 61.32\\)\nIf in the Americas: \\(\\widehat{LE} = 74.64\\)\nIf in Asia: \\(\\widehat{LE} = 71.70\\)\nIf in Europe: \\(\\widehat{LE} = 77.61\\)\n\nCan we make one equation for \\(\\widehat{LE}\\) by putting the “if” statements within the equation?"
   },
   {
     "objectID": "slides/10_Cat_covariates.html#building-the-regression-equation-indicator-functions",
@@ -12976,5 +12976,12 @@
     "title": "Categorical Covariates",
     "section": "If time…",
     "text": "If time…\nLet’s walk through categorical variables that have multiple selections\n\nSo each group is not mutually exclusive\nWe could make an indicator for each category, but individuals could be a part of multiple categories"
+  },
+  {
+    "objectID": "slides/10_Cat_covariates.html#poll-everywhere-question-4",
+    "href": "slides/10_Cat_covariates.html#poll-everywhere-question-4",
+    "title": "Categorical Covariates",
+    "section": "Poll Everywhere Question 4",
+    "text": "Poll Everywhere Question 4"
   }
 ]
