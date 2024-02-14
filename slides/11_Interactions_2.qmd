@@ -1,0 +1,180 @@
+---
+title: "Interactions 2"
+author: "Nicky Wakim"
+title-slide-attributes:
+    data-background-color: "#213c96"
+date: "02/14/2024"
+categories: ["Week 6"]
+format: 
+  revealjs:
+    theme: [default, simple_NW.scss]
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1955
+    height: 1100
+    footer: Interactions
+    html-math-method: mathjax
+    highlight-style: ayu
+execute:
+  freeze: auto  # re-render only when source changes
+---
+
+
+```{r}
+#| label: "setup" 
+#| include: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(janitor)
+library(knitr)
+library(broom)
+library(rstatix)
+library(gt)
+library(readxl)
+#----------
+# new packages
+# install.packages("describedata")
+library(describedata) # gladder()
+library(gridExtra)   # grid.arrange()
+library(ggfortify)  # autoplot(model)
+# New Day 6
+library(gtsummary)
+
+# New Day 7
+library(plotly) # for plot_ly() command
+library(GGally) # for ggpairs() command 
+library(ggiraphExtra)   # for ggPredict() command
+
+# Load the data - update code if the csv file is not in the same location on your computer
+# If you need to download the file, please go to ur shared folder under Data > Slides
+gapm <- read_excel("data/Gapminder_vars_2011.xlsx", 
+                   na = "NA")  # important!!!! 
+
+
+gapm_sub <- gapm %>% # called it gapm2_sub3 to be consistent with Day 7 notes
+  drop_na(LifeExpectancyYrs, FemaleLiteracyRate, four_regions, FoodSupplykcPPD) %>%
+  mutate(four_regions = factor(four_regions, 
+                               levels = c("africa", "americas", 
+                                          "asia", "europe"), 
+                               labels = c("Africa", "Americas", 
+                                          "Asia", "Europe"))) %>%
+  rename(income_levels = `World bank, 4 income groups 2017`) %>%
+  mutate(income_levels1 = factor(income_levels, 
+                                levels = c("Low income", 
+                                           "Lower middle income", 
+                                           "Upper middle income", 
+                                           "High income")), 
+         income_levels2 = relevel(factor(income_levels, 
+                                levels = c("Low income", 
+                                           "Lower middle income", 
+                                           "Upper middle income", 
+                                           "High income"), 
+                                labels = c("Lower income", "Lower income", 
+                                            "Higher income", "Higher income")), 
+                                ref = "Lower income"))
+
+```
+
+# Learning Objective
+
+## Do we think food supply can be an effect modifier for female literacy rate?
+
+::: columns
+::: column
+-   We can start by visualizing the relationship between life expectancy and female literacy rate *by food supply*
+-   Let's run an interaction model to see!
+:::
+
+::: column
+```{r fig.height=7, fig.width=9, warning=F, fig.align='center'}
+#| echo: false
+m_int_fs = lm(LifeExpectancyYrs ~ FemaleLiteracyRate*FoodSupplykcPPD, data = gapm_sub)
+(mr1_2d = ggPredict(m_int_fs, interactive = T))
+```
+:::
+:::
+
+## Interaction between two continuous variables
+
+```{r}
+m_int_fs = lm(LifeExpectancyYrs ~ FemaleLiteracyRate*FoodSupplykcPPD, data = gapm_sub)
+tidy(m_int_fs, conf.int=T) %>% gt() %>% tab_options(table.font.size = 35) %>% fmt_number(decimals = 3)
+```
+
+## Interpretation for interaction between two continuous variables
+
+# Learning Objective
+
+## Deciding between confounder and effect modifier
+
+-   This is more of a model selection question (in coming lectures)
+
+-   But if we had a model with **only TWO covariates**, we could step through the following process:
+
+    1.  Test the interaction (of potential effect modifier): use a partial F-test to test if interaction term(s) explain enough variation compared to model without interaction
+
+        -   Recall that for two continuous covariates, we will **test a single coefficient**
+        -   For a binary and continuous covariate, we will **test a single coefficient**
+        -   For two binary categorical covariates, we will **test a single coefficient**
+        -   **For a multi-level categorical covariate (with any other type of covariate), we must test a group of coefficients!!**
+
+    2.  Then look at the main effect (or potential confounder)
+
+        -   If interaction already included, then automatically included as main effect (and thus not checked for confounding)
+
+        -   For variables that are not included in any interactions:
+
+            -   Check to see if they are confounders by seeing whether exclusion of the variable changes any of the main effect of the primary explanatory variable by more than 10%
+
+# Extra Reference Material
+
+## General interpretation of the interaction term (reference)
+
+$E[Y\mid X_{1},X_{2} ]=\beta_0 + \underbrace{(\beta_1+\beta_3X_{2}) }_\text{$X_{1}$'s effect} X_{1}+ \underbrace{\beta_2X_{2}}_\text{$X_{2}$ held constant}$\
+${\color{white}{E[Y\mid X_{1},X_{2} ]}}=\beta_0 + \underbrace{(\beta_2+\beta_3X_{1}) }_\text{$X_{2}$'s effect}X_{2} + \underbrace{\beta_1X_{1}}_\text{$X_{1}$ held constant}$
+
+-   Interpretation:
+
+    -   $\beta_3$ = mean change in $X_{1}$'s effect, per unit increase in $X_{2}$;\
+
+    -   [$\beta_3$]{style="color: white"} = mean change in $X_{2}$'s effect, per unit increase in $X_{1}$;
+
+    -   where the "$X_{1}$ effect" equals the change in $E[Y]$ per unit increase in $X_{1}$ with $X_{2}$ held constant, i.e. "adjusted $X_{1}$ effect"
+
+-   In summary, the interaction term can be interpreted as "difference in adjusted $X_1$ (or $X_2$) effect per unit increase in $X_2$ (or $X_1$)"
+
+## A glimpse at how interactions might be incorporated into model selection {.smaller}
+
+1.  Identify outcome (Y) and primary explanatory (X) variables
+
+2.  Decide which other variables might be important and could be potential confounders. Add these to the model.
+
+    -   This is often done by indentifying variables that previous research deemed important, or researchers believe could be important
+    -   From a statistical perspective, we often include variables that are significantly associated with the outcome (in their respective SLR)
+
+3.  (Optional step) Test 3 way interactions
+
+    -   This makes our model incredibly hard to interpret. Our class will not cover this!!
+    -   We will skip to testing 2 way interactions
+
+4.  Test 2 way interactions
+
+    -   When testing a 2 way interaction, make sure the full and reduced models contain the main effects
+
+    -   First test all the 2 way interactions together using a partial F-test (with $alpha = 0.10$)
+
+        -   If this test not significant, do not test 2-way interactions individually
+        -   If partial F-test is significant, then test each of the 2-way interactions
+
+5.  Remaining main effects - to include of not to include?
+
+    -   For variables that are included in any interactions, they will be automatically included as main effects and thus not checked for confounding
+
+    -   For variables that are not included in any interactions:
+
+        -   Check to see if they are confounders by seeing whether exclusion of the variable(s) changes any of the coefficient of the primary explanatory variable (including interactions) X by more than 10%
+
+            -   If any of X's coefficients change when removing the potential confounder, then keep it in the model

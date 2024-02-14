@@ -40,7 +40,7 @@ editor_options:
 | Lesson | Topic                  |                                                 Slides                                                 |                                                       Annotated Slides                                                        |                                                                                                                                                                                      Recording                                                                                                                                                                                       |
 |---------------|---------------|:-------------:|:-------------:|:-------------:|
 | 10     | Categorical Covariates | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/10_Cat_covariates.qmd)]{style="color:#f8f5f0;"} | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/10_Cat_covariates.pdf)]{style="color:#f8f5f0;"} | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F10%5FCat%5Fcovariates%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"} |
-| 11     | Interactions           |                 [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"}                  |                      [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                       |                                                                                                                                                            [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                             |
+| 11     | Interactions           |  [[{{< iconify ri slideshow-fill size=30px >}}](/slides/11_Interactions.qmd)]{style="color:#f8f5f0;"}  |                      [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                       |                                                                                                                                                            [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                             |
 
 ## On the Horizon
 
@@ -68,6 +68,16 @@ editor_options:
     -   Lesson 4 ([SLR: Inference](/slides/04_SLR_Inf_Pred.qmd), starting at mean response) to Lesson 9
 
     -   HW 4 will not be on it!
+
+Wednesday 2/14
+
+-   [Midterm feedback!!](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhURTVVRDNEMzhHVFRUQTRIVDdLSE1BNlFIWC4u)
+
+    -   Please complete by next Friday 2/23
+
+    -   Completely anonymous!
+
+    -   A question at the end will take you to another survey to record your name
 
 ## Muddiest Points
 

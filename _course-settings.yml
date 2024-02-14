@@ -134,6 +134,12 @@ schedule:
         date: 2/19/24
         calendar-color: "#A7EA52"
         calendar-color2: "#FFFFFF" 
+        
+      - title: "Midterm feedback due"
+        href: https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhURTVVRDNEMzhHVFRUQTRIVDdLSE1BNlFIWC4u
+        date: 2/23/24
+        calendar-color: "#213c96"
+        calendar-color2: "#FFFFFF" 
 
         
 auto-publish:

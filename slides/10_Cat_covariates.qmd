@@ -1118,19 +1118,3 @@ $$\begin{aligned}
 
 -   Also, thinking about income levels - can we combine two groups to make one??
 
-## Next time, we'll start looking at interactions v. additive effects
-
-```{r fig.height=7, fig.width=9, warning=F, fig.align='center'}
-#| echo: false
-ggplot(gapm2, aes(x = FoodSupplykcPPD, y = LifeExpectancyYrs, 
-                  color = income_levels)) +
-  geom_point() +
-  geom_smooth(method = lm, se = FALSE) + 
-  labs(x = "Food supply (kcal PPD)", 
-       y = "Country life expectancy (years)",
-       title = "Life expectancy vs. Food supply", 
-       color = "Income levels") +
-  theme(axis.title = element_text(size = 20), 
-        axis.text = element_text(size = 20), 
-        title = element_text(size = 20))
-```
