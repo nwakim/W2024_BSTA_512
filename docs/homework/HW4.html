@@ -4754,12 +4754,11 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a>
   <ul class="collapse">
   <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
-  <li><a href="#question-1-1" id="toc-question-1-1" class="nav-link" data-scroll-target="#question-1-1">Question 1</a></li>
   <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
-  <li><a href="#chapter-15-polynomial-regression-questions-not-from-book" id="toc-chapter-15-polynomial-regression-questions-not-from-book" class="nav-link" data-scroll-target="#chapter-15-polynomial-regression-questions-not-from-book">Chapter 15: Polynomial Regression (questions NOT from book)</a></li>
+  <li><a href="#question-2-1" id="toc-question-2-1" class="nav-link" data-scroll-target="#question-2-1">Question 2</a></li>
   </ul></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="HW4.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -4796,7 +4795,7 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 12, 2024</p>
+      <p class="date-modified">February 15, 2024</p>
     </div>
   </div>
     
@@ -4815,13 +4814,14 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>This page is under construction!!</strong></p>
+<p>This assignment is no longer under construction!! (2/15/2024)</p>
 </div>
 </div>
+<style>div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}</style>
 <section id="directions" class="level2">
 <h2 class="anchored" data-anchor-id="directions">Directions</h2>
 <ul>
-<li><p><a href="https://github.com/nwakim/W2024_BSTA_512/blob/main/homework/HW3.qmd">Download the <code>.qmd</code> file here.</a></p></li>
+<li><p><a href="https://github.com/nwakim/W2024_BSTA_512/blob/main/homework/HW4.qmd">Download the <code>.qmd</code> file here.</a></p></li>
 <li><p>You will need to download the datasets. Use <a href="https://ohsuitg-my.sharepoint.com/:f:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W2024_BSTA_512_612/Student_files/Data/Homework?csf=1&amp;web=1&amp;e=QEsqb9">this link to download</a> the homework datasets needed in this assignment. If you do not want to make changes to the paths set in this document, then make sure the files are stored in a folder named “data” that is housed in the same location as this homework <code>.qmd</code> file.</p></li>
 <li><p>Please upload your homework to <a href="https://sakai.ohsu.edu/portal/site/BSTA-512-1-AB-W24/tool/961ec5ef-d7f9-4518-be16-25f7af3d6be4">Sakai</a>. <strong>Upload both your <code>.qmd</code> code file and the rendered <code>.html</code> file</strong></p>
 <ul>
@@ -4851,13 +4851,13 @@ Tip
 <h2 class="anchored" data-anchor-id="questions">Questions</h2>
 <section id="question-1" class="level3">
 <h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
-<p>For this problem we will be using the <code>penguins</code> dataset from the <code>palmerpenguins</code> R package. We will look at the association between flipper length of penguins and specific species of penguins.</p>
+<p>For this problem we will be using the <code>penguins</code> dataset from the <code>palmerpenguins</code> R package. We will look at the association between flipper length of penguins (measured in mm) and specific species of penguins.</p>
 <p>Description from help file:</p>
 <blockquote class="blockquote">
 <p>Includes measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.</p>
 </blockquote>
 <p><a href="https://allisonhorst.github.io/palmerpenguins/">More info about the data.</a></p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first install the palmerpenguins package</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;palmerpenguins&quot;)</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
@@ -4866,122 +4866,70 @@ Tip
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># run the command below to learn more about the variables in the penguins dataset</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ?penguins</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="outcome-averages-stratified-by-category-levels" class="level4">
-<h4 class="anchored" data-anchor-id="outcome-averages-stratified-by-category-levels">(1) Outcome averages stratified by category levels</h4>
-<p><font color="green">Calculate the average flipper lengths stratified by each of the penguin species.</font></p>
+<section id="part-a" class="level4">
+<h4 class="anchored" data-anchor-id="part-a">Part a</h4>
+<p>Calculate the average flipper lengths stratified by each of the penguin species.</p>
 </section>
-<section id="visualize-the-regression" class="level4">
-<h4 class="anchored" data-anchor-id="visualize-the-regression">(2) Visualize the “regression”</h4>
-<p><font color="green">Make a scatterplot of flipper lengths by species, and include diamond-shape points for the averages of the flipper lengths for each of the species.</font></p>
+<section id="part-b" class="level4">
+<h4 class="anchored" data-anchor-id="part-b">Part b</h4>
+<p>Make a scatterplot (with jigger) of flipper lengths by species, and include diamond-shape points for the averages of the flipper lengths for each of the species.</p>
 </section>
-<section id="regression-equations" class="level4">
-<h4 class="anchored" data-anchor-id="regression-equations">(3) Regression equations</h4>
-<p>Before running the regression in R, we are going to find the regression equation”manually.”</p>
-<p><font color="green">Write out the regression equation using LaTeX math markup (see class notes) that models the flipper length by penguin species. Do not yet insert values for the regression coefficients, i.e. us the generic coefficients</font> <span class="math inline">\(\widehat{\beta}_0, \widehat{\beta}_1,\)</span> <font color="green">etc. Use Adelie as the reference level.</font></p>
+<section id="part-c" class="level4">
+<h4 class="anchored" data-anchor-id="part-c">Part c</h4>
+<p>Write out the fitted regression equation that models the flipper length by penguin species. Use LaTeX math markup or insert an image of your equation. Do not yet insert values for the regression coefficients, i.e. use the generic coefficients <span class="math inline">\(\widehat{\beta}_0, \widehat{\beta}_1\)</span>. Use Adelie as the reference level.</p>
 </section>
-<section id="interpret-coefficients" class="level4">
-<h4 class="anchored" data-anchor-id="interpret-coefficients">(4) Interpret coefficients</h4>
-<p><font color="green">How do we interpret each of the regression coefficients for this model?</font> <em>Write out a separate interpretation for each of the coefficients.</em></p>
+<section id="part-d" class="level4">
+<h4 class="anchored" data-anchor-id="part-d">Part d</h4>
+<p>Run the linear regression of flipper lengths vs. species in R, and display the regression table output. Which species did R choose as the reference level, and how did you determine this?</p>
 </section>
-<section id="regression-coefficients-manually" class="level4">
-<h4 class="anchored" data-anchor-id="regression-coefficients-manually">(5) Regression coefficients “manually”</h4>
-<p><font color="green">“Manually” calculate the values for each of the coefficients, and update the regression model with the values inserted.</font><br>
-<em>You must show your work for this. Do not run the linear model in this step to get the values.</em></p>
+<section id="part-e" class="level4">
+<h4 class="anchored" data-anchor-id="part-e">Part e</h4>
+<p>How do we interpret each of the regression coefficients for this model? <em>Write out a separate interpretation for each of the coefficients.</em></p>
 </section>
-<section id="regression-table-with-lm-function" class="level4">
-<h4 class="anchored" data-anchor-id="regression-table-with-lm-function">(6) Regression table with <code>lm()</code> function</h4>
-<p><font color="green">Run the linear regression of flipper lengths vs. species in R, and display the regression table output. Which species did R choose as the reference level, and how did you determine this?</font></p>
-</section>
-<section id="mean-calculation-using-regression-output" class="level4">
-<h4 class="anchored" data-anchor-id="mean-calculation-using-regression-output">(7) Mean calculation using regression output</h4>
-<p><font color="green">Calculate the mean flipper length of penguins in the Chinstrap and Gentoo species using <em>only</em> the results from the regression table.</font> <em>You must show your work.</em></p>
-</section>
-<section id="section" class="level4">
-<h4 class="anchored" data-anchor-id="section">(8)</h4>
-<p><font color="green">Write out the regression equation using LaTeX math markup (see class notes) that models the flipper length by penguin species. Do not yet insert values for the regression coefficients, i.e. us the generic coefficients</font> <span class="math inline">\(\widehat{\beta}_0, \widehat{\beta}_1,\)</span> <font color="green">etc. Use Gentoo as the reference level.</font></p>
-</section>
-<section id="section-1" class="level4">
-<h4 class="anchored" data-anchor-id="section-1">(9)</h4>
-<p><font color="green">How do we interpret each of the regression coefficients for this model?</font> <em>Write out a separate interpretation for each of the coefficients.</em></p>
-</section>
-<section id="section-2" class="level4">
-<h4 class="anchored" data-anchor-id="section-2">(10)</h4>
-<p><font color="green">“Manually” calculate the values for each of the coefficients, and update the regression model with the values inserted.</font> <em>You must show your work for this. Do not run the linear model in this step to get the values.</em></p>
-</section>
-</section>
-<section id="question-1-1" class="level3">
-<h3 class="anchored" data-anchor-id="question-1-1">Question 1</h3>
-<p><font color="green">Use the data from Chapter 12 Problem 3 to answer the questions below.</font></p>
-<section id="a" class="level4">
-<h4 class="anchored" data-anchor-id="a">a)</h4>
-<p>How many dummy variable(s) do you need to create for the categorical variable Diet (protein-rich vs. protein-poor)? Create the dummy variable(s) with the reference cell coding approach{0,1}.</p>
-</section>
-<section id="b" class="level4">
-<h4 class="anchored" data-anchor-id="b">b)</h4>
-<p>At a level of significance alpha = .05, test whether if Age is significantly associated with Height. Would this association be modified depending on diet group (e.g., rich-protein or poor-protein)? In other words, is Diet an effect-modifier that changes the association between Height and Age? Justify your answer (e.g., perform a hypothesis test at a level of alpha =.1).</p>
-<p><em>Note: recall that an effect modifier is an interaction.</em></p>
-</section>
-<section id="c" class="level4">
-<h4 class="anchored" data-anchor-id="c">c)</h4>
-<p>From the results obtained in part b, should we perform an assessment of a confounder for Diet? Justify your answer. Perform such an assessment if needed.</p>
-</section>
-<section id="d" class="level4">
-<h4 class="anchored" data-anchor-id="d">d)</h4>
-<p>Perform a regression analysis on the model obtained from the results obtained from parts a- c. Write down a general regression equation that is applicable to both groups—rich-protein vs.poor-protein. Write down regression lines for each specific groups—rich-protein or poor-protein.</p>
+<section id="part-f" class="level4">
+<h4 class="anchored" data-anchor-id="part-f">Part f</h4>
+<p>Calculate the mean flipper length (and the 95% CI) of penguins in the Chinstrap and Gentoo species using the <code>predict()</code> function.</p>
 </section>
 </section>
 <section id="question-2" class="level3">
 <h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
-<p><font color="green">Use the data from Chapter 9 Problem 5 to answer the questions below.</font></p>
-<p>An experiment was conducted regarding a quantitative analysis of factors found in high-density lipoprotein (HDL) in a sample of human blood serum. Three variables thought to be predictive of, or associated with, HDL measurement (Y ) were the total cholesterol (X1) and total triglyceride (X2) concentrations in the sample, plus the presence or absence of a certain sticky component of the serum called sinking pre-beta or SPB (X3), coded as 0 if absent and 1 if present. The data obtained are shown in the following table.</p>
-<section id="a-1" class="level4">
-<h4 class="anchored" data-anchor-id="a-1">a)</h4>
-<p>Use <span class="math inline">\(\alpha= 0.05\)</span>, test whether the (crude) association between Y and X1 could be established.</p>
+<p>A team of nutrition experts investigated the influence of protein content in diet on the relationship between age (explanatory variable) and height (outcome, in centimeters) for children. Using the dataset, <code>CH12Q03.xls</code>, answer the following questions.</p>
+<p>This question was adapted from <a href="https://catalog.lib.uchicago.edu/vufind/Record/7546272">this textbook</a>.</p>
+<section id="part-a-1" class="level4">
+<h4 class="anchored" data-anchor-id="part-a-1">Part a</h4>
+<p>Using R, make a variable that is a factor for Diet. Make sure to check what values the original variable for Diet can take. How many indicator functions do you need to represent the categorical variable Diet (protein-rich vs. protein-poor)?</p>
 </section>
-<section id="b-1" class="level4">
-<h4 class="anchored" data-anchor-id="b-1">b)</h4>
-<p>Use <span class="math inline">\(\alpha= 0.1\)</span>, test whether X3 is an effect modifier of the association between Y and X1.</p>
-<p><strong>Note: To identify effect modifiers, we perform a hypothesis test of interaction term, e.g.,X1<em>X3. That is: The full model includes X1, X3, X1</em>X3. the reduced model includes X1 and X3</strong></p>
+<section id="part-b-1" class="level4">
+<h4 class="anchored" data-anchor-id="part-b-1">Part b</h4>
+<p>At a level of significance <span class="math inline">\(\alpha = 0.10\)</span>, test whether protein diet modifies the effect of age on height. Justify your answer (e.g., perform a hypothesis test for the interaction between diet and age).</p>
+<p><em>Note: recall that an effect modifier is an interaction.</em></p>
 </section>
-<section id="c-1" class="level4">
-<h4 class="anchored" data-anchor-id="c-1">c)</h4>
-<p>From the result obtained in part b, do we need to perform an assessment of a confounder for X3? Justify your answer. Perform such an assessment if needed.</p>
+<section id="part-c-1" class="level4">
+<h4 class="anchored" data-anchor-id="part-c-1">Part c</h4>
+<p>Is it possible that diet is a confounder? Note: this will depend on your results from Part b.</p>
 </section>
-<section id="d-1" class="level4">
-<h4 class="anchored" data-anchor-id="d-1">d)</h4>
-<p>Perform an assessment of a confounder for X2 which potentially changes the association between Y and X1.</p>
-</section>
-<section id="e" class="level4">
-<h4 class="anchored" data-anchor-id="e">e)</h4>
-<p>From the results in parts a-d, what is your final association model?</p>
+<section id="part-d-1" class="level4">
+<h4 class="anchored" data-anchor-id="part-d-1">Part d</h4>
+<p>Write the fitted regression equation for our model in Part b. Write the respective regression lines for each specific diet group: protein rich and protein poor. Interpret the slope of each regression line (no need for a 95% CI here).</p>
 </section>
 </section>
-<section id="chapter-15-polynomial-regression-questions-not-from-book" class="level3">
-<h3 class="anchored" data-anchor-id="chapter-15-polynomial-regression-questions-not-from-book">Chapter 15: Polynomial Regression (questions NOT from book)</h3>
-<p><font color="green">Use the data from Chapter 5 Problem 18 to answer the questions below.</font></p>
-<section id="a-2" class="level4">
-<h4 class="anchored" data-anchor-id="a-2">a)</h4>
-<p><strong>a. Obtain scatter plot: Y vs. X. Does linear trend support the relationship between Y and X?</strong></p>
+<section id="question-2-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-2-1">Question 2</h3>
+<p>An experiment was conducted regarding a quantitative analysis of factors found in high-density lipoprotein (HDL) in a sample of human blood serum. Three variables thought to be predictive of, or associated with, HDL measurement (Y) were the total cholesterol (X1) and total triglyceride (X2) concentrations in the sample, plus the presence or absence of a certain sticky component of the serum called sinking pre-beta or SPB (X3), coded as 0 if absent and 1 if present. Using the dataset, <code>CH09Q05.xls</code>, answer the following questions.</p>
+<section id="part-a-2" class="level4">
+<h4 class="anchored" data-anchor-id="part-a-2">Part a</h4>
+<p>Use <span class="math inline">\(\alpha= 0.05\)</span>, test whether if there is a crude association between HDL measurement and total cholesterol. Note: testing for a crude association means we fit a simple linear regression model and see if the association is significant.</p>
 </section>
-<section id="b-2" class="level4">
-<h4 class="anchored" data-anchor-id="b-2">b)</h4>
-<p><strong>b. At the level alpha =.05, test whether the linear relationship could be established between Y and X.</strong></p>
+<section id="part-b-2" class="level4">
+<h4 class="anchored" data-anchor-id="part-b-2">Part b</h4>
+<p>Sometimes simple linear regression leads us to believe that there is no association between two variables, but missing interaction might be obscuring the association. Use <span class="math inline">\(\alpha= 0.1\)</span> to test whether total triglyceride is an effect modifier of the association between HDL and total cholesterol.</p>
+<p>Note: Since the data frame has the variables named as <span class="math inline">\(Y\)</span>, <span class="math inline">\(X1\)</span>, and <span class="math inline">\(X2\)</span>, you may use those in the regression equations, but when you are making a conclusion, please use the specific names of the variables to identify each. For example, <span class="math inline">\(Y\)</span> is actually HDL.</p>
+<p>Note: The plan is to cover interactions between two continuous covariates on Wednesday 2/21. We will not interpret the interaction coefficient for this, but we can test the interaction coefficient. Similar to the interaction for a binary covariate and a continuous covariate, we only need to test one coefficient, <span class="math inline">\(\beta_3\)</span>.</p>
 </section>
-<section id="c-2" class="level4">
-<h4 class="anchored" data-anchor-id="c-2">c)</h4>
-<p><strong>c. At the level alpha =.05, test whether the quadratic term (</strong><span class="math inline">\(X^2\)</span>) should be included in the model to improve the prediction in Y, given the linear term (<span class="math inline">\(X\)</span>) is already in the model.</p>
-</section>
-<section id="d-2" class="level4">
-<h4 class="anchored" data-anchor-id="d-2">d)</h4>
-<p><strong>d. From the result obtained from part c, should we test if the linear term (X) is necessary to be included in the model, given the quadratic term is already in the model? Explain your answer.</strong></p>
-</section>
-<section id="e-1" class="level4">
-<h4 class="anchored" data-anchor-id="e-1">e)</h4>
-<p><strong>e. From the results you obtain from parts c-d, should we further examine whether cubic term (</strong><span class="math inline">\(X^3\)</span>) or fourth polynomial degree (i.e., <span class="math inline">\(X^4\)</span>) to improve the prediction in Y? Explain your answer and report the result of such a test if needed.</p>
-</section>
-<section id="f" class="level4">
-<h4 class="anchored" data-anchor-id="f">f)</h4>
-<p><strong>f. From parts a – e, what is the final model that you have obtained? Interpret the R-square result from this model in the context of the study. Plot fitted value curve vs. X overlaid with scatter plot. Comments about the fitting model.</strong></p>
+<section id="part-c-2" class="level4">
+<h4 class="anchored" data-anchor-id="part-c-2">Part c</h4>
+<p>Is it possible that total triglyceride is a confounder? No need to test this explicity.</p>
+<p>Note: this will depend on your results from Part b.</p>
 
 
 </section>

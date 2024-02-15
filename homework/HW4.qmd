@@ -10,13 +10,18 @@ format:
     link-external-newwindow: true
     toc: true
     self-contained: true
-  pdf: default 
-editor_options: 
-  chunk_output_type: console
+    embed-resources: true
 ---
 
+::: callout-important
+This assignment is no longer under construction!! (2/15/2024)
+:::
+
+```{=html}
+<style>div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}</style>
+```
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, fig.height = 2, fig.width = 4)
+knitr::opts_chunk$set(echo = TRUE, fig.height = 4, fig.width = 6, fig.align = "center")
 
 library(tidyverse)
 library(rstatix)
@@ -32,13 +37,10 @@ library(haven)
 library(here)
 ```
 
-::: callout-important
-**This page is under construction!!**
-:::
 
 ## Directions
 
--   [Download the `.qmd` file here.](https://github.com/nwakim/W2024_BSTA_512/blob/main/homework/HW3.qmd)
+-   [Download the `.qmd` file here.](https://github.com/nwakim/W2024_BSTA_512/blob/main/homework/HW4.qmd)
 
 -   You will need to download the datasets. Use [this link to download](https://ohsuitg-my.sharepoint.com/:f:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W2024_BSTA_512_612/Student_files/Data/Homework?csf=1&web=1&e=QEsqb9) the homework datasets needed in this assignment. If you do not want to make changes to the paths set in this document, then make sure the files are stored in a folder named "data" that is housed in the same location as this homework `.qmd` file.
 
@@ -64,7 +66,7 @@ It is a good idea to try rendering your document from time to time as you go alo
 
 ### Question 1
 
-For this problem we will be using the `penguins` dataset from the `palmerpenguins` R package. We will look at the association between flipper length of penguins and specific species of penguins. 
+For this problem we will be using the `penguins` dataset from the `palmerpenguins` R package. We will look at the association between flipper length of penguins (measured in mm) and specific species of penguins.
 
 Description from help file:
 
@@ -82,123 +84,86 @@ data(penguins)
 # ?penguins
 ```
 
-#### (1) Outcome averages stratified by category levels
+#### Part a
 
-<font color="green">Calculate the average flipper lengths stratified by each of the penguin species.</font>
+Calculate the average flipper lengths stratified by each of the penguin species.
 
-#### (2) Visualize the "regression"
+#### Part b
 
-<font color="green">Make a scatterplot of flipper lengths by species, and include diamond-shape points for the averages of the flipper lengths for each of the species.</font>
+Make a scatterplot (with jigger) of flipper lengths by species, and include diamond-shape points for the averages of the flipper lengths for each of the species.
 
-#### (3) Regression equations
+#### Part c
 
-Before running the regression in R, we are going to find the regression equation"manually."
+Write out the fitted regression equation that models the flipper length by penguin species. Use LaTeX math markup or insert an image of your equation. Do not yet insert values for the regression coefficients, i.e. use the generic coefficients $\widehat{\beta}_0, \widehat{\beta}_1$. Use Adelie as the reference level.
 
-<font color="green">Write out the regression equation using LaTeX math markup (see class notes) that models the flipper length by penguin species. Do not yet insert values for the regression coefficients, i.e. us the generic coefficients</font> $\widehat{\beta}_0, \widehat{\beta}_1,$ <font color="green">etc. Use Adelie as the reference level.</font>
+#### Part d
 
-#### (4) Interpret coefficients
+Run the linear regression of flipper lengths vs. species in R, and display the regression table output. Which species did R choose as the reference level, and how did you determine this?
 
-<font color="green">How do we interpret each of the regression coefficients for this model?</font> *Write out a separate interpretation for each of the coefficients.*
+#### Part e
 
-#### (5) Regression coefficients "manually"
+How do we interpret each of the regression coefficients for this model? *Write out a separate interpretation for each of the coefficients.*
 
-<font color="green">"Manually" calculate the values for each of the coefficients, and update the regression model with the values inserted.</font>\
-*You must show your work for this. Do not run the linear model in this step to get the values.*
+#### Part f
 
-#### (6) Regression table with `lm()` function
-
-<font color="green">Run the linear regression of flipper lengths vs. species in R, and display the regression table output. Which species did R choose as the reference level, and how did you determine this?</font>
-
-#### (7) Mean calculation using regression output
-
-<font color="green">Calculate the mean flipper length of penguins in the Chinstrap and Gentoo species using *only* the results from the regression table.</font> *You must show your work.*
-
-#### (8)
-
-<font color="green">Write out the regression equation using LaTeX math markup (see class notes) that models the flipper length by penguin species. Do not yet insert values for the regression coefficients, i.e. us the generic coefficients</font> $\widehat{\beta}_0, \widehat{\beta}_1,$ <font color="green">etc. Use Gentoo as the reference level.</font>
-
-#### (9)
-
-<font color="green">How do we interpret each of the regression coefficients for this model?</font> *Write out a separate interpretation for each of the coefficients.*
-
-#### (10)
-
-<font color="green">"Manually" calculate the values for each of the coefficients, and update the regression model with the values inserted.</font> *You must show your work for this. Do not run the linear model in this step to get the values.*
-
-### Question 1
-
-<font color="green">Use the data from Chapter 12 Problem 3 to answer the questions below.</font>
-
-#### a)
-
-How many dummy variable(s) do you need to create for the categorical variable Diet (protein-rich vs. protein-poor)? Create the dummy variable(s) with the reference cell coding approach{0,1}.
-
-#### b)
-
-At a level of significance alpha = .05, test whether if Age is significantly associated with Height. Would this association be modified depending on diet group (e.g., rich-protein or poor-protein)? In other words, is Diet an effect-modifier that changes the association between Height and Age? Justify your answer (e.g., perform a hypothesis test at a level of alpha =.1).
-
-*Note: recall that an effect modifier is an interaction.*
-
-#### c)
-
-From the results obtained in part b, should we perform an assessment of a confounder for Diet? Justify your answer. Perform such an assessment if needed.
-
-#### d)
-
-Perform a regression analysis on the model obtained from the results obtained from parts a- c. Write down a general regression equation that is applicable to both groups—rich-protein vs.poor-protein. Write down regression lines for each specific groups—rich-protein or poor-protein.
+Calculate the mean flipper length (and the 95% CI) of penguins in the Chinstrap and Gentoo species using the `predict()` function.
 
 ### Question 2
 
-<font color="green">Use the data from Chapter 9 Problem 5 to answer the questions below.</font>
+A team of nutrition experts investigated the influence of protein content in diet on the relationship between age (explanatory variable) and height (outcome, in centimeters) for children. Using the dataset, `CH12Q03.xls`, answer the following questions.
 
-An experiment was conducted regarding a quantitative analysis of factors found in high-density lipoprotein (HDL) in a sample of human blood serum. Three variables thought to be predictive of, or associated with, HDL measurement (Y ) were the total cholesterol (X1) and total triglyceride (X2) concentrations in the sample, plus the presence or absence of a certain sticky component of the serum called sinking pre-beta or SPB (X3), coded as 0 if absent and 1 if present. The data obtained are shown in the following table.
+This question was adapted from [this textbook](https://catalog.lib.uchicago.edu/vufind/Record/7546272).
 
-#### a)
+```{r}
+#| echo: false
+protein <- read_excel("./data/CH12Q03.xls") # change this to the appropriate file location
+```
 
-Use $\alpha= 0.05$, test whether the (crude) association between Y and X1 could be established.
+#### Part a
 
-#### b)
+Using R, make a variable that is a factor for Diet. Make sure to check what values the original variable for Diet can take. How many indicator functions do you need to represent the categorical variable Diet (protein-rich vs. protein-poor)?
 
-Use $\alpha= 0.1$, test whether X3 is an effect modifier of the association between Y and X1.
 
-**Note: To identify effect modifiers, we perform a hypothesis test of interaction term, e.g.,X1*X3. That is: The full model includes X1, X3, X1*X3. the reduced model includes X1 and X3**
+#### Part b
 
-#### c)
+At a level of significance $\alpha = 0.10$, test whether protein diet modifies the effect of age on height. Justify your answer (e.g., perform a hypothesis test for the interaction between diet and age).
 
-From the result obtained in part b, do we need to perform an assessment of a confounder for X3? Justify your answer. Perform such an assessment if needed.
+*Note: recall that an effect modifier is an interaction.*
 
-#### d)
+#### Part c
 
-Perform an assessment of a confounder for X2 which potentially changes the association between Y and X1.
+Is it possible that diet is a confounder? Note: this will depend on your results from Part b. 
 
-#### e)
+#### Part d
 
-From the results in parts a-d, what is your final association model?
+Write the fitted regression equation for our model in Part b. Write the respective regression lines for each specific diet group: protein rich and protein poor. Interpret the slope of each regression line (no need for a 95% CI here).
 
-### Chapter 15: Polynomial Regression (questions NOT from book)
+### Question 2
 
-<font color="green">Use the data from Chapter 5 Problem 18 to answer the questions below.</font>
+An experiment was conducted regarding a quantitative analysis of factors found in high-density lipoprotein (HDL) in a sample of human blood serum. Three variables thought to be predictive of, or associated with, HDL measurement (Y) were the total cholesterol (X1) and total triglyceride (X2) concentrations in the sample, plus the presence or absence of a certain sticky component of the serum called sinking pre-beta or SPB (X3), coded as 0 if absent and 1 if present. Using the dataset, `CH09Q05.xls`, answer the following questions.
 
-#### a)
+```{r}
+#| echo: false
 
-**a. Obtain scatter plot: Y vs. X. Does linear trend support the relationship between Y and X?**
+HDL_factors <- read_excel("./data/CH09Q05.xls") # change this to the appropriate file location
+```
 
-#### b)
+#### Part a
 
-**b. At the level alpha =.05, test whether the linear relationship could be established between Y and X.**
+Use $\alpha= 0.05$, test whether if there is a crude association between HDL measurement and total cholesterol. Note: testing for a crude association means we fit a simple linear regression model and see if the association is significant. 
 
-#### c)
+#### Part b
 
-**c. At the level alpha =.05, test whether the quadratic term (**$X^2$) should be included in the model to improve the prediction in Y, given the linear term ($X$) is already in the model.
+Sometimes simple linear regression leads us to believe that there is no association between two variables, but missing interaction might be obscuring the association. Use $\alpha= 0.1$ to test whether total triglyceride is an effect modifier of the association between HDL and total cholesterol. 
 
-#### d)
+Note: Since the data frame has the variables named as $Y$, $X1$, and $X2$, you may use those in the regression equations, but when you are making a conclusion, please use the specific names of the variables to identify each. For example, $Y$ is actually HDL. 
 
-**d. From the result obtained from part c, should we test if the linear term (X) is necessary to be included in the model, given the quadratic term is already in the model? Explain your answer.**
+Note: The plan is to cover interactions between two continuous covariates on Wednesday 2/21. We will not interpret the interaction coefficient for this, but we can test the interaction coefficient. Similar to the interaction for a binary covariate and a continuous covariate, we only need to test one coefficient, $\beta_3$.
 
-#### e)
+#### Part c
 
-**e. From the results you obtain from parts c-d, should we further examine whether cubic term (**$X^3$) or fourth polynomial degree (i.e., $X^4$) to improve the prediction in Y? Explain your answer and report the result of such a test if needed.
+Is it possible that total triglyceride is a confounder? No need to test this explicity.
 
-#### f)
+Note: this will depend on your results from Part b. 
 
-**f. From parts a – e, what is the final model that you have obtained? Interpret the R-square result from this model in the context of the study. Plot fitted value curve vs. X overlaid with scatter plot. Comments about the fitting model.**
+
