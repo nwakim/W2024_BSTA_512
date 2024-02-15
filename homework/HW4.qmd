@@ -138,7 +138,7 @@ Is it possible that diet is a confounder? Note: this will depend on your results
 
 Write the fitted regression equation for our model in Part b. Write the respective regression lines for each specific diet group: protein rich and protein poor. Interpret the slope of each regression line (no need for a 95% CI here).
 
-### Question 2
+### Question 3
 
 An experiment was conducted regarding a quantitative analysis of factors found in high-density lipoprotein (HDL) in a sample of human blood serum. Three variables thought to be predictive of, or associated with, HDL measurement (Y) were the total cholesterol (X1) and total triglyceride (X2) concentrations in the sample, plus the presence or absence of a certain sticky component of the serum called sinking pre-beta or SPB (X3), coded as 0 if absent and 1 if present. Using the dataset, `CH09Q05.xls`, answer the following questions.
 
