@@ -272,6 +272,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#im-a-little-confused-on-how-the-r-code-works-for-recodingreordering-our-variables-specifically-1-why-we-use-the-mutate-function-but-then-use-the-same-name-for-the-variablehow-that-works-and-2-why-you-need-to-include-the-list-of-each-variable-name-in-a-vector.-basically-what-each-piece-of-that-code-does-exactly-and-why-its-needed." id="toc-im-a-little-confused-on-how-the-r-code-works-for-recodingreordering-our-variables-specifically-1-why-we-use-the-mutate-function-but-then-use-the-same-name-for-the-variablehow-that-works-and-2-why-you-need-to-include-the-list-of-each-variable-name-in-a-vector.-basically-what-each-piece-of-that-code-does-exactly-and-why-its-needed." class="nav-link" data-scroll-target="#im-a-little-confused-on-how-the-r-code-works-for-recodingreordering-our-variables-specifically-1-why-we-use-the-mutate-function-but-then-use-the-same-name-for-the-variablehow-that-works-and-2-why-you-need-to-include-the-list-of-each-variable-name-in-a-vector.-basically-what-each-piece-of-that-code-does-exactly-and-why-its-needed.">2. I’m a little confused on how the R code works for recoding/reordering our variables, specifically 1) why we use the mutate function but then use the same name for the variable/how that works and 2) why you need to include the list of each variable name in a vector. Basically, what each piece of that code does exactly and why it’s needed.</a></li>
   <li><a href="#is-there-a-rationale-or-strategy-in-choosing-the-most-appropriate-reference-group" id="toc-is-there-a-rationale-or-strategy-in-choosing-the-most-appropriate-reference-group" class="nav-link" data-scroll-target="#is-there-a-rationale-or-strategy-in-choosing-the-most-appropriate-reference-group">3. Is there a rationale or strategy in choosing the most appropriate reference group?</a></li>
   <li><a href="#how-do-we-build-the-regression-indicators" id="toc-how-do-we-build-the-regression-indicators" class="nav-link" data-scroll-target="#how-do-we-build-the-regression-indicators">4. How do we build the regression indicators?</a></li>
+  <li><a href="#b_1-and-b_2---the-main-effect-models-estimate-the-average-x_1-and-x_2-effects" id="toc-b_1-and-b_2---the-main-effect-models-estimate-the-average-x_1-and-x_2-effects" class="nav-link" data-scroll-target="#b_1-and-b_2---the-main-effect-models-estimate-the-average-x_1-and-x_2-effects">B_1 and B_2 - the main effect models estimate the average X_1 and X_2 effects</a></li>
+  <li><a href="#if-the-model-we-learned-about-today-can-be-used-on-continuous-variables-or-only-factored-categorical-values" id="toc-if-the-model-we-learned-about-today-can-be-used-on-continuous-variables-or-only-factored-categorical-values" class="nav-link" data-scroll-target="#if-the-model-we-learned-about-today-can-be-used-on-continuous-variables-or-only-factored-categorical-values">If the model we learned about today can be used on continuous variables or only factored categorical values</a></li>
+  <li><a href="#the-red-and-green-lines-example.-im-not-totally-sure-why-the-lines-would-be-parallel-if-an-interaction-affects-the-slope-of-a-line" id="toc-the-red-and-green-lines-example.-im-not-totally-sure-why-the-lines-would-be-parallel-if-an-interaction-affects-the-slope-of-a-line" class="nav-link" data-scroll-target="#the-red-and-green-lines-example.-im-not-totally-sure-why-the-lines-would-be-parallel-if-an-interaction-affects-the-slope-of-a-line">The red and green lines example. I’m not totally sure why the lines would be parallel if an interaction affects the slope of a line?</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -364,14 +367,16 @@ Room Locations for the week
 <td>Categorical Covariates</td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/10_Cat_covariates.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/10_Cat_covariates.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F10%5FCat%5Fcovariates%2Emp4&amp;referrer=StreamWebApp%2EWeb&amp;referrerScenario=AddressBarCopied%2Eview"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></td>
+<td style="text-align: center;"><p><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F10%5FCat%5Fcovariates%2Emp4&amp;referrer=StreamWebApp%2EWeb&amp;referrerScenario=AddressBarCopied%2Eview"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></p>
+<p><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F10%5FCat%5Fcovariates%5F2%2Emp4&amp;referrer=StreamWebApp%2EWeb&amp;referrerScenario=AddressBarCopied%2Eview"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></p></td>
 </tr>
 <tr class="even">
 <td>11</td>
 <td>Interactions</td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/11_Interactions.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/11_Interactions.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
+<td style="text-align: center;"><p><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F11%5FInteractions%5F1%2Emp4&amp;referrer=StreamWebApp%2EWeb&amp;referrerScenario=AddressBarCopied%2Eview"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></p>
+<p><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></p></td>
 </tr>
 </tbody>
 </table>
@@ -450,6 +455,22 @@ Room Locations for the week
 <section id="how-do-we-build-the-regression-indicators" class="level3">
 <h3 class="anchored" data-anchor-id="how-do-we-build-the-regression-indicators">4. How do we build the regression indicators?</h3>
 <p>In R, we don’t need to build the indicators. If we have a variable that is a facotr with mutually exclusive groups, then R will automatically create the indicators within the <code>lm()</code> function.</p>
+</section>
+<section id="b_1-and-b_2---the-main-effect-models-estimate-the-average-x_1-and-x_2-effects" class="level3">
+<h3 class="anchored" data-anchor-id="b_1-and-b_2---the-main-effect-models-estimate-the-average-x_1-and-x_2-effects">B_1 and B_2 - the main effect models estimate the average X_1 and X_2 effects</h3>
+</section>
+<section id="if-the-model-we-learned-about-today-can-be-used-on-continuous-variables-or-only-factored-categorical-values" class="level3">
+<h3 class="anchored" data-anchor-id="if-the-model-we-learned-about-today-can-be-used-on-continuous-variables-or-only-factored-categorical-values">If the model we learned about today can be used on continuous variables or only factored categorical values</h3>
+<p>Interpreting a confounder</p>
+<p>interpreting an effect modifier</p>
+<p>confounder/effect measure modification, which I remember having difficulty when I took EPI II. In the lecture today, interactions = effect measure modifier? And we have already covered confounding previously in the class?</p>
+<p>Understanding confounders</p>
+<p>When there is an antagonistic interaction, does that mean the sign of the slope has to fully flip, or can it just decrease/get closer to 0?</p>
+<p>Interpretation of the interaction parameter – I’m still not clear on how B3 being positive or negative relates to the relationship being synergistic vs antagonistic (or maybe these two things aren’t actually related)?</p>
+</section>
+<section id="the-red-and-green-lines-example.-im-not-totally-sure-why-the-lines-would-be-parallel-if-an-interaction-affects-the-slope-of-a-line" class="level3">
+<h3 class="anchored" data-anchor-id="the-red-and-green-lines-example.-im-not-totally-sure-why-the-lines-would-be-parallel-if-an-interaction-affects-the-slope-of-a-line">The red and green lines example. I’m not totally sure why the lines would be parallel if an interaction affects the slope of a line?</h3>
+<p>The lines should not be parallel if there is an interaction. Let me show the equation for each of those examples:</p>
 
 
 </section>
