@@ -123,25 +123,69 @@ Often no, not if the groups are not ordered. Things that you may consider:
 
 In R, we don't need to build the indicators. If we have a variable that is a facotr with mutually exclusive groups, then R will automatically create the indicators within the `lm()` function.
 
-### B_1 and B_2 - the main effect models estimate the average X_1 and X_2 effects
+### 5. Interpretations!
 
-### If the model we learned about today can be used on continuous variables or only factored categorical values
+#### 5.1 Interpreting a confounder
 
-Interpreting a confounder
+We model a confounder by adding it into the model (without an interaction, just the main effect).
 
-interpreting an effect modifier
+-   Thus, our interpretation follows the interpretations that were presented in [Lesson 8: Intro to MLR](https://nwakim.github.io/W2024_BSTA_512/slides/08_MLR_Intro.html#/interpreting-the-estimated-population-coefficients)
 
-confounder/effect measure modification, which I remember having difficulty when I took EPI II. In the lecture today, interactions = effect measure modifier? And we have already covered confounding previously in the class?
+#### 5.2 Interpreting the main effects when there is an interaction
 
-Understanding confounders
+*Coming soon!!*
 
-When there is an antagonistic interaction, does that mean the sign of the slope has to fully flip, or can it just decrease/get closer to 0?
+#### 5.3 Interpreting the interaction (effect modifier)
 
-Interpretation of the interaction parameter -- I'm still not clear on how B3 being positive or negative relates to the relationship being synergistic vs antagonistic (or maybe these two things aren't actually related)?
+First, we model an effect modifier with an interaction!
 
-### The red and green lines example. I'm not totally sure why the lines would be parallel if an interaction affects the slope of a line?
+*Coming soon!!*
+
+### 6. Can we use continuous covariates in an interaction model?
+
+Yes! Here are the four types of interactions we'll discuss:
+
+1.  binary categorical and continuous
+
+2.  multi-level categorical and continuous
+
+3.  binary categorical and multi-level categorical
+
+4.  continuous and continuous
+
+### 7. Synergerism vs. antagonism: how does $\beta_3$ relate to each? 
+
+-   Synergerism means the sign of interaction's coefficient ($\beta_3$) matches that of main effect of $X_1$, so the effect of $X_1$ is strengthened as $X_2$ increases
+
+    -   In the case that we're looking at $X_2$ as an effect modifier of $X_1$
+
+    -   It's a little hard to think about this when we've only discussed $X_2$ as a binary covariate, but our "increase" for an indicator is going from 0 to 1.
+
+-   Antagonism means the sign of interaction's coefficient ($\beta_3$) is flipped from that of main effect of $X_1$, so the effect of $X_1$ is weakened as $X_2$ increases
+
+    -   In the case that we're looking at $X_2$ as an effect modifier of $X_1$
+
+    -   It's a little hard to think about this when we've only discussed $X_2$ as a binary covariate, but our "increase" for an indicator is going from 0 to 1
+
+### 8. The red and green lines example. I'm not totally sure why the lines would be parallel if an interaction affects the slope of a line?
 
 The lines should not be parallel if there is an interaction. Let me show the equation for each of those examples:
+
+-   Here is the plot and equation when $X_2$ is a confounder:
+
+    ![](week_06/confounder.png)
+
+-   Here is the plot and equation when $X_2$ is an effect modifier:
+
+    ![](week_06/interaction_ant.png)
+
+-   Here is the plot and equation when $X_2$ is a effect modifier:
+
+    ![](week_06/interaction_syn.png)
+
+-   Here is the plot and equation when $X_2$ should not be in the model:
+
+    ![](week_06/no_x2.png)
 
 ```{r}
 #| echo: false
