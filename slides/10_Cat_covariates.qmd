@@ -1,5 +1,5 @@
 ---
-title: "Categorical Covariates"
+title: "Lesson 10: Categorical Covariates"
 author: "Meike Niederhausen and Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#213c96"

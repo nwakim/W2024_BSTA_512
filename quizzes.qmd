@@ -12,7 +12,7 @@ editor_options:
 ---
 
 | Quiz | Answer key                                                                                                 |
-|----------------------|--------------------------------------------------|
+|-----------------------|-------------------------------------------------|
 | 1    | [[{{< iconify ph key-fill size=29px >}}](/quizzes/Quiz_01_Key_BSTA_512_W2024.pdf)]{style="color:#f8f5f0;"} |
 | 2    | [{{< iconify ph key-fill size=29px >}}]{style="color:#f8f5f0;"}                                            |
 | 3    | [{{< iconify icon-park-twotone file-code size=29px >}}]{style="color:#f8f5f0;"}                            |
@@ -21,7 +21,7 @@ editor_options:
 
 -   What will it cover?
 
-    -   Lesson 4 ([SLR: Inference](/slides/04_SLR_Inf_Pred.qmd), starting at mean response) to Lesson 9
+    -   Lesson 4 (Week 3, [SLR: Inference](/slides/04_SLR_Inf_Pred.qmd), starting at mean response) to Lesson 9 (Week 5, MLR: Inference / F-tests)
 
     -   HW 4 will not be on it!
 

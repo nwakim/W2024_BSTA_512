@@ -12,7 +12,7 @@
 
   <meta name="author" content="Nicky Wakim">
   <meta name="dcterms.date" content="2024-02-14">
-  <title>Linear Models - Interactions 2</title>
+  <title>Linear Models - Lesson 12: Interactions Continued</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,6 +30,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #575f66;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #575f66; } /* Normal */
+    code span.al { color: #f51818; background-color: #faefef; font-weight: bold; } /* Alert */
+    code span.an { color: #e6ba7e; } /* Annotation */
+    code span.at { color: #399ee6; } /* Attribute */
+    code span.bn { color: #ff9940; } /* BaseN */
+    code span.bu { color: #4cbf99; } /* BuiltIn */
+    code span.cf { color: #fa8d3e; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4cbf99; } /* Char */
+    code span.cn { color: #a37acc; } /* Constant */
+    code span.co { color: #607880; font-style: italic; } /* Comment */
+    code span.cv { color: #a37acc; } /* CommentVar */
+    code span.do { color: #607880; } /* Documentation */
+    code span.dt { color: #fa8d3e; } /* DataType */
+    code span.dv { color: #ff9940; } /* DecVal */
+    code span.er { color: #f51818; text-decoration: underline; } /* Error */
+    code span.ex { color: #399ee6; font-weight: bold; } /* Extension */
+    code span.fl { color: #ff9940; } /* Float */
+    code span.fu { color: #f2ae49; } /* Function */
+    code span.im { color: #86b300; } /* Import */
+    code span.in { color: #ff9940; } /* Information */
+    code span.kw { color: #fa8d3e; font-weight: bold; } /* Keyword */
+    code span.op { color: #ed9366; } /* Operator */
+    code span.ot { color: #55b4d4; } /* Other */
+    code span.pp { color: #f07171; } /* Preprocessor */
+    code span.re { color: #399ee6; background-color: #ddecf3; } /* RegionMarker */
+    code span.sc { color: #4cbf99; } /* SpecialChar */
+    code span.ss { color: #4cbf99; } /* SpecialString */
+    code span.st { color: #86b300; } /* String */
+    code span.va { color: #55b4d4; } /* Variable */
+    code span.vs { color: #86b300; } /* VerbatimString */
+    code span.wa { color: #f07171; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -336,7 +401,7 @@
     <div class="slides">
 
 <section id="title-slide" data-background-color="#213c96" class="quarto-title-block center">
-  <h1 class="title">Interactions 2</h1>
+  <h1 class="title">Lesson 12: Interactions Continued</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -351,48 +416,85 @@ Nicky Wakim
 <section>
 <section id="learning-objective" class="title-slide slide level1 center">
 <h1>Learning Objective</h1>
-
+<ol start="5" type="1">
+<li>Interpret the interaction component of a model with <strong>two continuous covariates</strong>, and how the main variable’s effect changes.</li>
+<li>When there are only two covariates in the model, test whether one is a confounder or effect modifier.</li>
+</ol>
 </section>
-<section id="do-we-think-food-supply-can-be-an-effect-modifier-for-female-literacy-rate" class="slide level2">
-<h2>Do we think food supply can be an effect modifier for female literacy rate?</h2>
+<section id="do-we-think-food-supply-is-an-effect-modifier-for-female-literacy-rate" class="slide level2">
+<h2>Do we think food supply is an effect modifier for female literacy rate?</h2>
 <div class="columns">
-<div class="column">
+<div class="column" style="width:40%;">
 <ul>
-<li>We can start by visualizing the relationship between life expectancy and female literacy rate <em>by food supply</em></li>
-<li>Let’s run an interaction model to see!</li>
+<li><p>We can start by visualizing the relationship between life expectancy and female literacy rate <em>by food supply</em></p></li>
+<li><p>Questions of interest: Does the effect of female literacy rate on life expectancy differ depending on food supply?</p>
+<ul>
+<li>This is the same as: Is food supply is an effect modifier for female literacy rate? Is food supply an effect modifier of the association between life expectancy and female literacy rate?</li>
+</ul></li>
+<li><p>Let’s run an interaction model to see!</p></li>
 </ul>
-</div><div class="column">
+</div><div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="girafe html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-36da04af52707aaabb52" style="width:864px;height:672px;"></div>
-<script type="application/json" data-for="htmlwidget-36da04af52707aaabb52">{"x":{"html":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='ggiraph-svg' role='img' id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a' viewBox='0 0 648 504'>\n <defs id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_defs'>\n  <clipPath id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_c1'>\n   <rect x='0' y='0' width='648' height='504'/>\n  <\/clipPath>\n  <clipPath id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_c2'>\n   <rect x='33.27' y='5.48' width='495' height='466.79'/>\n  <\/clipPath>\n <\/defs>\n <g id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_rootg' class='ggiraph-svg-rootg'>\n  <g clip-path='url(#svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_c1)'>\n   <rect x='0' y='0' width='648' height='504' fill='#FFFFFF' fill-opacity='1' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.75' stroke-linejoin='round' stroke-linecap='round' class='ggiraph-svg-bg'/>\n   <rect x='0' y='0' width='648' height='504' fill='#FFFFFF' fill-opacity='1' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='round'/>\n  <\/g>\n  <g clip-path='url(#svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_c2)'>\n   <rect x='33.27' y='5.48' width='495' height='466.79' fill='#EBEBEB' fill-opacity='1' stroke='none'/>\n   <polyline points='33.27,366.40 528.27,366.40' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='33.27,245.48 528.27,245.48' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='33.27,124.55 528.27,124.55' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='68.27,472.27 68.27,5.48' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='193.27,472.27 193.27,5.48' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='318.27,472.27 318.27,5.48' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='443.27,472.27 443.27,5.48' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='33.27,426.86 528.27,426.86' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='33.27,305.94 528.27,305.94' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='33.27,185.01 528.27,185.01' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='33.27,64.09 528.27,64.09' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='130.77,472.27 130.77,5.48' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='255.77,472.27 255.77,5.48' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='380.77,472.27 380.77,5.48' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='505.77,472.27 505.77,5.48' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e1' cx='70.77' cy='345.84' r='1.47pt' fill='#16314C' fill-opacity='1' stroke='#16314C' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='1' title='1&amp;lt;br/&amp;gt;FemaleLiteracyRate=13&amp;lt;br/&amp;gt;LifeExpectancyYrs=56.7'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e2' cx='484.27' cy='103.99' r='1.47pt' fill='#3773A4' fill-opacity='1' stroke='#3773A4' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='2' title='2&amp;lt;br/&amp;gt;FemaleLiteracyRate=95.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=76.7'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e3' cx='298.77' cy='295.05' r='1.47pt' fill='#204464' fill-opacity='1' stroke='#204464' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='3' title='3&amp;lt;br/&amp;gt;FemaleLiteracyRate=58.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=60.9'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e4' cx='502.77' cy='101.57' r='1.47pt' fill='#1E4161' fill-opacity='1' stroke='#1E4161' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='4' title='4&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.4&amp;lt;br/&amp;gt;LifeExpectancyYrs=76.9'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e5' cx='495.27' cy='112.46' r='1.47pt' fill='#3875A7' fill-opacity='1' stroke='#3875A7' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='5' title='5&amp;lt;br/&amp;gt;FemaleLiteracyRate=97.9&amp;lt;br/&amp;gt;LifeExpectancyYrs=76'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e6' cx='503.27' cy='139.06' r='1.47pt' fill='#2C5C85' fill-opacity='1' stroke='#2C5C85' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='6' title='6&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.5&amp;lt;br/&amp;gt;LifeExpectancyYrs=73.8'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e7' cx='272.77' cy='172.92' r='1.47pt' fill='#204566' fill-opacity='1' stroke='#204566' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='7' title='7&amp;lt;br/&amp;gt;FemaleLiteracyRate=53.4&amp;lt;br/&amp;gt;LifeExpectancyYrs=71'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e8' cx='489.27' cy='101.57' r='1.47pt' fill='#3773A4' fill-opacity='1' stroke='#3773A4' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='8' title='8&amp;lt;br/&amp;gt;FemaleLiteracyRate=96.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=76.9'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e9' cx='433.77' cy='319.24' r='1.47pt' fill='#1B3B59' fill-opacity='1' stroke='#1B3B59' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='9' title='9&amp;lt;br/&amp;gt;FemaleLiteracyRate=85.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=58.9'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e10' cx='475.27' cy='100.37' r='1.47pt' fill='#316693' fill-opacity='1' stroke='#316693' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='10' title='10&amp;lt;br/&amp;gt;FemaleLiteracyRate=93.9&amp;lt;br/&amp;gt;LifeExpectancyYrs=77'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e11' cx='495.77' cy='133.02' r='1.47pt' fill='#2B5B83' fill-opacity='1' stroke='#2B5B83' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='11' title='11&amp;lt;br/&amp;gt;FemaleLiteracyRate=98&amp;lt;br/&amp;gt;LifeExpectancyYrs=74.3'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e12' cx='407.27' cy='152.36' r='1.47pt' fill='#254E72' fill-opacity='1' stroke='#254E72' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='12' title='12&amp;lt;br/&amp;gt;FemaleLiteracyRate=80.3&amp;lt;br/&amp;gt;LifeExpectancyYrs=72.7'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e13' cx='226.77' cy='451.05' r='1.47pt' fill='#18344F' fill-opacity='1' stroke='#18344F' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='13' title='13&amp;lt;br/&amp;gt;FemaleLiteracyRate=44.2&amp;lt;br/&amp;gt;LifeExpectancyYrs=48'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e14' cx='132.77' cy='342.22' r='1.47pt' fill='#152F48' fill-opacity='1' stroke='#152F48' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='14' title='14&amp;lt;br/&amp;gt;FemaleLiteracyRate=25.4&amp;lt;br/&amp;gt;LifeExpectancyYrs=57'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e15' cx='474.27' cy='100.37' r='1.47pt' fill='#29567D' fill-opacity='1' stroke='#29567D' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='15' title='15&amp;lt;br/&amp;gt;FemaleLiteracyRate=93.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=77'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e16' cx='488.27' cy='58.04' r='1.47pt' fill='#2F628D' fill-opacity='1' stroke='#2F628D' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='16' title='16&amp;lt;br/&amp;gt;FemaleLiteracyRate=96.5&amp;lt;br/&amp;gt;LifeExpectancyYrs=80.5'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e17' cx='243.77' cy='343.43' r='1.47pt' fill='#2B5B84' fill-opacity='1' stroke='#2B5B84' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='17' title='17&amp;lt;br/&amp;gt;FemaleLiteracyRate=47.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=56.9'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e18' cx='497.27' cy='105.2' r='1.47pt' fill='#336A98' fill-opacity='1' stroke='#336A98' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='18' title='18&amp;lt;br/&amp;gt;FemaleLiteracyRate=98.3&amp;lt;br/&amp;gt;LifeExpectancyYrs=76.6'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e19' cx='504.77' cy='82.23' r='1.47pt' fill='#3D7EB3' fill-opacity='1' stroke='#3D7EB3' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='19' title='19&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.8&amp;lt;br/&amp;gt;LifeExpectancyYrs=78.5'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e20' cx='496.27' cy='61.67' r='1.47pt' fill='#28557B' fill-opacity='1' stroke='#28557B' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='20' title='20&amp;lt;br/&amp;gt;FemaleLiteracyRate=98.1&amp;lt;br/&amp;gt;LifeExpectancyYrs=80.2'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e21' cx='456.77' cy='128.18' r='1.47pt' fill='#244D71' fill-opacity='1' stroke='#244D71' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='21' title='21&amp;lt;br/&amp;gt;FemaleLiteracyRate=90.2&amp;lt;br/&amp;gt;LifeExpectancyYrs=74.7'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e22' cx='456.77' cy='100.37' r='1.47pt' fill='#1F4262' fill-opacity='1' stroke='#1F4262' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='22' title='22&amp;lt;br/&amp;gt;FemaleLiteracyRate=90.2&amp;lt;br/&amp;gt;LifeExpectancyYrs=77'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e23' cx='328.77' cy='174.13' r='1.47pt' fill='#4690CB' fill-opacity='1' stroke='#4690CB' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='23' title='23&amp;lt;br/&amp;gt;FemaleLiteracyRate=64.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=70.9'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e24' cx='504.77' cy='108.83' r='1.47pt' fill='#3D7EB3' fill-opacity='1' stroke='#3D7EB3' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='24' title='24&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.8&amp;lt;br/&amp;gt;LifeExpectancyYrs=76.3'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e25' cx='433.77' cy='266.03' r='1.47pt' fill='#2B5B83' fill-opacity='1' stroke='#2B5B83' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='25' title='25&amp;lt;br/&amp;gt;FemaleLiteracyRate=85.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=63.3'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e26' cx='215.27' cy='233.38' r='1.47pt' fill='#29567C' fill-opacity='1' stroke='#29567C' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='26' title='26&amp;lt;br/&amp;gt;FemaleLiteracyRate=41.9&amp;lt;br/&amp;gt;LifeExpectancyYrs=66'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e27' cx='504.27' cy='148.74' r='1.47pt' fill='#2C5D87' fill-opacity='1' stroke='#2C5D87' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='27' title='27&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=73'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e28' cx='487.27' cy='58.04' r='1.47pt' fill='#4288C0' fill-opacity='1' stroke='#4288C0' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='28' title='28&amp;lt;br/&amp;gt;FemaleLiteracyRate=96.3&amp;lt;br/&amp;gt;LifeExpectancyYrs=80.5'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e29' cx='361.27' cy='166.87' r='1.47pt' fill='#22496B' fill-opacity='1' stroke='#22496B' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='29' title='29&amp;lt;br/&amp;gt;FemaleLiteracyRate=71.1&amp;lt;br/&amp;gt;LifeExpectancyYrs=71.5'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e30' cx='216.27' cy='351.89' r='1.47pt' fill='#1D3F5F' fill-opacity='1' stroke='#1D3F5F' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='30' title='30&amp;lt;br/&amp;gt;FemaleLiteracyRate=42.1&amp;lt;br/&amp;gt;LifeExpectancyYrs=56.2'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e31' cx='430.27' cy='163.25' r='1.47pt' fill='#265176' fill-opacity='1' stroke='#265176' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='31' title='31&amp;lt;br/&amp;gt;FemaleLiteracyRate=84.9&amp;lt;br/&amp;gt;LifeExpectancyYrs=71.8'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e32' cx='500.27' cy='125.76' r='1.47pt' fill='#356E9D' fill-opacity='1' stroke='#356E9D' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='32' title='32&amp;lt;br/&amp;gt;FemaleLiteracyRate=98.9&amp;lt;br/&amp;gt;LifeExpectancyYrs=74.9'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e33' cx='456.27' cy='182.59' r='1.47pt' fill='#29577E' fill-opacity='1' stroke='#29577E' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='33' title='33&amp;lt;br/&amp;gt;FemaleLiteracyRate=90.1&amp;lt;br/&amp;gt;LifeExpectancyYrs=70.2'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e34' cx='361.77' cy='214.03' r='1.47pt' fill='#22496B' fill-opacity='1' stroke='#22496B' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='34' title='34&amp;lt;br/&amp;gt;FemaleLiteracyRate=71.2&amp;lt;br/&amp;gt;LifeExpectancyYrs=67.6'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e35' cx='499.27' cy='42.32' r='1.47pt' fill='#4792CE' fill-opacity='1' stroke='#4792CE' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='35' title='35&amp;lt;br/&amp;gt;FemaleLiteracyRate=98.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=81.8'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e36' cx='464.77' cy='126.97' r='1.47pt' fill='#2B5B83' fill-opacity='1' stroke='#2B5B83' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='36' title='36&amp;lt;br/&amp;gt;FemaleLiteracyRate=91.8&amp;lt;br/&amp;gt;LifeExpectancyYrs=74.8'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e37' cx='475.27' cy='111.25' r='1.47pt' fill='#3874A5' fill-opacity='1' stroke='#3874A5' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='37' title='37&amp;lt;br/&amp;gt;FemaleLiteracyRate=93.9&amp;lt;br/&amp;gt;LifeExpectancyYrs=76.1'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e38' cx='504.77' cy='141.48' r='1.47pt' fill='#3874A6' fill-opacity='1' stroke='#3874A6' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='38' title='38&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.8&amp;lt;br/&amp;gt;LifeExpectancyYrs=73.6'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e39' cx='504.27' cy='142.69' r='1.47pt' fill='#4186BE' fill-opacity='1' stroke='#4186BE' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='39' title='39&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=73.5'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e40' cx='485.77' cy='134.22' r='1.47pt' fill='#306490' fill-opacity='1' stroke='#306490' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='40' title='40&amp;lt;br/&amp;gt;FemaleLiteracyRate=96&amp;lt;br/&amp;gt;LifeExpectancyYrs=74.2'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e41' cx='128.77' cy='305.94' r='1.47pt' fill='#2D5F89' fill-opacity='1' stroke='#2D5F89' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='41' title='41&amp;lt;br/&amp;gt;FemaleLiteracyRate=24.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=60'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e42' cx='265.77' cy='201.94' r='1.47pt' fill='#2C5D87' fill-opacity='1' stroke='#2C5D87' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='42' title='42&amp;lt;br/&amp;gt;FemaleLiteracyRate=52&amp;lt;br/&amp;gt;LifeExpectancyYrs=68.6'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e43' cx='439.27' cy='139.06' r='1.47pt' fill='#356E9D' fill-opacity='1' stroke='#356E9D' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='43' title='43&amp;lt;br/&amp;gt;FemaleLiteracyRate=86.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=73.8'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e44' cx='467.27' cy='114.88' r='1.47pt' fill='#346C9B' fill-opacity='1' stroke='#346C9B' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='44' title='44&amp;lt;br/&amp;gt;FemaleLiteracyRate=92.3&amp;lt;br/&amp;gt;LifeExpectancyYrs=75.8'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e45' cx='498.27' cy='166.87' r='1.47pt' fill='#29567D' fill-opacity='1' stroke='#29567D' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='45' title='45&amp;lt;br/&amp;gt;FemaleLiteracyRate=98.5&amp;lt;br/&amp;gt;LifeExpectancyYrs=71.5'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e46' cx='495.27' cy='226.13' r='1.47pt' fill='#214668' fill-opacity='1' stroke='#214668' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='46' title='46&amp;lt;br/&amp;gt;FemaleLiteracyRate=97.9&amp;lt;br/&amp;gt;LifeExpectancyYrs=66.6'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e47' cx='493.77' cy='107.62' r='1.47pt' fill='#438BC5' fill-opacity='1' stroke='#438BC5' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='47' title='47&amp;lt;br/&amp;gt;FemaleLiteracyRate=97.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=76.4'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e48' cx='293.77' cy='139.06' r='1.47pt' fill='#3F82B8' fill-opacity='1' stroke='#3F82B8' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='48' title='48&amp;lt;br/&amp;gt;FemaleLiteracyRate=57.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=73.8'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e49' cx='457.77' cy='216.45' r='1.47pt' fill='#234B6F' fill-opacity='1' stroke='#234B6F' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='49' title='49&amp;lt;br/&amp;gt;FemaleLiteracyRate=90.4&amp;lt;br/&amp;gt;LifeExpectancyYrs=67.4'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e50' cx='239.27' cy='200.73' r='1.47pt' fill='#265075' fill-opacity='1' stroke='#265075' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='50' title='50&amp;lt;br/&amp;gt;FemaleLiteracyRate=46.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=68.7'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e51' cx='503.77' cy='106.41' r='1.47pt' fill='#4289C1' fill-opacity='1' stroke='#4289C1' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='51' title='51&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=76.5'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e52' cx='475.77' cy='62.88' r='1.47pt' fill='#438BC5' fill-opacity='1' stroke='#438BC5' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='52' title='52&amp;lt;br/&amp;gt;FemaleLiteracyRate=94&amp;lt;br/&amp;gt;LifeExpectancyYrs=80.1'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e53' cx='491.77' cy='130.6' r='1.47pt' fill='#3E81B7' fill-opacity='1' stroke='#3E81B7' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='53' title='53&amp;lt;br/&amp;gt;FemaleLiteracyRate=97.2&amp;lt;br/&amp;gt;LifeExpectancyYrs=74.5'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e54' cx='498.77' cy='166.87' r='1.47pt' fill='#2F628D' fill-opacity='1' stroke='#2F628D' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='54' title='54&amp;lt;br/&amp;gt;FemaleLiteracyRate=98.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=71.5'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e55' cx='416.77' cy='120.92' r='1.47pt' fill='#3671A1' fill-opacity='1' stroke='#3671A1' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='55' title='55&amp;lt;br/&amp;gt;FemaleLiteracyRate=82.2&amp;lt;br/&amp;gt;LifeExpectancyYrs=75.3'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e56' cx='490.27' cy='126.97' r='1.47pt' fill='#2A5880' fill-opacity='1' stroke='#2A5880' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='56' title='56&amp;lt;br/&amp;gt;FemaleLiteracyRate=96.9&amp;lt;br/&amp;gt;LifeExpectancyYrs=74.8'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e57' cx='168.77' cy='357.94' r='1.47pt' fill='#1D3F5F' fill-opacity='1' stroke='#1D3F5F' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='57' title='57&amp;lt;br/&amp;gt;FemaleLiteracyRate=32.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=55.7'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e58' cx='504.27' cy='66.51' r='1.47pt' fill='#3976A7' fill-opacity='1' stroke='#3976A7' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='58' title='58&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=79.8'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e59' cx='466.77' cy='356.73' r='1.47pt' fill='#336A98' fill-opacity='1' stroke='#336A98' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='59' title='59&amp;lt;br/&amp;gt;FemaleLiteracyRate=92.2&amp;lt;br/&amp;gt;LifeExpectancyYrs=55.8'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e60' cx='321.77' cy='227.34' r='1.47pt' fill='#1E405F' fill-opacity='1' stroke='#1E405F' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='60' title='60&amp;lt;br/&amp;gt;FemaleLiteracyRate=63.2&amp;lt;br/&amp;gt;LifeExpectancyYrs=66.5'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e61' cx='442.27' cy='440.17' r='1.47pt' fill='#1B3C5A' fill-opacity='1' stroke='#1B3C5A' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='61' title='61&amp;lt;br/&amp;gt;FemaleLiteracyRate=87.3&amp;lt;br/&amp;gt;LifeExpectancyYrs=48.9'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e62' cx='503.77' cy='186.22' r='1.47pt' fill='#142E47' fill-opacity='1' stroke='#142E47' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='62' title='62&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=69.9'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e63' cx='245.77' cy='310.78' r='1.47pt' fill='#1F4262' fill-opacity='1' stroke='#1F4262' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='63' title='63&amp;lt;br/&amp;gt;FemaleLiteracyRate=48&amp;lt;br/&amp;gt;LifeExpectancyYrs=59.6'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e64' cx='498.27' cy='152.36' r='1.47pt' fill='#306490' fill-opacity='1' stroke='#306490' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='64' title='64&amp;lt;br/&amp;gt;FemaleLiteracyRate=98.5&amp;lt;br/&amp;gt;LifeExpectancyYrs=72.7'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e65' cx='457.27' cy='85.85' r='1.47pt' fill='#4A99D7' fill-opacity='1' stroke='#4A99D7' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='65' title='65&amp;lt;br/&amp;gt;FemaleLiteracyRate=90.3&amp;lt;br/&amp;gt;LifeExpectancyYrs=78.2'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e66' cx='503.27' cy='204.36' r='1.47pt' fill='#2E608A' fill-opacity='1' stroke='#2E608A' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='66' title='66&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.5&amp;lt;br/&amp;gt;LifeExpectancyYrs=68.4'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e67' cx='504.27' cy='171.71' r='1.47pt' fill='#3976A8' fill-opacity='1' stroke='#3976A8' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='67' title='67&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=71.1'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e68' cx='501.77' cy='197.11' r='1.47pt' fill='#29567C' fill-opacity='1' stroke='#29567C' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='68' title='68&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.2&amp;lt;br/&amp;gt;LifeExpectancyYrs=69'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e69' cx='413.27' cy='267.24' r='1.47pt' fill='#2D5F8A' fill-opacity='1' stroke='#2D5F8A' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='69' title='69&amp;lt;br/&amp;gt;FemaleLiteracyRate=81.5&amp;lt;br/&amp;gt;LifeExpectancyYrs=63.2'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e70' cx='462.77' cy='145.11' r='1.47pt' fill='#29587F' fill-opacity='1' stroke='#29587F' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='70' title='70&amp;lt;br/&amp;gt;FemaleLiteracyRate=91.4&amp;lt;br/&amp;gt;LifeExpectancyYrs=73.3'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e71' cx='248.27' cy='212.83' r='1.47pt' fill='#193754' fill-opacity='1' stroke='#193754' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='71' title='71&amp;lt;br/&amp;gt;FemaleLiteracyRate=48.5&amp;lt;br/&amp;gt;LifeExpectancyYrs=67.7'/>\n   <circle id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e72' cx='406.27' cy='403.89' r='1.47pt' fill='#193753' fill-opacity='1' stroke='#193753' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='72' title='72&amp;lt;br/&amp;gt;FemaleLiteracyRate=80.1&amp;lt;br/&amp;gt;LifeExpectancyYrs=51.9'/>\n   <polyline id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e73' points='55.77,403.54 80.77,393.89 105.77,384.23 130.77,374.58 155.77,364.93 180.77,355.28 205.77,345.62 230.77,335.97 255.77,326.32 280.77,316.67 305.77,307.02 330.77,297.36 355.77,287.71 380.77,278.06 405.77,268.41 430.77,258.75 455.77,249.10 480.77,239.45 505.77,229.80' fill='none' stroke='#132B43' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt' title='for FoodSupplykcPPD=2000&amp;lt;br/&amp;gt;y = 0.16*x +50.33' data-id='1'/>\n   <polyline id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e74' points='55.77,349.86 80.77,340.37 105.77,330.88 130.77,321.39 155.77,311.90 180.77,302.41 205.77,292.92 230.77,283.43 255.77,273.93 280.77,264.44 305.77,254.95 330.77,245.46 355.77,235.97 380.77,226.48 405.77,216.99 430.77,207.50 455.77,198.00 480.77,188.51 505.77,179.02' fill='none' stroke='#22496C' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt' title='for FoodSupplykcPPD=2500&amp;lt;br/&amp;gt;y = 0.16*x +54.8' data-id='20'/>\n   <polyline id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e75' points='55.77,296.19 80.77,286.86 105.77,277.53 130.77,268.20 155.77,258.87 180.77,249.54 205.77,240.21 230.77,230.88 255.77,221.55 280.77,212.22 305.77,202.89 330.77,193.56 355.77,184.23 380.77,174.90 405.77,165.57 430.77,156.24 455.77,146.91 480.77,137.58 505.77,128.25' fill='none' stroke='#336A98' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt' title='for FoodSupplykcPPD=3000&amp;lt;br/&amp;gt;y = 0.15*x +59.26' data-id='39'/>\n   <polyline id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e76' points='55.77,242.51 80.77,233.35 105.77,224.18 130.77,215.01 155.77,205.84 180.77,196.67 205.77,187.50 230.77,178.33 255.77,169.16 280.77,159.99 305.77,150.82 330.77,141.66 355.77,132.49 380.77,123.32 405.77,114.15 430.77,104.98 455.77,95.81 480.77,86.64 505.77,77.47' fill='none' stroke='#448DC6' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt' title='for FoodSupplykcPPD=3500&amp;lt;br/&amp;gt;y = 0.15*x +63.73' data-id='58'/>\n   <polyline id='svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_e77' points='55.77,188.84 80.77,179.83 105.77,170.82 130.77,161.82 155.77,152.81 180.77,143.80 205.77,134.79 230.77,125.78 255.77,116.78 280.77,107.77 305.77,98.76 330.77,89.75 355.77,80.74 380.77,71.74 405.77,62.73 430.77,53.72 455.77,44.71 480.77,35.70 505.77,26.70' fill='none' stroke='#56B1F7' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt' title='for FoodSupplykcPPD=4000&amp;lt;br/&amp;gt;y = 0.15*x +68.19' data-id='77'/>\n  <\/g>\n  <g clip-path='url(#svg_a5a54979_d680_46f4_b23b_43ce37d41e3a_c1)'>\n   <text x='18.54' y='430.02' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>50<\/text>\n   <text x='18.54' y='309.09' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>60<\/text>\n   <text x='18.54' y='188.17' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>70<\/text>\n   <text x='18.54' y='67.24' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>80<\/text>\n   <polyline points='30.53,426.86 33.27,426.86' fill='none' stroke='#333333' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='30.53,305.94 33.27,305.94' fill='none' stroke='#333333' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='30.53,185.01 33.27,185.01' fill='none' stroke='#333333' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='30.53,64.09 33.27,64.09' fill='none' stroke='#333333' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='130.77,475.01 130.77,472.27' fill='none' stroke='#333333' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='255.77,475.01 255.77,472.27' fill='none' stroke='#333333' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='380.77,475.01 380.77,472.27' fill='none' stroke='#333333' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='505.77,475.01 505.77,472.27' fill='none' stroke='#333333' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <text x='125.87' y='483.5' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>25<\/text>\n   <text x='250.87' y='483.5' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>50<\/text>\n   <text x='375.87' y='483.5' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>75<\/text>\n   <text x='498.43' y='483.5' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>100<\/text>\n   <text x='231.55' y='496.09' font-size='8.25pt' font-family='Helvetica'>FemaleLiteracyRate<\/text>\n   <text transform='translate(13.37,284.43) rotate(-90.00)' font-size='8.25pt' font-family='Helvetica'>LifeExpectancyYrs<\/text>\n   <rect x='539.23' y='182.29' width='103.29' height='113.16' fill='#FFFFFF' fill-opacity='1' stroke='none'/>\n   <image x='544.71' y='203.57' width='17.28' height='86.4' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAEsCAYAAAACUNnVAAAAmElEQVQ4ja2UQRLDMAgDd3hk/tnX5agcknFaCoa0vnkMCEnGsL12GQhDYDpPwoDrpBFlRDWi/9Wu6AHC9FkLYLrzlhD3oJ3mDvRHRYy7IC8A7bCK8gpWKYDzeQVArDcDyD2YAnSofZvzaOA6Q7Oahp/dmRuVTQ0xU5TGP2o8Waool1obVuv1q8qP9xPvg633XlGLDtfIhNUBcBeA5ss0BXMAAAAASUVORK5CYII=' xmlns:xlink='http://www.w3.org/1999/xlink'/>\n   <text x='567.47' y='292.98' font-size='6.6pt' font-family='Helvetica'>2000<\/text>\n   <text x='567.47' y='271.46' font-size='6.6pt' font-family='Helvetica'>2500<\/text>\n   <text x='567.47' y='249.93' font-size='6.6pt' font-family='Helvetica'>3000<\/text>\n   <text x='567.47' y='228.4' font-size='6.6pt' font-family='Helvetica'>3500<\/text>\n   <text x='567.47' y='206.87' font-size='6.6pt' font-family='Helvetica'>4000<\/text>\n   <text x='544.71' y='196.88' font-size='8.25pt' font-family='Helvetica'>FoodSupplykcPPD<\/text>\n   <line x1='544.71' y1='289.83' x2='548.16' y2='289.83' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n   <line x1='544.71' y1='268.3' x2='548.16' y2='268.3' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n   <line x1='544.71' y1='246.77' x2='548.16' y2='246.77' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n   <line x1='544.71' y1='225.25' x2='548.16' y2='225.25' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n   <line x1='544.71' y1='203.72' x2='548.16' y2='203.72' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n   <line x1='558.53' y1='289.83' x2='561.99' y2='289.83' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n   <line x1='558.53' y1='268.3' x2='561.99' y2='268.3' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n   <line x1='558.53' y1='246.77' x2='561.99' y2='246.77' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n   <line x1='558.53' y1='225.25' x2='561.99' y2='225.25' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n   <line x1='558.53' y1='203.72' x2='561.99' y2='203.72' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n  <\/g>\n <\/g>\n<\/svg>","js":null,"uid":"svg_a5a54979_d680_46f4_b23b_43ce37d41e3a","ratio":1.285714285714286,"settings":{"tooltip":{"css":".tooltip_SVGID_ { background-color:white;font-style:italic;padding:10px;border-radius:10px 20px 10px 20px; ; position:absolute;pointer-events:none;z-index:999;}","placement":"doc","opacity":0.75,"offx":10,"offy":0,"use_cursor_pos":true,"use_fill":false,"use_stroke":false,"delay_over":200,"delay_out":500},"hover":{"css":".hover_data_SVGID_ { r:4px;cursor:pointer;stroke:red;stroke-width:2px; }","reactive":false,"nearest_distance":null},"hover_inv":{"css":""},"hover_key":{"css":".hover_key_SVGID_ { fill:orange;stroke:black;cursor:pointer; }\ntext.hover_key_SVGID_ { stroke:none;fill:orange; }\ncircle.hover_key_SVGID_ { fill:orange;stroke:black; }\nline.hover_key_SVGID_, polyline.hover_key_SVGID_ { fill:none;stroke:orange; }\nrect.hover_key_SVGID_, polygon.hover_key_SVGID_, path.hover_key_SVGID_ { fill:orange;stroke:none; }\nimage.hover_key_SVGID_ { stroke:orange; }","reactive":true},"hover_theme":{"css":".hover_theme_SVGID_ { fill:orange;stroke:black;cursor:pointer; }\ntext.hover_theme_SVGID_ { stroke:none;fill:orange; }\ncircle.hover_theme_SVGID_ { fill:orange;stroke:black; }\nline.hover_theme_SVGID_, polyline.hover_theme_SVGID_ { fill:none;stroke:orange; }\nrect.hover_theme_SVGID_, polygon.hover_theme_SVGID_, path.hover_theme_SVGID_ { fill:orange;stroke:none; }\nimage.hover_theme_SVGID_ { stroke:orange; }","reactive":true},"select":{"css":".select_data_SVGID_ { fill:#FF3333;stroke:black; }","type":"multiple","only_shiny":true,"selected":[]},"select_inv":{"css":""},"select_key":{"css":".select_key_SVGID_ { fill:red;stroke:black;cursor:pointer; }\ntext.select_key_SVGID_ { stroke:none;fill:red; }\ncircle.select_key_SVGID_ { fill:red;stroke:black; }\nline.select_key_SVGID_, polyline.select_key_SVGID_ { fill:none;stroke:red; }\nrect.select_key_SVGID_, polygon.select_key_SVGID_, path.select_key_SVGID_ { fill:red;stroke:none; }\nimage.select_key_SVGID_ { stroke:red; }","type":"single","only_shiny":true,"selected":[]},"select_theme":{"css":".select_theme_SVGID_ { fill:red;stroke:black;cursor:pointer; }\ntext.select_theme_SVGID_ { stroke:none;fill:red; }\ncircle.select_theme_SVGID_ { fill:red;stroke:black; }\nline.select_theme_SVGID_, polyline.select_theme_SVGID_ { fill:none;stroke:red; }\nrect.select_theme_SVGID_, polygon.select_theme_SVGID_, path.select_theme_SVGID_ { fill:red;stroke:none; }\nimage.select_theme_SVGID_ { stroke:red; }","type":"single","only_shiny":true,"selected":[]},"zoom":{"min":1,"max":10,"duration":300},"toolbar":{"position":"topright","pngname":"diagram","tooltips":null,"hidden":[],"delay_over":200,"delay_out":500},"sizing":{"rescale":true,"width":1}}},"evals":[],"jsHooks":[]}</script>
+<div class="girafe html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-62f0e219d7fe3aacb2cc" style="width:576px;height:384px;"></div>
+<script type="application/json" data-for="htmlwidget-62f0e219d7fe3aacb2cc">{"x":{"html":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='ggiraph-svg' role='img' id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992' viewBox='0 0 432 288'>\n <defs id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_defs'>\n  <clipPath id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_c1'>\n   <rect x='0' y='0' width='432' height='288'/>\n  <\/clipPath>\n  <clipPath id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_c2'>\n   <rect x='33.27' y='5.48' width='279' height='250.79'/>\n  <\/clipPath>\n <\/defs>\n <g id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_rootg' class='ggiraph-svg-rootg'>\n  <g clip-path='url(#svg_20ab31eb_405f_45ca_b377_fff43d5fa992_c1)'>\n   <rect x='0' y='0' width='432' height='288' fill='#FFFFFF' fill-opacity='1' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.75' stroke-linejoin='round' stroke-linecap='round' class='ggiraph-svg-bg'/>\n   <rect x='0' y='0' width='432' height='288' fill='#FFFFFF' fill-opacity='1' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='round'/>\n  <\/g>\n  <g clip-path='url(#svg_20ab31eb_405f_45ca_b377_fff43d5fa992_c2)'>\n   <rect x='33.27' y='5.48' width='279' height='250.79' fill='#EBEBEB' fill-opacity='1' stroke='none'/>\n   <polyline points='33.27,199.39 312.27,199.39' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='33.27,134.42 312.27,134.42' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='33.27,69.45 312.27,69.45' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='52.99,256.27 52.99,5.48' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='123.45,256.27 123.45,5.48' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='193.91,256.27 193.91,5.48' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='264.36,256.27 264.36,5.48' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.53' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='33.27,231.87 312.27,231.87' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='33.27,166.90 312.27,166.90' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='33.27,101.94 312.27,101.94' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='33.27,36.97 312.27,36.97' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='88.22,256.27 88.22,5.48' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='158.68,256.27 158.68,5.48' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='229.13,256.27 229.13,5.48' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='299.59,256.27 299.59,5.48' fill='none' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e1' cx='54.4' cy='188.34' r='1.47pt' fill='#16314C' fill-opacity='1' stroke='#16314C' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='1' title='1&amp;lt;br/&amp;gt;FemaleLiteracyRate=13&amp;lt;br/&amp;gt;LifeExpectancyYrs=56.7'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e2' cx='287.47' cy='58.41' r='1.47pt' fill='#3773A4' fill-opacity='1' stroke='#3773A4' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='2' title='2&amp;lt;br/&amp;gt;FemaleLiteracyRate=95.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=76.7'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e3' cx='182.91' cy='161.06' r='1.47pt' fill='#204464' fill-opacity='1' stroke='#204464' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='3' title='3&amp;lt;br/&amp;gt;FemaleLiteracyRate=58.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=60.9'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e4' cx='297.9' cy='57.11' r='1.47pt' fill='#1E4161' fill-opacity='1' stroke='#1E4161' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='4' title='4&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.4&amp;lt;br/&amp;gt;LifeExpectancyYrs=76.9'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e5' cx='293.67' cy='62.95' r='1.47pt' fill='#3875A7' fill-opacity='1' stroke='#3875A7' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='5' title='5&amp;lt;br/&amp;gt;FemaleLiteracyRate=97.9&amp;lt;br/&amp;gt;LifeExpectancyYrs=76'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e6' cx='298.18' cy='77.25' r='1.47pt' fill='#2C5C85' fill-opacity='1' stroke='#2C5C85' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='6' title='6&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.5&amp;lt;br/&amp;gt;LifeExpectancyYrs=73.8'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e7' cx='168.26' cy='95.44' r='1.47pt' fill='#204566' fill-opacity='1' stroke='#204566' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='7' title='7&amp;lt;br/&amp;gt;FemaleLiteracyRate=53.4&amp;lt;br/&amp;gt;LifeExpectancyYrs=71'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e8' cx='290.29' cy='57.11' r='1.47pt' fill='#3773A4' fill-opacity='1' stroke='#3773A4' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='8' title='8&amp;lt;br/&amp;gt;FemaleLiteracyRate=96.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=76.9'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e9' cx='259.01' cy='174.05' r='1.47pt' fill='#1B3B59' fill-opacity='1' stroke='#1B3B59' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='9' title='9&amp;lt;br/&amp;gt;FemaleLiteracyRate=85.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=58.9'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e10' cx='282.4' cy='56.46' r='1.47pt' fill='#316693' fill-opacity='1' stroke='#316693' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='10' title='10&amp;lt;br/&amp;gt;FemaleLiteracyRate=93.9&amp;lt;br/&amp;gt;LifeExpectancyYrs=77'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e11' cx='293.95' cy='74' r='1.47pt' fill='#2B5B83' fill-opacity='1' stroke='#2B5B83' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='11' title='11&amp;lt;br/&amp;gt;FemaleLiteracyRate=98&amp;lt;br/&amp;gt;LifeExpectancyYrs=74.3'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e12' cx='244.07' cy='84.39' r='1.47pt' fill='#254E72' fill-opacity='1' stroke='#254E72' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='12' title='12&amp;lt;br/&amp;gt;FemaleLiteracyRate=80.3&amp;lt;br/&amp;gt;LifeExpectancyYrs=72.7'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e13' cx='142.33' cy='244.87' r='1.47pt' fill='#18344F' fill-opacity='1' stroke='#18344F' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='13' title='13&amp;lt;br/&amp;gt;FemaleLiteracyRate=44.2&amp;lt;br/&amp;gt;LifeExpectancyYrs=48'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e14' cx='89.35' cy='186.4' r='1.47pt' fill='#152F48' fill-opacity='1' stroke='#152F48' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='14' title='14&amp;lt;br/&amp;gt;FemaleLiteracyRate=25.4&amp;lt;br/&amp;gt;LifeExpectancyYrs=57'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e15' cx='281.83' cy='56.46' r='1.47pt' fill='#29567D' fill-opacity='1' stroke='#29567D' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='15' title='15&amp;lt;br/&amp;gt;FemaleLiteracyRate=93.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=77'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e16' cx='289.72' cy='33.72' r='1.47pt' fill='#2F628D' fill-opacity='1' stroke='#2F628D' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='16' title='16&amp;lt;br/&amp;gt;FemaleLiteracyRate=96.5&amp;lt;br/&amp;gt;LifeExpectancyYrs=80.5'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e17' cx='151.91' cy='187.04' r='1.47pt' fill='#2B5B84' fill-opacity='1' stroke='#2B5B84' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='17' title='17&amp;lt;br/&amp;gt;FemaleLiteracyRate=47.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=56.9'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e18' cx='294.8' cy='59.06' r='1.47pt' fill='#336A98' fill-opacity='1' stroke='#336A98' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='18' title='18&amp;lt;br/&amp;gt;FemaleLiteracyRate=98.3&amp;lt;br/&amp;gt;LifeExpectancyYrs=76.6'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e19' cx='299.02' cy='46.71' r='1.47pt' fill='#3D7EB3' fill-opacity='1' stroke='#3D7EB3' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='19' title='19&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.8&amp;lt;br/&amp;gt;LifeExpectancyYrs=78.5'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e20' cx='294.23' cy='35.67' r='1.47pt' fill='#28557B' fill-opacity='1' stroke='#28557B' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='20' title='20&amp;lt;br/&amp;gt;FemaleLiteracyRate=98.1&amp;lt;br/&amp;gt;LifeExpectancyYrs=80.2'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e21' cx='271.97' cy='71.4' r='1.47pt' fill='#244D71' fill-opacity='1' stroke='#244D71' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='21' title='21&amp;lt;br/&amp;gt;FemaleLiteracyRate=90.2&amp;lt;br/&amp;gt;LifeExpectancyYrs=74.7'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e22' cx='271.97' cy='56.46' r='1.47pt' fill='#1F4262' fill-opacity='1' stroke='#1F4262' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='22' title='22&amp;lt;br/&amp;gt;FemaleLiteracyRate=90.2&amp;lt;br/&amp;gt;LifeExpectancyYrs=77'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e23' cx='199.82' cy='96.09' r='1.47pt' fill='#4690CB' fill-opacity='1' stroke='#4690CB' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='23' title='23&amp;lt;br/&amp;gt;FemaleLiteracyRate=64.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=70.9'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e24' cx='299.02' cy='61.01' r='1.47pt' fill='#3D7EB3' fill-opacity='1' stroke='#3D7EB3' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='24' title='24&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.8&amp;lt;br/&amp;gt;LifeExpectancyYrs=76.3'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e25' cx='259.01' cy='145.46' r='1.47pt' fill='#2B5B83' fill-opacity='1' stroke='#2B5B83' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='25' title='25&amp;lt;br/&amp;gt;FemaleLiteracyRate=85.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=63.3'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e26' cx='135.85' cy='127.92' r='1.47pt' fill='#29567C' fill-opacity='1' stroke='#29567C' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='26' title='26&amp;lt;br/&amp;gt;FemaleLiteracyRate=41.9&amp;lt;br/&amp;gt;LifeExpectancyYrs=66'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e27' cx='298.74' cy='82.45' r='1.47pt' fill='#2C5D87' fill-opacity='1' stroke='#2C5D87' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='27' title='27&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=73'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e28' cx='289.16' cy='33.72' r='1.47pt' fill='#4288C0' fill-opacity='1' stroke='#4288C0' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='28' title='28&amp;lt;br/&amp;gt;FemaleLiteracyRate=96.3&amp;lt;br/&amp;gt;LifeExpectancyYrs=80.5'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e29' cx='218.14' cy='92.19' r='1.47pt' fill='#22496B' fill-opacity='1' stroke='#22496B' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='29' title='29&amp;lt;br/&amp;gt;FemaleLiteracyRate=71.1&amp;lt;br/&amp;gt;LifeExpectancyYrs=71.5'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e30' cx='136.41' cy='191.59' r='1.47pt' fill='#1D3F5F' fill-opacity='1' stroke='#1D3F5F' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='30' title='30&amp;lt;br/&amp;gt;FemaleLiteracyRate=42.1&amp;lt;br/&amp;gt;LifeExpectancyYrs=56.2'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e31' cx='257.03' cy='90.24' r='1.47pt' fill='#265176' fill-opacity='1' stroke='#265176' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='31' title='31&amp;lt;br/&amp;gt;FemaleLiteracyRate=84.9&amp;lt;br/&amp;gt;LifeExpectancyYrs=71.8'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e32' cx='296.49' cy='70.1' r='1.47pt' fill='#356E9D' fill-opacity='1' stroke='#356E9D' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='32' title='32&amp;lt;br/&amp;gt;FemaleLiteracyRate=98.9&amp;lt;br/&amp;gt;LifeExpectancyYrs=74.9'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e33' cx='271.69' cy='100.64' r='1.47pt' fill='#29577E' fill-opacity='1' stroke='#29577E' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='33' title='33&amp;lt;br/&amp;gt;FemaleLiteracyRate=90.1&amp;lt;br/&amp;gt;LifeExpectancyYrs=70.2'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e34' cx='218.42' cy='117.53' r='1.47pt' fill='#22496B' fill-opacity='1' stroke='#22496B' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='34' title='34&amp;lt;br/&amp;gt;FemaleLiteracyRate=71.2&amp;lt;br/&amp;gt;LifeExpectancyYrs=67.6'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e35' cx='295.92' cy='25.27' r='1.47pt' fill='#4792CE' fill-opacity='1' stroke='#4792CE' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='35' title='35&amp;lt;br/&amp;gt;FemaleLiteracyRate=98.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=81.8'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e36' cx='276.48' cy='70.75' r='1.47pt' fill='#2B5B83' fill-opacity='1' stroke='#2B5B83' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='36' title='36&amp;lt;br/&amp;gt;FemaleLiteracyRate=91.8&amp;lt;br/&amp;gt;LifeExpectancyYrs=74.8'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e37' cx='282.4' cy='62.31' r='1.47pt' fill='#3874A5' fill-opacity='1' stroke='#3874A5' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='37' title='37&amp;lt;br/&amp;gt;FemaleLiteracyRate=93.9&amp;lt;br/&amp;gt;LifeExpectancyYrs=76.1'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e38' cx='299.02' cy='78.55' r='1.47pt' fill='#3874A6' fill-opacity='1' stroke='#3874A6' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='38' title='38&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.8&amp;lt;br/&amp;gt;LifeExpectancyYrs=73.6'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e39' cx='298.74' cy='79.2' r='1.47pt' fill='#4186BE' fill-opacity='1' stroke='#4186BE' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='39' title='39&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=73.5'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e40' cx='288.32' cy='74.65' r='1.47pt' fill='#306490' fill-opacity='1' stroke='#306490' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='40' title='40&amp;lt;br/&amp;gt;FemaleLiteracyRate=96&amp;lt;br/&amp;gt;LifeExpectancyYrs=74.2'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e41' cx='87.1' cy='166.9' r='1.47pt' fill='#2D5F89' fill-opacity='1' stroke='#2D5F89' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='41' title='41&amp;lt;br/&amp;gt;FemaleLiteracyRate=24.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=60'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e42' cx='164.31' cy='111.03' r='1.47pt' fill='#2C5D87' fill-opacity='1' stroke='#2C5D87' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='42' title='42&amp;lt;br/&amp;gt;FemaleLiteracyRate=52&amp;lt;br/&amp;gt;LifeExpectancyYrs=68.6'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e43' cx='262.11' cy='77.25' r='1.47pt' fill='#356E9D' fill-opacity='1' stroke='#356E9D' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='43' title='43&amp;lt;br/&amp;gt;FemaleLiteracyRate=86.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=73.8'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e44' cx='277.89' cy='64.25' r='1.47pt' fill='#346C9B' fill-opacity='1' stroke='#346C9B' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='44' title='44&amp;lt;br/&amp;gt;FemaleLiteracyRate=92.3&amp;lt;br/&amp;gt;LifeExpectancyYrs=75.8'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e45' cx='295.36' cy='92.19' r='1.47pt' fill='#29567D' fill-opacity='1' stroke='#29567D' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='45' title='45&amp;lt;br/&amp;gt;FemaleLiteracyRate=98.5&amp;lt;br/&amp;gt;LifeExpectancyYrs=71.5'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e46' cx='293.67' cy='124.03' r='1.47pt' fill='#214668' fill-opacity='1' stroke='#214668' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='46' title='46&amp;lt;br/&amp;gt;FemaleLiteracyRate=97.9&amp;lt;br/&amp;gt;LifeExpectancyYrs=66.6'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e47' cx='292.82' cy='60.36' r='1.47pt' fill='#438BC5' fill-opacity='1' stroke='#438BC5' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='47' title='47&amp;lt;br/&amp;gt;FemaleLiteracyRate=97.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=76.4'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e48' cx='180.1' cy='77.25' r='1.47pt' fill='#3F82B8' fill-opacity='1' stroke='#3F82B8' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='48' title='48&amp;lt;br/&amp;gt;FemaleLiteracyRate=57.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=73.8'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e49' cx='272.53' cy='118.83' r='1.47pt' fill='#234B6F' fill-opacity='1' stroke='#234B6F' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='49' title='49&amp;lt;br/&amp;gt;FemaleLiteracyRate=90.4&amp;lt;br/&amp;gt;LifeExpectancyYrs=67.4'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e50' cx='149.38' cy='110.38' r='1.47pt' fill='#265075' fill-opacity='1' stroke='#265075' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='50' title='50&amp;lt;br/&amp;gt;FemaleLiteracyRate=46.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=68.7'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e51' cx='298.46' cy='59.71' r='1.47pt' fill='#4289C1' fill-opacity='1' stroke='#4289C1' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='51' title='51&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=76.5'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e52' cx='282.68' cy='36.32' r='1.47pt' fill='#438BC5' fill-opacity='1' stroke='#438BC5' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='52' title='52&amp;lt;br/&amp;gt;FemaleLiteracyRate=94&amp;lt;br/&amp;gt;LifeExpectancyYrs=80.1'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e53' cx='291.7' cy='72.7' r='1.47pt' fill='#3E81B7' fill-opacity='1' stroke='#3E81B7' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='53' title='53&amp;lt;br/&amp;gt;FemaleLiteracyRate=97.2&amp;lt;br/&amp;gt;LifeExpectancyYrs=74.5'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e54' cx='295.64' cy='92.19' r='1.47pt' fill='#2F628D' fill-opacity='1' stroke='#2F628D' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='54' title='54&amp;lt;br/&amp;gt;FemaleLiteracyRate=98.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=71.5'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e55' cx='249.42' cy='67.5' r='1.47pt' fill='#3671A1' fill-opacity='1' stroke='#3671A1' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='55' title='55&amp;lt;br/&amp;gt;FemaleLiteracyRate=82.2&amp;lt;br/&amp;gt;LifeExpectancyYrs=75.3'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e56' cx='290.85' cy='70.75' r='1.47pt' fill='#2A5880' fill-opacity='1' stroke='#2A5880' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='56' title='56&amp;lt;br/&amp;gt;FemaleLiteracyRate=96.9&amp;lt;br/&amp;gt;LifeExpectancyYrs=74.8'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e57' cx='109.64' cy='194.84' r='1.47pt' fill='#1D3F5F' fill-opacity='1' stroke='#1D3F5F' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='57' title='57&amp;lt;br/&amp;gt;FemaleLiteracyRate=32.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=55.7'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e58' cx='298.74' cy='38.27' r='1.47pt' fill='#3976A7' fill-opacity='1' stroke='#3976A7' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='58' title='58&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=79.8'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e59' cx='277.61' cy='194.19' r='1.47pt' fill='#336A98' fill-opacity='1' stroke='#336A98' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='59' title='59&amp;lt;br/&amp;gt;FemaleLiteracyRate=92.2&amp;lt;br/&amp;gt;LifeExpectancyYrs=55.8'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e60' cx='195.88' cy='124.67' r='1.47pt' fill='#1E405F' fill-opacity='1' stroke='#1E405F' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='60' title='60&amp;lt;br/&amp;gt;FemaleLiteracyRate=63.2&amp;lt;br/&amp;gt;LifeExpectancyYrs=66.5'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e61' cx='263.8' cy='239.02' r='1.47pt' fill='#1B3C5A' fill-opacity='1' stroke='#1B3C5A' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='61' title='61&amp;lt;br/&amp;gt;FemaleLiteracyRate=87.3&amp;lt;br/&amp;gt;LifeExpectancyYrs=48.9'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e62' cx='298.46' cy='102.59' r='1.47pt' fill='#142E47' fill-opacity='1' stroke='#142E47' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='62' title='62&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.6&amp;lt;br/&amp;gt;LifeExpectancyYrs=69.9'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e63' cx='153.04' cy='169.5' r='1.47pt' fill='#1F4262' fill-opacity='1' stroke='#1F4262' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='63' title='63&amp;lt;br/&amp;gt;FemaleLiteracyRate=48&amp;lt;br/&amp;gt;LifeExpectancyYrs=59.6'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e64' cx='295.36' cy='84.39' r='1.47pt' fill='#306490' fill-opacity='1' stroke='#306490' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='64' title='64&amp;lt;br/&amp;gt;FemaleLiteracyRate=98.5&amp;lt;br/&amp;gt;LifeExpectancyYrs=72.7'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e65' cx='272.25' cy='48.66' r='1.47pt' fill='#4A99D7' fill-opacity='1' stroke='#4A99D7' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='65' title='65&amp;lt;br/&amp;gt;FemaleLiteracyRate=90.3&amp;lt;br/&amp;gt;LifeExpectancyYrs=78.2'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e66' cx='298.18' cy='112.33' r='1.47pt' fill='#2E608A' fill-opacity='1' stroke='#2E608A' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='66' title='66&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.5&amp;lt;br/&amp;gt;LifeExpectancyYrs=68.4'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e67' cx='298.74' cy='94.79' r='1.47pt' fill='#3976A8' fill-opacity='1' stroke='#3976A8' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='67' title='67&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.7&amp;lt;br/&amp;gt;LifeExpectancyYrs=71.1'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e68' cx='297.33' cy='108.43' r='1.47pt' fill='#29567C' fill-opacity='1' stroke='#29567C' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='68' title='68&amp;lt;br/&amp;gt;FemaleLiteracyRate=99.2&amp;lt;br/&amp;gt;LifeExpectancyYrs=69'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e69' cx='247.45' cy='146.11' r='1.47pt' fill='#2D5F8A' fill-opacity='1' stroke='#2D5F8A' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='69' title='69&amp;lt;br/&amp;gt;FemaleLiteracyRate=81.5&amp;lt;br/&amp;gt;LifeExpectancyYrs=63.2'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e70' cx='275.35' cy='80.5' r='1.47pt' fill='#29587F' fill-opacity='1' stroke='#29587F' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='70' title='70&amp;lt;br/&amp;gt;FemaleLiteracyRate=91.4&amp;lt;br/&amp;gt;LifeExpectancyYrs=73.3'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e71' cx='154.45' cy='116.88' r='1.47pt' fill='#193754' fill-opacity='1' stroke='#193754' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='71' title='71&amp;lt;br/&amp;gt;FemaleLiteracyRate=48.5&amp;lt;br/&amp;gt;LifeExpectancyYrs=67.7'/>\n   <circle id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e72' cx='243.51' cy='219.53' r='1.47pt' fill='#193753' fill-opacity='1' stroke='#193753' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' data-id='72' title='72&amp;lt;br/&amp;gt;FemaleLiteracyRate=80.1&amp;lt;br/&amp;gt;LifeExpectancyYrs=51.9'/>\n   <polyline id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e73' points='45.95,219.34 60.04,214.16 74.13,208.97 88.22,203.78 102.31,198.60 116.40,193.41 130.50,188.23 144.59,183.04 158.68,177.85 172.77,172.67 186.86,167.48 200.95,162.30 215.04,157.11 229.13,151.93 243.22,146.74 257.31,141.55 271.41,136.37 285.50,131.18 299.59,126.00' fill='none' stroke='#132B43' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt' title='for FoodSupplykcPPD=2000&amp;lt;br/&amp;gt;y = 0.16*x +50.33' data-id='1'/>\n   <polyline id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e74' points='45.95,190.50 60.04,185.40 74.13,180.31 88.22,175.21 102.31,170.11 116.40,165.01 130.50,159.91 144.59,154.81 158.68,149.71 172.77,144.61 186.86,139.51 200.95,134.41 215.04,129.31 229.13,124.21 243.22,119.11 257.31,114.02 271.41,108.92 285.50,103.82 299.59,98.72' fill='none' stroke='#22496C' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt' title='for FoodSupplykcPPD=2500&amp;lt;br/&amp;gt;y = 0.16*x +54.8' data-id='20'/>\n   <polyline id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e75' points='45.95,161.67 60.04,156.65 74.13,151.64 88.22,146.63 102.31,141.62 116.40,136.60 130.50,131.59 144.59,126.58 158.68,121.56 172.77,116.55 186.86,111.54 200.95,106.53 215.04,101.51 229.13,96.50 243.22,91.49 257.31,86.48 271.41,81.46 285.50,76.45 299.59,71.44' fill='none' stroke='#336A98' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt' title='for FoodSupplykcPPD=3000&amp;lt;br/&amp;gt;y = 0.15*x +59.26' data-id='39'/>\n   <polyline id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e76' points='45.95,132.83 60.04,127.90 74.13,122.98 88.22,118.05 102.31,113.12 116.40,108.20 130.50,103.27 144.59,98.35 158.68,93.42 172.77,88.49 186.86,83.57 200.95,78.64 215.04,73.72 229.13,68.79 243.22,63.86 257.31,58.94 271.41,54.01 285.50,49.08 299.59,44.16' fill='none' stroke='#448DC6' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt' title='for FoodSupplykcPPD=3500&amp;lt;br/&amp;gt;y = 0.15*x +63.73' data-id='58'/>\n   <polyline id='svg_20ab31eb_405f_45ca_b377_fff43d5fa992_e77' points='45.95,103.99 60.04,99.15 74.13,94.31 88.22,89.47 102.31,84.63 116.40,79.79 130.50,74.95 144.59,70.11 158.68,65.28 172.77,60.44 186.86,55.60 200.95,50.76 215.04,45.92 229.13,41.08 243.22,36.24 257.31,31.40 271.41,26.56 285.50,21.72 299.59,16.88' fill='none' stroke='#56B1F7' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt' title='for FoodSupplykcPPD=4000&amp;lt;br/&amp;gt;y = 0.15*x +68.19' data-id='77'/>\n  <\/g>\n  <g clip-path='url(#svg_20ab31eb_405f_45ca_b377_fff43d5fa992_c1)'>\n   <text x='18.54' y='235.03' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>50<\/text>\n   <text x='18.54' y='170.06' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>60<\/text>\n   <text x='18.54' y='105.09' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>70<\/text>\n   <text x='18.54' y='40.12' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>80<\/text>\n   <polyline points='30.53,231.87 33.27,231.87' fill='none' stroke='#333333' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='30.53,166.90 33.27,166.90' fill='none' stroke='#333333' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='30.53,101.94 33.27,101.94' fill='none' stroke='#333333' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='30.53,36.97 33.27,36.97' fill='none' stroke='#333333' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='88.22,259.01 88.22,256.27' fill='none' stroke='#333333' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='158.68,259.01 158.68,256.27' fill='none' stroke='#333333' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='229.13,259.01 229.13,256.27' fill='none' stroke='#333333' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='299.59,259.01 299.59,256.27' fill='none' stroke='#333333' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='butt'/>\n   <text x='83.33' y='267.5' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>25<\/text>\n   <text x='153.78' y='267.5' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>50<\/text>\n   <text x='224.24' y='267.5' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>75<\/text>\n   <text x='292.24' y='267.5' font-size='6.6pt' font-family='Helvetica' fill='#4D4D4D' fill-opacity='1'>100<\/text>\n   <text x='123.55' y='280.09' font-size='8.25pt' font-family='Helvetica'>FemaleLiteracyRate<\/text>\n   <text transform='translate(13.37,176.43) rotate(-90.00)' font-size='8.25pt' font-family='Helvetica'>LifeExpectancyYrs<\/text>\n   <rect x='323.23' y='74.29' width='103.29' height='113.16' fill='#FFFFFF' fill-opacity='1' stroke='none'/>\n   <image x='328.71' y='95.57' width='17.28' height='86.4' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAEsCAYAAAACUNnVAAAAmElEQVQ4ja2UQRLDMAgDd3hk/tnX5agcknFaCoa0vnkMCEnGsL12GQhDYDpPwoDrpBFlRDWi/9Wu6AHC9FkLYLrzlhD3oJ3mDvRHRYy7IC8A7bCK8gpWKYDzeQVArDcDyD2YAnSofZvzaOA6Q7Oahp/dmRuVTQ0xU5TGP2o8Waool1obVuv1q8qP9xPvg633XlGLDtfIhNUBcBeA5ss0BXMAAAAASUVORK5CYII=' xmlns:xlink='http://www.w3.org/1999/xlink'/>\n   <text x='351.47' y='184.98' font-size='6.6pt' font-family='Helvetica'>2000<\/text>\n   <text x='351.47' y='163.46' font-size='6.6pt' font-family='Helvetica'>2500<\/text>\n   <text x='351.47' y='141.93' font-size='6.6pt' font-family='Helvetica'>3000<\/text>\n   <text x='351.47' y='120.4' font-size='6.6pt' font-family='Helvetica'>3500<\/text>\n   <text x='351.47' y='98.87' font-size='6.6pt' font-family='Helvetica'>4000<\/text>\n   <text x='328.71' y='88.88' font-size='8.25pt' font-family='Helvetica'>FoodSupplykcPPD<\/text>\n   <line x1='328.71' y1='181.83' x2='332.16' y2='181.83' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n   <line x1='328.71' y1='160.3' x2='332.16' y2='160.3' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n   <line x1='328.71' y1='138.77' x2='332.16' y2='138.77' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n   <line x1='328.71' y1='117.25' x2='332.16' y2='117.25' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n   <line x1='328.71' y1='95.72' x2='332.16' y2='95.72' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n   <line x1='342.53' y1='181.83' x2='345.99' y2='181.83' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n   <line x1='342.53' y1='160.3' x2='345.99' y2='160.3' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n   <line x1='342.53' y1='138.77' x2='345.99' y2='138.77' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n   <line x1='342.53' y1='117.25' x2='345.99' y2='117.25' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n   <line x1='342.53' y1='95.72' x2='345.99' y2='95.72' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.37' stroke-linejoin='round' stroke-linecap='butt'/>\n  <\/g>\n <\/g>\n<\/svg>","js":null,"uid":"svg_20ab31eb_405f_45ca_b377_fff43d5fa992","ratio":1.5,"settings":{"tooltip":{"css":".tooltip_SVGID_ { background-color:white;font-style:italic;padding:10px;border-radius:10px 20px 10px 20px; ; position:absolute;pointer-events:none;z-index:999;}","placement":"doc","opacity":0.75,"offx":10,"offy":0,"use_cursor_pos":true,"use_fill":false,"use_stroke":false,"delay_over":200,"delay_out":500},"hover":{"css":".hover_data_SVGID_ { r:4px;cursor:pointer;stroke:red;stroke-width:2px; }","reactive":false,"nearest_distance":null},"hover_inv":{"css":""},"hover_key":{"css":".hover_key_SVGID_ { fill:orange;stroke:black;cursor:pointer; }\ntext.hover_key_SVGID_ { stroke:none;fill:orange; }\ncircle.hover_key_SVGID_ { fill:orange;stroke:black; }\nline.hover_key_SVGID_, polyline.hover_key_SVGID_ { fill:none;stroke:orange; }\nrect.hover_key_SVGID_, polygon.hover_key_SVGID_, path.hover_key_SVGID_ { fill:orange;stroke:none; }\nimage.hover_key_SVGID_ { stroke:orange; }","reactive":true},"hover_theme":{"css":".hover_theme_SVGID_ { fill:orange;stroke:black;cursor:pointer; }\ntext.hover_theme_SVGID_ { stroke:none;fill:orange; }\ncircle.hover_theme_SVGID_ { fill:orange;stroke:black; }\nline.hover_theme_SVGID_, polyline.hover_theme_SVGID_ { fill:none;stroke:orange; }\nrect.hover_theme_SVGID_, polygon.hover_theme_SVGID_, path.hover_theme_SVGID_ { fill:orange;stroke:none; }\nimage.hover_theme_SVGID_ { stroke:orange; }","reactive":true},"select":{"css":".select_data_SVGID_ { fill:#FF3333;stroke:black; }","type":"multiple","only_shiny":true,"selected":[]},"select_inv":{"css":""},"select_key":{"css":".select_key_SVGID_ { fill:red;stroke:black;cursor:pointer; }\ntext.select_key_SVGID_ { stroke:none;fill:red; }\ncircle.select_key_SVGID_ { fill:red;stroke:black; }\nline.select_key_SVGID_, polyline.select_key_SVGID_ { fill:none;stroke:red; }\nrect.select_key_SVGID_, polygon.select_key_SVGID_, path.select_key_SVGID_ { fill:red;stroke:none; }\nimage.select_key_SVGID_ { stroke:red; }","type":"single","only_shiny":true,"selected":[]},"select_theme":{"css":".select_theme_SVGID_ { fill:red;stroke:black;cursor:pointer; }\ntext.select_theme_SVGID_ { stroke:none;fill:red; }\ncircle.select_theme_SVGID_ { fill:red;stroke:black; }\nline.select_theme_SVGID_, polyline.select_theme_SVGID_ { fill:none;stroke:red; }\nrect.select_theme_SVGID_, polygon.select_theme_SVGID_, path.select_theme_SVGID_ { fill:red;stroke:none; }\nimage.select_theme_SVGID_ { stroke:red; }","type":"single","only_shiny":true,"selected":[]},"zoom":{"min":1,"max":10,"duration":300},"toolbar":{"position":"topright","pngname":"diagram","tooltips":null,"hidden":[],"delay_over":200,"delay_out":500},"sizing":{"rescale":true,"width":1}}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="interaction-between-two-continuous-variables" class="slide level2">
-<h2>Interaction between two continuous variables</h2>
+<section id="model-with-interaction-between-two-continuous-variables" class="slide level2">
+<h2>Model with interaction between <em>two continuous variables</em></h2>
+<p>Model we are fitting:</p>
+<p><span class="math display">\[ LE = \beta_0 + \beta_1 FLR^c + \beta_2 FS^c + \beta_3 FLR^c \cdot FS^c + \epsilon\]</span></p>
+<ul>
+<li><span class="math inline">\(LE\)</span> as life expectancy</li>
+<li><span class="math inline">\(FLR^c\)</span> as the <strong>centered</strong> around the mean female literacy rate (continuous variable)</li>
+<li><span class="math inline">\(FS^c\)</span> as the <strong>centered</strong> around the mean food supply (continuous variable)</li>
+</ul>
 <div class="cell">
+<details>
+<summary>Code to center FLR and FS</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>gapm_sub <span class="ot">=</span> gapm_sub <span class="sc">%&gt;%</span> </span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="fu">mutate</span>(<span class="at">FLR_c =</span> FemaleLiteracyRate <span class="sc">-</span> <span class="fu">mean</span>(FemaleLiteracyRate), </span>
+<span id="cb1-3"><a href="#cb1-3"></a>         <span class="at">FS_c =</span> FoodSupplykcPPD <span class="sc">-</span> <span class="fu">mean</span>(FoodSupplykcPPD))</span>
+<span id="cb1-4"><a href="#cb1-4"></a>mean_FS <span class="ot">=</span> <span class="fu">mean</span>(gapm_sub<span class="sc">$</span>FoodSupplykcPPD) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">0</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a>mean_FLR <span class="ot">=</span> <span class="fu">mean</span>(gapm_sub<span class="sc">$</span>FemaleLiteracyRate) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>In R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>m_int_fs <span class="ot">=</span> <span class="fu">lm</span>(LifeExpectancyYrs <span class="sc">~</span> FLR_c <span class="sc">+</span> FS_c <span class="sc">+</span> FLR_c<span class="sc">*</span>FS_c, <span class="at">data =</span> gapm_sub)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>OR</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>m_int_fs <span class="ot">=</span> <span class="fu">lm</span>(LifeExpectancyYrs <span class="sc">~</span> FLR_c<span class="sc">*</span>FS_c, <span class="at">data =</span> gapm_sub)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="displaying-the-regression-table-and-writing-fitted-regression-equation" class="slide level2">
+<h2>Displaying the regression table and writing fitted regression equation</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>tidy_m_fs <span class="ot">=</span> <span class="fu">tidy</span>(m_int_fs, <span class="at">conf.int=</span>T) </span>
+<span id="cb4-2"><a href="#cb4-2"></a>tidy_m_fs <span class="sc">%&gt;%</span> <span class="fu">gt</span>() <span class="sc">%&gt;%</span> <span class="fu">tab_options</span>(<span class="at">table.font.size =</span> <span class="dv">35</span>) <span class="sc">%&gt;%</span> <span class="fu">fmt_number</span>(<span class="at">decimals =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="wepsqksrpc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wepsqksrpc table {
+<div id="cqczxmsmyq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#cqczxmsmyq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wepsqksrpc thead, #wepsqksrpc tbody, #wepsqksrpc tfoot, #wepsqksrpc tr, #wepsqksrpc td, #wepsqksrpc th {
+#cqczxmsmyq thead, #cqczxmsmyq tbody, #cqczxmsmyq tfoot, #cqczxmsmyq tr, #cqczxmsmyq td, #cqczxmsmyq th {
   border-style: none;
 }
 
-#wepsqksrpc p {
+#cqczxmsmyq p {
   margin: 0;
   padding: 0;
 }
 
-#wepsqksrpc .gt_table {
+#cqczxmsmyq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -418,12 +520,12 @@ Nicky Wakim
   border-left-color: #D3D3D3;
 }
 
-#wepsqksrpc .gt_caption {
+#cqczxmsmyq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wepsqksrpc .gt_title {
+#cqczxmsmyq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -435,7 +537,7 @@ Nicky Wakim
   border-bottom-width: 0;
 }
 
-#wepsqksrpc .gt_subtitle {
+#cqczxmsmyq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -447,7 +549,7 @@ Nicky Wakim
   border-top-width: 0;
 }
 
-#wepsqksrpc .gt_heading {
+#cqczxmsmyq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -459,13 +561,13 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#wepsqksrpc .gt_bottom_border {
+#cqczxmsmyq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wepsqksrpc .gt_col_headings {
+#cqczxmsmyq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -480,7 +582,7 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#wepsqksrpc .gt_col_heading {
+#cqczxmsmyq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -500,7 +602,7 @@ Nicky Wakim
   overflow-x: hidden;
 }
 
-#wepsqksrpc .gt_column_spanner_outer {
+#cqczxmsmyq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -512,15 +614,15 @@ Nicky Wakim
   padding-right: 4px;
 }
 
-#wepsqksrpc .gt_column_spanner_outer:first-child {
+#cqczxmsmyq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wepsqksrpc .gt_column_spanner_outer:last-child {
+#cqczxmsmyq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wepsqksrpc .gt_column_spanner {
+#cqczxmsmyq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -532,11 +634,11 @@ Nicky Wakim
   width: 100%;
 }
 
-#wepsqksrpc .gt_spanner_row {
+#cqczxmsmyq .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wepsqksrpc .gt_group_heading {
+#cqczxmsmyq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -562,7 +664,7 @@ Nicky Wakim
   text-align: left;
 }
 
-#wepsqksrpc .gt_empty_group_heading {
+#cqczxmsmyq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -577,15 +679,15 @@ Nicky Wakim
   vertical-align: middle;
 }
 
-#wepsqksrpc .gt_from_md > :first-child {
+#cqczxmsmyq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wepsqksrpc .gt_from_md > :last-child {
+#cqczxmsmyq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wepsqksrpc .gt_row {
+#cqczxmsmyq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -604,7 +706,7 @@ Nicky Wakim
   overflow-x: hidden;
 }
 
-#wepsqksrpc .gt_stub {
+#cqczxmsmyq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -617,7 +719,7 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#wepsqksrpc .gt_stub_row_group {
+#cqczxmsmyq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -631,15 +733,15 @@ Nicky Wakim
   vertical-align: top;
 }
 
-#wepsqksrpc .gt_row_group_first td {
+#cqczxmsmyq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wepsqksrpc .gt_row_group_first th {
+#cqczxmsmyq .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wepsqksrpc .gt_summary_row {
+#cqczxmsmyq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -649,16 +751,16 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#wepsqksrpc .gt_first_summary_row {
+#cqczxmsmyq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wepsqksrpc .gt_first_summary_row.thick {
+#cqczxmsmyq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wepsqksrpc .gt_last_summary_row {
+#cqczxmsmyq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -668,7 +770,7 @@ Nicky Wakim
   border-bottom-color: #D3D3D3;
 }
 
-#wepsqksrpc .gt_grand_summary_row {
+#cqczxmsmyq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -678,7 +780,7 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#wepsqksrpc .gt_first_grand_summary_row {
+#cqczxmsmyq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -688,7 +790,7 @@ Nicky Wakim
   border-top-color: #D3D3D3;
 }
 
-#wepsqksrpc .gt_last_grand_summary_row_top {
+#cqczxmsmyq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -698,11 +800,11 @@ Nicky Wakim
   border-bottom-color: #D3D3D3;
 }
 
-#wepsqksrpc .gt_striped {
+#cqczxmsmyq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wepsqksrpc .gt_table_body {
+#cqczxmsmyq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -711,7 +813,7 @@ Nicky Wakim
   border-bottom-color: #D3D3D3;
 }
 
-#wepsqksrpc .gt_footnotes {
+#cqczxmsmyq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -725,7 +827,7 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#wepsqksrpc .gt_footnote {
+#cqczxmsmyq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -734,7 +836,7 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#wepsqksrpc .gt_sourcenotes {
+#cqczxmsmyq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -748,7 +850,7 @@ Nicky Wakim
   border-right-color: #D3D3D3;
 }
 
-#wepsqksrpc .gt_sourcenote {
+#cqczxmsmyq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -756,63 +858,63 @@ Nicky Wakim
   padding-right: 5px;
 }
 
-#wepsqksrpc .gt_left {
+#cqczxmsmyq .gt_left {
   text-align: left;
 }
 
-#wepsqksrpc .gt_center {
+#cqczxmsmyq .gt_center {
   text-align: center;
 }
 
-#wepsqksrpc .gt_right {
+#cqczxmsmyq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wepsqksrpc .gt_font_normal {
+#cqczxmsmyq .gt_font_normal {
   font-weight: normal;
 }
 
-#wepsqksrpc .gt_font_bold {
+#cqczxmsmyq .gt_font_bold {
   font-weight: bold;
 }
 
-#wepsqksrpc .gt_font_italic {
+#cqczxmsmyq .gt_font_italic {
   font-style: italic;
 }
 
-#wepsqksrpc .gt_super {
+#cqczxmsmyq .gt_super {
   font-size: 65%;
 }
 
-#wepsqksrpc .gt_footnote_marks {
+#cqczxmsmyq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wepsqksrpc .gt_asterisk {
+#cqczxmsmyq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wepsqksrpc .gt_indent_1 {
+#cqczxmsmyq .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wepsqksrpc .gt_indent_2 {
+#cqczxmsmyq .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wepsqksrpc .gt_indent_3 {
+#cqczxmsmyq .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wepsqksrpc .gt_indent_4 {
+#cqczxmsmyq .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wepsqksrpc .gt_indent_5 {
+#cqczxmsmyq .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -831,33 +933,33 @@ Nicky Wakim
   </thead>
   <tbody class="gt_table_body">
     <tr><td headers="term" class="gt_row gt_left">(Intercept)</td>
-<td headers="estimate" class="gt_row gt_right">32.471</td>
-<td headers="std.error" class="gt_row gt_right">16.885</td>
-<td headers="statistic" class="gt_row gt_right">1.923</td>
-<td headers="p.value" class="gt_row gt_right">0.059</td>
-<td headers="conf.low" class="gt_row gt_right">−1.222</td>
-<td headers="conf.high" class="gt_row gt_right">66.165</td></tr>
-    <tr><td headers="term" class="gt_row gt_left">FemaleLiteracyRate</td>
-<td headers="estimate" class="gt_row gt_right">0.170</td>
-<td headers="std.error" class="gt_row gt_right">0.199</td>
-<td headers="statistic" class="gt_row gt_right">0.854</td>
-<td headers="p.value" class="gt_row gt_right">0.396</td>
-<td headers="conf.low" class="gt_row gt_right">−0.228</td>
-<td headers="conf.high" class="gt_row gt_right">0.568</td></tr>
-    <tr><td headers="term" class="gt_row gt_left">FoodSupplykcPPD</td>
-<td headers="estimate" class="gt_row gt_right">0.009</td>
-<td headers="std.error" class="gt_row gt_right">0.007</td>
-<td headers="statistic" class="gt_row gt_right">1.325</td>
-<td headers="p.value" class="gt_row gt_right">0.190</td>
-<td headers="conf.low" class="gt_row gt_right">−0.005</td>
-<td headers="conf.high" class="gt_row gt_right">0.022</td></tr>
-    <tr><td headers="term" class="gt_row gt_left">FemaleLiteracyRate:FoodSupplykcPPD</td>
-<td headers="estimate" class="gt_row gt_right">0.000</td>
-<td headers="std.error" class="gt_row gt_right">0.000</td>
-<td headers="statistic" class="gt_row gt_right">−0.069</td>
-<td headers="p.value" class="gt_row gt_right">0.945</td>
-<td headers="conf.low" class="gt_row gt_right">0.000</td>
-<td headers="conf.high" class="gt_row gt_right">0.000</td></tr>
+<td headers="estimate" class="gt_row gt_right">70.32060</td>
+<td headers="std.error" class="gt_row gt_right">0.72393</td>
+<td headers="statistic" class="gt_row gt_right">97.13721</td>
+<td headers="p.value" class="gt_row gt_right">0.00000</td>
+<td headers="conf.low" class="gt_row gt_right">68.87601</td>
+<td headers="conf.high" class="gt_row gt_right">71.76518</td></tr>
+    <tr><td headers="term" class="gt_row gt_left">FLR_c</td>
+<td headers="estimate" class="gt_row gt_right">0.15532</td>
+<td headers="std.error" class="gt_row gt_right">0.03808</td>
+<td headers="statistic" class="gt_row gt_right">4.07905</td>
+<td headers="p.value" class="gt_row gt_right">0.00012</td>
+<td headers="conf.low" class="gt_row gt_right">0.07934</td>
+<td headers="conf.high" class="gt_row gt_right">0.23130</td></tr>
+    <tr><td headers="term" class="gt_row gt_left">FS_c</td>
+<td headers="estimate" class="gt_row gt_right">0.00849</td>
+<td headers="std.error" class="gt_row gt_right">0.00182</td>
+<td headers="statistic" class="gt_row gt_right">4.67908</td>
+<td headers="p.value" class="gt_row gt_right">0.00001</td>
+<td headers="conf.low" class="gt_row gt_right">0.00487</td>
+<td headers="conf.high" class="gt_row gt_right">0.01212</td></tr>
+    <tr><td headers="term" class="gt_row gt_left">FLR_c:FS_c</td>
+<td headers="estimate" class="gt_row gt_right">−0.00001</td>
+<td headers="std.error" class="gt_row gt_right">0.00008</td>
+<td headers="statistic" class="gt_row gt_right">−0.06908</td>
+<td headers="p.value" class="gt_row gt_right">0.94513</td>
+<td headers="conf.low" class="gt_row gt_right">−0.00016</td>
+<td headers="conf.high" class="gt_row gt_right">0.00015</td></tr>
   </tbody>
   
   
@@ -865,14 +967,638 @@ Nicky Wakim
 </div>
 </div>
 </div>
+<p><span class="math display">\[ \begin{aligned}
+\widehat{LE} = &amp; \widehat\beta_0 + \widehat\beta_1 FLR^c + \widehat\beta_2 FS^c + \widehat\beta_3 FLR^c \cdot FS^c \\
+\widehat{LE} = &amp; 70.32 + 0.16 \cdot FLR^c + 0.01 \cdot FS^c - 0.00001 \cdot FLR^c \cdot FS^c
+\end{aligned}\]</span></p>
 </section>
-<section id="interpretation-for-interaction-between-two-continuous-variables" class="slide level2">
-<h2>Interpretation for interaction between two continuous variables</h2>
+<section id="comparing-fitted-regression-lines-for-various-food-supply-values" class="slide level2">
+<h2>Comparing fitted regression lines for various food supply values</h2>
+<p><span class="math display">\[ \begin{aligned}
+\widehat{LE} = &amp; \widehat\beta_0 + \widehat\beta_1 FLR^c + \widehat\beta_2 FS^c + \widehat\beta_3 FLR^c \cdot FS^c \\
+\widehat{LE} = &amp; 70.32 + 0.16 \cdot FLR^c + 0.01 \cdot FS^c - 0.00001 \cdot FLR^c \cdot FS^c
+\end{aligned}\]</span></p>
+<p>To identify different lines, we need to pick example values of Food Supply:</p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="FS1">
+<div class="FS1-title">
+<p>Food Supply of 1812 kcal PPD</p>
+</div>
+<div class="FS1-cont">
+<p><span class="math display">\[\begin{aligned}
+\widehat{LE} = &amp; \widehat\beta_0 + \widehat\beta_1 FLR^c + \\ &amp; \widehat\beta_2 \cdot (-1000) + \\ &amp; \widehat\beta_3 FLR^c \cdot (-1000) \\
+\widehat{LE} = &amp; \big(\widehat\beta_0 - 1000 \widehat\beta_2 \big)+ \\ &amp; \big(\widehat\beta_1 - 1000 \widehat\beta_3  \big) FLR^c
+\end{aligned}\]</span></p>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="FS2">
+<div class="FS2-title">
+<p>Food Supply of 2812 kcal PPD</p>
+</div>
+<div class="FS2-cont">
+<p><span class="math display">\[\begin{aligned}
+\widehat{LE} = &amp; \widehat\beta_0 + \widehat\beta_1 FLR^c + \\ &amp; \widehat\beta_2 \cdot 0 + \\ &amp; \widehat\beta_3 FLR^c \cdot 0 \\
+\widehat{LE} = &amp; \big(\widehat\beta_0 \big)+ \\ &amp; \big(\widehat\beta_1 \big) FLR^c
+\end{aligned}\]</span></p>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="FS3">
+<div class="FS3-title">
+<p>Food Supply of 3812 kcal PPD</p>
+</div>
+<div class="FS3-cont">
+<p><span class="math display">\[\begin{aligned}
+\widehat{LE} = &amp; \widehat\beta_0 + \widehat\beta_1 FLR^c + \\ &amp; \widehat\beta_2 \cdot 1000 + \\ &amp; \widehat\beta_3 FLR^c \cdot 1000 \\
+\widehat{LE} = &amp; \big(\widehat\beta_0 + 1000 \widehat\beta_2 \big)+ \\ &amp; \big(\widehat\beta_1 + 1000 \widehat\beta_3  \big) FLR^c
+\end{aligned}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="poll-everywhere-question" class="slide level2">
+<h2>Poll Everywhere Question??</h2>
+</section>
+<section id="interpretation-for-interaction-between-binary-categorical-and-continuous-variables" class="slide level2">
+<h2>Interpretation for interaction between binary categorical and continuous variables</h2>
+<p><span class="math display">\[ \begin{aligned}
+\widehat{LE} = &amp; \widehat\beta_0 + \widehat\beta_1 FLR^c + \widehat\beta_2 FS^c + \widehat\beta_3 FLR^c \cdot FS^c \\
+\widehat{LE} = &amp; \bigg[\widehat\beta_0 + \widehat\beta_2 \cdot FS^c \bigg] + \underbrace{\bigg[\widehat\beta_1 + \widehat\beta_3 \cdot FS^c \bigg]}_\text{FLR's effect} FLR \\
+\end{aligned}\]</span></p>
+<ul>
+<li><p>Interpretation:</p>
+<ul>
+<li><span class="math inline">\(\beta_3\)</span> = mean change in female literacy rate’s effect, for every one kcal PPD increase in food supply</li>
+</ul></li>
+<li><p>In summary, the interaction term can be interpreted as “difference in adjusted female literacy rate effect for every 1 kcal PPD increase in food supply”</p></li>
+<li><p>It will be helpful to test the interaction to round out this interpretation!!</p></li>
+</ul>
+</section>
+<section id="test-interaction-between-multi-level-categorical-continuous-variables" class="slide level2">
+<h2>Test interaction between multi-level categorical &amp; continuous variables</h2>
+<ul>
+<li>We run an F-test for a group of coefficients (<span class="math inline">\(\beta_5\)</span>, <span class="math inline">\(\beta_6\)</span>, <span class="math inline">\(\beta_7\)</span>) in the below model (see lesson 9)</li>
+</ul>
+<p><span class="math display">\[ LE = \beta_0 + \beta_1 FLR^c + \beta_2 FS^c + \beta_3 FLR^c \cdot FS^c + \epsilon\]</span></p>
+<div class="columns">
+<div class="column" style="width:10%;">
+
+</div><div class="column" style="width:40%;">
+<div class="proof1">
+<div class="proof-title">
+<p>Null <span class="math inline">\(H_0\)</span></p>
+</div>
+<div class="proof-cont">
+<p><span class="math display">\[\beta_3=0\]</span></p>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="definition">
+<div class="def-title">
+<p>Alternative <span class="math inline">\(H_1\)</span></p>
+</div>
+<div class="def-cont">
+<p><span class="math display">\[\beta_3\neq0\]</span></p>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:10%;">
+
+</div><div class="column" style="width:40%;">
+<div class="proof1">
+<div class="proof-title">
+<p>Null / Smaller / Reduced model</p>
+</div>
+<div class="proof-cont">
+<p><span class="math display">\[ LE = \beta_0 + \beta_1 FLR^c + \beta_2 FS^c + \epsilon\]</span></p>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="definition">
+<div class="def-title">
+<p>Alternative / Larger / Full model</p>
+</div>
+<div class="def-cont">
+<p><span class="math display">\[\begin{aligned}
+LE = &amp; \beta_0 + \beta_1 FLR^c + \beta_2 FS^c + \\ &amp; \beta_3 FLR^c \cdot FS^c + \epsilon
+\end{aligned}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="test-interaction-between-multi-level-categorical-continuous-variables-1" class="slide level2">
+<h2>Test interaction between multi-level categorical &amp; continuous variables</h2>
+<ul>
+<li>Fit the reduced and full model</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>m_int_fs_red <span class="ot">=</span> <span class="fu">lm</span>(LifeExpectancyYrs <span class="sc">~</span> FLR_c <span class="sc">+</span> FS_c, </span>
+<span id="cb5-2"><a href="#cb5-2"></a>                   <span class="at">data =</span> gapm_sub)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>m_int_fs_full <span class="ot">=</span> <span class="fu">lm</span>(LifeExpectancyYrs <span class="sc">~</span> FLR_c <span class="sc">+</span> FS_c <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>                  FLR_c<span class="sc">*</span>FS_c, <span class="at">data =</span> gapm_sub)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<details>
+<summary>Display the ANOVA table with F-statistic and p-value</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">anova</span>(m_int_fs_red, m_int_fs_full) <span class="sc">%&gt;%</span> <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> <span class="fu">tab_options</span>(<span class="at">table.font.size =</span> <span class="dv">35</span>) <span class="sc">%&gt;%</span> <span class="fu">fmt_number</span>(<span class="at">decimals =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<div id="ndcgjtarpn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ndcgjtarpn table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ndcgjtarpn thead, #ndcgjtarpn tbody, #ndcgjtarpn tfoot, #ndcgjtarpn tr, #ndcgjtarpn td, #ndcgjtarpn th {
+  border-style: none;
+}
+
+#ndcgjtarpn p {
+  margin: 0;
+  padding: 0;
+}
+
+#ndcgjtarpn .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 35px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ndcgjtarpn .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ndcgjtarpn .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ndcgjtarpn .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ndcgjtarpn .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ndcgjtarpn .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ndcgjtarpn .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ndcgjtarpn .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ndcgjtarpn .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ndcgjtarpn .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ndcgjtarpn .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ndcgjtarpn .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ndcgjtarpn .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ndcgjtarpn .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ndcgjtarpn .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ndcgjtarpn .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ndcgjtarpn .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ndcgjtarpn .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ndcgjtarpn .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ndcgjtarpn .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ndcgjtarpn .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ndcgjtarpn .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ndcgjtarpn .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ndcgjtarpn .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ndcgjtarpn .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ndcgjtarpn .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ndcgjtarpn .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ndcgjtarpn .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ndcgjtarpn .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ndcgjtarpn .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ndcgjtarpn .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ndcgjtarpn .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ndcgjtarpn .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ndcgjtarpn .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ndcgjtarpn .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ndcgjtarpn .gt_left {
+  text-align: left;
+}
+
+#ndcgjtarpn .gt_center {
+  text-align: center;
+}
+
+#ndcgjtarpn .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ndcgjtarpn .gt_font_normal {
+  font-weight: normal;
+}
+
+#ndcgjtarpn .gt_font_bold {
+  font-weight: bold;
+}
+
+#ndcgjtarpn .gt_font_italic {
+  font-style: italic;
+}
+
+#ndcgjtarpn .gt_super {
+  font-size: 65%;
+}
+
+#ndcgjtarpn .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ndcgjtarpn .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ndcgjtarpn .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ndcgjtarpn .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ndcgjtarpn .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ndcgjtarpn .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ndcgjtarpn .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="term">term</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="df.residual">df.residual</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="rss">rss</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="df">df</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="sumsq">sumsq</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="statistic">statistic</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="p.value">p.value</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="term" class="gt_row gt_left">LifeExpectancyYrs ~ FLR_c + FS_c</td>
+<td headers="df.residual" class="gt_row gt_right">69.000</td>
+<td headers="rss" class="gt_row gt_right">2,005.556</td>
+<td headers="df" class="gt_row gt_right">NA</td>
+<td headers="sumsq" class="gt_row gt_right">NA</td>
+<td headers="statistic" class="gt_row gt_right">NA</td>
+<td headers="p.value" class="gt_row gt_right">NA</td></tr>
+    <tr><td headers="term" class="gt_row gt_left">LifeExpectancyYrs ~ FLR_c + FS_c + FLR_c * FS_c</td>
+<td headers="df.residual" class="gt_row gt_right">68.000</td>
+<td headers="rss" class="gt_row gt_right">2,005.415</td>
+<td headers="df" class="gt_row gt_right">1.000</td>
+<td headers="sumsq" class="gt_row gt_right">0.141</td>
+<td headers="statistic" class="gt_row gt_right">0.005</td>
+<td headers="p.value" class="gt_row gt_right">0.945</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+<ul>
+<li>Conclusion: There is not a significant interaction between female literacy rate and food supply (p = 0.945). Food supply is not an effect modifier of the association between female literacy rate and life expectancy.</li>
+</ul>
 </section></section>
 <section>
 <section id="learning-objective-1" class="title-slide slide level1 center">
 <h1>Learning Objective</h1>
-
+<ol start="5" type="1">
+<li>Interpret the interaction component of a model with <strong>two continuous covariates</strong>, and how the main variable’s effect changes.</li>
+<li>When there are only two covariates in the model, test whether one is a confounder or effect modifier.</li>
+</ol>
 </section>
 <section id="deciding-between-confounder-and-effect-modifier" class="slide level2">
 <h2>Deciding between confounder and effect modifier</h2>
@@ -897,6 +1623,16 @@ Nicky Wakim
 </ul></li>
 </ol></li>
 </ul>
+</section>
+<section id="step-1-testing-the-interaction" class="slide level2">
+<h2>Step 1: Testing the interaction</h2>
+<ul>
+<li>We test with <span class="math inline">\(\alpha = 0.10\)</span></li>
+<li>Follow the F-test procedure</li>
+</ul>
+</section>
+<section id="step-2-testing-a-confounder" class="slide level2">
+<h2>Step 2: Testing a confounder</h2>
 </section></section>
 <section>
 <section id="extra-reference-material" class="title-slide slide level1 center">
@@ -955,7 +1691,7 @@ Nicky Wakim
 </ol>
 
 <div class="footer footer-default">
-<p>Interactions</p>
+<p>Interactions 2</p>
 </div>
 </section></section>
     </div>

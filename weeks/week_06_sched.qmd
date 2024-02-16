@@ -153,7 +153,7 @@ Yes! Here are the four types of interactions we'll discuss:
 
 4.  continuous and continuous
 
-### 7. Synergerism vs. antagonism: how does $\beta_3$ relate to each? 
+### 7. Synergerism vs. antagonism: how does $\beta_3$ relate to each?
 
 -   Synergerism means the sign of interaction's coefficient ($\beta_3$) matches that of main effect of $X_1$, so the effect of $X_1$ is strengthened as $X_2$ increases
 

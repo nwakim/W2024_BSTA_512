@@ -1,10 +1,10 @@
 ---
-title: "Interactions 2"
+title: "Lesson 12: Interactions Continued"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#213c96"
 date: "02/14/2024"
-categories: ["Week 6"]
+categories: ["Week 7"]
 format: 
   revealjs:
     theme: [default, simple_NW.scss]
@@ -13,7 +13,7 @@ format:
     show-slide-number: all
     width: 1955
     height: 1100
-    footer: Interactions
+    footer: Interactions 2
     html-math-method: mathjax
     highlight-style: ayu
 execute:
@@ -80,33 +80,254 @@ gapm_sub <- gapm %>% # called it gapm2_sub3 to be consistent with Day 7 notes
 
 # Learning Objective
 
-## Do we think food supply can be an effect modifier for female literacy rate?
+5.  Interpret the interaction component of a model with **two continuous covariates**, and how the main variable's effect changes.
+6.  When there are only two covariates in the model, test whether one is a confounder or effect modifier.
+
+## Do we think food supply is an effect modifier for female literacy rate?
 
 ::: columns
-::: column
+::: {.column width="40%"}
 -   We can start by visualizing the relationship between life expectancy and female literacy rate *by food supply*
+-   Questions of interest: Does the effect of female literacy rate on life expectancy differ depending on food supply?
+
+    -   This is the same as: Is food supply is an effect modifier for female literacy rate? Is food supply an effect modifier of the association between life expectancy and female literacy rate?
+
 -   Let's run an interaction model to see!
 :::
 
-::: column
-```{r fig.height=7, fig.width=9, warning=F, fig.align='center'}
+::: {.column width="60%"}
+```{r fig.height=4, fig.width=6, warning=F, fig.align='center'}
 #| echo: false
 m_int_fs = lm(LifeExpectancyYrs ~ FemaleLiteracyRate*FoodSupplykcPPD, data = gapm_sub)
-(mr1_2d = ggPredict(m_int_fs, interactive = T))
+(mr1_2d = ggPredict(m_int_fs, interactive = T) )
 ```
 :::
 :::
 
-## Interaction between two continuous variables
+## Model with interaction between *two continuous variables*
+
+Model we are fitting:
+
+$$ LE = \beta_0 + \beta_1 FLR^c + \beta_2 FS^c + \beta_3 FLR^c \cdot FS^c + \epsilon$$
+
+-   $LE$ as life expectancy
+-   $FLR^c$ as the **centered** around the mean female literacy rate (continuous variable)
+-   $FS^c$ as the **centered** around the mean food supply (continuous variable)
 
 ```{r}
-m_int_fs = lm(LifeExpectancyYrs ~ FemaleLiteracyRate*FoodSupplykcPPD, data = gapm_sub)
-tidy(m_int_fs, conf.int=T) %>% gt() %>% tab_options(table.font.size = 35) %>% fmt_number(decimals = 3)
+#| code-fold: true
+#| code-summary: "Code to center FLR and FS"
+#| echo: true
+gapm_sub = gapm_sub %>% 
+  mutate(FLR_c = FemaleLiteracyRate - mean(FemaleLiteracyRate), 
+         FS_c = FoodSupplykcPPD - mean(FoodSupplykcPPD))
+mean_FS = mean(gapm_sub$FoodSupplykcPPD) %>% round(digits = 0)
+mean_FLR = mean(gapm_sub$FemaleLiteracyRate) %>% round(digits = 2)
 ```
 
-## Interpretation for interaction between two continuous variables
+In R: 
+```{r}
+#| echo: true
+
+m_int_fs = lm(LifeExpectancyYrs ~ FLR_c + FS_c + FLR_c*FS_c, data = gapm_sub)
+```
+
+OR
+
+```{r}
+#| echo: true
+
+m_int_fs = lm(LifeExpectancyYrs ~ FLR_c*FS_c, data = gapm_sub)
+```
+
+## Displaying the regression table and writing fitted regression equation
+
+```{r}
+#| echo: true
+tidy_m_fs = tidy(m_int_fs, conf.int=T) 
+tidy_m_fs %>% gt() %>% tab_options(table.font.size = 35) %>% fmt_number(decimals = 5)
+```
+
+$$ \begin{aligned}
+\widehat{LE} = & \widehat\beta_0 + \widehat\beta_1 FLR^c + \widehat\beta_2 FS^c + \widehat\beta_3 FLR^c \cdot FS^c \\
+\widehat{LE} = & `r round(tidy_m_fs$estimate[1],2)` + `r round(tidy_m_fs$estimate[2],2)` \cdot FLR^c + `r round(tidy_m_fs$estimate[3],2)` \cdot FS^c - 0.00001 \cdot FLR^c \cdot FS^c
+\end{aligned}$$
+
+## Comparing fitted regression lines for various food supply values
+
+$$ \begin{aligned}
+\widehat{LE} = & \widehat\beta_0 + \widehat\beta_1 FLR^c + \widehat\beta_2 FS^c + \widehat\beta_3 FLR^c \cdot FS^c \\
+\widehat{LE} = & `r round(tidy_m_fs$estimate[1],2)` + `r round(tidy_m_fs$estimate[2],2)` \cdot FLR^c + `r round(tidy_m_fs$estimate[3],2)` \cdot FS^c - 0.00001 \cdot FLR^c \cdot FS^c
+\end{aligned}$$
+
+To identify different lines, we need to pick example values of Food Supply:
+
+
+::: columns
+::: {.column width="33%"}
+::: FS1
+::: FS1-title
+Food Supply of `r mean_FS -1000` kcal PPD
+:::
+
+::: FS1-cont
+$$\begin{aligned} 
+\widehat{LE} = & \widehat\beta_0 + \widehat\beta_1 FLR^c + \\ & \widehat\beta_2 \cdot (-1000) + \\ & \widehat\beta_3 FLR^c \cdot (-1000) \\
+\widehat{LE} = & \big(\widehat\beta_0 - 1000 \widehat\beta_2 \big)+ \\ & \big(\widehat\beta_1 - 1000 \widehat\beta_3  \big) FLR^c
+\end{aligned}$$
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: FS2
+::: FS2-title
+Food Supply of `r mean_FS` kcal PPD
+:::
+
+::: FS2-cont
+$$\begin{aligned} 
+\widehat{LE} = & \widehat\beta_0 + \widehat\beta_1 FLR^c + \\ & \widehat\beta_2 \cdot 0 + \\ & \widehat\beta_3 FLR^c \cdot 0 \\
+\widehat{LE} = & \big(\widehat\beta_0 \big)+ \\ & \big(\widehat\beta_1 \big) FLR^c
+\end{aligned}$$
+:::
+:::
+:::
+
+::: {.column width="33%"}
+::: FS3
+::: FS3-title
+Food Supply of `r mean_FS + 1000` kcal PPD
+:::
+
+::: FS3-cont
+$$\begin{aligned} 
+\widehat{LE} = & \widehat\beta_0 + \widehat\beta_1 FLR^c + \\ & \widehat\beta_2 \cdot 1000 + \\ & \widehat\beta_3 FLR^c \cdot 1000 \\
+\widehat{LE} = & \big(\widehat\beta_0 + 1000 \widehat\beta_2 \big)+ \\ & \big(\widehat\beta_1 + 1000 \widehat\beta_3  \big) FLR^c
+\end{aligned}$$
+:::
+:::
+:::
+
+:::
+
+## Poll Everywhere Question??
+
+## Interpretation for interaction between binary categorical and continuous variables
+
+$$ \begin{aligned}
+\widehat{LE} = & \widehat\beta_0 + \widehat\beta_1 FLR^c + \widehat\beta_2 FS^c + \widehat\beta_3 FLR^c \cdot FS^c \\
+\widehat{LE} = & \bigg[\widehat\beta_0 + \widehat\beta_2 \cdot FS^c \bigg] + \underbrace{\bigg[\widehat\beta_1 + \widehat\beta_3 \cdot FS^c \bigg]}_\text{FLR's effect} FLR \\
+\end{aligned}$$
+
+-   Interpretation:
+
+    -   $\beta_3$ = mean change in female literacy rate's effect, for every one kcal PPD increase in food supply
+
+-   In summary, the interaction term can be interpreted as "difference in adjusted female literacy rate effect for every 1 kcal PPD increase in food supply"
+
+-   It will be helpful to test the interaction to round out this interpretation!!
+
+## Test interaction between multi-level categorical & continuous variables
+
+-   We run an F-test for a group of coefficients ($\beta_5$, $\beta_6$, $\beta_7$) in the below model (see lesson 9)
+
+$$ LE = \beta_0 + \beta_1 FLR^c + \beta_2 FS^c + \beta_3 FLR^c \cdot FS^c + \epsilon$$
+
+::: columns
+
+::: {.column width="10%"}
+::: 
+
+::: {.column width="40%"}
+::: proof1
+::: proof-title
+Null $H_0$
+:::
+
+::: proof-cont
+$$\beta_3=0$$
+:::
+:::
+:::
+
+::: {.column width="40%"}
+::: definition
+::: def-title
+Alternative $H_1$
+:::
+
+::: def-cont
+$$\beta_3\neq0$$ 
+:::
+:::
+:::
+
+::: {.column width="10%"}
+:::
+
+:::
+
+::: columns
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="40%"}
+::: proof1
+::: proof-title
+Null / Smaller / Reduced model
+:::
+
+::: proof-cont
+$$ LE = \beta_0 + \beta_1 FLR^c + \beta_2 FS^c + \epsilon$$
+:::
+:::
+:::
+
+::: {.column width="40%"}
+::: definition
+::: def-title
+Alternative / Larger / Full model
+:::
+
+::: def-cont
+$$\begin{aligned}
+LE = & \beta_0 + \beta_1 FLR^c + \beta_2 FS^c + \\ & \beta_3 FLR^c \cdot FS^c + \epsilon
+\end{aligned}$$
+:::
+:::
+:::
+:::
+
+## Test interaction between multi-level categorical & continuous variables
+
+-   Fit the reduced and full model
+
+```{r}
+#| echo: true
+m_int_fs_red = lm(LifeExpectancyYrs ~ FLR_c + FS_c, 
+                   data = gapm_sub)
+m_int_fs_full = lm(LifeExpectancyYrs ~ FLR_c + FS_c +
+                  FLR_c*FS_c, data = gapm_sub)
+```
+
+ 
+
+```{r}
+#| code-fold: true
+#| code-summary: "Display the ANOVA table with F-statistic and p-value"
+#| echo: true
+anova(m_int_fs_red, m_int_fs_full) %>% tidy() %>% 
+  gt() %>% tab_options(table.font.size = 35) %>% fmt_number(decimals = 3)
+```
+
+-   Conclusion: There is not a significant interaction between female literacy rate and food supply (p = 0.945). Food supply is not an effect modifier of the association between female literacy rate and life expectancy.
 
 # Learning Objective
+
+5.  Interpret the interaction component of a model with **two continuous covariates**, and how the main variable's effect changes.
+6.  When there are only two covariates in the model, test whether one is a confounder or effect modifier.
 
 ## Deciding between confounder and effect modifier
 
@@ -128,6 +349,13 @@ tidy(m_int_fs, conf.int=T) %>% gt() %>% tab_options(table.font.size = 35) %>% fm
         -   For variables that are not included in any interactions:
 
             -   Check to see if they are confounders by seeing whether exclusion of the variable changes any of the main effect of the primary explanatory variable by more than 10%
+
+## Step 1: Testing the interaction
+
+-   We test with $\alpha = 0.10$
+-   Follow the F-test procedure
+
+## Step 2: Testing a confounder
 
 # Extra Reference Material
 
