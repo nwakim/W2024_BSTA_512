@@ -1,5 +1,5 @@
 ---
-title: "Lab 3 Work"
+title: "Lab 3 Instructions"
 subtitle: "BSTA 512/612"
 description: "Due: Thursday February 29, 2024"
 date-modified: "12/21/2024"
@@ -20,20 +20,33 @@ editor_options:
 
 -   Please do not delete the rubric from your `.qmd` file. I will use it to circle the grades!
 
--   Please delete everything
+-   There is an intructions file and a file for you to edit and turn in. Please only work in the latter file!!
 :::
+
+```{r}
+#| message: false
+
+# PLEASE DO NOT REMOVE THIS CODE CHUNK!!!
+### ADD YOUR LIBRARIES HERE!!! ####
+
+library(tidyverse)
+library(gtsummary)
+library(here)
+if(!require(lubridate)) { install.packages("lubridate"); library(lubridate) }
+load("~/Library/CloudStorage/OneDrive-OregonHealth&ScienceUniversity/Teaching/Datasets/Implicit_anti_fat_bias/Data/Data_2021/iat_data.rda")
+```
 
 ## Directions
 
 Please turn in your `.html` file [on Sakai.](https://sakai.ohsu.edu/portal/site/BSTA-512-1-AB-W24/tool/961ec5ef-d7f9-4518-be16-25f7af3d6be4?panel=Main) Please let me know if you greatly prefer to submit a physical copy.
 
-[You can download the `.qmd` file for this lab here.](https://github.com/nwakim/W2024_BSTA_512/blob/main/labs/Lab_02.qmd)
+[You can download the `.qmd` file for this lab here.](https://github.com/nwakim/W2024_BSTA_512/blob/main/labs/Lab_03_students.qmd)
 
-The rest of this lab's instructions are embedded into the lab activities.
+This is the **instructions** file. The link above will take you to the **editing** file where you can add your work!! Please do not remove anything from the editing file!!
 
 ### Purpose
 
-The main purpose of this lab is to introduce our dataset, codebook, and variables. We will continue to think about the context of our research question, but our main focus is to become familiar with the data.
+The main purpose of this lab is to perform some quality control on our data, recode some of the multi-selection categorical variables, continue data exploration, and start analyzing the main relationship of our research question.
 
 ### Grading
 
@@ -51,31 +64,59 @@ The main purpose of this lab is to introduce our dataset, codebook, and variable
 
 ## Lab activities
 
-### 0. Restate your research question 
+### 0. Restate your research question
 
 ::: callout-important
-##### Task 
+##### Task
 
 Please restate your research question below using the following format. It's repetitive, but it helps me contextualize my feedback as I look through your lab.
 :::
 
 How is implicit anti-fat bias, as measured by the IAT score, associated with "insert main independent variable here"?
 
-### 1. Working with multi-level variables 
+## 1. Quality Control
+
+There are a few more issues with the data that we need to look into. First, there is another coding for `NA` values in the race variable: -999. We will need to filter out these observations.
+
+We will also need to look at individuals who have potentially answered the survey questions untruthfully. We cannot catch everything, but a good place to start is by looking at individuals who have done more than one of the following:
+
+-   selected the earliest or latest possible birth year
+
+-   selected the lowest or highest possible education
+
+-   selected all gender identities (for those using gender identity)
+
+-   selected all races (for those using multiple selection race)
+
+-   selected the lowest or highest weight (for those looking at BMI)
+
+-   selected the lowest or highest height (for those looking at BMI)
+
+I want to take a second to mention that any of the above selections, and combinations of the above selections, are valid. However, we should start to flag the possibility that someone has not gone through the survey properly if we see all or close to all the selections above. Additionally, not all of these carry the same importance in discerning validity. For example, a recorded age of 111 years old is the most striking to me. When paired with other selections that are the maximum or minimum (or first or last) option, then I will record it for future investigation. If this observation looks to be an outlier or high leverage point in our analysis, that is when I'll decide to remove it.
+
+::: callout-important
+## Tasks for 1.1
+
+1.  Filter out observations with a value of -999 in the race variable.
+2.  Glimpse at the observations that may indicate a respondant who has not properly completed the survey portion. This will require filtering **for** specific selections.
+:::
+
+### 1. Working with multi-selection variables
+
+In the list of variables that we may choose to work with (in Lab 2), there are two that allowed respondents to select multiple categories. The two variables are `genderIdentitiy` and `raceombmulti`. **If you did not choose these variables to work with, you may skip this section.**
+
+If you chose one or both of these variables.
 
 ### 2. Continuing data exploration
+
 bivariate data exploration
 
 -   Look at all other relationships between IAT score and each covariate.
 
-    -   For categorical variables, is there an inherent order? Does the ordered values follow a linear relationship? Are the categories evenly spaced? Think education - is there a natural place to divide the categories up??
-multivariate data exploration
+    -   For categorical variables, is there an inherent order? Does the ordered values follow a linear relationship? Are the categories evenly spaced? Think education - is there a natural place to divide the categories up?? multivariate data exploration
 
 ### 3. Make a Table 1
 
 ### 4. Fit the simple linear regression
 
-### 5. 
-
-
-
+### 5.

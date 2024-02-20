@@ -12,7 +12,7 @@
 
   <meta name="author" content="Nicky Wakim">
   <meta name="dcterms.date" content="2024-02-26">
-  <title>Linear Models - Lesson 13: Model Selection</title>
+  <title>Linear Models - Lesson 13: Model/Variable Selection</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -328,7 +328,7 @@
     <div class="slides">
 
 <section id="title-slide" data-background-color="#213c96" class="quarto-title-block center">
-  <h1 class="title">Lesson 13: Model Selection</h1>
+  <h1 class="title">Lesson 13: Model/Variable Selection</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -344,6 +344,20 @@ Nicky Wakim
 <section id="learning-objective" class="title-slide slide level1 center">
 <h1>Learning Objective</h1>
 
+</section>
+<section id="why-cant-i-just-throw-in-all-the-variables-into-my-model" class="slide level2">
+<h2>Why can’t I just throw in all the variables into my model?</h2>
+<ul>
+<li><p>First, let’s think about the number of observations in our dataset</p>
+<ul>
+<li><p>For example: In the Gapminder dataset, I can use an indicator for each country</p></li>
+<li><p>Remember that each country is its own observation</p></li>
+<li></li>
+</ul></li>
+</ul>
+</section>
+<section id="bias-variance-trade-off" class="slide level2">
+<h2>Bias-variance trade off</h2>
 </section>
 <section id="model-selection-basics-slide-adjusted-from-jodi-lapidus" class="slide level2">
 <h2>Model Selection basics (slide adjusted from Jodi Lapidus)</h2>
@@ -374,7 +388,7 @@ Nicky Wakim
 </div>
 <div class="def-cont">
 <ul>
-<li><p>Goal: Understand one variable’s (or a group of variable’s) effect on the response after adjusting for other factors</p></li>
+<li><p><strong>Goal:</strong> Understand one variable’s (or a group of variable’s) effect on the response after adjusting for other factors</p></li>
 <li><p>Only interpret the coefficient of the variable that is the focus of the study</p>
 <ul>
 <li>Interpreting the coefficients of the other variables is not important</li>
@@ -390,7 +404,7 @@ Nicky Wakim
 </div>
 <div class="prop-cont">
 <ul>
-<li><p>Goal: to calculate the most precise prediction of the response variable</p></li>
+<li><p><strong>Goal:</strong> to calculate the most precise prediction of the response variable</p></li>
 <li><p>Interpreting coefficients is not important</p></li>
 <li><p>Choose only the variables that are strong predictors of the response variable</p>
 <ul>
@@ -416,13 +430,21 @@ Nicky Wakim
 <ul>
 <li>“Risk factor modeling”</li>
 </ul></li>
-<li><p>Statistical significance-based “canned” strategies</p>
+<li><p>Automated strategies</p>
 <ul>
-<li>Backward/forward/stepwise selection</li>
-<li>Commonly taught but NOT commonly used</li>
+<li>You’ll see these a lot, but they’re not really good methods: Backward/forward/stepwise selection</li>
+<li></li>
 </ul></li>
 <li><p>Change in Estimate (CIE) approaches</p></li>
 </ul>
+</section>
+<section id="general-process-for-association" class="slide level2">
+<h2>General process for association</h2>
+<p>Model selection methods, for the purpose of association, generally consist of the same essential steps:</p>
+<ol type="1">
+<li>Construct a list of all candidate covariates</li>
+<li></li>
+</ol>
 </section>
 <section id="some-model-selection-criteria" class="slide level2">
 <h2>Some model selection criteria</h2>

@@ -1,5 +1,5 @@
 ---
-title: "Lesson 12: Interactions Continued"
+title: "Lesson 11: Interactions Continued"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#213c96"
