@@ -148,61 +148,8 @@ $$ \begin{aligned}
 
 -   
 
-## Limitations of the IAT
+## Notes on interpretations/considerations
 
--   Taking the test multiple times
+-   Remember that multiple linear regression will adjust for variables outside of our research question!
 
-    -   A lot of us mentioned learning bias, which can definitely be true
-
-        -   Think about what direction that might bias our results
-
-    -   Problems with independence between observations
-
--   Generalizability
-
-    -   Does it represent our population? When we just say "population," is there an unsaid assumption on the population we are referring to?
-
-    -   Can we start to narrow the definition of our population to give context to our sample?
-
-## Other notes
-
--   Did not intend for us to get focused on the 3 social theories in the article
-
-    -   If it helps you contextualize, then go for it!
-    -   But make sure you are defining the social theories and connecting them to motivation for your
-
--   Minor writing notes
-
-    -   While folks is a great, inclusive word to describe people, it is a little too informal in reports
-
-        -   Good alternative is "individuals"
-
-    -   Do not use "I" or "think" in report
-
-        -   Can use the royal "We"
-
--   When we talk about our analysis, avoid how "individuals'" scores relate to their other measures.
-
-    -   Important to note that we are not making conclusions about the individual
-
-    -   We are using individual data to make conclusions about the population!
-
-## Moving forward
-
--   Make sure you articulate the motivation for your research question
-
-    -   If you are interested in it, then there is likely some research discussing the relationship
-
-    -   Contextualize why this is a research question worth exploring
-
--   If you want to review your intro, please come to me!
-
-    -   Revising early will be helpful for the report
-    -   I will grade each portion of the report expecting you make the needed changes
-    -   I did not make notes on all edits - tried to identify the bigger things
-
--   Good sources for report help
-
-    -   [Structuring research articles](https://academic.oup.com/intqhc/article/16/3/191/1814554)
-    -   [Inclusive language practices](https://www.editage.com/insights/how-to-ensure-bias-free-and-inclusive-language-in-your-research-papers)
-    -   [Guide on improving readability](https://paperpal.com/blog/researcher-resources/research-advice/language-in-research-paper)
+    -   So we either adjust with a main effect or an interaction!
