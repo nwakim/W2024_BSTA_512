@@ -146,10 +146,14 @@ $$ \begin{aligned}
 
 -   `#| message: false` Please use!
 
--   
+-   When assigning category names, capitalization of the first word in each category is customary
 
 ## Notes on interpretations/considerations
 
 -   Remember that multiple linear regression will adjust for variables outside of our research question!
 
     -   So we either adjust with a main effect or an interaction!
+
+## How should a table look?
+
+## How should a plot look?

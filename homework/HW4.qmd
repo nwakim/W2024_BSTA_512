@@ -2,9 +2,9 @@
 title: "Homework 4"
 subtitle: "BSTA 512/612"
 author: "Your name here!!!"
-description: "Due: Thursday February 22, 2024 at 11pm"
+description: "Due: Sunday February 25, 2024 at 11pm"
 date-modified: "today"
-date: "2/22/2024"
+date: "2/25/2024"
 format: 
   html:
     link-external-newwindow: true

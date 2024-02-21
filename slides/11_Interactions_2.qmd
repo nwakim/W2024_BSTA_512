@@ -3,8 +3,8 @@ title: "Lesson 11: Interactions Continued"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#213c96"
-date: "02/14/2024"
-categories: ["Week 7"]
+date: "02/26/2024"
+categories: ["Week 8"]
 format: 
   revealjs:
     theme: [default, simple_NW.scss]
@@ -213,7 +213,7 @@ $$\begin{aligned}
 
 ## Poll Everywhere Question??
 
-## Interpretation for interaction between binary categorical and continuous variables
+## Interpretation for interaction between two continuous variables
 
 $$ \begin{aligned}
 \widehat{LE} = & \widehat\beta_0 + \widehat\beta_1 FLR^c + \widehat\beta_2 FS^c + \widehat\beta_3 FLR^c \cdot FS^c \\
@@ -228,7 +228,7 @@ $$ \begin{aligned}
 
 -   It will be helpful to test the interaction to round out this interpretation!!
 
-## Test interaction between multi-level categorical & continuous variables
+## Test interaction between two continuous variables
 
 -   We run an F-test for a group of coefficients ($\beta_5$, $\beta_6$, $\beta_7$) in the below model (see lesson 9)
 
@@ -300,7 +300,7 @@ LE = & \beta_0 + \beta_1 FLR^c + \beta_2 FS^c + \\ & \beta_3 FLR^c \cdot FS^c + 
 :::
 :::
 
-## Test interaction between multi-level categorical & continuous variables
+## Test interaction between two continuous variables
 
 -   Fit the reduced and full model
 
