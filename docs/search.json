@@ -3294,7 +3294,7 @@
     "href": "weeks/week_07_sched.html#muddiest-points",
     "title": "Week 7",
     "section": "Muddiest Points",
-    "text": "Muddiest Points\nThis will be filled in with your Exit Ticket responses."
+    "text": "Muddiest Points\n\n1. Interactions in general\n\n1.1 Why is it not an effect modifier if p-value is 0.4? Or why is it not significant? Is it because it is not = 0?\n\n\n1.2 What are some reasons why we would think an effect modifier might exist in our data? or are we testing indiscriminately/ based on our own perspective of the associations in the data\n\n\n1.3 I’m still not entirely sure I know how to do all the steps of interaction models, but I think part of that may just be me needing to look at my previous notes.\n\n\n\n2. Centering the continuous covariate\n\n2.1 How does centering help with interpretation?\nI think this blog post has a nice explanation.\nBut for an example from our class… centering female literacy rate can help us interpret the\n\n\n2.2 Why do some values of \\(\\beta\\) change after centering the mean and others don’t?"
   },
   {
     "objectID": "weeks/week_07_sched.html#clearest-points",
