@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-02-29">
-<meta name="description" content="Due: Thursday February 29, 2024">
+<meta name="author" content="Your name here!!">
+<meta name="dcterms.date" content="2024-03-03">
+<meta name="description" content="Due: March 3, 2024 at 11pm">
 
 <title>Linear Models - Lab 3</title>
 <style>
@@ -20,6 +21,40 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -4550,6 +4585,12 @@ vertical-align: -.125em;
  <span class="menu-text">Resources</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quizzes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quizzes</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -4593,8 +4634,26 @@ vertical-align: -.125em;
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Lab_03.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#directions" id="toc-directions" class="nav-link active" data-scroll-target="#directions"><span class="header-section-number">1</span> Directions</a>
+  <ul class="collapse">
+  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading"><span class="header-section-number">1.1</span> Grading</a></li>
+  </ul></li>
+  <li><a href="#lab-activities" id="toc-lab-activities" class="nav-link" data-scroll-target="#lab-activities"><span class="header-section-number">2</span> Lab activities</a>
+  <ul class="collapse">
+  <li><a href="#restate-your-research-question" id="toc-restate-your-research-question" class="nav-link" data-scroll-target="#restate-your-research-question"><span class="header-section-number">2.1</span> Restate your research question</a></li>
+  <li><a href="#quality-control" id="toc-quality-control" class="nav-link" data-scroll-target="#quality-control"><span class="header-section-number">2.2</span> Quality Control</a></li>
+  <li><a href="#working-with-multi-selection-variables" id="toc-working-with-multi-selection-variables" class="nav-link" data-scroll-target="#working-with-multi-selection-variables"><span class="header-section-number">2.3</span> Working with multi-selection variables</a></li>
+  <li><a href="#thinking-about-potential-confounders-and-effect-modifiers" id="toc-thinking-about-potential-confounders-and-effect-modifiers" class="nav-link" data-scroll-target="#thinking-about-potential-confounders-and-effect-modifiers"><span class="header-section-number">2.4</span> Thinking about potential confounders and effect modifiers</a></li>
+  <li><a href="#continuing-data-exploration" id="toc-continuing-data-exploration" class="nav-link" data-scroll-target="#continuing-data-exploration"><span class="header-section-number">2.5</span> Continuing data exploration</a></li>
+  <li><a href="#fit-a-simple-linear-regression" id="toc-fit-a-simple-linear-regression" class="nav-link" data-scroll-target="#fit-a-simple-linear-regression"><span class="header-section-number">2.6</span> Fit a simple linear regression</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -4606,25 +4665,31 @@ vertical-align: -.125em;
 
 <div>
   <div class="description">
-    Due: Thursday February 29, 2024
+    Due: March 3, 2024 at 11pm
   </div>
 </div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Your name here!! </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 29, 2024</p>
+      <p class="date">March 3, 2024</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">December 21, 2024</p>
+      <p class="date-modified">February 23, 2024</p>
     </div>
   </div>
     
@@ -4633,12 +4698,210 @@ vertical-align: -.125em;
 
 </header>
 
-<ol start="5" type="1">
-<li>Make a Table 1</li>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PLEASE DO NOT REMOVE THIS CODE CHUNK!!!</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">### ADD YOUR LIBRARIES HERE!!! ####</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="directions" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="directions"><span class="header-section-number">1</span> Directions</h2>
+<p><a href="https://github.com/nwakim/W2024_BSTA_512/blob/main/labs/Lab_03.qmd">You can download the <code>.qmd</code> file for this lab here.</a></p>
+<p>This is your <strong>editing</strong> file. <strong>Please do not remove anything from this editing file!!</strong> You will only add your code and work to this file.</p>
+<section id="grading" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="grading"><span class="header-section-number">1.1</span> Grading</h3>
+<p><strong>This lab is graded out of 12 points.</strong> Nicky will use the following rubric to assign grades.</p>
+<section id="rubric" class="level4" data-number="1.1.1">
+<h4 data-number="1.1.1" class="anchored" data-anchor-id="rubric"><span class="header-section-number">1.1.1</span> Rubric</h4>
+<table class="table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>4 points</th>
+<th>3 points</th>
+<th>2 points</th>
+<th>1 point</th>
+<th>0 points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Formatting</td>
+<td>Lab submitted on Sakai with <code>.html</code> file. Answers are written in complete sentences with no major grammatical nor spelling errors. With little editing, the answer can be incorporated into the project report.</td>
+<td>Lab submitted on Sakai with <code>.html</code> file. Answers are written in complete sentences with grammatical or spelling errors. With editing, the answer can be incorporated into the project report.</td>
+<td>Lab submitted on Sakai with <code>.html</code> file. Answers are written in complete sentences with major grammatical or spelling errors. With major editing, the answer can be incorporated into the project report.</td>
+<td>Lab submitted on Sakai with <code>.html</code> file. Answers are bulletted or do not use complete sentences.</td>
+<td>Lab <em>not</em> submitted on Sakai with <code>.html</code> file.</td>
+</tr>
+<tr class="even">
+<td>Code/Work</td>
+<td>All tasks are directly followed or answered. This includes all the needed code, in code chunks, with the requested output.</td>
+<td>All tasks are directly followed or answered. This includes all the needed code, in code chunks, with the requested output. In a few tasks, the code syntax or output is not quite right.</td>
+<td>Most tasks are directly followed or answered. This includes all the needed code, in code chunks, with the requested output.</td>
+<td>Some tasks are directly followed or answered.This includes all the needed code, in code chunks, with the requested output. In a few tasks, the code syntax or output is not quite right.</td>
+<td>More than a quarter of the tasks are not completed properly.</td>
+</tr>
+<tr class="odd">
+<td>Reasoning*</td>
+<td>Answers demonstrate understanding of research context and investigation of the data. Answers are thoughtful and can be easily integrated into the final report.</td>
+<td>Answers demonstrate understanding of research context and investigation of the data. Answers are thoughtful, but lack the clarity needed to easily integrate into the final report.</td>
+<td>Answers demonstrate some understanding of research context and investigation of the data. Answers are fairly thoughtful, but lack connection to the research.</td>
+<td>Answers demonstrate some understanding of research context and investigation of the data. Answers seem rushed and with minimal thought.</td>
+<td>Answers lack understanding of research context and investigation of the data. Answers seem rushed and without thought.</td>
+</tr>
+</tbody>
+</table>
+<p>*Applies to questions with reasoning (like Section 2.4 and explanations in Section 2.5)</p>
+</section>
+</section>
+</section>
+<section id="lab-activities" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="lab-activities"><span class="header-section-number">2</span> Lab activities</h2>
+<p>Before starting this lab, you should go back to Lab 2, save a new <code>.rda</code> file that contains all the new variables from that Lab. Then you can load it here!</p>
+<section id="restate-your-research-question" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="restate-your-research-question"><span class="header-section-number">2.1</span> Restate your research question</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please restate your research question below using the provided format. It’s repetitive, but it helps me contextualize my feedback as I look through your lab.</p>
+</div>
+</div>
+</section>
+<section id="quality-control" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="quality-control"><span class="header-section-number">2.2</span> Quality Control</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tasks
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Filter out observations with a value of -999 in the race variable.</li>
+<li>Glimpse at the observations that may indicate a respondent who has not properly completed the survey portion. This will require filtering <strong>for</strong> specific answer choices. <a href="https://dplyr.tidyverse.org/reference/filter.html#ref-examples">Please see examples of <code>filter()</code> on it’s documentation page.</a></li>
 </ol>
-<p>bivariate data exploration multivariate data exploration</p>
+</div>
+</div>
+</section>
+<section id="working-with-multi-selection-variables" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="working-with-multi-selection-variables"><span class="header-section-number">2.3</span> Working with multi-selection variables</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you are using <code>genderIdentity</code> or <code>raceombmulti</code>, create indicator variables for each possible selection.</p>
+</div>
+</div>
+</section>
+<section id="thinking-about-potential-confounders-and-effect-modifiers" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="thinking-about-potential-confounders-and-effect-modifiers"><span class="header-section-number">2.4</span> Thinking about potential confounders and effect modifiers</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For each variable, consider how each could alter the relationship between IAT score and your variable of interest (from your research question). For each covariate, explain how it might or might not change the relationship.</p>
+</div>
+</div>
+</section>
+<section id="continuing-data-exploration" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="continuing-data-exploration"><span class="header-section-number">2.5</span> Continuing data exploration</h3>
+<section id="bivariate-exploration" class="level4" data-number="2.5.1">
+<h4 data-number="2.5.1" class="anchored" data-anchor-id="bivariate-exploration"><span class="header-section-number">2.5.1</span> Bivariate exploration</h4>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For each variable outside of your research question, create the appropriate plot to visualize the relationship between IAT score and the variable. Comment if there is an obvious trend or not.</p>
+</div>
+</div>
+</section>
+<section id="multivariate-exploration" class="level4" data-number="2.5.2">
+<h4 data-number="2.5.2" class="anchored" data-anchor-id="multivariate-exploration"><span class="header-section-number">2.5.2</span> Multivariate exploration</h4>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For at least 3 variables outside of your research question, create the appropriate plot to visualize the relationship between IAT score, your main variable (in research question), and the variable outside your research question. Comment whether you can determine anything from the plot or not. If you can, is there any indication that the variable is a confounder or effect modifier?</p>
+</div>
+</div>
+</section>
+</section>
+<section id="fit-a-simple-linear-regression" class="level3" data-number="2.6">
+<h3 data-number="2.6" class="anchored" data-anchor-id="fit-a-simple-linear-regression"><span class="header-section-number">2.6</span> Fit a simple linear regression</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Run a simple linear regression model for the relationship in your primary research question. Print the regression table. Interpret the results and comment on the initial trend you see.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Bonus Task
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is not required in Lab 3. However, if you want to run a multiple linear regression model with one other variable that you plotted in Multivariate Exploration, then you should try it! Do the results align with your ideas in Section 2.4 and/or the visualization you saw in Section 2.5?</p>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
