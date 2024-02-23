@@ -67,9 +67,9 @@ schedule:
         date: 2/15/24
         calendar-color: "#4FADF3"
         calendar-color2: "#FFFFFF" 
-      - title: "HW 4 due"
+      - title: "HW 4 due 2/25"
         href: homework/HW4.qmd
-        date: 2/22/24
+        date: 2/23/24
         calendar-color: "#4FADF3"
         calendar-color2: "#FFFFFF" 
       - title: "HW 5 due"
@@ -101,9 +101,9 @@ schedule:
         date: 2/8/24
         calendar-color: "#34AC8B"
         calendar-color2: "#FFFFFF" 
-      - title: "Lab 3 due"
+      - title: "Lab 3 due 3/3"
         href: labs/Lab_03.qmd
-        date: 2/29/24
+        date: 3/1/24
         calendar-color: "#34AC8B"
         calendar-color2: "#FFFFFF" 
       - title: "Lab 4 due"

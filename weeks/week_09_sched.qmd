@@ -31,7 +31,7 @@ editor_options:
 ## Resources
 
 | Lesson | Topic                              |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
-|--------|------------------------------------|:---------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:-------------------------------------------------------------:|
+|-------------|-------------|:-------------:|:----------------:|:-----------:|
 | 14     | Model Selection 2                  | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#49A3D1;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 15     | Model Evaluation and Diagnostics 1 | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 

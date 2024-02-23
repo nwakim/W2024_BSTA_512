@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2024-02-26">
-<meta name="description" content="Model Building and Selection">
+<meta name="description" content="Interactions continued + Model Building and Selection">
 
 <title>Linear Models - Week 8</title>
 <style>
@@ -227,7 +227,11 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#resources" id="toc-resources" class="nav-link active" data-scroll-target="#resources">Resources</a></li>
   <li><a href="#on-the-horizon" id="toc-on-the-horizon" class="nav-link" data-scroll-target="#on-the-horizon">On the Horizon</a></li>
-  <li><a href="#announcements" id="toc-announcements" class="nav-link" data-scroll-target="#announcements">Announcements</a></li>
+  <li><a href="#announcements" id="toc-announcements" class="nav-link" data-scroll-target="#announcements">Announcements</a>
+  <ul class="collapse">
+  <li><a href="#monday-226" id="toc-monday-226" class="nav-link" data-scroll-target="#monday-226">Monday 2/26</a></li>
+  <li><a href="#wednesday-228" id="toc-wednesday-228" class="nav-link" data-scroll-target="#wednesday-228">Wednesday 2/28</a></li>
+  </ul></li>
   <li><a href="#class-exit-tickets" id="toc-class-exit-tickets" class="nav-link" data-scroll-target="#class-exit-tickets">Class Exit Tickets</a></li>
   <li><a href="#muddiest-points" id="toc-muddiest-points" class="nav-link" data-scroll-target="#muddiest-points">Muddiest Points</a></li>
   </ul>
@@ -243,7 +247,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Model Building and Selection
+    Interactions continued + Model Building and Selection
   </div>
 </div>
 
@@ -261,7 +265,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 19, 2024</p>
+      <p class="date-modified">February 23, 2024</p>
     </div>
   </div>
     
@@ -290,13 +294,6 @@ ul.task-list li input[type="checkbox"] {
 <section id="resources" class="level2">
 <h2 class="anchored" data-anchor-id="resources">Resources</h2>
 <table class="table">
-<colgroup>
-<col style="width: 2%">
-<col style="width: 19%">
-<col style="width: 25%">
-<col style="width: 30%">
-<col style="width: 22%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Lesson</th>
@@ -308,13 +305,21 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>12</td>
-<td>Maybe interactions continued + Polynomial regression</td>
+<td>11.1</td>
+<td>Interactions</td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/11_Interactions.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/11_Interactions.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
+<td style="text-align: center;"><p><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F11%5FInteractions%5F1%2Emp4&amp;referrer=StreamWebApp%2EWeb&amp;referrerScenario=AddressBarCopied%2Eview"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></p>
+<p><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F11%5FInteractions%5F2%2Emp4&amp;referrer=StreamWebApp%2EWeb&amp;referrerScenario=AddressBarCopied%2Eview"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></p></td>
+</tr>
+<tr class="even">
+<td>11.2</td>
+<td>Interactions continued</td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>13</td>
 <td>Model selection 1</td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></span></td>
@@ -326,14 +331,24 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="on-the-horizon" class="level2">
 <h2 class="anchored" data-anchor-id="on-the-horizon">On the Horizon</h2>
+<ul>
+<li><p>Lab 3 due 3/3 at 11pm</p></li>
+<li><p>HW 5 (last homework!!) due 3/7</p></li>
+</ul>
 </section>
 <section id="announcements" class="level2">
 <h2 class="anchored" data-anchor-id="announcements">Announcements</h2>
+<section id="monday-226" class="level3">
+<h3 class="anchored" data-anchor-id="monday-226">Monday 2/26</h3>
+</section>
+<section id="wednesday-228" class="level3">
+<h3 class="anchored" data-anchor-id="wednesday-228">Wednesday 2/28</h3>
+</section>
 </section>
 <section id="class-exit-tickets" class="level2">
 <h2 class="anchored" data-anchor-id="class-exit-tickets">Class Exit Tickets</h2>
-<p><span style="color:#f8f5f0;"><iconify-icon inline="" icon="healthicons:health-worker-form-negative" style="font-size: 30px;"></iconify-icon></span> Monday (2/26)</p>
-<p><span style="color:#f8f5f0;"><iconify-icon inline="" icon="healthicons:health-worker-form-negative" style="font-size: 30px;"></iconify-icon></span> Wednesday (2/28)</p>
+<p><span style="color:#f8f5f0;"><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUREZLTkxLUUlBNk4wODRKRkNCQk1HVzRKNi4u"><iconify-icon inline="" icon="healthicons:health-worker-form-negative" style="font-size: 30px;"></iconify-icon></a></span> Monday (2/26)</p>
+<p><span style="color:#f8f5f0;"><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUQU9ZNzY0NEs4TEVVRFZVU1FHMTJGSEFXOC4u"><iconify-icon inline="" icon="healthicons:health-worker-form-negative" style="font-size: 30px;"></iconify-icon></a></span> Wednesday (2/28)</p>
 </section>
 <section id="muddiest-points" class="level2">
 <h2 class="anchored" data-anchor-id="muddiest-points">Muddiest Points</h2>
