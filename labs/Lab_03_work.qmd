@@ -147,7 +147,9 @@ If you are using `genderIdentity` or `raceombmulti`, create indicator variables 
 
 ### Thinking about potential confounders and effect modifiers
 
-Before we explore more of the data, I want us to take a second to think through potential confounders and effect modifiers from the covariates that we selected in Lab 2. For some of the covariates, we were asked to explain why we chose them. Now I want you to consider how each could alter the relationship between IAT score and your variable of interest (from your research question). For each covariate, explain how it might or might not change the relationship. For example, if our variable of interest is fat group identity, then we may consider that self-perception of size is a confounder since it could be linked with fat group identity and potentially be associated with IAT score. For multi-level, unordered categorical covariates, you might consider if a specific category has an impact. For example, we might consider creating an indicator for white, non-Hispanic/Lantinx respondents since the history of fatphobia is tied with white-centered colonization and white supremacy (Redpath, 2023). Thus IAT scores might look different for white respondents vs. minority respondents (those who answered American Indian/Alaskan Natives; East Asian; South Asian; Native Hawaiian or other Pacific Islander; Black or African American; or Hispanic or Latino).
+Before we explore more of the data, I want us to take a second to think through potential confounders and effect modifiers from the covariates that we selected in Lab 2. For some of the covariates, we were asked to explain why we chose them. Now I want you to consider how each could alter the relationship between IAT score and your variable of interest (from your research question). For each covariate, explain how it might or might not change the relationship. For example, if our variable of interest is fat group identity, then we may consider that self-perception of size is a confounder since it could be linked with fat group identity and potentially be associated with IAT score. 
+
+For multi-level, unordered categorical covariates, you might consider if a specific category has an impact. For example, we might consider creating an indicator for white, non-Hispanic/Lantinx respondents since the history of fatphobia is tied with white-centered colonization and white supremacy (Redpath, 2023). Thus IAT scores might look different for White respondents vs. minority respondents (those who answered American Indian/Alaskan Natives; East Asian; South Asian; Native Hawaiian or other Pacific Islander; Black or African American; or Hispanic or Latino). Alternatively, we may not want to center our analysis on whiteness. The same fatphobic history involving white supremacy was particularly targetting Black people. So perhaps we want make an indicator for Black or African American respondents. Another option is leaving race as is - we may have enough data to handle the inclusion of all groups!
 
 The purpose of this section is to make sure we are thinking about the relationships between variables in our analysis. I do not want us to make any decisions based solely on the data. I want any changes or manipulations in our variables to be motivated by research-backed evidence.
 
@@ -192,7 +194,7 @@ ggplot(iat_prep2, aes(x = important_001, y=IAT_score, color = as.factor(raceomb_
   stat_summary(fun = mean, geom = "point", size = 3, shape = 18) +
   stat_summary(fun = mean, geom="line") +
   scale_x_discrete(limits = levels(iat_prep2$important_001_f)) +
-  labs(x = "Importance of weight to sense of self", 
+  labs(x = "Importance of weight to sense of self \n (Internalization of societal standards)", 
        y = "IAT score",
        title = "Mean IAT scores for importance of weight to sense of self by race", 
        color = "Race") +
@@ -200,6 +202,10 @@ ggplot(iat_prep2, aes(x = important_001, y=IAT_score, color = as.factor(raceomb_
 ```
 
 Note that the above plot is **specific** for these variables!! Other variables may require a different type of visualization!! Also note that I originally had `geom_jitter()` in my plot, which would make the plot really hard to understand!! Try uncommenting it to see what I mean by "hard to understand." Also, think about why I connected the mean IAT scores across the different levels of internalization. I had a hard time connecting specific race's points to identify a trend. Again, try commenting out `stat_summary(fun = mean, geom="line")` to see what I mean.
+
+::: callout-note
+An aside: You may see that collapsing groups might wash out differences. If we make an indicator for Black of African American respondents, as we mentioned above, then including White respondents with other minority groups may wash out their association with IAT score and wrongly lead us to a model that says identifying as Black or African American has no association with IAT, where we clearly see that Black or African American respondents have a unique trajectory for IAT scores. 
+:::
 
 Please make sure that you have made the needed changes to your plot in Lab 2. I noticed many unordered groups in plots where there should be an inherent order and unreadable axes because the text was not tilted. Please see discussion on Slack for what some students did to achieve these plots.
 
