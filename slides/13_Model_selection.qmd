@@ -3,7 +3,7 @@ title: "Lesson 13: Model/Variable Selection"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#213c96"
-date: "02/26/2024"
+date: "02/28/2024"
 categories: ["Week 8"]
 format: 
   revealjs:

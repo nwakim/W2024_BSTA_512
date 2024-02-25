@@ -1,0 +1,67 @@
+---
+title: "Lesson 12: In-class exercise!!"
+subtitle: "Choosing what to test, interpretations of coefficients, F-test conclusions, and interactions"
+author: "Nicky Wakim"
+title-slide-attributes:
+    data-background-color: "#213c96"
+date: "02/28/2024"
+categories: ["Week 8"]
+format: 
+  revealjs:
+    theme: [default, simple_NW.scss]
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1955
+    height: 1100
+    footer: Model Selection
+    html-math-method: mathjax
+    highlight-style: ayu
+execute:
+  freeze: auto  # re-render only when source changes
+---
+
+\
+
+```{r}
+#| label: "setup" 
+#| include: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(janitor)
+library(knitr)
+library(broom)
+library(rstatix)
+library(gt)
+library(readxl)
+library(describedata) # gladder()
+library(gridExtra)   # grid.arrange()
+library(ggfortify)  # autoplot(model)
+library(gtsummary)
+library(plotly) # for plot_ly() command
+library(GGally) # for ggpairs() command 
+library(ggiraphExtra)   # for ggPredict() command
+
+SBP = read_excel("~/Library/CloudStorage/OneDrive-OregonHealth&ScienceUniversity/Teaching/Resources_from_Meike/B512_W23_shared/textbook/datasets/BSTA512_datasets/CH11/CH11Q05.xls") %>%
+  rename(SBP = Y, PAL = X1, AGE = X2, SAB = X3)
+
+SBP = read_excel("~/Library/CloudStorage/OneDrive-OregonHealth&ScienceUniversity/Teaching/Resources_from_Meike/B512_W23_shared/textbook/datasets/BSTA512_datasets/CH05/CH05Q02.xls")
+```
+
+## Example
+
+-   The following example comes from **this textbook**
+
+> Suppose that we are conducting an observational study of adults to assess whether physical activity level (PAL) is associated with systolic blood pressure (SBP), accounting (i.e., controlling) for AGE and SAB (sex assigned at birth). The extraneous variable here is AGE and SAB, while the explanatory variable (variable of interest) is PAL. We need to determine whether we can ignore AGE and/or SAB in our analysis and still correctly assess the PAL–SBP association.
+
+## Explore the data: First thing to do
+
+```{r}
+#| code-fold: true
+
+ggplot(SBP) + geom_histogram(aes(x = SBP))
+ggplot(SBP) + geom_histogram(aes(x = PAL))
+ggplot(SBP) + geom_histogram(aes(x = AGE))
+```

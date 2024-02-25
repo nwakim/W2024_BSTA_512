@@ -12,7 +12,7 @@
 
   <meta name="author" content="Nicky Wakim">
   <meta name="dcterms.date" content="2024-02-28">
-  <title>Linear Models - Lesson 13: Model/Variable Selection</title>
+  <title>Linear Models - Lesson 12: In-class exercise!!</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -328,7 +328,8 @@
     <div class="slides">
 
 <section id="title-slide" data-background-color="#213c96" class="quarto-title-block center">
-  <h1 class="title">Lesson 13: Model/Variable Selection</h1>
+  <h1 class="title">Lesson 12: In-class exercise!!</h1>
+  <p class="subtitle">Choosing what to test, interpretations, and interactions</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -340,119 +341,19 @@ Nicky Wakim
 
   <p class="date">2024-02-28</p>
 </section>
-<section>
-<section id="learning-objective" class="title-slide slide level1 center">
-<h1>Learning Objective</h1>
-
-</section>
-<section id="why-cant-i-just-throw-in-all-the-variables-into-my-model" class="slide level2">
-<h2>Why can’t I just throw in all the variables into my model?</h2>
+<section id="example" class="slide level2">
+<h2>Example</h2>
 <ul>
-<li><p>First, let’s think about the number of observations in our dataset</p>
-<ul>
-<li><p>For example: In the Gapminder dataset, I can use an indicator for each country</p></li>
-<li><p>Remember that each country is its own observation</p></li>
-<li></li>
-</ul></li>
+<li>The following example comes from <strong>this textbook</strong></li>
 </ul>
-</section>
-<section id="bias-variance-trade-off" class="slide level2">
-<h2>Bias-variance trade off</h2>
-</section>
-<section id="model-selection-basics-slide-adjusted-from-jodi-lapidus" class="slide level2">
-<h2>Model Selection basics (slide adjusted from Jodi Lapidus)</h2>
-<ul>
-<li><p>“Because models always fall far short of the complex reality under study, there are no best or optimal strategies for modeling.”</p>
-<ul>
-<li>From: <a href="https://www.annualreviews.org/doi/pdf/10.1146/annurev-publhealth-031914-122559">Statistical Foundations for Model-Based Adjustments</a></li>
-</ul></li>
-<li><p>Not all statistical texts provide practical advice on model development</p>
-<ul>
-<li>Moore text includes methods/code to compare models, but does not include much advice re: selecting which model to ultimately use.</li>
-<li>Other texts are sparse on details or incorporate simplistic approaches</li>
-</ul></li>
-<li><p>Model development strategy should <strong>align with research goals</strong></p>
-<ul>
-<li>Prediction vs.&nbsp;Estimating Association</li>
-<li>Strategy may depend on study design and data set size</li>
-</ul></li>
-</ul>
-</section>
-<section id="the-goals-of-association-vs.-prediction" class="slide level2">
-<h2>The goals of association vs.&nbsp;prediction</h2>
-<div class="columns">
-<div class="column">
-<div class="definition">
-<div class="def-title">
-<p>Association / Explanatory / One variable’s effect</p>
-</div>
-<div class="def-cont">
-<ul>
-<li><p><strong>Goal:</strong> Understand one variable’s (or a group of variable’s) effect on the response after adjusting for other factors</p></li>
-<li><p>Only interpret the coefficient of the variable that is the focus of the study</p>
-<ul>
-<li>Interpreting the coefficients of the other variables is not important</li>
-</ul></li>
-<li><p>Any variables not selected for the final model have still been adjusted for, since they had a chance to be in the model</p></li>
-</ul>
-</div>
-</div>
-</div><div class="column">
-<div class="proposition">
-<div class="prop-title">
-<p>Prediction</p>
-</div>
-<div class="prop-cont">
-<ul>
-<li><p><strong>Goal:</strong> to calculate the most precise prediction of the response variable</p></li>
-<li><p>Interpreting coefficients is not important</p></li>
-<li><p>Choose only the variables that are strong predictors of the response variable</p>
-<ul>
-<li>Excluding irrelevant variables can help reduce widths of the prediction intervals</li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="model-building-for-association-vs.-prediction" class="slide level2">
-<h2>Model building for association vs.&nbsp;prediction</h2>
-<p><a href="https://onlinelibrary.wiley.com/doi/10.1016/j.pmrj.2014.08.941">More information on the two analysis goals:</a></p>
-
-<img data-src="13_Model_selection/explanatory_v_prediction.png" class="r-stretch quarto-figure-center"><p><a href="https://onlinelibrary.wiley.com/authored-by/Sainani/Kristin+L.?startPage=&amp;SeriesKey=19341563">If you ever get the chance, check out Dr.&nbsp;Kristin Sainani’s series on Statistics</a></p>
-</section>
-<section id="model-selection-strategies-slide-adjusted-from-jodi-lapidus" class="slide level2">
-<h2>Model selection strategies (slide adjusted from Jodi Lapidus)</h2>
-<ul>
-<li><p>Pre-specification of multivariable model</p></li>
-<li><p>Purposeful model selection (Categorical data analysis)</p>
-<ul>
-<li>“Risk factor modeling”</li>
-</ul></li>
-<li><p>Automated strategies</p>
-<ul>
-<li>You’ll see these a lot, but they’re not really good methods: Backward/forward/stepwise selection</li>
-<li></li>
-</ul></li>
-<li><p>Change in Estimate (CIE) approaches</p></li>
-</ul>
-</section>
-<section id="general-process-for-association" class="slide level2">
-<h2>General process for association</h2>
-<p>Model selection methods, for the purpose of association, generally consist of the same essential steps:</p>
-<ol type="1">
-<li>Construct a list of all candidate covariates</li>
-<li></li>
-</ol>
-</section>
-<section id="some-model-selection-criteria" class="slide level2">
-<h2>Some model selection criteria</h2>
+<blockquote>
+<p>Suppose that we are conducting an observational study of adults to assess whether physical activity level (PAL) is associated with systolic blood pressure (SBP), accounting (i.e., controlling) for AGE and SAB (sex assigned at birth). The extraneous variable here is AGE and SAB, while the explanatory variable (variable of interest) is PAL. We need to determine whether we can ignore AGE and/or SAB in our analysis and still correctly assess the PAL–SBP association.</p>
+</blockquote>
 
 <div class="footer footer-default">
 <p>Model Selection</p>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 

@@ -1,5 +1,5 @@
 ---
-title: "MLR: F-test"
+title: "MLR: Inference / F-test"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#213c96"
