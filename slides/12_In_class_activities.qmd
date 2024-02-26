@@ -47,7 +47,7 @@ library(ggiraphExtra)   # for ggPredict() command
 SBP = read_excel("~/Library/CloudStorage/OneDrive-OregonHealth&ScienceUniversity/Teaching/Resources_from_Meike/B512_W23_shared/textbook/datasets/BSTA512_datasets/CH11/CH11Q05.xls") %>%
   rename(SBP = Y, PAL = X1, AGE = X2, SAB = X3)
 
-SBP = read_excel("~/Library/CloudStorage/OneDrive-OregonHealth&ScienceUniversity/Teaching/Resources_from_Meike/B512_W23_shared/textbook/datasets/BSTA512_datasets/CH05/CH05Q02.xls")
+# SBP = read_excel("~/Library/CloudStorage/OneDrive-OregonHealth&ScienceUniversity/Teaching/Resources_from_Meike/B512_W23_shared/textbook/datasets/BSTA512_datasets/CH05/CH05Q02.xls")
 ```
 
 ## Example

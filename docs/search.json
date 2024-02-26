@@ -14480,14 +14480,14 @@
     "href": "slides/11_Interactions_2.html#step-2-see-if-income-is-a-confounder",
     "title": "Lesson 11: Interactions Continued",
     "section": "Step 2: See if income is a confounder",
-    "text": "Step 2: See if income is a confounder\n\nFit the reduced and full model\n\n\nmod1_wr_inc_red = lm(LifeExpectancyYrs ~ four_regions, \n                   data = gapm_sub)\nmod1_wr_inc_full = lm(LifeExpectancyYrs ~ four_regions + income_levels2, \n                   data = gapm_sub)"
+    "text": "Step 2: See if income is a confounder\n\nFit the reduced and full model for testing the confounder\n\n \n\nModel 1 (reduced): \\(\\begin{aligned}LE = &\\beta_0 + \\beta_1 I(\\text{Americas}) + \\beta_2 I(\\text{Asia}) + \\beta_3 I(\\text{Europe}) + \\epsilon \\end{aligned}\\)\n\n\nmod1_wr_inc_red = lm(LifeExpectancyYrs ~ four_regions, \n                   data = gapm_sub)\n\n \n\nModel 2 (full): \\(\\begin{aligned}LE = &\\beta_0 + \\beta_1 I(\\text{Americas}) + \\beta_2 I(\\text{Asia}) + \\beta_3 I(\\text{Europe}) + \\beta_4 I(\\text{high income})+ \\epsilon \\end{aligned}\\)\n\n\nmod1_wr_inc_full = lm(LifeExpectancyYrs ~ four_regions + income_levels2, \n                   data = gapm_sub)"
   },
   {
     "objectID": "slides/11_Interactions_2.html#step-2-see-if-income-is-a-confounder-1",
     "href": "slides/11_Interactions_2.html#step-2-see-if-income-is-a-confounder-1",
     "title": "Lesson 11: Interactions Continued",
     "section": "Step 2: See if income is a confounder",
-    "text": "Step 2: See if income is a confounder\n\nRecord the coefficient estimate for centered female literacy rate in both models:\nModel 1 (reduced):\n\n\n\n\n\n\n\n  \n    \n    \n      term\n      estimate\n      std.error\n      statistic\n      p.value\n      conf.low\n      conf.high\n    \n  \n  \n    (Intercept)\n61.27000\n1.16508\n52.58870\n0.00000\n58.94512\n63.59488\n    four_regionsAmericas\n14.33000\n1.90257\n7.53193\n0.00000\n10.53349\n18.12651\n    four_regionsAsia\n8.11824\n1.71883\n4.72313\n0.00001\n4.68837\n11.54810\n    four_regionsEurope\n14.78217\n1.59304\n9.27924\n0.00000\n11.60332\n17.96103\n  \n  \n  \n\n\n\n\n\nModel 2 (full):\n\n\n\n\n\n\n\n  \n    \n    \n      term\n      estimate\n      std.error\n      statistic\n      p.value\n      conf.low\n      conf.high\n    \n  \n  \n    (Intercept)\n60.54716\n1.16190\n52.11048\n0.00000\n58.22800\n62.86632\n    four_regionsAmericas\n12.04102\n2.05816\n5.85038\n0.00000\n7.93292\n16.14912\n    four_regionsAsia\n7.77808\n1.66414\n4.67394\n0.00001\n4.45645\n11.09971\n    four_regionsEurope\n12.51938\n1.79139\n6.98864\n0.00000\n8.94375\n16.09501\n    income_levels2Higher income\n3.61419\n1.46967\n2.45917\n0.01651\n0.68070\n6.54767"
+    "text": "Step 2: See if income is a confounder\n\nRecord the coefficient estimate for centered female literacy rate in both models:\nModel 1 (reduced):\\(\\begin{aligned}\\widehat{LE} = &\\widehat\\beta_0 + \\widehat\\beta_1 I(\\text{Americas}) + \\widehat\\beta_2 I(\\text{Asia}) + \\widehat\\beta_3 I(\\text{Europe}) \\end{aligned}\\)\n\n\n\n\n\n\n\n  \n    \n    \n      term\n      estimate\n      std.error\n      statistic\n      p.value\n      conf.low\n      conf.high\n    \n  \n  \n    (Intercept)\n61.27000\n1.16508\n52.58870\n0.00000\n58.94512\n63.59488\n    four_regionsAmericas\n14.33000\n1.90257\n7.53193\n0.00000\n10.53349\n18.12651\n    four_regionsAsia\n8.11824\n1.71883\n4.72313\n0.00001\n4.68837\n11.54810\n    four_regionsEurope\n14.78217\n1.59304\n9.27924\n0.00000\n11.60332\n17.96103\n  \n  \n  \n\n\n\n\n\nModel 2 (full): \\(\\begin{aligned}\\widehat{LE} = &\\widehat\\beta_0 + \\widehat\\beta_1 I(\\text{Americas}) + \\widehat\\beta_2 I(\\text{Asia}) + \\widehat\\beta_3 I(\\text{Europe}) + \\widehat\\beta_4 I(\\text{high income})\\end{aligned}\\)\n\n\n\n\n\n\n\n  \n    \n    \n      term\n      estimate\n      std.error\n      statistic\n      p.value\n      conf.low\n      conf.high\n    \n  \n  \n    (Intercept)\n60.54716\n1.16190\n52.11048\n0.00000\n58.22800\n62.86632\n    four_regionsAmericas\n12.04102\n2.05816\n5.85038\n0.00000\n7.93292\n16.14912\n    four_regionsAsia\n7.77808\n1.66414\n4.67394\n0.00001\n4.45645\n11.09971\n    four_regionsEurope\n12.51938\n1.79139\n6.98864\n0.00000\n8.94375\n16.09501\n    income_levels2Higher income\n3.61419\n1.46967\n2.45917\n0.01651\n0.68070\n6.54767"
   },
   {
     "objectID": "slides/11_Interactions_2.html#step-2-see-if-income-is-a-confounder-2",
@@ -14501,14 +14501,14 @@
     "href": "slides/11_Interactions_2.html#step-2-see-if-income-is-a-confounder-3",
     "title": "Lesson 11: Interactions Continued",
     "section": "Step 2: See if income is a confounder",
-    "text": "Step 2: See if income is a confounder\n\n\n\nThere is not set rule when we have more than one estimated coefficient that we examine for confoundeing\nIn this, I would consider\n\nThe majority of coefficients (2/3 coefficients) changes more than 10%\nThe change in coefficients for all three are in the same direction\nThe plot of life expectancy vs world region by income level have a shift in mean life expectancy from lower to higher income level"
+    "text": "Step 2: See if income is a confounder\n\n\n\nThere is no set rule when we have more than one estimated coefficient that we examine for confoundeing\nIn this, I would consider\n\nThe majority of coefficients (2/3 coefficients) changes more than 10%\nThe change in coefficients for all three are in the same direction\nThe plot of life expectancy vs world region by income level have a shift in mean life expectancy from lower to higher income level\n\nThus, I would conclude that income level is a confounder, so we would leave income level’s main effect in the model"
   },
   {
     "objectID": "slides/12_In_class_activities.html#example",
     "href": "slides/12_In_class_activities.html#example",
     "title": "Lesson 12: In-class exercise!!",
     "section": "Example",
-    "text": "Example\n\nThe following example comes from this textbook\n\n\nSuppose that we are conducting an observational study of adults to assess whether physical activity level (PAL) is associated with systolic blood pressure (SBP), accounting (i.e., controlling) for AGE and SAB (sex assigned at birth). The extraneous variable here is AGE and SAB, while the explanatory variable (variable of interest) is PAL. We need to determine whether we can ignore AGE and/or SAB in our analysis and still correctly assess the PAL–SBP association.\n\n\n\nModel Selection"
+    "text": "Example\n\nThe following example comes from this textbook\n\n\nSuppose that we are conducting an observational study of adults to assess whether physical activity level (PAL) is associated with systolic blood pressure (SBP), accounting (i.e., controlling) for AGE and SAB (sex assigned at birth). The extraneous variable here is AGE and SAB, while the explanatory variable (variable of interest) is PAL. We need to determine whether we can ignore AGE and/or SAB in our analysis and still correctly assess the PAL–SBP association."
   },
   {
     "objectID": "slides/11_Interactions_2.html#poll-everywhere-questions",
@@ -14530,5 +14530,19 @@
     "title": "Lesson 11: Interactions Continued",
     "section": "Is food supply a confounder for female literacy rate? (3/3)",
     "text": "Is food supply a confounder for female literacy rate? (3/3)\nThe percent change in female literacy rate’s coefficient estimate was 46.71%.\nThus, food supply is a confounder of female literacy rate in the association between life expectancy and female literacy rate."
+  },
+  {
+    "objectID": "slides/11_Interactions_2.html#determining-if-income-level-is-an-effect-modifier-confounder-or-neither",
+    "href": "slides/11_Interactions_2.html#determining-if-income-level-is-an-effect-modifier-confounder-or-neither",
+    "title": "Lesson 11: Interactions Continued",
+    "section": "Determining if income level is an effect modifier, confounder, or neither",
+    "text": "Determining if income level is an effect modifier, confounder, or neither\n\nStep 1: Testing the interaction/effect modifier\n\nCompare model with and without interaction using F-test to see if interaction is significant\nModels\n\nModel 1 (red): \\(\\begin{aligned}LE = &\\beta_0 + \\beta_1 I(\\text{Americas}) + \\beta_2 I(\\text{Asia}) + \\beta_3 I(\\text{Europe}) + \\beta_4 I(\\text{high income})+ \\epsilon \\end{aligned}\\)\n\n \n\nModel 2 (full): \\(\\begin{aligned}LE = &\\beta_0 + \\beta_1 I(\\text{Americas}) + \\beta_2 I(\\text{Asia}) + \\beta_3 I(\\text{Europe}) + \\beta_4 I(\\text{high income})+ \\\\ & \\beta_5 \\cdot I(\\text{high income}) \\cdot I(\\text{Americas}) + \\beta_6\\cdot I(\\text{high income}) \\cdot I(\\text{Asia})+ \\\\ & \\beta_7 \\cdot I(\\text{high income})\\cdot I(\\text{Europe})+ \\epsilon \\end{aligned}\\)\n\n\nStep 2: Testing a confounder (only if not an effect modifier)\n\nCompare model with and without main effect for additional variable (income level) using F-test to see if additional variable (income level) is a confounder\nModels\n\nModel 1 (reduced): \\(\\begin{aligned}LE = &\\beta_0 + \\beta_1 I(\\text{Americas}) + \\beta_2 I(\\text{Asia}) + \\beta_3 I(\\text{Europe}) + \\epsilon \\end{aligned}\\)\nModel 2 (full): \\(\\begin{aligned}LE = &\\beta_0 + \\beta_1 I(\\text{Americas}) + \\beta_2 I(\\text{Asia}) + \\beta_3 I(\\text{Europe}) + \\beta_4 I(\\text{high income})+ \\epsilon \\end{aligned}\\)"
+  },
+  {
+    "objectID": "slides/12_In_class_activities.html#explore-the-data-first-thing-to-do",
+    "href": "slides/12_In_class_activities.html#explore-the-data-first-thing-to-do",
+    "title": "Lesson 12: In-class exercise!!",
+    "section": "Explore the data: First thing to do",
+    "text": "Explore the data: First thing to do\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel Selection"
   }
 ]

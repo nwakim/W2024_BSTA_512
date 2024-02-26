@@ -79,7 +79,10 @@ gapm_sub <- gapm %>% # called it gapm2_sub3 to be consistent with Day 7 notes
 
 # Learning Objective
 
+::: lob
 5.  Interpret the interaction component of a model with **two continuous covariates**, and how the main variable's effect changes.
+:::
+
 6.  When there are only two covariates in the model, test whether one is a confounder or effect modifier.
 
 ## Do we think food supply is an effect modifier for female literacy rate?
@@ -323,7 +326,10 @@ anova(m_int_fs_red, m_int_fs_full) %>% tidy() %>%
 # Learning Objective
 
 5.  Interpret the interaction component of a model with **two continuous covariates**, and how the main variable's effect changes.
+
+::: lob
 6.  When there are only two covariates in the model, test whether one is a confounder or effect modifier.
+:::
 
 ## Deciding between confounder and effect modifier
 
@@ -621,16 +627,19 @@ ggplot(gapm_sub, aes(x = four_regions, y = LifeExpectancyYrs,
 :::
 :::
 
-## Process
+## Determining if income level is an **effect modifier, confounder, or neither**
 
 -   Step 1: Testing the interaction/effect modifier
 
-    -   Compare model with and without interaction using F-test to see if interaction is significant (aka income is an effect modifier)
+    -   Compare model with and without interaction using F-test to see if interaction is significant
 
     -   Models
 
-        -   Model 1 (reduced): $\begin{aligned}LE = &\beta_0 + \beta_1 I(\text{Americas}) + \\& \beta_2 I(\text{Asia}) + \beta_3 I(\text{Europe}) + \beta_4 I(\text{high income})+ \epsilon \end{aligned}$
-        -   Model 2 (full): $\begin{aligned}LE = &\beta_0 + \beta_1 I(\text{Americas}) + \\& \beta_2 I(\text{Asia}) + \beta_3 I(\text{Europe}) + \beta_4 I(\text{high income})++ \beta_5 \cdot I(\text{high income}) \cdot I(\text{Americas}) + \\ & \beta_6\cdot I(\text{high income}) \cdot I(\text{Asia})+ \beta_7 \cdot I(\text{high income})\cdot I(\text{Europe})+ \epsilon \end{aligned}$
+        -   Model 1 (red): $\begin{aligned}LE = &\beta_0 + \beta_1 I(\text{Americas}) + \beta_2 I(\text{Asia}) + \beta_3 I(\text{Europe}) + \beta_4 I(\text{high income})+ \epsilon \end{aligned}$
+        
+         
+        
+        -   Model 2 (full): $\begin{aligned}LE = &\beta_0 + \beta_1 I(\text{Americas}) + \beta_2 I(\text{Asia}) + \beta_3 I(\text{Europe}) + \beta_4 I(\text{high income})+ \\ & \beta_5 \cdot I(\text{high income}) \cdot I(\text{Americas}) + \beta_6\cdot I(\text{high income}) \cdot I(\text{Asia})+ \\ &  \beta_7 \cdot I(\text{high income})\cdot I(\text{Europe})+ \epsilon \end{aligned}$
 
 -   Step 2: Testing a confounder (only if not an effect modifier)
 
@@ -638,8 +647,8 @@ ggplot(gapm_sub, aes(x = four_regions, y = LifeExpectancyYrs,
 
     -   Models
 
-        -   Model 1 (reduced): $\begin{aligned}LE = &\beta_0 + \beta_1 I(\text{Americas}) + \\& \beta_2 I(\text{Asia}) + \beta_3 I(\text{Europe}) + \epsilon \end{aligned}$
-        -   Model 2 (full): $\begin{aligned}LE = &\beta_0 + \beta_1 I(\text{Americas}) + \\& \beta_2 I(\text{Asia}) + \beta_3 I(\text{Europe}) + \beta_4 I(\text{high income})+ \epsilon \end{aligned}$
+        -   Model 1 (reduced): $\begin{aligned}LE = &\beta_0 + \beta_1 I(\text{Americas}) + \beta_2 I(\text{Asia}) + \beta_3 I(\text{Europe}) + \epsilon \end{aligned}$
+        -   Model 2 (full): $\begin{aligned}LE = &\beta_0 + \beta_1 I(\text{Americas}) + \beta_2 I(\text{Asia}) + \beta_3 I(\text{Europe}) + \beta_4 I(\text{high income})+ \epsilon \end{aligned}$
 
 ## Step 1: Results from Lesson 11 LOB 4
 
@@ -671,27 +680,40 @@ anova(m_int_wr_inc_red, m_int_wr_inc_full) %>% tidy() %>% gt() %>% tab_options(t
 
 ## Step 2: See if income is a confounder
 
--   Fit the reduced and full model
+-   Fit the reduced and full model for testing the confounder
+
+ 
+
+-   Model 1 (reduced): $\begin{aligned}LE = &\beta_0 + \beta_1 I(\text{Americas}) + \beta_2 I(\text{Asia}) + \beta_3 I(\text{Europe}) + \epsilon \end{aligned}$
 
 ```{r}
 #| echo: true
 mod1_wr_inc_red = lm(LifeExpectancyYrs ~ four_regions, 
                    data = gapm_sub)
+```
+
+ 
+
+-   Model 2 (full): $\begin{aligned}LE = &\beta_0 + \beta_1 I(\text{Americas}) + \beta_2 I(\text{Asia}) + \beta_3 I(\text{Europe}) + \beta_4 I(\text{high income})+ \epsilon \end{aligned}$
+
+```{r}
+#| echo: true
 mod1_wr_inc_full = lm(LifeExpectancyYrs ~ four_regions + income_levels2, 
                    data = gapm_sub)
 ```
+
 
 ## Step 2: See if income is a confounder
 
 -   Record the coefficient estimate for centered female literacy rate in both models:
 
--   Model 1 (reduced):
+-   Model 1 (reduced):$\begin{aligned}\widehat{LE} = &\widehat\beta_0 + \widehat\beta_1 I(\text{Americas}) + \widehat\beta_2 I(\text{Asia}) + \widehat\beta_3 I(\text{Europe}) \end{aligned}$
 
 ```{r}
 tidy(mod1_wr_inc_red, conf.int=T) %>% gt() %>% tab_options(table.font.size = 35) %>% fmt_number(decimals = 5)
 ```
 
--   Model 2 (full):
+-   Model 2 (full): $\begin{aligned}\widehat{LE} = &\widehat\beta_0 + \widehat\beta_1 I(\text{Americas}) + \widehat\beta_2 I(\text{Asia}) + \widehat\beta_3 I(\text{Europe}) + \widehat\beta_4 I(\text{high income})\end{aligned}$
 
 ```{r}
 tidy(mod1_wr_inc_full, conf.int=T) %>% gt() %>% tab_options(table.font.size = 35) %>% fmt_number(decimals = 5)
@@ -717,13 +739,15 @@ tidy(mod1_wr_inc_full, conf.int=T) %>% gt() %>% tab_options(table.font.size = 35
 
 ::: columns
 ::: column
--   There is not set rule when we have more than one estimated coefficient that we examine for confoundeing
+-   There is no set rule when we have more than one estimated coefficient that we examine for confoundeing
 
 -   In this, I would consider
 
     -   The majority of coefficients (2/3 coefficients) changes more than 10%
     -   The change in coefficients for all three are in the same direction
     -   The plot of life expectancy vs world region by income level have a shift in mean life expectancy from lower to higher income level
+    
+-   Thus, I would conclude that income level is a confounder, so we would leave income level's main effect in the model
 :::
 
 ::: column
