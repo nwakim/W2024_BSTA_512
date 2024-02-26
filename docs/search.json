@@ -14137,7 +14137,7 @@
     "href": "weeks/week_08_sched.html#announcements",
     "title": "Week 8",
     "section": "Announcements",
-    "text": "Announcements\n\nMonday 2/26\n\n\nWednesday 2/28"
+    "text": "Announcements\n\nMonday 2/26\n\nWednesday class: finish interactions + office hours for lab\nMidterm feedback is still open! Please complete it by the end of this week!!\n\n\n\nWednesday 2/28"
   },
   {
     "objectID": "slides/13_Model_selection.html#model-selection-basics",
@@ -14543,6 +14543,27 @@
     "href": "slides/12_In_class_activities.html#explore-the-data-first-thing-to-do",
     "title": "Lesson 12: In-class exercise!!",
     "section": "Explore the data: First thing to do",
-    "text": "Explore the data: First thing to do\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel Selection"
+    "text": "Explore the data: First thing to do\n\n\nCode\nggplot(SBP) + geom_histogram(aes(x = SBP))\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\nCode\nggplot(SBP) + geom_histogram(aes(x = PAL))\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\nCode\nggplot(SBP) + geom_histogram(aes(x = AGE))\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+  },
+  {
+    "objectID": "slides/12_In_class_activities.html#example-1-palmer-penguins",
+    "href": "slides/12_In_class_activities.html#example-1-palmer-penguins",
+    "title": "Lesson 12: In-class exercise!!",
+    "section": "Example 1: Palmer Penguins",
+    "text": "Example 1: Palmer Penguins\n\nRevisit the Palmer Penguins dataset that we say in HW 4"
+  },
+  {
+    "objectID": "slides/12_In_class_activities.html#lets-take-a-look-at-the-variables",
+    "href": "slides/12_In_class_activities.html#lets-take-a-look-at-the-variables",
+    "title": "Lesson 12: In-class exercise!!",
+    "section": "Let’s take a look at the variables",
+    "text": "Let’s take a look at the variables\n\nglimpse(penguins)\n\nRows: 344\nColumns: 8\n$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…\n$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…\n$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …\n$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …\n$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…\n$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …\n$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…\n$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…"
+  },
+  {
+    "objectID": "slides/12_In_class_activities.html#questions-we-can-ask-and-answer-so-far",
+    "href": "slides/12_In_class_activities.html#questions-we-can-ask-and-answer-so-far",
+    "title": "Lesson 12: In-class exercise!!",
+    "section": "Questions we can ask and answer so far…",
+    "text": "Questions we can ask and answer so far…\n\nUsing SLR, does each variable predict flipper length significantly?"
   }
 ]

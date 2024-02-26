@@ -48,7 +48,28 @@ SBP = read_excel("~/Library/CloudStorage/OneDrive-OregonHealth&ScienceUniversity
   rename(SBP = Y, PAL = X1, AGE = X2, SAB = X3)
 
 # SBP = read_excel("~/Library/CloudStorage/OneDrive-OregonHealth&ScienceUniversity/Teaching/Resources_from_Meike/B512_W23_shared/textbook/datasets/BSTA512_datasets/CH05/CH05Q02.xls")
+
+voter_data <- read_csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/non-voters/nonvoters_data.csv")
+
+library(palmerpenguins)
+data(penguins)
 ```
+
+## Example 1: Palmer Penguins 
+
+-   Revisit the Palmer Penguins dataset that we say in HW 4
+
+## Let's take a look at the variables
+
+```{r}
+glimpse(penguins)
+```
+
+## Questions we can ask and answer so far...
+
+-   Using SLR, does each variable predict flipper length significantly?
+
+-   
 
 ## Example
 
