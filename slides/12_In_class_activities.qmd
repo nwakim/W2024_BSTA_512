@@ -55,7 +55,7 @@ library(palmerpenguins)
 data(penguins)
 ```
 
-## Example 1: Palmer Penguins 
+## Example 1: Palmer Penguins
 
 -   Revisit the Palmer Penguins dataset that we say in HW 4
 
