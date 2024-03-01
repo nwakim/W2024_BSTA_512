@@ -4476,6 +4476,22 @@ vertical-align: -.125em;
   }
 }</script>
 
+  <script>/*
+ * Polyfill service v3.111.0
+ * Disable minification (remove `.min` from URL path) for more info
+*/
+
+</script>
+  
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
 
 </head>
 
@@ -4610,6 +4626,12 @@ vertical-align: -.125em;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../lessons.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lessons</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../homeworks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Homework</span></a>
   </div>
@@ -4644,6 +4666,19 @@ vertical-align: -.125em;
   <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a>
   <ul class="collapse">
   <li><a href="#part-a" id="toc-part-a" class="nav-link" data-scroll-target="#part-a">Part a</a></li>
+  <li><a href="#part-b" id="toc-part-b" class="nav-link" data-scroll-target="#part-b">Part b</a></li>
+  <li><a href="#part-c" id="toc-part-c" class="nav-link" data-scroll-target="#part-c">Part c</a></li>
+  <li><a href="#part-d" id="toc-part-d" class="nav-link" data-scroll-target="#part-d">Part d</a></li>
+  <li><a href="#part-e" id="toc-part-e" class="nav-link" data-scroll-target="#part-e">Part e</a></li>
+  <li><a href="#part-f" id="toc-part-f" class="nav-link" data-scroll-target="#part-f">Part f</a></li>
+  <li><a href="#part-g" id="toc-part-g" class="nav-link" data-scroll-target="#part-g">Part g</a></li>
+  <li><a href="#part-h" id="toc-part-h" class="nav-link" data-scroll-target="#part-h">Part h</a></li>
+  <li><a href="#part-i" id="toc-part-i" class="nav-link" data-scroll-target="#part-i">Part i</a></li>
+  <li><a href="#part-j" id="toc-part-j" class="nav-link" data-scroll-target="#part-j">Part j</a></li>
+  <li><a href="#part-k" id="toc-part-k" class="nav-link" data-scroll-target="#part-k">Part k</a></li>
+  <li><a href="#part-l" id="toc-part-l" class="nav-link" data-scroll-target="#part-l">Part l</a></li>
+  <li><a href="#part-m" id="toc-part-m" class="nav-link" data-scroll-target="#part-m">Part m</a></li>
+  <li><a href="#part-n" id="toc-part-n" class="nav-link" data-scroll-target="#part-n">Part n</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -4684,7 +4719,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 29, 2024</p>
+      <p class="date-modified">March 1, 2024</p>
     </div>
   </div>
     
@@ -4703,7 +4738,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This assignment is under construction !!! (2/29/2024)</p>
+<p>This assignment is NO LONGER under construction !!! (3/1/2024)</p>
 </div>
 </div>
 <style>div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}</style>
@@ -4738,12 +4773,12 @@ Tip
 </section>
 <section id="questions" class="level1">
 <h1>Questions</h1>
-<p>The purpose of these problems is to integrate what we have learned so far into the full process that we might follow to analyze data. This will help you see how what we’ve learned will connect as a single work flow. Some of the things we have learned that will be covered:</p>
+<p>The purpose of the below problem is to integrate what we have learned so far into a simple process that might be embedded into our analysis. This will help you see how many of our learning objectives connect as a single work flow. Some of the things we have learned that will be covered:</p>
 <ul>
 <li>Choosing what to test</li>
-<li>Interpretations of coefficients</li>
-<li>F-test conclusions</li>
-<li>Interactions</li>
+<li>Interpretations of coefficients (with and without other covariates in the model)</li>
+<li>F-test procedures and conclusions</li>
+<li>Testing if a covariate is an effect modifier, confounder, or nothing</li>
 </ul>
 <section id="question-1" class="level2">
 <h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
@@ -4765,7 +4800,78 @@ Tip
 </div>
 <section id="part-a" class="level3">
 <h3 class="anchored" data-anchor-id="part-a">Part a</h3>
-<p>Can use body mass (g) as the explanatory variable (variable of interest).</p>
+<p>Make a plot of flipper length (outcome) and body mass (explanatory variable). Discuss what you see in the plot.</p>
+</section>
+<section id="part-b" class="level3">
+<h3 class="anchored" data-anchor-id="part-b">Part b</h3>
+<p>Write the simple linear regression model that we will fit for the association between body mass and flipper length. If you use any short hand, please write it out. For example: Let <span class="math inline">\(BD\)</span> represent bill depth.</p>
+</section>
+<section id="part-c" class="level3">
+<h3 class="anchored" data-anchor-id="part-c">Part c</h3>
+<p>Run the simple linear regression model for the association between body mass and flipper length. Display the regression table output.</p>
+</section>
+<section id="part-d" class="level3">
+<h3 class="anchored" data-anchor-id="part-d">Part d</h3>
+<p>Interpret the coefficient for body mass. Note that as we move forward with a multivariate model, we will refer to this is estimate at the the crude or unadjusted coefficient estimate.</p>
+</section>
+<section id="part-e" class="level3">
+<h3 class="anchored" data-anchor-id="part-e">Part e</h3>
+<p>Discuss how centering body mass might help with interpretability. Then, center body mass around the mean, run the model again, and display the regression table. Does the intercept and/or slope change from Part c?</p>
+</section>
+<section id="part-f" class="level3">
+<h3 class="anchored" data-anchor-id="part-f">Part f</h3>
+<p>Make a plot of flipper length (outcome) and body mass (explanatory variable) by bill depth. Discuss what you see in the plot. (Hint: bill depth will be the color in the plot.)</p>
+</section>
+<section id="part-g" class="level3">
+<h3 class="anchored" data-anchor-id="part-g">Part g</h3>
+<p>Make a plot of flipper length (outcome) and body mass (explanatory variable) by penguin species. Discuss what you see in the plot and relate it back to the plot in Part f.</p>
+</section>
+<section id="part-h" class="level3">
+<h3 class="anchored" data-anchor-id="part-h">Part h</h3>
+<p>Using only body mass and bill depth as covariates, write out the model that we would fit including the main effects of body mass and bill depth and their interaction. How many coefficients are tested when we test for a significant interaction?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Both covariates should be centered. For the rest of the homework, we will use the centered body mass and bill depth.</p>
+</div>
+</div>
+</section>
+<section id="part-i" class="level3">
+<h3 class="anchored" data-anchor-id="part-i">Part i</h3>
+<p>Center bill depth.</p>
+</section>
+<section id="part-j" class="level3">
+<h3 class="anchored" data-anchor-id="part-j">Part j</h3>
+<p>Using only body mass and bill depth as covariates, test if bill depth is an effect modifier or confounder of body mass, or if it is not in the model at all.</p>
+</section>
+<section id="part-k" class="level3">
+<h3 class="anchored" data-anchor-id="part-k">Part k</h3>
+<p>Using only body mass and species as covariates, write out the model that we would fit including the main effects of body mass and species and their interaction. How many coefficients are tested when we test for a significant interaction?</p>
+<p>Hint: Homework 4 can help guide us with the species’ categories.</p>
+</section>
+<section id="part-l" class="level3">
+<h3 class="anchored" data-anchor-id="part-l">Part l</h3>
+<p>Using only body mass and species as covariates, test if species is an effect modifier or confounder of body mass, or if it is not in the model at all. Note that</p>
+</section>
+<section id="part-m" class="level3">
+<h3 class="anchored" data-anchor-id="part-m">Part m</h3>
+<p>Using the results in the above parts, we will move forward with the following model:</p>
+<p><span class="math display">\[\begin{aligned}
+FL = &amp; \beta_0 + \beta_1 BM^c + \beta_2 BD^c +  \beta_3 I(\textrm{Chinstrap}) + \beta_4 I(\textrm{Gentoo}) +  \\ &amp; \beta_5 BM^c \cdot I(\textrm{Chinstrap}) + \beta_6 BM^c \cdot I(\textrm{Gentoo}) + \epsilon
+\end{aligned}\]</span></p>
+<p>Run the above model and display the regression table output.</p>
+<p><em>Please note that this is not exactly the best method for selecting a model. I just wanted to step us through a similar thought process.</em></p>
+</section>
+<section id="part-n" class="level3">
+<h3 class="anchored" data-anchor-id="part-n">Part n</h3>
+<p>Interpret each coefficient in the model above. There should be 7 total interpretations.</p>
 
 
 </section>

@@ -14,7 +14,7 @@ format:
 ---
 
 ::: callout-important
-This assignment is under construction !!! (2/29/2024)
+This assignment is NO LONGER under construction !!! (3/1/2024)
 :::
 
 ```{=html}
@@ -64,12 +64,12 @@ It is a good idea to try rendering your document from time to time as you go alo
 
 # Questions
 
-The purpose of these problems is to integrate what we have learned so far into the full process that we might follow to analyze data. This will help you see how what we've learned will connect as a single work flow. Some of the things we have learned that will be covered:
+The purpose of the below problem is to integrate what we have learned so far into a simple process that might be embedded into our analysis. This will help you see how many of our learning objectives connect as a single work flow. Some of the things we have learned that will be covered:
 
 -   Choosing what to test
--   Interpretations of coefficients
--   F-test conclusions
--   Interactions
+-   Interpretations of coefficients (with and without other covariates in the model)
+-   F-test procedures and conclusions
+-   Testing if a covariate is an effect modifier, confounder, or nothing
 
 ## Question 1
 
@@ -95,13 +95,71 @@ data(penguins)
 
 ### Part a
 
-Can use body mass (g) as the explanatory variable (variable of interest).
+Make a plot of flipper length (outcome) and body mass (explanatory variable). Discuss what you see in the plot.
 
-```{r}
+### Part b
 
-```
+Write the simple linear regression model that we will fit for the association between body mass and flipper length. If you use any short hand, please write it out. For example: Let $BD$ represent bill depth.
+
+### Part c
+
+Run the simple linear regression model for the association between body mass and flipper length. Display the regression table output.
+
+### Part d
+
+Interpret the coefficient for body mass. Note that as we move forward with a multivariate model, we will refer to this is estimate at the the crude or unadjusted coefficient estimate.
+
+### Part e
+
+Discuss how centering body mass might help with interpretability. Then, center body mass around the mean, run the model again, and display the regression table. Does the intercept and/or slope change from Part c?
+
+### Part f
+
+Make a plot of flipper length (outcome) and body mass (explanatory variable) by bill depth. Discuss what you see in the plot. (Hint: bill depth will be the color in the plot.)
+
+### Part g
+
+Make a plot of flipper length (outcome) and body mass (explanatory variable) by penguin species. Discuss what you see in the plot and relate it back to the plot in Part f.
+
+### Part h
+
+Using only body mass and bill depth as covariates, write out the model that we would fit including the main effects of body mass and bill depth and their interaction. How many coefficients are tested when we test for a significant interaction?
+
+::: callout-note
+Both covariates should be centered. For the rest of the homework, we will use the centered body mass and bill depth.
+:::
+
+### Part i 
+
+Center bill depth.
+
+### Part j
+
+Using only body mass and bill depth as covariates, test if bill depth is an effect modifier or confounder of body mass, or if it is not in the model at all.
+
+### Part k
+
+Using only body mass and species as covariates, write out the model that we would fit including the main effects of body mass and species and their interaction. How many coefficients are tested when we test for a significant interaction?
+
+Hint: Homework 4 can help guide us with the species' categories.
+
+### Part l
+
+Using only body mass and species as covariates, test if species is an effect modifier or confounder of body mass, or if it is not in the model at all. Note that 
+
+### Part m
+
+Using the results in the above parts, we will move forward with the following model:
+
+$$\begin{aligned}
+FL = & \beta_0 + \beta_1 BM^c + \beta_2 BD^c +  \beta_3 I(\textrm{Chinstrap}) + \beta_4 I(\textrm{Gentoo}) +  \\ & \beta_5 BM^c \cdot I(\textrm{Chinstrap}) + \beta_6 BM^c \cdot I(\textrm{Gentoo}) + \epsilon
+\end{aligned}$$ 
+
+Run the above model and display the regression table output.
+
+*Please note that this is not exactly the best method for selecting a model. I just wanted to step us through a similar thought process.*
 
 
+### Part n
 
-
-
+Interpret each coefficient in the model above. There should be 7 total interpretations.

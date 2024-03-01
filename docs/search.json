@@ -116,7 +116,7 @@
     "href": "homework/HW5.html",
     "title": "Homework 5",
     "section": "",
-    "text": "Important\n\n\n\nThis assignment is under construction !!! (2/29/2024)"
+    "text": "Important\n\n\n\nThis assignment is NO LONGER under construction !!! (3/1/2024)"
   },
   {
     "objectID": "homework/HW8.html",
@@ -697,7 +697,7 @@
     "href": "homeworks.html",
     "title": "Homework Assignments and Solutions",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nReading Time\n\n\n\n\n\n\n1/11/24\n\n\nHomework 0\n\n\n4 min\n\n\n\n\n1/25/24\n\n\nHomework 1\n\n\n7 min\n\n\n\n\n2/1/24\n\n\nHomework 2\n\n\n7 min\n\n\n\n\n2/15/24\n\n\nHomework 3\n\n\n8 min\n\n\n\n\n2/25/24\n\n\nHomework 4\n\n\n6 min\n\n\n\n\n3/7/24\n\n\nHomework 5\n\n\n3 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nReading Time\n\n\n\n\n\n\n1/11/24\n\n\nHomework 0\n\n\n4 min\n\n\n\n\n1/25/24\n\n\nHomework 1\n\n\n7 min\n\n\n\n\n2/1/24\n\n\nHomework 2\n\n\n7 min\n\n\n\n\n2/15/24\n\n\nHomework 3\n\n\n8 min\n\n\n\n\n2/25/24\n\n\nHomework 4\n\n\n6 min\n\n\n\n\n3/7/24\n\n\nHomework 5\n\n\n6 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "readings.html",
@@ -1628,7 +1628,7 @@
     "href": "homeworks.html#assignments",
     "title": "Homework Assignments and Solutions",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nReading Time\n\n\n\n\n\n\n1/11/24\n\n\nHomework 0\n\n\n4 min\n\n\n\n\n1/25/24\n\n\nHomework 1\n\n\n7 min\n\n\n\n\n2/1/24\n\n\nHomework 2\n\n\n7 min\n\n\n\n\n2/15/24\n\n\nHomework 3\n\n\n8 min\n\n\n\n\n2/25/24\n\n\nHomework 4\n\n\n6 min\n\n\n\n\n3/7/24\n\n\nHomework 5\n\n\n3 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nReading Time\n\n\n\n\n\n\n1/11/24\n\n\nHomework 0\n\n\n4 min\n\n\n\n\n1/25/24\n\n\nHomework 1\n\n\n7 min\n\n\n\n\n2/1/24\n\n\nHomework 2\n\n\n7 min\n\n\n\n\n2/15/24\n\n\nHomework 3\n\n\n8 min\n\n\n\n\n2/25/24\n\n\nHomework 4\n\n\n6 min\n\n\n\n\n3/7/24\n\n\nHomework 5\n\n\n6 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "homeworks.html#solutions",
@@ -14571,7 +14571,7 @@
     "href": "homework/HW5.html#question-1",
     "title": "Homework 5",
     "section": "Question 1",
-    "text": "Question 1\nWe are going to revisit the Palmer Penguins dataset from Homework 4. Choosing what to test, interpretations of coefficients, F-test conclusions, and interactions\nFor this problem we will be using the penguins dataset from the palmerpenguins R package. We will look at the association between flipper length of penguins (measured in mm) and specific species of penguins.\nDescription from help file:\n\nIncludes measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.\n\nMore info about the data.\n\n# first install the palmerpenguins package\n# install.packages(\"palmerpenguins\")\nlibrary(palmerpenguins)\ndata(penguins)\n\n# run the command below to learn more about the variables in the penguins dataset\n# ?penguins\n\n\nPart a\nCan use body mass (g) as the explanatory variable (variable of interest)."
+    "text": "Question 1\nWe are going to revisit the Palmer Penguins dataset from Homework 4. Choosing what to test, interpretations of coefficients, F-test conclusions, and interactions\nFor this problem we will be using the penguins dataset from the palmerpenguins R package. We will look at the association between flipper length of penguins (measured in mm) and specific species of penguins.\nDescription from help file:\n\nIncludes measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.\n\nMore info about the data.\n\n# first install the palmerpenguins package\n# install.packages(\"palmerpenguins\")\nlibrary(palmerpenguins)\ndata(penguins)\n\n# run the command below to learn more about the variables in the penguins dataset\n# ?penguins\n\n\nPart a\nMake a plot of flipper length (outcome) and body mass (explanatory variable). Discuss what you see in the plot.\n\n\nPart b\nWrite the simple linear regression model that we will fit for the association between body mass and flipper length. If you use any short hand, please write it out. For example: Let \\(BD\\) represent bill depth.\n\n\nPart c\nRun the simple linear regression model for the association between body mass and flipper length. Display the regression table output.\n\n\nPart d\nInterpret the coefficient for body mass. Note that as we move forward with a multivariate model, we will refer to this is estimate at the the crude or unadjusted coefficient estimate.\n\n\nPart e\nDiscuss how centering body mass might help with interpretability. Then, center body mass around the mean, run the model again, and display the regression table. Does the intercept and/or slope change from Part c?\n\n\nPart f\nMake a plot of flipper length (outcome) and body mass (explanatory variable) by bill depth. Discuss what you see in the plot. (Hint: bill depth will be the color in the plot.)\n\n\nPart g\nMake a plot of flipper length (outcome) and body mass (explanatory variable) by penguin species. Discuss what you see in the plot and relate it back to the plot in Part f.\n\n\nPart h\nUsing only body mass and bill depth as covariates, write out the model that we would fit including the main effects of body mass and bill depth and their interaction. How many coefficients are tested when we test for a significant interaction?\n\n\n\n\n\n\nNote\n\n\n\nBoth covariates should be centered. For the rest of the homework, we will use the centered body mass and bill depth.\n\n\n\n\nPart i\nCenter bill depth.\n\n\nPart j\nUsing only body mass and bill depth as covariates, test if bill depth is an effect modifier or confounder of body mass, or if it is not in the model at all.\n\n\nPart k\nUsing only body mass and species as covariates, write out the model that we would fit including the main effects of body mass and species and their interaction. How many coefficients are tested when we test for a significant interaction?\nHint: Homework 4 can help guide us with the species’ categories.\n\n\nPart l\nUsing only body mass and species as covariates, test if species is an effect modifier or confounder of body mass, or if it is not in the model at all. Note that\n\n\nPart m\nUsing the results in the above parts, we will move forward with the following model:\n\\[\\begin{aligned}\nFL = & \\beta_0 + \\beta_1 BM^c + \\beta_2 BD^c +  \\beta_3 I(\\textrm{Chinstrap}) + \\beta_4 I(\\textrm{Gentoo}) +  \\\\ & \\beta_5 BM^c \\cdot I(\\textrm{Chinstrap}) + \\beta_6 BM^c \\cdot I(\\textrm{Gentoo}) + \\epsilon\n\\end{aligned}\\]\nRun the above model and display the regression table output.\nPlease note that this is not exactly the best method for selecting a model. I just wanted to step us through a similar thought process.\n\n\nPart n\nInterpret each coefficient in the model above. There should be 7 total interpretations."
   },
   {
     "objectID": "slides/13_Model_selection.html#stepwise-selection",
@@ -14593,5 +14593,12 @@
     "title": "Lesson 13: Model/Variable Selection",
     "section": "Words to know?",
     "text": "Words to know?"
+  },
+  {
+    "objectID": "homework/HW5.html#part-m-1",
+    "href": "homework/HW5.html#part-m-1",
+    "title": "Homework 5",
+    "section": "Part m",
+    "text": "Part m\nInterpret each coefficient in the model above. There should be 7 total interpretations."
   }
 ]
