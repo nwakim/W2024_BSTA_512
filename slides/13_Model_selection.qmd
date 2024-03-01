@@ -3,8 +3,8 @@ title: "Lesson 13: Model/Variable Selection"
 author: "Nicky Wakim"
 title-slide-attributes:
     data-background-color: "#213c96"
-date: "02/28/2024"
-categories: ["Week 8"]
+date: "03/4/2024"
+categories: ["Week 9"]
 format: 
   revealjs:
     theme: [default, simple_NW.scss]
@@ -159,16 +159,20 @@ Prediction
 
 -   Pre-specification of multivariable model
 
--   Purposeful model selection (Categorical data analysis)
+-   Purposeful model selection (will learn in BSTA 513)
 
     -   "Risk factor modeling"
 
 -   Automated strategies
 
-    -   You'll see these a lot, but they're not really good methods: Backward/forward/stepwise selection
-    -   
+    -   Stepwise selection (forward/backward)
+        -   You'll see these a lot, but they're not really good methods
+    -   Best subset
+    -   Regularization techniques (LASSO, Ridge, Elastic net)
 
 -   Change in Estimate (CIE) approaches
+
+## Stepwise selection
 
 ## General process for association
 
@@ -178,3 +182,7 @@ Model selection methods, for the purpose of association, generally consist of th
 2.  
 
 ## Some model selection criteria
+
+# Reference
+
+## Words to know?
