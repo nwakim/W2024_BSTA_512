@@ -53,6 +53,29 @@ gapm <- read_excel("data/Gapminder_vars_2011.xlsx",
                    na = "NA")  # important!!!! 
 
 
+gapm_sub1 <- gapm %>% # called it gapm2_sub3 to be consistent with Day 7 notes
+  mutate(four_regions = factor(four_regions, 
+                               levels = c("africa", "americas", 
+                                          "asia", "europe"), 
+                               labels = c("Africa", "Americas", 
+                                          "Asia", "Europe"))) %>%
+  rename(income_levels = `World bank, 4 income groups 2017`) %>%
+  mutate(income_levels1 = factor(income_levels, 
+                                levels = c("Low income", 
+                                           "Lower middle income", 
+                                           "Upper middle income", 
+                                           "High income")), 
+         income_levels2 = relevel(factor(income_levels, 
+                                levels = c("Low income", 
+                                           "Lower middle income", 
+                                           "Upper middle income", 
+                                           "High income"), 
+                                labels = c("Lower income", "Lower income", 
+                                            "Higher income", "Higher income")), 
+                                ref = "Lower income")) %>%
+  mutate(population_mill = population/1000000) %>%
+  select(-population)
+
 gapm_sub <- gapm %>% # called it gapm2_sub3 to be consistent with Day 7 notes
   drop_na(LifeExpectancyYrs, FemaleLiteracyRate, four_regions, FoodSupplykcPPD) %>%
   mutate(four_regions = factor(four_regions, 
@@ -74,10 +97,59 @@ gapm_sub <- gapm %>% # called it gapm2_sub3 to be consistent with Day 7 notes
                                 labels = c("Lower income", "Lower income", 
                                             "Higher income", "Higher income")), 
                                 ref = "Lower income"))
+
 gapm_ind = gapm_sub %>% select(LifeExpectancyYrs, country)
+
+gapm2 = gapm %>% select(-Longitude, -Latitude, -eight_regions, -six_regions, -geo, -`World bank, 4 income groups 2017`, -country, -population, -`World bank region`, -ElectricityUsePP)
 ```
 
 # Learning Objectives
+
+1.    Understand the overall steps for purposeful selection as a model building strategy
+
+2.    Apply purposeful selection to a dataset using R
+
+3.    Connect purposeful selection steps back to tests of coefficients in Class 8 
+
+4.    Use different approaches to assess the linear scale of continuous variables in
+logistic regression
+
+
+# Learning Objectives
+
+::: lob
+1.    Understand the overall steps for purposeful selection as a model building strategy
+:::
+
+2.    Apply purposeful selection to a dataset using R
+
+3.    Connect purposeful selection steps back to tests of coefficients in Class 8 
+
+4.    Use different approaches to assess the linear scale of continuous variables in
+logistic regression
+
+## 
+
+ 
+
+ 
+
+::: columns
+::: {.column width="20%"}
+:::
+
+::: {.column width="60%"}
+::: qt
+[ "Successful modeling of a complex data set is [**part science**]{style="color:#FF8021;"}, [**part statistical methods**]{style="color:#34AC8B;"}, and [**part experience and common sense**]{style="color:#4FADF3;"}." ]{style="font-size:60px;"}
+:::
+
+ 
+
+::: qt-t
+Hosmer, Lemeshow, and Sturdivant Textbook, pg. 101
+:::
+:::
+:::
 
 ## Overall Process
 
@@ -141,7 +213,7 @@ gapm_ind = gapm_sub %>% select(LifeExpectancyYrs, country)
 :::
 
 ::: {.column width="50%"}
-Exploratory data analysis
+Exploratory data analysis (EDA)
 
  
 
@@ -173,7 +245,175 @@ Assess model fit
 :::
 :::
 
+# Learning Objectives
+
+1.    Understand the overall steps for purposeful selection as a model building strategy
+
+::: lob
+2.    Apply purposeful selection to a dataset using R
+:::
+
+3.    Connect purposeful selection steps back to tests of coefficients in Class 8 
+
+4.    Use different approaches to assess the linear scale of continuous variables in
+logistic regression
+
 ## Pre-step: Exploratory data analysis
+
+-   Things we have been doing over the quarter in class and in our project 
+-   I will not discuss some of the methods mentioned in our lab and data management class
+
+    -   I am only going to introduce additional exploratory functions
+
+ 
+
+A few things we can do: 
+
+-   Check the data
+-   Study your variables
+-   Missing data?
+-   Explore simple relationships and assumptions
+
+## Pre-step: Exploratory data analysis: Check the data
+
+::: columns
+::: {.column width="50%"}
+-   Get to know the potential values for the data
+
+    -   Categories
+
+    -   Units
+
+-   Then make sure the summary of values makes sense
+
+    -   If minimum or maximum look outside appropriate range
+    -   For example: a negative value for a measurement that is inherently positive (like population or income)
+:::
+
+::: {.column width="50%"}
+[![https://www.gapminder.org/data/documentation/](13_Purposeful_selection/Gapminder_doc.png){fig-align="center"}](https://www.gapminder.org/data/documentation/)
+:::
+:::
+
+## Pre-step: Exploratory data analysis: Check the data
+
+::: columns
+::: {.column width="25%"}
+-   Look at a summary for the raw data
+
+-   Typical use:
+```{r}
+#| echo: true
+#| output: false
+library(skimr)
+skim(gapm)
+```
+
+-   [Some `skim()` help](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html)
+:::
+
+::: {.column width="1%"}
+:::
+
+::: {.column width="74%"}
+:::
+:::
+
+## Pre-step: Exploratory data analysis: Check the data
+
+::: columns
+::: {.column width="25%"}
+-   Look at a summary for the raw data
+
+-   Typical use:
+```{r}
+#| echo: true
+#| output: false
+library(skimr)
+skim(gapm)
+```
+
+-   [Some `skim()` help](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html)
+
+-   Note that `skim(gapm)` looks different because I had to create factors
+-   I am breaking down the `skim()` function into the categorical and continuous variables only because I want to show them on the slides
+:::
+
+::: {.column width="1%"}
+:::
+
+::: {.column width="74%"}
+```{r}
+#| echo: true
+#| size: small 
+skim(gapm_sub1) %>% yank("factor")
+```
+:::
+:::
+
+## Pre-step: Exploratory data analysis: Check the data {.smaller}
+
+```{r, skimr_digits = 2}
+#| echo: true
+#| size: small 
+skim(gapm_sub1) %>% yank("numeric")
+```
+
+## Poll Everywhere Question 1
+
+## Pre-step: Exploratory data analysis: Study your variables
+
+-   Started this a little bit in previous slide (`skim()`), but you may want to look at things like:
+
+    -   Sample size
+    -   Counts of missing data
+    -   Means and standard deviations
+    -   IQRs
+    -   Medians
+    -   Minimums and maximums
+
+-   Can also look at visuals
+    -   Continuous variables: histograms (in `skimr() a little)
+    -   Categorical variables: frequency plots
+
+## Pre-step: Exploratory data analysis: Study your variables {.smaller}
+
+```{r}
+#| echo: true
+
+library(Hmisc)
+hist.data.frame(gapm %>% select(-Longitude, -Latitude, -eight_regions, -six_regions, -geo, -`World bank, 4 income groups 2017`, -country, -population, -`World bank region`, -ElectricityUsePP))
+```
+
+## Poll Everywhere Question 2
+
+## Pre-step: Exploratory data analysis: Missing data
+
+-   Why are there missing data?
+-   Which variables and observations should be excluded because of missing data?
+-   Will I impute missing data?
+
+ 
+
+-   Unfortunately, we don’t have time to discuss missing data more thoroughly  
+-   I will try to cover this topic more thoroughly in BSTA 513
+
+ 
+
+-   For the Gapminder dataset, we chose to use complete cases
+
+## Pre-step / Step 1 : Explore simple relationships and assumptions {.smaller}
+
+```{r}
+#| fig-align: center
+#| echo: true
+
+gapm2 %>% ggpairs() # gapm2 is a new dataset with some variables selected
+```
+
+## Poll Everywhere Question 3
+
+# End of 3/4 class
 
 ## Step 1: Simple linear regressions
 

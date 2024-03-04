@@ -12,6 +12,13 @@ editor_options:
   chunk_output_type: console
 ---
 
+::: callout-important
+## Room Locations for the week
+
+-   On Monday, 3/4,        we will be in **RLSB 3A003 B**
+-   On Wednesday, 3/6,  we will be in **RLSB 3A003 A**
+:::
+
 ```{css, echo=FALSE}
 .title{
   font-size: 40px;
@@ -30,10 +37,11 @@ editor_options:
 
 ## Resources
 
-| Lesson | Topic                |                                                    Slides                                                    |                                  Annotated Slides                                  |                           Recording                           |
+| Lesson | Topic                           |                                                    Slides                                                    |                                  Annotated Slides                                  |                           Recording                           |
 |---------------|---------------|:-------------:|:-------------:|:-------------:|
-| 12     | Model selection 1    |   [[{{< iconify ri slideshow-fill size=30px >}}](/slides/12_Model_selection.qmd)]{style="color:#f8f5f0;"}    | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 13     | Purposeful Selection | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/13_Purposeful_Selection.qmd)]{style="color:#49A3D1;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+|        | Quiz, Lab, Mid-quarter feedback |      [[{{< iconify ri slideshow-fill size=30px >}}](/slides/Quiz_2_Lab_2.qmd)]{style="color:#f8f5f0;"}       | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 12     | Model selection 1               |   [[{{< iconify ri slideshow-fill size=30px >}}](/slides/12_Model_selection.qmd)]{style="color:#f8f5f0;"}    | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 13     | Purposeful Selection            | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/13_Purposeful_Selection.qmd)]{style="color:#49A3D1;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
 ## On the Horizon
 
