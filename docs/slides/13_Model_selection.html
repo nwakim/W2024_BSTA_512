@@ -9,7 +9,7 @@
 <meta name="author" content="Nicky Wakim">
 <meta name="dcterms.date" content="2024-03-04">
 
-<title>Linear Models - Lesson 13: Model/Variable Selection</title>
+<title>Linear Models - Lesson 12: Model/Variable Selection</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -62,6 +62,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -112,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lesson 13: Model/Variable Selection</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lesson 12: Model/Variable Selection</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -196,6 +198,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../lessons.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lessons</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../homeworks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Homework</span></a>
   </div>
@@ -224,21 +232,31 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objective" id="toc-learning-objective" class="nav-link active" data-scroll-target="#learning-objective">Learning Objective</a>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a>
   <ul class="collapse">
   <li><a href="#why-cant-i-just-throw-in-all-the-variables-into-my-model" id="toc-why-cant-i-just-throw-in-all-the-variables-into-my-model" class="nav-link" data-scroll-target="#why-cant-i-just-throw-in-all-the-variables-into-my-model">Why can’t I just throw in all the variables into my model?</a></li>
+  <li><a href="#model-complexity-vs.-parsimony" id="toc-model-complexity-vs.-parsimony" class="nav-link" data-scroll-target="#model-complexity-vs.-parsimony">Model Complexity vs.&nbsp;Parsimony</a></li>
   <li><a href="#bias-variance-trade-off" id="toc-bias-variance-trade-off" class="nav-link" data-scroll-target="#bias-variance-trade-off">Bias-variance trade off</a></li>
   <li><a href="#model-selection-basics-slide-adjusted-from-jodi-lapidus" id="toc-model-selection-basics-slide-adjusted-from-jodi-lapidus" class="nav-link" data-scroll-target="#model-selection-basics-slide-adjusted-from-jodi-lapidus">Model Selection basics (slide adjusted from Jodi Lapidus)</a></li>
   <li><a href="#the-goals-of-association-vs.-prediction" id="toc-the-goals-of-association-vs.-prediction" class="nav-link" data-scroll-target="#the-goals-of-association-vs.-prediction">The goals of association vs.&nbsp;prediction</a></li>
   <li><a href="#model-building-for-association-vs.-prediction" id="toc-model-building-for-association-vs.-prediction" class="nav-link" data-scroll-target="#model-building-for-association-vs.-prediction">Model building for association vs.&nbsp;prediction</a></li>
-  <li><a href="#model-selection-strategies-slide-adjusted-from-jodi-lapidus" id="toc-model-selection-strategies-slide-adjusted-from-jodi-lapidus" class="nav-link" data-scroll-target="#model-selection-strategies-slide-adjusted-from-jodi-lapidus">Model selection strategies (slide adjusted from Jodi Lapidus)</a></li>
-  <li><a href="#stepwise-selection" id="toc-stepwise-selection" class="nav-link" data-scroll-target="#stepwise-selection">Stepwise selection</a></li>
-  <li><a href="#general-process-for-association" id="toc-general-process-for-association" class="nav-link" data-scroll-target="#general-process-for-association">General process for association</a></li>
-  <li><a href="#some-model-selection-criteria" id="toc-some-model-selection-criteria" class="nav-link" data-scroll-target="#some-model-selection-criteria">Some model selection criteria</a></li>
+  <li><a href="#model-selection-strategies-for-continuous-outcomes" id="toc-model-selection-strategies-for-continuous-outcomes" class="nav-link" data-scroll-target="#model-selection-strategies-for-continuous-outcomes">Model selection strategies for <em>continuous</em> outcomes</a></li>
   </ul></li>
-  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a>
+  <li><a href="#learning-objectives-1" id="toc-learning-objectives-1" class="nav-link" data-scroll-target="#learning-objectives-1">Learning Objectives</a>
   <ul class="collapse">
-  <li><a href="#words-to-know" id="toc-words-to-know" class="nav-link" data-scroll-target="#words-to-know">Words to know?</a></li>
+  <li><a href="#pre-specification-of-multivariable-model-slide-adjusted-from-jodi-lapidus" id="toc-pre-specification-of-multivariable-model-slide-adjusted-from-jodi-lapidus" class="nav-link" data-scroll-target="#pre-specification-of-multivariable-model-slide-adjusted-from-jodi-lapidus">Pre-specification of multivariable model (slide adjusted from Jodi Lapidus)</a></li>
+  <li><a href="#purposeful-model-selection-slide-adjusted-from-jodi-lapidus" id="toc-purposeful-model-selection-slide-adjusted-from-jodi-lapidus" class="nav-link" data-scroll-target="#purposeful-model-selection-slide-adjusted-from-jodi-lapidus">Purposeful model selection (slide adjusted from Jodi Lapidus)</a></li>
+  <li><a href="#change-in-estimate-cie-approach-slide-adjusted-from-jodi-lapidus" id="toc-change-in-estimate-cie-approach-slide-adjusted-from-jodi-lapidus" class="nav-link" data-scroll-target="#change-in-estimate-cie-approach-slide-adjusted-from-jodi-lapidus">Change in estimate (CIE) approach (slide adjusted from Jodi Lapidus)</a></li>
+  <li><a href="#stepwise-selection-slide-adjusted-from-adrianna-westbrook" id="toc-stepwise-selection-slide-adjusted-from-adrianna-westbrook" class="nav-link" data-scroll-target="#stepwise-selection-slide-adjusted-from-adrianna-westbrook">Stepwise selection (slide adjusted from Adrianna Westbrook)</a></li>
+  <li><a href="#stepwise-selection-two-common-approaches" id="toc-stepwise-selection-two-common-approaches" class="nav-link" data-scroll-target="#stepwise-selection-two-common-approaches">Stepwise selection: two common approaches</a></li>
+  <li><a href="#best-subset-slide-adjusted-from-adrianna-westbrook" id="toc-best-subset-slide-adjusted-from-adrianna-westbrook" class="nav-link" data-scroll-target="#best-subset-slide-adjusted-from-adrianna-westbrook">Best subset (slide adjusted from Adrianna Westbrook)</a></li>
+  <li><a href="#regularization-techniques" id="toc-regularization-techniques" class="nav-link" data-scroll-target="#regularization-techniques">Regularization techniques</a></li>
+  </ul></li>
+  <li><a href="#learning-objectives-2" id="toc-learning-objectives-2" class="nav-link" data-scroll-target="#learning-objectives-2">Learning Objectives</a>
+  <ul class="collapse">
+  <li><a href="#introduction-to-model-fit-statistics" id="toc-introduction-to-model-fit-statistics" class="nav-link" data-scroll-target="#introduction-to-model-fit-statistics">Introduction to model fit statistics</a></li>
+  <li><a href="#common-model-fit-statistics" id="toc-common-model-fit-statistics" class="nav-link" data-scroll-target="#common-model-fit-statistics">Common model fit statistics</a></li>
+  <li><a href="#common-model-fit-statistics-1" id="toc-common-model-fit-statistics-1" class="nav-link" data-scroll-target="#common-model-fit-statistics-1">Common model fit statistics</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="13_Model_selection.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
@@ -248,7 +266,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lesson 13: Model/Variable Selection</h1>
+<h1 class="title">Lesson 12: Model/Variable Selection</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Week 9</div>
   </div>
@@ -278,21 +296,84 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="learning-objective" class="level1">
-<h1>Learning Objective</h1>
+<section id="learning-objectives" class="level1">
+<h1>Learning Objectives</h1>
+<ol type="1">
+<li>Understand the motivation for model selection, including bias-variance trade off and alignment of research goals (association vs.&nbsp;prediction)</li>
+<li>Explain the general process or idea behind different model selection techniques</li>
+<li>Know the formula for and function for various model fit statistics</li>
+</ol>
 <section id="why-cant-i-just-throw-in-all-the-variables-into-my-model" class="level2">
 <h2 class="anchored" data-anchor-id="why-cant-i-just-throw-in-all-the-variables-into-my-model">Why can’t I just throw in all the variables into my model?</h2>
 <ul>
-<li><p>First, let’s think about the number of observations in our dataset</p>
+<li><p>First, let’s think about the number of observations in our dataset</p></li>
+<li><p>For example: In the Gapminder dataset, I can use an indicator for each country</p>
 <ul>
-<li><p>For example: In the Gapminder dataset, I can use an indicator for each country</p></li>
-<li><p>Remember that each country is its own observation</p></li>
-<li></li>
+<li><p>Remember that each country is an observation</p></li>
+<li><p>So we have a perfectly fit model - a covariate for each observation</p></li>
+<li><p>But we cannot generalize this to any other countries</p></li>
+<li><p>And we haven’t identified any meaningful relationships between life expectancy and other measured characteristics</p></li>
+</ul></li>
+<li><p>More covariates in the model is not always better</p>
+<ul>
+<li>Overfitting the data limits our generalizability and prevents us from answering research questions</li>
 </ul></li>
 </ul>
 </section>
+<section id="model-complexity-vs.-parsimony" class="level2">
+<h2 class="anchored" data-anchor-id="model-complexity-vs.-parsimony">Model Complexity vs.&nbsp;Parsimony</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Suppose we have <span class="math inline">\(p = 30\)</span> covariates (in the true model) and n = 50 observations. We could consider the following two alternatives:</p>
+<ol type="1">
+<li>We could fit a model using all of the covariates.
+<ul>
+<li>In this case, <span class="math inline">\(\widehat\beta\)</span> is unbiased for <span class="math inline">\(\beta\)</span> (in a linear model fit using OLS). But <span class="math inline">\(\widehat\beta\)</span> has very high variance.</li>
+</ul></li>
+<li>We could fit a model using only the five strongest covariates.
+<ul>
+<li>In this case, <span class="math inline">\(\widehat\beta\)</span> will be biased for <span class="math inline">\(\beta\)</span>, but it will have lower variance (compared to the estimate including all covariates)</li>
+</ul></li>
+</ol>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="http://scott.fortmann-roe.com/docs/BiasVariance.html"><img src="13_Model_selection/bullseye.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">Source: http://scott.fortmann-roe.com/docs/BiasVariance.html</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="bias-variance-trade-off" class="level2">
 <h2 class="anchored" data-anchor-id="bias-variance-trade-off">Bias-variance trade off</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>Recall mean square error is a function of SSE (sum of squared residuals)</p>
+<p><span class="math display">\[
+MSE = \dfrac{1}{n} \sum_{i=1}^{n} \big(Y_i - \widehat{Y}_i \big)^2
+\]</span></p></li>
+<li><p>MSE can also be written as a function of the bias and variance</p>
+<p><span class="math display">\[
+MSE = \text{bias}\big(\widehat\beta\big)^2 + \text{variance}\big(\widehat\beta\big)
+\]</span></p></li>
+<li><p>For the same data:</p>
+<ul>
+<li><p>More covariates in model: less bias, more variance</p></li>
+<li><p>Less covariates in model: more bias, less variance</p></li>
+</ul></li>
+<li><p>Out goal: find a model with just the right amount of covariates to balance bias and vairance</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="http://scott.fortmann-roe.com/docs/BiasVariance.html"><img src="13_Model_selection/biasvariance_tradeoff.png" class="img-fluid figure-img" width="1000"></a></p>
+<figcaption class="figure-caption">Source: http://scott.fortmann-roe.com/docs/BiasVariance.html</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="model-selection-basics-slide-adjusted-from-jodi-lapidus" class="level2">
 <h2 class="anchored" data-anchor-id="model-selection-basics-slide-adjusted-from-jodi-lapidus">Model Selection basics (slide adjusted from Jodi Lapidus)</h2>
@@ -303,7 +384,7 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 <li><p>Not all statistical texts provide practical advice on model development</p>
 <ul>
-<li>Moore text includes methods/code to compare models, but does not include much advice re: selecting which model to ultimately use.</li>
+<li>A lot of resources include methods/code to compare models, but does not include much advice re: selecting which model to ultimately use.</li>
 <li>Other texts are sparse on details or incorporate simplistic approaches</li>
 </ul></li>
 <li><p>Model development strategy should <strong>align with research goals</strong></p>
@@ -324,11 +405,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="def-cont">
 <ul>
 <li><p><strong>Goal:</strong> Understand one variable’s (or a group of variable’s) effect on the response after adjusting for other factors</p></li>
-<li><p>Only interpret the coefficient of the variable that is the focus of the study</p>
+<li><p>Mainly interpret the coefficient of the variable that is the focus of the study</p>
 <ul>
-<li>Interpreting the coefficients of the other variables is not important</li>
+<li>Interpreting the coefficients of the other variables is not important, but can help bring context</li>
 </ul></li>
 <li><p>Any variables not selected for the final model have still been adjusted for, since they had a chance to be in the model</p></li>
+<li><p>Example: How is body mass of a penguin associated with flipper length?</p></li>
 </ul>
 </div>
 </div>
@@ -345,6 +427,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Excluding irrelevant variables can help reduce widths of the prediction intervals</li>
 </ul></li>
+<li><p>Example: What is the flipper length of a penguin with body mass of 3000 g (and all its other characteristics)?</p></li>
 </ul>
 </div>
 </div>
@@ -361,14 +444,37 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p><a href="https://onlinelibrary.wiley.com/authored-by/Sainani/Kristin+L.?startPage=&amp;SeriesKey=19341563">If you ever get the chance, check out Dr.&nbsp;Kristin Sainani’s series on Statistics</a></p>
 </section>
-<section id="model-selection-strategies-slide-adjusted-from-jodi-lapidus" class="level2">
-<h2 class="anchored" data-anchor-id="model-selection-strategies-slide-adjusted-from-jodi-lapidus">Model selection strategies (slide adjusted from Jodi Lapidus)</h2>
+<section id="model-selection-strategies-for-continuous-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="model-selection-strategies-for-continuous-outcomes">Model selection strategies for <em>continuous</em> outcomes</h2>
+<div class="columns">
+<div class="column">
+<div class="definition">
+<div class="def-title">
+<p>Association / Explanatory / One variable’s effect</p>
+</div>
+<div class="def-cont">
 <ul>
+<li><p>Selection of potential models is tied more with the research context with some incorporation of prediction scores</p></li>
 <li><p>Pre-specification of multivariable model</p></li>
-<li><p>Purposeful model selection (will learn in BSTA 513)</p>
+<li><p>Purposeful model selection</p>
 <ul>
 <li>“Risk factor modeling”</li>
 </ul></li>
+<li><p>Change in Estimate (CIE) approaches</p>
+<ul>
+<li>Will learn in Survival Analysis (BSTA 514)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div><div class="column">
+<div class="proposition">
+<div class="prop-title">
+<p>Prediction</p>
+</div>
+<div class="prop-cont">
+<ul>
+<li><p>Selection of potential models is fully dependent on prediction scores</p></li>
 <li><p>Automated strategies</p>
 <ul>
 <li>Stepwise selection (forward/backward)
@@ -378,28 +484,254 @@ ul.task-list li input[type="checkbox"] {
 <li>Best subset</li>
 <li>Regularization techniques (LASSO, Ridge, Elastic net)</li>
 </ul></li>
-<li><p>Change in Estimate (CIE) approaches</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>For categorical outcomes, there are more prediction model selection strategies (will learn more in BSTA 513)</p>
+<ul>
+<li>Examples: Decision trees, Random forest, Neural networks, K-means</li>
+</ul></li>
 </ul>
 </section>
-<section id="stepwise-selection" class="level2">
-<h2 class="anchored" data-anchor-id="stepwise-selection">Stepwise selection</h2>
 </section>
-<section id="general-process-for-association" class="level2">
-<h2 class="anchored" data-anchor-id="general-process-for-association">General process for association</h2>
-<p>Model selection methods, for the purpose of association, generally consist of the same essential steps:</p>
-<ol type="1">
-<li>Construct a list of all candidate covariates</li>
-<li></li>
-</ol>
+<section id="learning-objectives-1" class="level1">
+<h1>Learning Objectives</h1>
+<section id="pre-specification-of-multivariable-model-slide-adjusted-from-jodi-lapidus" class="level2">
+<h2 class="anchored" data-anchor-id="pre-specification-of-multivariable-model-slide-adjusted-from-jodi-lapidus">Pre-specification of multivariable model (slide adjusted from Jodi Lapidus)</h2>
+<ul>
+<li><p>In a clinical trial, we often have to write and finalize a statistical analysis plan (SAP) before the trial starts</p></li>
+<li><p>If we wish to compare treatment effects adjusted for covariates, all covariates typically specified in advance</p>
+<ul>
+<li><p>Example: Comparing effectiveness of 3-drug vs.&nbsp;2-drug regimen for delaying AIDS onset or death. Covariates such as severity of HIV infection at baseline would have been specified in advance.</p></li>
+<li><p>Variables such as study site, as well as any randomization stratification variables are common covariates.</p></li>
+</ul></li>
+<li><p>In these cases, only a limited number of multivariable models are fit and reported</p>
+<ul>
+<li>Do not perform all the model building steps outlined in Hosmer and Lemeshow texts</li>
+</ul></li>
+</ul>
 </section>
-<section id="some-model-selection-criteria" class="level2">
-<h2 class="anchored" data-anchor-id="some-model-selection-criteria">Some model selection criteria</h2>
+<section id="purposeful-model-selection-slide-adjusted-from-jodi-lapidus" class="level2">
+<h2 class="anchored" data-anchor-id="purposeful-model-selection-slide-adjusted-from-jodi-lapidus">Purposeful model selection (slide adjusted from Jodi Lapidus)</h2>
+<ul>
+<li><p>Can use this type of model selection for any type of regression</p></li>
+<li><p>Careful, well-thought out variable selection process</p>
+<ul>
+<li>Considers both confounding and interaction, as well as checking model assumptions, fit, etc.</li>
+</ul></li>
+<li><p>Often a reasonable strategy, especially in epidemiology and more exploratory clinical studies</p>
+<ul>
+<li>However, not always appropriate!</li>
+<li>E.g. clinical trials with model specified in advance. (pre-specified model)</li>
+</ul></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><strong>This is the selection process that we will focus on in this class!</strong></li>
+</ul>
+</section>
+<section id="change-in-estimate-cie-approach-slide-adjusted-from-jodi-lapidus" class="level2">
+<h2 class="anchored" data-anchor-id="change-in-estimate-cie-approach-slide-adjusted-from-jodi-lapidus">Change in estimate (CIE) approach (slide adjusted from Jodi Lapidus)</h2>
+<ul>
+<li><p>CIE strategies select covariates on the basis of how much their control changes exposure effect estimates</p>
+<ul>
+<li>Observed change is presumed to measure confounding by the covariate.</li>
+</ul></li>
+<li><p>What estimate?</p>
+<ul>
+<li>H/L text suggest using coefficients from the model</li>
+<li>We typically use the coefficient estimate from the explanatory variable that we are most interested in</li>
+</ul></li>
+<li><p>What magnitude change is ”important”?</p>
+<ul>
+<li>H/L text suggest 10%</li>
+</ul></li>
+<li><p>One must choose an effect measure to judge change importance, where “importance” needs to be evaluated along a contextually meaningful scale</p></li>
+<li><p>Accurate assessment of confounding may require examining changes from removing entire sets of covariates</p>
+<ul>
+<li>Add in or eliminate candidate confounders one at time?</li>
+<li>Add in or eliminate candidate confounders in sets?</li>
+</ul></li>
+</ul>
+</section>
+<section id="stepwise-selection-slide-adjusted-from-adrianna-westbrook" class="level2">
+<h2 class="anchored" data-anchor-id="stepwise-selection-slide-adjusted-from-adrianna-westbrook">Stepwise selection (slide adjusted from Adrianna Westbrook)</h2>
+<ul>
+<li><p>This is an incredibly common approach that statisticians use, often because it is an older and more recognized method</p>
+<ul>
+<li>BUT IT IS ALSO ONE OF THE WORST MODEL SELECTION STRATEGIES!!</li>
+</ul></li>
+<li><p>Major disadvantages to stepwise selection:</p>
+<ul>
+<li>Prone to overfitting</li>
+<li>Biased estimates</li>
+<li>Cements the wrong idea that we are looking for our “most significant” covariates</li>
+</ul></li>
+<li><p>Predictors/covariates are added or removed one at time if they are below a certain threshold (usually p-value below 0.10 to 0.20)</p></li>
+</ul>
+</section>
+<section id="stepwise-selection-two-common-approaches" class="level2">
+<h2 class="anchored" data-anchor-id="stepwise-selection-two-common-approaches">Stepwise selection: two common approaches</h2>
+<ul>
+<li><p>I will introduce two of the approaches so that you understand the general process if a collaborator ever mentions stepwise selection</p></li>
+<li><p>Forward selection:</p>
+<ul>
+<li><p>For <span class="math inline">\(p\)</span> cvariates potential covariates, run all simple linear regressions:</p>
+<ul>
+<li><span class="math inline">\(Y= \beta_0 + \beta_1 X_1 + \epsilon\)</span> through <span class="math inline">\(Y= \beta_0 + \beta_1 X_{p} + \epsilon\)</span></li>
+<li>Include the <span class="math inline">\(X_i\)</span> with the lowest p-value (assuming it is below the threshold)</li>
+</ul></li>
+<li><p>Now run <span class="math inline">\(Y= \beta_0 + \beta_1 X_i + \beta_2 X_1 + \epsilon\)</span> through <span class="math inline">\(Y= \beta_0 + \beta_1 X_i + \beta_2 X_{p} + \epsilon\)</span> and enter the next <span class="math inline">\(X_j\)</span> with the lowest p-value</p></li>
+<li><p>Continue process until no more predictors come back with a p-value below the threshold</p></li>
+</ul></li>
+<li><p>Backward selection:</p>
+<ul>
+<li>Start with a full model (<span class="math inline">\(Y= \beta_0 + \beta_1 X_1 + ... + \beta_p X_p + \epsilon\)</span>) and remove predictor with the highest p-value (assuming it is above the threshold)</li>
+<li>Repeatedly remove the variable with the highest p-value until all remaining variables meet the stopping criteria (are below the threshold)</li>
+</ul></li>
+</ul>
+</section>
+<section id="best-subset-slide-adjusted-from-adrianna-westbrook" class="level2">
+<h2 class="anchored" data-anchor-id="best-subset-slide-adjusted-from-adrianna-westbrook">Best subset (slide adjusted from Adrianna Westbrook)</h2>
+<ul>
+<li><p>I don’t see this approach very often</p></li>
+<li><p>Quite literally making subsets of the data and using the “best” one</p></li>
+<li><p>General steps:</p>
+<ul>
+<li>Run every possible model fitting 1 to all possible <span class="math inline">\(p\)</span> predictors/covariates</li>
+<li>You can limit number of potential predictors</li>
+<li><span class="math inline">\(2^p\)</span> = total number of models where <span class="math inline">\(p\)</span> = number of predictors</li>
+<li>You will get the best fitting model within each category (i.e., 1 predictor model, 2 predictor model,…, <span class="math inline">\(p\)</span> predictor model)</li>
+<li>Then have to find the best fitting model between the best models from each category</li>
+</ul></li>
+<li><p>Major disadvantages to best subset:</p>
+<ul>
+<li>Does not account for interactions</li>
+<li>Needs to run a lot of models (takes A LOT of time)</li>
+</ul></li>
+</ul>
+</section>
+<section id="regularization-techniques" class="level2">
+<h2 class="anchored" data-anchor-id="regularization-techniques">Regularization techniques</h2>
+<ul>
+<li>Regularization techniques (LASSO, ridge, elastic net) adds a penalization that shrinks (or regularizes) coefficients down to reduce overfitting</li>
+</ul>
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>LASSO (Least About Shrinkage and Selection Operator)</td>
+<td>Ridge</td>
+<td>Elastic Net</td>
+</tr>
+<tr class="even">
+<td>Penalization</td>
+<td>L-1 Norm, uses absolute value</td>
+<td>L-2 Norm, uses squared value</td>
+<td>Best of both worlds, L-1 and L-2 used</td>
+</tr>
+<tr class="odd">
+<td>Pro’s</td>
+<td>Reduces overfitting, will shrink coefficient to zero</td>
+<td>Reduces overfitting, handles collinearity, can handle k&gt;n</td>
+<td>Reduces overfitting, handles collinearity, handles k&gt;n, shrinks coefficients to zero</td>
+</tr>
+<tr class="even">
+<td>Con’s</td>
+<td>Cannot handle k&gt;n, doesn’t handle multicollinearity well</td>
+<td>Does not shrink coefficients to zero, difficult to interpret</td>
+<td>More difficult for R to do than the other two (but not really that bad)</td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
-<section id="reference" class="level1">
-<h1>Reference</h1>
-<section id="words-to-know" class="level2">
-<h2 class="anchored" data-anchor-id="words-to-know">Words to know?</h2>
+<section id="learning-objectives-2" class="level1">
+<h1>Learning Objectives</h1>
+<section id="introduction-to-model-fit-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-model-fit-statistics">Introduction to model fit statistics</h2>
+<ul>
+<li><p>So far we have compared models using the F-test</p></li>
+<li><p>The F-test is a great way to compare models that are <strong>nested</strong></p>
+<ul>
+<li>Basically, this means that the “full” model contains all the covariates that the “reduced” model contains</li>
+<li>The full model will have additional covariates, but the covariates in the reduced is a subset of the covariates in the full</li>
+</ul></li>
+<li><p>What if we want to compare models that are not nested?</p>
+<ul>
+<li><p>There is a special group of fit statistics that can help us compare models</p></li>
+<li><p>Note: these are sometimes used in the model building process (within one strategy)</p>
+<ul>
+<li><p>Helpful if we want to compare selected models across strategies</p></li>
+<li><p>Helpful if we have a few “final” models with different covariates that we want to compare</p></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="common-model-fit-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="common-model-fit-statistics">Common model fit statistics</h2>
+<ul>
+<li><p>The following model fit statistics combine information about the SSE, the number of parameters in the model, and the sample size</p></li>
+<li><p>For these fit statistics, smaller values indicate better model fit!</p></li>
+</ul>
+<table class="table">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Fit statistic</th>
+<th>Equation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>R-squared / Adjusted R-squared</td>
+<td><span class="math inline">\(Adj. R^2 = 1 - \frac{SSE/(n-p-1)}{SSY/(n-1)}\)</span></td>
+</tr>
+<tr class="even">
+<td>Mallow’s <span class="math inline">\(C_p\)</span></td>
+<td><span class="math inline">\(C_p = \Bigg[ \dfrac{\widehat\sigma^2_p}{\widehat\sigma^2_{max}} - 1 \Bigg](n-p) + p\)</span></td>
+</tr>
+<tr class="odd">
+<td>Akaike information criterion (AIC)</td>
+<td><span class="math inline">\(AIC = n\log(SSE) - n \log(n) + 2(p+1)\)</span></td>
+</tr>
+<tr class="even">
+<td>Bayesian information criterion (BIC)</td>
+<td><span class="math inline">\(BIC = n\log(SSE) - n\log(n) + log(n)\cdot(p+1)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<ul>
+<li>We don’t need to know the exact formulas for them!</li>
+</ul>
+</section>
+<section id="common-model-fit-statistics-1" class="level2">
+<h2 class="anchored" data-anchor-id="common-model-fit-statistics-1">Common model fit statistics</h2>
+<ul>
+<li><p>There is no hypothesis testing for these fit statistics</p>
+<ul>
+<li><p>Only helpful if you are comparing models</p></li>
+<li><p>Works for nested and non-nested models</p></li>
+</ul></li>
+<li><p>Common to report all or some of them</p></li>
+<li><p>All of the fit statistics will not necessarily reach a consensus about the best fitting model</p>
+<ul>
+<li>Each weigh SSE, number of parameters, and number of observations differently</li>
+</ul></li>
+</ul>
 
 
 </section>

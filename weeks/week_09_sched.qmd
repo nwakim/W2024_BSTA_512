@@ -1,6 +1,6 @@
 ---
 title: "Week 9"
-description: "Model Evaluation and Diagnostics"
+description: "Model Selection"
 date: "3/4/2024"
 date-modified: "today"
 categories: [""]
@@ -30,20 +30,34 @@ editor_options:
 
 ## Resources
 
-| Lesson | Topic             |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
-|-------------|-------------|:-------------:|:-----------------:|:-----------:|
-| 12     | Model selection 1 | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
-| 13     | Model Selection 2 | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#49A3D1;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| Lesson | Topic                |                                                    Slides                                                    |                                  Annotated Slides                                  |                           Recording                           |
+|---------------|---------------|:-------------:|:-------------:|:-------------:|
+| 12     | Model selection 1    |   [[{{< iconify ri slideshow-fill size=30px >}}](/slides/12_Model_selection.qmd)]{style="color:#f8f5f0;"}    | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
+| 13     | Purposeful Selection | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/13_Purposeful_Selection.qmd)]{style="color:#49A3D1;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 
 ## On the Horizon
 
+-   Lab 3 was due yesterday
+
+-   HW 5 is due this Thursday
+
+-   Quiz 3 next Monday!!
+
 ## Announcements
+
+### Monday 3/4
+
+-   Missing a couple mid-term reviews: 32 reviews and only 29 names
+
+-   We'll go through Lesson 12 on Model selection, then dive into purposeful selection (a model selection strategy)
+
+    -   I will be adding more slides to Lesson 13 Purposeful Selection for Wednesday's class
 
 ## Class Exit Tickets
 
-[{{< iconify healthicons health-worker-form-negative size=30px >}}]{style="color:#f8f5f0;"} Monday (3/4)
+[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhURFZJMldXSEQ0SlhTMkozSEFNUkJCWVdPNC4u)]{style="color:#f8f5f0;"} Monday (3/4)
 
-[{{< iconify healthicons health-worker-form-negative size=30px >}}]{style="color:#f8f5f0;"} Wednesday (3/6)
+[[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhUQjI1OEJDUDdYWkVVU1BURUhSR1hDVlAwNC4u)]{style="color:#f8f5f0;"} Wednesday (3/6)
 
 ## Muddiest Points
 

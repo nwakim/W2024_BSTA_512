@@ -1,6 +1,6 @@
 ---
 title: "Week 8"
-description: "Interactions continued + Model Building and Selection"
+description: "Interactions continued"
 date: "2/26/2024"
 date-modified: "today"
 categories: [""]

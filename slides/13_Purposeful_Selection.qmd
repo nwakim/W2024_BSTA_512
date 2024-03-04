@@ -1,0 +1,190 @@
+---
+title: "Lesson 13: Purposeful model selection"
+author: "Nicky Wakim"
+title-slide-attributes:
+    data-background-color: "#213c96"
+date: "03/4/2024"
+categories: ["Week 9"]
+format: 
+  revealjs:
+    theme: [default, simple_NW.scss]
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1955
+    height: 1100
+    footer: Purposeful Selection
+    html-math-method: mathjax
+    highlight-style: ayu
+execute:
+  freeze: auto  # re-render only when source changes
+---
+
+```{r}
+#| label: "setup" 
+#| include: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(janitor)
+library(knitr)
+library(broom)
+library(rstatix)
+library(gt)
+library(readxl)
+#----------
+# new packages
+# install.packages("describedata")
+library(describedata) # gladder()
+library(gridExtra)   # grid.arrange()
+library(ggfortify)  # autoplot(model)
+# New Day 6
+library(gtsummary)
+
+# New Day 7
+library(plotly) # for plot_ly() command
+library(GGally) # for ggpairs() command 
+library(ggiraphExtra)   # for ggPredict() command
+
+# Load the data - update code if the csv file is not in the same location on your computer
+# If you need to download the file, please go to ur shared folder under Data > Slides
+gapm <- read_excel("data/Gapminder_vars_2011.xlsx", 
+                   na = "NA")  # important!!!! 
+
+
+gapm_sub <- gapm %>% # called it gapm2_sub3 to be consistent with Day 7 notes
+  drop_na(LifeExpectancyYrs, FemaleLiteracyRate, four_regions, FoodSupplykcPPD) %>%
+  mutate(four_regions = factor(four_regions, 
+                               levels = c("africa", "americas", 
+                                          "asia", "europe"), 
+                               labels = c("Africa", "Americas", 
+                                          "Asia", "Europe"))) %>%
+  rename(income_levels = `World bank, 4 income groups 2017`) %>%
+  mutate(income_levels1 = factor(income_levels, 
+                                levels = c("Low income", 
+                                           "Lower middle income", 
+                                           "Upper middle income", 
+                                           "High income")), 
+         income_levels2 = relevel(factor(income_levels, 
+                                levels = c("Low income", 
+                                           "Lower middle income", 
+                                           "Upper middle income", 
+                                           "High income"), 
+                                labels = c("Lower income", "Lower income", 
+                                            "Higher income", "Higher income")), 
+                                ref = "Lower income"))
+gapm_ind = gapm_sub %>% select(LifeExpectancyYrs, country)
+```
+
+# Learning Objectives
+
+## Overall Process
+
+0.  Exploratory data analysis
+
+1.  Check unadjusted associations in simple linear regression
+
+2.  Enter all covariates in model that meet some threshold
+
+    -   [One textbook](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118548387) suggest $p<0.2$ or $p<0.25$: great for modest sized datasets
+    -   PLEASE keep in mind sample size in your study
+    -   Can also use magnitude of association rather than, or along with, p-value
+
+3.  Remove those that no longer reach some threshold
+
+    -   Compare magnitude of associations to unadjusted version (univariable)
+
+4.  Check scaling of continuous and coding of categorical covariates
+
+5.  Finalize main effect model
+
+6.  Check for interactions
+
+7.  Assess model fit
+
+    -   Model assumptions, diagnostics, overall fit
+
+## Process with snappier step names
+
+::: columns
+::: {.column width="10%"}
+**Pre-step:**
+
+ 
+
+**Step 1:**
+
+ 
+
+**Step 2:**
+
+ 
+
+**Step 3:**
+
+ 
+
+**Step 4:**
+
+ 
+
+**Step 5:**
+
+ 
+
+**Step 6:**
+
+ 
+
+**Step 7:**
+:::
+
+::: {.column width="50%"}
+Exploratory data analysis
+
+ 
+
+Simple linear regressions
+
+ 
+
+Preliminary variable selection
+
+ 
+
+Assess change in coefficients
+
+ 
+
+Assess scale for continuous variables
+
+ 
+
+Finalize main effect model
+
+ 
+
+Check for interactions
+
+ 
+
+Assess model fit
+:::
+:::
+
+## Pre-step: Exploratory data analysis
+
+## Step 1: Simple linear regressions
+
+## Step 2: Preliminary variable selection
+
+## Step 3: Assess change in coefficients
+
+## Step 4: Assess scale for continuous variables
+
+## Step 5: Finalize main effect model
+
+## Step 6: Check for interactions
+
+## Step 7: Assess model fit

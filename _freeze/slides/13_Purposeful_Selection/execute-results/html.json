@@ -1,0 +1,18 @@
+{
+  "hash": "a051a3b6c76b5c389dd05ffe3ade32cb",
+  "result": {
+    "markdown": "---\ntitle: \"Lesson 13: Purposeful model selection\"\nauthor: \"Nicky Wakim\"\ntitle-slide-attributes:\n    data-background-color: \"#213c96\"\ndate: \"03/4/2024\"\ncategories: [\"Week 9\"]\nformat: \n  revealjs:\n    theme: [default, simple_NW.scss]\n    chalkboard: true\n    slide-number: true\n    show-slide-number: all\n    width: 1955\n    height: 1100\n    footer: Purposeful Selection\n    html-math-method: mathjax\n    highlight-style: ayu\nexecute:\n  freeze: auto  # re-render only when source changes\n---\n\n\n\n\n# Learning Objectives\n\n## Overall Process\n\n0.  Exploratory data analysis\n\n1.  Check unadjusted associations in simple linear regression\n\n2.  Enter all covariates in model that meet some threshold\n\n    -   [One textbook](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118548387) suggest $p<0.2$ or $p<0.25$: great for modest sized datasets\n    -   PLEASE keep in mind sample size in your study\n    -   Can also use magnitude of association rather than, or along with, p-value\n\n3.  Remove those that no longer reach some threshold\n\n    -   Compare magnitude of associations to unadjusted version (univariable)\n\n4.  Check scaling of continuous and coding of categorical covariates\n\n5.  Finalize main effect model\n\n6.  Check for interactions\n\n7.  Assess model fit\n\n    -   Model assumptions, diagnostics, overall fit\n\n## Process with snappier step names\n\n::: columns\n::: {.column width=\"10%\"}\n**Pre-step:**\n\n \n\n**Step 1:**\n\n \n\n**Step 2:**\n\n \n\n**Step 3:**\n\n \n\n**Step 4:**\n\n \n\n**Step 5:**\n\n \n\n**Step 6:**\n\n \n\n**Step 7:**\n:::\n\n::: {.column width=\"50%\"}\nExploratory data analysis\n\n \n\nSimple linear regressions\n\n \n\nPreliminary variable selection\n\n \n\nAssess change in coefficients\n\n \n\nAssess scale for continuous variables\n\n \n\nFinalize main effect model\n\n \n\nCheck for interactions\n\n \n\nAssess model fit\n:::\n:::\n\n## Pre-step: Exploratory data analysis\n\n## Step 1: Simple linear regressions\n\n## Step 2: Preliminary variable selection\n\n## Step 3: Assess change in coefficients\n\n## Step 4: Assess scale for continuous variables\n\n## Step 5: Finalize main effect model\n\n## Step 6: Check for interactions\n\n## Step 7: Assess model fit\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

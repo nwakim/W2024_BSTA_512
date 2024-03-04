@@ -81,7 +81,16 @@ gapm_ind = gapm_sub %>% select(LifeExpectancyYrs, country)
 
 1.  Understand the motivation for model selection, including bias-variance trade off and alignment of research goals (association vs. prediction)
 2.  Explain the general process or idea behind different model selection techniques
-3.  Know the formula for and function for various model fit statistics
+3.  Recognize common model fit statistics and understand what they measure
+
+# Learning Objectives
+
+::: lob
+1.  Understand the motivation for model selection, including bias-variance trade off and alignment of research goals (association vs. prediction)
+:::
+
+2.  Explain the general process or idea behind different model selection techniques
+3.  Recognize common model fit statistics and understand what they measure
 
 ## Why can't I just throw in all the variables into my model?
 
@@ -216,6 +225,8 @@ Prediction
 
 [If you ever get the chance, check out Dr. Kristin Sainani's series on Statistics](https://onlinelibrary.wiley.com/authored-by/Sainani/Kristin+L.?startPage=&SeriesKey=19341563)
 
+## Poll Everywhere Question 1
+
 ## Model selection strategies for *continuous* outcomes
 
 ::: columns
@@ -266,6 +277,14 @@ Prediction
     -   Examples: Decision trees, Random forest, Neural networks, K-means
 
 # Learning Objectives
+
+1.  Understand the motivation for model selection, including bias-variance trade off and alignment of research goals (association vs. prediction)
+
+::: lob
+2.  Explain the general process or idea behind different model selection techniques
+:::
+
+3.  Recognize common model fit statistics and understand what they measure
 
 ## Pre-specification of multivariable model (slide adjusted from Jodi Lapidus)
 
@@ -384,7 +403,16 @@ Prediction
 | Pro's        | Reduces overfitting, will shrink coefficient to zero      | Reduces overfitting, handles collinearity, can handle k\>n   | Reduces overfitting, handles collinearity, handles k\>n, shrinks coefficients to zero |
 | Con's        | Cannot handle k\>n, doesn’t handle multicollinearity well | Does not shrink coefficients to zero, difficult to interpret | More difficult for R to do than the other two (but not really that bad)               |
 
+## Poll Everywhere Question 2
+
 # Learning Objectives
+
+1.  Understand the motivation for model selection, including bias-variance trade off and alignment of research goals (association vs. prediction)
+2.  Explain the general process or idea behind different model selection techniques
+
+::: lob
+3.  Recognize common model fit statistics and understand what they measure
+:::
 
 ## Introduction to model fit statistics
 
@@ -411,12 +439,12 @@ Prediction
 
 -   For these fit statistics, smaller values indicate better model fit!
 
-| Fit statistic                        | Equation                                                                              |
-|-------------------------------|-----------------------------------------|
-| R-squared / Adjusted R-squared       | $Adj. R^2 = 1 - \frac{SSE/(n-p-1)}{SSY/(n-1)}$                                        |
-| Mallow's $C_p$                       | $C_p = \Bigg[ \dfrac{\widehat\sigma^2_p}{\widehat\sigma^2_{max}} - 1 \Bigg](n-p) + p$ |
-| Akaike information criterion (AIC)   | $AIC = n\log(SSE) - n \log(n) + 2(p+1)$                                               |
-| Bayesian information criterion (BIC) | $BIC = n\log(SSE) - n\log(n) + log(n)\cdot(p+1)$                                      |
+| Fit statistic                        | Equation                                                                              | R code                                                                             |
+|-------------------------------|----------------------------------------|--|
+| R-squared / Adjusted R-squared       | $Adj. R^2 = 1 - \frac{SSE/(n-p-1)}{SSY/(n-1)}$                                        | [Within `summary(model_name)`](https://www.statology.org/adjusted-r-squared-in-r/) |
+| Mallow's $C_p$                       | $C_p = \Bigg[ \dfrac{\widehat\sigma^2_p}{\widehat\sigma^2_{max}} - 1 \Bigg](n-p) + p$ | [`ols_mallows_cp()`](https://www.statology.org/how-to-calculate-mallows-cp-in-r/)  |
+| Akaike information criterion (AIC)   | $AIC = n\log(SSE) - n \log(n) + 2(p+1)$                                               | `AIC(model_name)`                                                                  |
+| Bayesian information criterion (BIC) | $BIC = n\log(SSE) - n\log(n) + log(n)\cdot(p+1)$                                      | `BIC(model_name)`                                                                  |
 
  
 
@@ -435,3 +463,5 @@ Prediction
 -   All of the fit statistics will not necessarily reach a consensus about the best fitting model
 
     -   Each weigh SSE, number of parameters, and number of observations differently
+
+![https://www.researchgate.net/figure/Model-Fit-Statistics_tbl1_308844501](13_Model_selection/Model-Fit-Statistics.png)
