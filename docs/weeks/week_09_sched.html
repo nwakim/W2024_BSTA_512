@@ -63,6 +63,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -236,9 +238,17 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#announcements" id="toc-announcements" class="nav-link" data-scroll-target="#announcements">Announcements</a>
   <ul class="collapse">
   <li><a href="#monday-34" id="toc-monday-34" class="nav-link" data-scroll-target="#monday-34">Monday 3/4</a></li>
+  <li><a href="#wednesday-36" id="toc-wednesday-36" class="nav-link" data-scroll-target="#wednesday-36">Wednesday 3/6</a></li>
   </ul></li>
   <li><a href="#class-exit-tickets" id="toc-class-exit-tickets" class="nav-link" data-scroll-target="#class-exit-tickets">Class Exit Tickets</a></li>
-  <li><a href="#muddiest-points" id="toc-muddiest-points" class="nav-link" data-scroll-target="#muddiest-points">Muddiest Points</a></li>
+  <li><a href="#muddiest-points" id="toc-muddiest-points" class="nav-link" data-scroll-target="#muddiest-points">Muddiest Points</a>
+  <ul class="collapse">
+  <li><a href="#in-cie-why-this-assumes-a-10-difference-indicates-confounding-and-not-effect-measure-modification" id="toc-in-cie-why-this-assumes-a-10-difference-indicates-confounding-and-not-effect-measure-modification" class="nav-link" data-scroll-target="#in-cie-why-this-assumes-a-10-difference-indicates-confounding-and-not-effect-measure-modification">1. In CIE, why this assumes a 10% difference indicates confounding and not effect measure modification</a></li>
+  <li><a href="#any-variables-not-selected-for-the-final-model-have-still-been-adjusted-for-since-they-had-a-chance-to-be-in-the-model-how-are-they-adjusted-for-when-they-arent" id="toc-any-variables-not-selected-for-the-final-model-have-still-been-adjusted-for-since-they-had-a-chance-to-be-in-the-model-how-are-they-adjusted-for-when-they-arent" class="nav-link" data-scroll-target="#any-variables-not-selected-for-the-final-model-have-still-been-adjusted-for-since-they-had-a-chance-to-be-in-the-model-how-are-they-adjusted-for-when-they-arent">2. “Any variables not selected for the final model have still been adjusted for, since they had a chance to be in the model” How are they adjusted for when they aren’t?</a></li>
+  <li><a href="#difference-between-stepwise-and-change-in-estimate-approach" id="toc-difference-between-stepwise-and-change-in-estimate-approach" class="nav-link" data-scroll-target="#difference-between-stepwise-and-change-in-estimate-approach">3. Difference between stepwise and change in estimate approach?</a></li>
+  <li><a href="#how-does-having-fewer-covariates-cause-a-more-biased-estimate-and-what-does-it-mean-for-widehatbeta-to-be-biased-for-beta" id="toc-how-does-having-fewer-covariates-cause-a-more-biased-estimate-and-what-does-it-mean-for-widehatbeta-to-be-biased-for-beta" class="nav-link" data-scroll-target="#how-does-having-fewer-covariates-cause-a-more-biased-estimate-and-what-does-it-mean-for-widehatbeta-to-be-biased-for-beta">4. How does having fewer covariates cause a more biased estimate? (and what does it mean for <span class="math inline">\(\widehat\beta\)</span> to be biased for <span class="math inline">\(\beta\)</span>?)</a></li>
+  <li><a href="#all-the-new-approaches-for-model-selection" id="toc-all-the-new-approaches-for-model-selection" class="nav-link" data-scroll-target="#all-the-new-approaches-for-model-selection">5. All the new approaches for model selection!</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -329,15 +339,15 @@ Room Locations for the week
 <td></td>
 <td>Quiz, Lab, Mid-quarter feedback</td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/Quiz_2_Lab_2.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/Quiz2_Lab2_Feedback.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2FQuiz2%5FLab2%5FFeedback%2Emp4&amp;referrer=StreamWebApp%2EWeb&amp;referrerScenario=AddressBarCopied%2Eview"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></td>
 </tr>
 <tr class="even">
 <td>12</td>
 <td>Model selection 1</td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/12_Model_selection.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/12_Model_selection.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F12%5FModel%5Fselection%2Emp4&amp;referrer=StreamWebApp%2EWeb&amp;referrerScenario=AddressBarCopied%2Eview"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></td>
 </tr>
 <tr class="odd">
 <td>13</td>
@@ -369,6 +379,12 @@ Room Locations for the week
 </ul></li>
 </ul>
 </section>
+<section id="wednesday-36" class="level3">
+<h3 class="anchored" data-anchor-id="wednesday-36">Wednesday 3/6</h3>
+<ul>
+<li>Revisit overfitting?</li>
+</ul>
+</section>
 </section>
 <section id="class-exit-tickets" class="level2">
 <h2 class="anchored" data-anchor-id="class-exit-tickets">Class Exit Tickets</h2>
@@ -378,8 +394,32 @@ Room Locations for the week
 <section id="muddiest-points" class="level2">
 <h2 class="anchored" data-anchor-id="muddiest-points">Muddiest Points</h2>
 <p>This will be filled in with your Exit Ticket responses.</p>
+<section id="in-cie-why-this-assumes-a-10-difference-indicates-confounding-and-not-effect-measure-modification" class="level3">
+<h3 class="anchored" data-anchor-id="in-cie-why-this-assumes-a-10-difference-indicates-confounding-and-not-effect-measure-modification">1. In CIE, why this assumes a 10% difference indicates confounding and not effect measure modification</h3>
+<p>A 10% difference can also indicate an interaction, but we would need to see the difference when we include the interaction. I think I was specifically talking about including variables, which typically means I am only including their main effects. With main effects, we can test for confounding, but not interactions. That’s all! We can separately test for interactions using the same 10% criterion.</p>
+</section>
+<section id="any-variables-not-selected-for-the-final-model-have-still-been-adjusted-for-since-they-had-a-chance-to-be-in-the-model-how-are-they-adjusted-for-when-they-arent" class="level3">
+<h3 class="anchored" data-anchor-id="any-variables-not-selected-for-the-final-model-have-still-been-adjusted-for-since-they-had-a-chance-to-be-in-the-model-how-are-they-adjusted-for-when-they-arent">2. “Any variables not selected for the final model have still been adjusted for, since they had a chance to be in the model” How are they adjusted for when they aren’t?</h3>
+<p>I feel your confusion. These variables have not been explicitly adjusted for in the model, more implicitly. If a variable is not selected that means it does not predict our outcome well and/or it does not affect other variables’ relationship with the outcome. That means we tried to adjust for it, but it has no effect, so we have technically adjusted for something that does not change our model.</p>
+<p>An example is probably best. Let’s say we’re looking at treatment effect. We measured the weather on the day that someone went in for treatment. We have a variable on whether it was cloudy or not. That variable was not selected in the model because the cloudiness has no effect on the treatment, but we allowed it to be a potential covariate. This is different than a variable that may not have an effect but was not measured. We cannot say we adjusted for something like shirt color during treatment because we haven’t actually tested it.</p>
+</section>
+<section id="difference-between-stepwise-and-change-in-estimate-approach" class="level3">
+<h3 class="anchored" data-anchor-id="difference-between-stepwise-and-change-in-estimate-approach">3. Difference between stepwise and change in estimate approach?</h3>
+<p>Stepwise is an automatic selection process that only requires us to put our dataset in a function which will return the “optimal” model. It also based only on the p-values of coefficients in the model. In CIE, we are manually including and excluding variables, and checking for a change in a coefficient estimate, instead of a significant p-value. A big change in a coefficient estimate is not necessarily accompanied by a significant p-value.</p>
+</section>
+<section id="how-does-having-fewer-covariates-cause-a-more-biased-estimate-and-what-does-it-mean-for-widehatbeta-to-be-biased-for-beta" class="level3">
+<h3 class="anchored" data-anchor-id="how-does-having-fewer-covariates-cause-a-more-biased-estimate-and-what-does-it-mean-for-widehatbeta-to-be-biased-for-beta">4. How does having fewer covariates cause a more biased estimate? (and what does it mean for <span class="math inline">\(\widehat\beta\)</span> to be biased for <span class="math inline">\(\beta\)</span>?)</h3>
+<p>Fewer covariates in our model means we likely not capturing the complex relationship between our outcome and our variables. If we leave out a variable that is an important predictor of the outcome, then the coefficients of all the variables that made it into the model will be a little biased. (Because we are not capturing the true, underlying model).</p>
+<p>For example, let’s say I am analyzing data for a study on dementia. Dementia is my outcome and I include a few variables in my model, such as whether or not you live with someone, depression, and physical activity. However, I leave out age, which is known to have high association with dementia. I have left out an important variable that may be a confounder or effect modifier of the variables in the model. Thus, the estimates of coefficients in the model will be biased.</p>
+<p>The less variables in the model, the more likely we are leaving out a variable that would help predict our outcome. We can counter this by trying to select the best model!</p>
+<p>Second part of the question: <span class="math inline">\(\widehat\beta\)</span> is a biased estimate for <span class="math inline">\(\beta\)</span> means that the estimated value, <span class="math inline">\(\widehat\beta\)</span>, is not close to the true, underlying <span class="math inline">\(\beta\)</span>. We work under the assumption that there is some true relationship between our covariates and our outcome, and we are trying to uncover the true value by estimating it. However, our estimate may not be close to the true value. We can try to get it as close as possible given our research aims and model.</p>
+</section>
+<section id="all-the-new-approaches-for-model-selection" class="level3">
+<h3 class="anchored" data-anchor-id="all-the-new-approaches-for-model-selection">5. All the new approaches for model selection!</h3>
+<p>Just to be clear, the main intention for the overview was that you can identify and recognize some of the key characteristics of different model selection strategies. We can’t cover all of them in detail, but I just want you to know what’s out there, and what other people might use.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
