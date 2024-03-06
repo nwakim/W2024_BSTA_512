@@ -11778,7 +11778,7 @@
     "href": "quizzes.html",
     "title": "Quizzes",
     "section": "",
-    "text": "Quiz\nAnswer key\n\n\n\n\n1\n\n\n\n2\n\n\n\n3\n\n\n\n\n\nQuiz 2 Information\n\nWhat will it cover?\n\nLesson 4 (Week 3, SLR: Inference, starting at mean response) to Lesson 9 (Week 5, MLR: Inference / F-tests)\nHW 4 will not be on it!\n\n\n\n\nQuiz 1 Information\n\nWe will be in RLSB 3A003 B!!!\nGeneral structure\n\nIt will be a maximum of 15 questions\n\n~ 10 multiple choice questions (including T/F)\n~ 3 free response questions\n\n\nWhat will it cover?\n\nLesson 2 (Data Management) to Lesson 4 (SLR: Inference, except the mean response)\n\nSo up to what we covered on Monday 1/22\n\nHW 0 - 1\n\nWhat can you expect?\n\nMostly concept questions\nYou may need to recognize what certain, important functions do\nYou may need to recognize a number from R output (like the regression table on slide 4 in Lesson 4 slides)\n\nInstructions that will be on the quiz:\n\n\nI have written a “30 minute” quiz. However, you have 50 minutes from 2:00 - 2:50pm.\nThe quiz is open book and open notes. You may use books other than the class textbook, you may use anything on our course webpage, and you may use reference websites (like Wikipedia, Googling expected value of specific distribution, etc.).\nNo cheating will be tolerated. Cheating includes:\n\nUsing ChatGPT\nUsing question and answer threads typically seen on sites like StackExchange, WikiHow, Quora, Reddit, StackOverflow, Chegg, etc.\nAsking other students in the room or looking at other students’ quiz work."
+    "text": "Quiz\nAnswer key\n\n\n\n\n1\n\n\n\n2\n\n\n\n3\n\n\n\n\n\nQuiz 3 Information\n\nWhat will it cover?\n\nWill cover Lesson 10 - 11: categorical covariates to interactions\nI’m thinking this one will be a litter shorter since there’s less material\nWill still have the 50 min for the quiz\nIncludes HW 4 and 5\n\nWill include interpretations of interactions!\n\n\n\n\n\nQuiz 2 Information\n\nWhat will it cover?\n\nLesson 4 (Week 3, SLR: Inference, starting at mean response) to Lesson 9 (Week 5, MLR: Inference / F-tests)\nHW 4 will not be on it!\n\n\n\n\nQuiz 1 Information\n\nWe will be in RLSB 3A003 B!!!\nGeneral structure\n\nIt will be a maximum of 15 questions\n\n~ 10 multiple choice questions (including T/F)\n~ 3 free response questions\n\n\nWhat will it cover?\n\nLesson 2 (Data Management) to Lesson 4 (SLR: Inference, except the mean response)\n\nSo up to what we covered on Monday 1/22\n\nHW 0 - 1\n\nWhat can you expect?\n\nMostly concept questions\nYou may need to recognize what certain, important functions do\nYou may need to recognize a number from R output (like the regression table on slide 4 in Lesson 4 slides)\n\nInstructions that will be on the quiz:\n\n\nI have written a “30 minute” quiz. However, you have 50 minutes from 2:00 - 2:50pm.\nThe quiz is open book and open notes. You may use books other than the class textbook, you may use anything on our course webpage, and you may use reference websites (like Wikipedia, Googling expected value of specific distribution, etc.).\nNo cheating will be tolerated. Cheating includes:\n\nUsing ChatGPT\nUsing question and answer threads typically seen on sites like StackExchange, WikiHow, Quora, Reddit, StackOverflow, Chegg, etc.\nAsking other students in the room or looking at other students’ quiz work."
   },
   {
     "objectID": "slides/Quiz_1_Lab_1.html",
@@ -14130,7 +14130,7 @@
     "href": "weeks/week_09_sched.html#announcements",
     "title": "Week 9",
     "section": "Announcements",
-    "text": "Announcements\n\nMonday 3/4\n\nMissing a couple mid-term reviews: 32 reviews and only 29 names\nWe’ll go through Lesson 12 on Model selection, then dive into purposeful selection (a model selection strategy)\n\nI will be adding more slides to Lesson 13 Purposeful Selection for Wednesday’s class\n\n\n\n\nWednesday 3/6\n\nRevisit overfitting?\nIs there going to be a specific strategy/type of model selection we’re supposed to use for the lab/final project? Will that be the focus of Lab 4?\nLab 3: new formatting was confusing for some\n\nI am sorry that I did not communicate the new formatting in multiple areas\nLab 4 will follow the same format\n\nThe course website will contain thorough, guided instructions\nThe file that you will download and edit will only contain the direct tasks that I want you to complete.\n\n\nQuiz 3 info\n\nWill cover Lesson 10 - 11: categorical covariates to interactions\nI’m thinking this one will be a litter shorter since there’s less material\nWill still have the 50 min for the quiz"
+    "text": "Announcements\n\nMonday 3/4\n\nMissing a couple mid-term reviews: 32 reviews and only 29 names\nWe’ll go through Lesson 12 on Model selection, then dive into purposeful selection (a model selection strategy)\n\nI will be adding more slides to Lesson 13 Purposeful Selection for Wednesday’s class\n\n\n\n\nWednesday 3/6\n\nIs there going to be a specific strategy/type of model selection we’re supposed to use for the lab/final project? Will that be the focus of Lab 4?\nLab 3: new formatting was confusing for some\n\nI am sorry that I did not communicate the new formatting in multiple areas\nLab 4 will follow the same format\n\nThe course website will contain thorough, guided instructions\nThe file that you will download and edit will only contain the direct tasks that I want you to complete.\n\n\nQuiz 3 info\n\nWill cover Lesson 10 - 11: categorical covariates to interactions\nI’m thinking this one will be a litter shorter since there’s less material\nWill still have the 50 min for the quiz\nIncludes HW 4 and 5\n\nWill include interpretations of interactions!"
   },
   {
     "objectID": "weeks/week_08_sched.html#announcements",
@@ -14585,7 +14585,7 @@
     "href": "lessons.html",
     "title": "Lessons",
     "section": "",
-    "text": "Lesson\nTopic\nSlides\nAnnotated Slides\nRecording(s)\n\n\n\n\n\nIntro\n\n\n\n\n\n1\nReview\n\n\n\n\n\n\n2\nData Management\n\n\n\n\n\n3\nSimple Linear Regression\n\n\n\n\n\n\n4\nSLR: Inference and Prediction\n\n\n\n\n\n\n\n5\nSLR: More Inference\n\n\n\n\n\n6\nSLR: Model Diagnostics 1\n\n\n\n\n\n7\nSLR: Model Diagnostics 2\n\n\n\n\n\n8\nIntroduction to Multiple Linear Regression\n\n\n\n\n\n9\nMLR: Inference\n\n\n\n\n\n10\nCategorical Covariates\n\n\n\n\n\n\n11.1\nInteractions\n\n\n\n\n\n\n\n11.2\nInteractions continued"
+    "text": "Lesson\nTopic\nSlides\nAnnotated Slides\nRecording(s)\n\n\n\n\n\nIntro\n\n\n\n\n\n1\nReview\n\n\n\n\n\n\n2\nData Management\n\n\n\n\n\n3\nSimple Linear Regression\n\n\n\n\n\n\n4\nSLR: Inference and Prediction\n\n\n\n\n\n\n\n5\nSLR: More Inference\n\n\n\n\n\n6\nSLR: Model Diagnostics 1\n\n\n\n\n\n7\nSLR: Model Diagnostics 2\n\n\n\n\n\n8\nIntroduction to Multiple Linear Regression\n\n\n\n\n\n9\nMLR: Inference\n\n\n\n\n\n10\nCategorical Covariates\n\n\n\n\n\n\n11.1\nInteractions\n\n\n\n\n\n\n\n11.2\nInteractions continued\n\n\n\n\n\n\n12\nModel selection 1\n\n\n\n\n\n13\nPurposeful Selection"
   },
   {
     "objectID": "slides/13_Model_selection.html#words-to-know",
@@ -14886,7 +14886,7 @@
     "href": "slides/13_Purposeful_Selection.html",
     "title": "Lesson 13: Purposeful model selection",
     "section": "",
-    "text": "Learning Objectives"
+    "text": "Understand the overall steps for purposeful selection as a model building strategy\nApply purposeful selection to a dataset using R\nConnect purposeful selection steps back to tests of coefficients in Class 8\nUse different approaches to assess the linear scale of continuous variables in logistic regression\n\n\n\n\n  \n\n\n\n\nModel Selection\n\n\n\nBuilding a model\nSelecting variables\nPrediction vs interpretation\nComparing potential models\n\n\n\n\n\n\n\n\nModel Fitting\n\n\n\nFind best fit line\nUsing OLS in this class\nParameter estimation\nCategorical covariates\nInteractions\n\n\n\n\n\n\n\n\nModel Evaluation\n\n\n\nEvaluation of model fit\nTesting model assumptions\nResiduals\nTransformations\nInfluential points\nMulticollinearity\n\n\n\n\n\n\n\n\nModel Use (Inference)\n\n\n\n\n\nInference for coefficients\nHypothesis testing for coefficients\n\n\n\nInference for expected \\(Y\\) given \\(X\\)\nPrediction of new \\(Y\\) given \\(X\\)"
   },
   {
     "objectID": "slides/13_Purposeful_Selection.html#process",
@@ -14949,7 +14949,7 @@
     "href": "slides/13_Purposeful_Selection.html#step-4-assess-scale-for-continuous-variables",
     "title": "Lesson 13: Purposeful model selection",
     "section": "Step 4: Assess scale for continuous variables",
-    "text": "Step 4: Assess scale for continuous variables\n\nTo assess the linearity for continuous variables in the model\nWe assume the linear regression model is linear in the logit scale for each continuous variable\nFour methods/approaches to check or address the assumption of linearity:\n\nApproach 1: Smoothed scatter plots (check only)\nApproach 2: Quartile method/Design variable\nApproach 3: Fractional Polynomials\nApproach 4: Spline functions\n\nModel at the end of Step 4 is the main effects model"
+    "text": "Step 4: Assess scale for continuous variables\n\nWe assume the linear regression model is linear for each continuous variable\nWe need to assess linearity for continuous variables in the model\n\nDo this through smoothed scatterplots that we introduced in Lesson 6 (SLR Diagnostics)\nResidual plots (can be used in SLR) does not help us in MLR\nEach term in MLR model needs to have linearity with outcome\n\nThree methods/approaches to address the violation of linearity assumption:\n\nApproach 1: Quantile method/Indicator variables\nApproach 2: Fractional Polynomials\nApproach 3: Spline functions\n\nFor our class, only implement Approach 2 or 3\nModel at the end of Step 4 is the main effects model"
   },
   {
     "objectID": "slides/13_Purposeful_Selection.html#step-5-finalize-main-effect-model",
@@ -15334,6 +15334,104 @@
     "href": "slides/13_Purposeful_Selection.html#step-6-assess-model-fit",
     "title": "Lesson 13: Purposeful model selection",
     "section": "Step 6: Assess model fit",
-    "text": "Step 6: Assess model fit\n\nAssess the adequacy of the model and check its fit\nMethods will be discussed later class\nIf the model is adequate and fits well, then it is the Final model\n\n\n\nPurposeful Selection"
+    "text": "Step 6: Assess model fit\n\nAssess the adequacy of the model and check its fit\nMethods will be discussed later class\nIf the model is adequate and fits well, then it is the Final model"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-4",
+    "href": "slides/13_Purposeful_Selection.html#step-4",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 4:",
+    "text": "Step 4:"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#next-time",
+    "href": "slides/13_Purposeful_Selection.html#next-time",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Next time",
+    "text": "Next time\n\nMore details on steps 4-6 on Monday before quiz!\n\n\n\nPurposeful Selection"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-4-assess-scale-for-continuous-variables-smoothed-scatterplots",
+    "href": "slides/13_Purposeful_Selection.html#step-4-assess-scale-for-continuous-variables-smoothed-scatterplots",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 4: Assess scale for continuous variables: Smoothed scatterplots",
+    "text": "Step 4: Assess scale for continuous variables: Smoothed scatterplots\n\nOnly checking linearity, not addressing linearity issues\nCan also identify extreme observations\n\nWhich can influence the assessment of linearity when using fractional polynomials or spline functions\n\nPlot the observed and smoothed values of outcome vs. continuous variable\nHelps us decide if the continuous variable can stay as is in the model\n\nProblem: if not linear, then we need to represent the variable in a new way (Approaches 2-4)"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-4-assess-scale-for-continuous-variables-smoothed-scatterplots-1",
+    "href": "slides/13_Purposeful_Selection.html#step-4-assess-scale-for-continuous-variables-smoothed-scatterplots-1",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 4: Assess scale for continuous variables: Smoothed scatterplots",
+    "text": "Step 4: Assess scale for continuous variables: Smoothed scatterplots\n\nIn Gapminder dataset, we have 5 continuous variables:\n\nCO2 Emissions\nFood Supply\nIncome\nFemale Literacy Rate\nWater source percent\n\nPlot each of these agains the outcome, life expectancy"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-4-assess-scale-for-continuous-variables-smoothed-scatterplots-2",
+    "href": "slides/13_Purposeful_Selection.html#step-4-assess-scale-for-continuous-variables-smoothed-scatterplots-2",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 4: Assess scale for continuous variables: Smoothed scatterplots",
+    "text": "Step 4: Assess scale for continuous variables: Smoothed scatterplots\n\n\nWe can quickly look at ggpairs() to identify variables\ngapm2 %&gt;% select(where(is.numeric)) %&gt;% \n  relocate(LifeExpectancyYrs, .after = last_col()) %&gt;% ggpairs()"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-4-assess-scale-for-continuous-variables-smoothed-scatterplots-3",
+    "href": "slides/13_Purposeful_Selection.html#step-4-assess-scale-for-continuous-variables-smoothed-scatterplots-3",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 4: Assess scale for continuous variables: Smoothed scatterplots",
+    "text": "Step 4: Assess scale for continuous variables: Smoothed scatterplots\n\n\nTake a look at C02, Food Supply, and Income\nCO2 = ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = CO2emissions)) + \n  geom_point() +\n  geom_smooth(se=F) + labs(x = \"CO2 Emissions (kt)\", y = \"Life Expectancy (yrs)\")\n\nFS = ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = FoodSupplykcPPD)) + \n  geom_point() +\n  geom_smooth(se=F) + labs(x = \"Food Supply (kcal PPD)\", y = \"Life Expectancy (yrs)\")\n\nIncome = ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = IncomePP)) + \n  geom_point() +\n  geom_smooth(se=F) + labs(x = \"Income (GDP per capita)\", y = \"Life Expectancy (yrs)\")\n\ngrid.arrange(CO2, FS, Income, nrow=1)\n\n\n\n\nFood Supply looks admissible\nCO2 Emissions and Income do not look very linear, but I want to zoom into the area of the plots that have most of the data"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-4-assess-scale-for-continuous-variables-smoothed-scatterplots-4",
+    "href": "slides/13_Purposeful_Selection.html#step-4-assess-scale-for-continuous-variables-smoothed-scatterplots-4",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 4: Assess scale for continuous variables: Smoothed scatterplots",
+    "text": "Step 4: Assess scale for continuous variables: Smoothed scatterplots\n\n\nZoom into areas on plots with more data\nCO2 = ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = CO2emissions)) + \n  geom_point() + xlim(0,10) +\n  geom_smooth(se=F) + labs(x = \"CO2 Emissions (kt)\", y = \"Life Expectancy (yrs)\")\n\nFS = ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = FoodSupplykcPPD)) + \n  geom_point() +\n  geom_smooth(se=F) + labs(x = \"Food Supply (kcal PPD)\", y = \"Life Expectancy (yrs)\")\n\nIncome = ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = IncomePP)) + \n  geom_point() + xlim(0,40000) +\n  geom_smooth(se=F) + labs(x = \"Income (GDP per capita)\", y = \"Life Expectancy (yrs)\")\n\ngrid.arrange(CO2, FS, Income, nrow=1)\n\n\n\n\nFood Supply still looks admissible\nCO2 Emissions and Income not linear: will address this!!"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#poll-everywhere-question-5",
+    "href": "slides/13_Purposeful_Selection.html#poll-everywhere-question-5",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Poll Everywhere Question 5",
+    "text": "Poll Everywhere Question 5"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-4-assess-scale-for-continuous-variables-1",
+    "href": "slides/13_Purposeful_Selection.html#step-4-assess-scale-for-continuous-variables-1",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 4: Assess scale for continuous variables",
+    "text": "Step 4: Assess scale for continuous variables\n\n\nResidual plot does not help us with linearity in MLR\nlibrary(ggfortify)\nautoplot(model_full) + theme(text=element_text(size=14))"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-4-approach-1-quantile-methodindicator-variables",
+    "href": "slides/13_Purposeful_Selection.html#step-4-approach-1-quantile-methodindicator-variables",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 4: Approach 1: Quantile method/Indicator variables",
+    "text": "Step 4: Approach 1: Quantile method/Indicator variables\n\nSplit a continuous variable into its quartiles\n\nCreate dummy variables corresponding to each quartile\nFit logistic regression with the dummy variables\nPlot quartile midpoints vs. coefficient estimates for the respective dummy variables\n\nDisadvantages:\n\nTakes some time to create new variables, especially with multiple continuous covariates\nStart with quartiles, but might be more appropriate to use different splits\n\nNo set rules on this\n\n\nAdvantage: graphical and visually helps"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-4-approach-2-fractional-polynomials",
+    "href": "slides/13_Purposeful_Selection.html#step-4-approach-2-fractional-polynomials",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 4: Approach 2: Fractional Polynomials",
+    "text": "Step 4: Approach 2: Fractional Polynomials"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-4-approach-3-spline-functions",
+    "href": "slides/13_Purposeful_Selection.html#step-4-approach-3-spline-functions",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 4: Approach 3: Spline functions",
+    "text": "Step 4: Approach 3: Spline functions"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-4-approach-1-quantile-methodindicator-variables-1",
+    "href": "slides/13_Purposeful_Selection.html#step-4-approach-1-quantile-methodindicator-variables-1",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 4: Approach 1: Quantile method/Indicator variables",
+    "text": "Step 4: Approach 1: Quantile method/Indicator variables\n\n\nTake a look at the quartiles within the scatterplot\nvline_coordinates= data.frame(Quantile_Name=names(quantile(gapm2$CO2emissions)),\n                          quantile_values=as.numeric(quantile(gapm2$CO2emissions)))\n\nCO2 = ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = CO2emissions)) + \n  geom_point(size = 1) +\n  #geom_smooth(se=F) + \n  labs(x = \"CO2 Emissions (kt)\", y = \"Life Expectancy (yrs)\") +\n  geom_vline(data = vline_coordinates, aes(xintercept = quantile_values), \n             color = \"red\", linetype = \"dashed\", size = .9)\n\nvline_coordinates= data.frame(Quantile_Name=names(quantile(gapm2$IncomePP)),\n                          quantile_values=as.numeric(quantile(gapm2$IncomePP)))\n\nIncome = ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = IncomePP)) + \n  geom_point(size = 1) +\n  #geom_smooth(se=F) + \n  labs(x = \"Income (GDP per capita)\", y = \"Life Expectancy (yrs)\")  +\n  geom_vline(data = vline_coordinates, aes(xintercept = quantile_values), \n             color = \"red\", linetype = \"dashed\", size = .9)\n\ngrid.arrange(CO2, Income, nrow=1)"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-4-assess-scale-for-continuous-variables-2",
+    "href": "slides/13_Purposeful_Selection.html#step-4-assess-scale-for-continuous-variables-2",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 4: Assess scale for continuous variables",
+    "text": "Step 4: Assess scale for continuous variables\n\nThree methods/approaches to address the violation of linearity assumption:\n\nApproach 1: Quantile method/Indicator variables\nApproach 2: Fractional Polynomials\nApproach 3: Spline functions"
   }
 ]

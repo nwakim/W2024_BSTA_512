@@ -33,14 +33,12 @@ knitr::opts_chunk$set(echo = TRUE, fig.height=3, fig.width=5,
 
 ## Example: Chapter 5 Problem 9
 
-* In an experiment designed to describe the dose–response curve for vitamin K, individual rats were depleted of their vitamin K reserves and then fed dried liver for 4 days at different dosage levels.
-* The response of each rat was measured as the concentration of a clotting agent needed to clot a sample of its blood in 3 minutes. 
-* The results of the experiment on 12 rats are given in the following table; __values are expressed in common logarithms for both dose and response__.
-    * _Note: by "common logarithm" the authors mean a base 10 logarithm_
+-   In an experiment designed to describe the dose–response curve for vitamin K, individual rats were depleted of their vitamin K reserves and then fed dried liver for 4 days at different dosage levels.
+-   The response of each rat was measured as the concentration of a clotting agent needed to clot a sample of its blood in 3 minutes.
+-   The results of the experiment on 12 rats are given in the following table; **values are expressed in common logarithms for both dose and response**.
+    -   *Note: by "common logarithm" the authors mean a base 10 logarithm*
 
 > Question: why did they choose a log-log transformation?
-
-
 
 ```{r}
 rats <- read_excel("data/CH05Q09.xls")
@@ -53,7 +51,6 @@ loglog_plot <- ggplot(rats, aes(x = LOGDOSE, y = LOGCONC)) +
   labs(title = "Transformed variables")
 loglog_plot
 ```
-
 
 ## "Untransform" the variables
 
@@ -74,12 +71,7 @@ xy_plot <- ggplot(rats, aes(x = DOSE, y = CONC)) +
 grid.arrange(xy_plot, loglog_plot, ncol = 2)
 ```
 
-
-
-
-
 ## Transform dependent variable?
-
 
 ```{r}
 ggplot(rats, aes(x = CONC)) +
@@ -94,10 +86,10 @@ gladder(rats$CONC)
 
 ### `ladder()`
 
-* `ladder()` output tests various transformations of the data for normality
-* Shapiro-Wilkes test is used to assess for normality
-    * $H_0$: data are from a normal population
-    * $H_A$: data are NOT from a normal population
+-   `ladder()` output tests various transformations of the data for normality
+-   Shapiro-Wilkes test is used to assess for normality
+    -   $H_0$: data are from a normal population
+    -   $H_A$: data are NOT from a normal population
 
 ```{r}
 ladder(rats$CONC) %>% gt()
@@ -121,7 +113,6 @@ gladder(rats$DOSE)
 ```{r}
 ladder(rats$DOSE) %>% gt()
 ```
-
 
 ## Add transformations to dataset
 
@@ -189,9 +180,7 @@ grid.arrange(plot_m1, plot_m2, plot_m3,
              nrow = 2)
 ```
 
-
 ## Run models with transformations
-
 
 ### Model 1: $CONC \sim DOSE$
 
@@ -211,7 +200,6 @@ autoplot(model1)
 plot(model1, which = 5)
 ```
 
-
 ### Model 2: $log10(CONC) \sim DOSE$
 
 ```{r}
@@ -229,8 +217,6 @@ autoplot(model2)
 ```{r fig.height=3, fig.width=4}
 plot(model2, which = 5)
 ```
-
-
 
 ### Model 3: $1/sqrt(CONC) \sim DOSE$
 
@@ -268,7 +254,6 @@ autoplot(model4)
 plot(model4, which = 5)
 ```
 
-
 ### Model 5: $CONC \sim DOSE + DOSE^2$
 
 ```{r}
@@ -286,7 +271,6 @@ autoplot(model5)
 ```{r fig.height=3, fig.width=4}
 plot(model5, which = 5)
 ```
-
 
 ### Model 6: $log10(CONC) \sim log10(DOSE)$
 
@@ -337,7 +321,6 @@ plot(model5, which = 1)
 plot(model6, which = 1)
 par(mfrow=c(1,1))  # set back to the standard 1 row x 1 column
 ```
-
 
 ## Leverage & Cook's distance comparison
 
@@ -390,7 +373,6 @@ tbl_merge(
   tab_spanner = c("Model 4: y=CONC", "Model 5: y=CONC", "Model 6: y=1/sqrt(CONC)")
   )
 ```
-
 
 ## Other fit statistics comparison
 

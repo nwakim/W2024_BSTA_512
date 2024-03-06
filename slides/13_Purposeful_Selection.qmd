@@ -109,9 +109,7 @@ gapm2 = gapm %>% select(-Longitude, -Latitude, -eight_regions, -six_regions, -ge
 
 2.    Apply purposeful selection to a dataset using R
 
-3.    Connect purposeful selection steps back to tests of coefficients in Class 8 
-
-4.    Use different approaches to assess the linear scale of continuous variables in
+3.    Use different approaches to assess the linear scale of continuous variables in
 logistic regression
 
 ## Regression analysis process
@@ -216,10 +214,9 @@ Model Use (Inference)
 
 2.    Apply purposeful selection to a dataset using R
 
-3.    Connect purposeful selection steps back to tests of coefficients in Class 8 
-
-4.    Use different approaches to assess the linear scale of continuous variables in
+3.    Use different approaches to assess the linear scale of continuous variables in
 logistic regression
+
 
 ## 
 
@@ -326,6 +323,7 @@ Check for interactions
 
 Assess model fit
 :::
+
 :::
 
 # Learning Objectives
@@ -336,10 +334,9 @@ Assess model fit
 2.    Apply purposeful selection to a dataset using R
 :::
 
-3.    Connect purposeful selection steps back to tests of coefficients in Class 8 
-
-4.    Use different approaches to assess the linear scale of continuous variables in
+3.    Use different approaches to assess the linear scale of continuous variables in
 logistic regression
+
 
 ## Pre-step: Exploratory data analysis
 
@@ -825,6 +822,10 @@ $$
 
 -   Based off the percent change (and p-value), I would keep this in the model
 
+## Poll Everywhere Question 5
+
+
+
 ## Step 3: Assess change in coefficient
 
 -   At the end of this step, we have a **preliminary main effects model**
@@ -836,20 +837,219 @@ $$
     
 -   In our example, the **preliminary main effects model** (end of Step 3) was the same as the **intiial model** (end of Step 2)
 
+# Remaining slides under construction
+
+# Learning Objectives
+
+1.    Understand the overall steps for purposeful selection as a model building strategy
+
+2.    Apply purposeful selection to a dataset using R
+
+::: lob
+3.    Use different approaches to assess the linear scale of continuous variables in
+logistic regression
+:::
+
 ## Step 4: Assess scale for continuous variables
 
--   To assess the linearity for continuous variables in the model
+-   We assume the linear regression model is linear for **each continuous variable**
 
--   We assume the linear regression model is linear in the logit scale for each continuous variable
+-   We need to assess linearity for continuous variables in the model
 
--   Four methods/approaches to check or address the assumption of linearity: 
+    -   Do this through smoothed scatterplots that we introduced in Lesson 6 (SLR Diagnostics)
+    -   Residual plots (can be used in SLR) does not help us in MLR
+    -   Each term in MLR model needs to have linearity with outcome
 
-    -   Approach 1: Smoothed scatter plots (check only)
-    -   Approach 2: Quartile method/Design variable
-    -   Approach 3: Fractional Polynomials
-    -   Approach 4: Spline functions
+-   Three methods/approaches to address the violation of linearity assumption: 
 
--   Model at the end of Step 4 is the main effects model
+    -   Approach 1: Quantile method/Indicator variables
+    -   Approach 2: Fractional Polynomials
+    -   Approach 3: Spline functions
+    
+-   For our class, only implement **Approach 2 or 3**
+
+-   Model at the end of Step 4 is the **main effects model**
+
+## Step 4: Assess scale for continuous variables
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Residual plot does not help us with linearity in MLR"
+#| fig-width: 10
+#| fig-height: 6
+#| fig-align: center
+
+library(ggfortify)
+autoplot(model_full) + theme(text=element_text(size=14))
+```
+
+## Step 4: Assess scale for continuous variables: Smoothed scatterplots
+
+-   **Only checking linearity**, not addressing linearity issues
+
+-   Can also identify extreme observations
+
+    -   Which can influence the assessment of linearity when using fractional polynomials or spline functions
+
+-   Plot the observed and smoothed values of outcome vs. continuous variable
+
+-   Helps us decide if the continuous variable can stay **as is** in the model
+
+    -   Problem: if not linear, then we need to represent the variable in a new way (Approaches 2-4)
+
+## Step 4: Assess scale for continuous variables: Smoothed scatterplots
+
+-   In Gapminder dataset, we have 5 continuous variables:
+
+    -   CO2 Emissions
+    -   Food Supply
+    -   Income
+    -   Female Literacy Rate
+    -   Water source percent
+    
+-   Plot each of these agains the outcome, life expectancy
+
+## Step 4: Assess scale for continuous variables: Smoothed scatterplots
+
+```{r, fig.height=6, fig.width=11, fig.align='center'}
+#| echo: true
+#| code-fold: true
+#| code-summary: "We can quickly look at ggpairs() to identify variables"
+
+gapm2 %>% select(where(is.numeric)) %>% 
+  relocate(LifeExpectancyYrs, .after = last_col()) %>% ggpairs()
+```
+
+## Step 4: Assess scale for continuous variables: Smoothed scatterplots
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Take a look at C02, Food Supply, and Income"
+#| fig-width: 10
+#| fig-height: 3.5
+#| fig-align: center
+
+CO2 = ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = CO2emissions)) + 
+  geom_point() +
+  geom_smooth(se=F) + labs(x = "CO2 Emissions (kt)", y = "Life Expectancy (yrs)")
+
+FS = ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = FoodSupplykcPPD)) + 
+  geom_point() +
+  geom_smooth(se=F) + labs(x = "Food Supply (kcal PPD)", y = "Life Expectancy (yrs)")
+
+Income = ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = IncomePP)) + 
+  geom_point() +
+  geom_smooth(se=F) + labs(x = "Income (GDP per capita)", y = "Life Expectancy (yrs)")
+
+grid.arrange(CO2, FS, Income, nrow=1)
+```
+
+-   Food Supply looks admissible
+-   CO2 Emissions and Income do not look very linear, but I want to zoom into the area of the plots that have most of the data
+
+## Step 4: Assess scale for continuous variables: Smoothed scatterplots
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Zoom into areas on plots with more data"
+#| fig-width: 10
+#| fig-height: 3.5
+#| fig-align: center
+
+CO2 = ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = CO2emissions)) + 
+  geom_point() + xlim(0,10) +
+  geom_smooth(se=F) + labs(x = "CO2 Emissions (kt)", y = "Life Expectancy (yrs)")
+
+FS = ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = FoodSupplykcPPD)) + 
+  geom_point() +
+  geom_smooth(se=F) + labs(x = "Food Supply (kcal PPD)", y = "Life Expectancy (yrs)")
+
+Income = ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = IncomePP)) + 
+  geom_point() + xlim(0,40000) +
+  geom_smooth(se=F) + labs(x = "Income (GDP per capita)", y = "Life Expectancy (yrs)")
+
+grid.arrange(CO2, FS, Income, nrow=1)
+```
+
+-   Food Supply still looks admissible
+-   CO2 Emissions and Income not linear: will address this!!
+
+## Step 4: Assess scale for continuous variables
+
+-   Three methods/approaches to address the violation of linearity assumption: 
+
+    -   Approach 1: Quantile method/Indicator variables
+    -   Approach 2: Fractional Polynomials
+    -   Approach 3: Spline functions
+    
+## Step 4: Approach 1: Quantile method/Indicator variables
+
+-   Split a continuous variable into its quartiles
+
+    -   Create dummy variables corresponding to each quartile
+    -   Fit logistic regression with the dummy variables
+    -   Plot quartile midpoints vs. coefficient estimates for the respective dummy variables
+
+-   Disadvantages:
+
+    -   Takes some time to create new variables, especially with multiple continuous covariates
+  
+    -   Start with quartiles, but might be more appropriate to use different splits
+    
+        -   No set rules on this
+
+-   Advantage: graphical and visually helps
+
+## Step 4: Approach 1: Quantile method/Indicator variables
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Take a look at the quartiles within the scatterplot"
+#| fig-width: 10
+#| fig-height: 3.5
+#| fig-align: center
+
+vline_coordinates= data.frame(Quantile_Name=names(quantile(gapm2$CO2emissions)),
+                          quantile_values=as.numeric(quantile(gapm2$CO2emissions)))
+
+CO2 = ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = CO2emissions)) + 
+  geom_point(size = 1) +
+  #geom_smooth(se=F) + 
+  labs(x = "CO2 Emissions (kt)", y = "Life Expectancy (yrs)") +
+  geom_vline(data = vline_coordinates, aes(xintercept = quantile_values), 
+             color = "red", linetype = "dashed", size = .9)
+
+vline_coordinates= data.frame(Quantile_Name=names(quantile(gapm2$IncomePP)),
+                          quantile_values=as.numeric(quantile(gapm2$IncomePP)))
+
+Income = ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = IncomePP)) + 
+  geom_point(size = 1) +
+  #geom_smooth(se=F) + 
+  labs(x = "Income (GDP per capita)", y = "Life Expectancy (yrs)")  +
+  geom_vline(data = vline_coordinates, aes(xintercept = quantile_values), 
+             color = "red", linetype = "dashed", size = .9)
+
+grid.arrange(CO2, Income, nrow=1)
+```
+
+## Step 4: Approach 2: Fractional Polynomials
+
+## Step 4: Approach 3: Spline functions
+
+# Learning Objectives
+
+1.    Understand the overall steps for purposeful selection as a model building strategy
+
+::: lob
+2.    Apply purposeful selection to a dataset using R
+:::
+
+3.    Use different approaches to assess the linear scale of continuous variables in
+logistic regression
 
 ## Step 5: Check for interactions
 
