@@ -87,6 +87,20 @@ editor_options:
 
         -   Will include interpretations of interactions!
 
+-   Next week
+
+    -   Quiz
+
+    -   Finish Purposeful Selection (probably)
+
+    -   One more lecture on Diagnostics in MLR
+
+-   Last week (3/18)
+
+    -   Meeting ONLY on 3/18
+
+    -   That class will be fully dedicated to help on the Project report!
+
 ## Class Exit Tickets
 
 [[{{< iconify healthicons health-worker-form-negative size=30px >}}](https://forms.office.com/Pages/ResponsePage.aspx?id=V3lz4rj6fk2U9pvWr59xWFMopmPUjRtDiHLswhgacNhURFZJMldXSEQ0SlhTMkozSEFNUkJCWVdPNC4u)]{style="color:#f8f5f0;"} Monday (3/4)
