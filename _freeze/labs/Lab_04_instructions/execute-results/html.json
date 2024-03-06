@@ -1,0 +1,14 @@
+{
+  "hash": "11dd5a0fa7768847fa12bbba40d08fc9",
+  "result": {
+    "markdown": "---\ntitle: \"Lab 4 Instructions\"\nauthor: \"Nicky Wakim\"\nsubtitle: \"BSTA 512/612\"\ndescription: \"Due: March 14, 2024 at 11pm\"\ndate-modified: \"today\"\ndate: \"3/14/2024\"\ncategories: [\"\"]\nformat: \n  html:\n    link-external-newwindow: true\n    toc: true\n    self-contained: true\n    number-sections: true\n    number-depth: 4\n  pdf: default \neditor_options: \n  chunk_output_type: console\n---\n\n\n::: callout-warning\n## IMPORTANT TO READ\n\n-   Please do not delete the rubric from your `.qmd` file. I will use it to circle the grades!\n\n-   There is an instructions file and a file for you to edit and turn in. Please only work in the latter file!!\n:::\n\n\n::: {.cell}\n\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

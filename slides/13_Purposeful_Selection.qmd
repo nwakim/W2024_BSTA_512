@@ -114,6 +114,99 @@ gapm2 = gapm %>% select(-Longitude, -Latitude, -eight_regions, -six_regions, -ge
 4.    Use different approaches to assess the linear scale of continuous variables in
 logistic regression
 
+## Regression analysis process
+
+::: box
+![](images/arrow2.png){.absolute top="13.5%" right="62.1%" width="155"}
+![](images/arrow2.png){.absolute top="13.5%" right="28.4%"
+width="155"}![](images/arrow_back4.png){.absolute top="7.5%"
+right="30.5%" width="820"} ![](images/arrow_down.png){.absolute
+top="60.5%" right="48%" width="85"}
+
+::: columns
+::: {.column width="30%"}
+::: RAP1
+::: RAP1-title
+Model Selection
+:::
+
+::: RAP1-cont
+-   Building a model
+
+-   Selecting variables
+
+-   Prediction vs interpretation
+
+-   Comparing potential models
+:::
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="30%"}
+::: RAP2
+::: RAP2-title
+Model Fitting
+:::
+
+::: RAP2-cont
+-   Find best fit line
+
+-   Using OLS in this class
+
+-   Parameter estimation
+
+-   Categorical covariates
+
+-   Interactions
+:::
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="30%"}
+::: RAP3
+::: RAP3-title
+Model Evaluation
+:::
+
+::: RAP3-cont
+-   Evaluation of model fit
+-   Testing model assumptions
+-   Residuals
+-   Transformations
+-   Influential points
+-   Multicollinearity
+:::
+:::
+:::
+:::
+:::
+
+::: RAP4
+::: RAP4-title
+Model Use (Inference)
+:::
+
+::: RAP4-cont
+::: columns
+::: {.column width="50%"}
+-   Inference for coefficients
+-   Hypothesis testing for coefficients
+:::
+
+::: {.column width="50%"}
+-   Inference for expected $Y$ given $X$
+-   Prediction of new $Y$ given $X$
+:::
+:::
+:::
+:::
+
 
 # Learning Objectives
 
@@ -169,11 +262,9 @@ Hosmer, Lemeshow, and Sturdivant Textbook, pg. 101
 
 4.  Check scaling of continuous and coding of categorical covariates
 
-5.  Finalize main effect model
+5.  Check for interactions
 
-6.  Check for interactions
-
-7.  Assess model fit
+6.  Assess model fit
 
     -   Model assumptions, diagnostics, overall fit
 
@@ -206,10 +297,6 @@ Hosmer, Lemeshow, and Sturdivant Textbook, pg. 101
  
 
 **Step 6:**
-
- 
-
-**Step 7:**
 :::
 
 ::: {.column width="50%"}
@@ -217,7 +304,7 @@ Exploratory data analysis (EDA)
 
  
 
-Simple linear regressions
+Simple linear regressions / analysis
 
  
 
@@ -230,10 +317,6 @@ Assess change in coefficients
  
 
 Assess scale for continuous variables
-
- 
-
-Finalize main effect model
 
  
 
@@ -413,18 +496,384 @@ gapm2 %>% ggpairs() # gapm2 is a new dataset with some variables selected
 
 ## Poll Everywhere Question 3
 
-# End of 3/4 class
+## Step 1: Simple linear regressions / analysis
 
-## Step 1: Simple linear regressions
+-   For each covariate, we want to see how it relates to the outcome (without adjusting for other covariates)
+
+-   We can partially do this with **visualizations**
+
+    -   Helps us see the data we throw it into regression that makes assumptions (like our LINE assumptions)
+
+    -   `ggpairs()` can be a quick way to do it
+    -   `ggplot()` can make each plot
+    
+          -   `+ geom_boxplot()` to make boxplots by groups for categorical covariates
+          -   `+ geom_jitter() + stat_summary()` to make non-overlaping points with group means for categorical covariates
+          -   `+ geom_point()` to make scatterplots for continuous covariates
+      
+-   We need to run **simple linear regression** 
+
+    -   We're calling regression with multi-level categories "simple" even though there are multiple coefficients
+    
+## Step 1: Simple linear regressions / analysis
+
+-   Let's think back to our Gapminder dataset
+
+-   Always good to start with our main relationship: life expectancy vs. female literacy rate 
+
+    -   *Throwback to Lesson 3 SLR when we first visualized and ran `lm()` for this relationship*
+
+```{r}
+#| echo: true
+#| eval: false
+
+model_FLR = lm(LifeExpectancyYrs ~ FemaleLiteracyRate, data = gapm_sub)
+```
+
+ 
+
+::: columns
+::: {.column width="45%"}
+```{r}
+#| fig-height: 8
+#| fig-width: 11
+#| echo: false
+
+ggplot(gapm_sub, aes(x = FemaleLiteracyRate,
+                 y = LifeExpectancyYrs)) +
+  geom_point(size = 4) +
+  geom_smooth(method = "lm", se = FALSE, size = 3, colour="#F14124") +
+  labs(x = "Female literacy rate (%)", 
+       y = "Life expectancy (years)",
+       title = "Relationship between life expectancy and \n the female literacy rate in 2011") +
+    theme(axis.title = element_text(size = 30), 
+        axis.text = element_text(size = 25), 
+        title = element_text(size = 30))
+
+```
+:::
+
+::: {.column width="55%"}
+```{r}
+model_FLR = lm(LifeExpectancyYrs ~ FemaleLiteracyRate, data = gapm_sub)
+tidy(model_FLR) %>% gt() %>% tab_options(table.font.size = 40) %>% 
+  fmt_number(decimals = 3)
+```
+:::
+:::
+
+## Poll Everywhere Question 4
+
+## Step 1: Simple linear regressions / analysis
+
+-   Let's do this with one other variable before I show you a streamlined version of SLR
+
+```{r}
+#| echo: true
+
+model_WR = lm(LifeExpectancyYrs ~ four_regions, data = gapm_sub)
+```
+
+ 
+
+::: columns
+::: {.column width="45%"}
+```{r fig.height=7, fig.width=7, warning=F, fig.align='center'}
+#| echo: true
+#| code-fold: true
+ggplot(gapm_sub, aes(x = four_regions, y = LifeExpectancyYrs)) +
+  geom_jitter(size = 1, alpha = .6, width = 0.2) +
+  stat_summary(fun = mean, geom = "point", size = 8, shape = 18) +
+  labs(x = "World region", 
+       y = "Country life expectancy (years)",
+       title = "Life expectancy vs. world region",
+       caption = "Diamonds = region averages") +
+  theme(axis.title = element_text(size = 20), 
+        axis.text = element_text(size = 20), 
+        title = element_text(size = 20))
+```
+:::
+
+::: {.column width="55%"}
+```{r}
+#| echo: true
+
+anova(model_WR) %>% tidy() %>% gt() %>%
+   tab_options(table.font.size = 40) %>%
+   fmt_number(decimals = 3)
+```
+
+ 
+
+-   Recall from Lesson 5 (SLR: More inference + Evaluation):
+
+    -   `anova()` with one model name will compare the model (`model_WR`) to the intercept model
+:::
+:::
+
+## Step 1: Simple linear regressions / analysis
+
+-   If we do a good job visualizing the relationship between our outcome and each covariate, then we can proceed to a streamlined version of the F-test for each relationship
+
+-   First, I will select the variables that we are considering for model selection:
+```{r}
+#| echo: true
+
+gapm2 = gapm_sub %>% select(LifeExpectancyYrs, CO2emissions, FoodSupplykcPPD, 
+                            IncomePP, FemaleLiteracyRate, WaterSourcePrct, 
+                            four_regions, members_oecd_g77)
+```
+
+-   We need to make sure our dataset only contains the variables we are considering for the model:
+
+```{r}
+#| echo: true
+gapm3 = gapm2 %>% select(-LifeExpectancyYrs)
+```
+
+## Step 1: Simple linear regressions / analysis {.smaller}
+
+-   Now I can run the `lapply()` function, which allows me to run the same function multiple times over all the columns in `gapm3`
+
+-   For each covariate I am running: `lm(gapm2$LifeExpectancyYrs ~ x) %>% anova()`
+
+    -   So I am fitting the simple linear regression and printing the ANOVA table with F-test (comparing model with a without the covariate)
+    
+```{r}
+#| echo: true
+lapply( gapm3, function(x) lm(gapm2$LifeExpectancyYrs ~ x) %>% anova() )
+```
+
+-   We can scroll through the output to see the ANOVA table for each covariate
+
+## Step 1: Simple linear regressions / analysis
+
+-   We can also filter the ANOVA table to just show the p-value for each F-test
+
+```{r}
+#| echo: true
+sapply( gapm3, function(x) anova( lm(gapm2$LifeExpectancyYrs ~ x) )$`Pr(>F)` )
+```
+
+-   Row 1 is the p-value for the F-test
+
+    -   This will help us in Step 2
 
 ## Step 2: Preliminary variable selection
 
-## Step 3: Assess change in coefficients
+-   Identify candidates for your first multivariable model by performing an F-test on each covariate's SLR 
+
+    -   Using p-values from previous slide
+    -   If the p-value of the test is less than 0.25, then consider the variable a candidate
+
+ 
+
+-   Candidates for first multivariable model
+
+    -   All clinically important variables (regardless of p-value)
+    -   Variables with univariate test with p-value < 0.25
+
+ 
+
+-   With more experience, you won’t need to rely on these strict rules as much
+
+## Step 2: Preliminary variable selection
+
+-   From the previous p-values from the F-test on each covariate's SLR
+
+    -   Decision: we keep all the covariates since they all have a p-value < 0.25
+    
+```{r}
+#| echo: true
+sapply( gapm3, function(x) anova( lm(gapm2$LifeExpectancyYrs ~ x) )$`Pr(>F)` )
+```
+
+## Step 2: Preliminary variable selection
+
+-   Fit an **initial model** including any independent variable with p-value < 0.25 and clinically important variables
+
+```{r}
+#| echo: true
+
+init_model = lm(LifeExpectancyYrs ~ FemaleLiteracyRate + CO2emissions + IncomePP +
+               four_regions + WaterSourcePrct + FoodSupplykcPPD + members_oecd_g77, 
+                 data = gapm2)
+tidy(init_model, conf.int = T) %>% gt() %>% tab_options(table.font.size = 30) %>% 
+  fmt_number(decimals = 4)
+```
+
+## Step 3: Assess change in coefficient
+
+::: columns
+
+::: {.column width="48%"}
+-   This is where we start identifying covariates that we might remove
+
+ 
+
+-   I would start by using the p-value to guide me towards specific variables
+
+    -   Female literacy rate, but that's our main covariate
+    -   `members_oecd_g77`
+    -   Maybe water source percent?
+    
+ 
+
+-   Some people will say you can use the p-value alone
+
+    -   I like to double check that those variables do not have a large effect on the other coefficients
+:::
+
+::: {.column width="52%"}
+```{r}
+tidy(init_model) %>% gt() %>% tab_options(table.font.size = 33) %>%  
+  fmt_number(decimals = 4)
+```
+:::
+
+:::
+
+## Step 3: Assess change in coefficient
+
+-   Very similar to the process we used when looking at confounders
+
+ 
+
+-   One variable at a time, we run the multivariable model with and without the variable
+
+    -   We look at the p-value of the F-test for the coefficients of said variable
+    -   We look at the percent change for the coefficient ($\Delta\%$) of our explanatory variable
+    
+ 
+
+-   General rule: We can remove a variable if...
+
+    -   p-value > 0.05 for the F-test of its own coefficients
+    -   AND change in coefficient ($\Delta\%$) of our explanatory variable is < 10%
+    
+## Step 3: Assess change in coefficient
+
+-   Let's try this out on `members_oecd_g77`
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Display the ANOVA table with F-statistic and p-value"
+
+model_full = init_model
+model_red = lm(LifeExpectancyYrs ~ FemaleLiteracyRate + CO2emissions + IncomePP +
+               four_regions + WaterSourcePrct + FoodSupplykcPPD, 
+                 data = gapm2)
+anova(model_full, model_red) %>% tidy() %>% 
+  gt() %>% tab_options(table.font.size = 35) %>% fmt_number(decimals = 3)
+```
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Display the FLR coefficient for both models"
+#| include: false
+
+tidy(model_full) %>% 
+  gt() %>% tab_options(table.font.size = 35) %>% fmt_number(decimals = 3)
+tidy(model_red) %>% 
+  gt() %>% tab_options(table.font.size = 35) %>% fmt_number(decimals = 3)
+```
+
+-   $\widehat\beta_{FLR, full} = `r round(tidy(model_full)[2,2], 4)`$, $\widehat\beta_{FLR, red} = `r round(tidy(model_red)[2,2], 4)`$
+
+$$
+\Delta\% = 100\% \cdot \frac{\widehat\beta_{FLR, full} - \widehat\beta_{FLR, red}}{\widehat\beta_{FLR, full}} = 100\% \cdot \frac{`r round(tidy(model_full)[2,2], 4)` - `r round(tidy(model_red)[2,2], 4)`}{`r round(tidy(model_full)[2,2], 4)`} = `r round(100*(tidy(model_full)[2,2] - tidy(model_red)[2,2])/tidy(model_full)[2,2], 2)`\%
+$$
+
+-   Based off the percent change, I would keep this in the model
+
+## Step 3: Assess change in coefficient
+
+-   Let's try this out on water source percent (even though the p-value was < 0.05)
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Display the ANOVA table with F-statistic and p-value"
+
+model_full = init_model
+model_red = lm(LifeExpectancyYrs ~ FemaleLiteracyRate + CO2emissions + IncomePP +
+               four_regions + members_oecd_g77 + FoodSupplykcPPD, 
+                 data = gapm2)
+anova(model_full, model_red) %>% tidy() %>% 
+  gt() %>% tab_options(table.font.size = 35) %>% fmt_number(decimals = 3)
+```
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Display the FLR coefficient for both models"
+#| include: false
+
+tidy(model_full) %>% 
+  gt() %>% tab_options(table.font.size = 35) %>% fmt_number(decimals = 3)
+tidy(model_red) %>% 
+  gt() %>% tab_options(table.font.size = 35) %>% fmt_number(decimals = 3)
+```
+
+-   $\widehat\beta_{FLR, full} = `r round(tidy(model_full)[2,2], 4)`$, $\widehat\beta_{FLR, red} = `r round(tidy(model_red)[2,2], 4)`$
+
+$$
+\Delta\% = 100\% \cdot \frac{\widehat\beta_{FLR, full} - \widehat\beta_{FLR, red}}{\widehat\beta_{FLR, full}} = 100\% \cdot \frac{`r round(tidy(model_full)[2,2], 4)` - `r round(tidy(model_red)[2,2], 4)`}{`r round(tidy(model_full)[2,2], 4)`} = `r round(100*(tidy(model_full)[2,2] - tidy(model_red)[2,2])/tidy(model_full)[2,2], 2)`\%
+$$
+
+-   Based off the percent change (and p-value), I would keep this in the model
+
+## Step 3: Assess change in coefficient
+
+-   At the end of this step, we have a **preliminary main effects model**
+
+-   Where the variables are excluded that met the following criteria:
+
+    -   P-value > 0.05 for the F-test of its own coefficients
+    -   Change in coefficient ($\Delta\%$) of our explanatory variable is < 10%
+    
+-   In our example, the **preliminary main effects model** (end of Step 3) was the same as the **intiial model** (end of Step 2)
 
 ## Step 4: Assess scale for continuous variables
 
-## Step 5: Finalize main effect model
+-   To assess the linearity for continuous variables in the model
 
-## Step 6: Check for interactions
+-   We assume the linear regression model is linear in the logit scale for each continuous variable
 
-## Step 7: Assess model fit
+-   Four methods/approaches to check or address the assumption of linearity: 
+
+    -   Approach 1: Smoothed scatter plots (check only)
+    -   Approach 2: Quartile method/Design variable
+    -   Approach 3: Fractional Polynomials
+    -   Approach 4: Spline functions
+
+-   Model at the end of Step 4 is the main effects model
+
+## Step 5: Check for interactions
+
+-   Create a list of interaction terms from variables in the "main effects model" that has clinical plausibility
+
+-   Add the interaction variables, one at a time, to the main effects model, and assess the significance using a likelihood ratio test or Wald test
+
+    -   May keep interaction terms with p-value < 0.05 
+
+-   Keep the main effects untouched, only simplify the interaction terms – locked!
+
+-   Use methods from Step 2 (comparing model with all interactions to a smaller model with interactions) to determine which interactions to keep
+
+-   The model by the end of Step 6 is called  the preliminary final model 
+
+
+## Step 6: Assess model fit
+
+-   Assess the adequacy of the model and check its fit
+
+-   Methods will be discussed later class 
+
+-   If the model is adequate and fits well, then it is the Final model
+
+## Next time
+
+-   More details on steps 4-6 on Monday before quiz! 

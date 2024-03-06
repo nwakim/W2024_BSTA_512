@@ -75,3 +75,25 @@ This will be filled in with your Exit Ticket responses.
 
 g=3
 ```
+
+### 1. Understanding when you can and cannot use a t-test
+
+We cannot use a t-test when we are testing more than one coefficient. "Testing more than one coefficient" might be testing an interaction involving a multi-level variable, testing the main effect of a multi-level variable, or testing a group of variables at the same time.
+
+### There was a drawing about fans being EMM and the parallel lines being confounding. Could you explain that?
+
+### When does centering change the slope not the intercept?
+
+### Deciding between confounder and effect modifier. I have always been confused about these topics.
+
+### I'm still unsure about the number of interactions and how that is determined for multi-level covariates.
+
+### For income level as an effect modifier for World Region on Life Expectancy, when we talk about the intercept when everything is 0, what does that mean when world region is 0?
+
+### Getting a little mixed up on swapping terminology between effect modifier and interaction, these two mean the same things and ARE NOT the same as a confounder (i.e. confounder and effect modifiers are mutually exclusive)?
+
+### I still don't really understand how you determine if something is a confounder or not. Is it that if a variable affects the main effect but the interaction isn't significant then it's a confounder? i.e. if in R you compare Y\~X1 to Y\~X1+X2 and find a 10+% change in the effect, but an ANOVA comparing Y\~X1+X2 to Y\~X1\*X2 is not significant then X2 is a confounder? This came up on HW4 as well -- can something be a confounder if the main effect is insignificant?
+
+### Testing for a confounder: I thought the difference between a confounder & effect modifier was that B_1 doesn't change with a confounder. Why is it that we're testing for a \>10% change in B_1 when introducing a confounding variable? Shouldn't we be testing whether B_2 adds significantly to B_0? That is, a confounder shifts the coefficient for our variable of interest, B_1, significantly?
+
+### Can you explain the third criterion/thing you would look at when deciding whether to include a variable as a confounder when not all coefficients change \>10%?

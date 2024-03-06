@@ -3350,7 +3350,7 @@
     "href": "weeks/week_08_sched.html#muddiest-points",
     "title": "Week 8",
     "section": "Muddiest Points",
-    "text": "Muddiest Points\nThis will be filled in with your Exit Ticket responses."
+    "text": "Muddiest Points\nThis will be filled in with your Exit Ticket responses.\n\n1. Understanding when you can and cannot use a t-test\nWe cannot use a t-test when we are testing more than one coefficient. “Testing more than one coefficient” might be testing an interaction involving a multi-level variable, testing the main effect of a multi-level variable, or testing a group of variables at the same time.\n\n\nThere was a drawing about fans being EMM and the parallel lines being confounding. Could you explain that?\n\n\nWhen does centering change the slope not the intercept?\n\n\nDeciding between confounder and effect modifier. I have always been confused about these topics.\n\n\nI’m still unsure about the number of interactions and how that is determined for multi-level covariates.\n\n\nFor income level as an effect modifier for World Region on Life Expectancy, when we talk about the intercept when everything is 0, what does that mean when world region is 0?\n\n\nGetting a little mixed up on swapping terminology between effect modifier and interaction, these two mean the same things and ARE NOT the same as a confounder (i.e. confounder and effect modifiers are mutually exclusive)?\n\n\nI still don’t really understand how you determine if something is a confounder or not. Is it that if a variable affects the main effect but the interaction isn’t significant then it’s a confounder? i.e. if in R you compare Y~X1 to Y~X1+X2 and find a 10+% change in the effect, but an ANOVA comparing Y~X1+X2 to Y~X1*X2 is not significant then X2 is a confounder? This came up on HW4 as well – can something be a confounder if the main effect is insignificant?\n\n\nTesting for a confounder: I thought the difference between a confounder & effect modifier was that B_1 doesn’t change with a confounder. Why is it that we’re testing for a &gt;10% change in B_1 when introducing a confounding variable? Shouldn’t we be testing whether B_2 adds significantly to B_0? That is, a confounder shifts the coefficient for our variable of interest, B_1, significantly?\n\n\nCan you explain the third criterion/thing you would look at when deciding whether to include a variable as a confounder when not all coefficients change &gt;10%?"
   },
   {
     "objectID": "weeks/week_08_sched.html#clearest-points",
@@ -14130,7 +14130,7 @@
     "href": "weeks/week_09_sched.html#announcements",
     "title": "Week 9",
     "section": "Announcements",
-    "text": "Announcements\n\nMonday 3/4\n\nMissing a couple mid-term reviews: 32 reviews and only 29 names\nWe’ll go through Lesson 12 on Model selection, then dive into purposeful selection (a model selection strategy)\n\nI will be adding more slides to Lesson 13 Purposeful Selection for Wednesday’s class\n\n\n\n\nWednesday 3/6\n\nRevisit overfitting?"
+    "text": "Announcements\n\nMonday 3/4\n\nMissing a couple mid-term reviews: 32 reviews and only 29 names\nWe’ll go through Lesson 12 on Model selection, then dive into purposeful selection (a model selection strategy)\n\nI will be adding more slides to Lesson 13 Purposeful Selection for Wednesday’s class\n\n\n\n\nWednesday 3/6\n\nRevisit overfitting?\nIs there going to be a specific strategy/type of model selection we’re supposed to use for the lab/final project? Will that be the focus of Lab 4?\nLab 3: new formatting was confusing for some\n\nI am sorry that I did not communicate the new formatting in multiple areas\nLab 4 will follow the same format\n\nThe course website will contain thorough, guided instructions\nThe file that you will download and edit will only contain the direct tasks that I want you to complete.\n\n\nQuiz 3 info\n\nWill cover Lesson 10 - 11: categorical covariates to interactions\nI’m thinking this one will be a litter shorter since there’s less material\nWill still have the 50 min for the quiz"
   },
   {
     "objectID": "weeks/week_08_sched.html#announcements",
@@ -14900,7 +14900,7 @@
     "href": "slides/13_Purposeful_Selection.html#overall-process",
     "title": "Lesson 13: Purposeful model selection",
     "section": "Overall Process",
-    "text": "Overall Process\n\nExploratory data analysis\nCheck unadjusted associations in simple linear regression\nEnter all covariates in model that meet some threshold\n\nOne textbook suggest \\(p&lt;0.2\\) or \\(p&lt;0.25\\): great for modest sized datasets\nPLEASE keep in mind sample size in your study\nCan also use magnitude of association rather than, or along with, p-value\n\nRemove those that no longer reach some threshold\n\nCompare magnitude of associations to unadjusted version (univariable)\n\nCheck scaling of continuous and coding of categorical covariates\nFinalize main effect model\nCheck for interactions\nAssess model fit\n\nModel assumptions, diagnostics, overall fit"
+    "text": "Overall Process\n\nExploratory data analysis\nCheck unadjusted associations in simple linear regression\nEnter all covariates in model that meet some threshold\n\nOne textbook suggest \\(p&lt;0.2\\) or \\(p&lt;0.25\\): great for modest sized datasets\nPLEASE keep in mind sample size in your study\nCan also use magnitude of association rather than, or along with, p-value\n\nRemove those that no longer reach some threshold\n\nCompare magnitude of associations to unadjusted version (univariable)\n\nCheck scaling of continuous and coding of categorical covariates\nCheck for interactions\nAssess model fit\n\nModel assumptions, diagnostics, overall fit"
   },
   {
     "objectID": "slides/13_Purposeful_Selection.html#with-snappier-step-names",
@@ -14914,7 +14914,7 @@
     "href": "slides/13_Purposeful_Selection.html#process-with-snappier-step-names",
     "title": "Lesson 13: Purposeful model selection",
     "section": "Process with snappier step names",
-    "text": "Process with snappier step names\n\n\nPre-step:\n \nStep 1:\n \nStep 2:\n \nStep 3:\n \nStep 4:\n \nStep 5:\n \nStep 6:\n \nStep 7:\n\nExploratory data analysis (EDA)\n \nSimple linear regressions\n \nPreliminary variable selection\n \nAssess change in coefficients\n \nAssess scale for continuous variables\n \nFinalize main effect model\n \nCheck for interactions\n \nAssess model fit"
+    "text": "Process with snappier step names\n\n\nPre-step:\n \nStep 1:\n \nStep 2:\n \nStep 3:\n \nStep 4:\n \nStep 5:\n \nStep 6:\n\nExploratory data analysis (EDA)\n \nSimple linear regressions / analysis\n \nPreliminary variable selection\n \nAssess change in coefficients\n \nAssess scale for continuous variables\n \nCheck for interactions\n \nAssess model fit"
   },
   {
     "objectID": "slides/13_Purposeful_Selection.html#pre-step-exploratory-data-analysis",
@@ -14935,7 +14935,7 @@
     "href": "slides/13_Purposeful_Selection.html#step-2-preliminary-variable-selection",
     "title": "Lesson 13: Purposeful model selection",
     "section": "Step 2: Preliminary variable selection",
-    "text": "Step 2: Preliminary variable selection"
+    "text": "Step 2: Preliminary variable selection\n\nIdentify candidates for your first multivariable model by performing an F-test on each covariate’s SLR\n\nUsing p-values from previous slide\nIf the p-value of the test is less than 0.25, then consider the variable a candidate\n\n\n \n\nCandidates for first multivariable model\n\nAll clinically important variables (regardless of p-value)\nVariables with univariate test with p-value &lt; 0.25\n\n\n \n\nWith more experience, you won’t need to rely on these strict rules as much"
   },
   {
     "objectID": "slides/13_Purposeful_Selection.html#step-3-assess-change-in-coefficients",
@@ -14949,28 +14949,28 @@
     "href": "slides/13_Purposeful_Selection.html#step-4-assess-scale-for-continuous-variables",
     "title": "Lesson 13: Purposeful model selection",
     "section": "Step 4: Assess scale for continuous variables",
-    "text": "Step 4: Assess scale for continuous variables"
+    "text": "Step 4: Assess scale for continuous variables\n\nTo assess the linearity for continuous variables in the model\nWe assume the linear regression model is linear in the logit scale for each continuous variable\nFour methods/approaches to check or address the assumption of linearity:\n\nApproach 1: Smoothed scatter plots (check only)\nApproach 2: Quartile method/Design variable\nApproach 3: Fractional Polynomials\nApproach 4: Spline functions\n\nModel at the end of Step 4 is the main effects model"
   },
   {
     "objectID": "slides/13_Purposeful_Selection.html#step-5-finalize-main-effect-model",
     "href": "slides/13_Purposeful_Selection.html#step-5-finalize-main-effect-model",
     "title": "Lesson 13: Purposeful model selection",
     "section": "Step 5: Finalize main effect model",
-    "text": "Step 5: Finalize main effect model"
+    "text": "Step 5: Finalize main effect model\n\nModel at the end of Step 5 is the main effects model"
   },
   {
     "objectID": "slides/13_Purposeful_Selection.html#step-6-check-for-interactions",
     "href": "slides/13_Purposeful_Selection.html#step-6-check-for-interactions",
     "title": "Lesson 13: Purposeful model selection",
     "section": "Step 6: Check for interactions",
-    "text": "Step 6: Check for interactions"
+    "text": "Step 6: Check for interactions\n\nCreate a list of interaction terms from variables in the “main effects model” that has clinical plausibility\nAdd the interaction variables, one at a time, to the main effects model, and assess the significance using a likelihood ratio test or Wald test\n\nMay keep interaction terms with p-value &lt; 0.05\n\nKeep the main effects untouched, only simplify the interaction terms – locked!\nUse methods from Step 2 (comparing model with all interactions to a smaller model with interactions) to determine which interactions to keep\nThe model by the end of Step 6 is called the preliminary final model"
   },
   {
     "objectID": "slides/13_Purposeful_Selection.html#step-7-assess-model-fit",
     "href": "slides/13_Purposeful_Selection.html#step-7-assess-model-fit",
     "title": "Lesson 13: Purposeful model selection",
     "section": "Step 7: Assess model fit",
-    "text": "Step 7: Assess model fit\n\n\nPurposeful Selection"
+    "text": "Step 7: Assess model fit\n\nAssess the adequacy of the model and check its fit\nMethods will be discussed later class\nIf the model is adequate and fits well, then it is the Final model\n\n\n\nPurposeful Selection"
   },
   {
     "objectID": "slides/13_Purposeful_Selection.html#section",
@@ -15174,5 +15174,166 @@
     "title": "Some words on Quiz 2, Lab 2, and Mid-term Feedback",
     "section": "Things we like",
     "text": "Things we like\n\nNotes with annotations and recording\n\nOption for asynchronous viewing, in-person attendance not required\n\nEngaging lectures (for some)\n\n“…slides are my best friend.”\n\nDescriptions in multiple ways, learning types\nConcepts then code\nFlexibility\nEasy to understand terms when explaining\nJudgement free zone"
+  },
+  {
+    "objectID": "slides/12_Model_selection.html#some-important-definitions",
+    "href": "slides/12_Model_selection.html#some-important-definitions",
+    "title": "Lesson 12: Model/Variable Selection",
+    "section": "Some important definitions",
+    "text": "Some important definitions\n\nModel selection: picking the “best” model from a set of possible models\n\nModels will have the same outcome, but typically differ by the covariates that are included, their transformations, and their interactions\n\n\n \n\nModel selection strategies: a process or framework that helps us pick our “best” model\n\nThese strategies often differ by the approach and criteria used to the determine the “best” model\n\n\n \n\nOverfitting: result of fitting a model so closely to our particular sample data that it cannot be generalized to other samples (or the population)"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-1-simple-linear-regressions-analysis",
+    "href": "slides/13_Purposeful_Selection.html#step-1-simple-linear-regressions-analysis",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 1: Simple linear regressions / analysis",
+    "text": "Step 1: Simple linear regressions / analysis\n\nFor each covariate, we want to see how it relates to the outcome (without adjusting for other covariates)\nWe can partially do this with visualizations\n\nHelps us see the data we throw it into regression that makes assumptions (like our LINE assumptions)\nggpairs() can be a quick way to do it\nggplot() can make each plot\n\n+ geom_boxplot() to make boxplots by groups for categorical covariates\n+ geom_jitter() + stat_summary() to make non-overlaping points with group means for categorical covariates\n+ geom_point() to make scatterplots for continuous covariates\n\n\nWe need to run simple linear regression\n\nWe’re calling regression with multi-level categories “simple” even though there are multiple coefficients"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-1-simple-linear-regressions-analysis-1",
+    "href": "slides/13_Purposeful_Selection.html#step-1-simple-linear-regressions-analysis-1",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 1: Simple linear regressions / analysis",
+    "text": "Step 1: Simple linear regressions / analysis\n\nLet’s think back to our Gapminder dataset\nAlways good to start with our main relationship: life expectancy vs. female literacy rate\n\nThrowback to Lesson 3 SLR when we first visualized and ran lm() for this relationship\n\n\n\nmodel_FLR = lm(LifeExpectancyYrs ~ FemaleLiteracyRate, data = gapm_sub)\n\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n    \n    \n      term\n      estimate\n      std.error\n      statistic\n      p.value\n    \n  \n  \n    (Intercept)\n51.438\n2.739\n18.782\n0.000\n    FemaleLiteracyRate\n0.230\n0.032\n7.141\n0.000"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#regression-analysis-process",
+    "href": "slides/13_Purposeful_Selection.html#regression-analysis-process",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Regression analysis process",
+    "text": "Regression analysis process\n\n  \n\n\n\n\nModel Selection\n\n\n\nBuilding a model\nSelecting variables\nPrediction vs interpretation\nComparing potential models\n\n\n\n\n\n\n\n\nModel Fitting\n\n\n\nFind best fit line\nUsing OLS in this class\nParameter estimation\nCategorical covariates\nInteractions\n\n\n\n\n\n\n\n\nModel Evaluation\n\n\n\nEvaluation of model fit\nTesting model assumptions\nResiduals\nTransformations\nInfluential points\nMulticollinearity\n\n\n\n\n\n\n\n\nModel Use (Inference)\n\n\n\n\n\nInference for coefficients\nHypothesis testing for coefficients\n\n\n\nInference for expected \\(Y\\) given \\(X\\)\nPrediction of new \\(Y\\) given \\(X\\)"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#poll-everywhere-question-4",
+    "href": "slides/13_Purposeful_Selection.html#poll-everywhere-question-4",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Poll Everywhere Question 4",
+    "text": "Poll Everywhere Question 4"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-1-simple-linear-regressions-analysis-2",
+    "href": "slides/13_Purposeful_Selection.html#step-1-simple-linear-regressions-analysis-2",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 1: Simple linear regressions / analysis",
+    "text": "Step 1: Simple linear regressions / analysis\n\nLet’s do this with one other variable before I show you a streamlined version of SLR\n\n\nmodel_WR = lm(LifeExpectancyYrs ~ four_regions, data = gapm_sub)\n\n \n\n\n\n\nCode\nggplot(gapm_sub, aes(x = four_regions, y = LifeExpectancyYrs)) +\n  geom_jitter(size = 1, alpha = .6, width = 0.2) +\n  stat_summary(fun = mean, geom = \"point\", size = 8, shape = 18) +\n  labs(x = \"World region\", \n       y = \"Country life expectancy (years)\",\n       title = \"Life expectancy vs. world region\",\n       caption = \"Diamonds = region averages\") +\n  theme(axis.title = element_text(size = 20), \n        axis.text = element_text(size = 20), \n        title = element_text(size = 20))\n\n\n\n\n\n\n\n\n\n\n\nanova(model_WR) %&gt;% tidy() %&gt;% gt() %&gt;%\n   tab_options(table.font.size = 40) %&gt;%\n   fmt_number(decimals = 3)\n\n\n\n\n\n  \n    \n    \n      term\n      df\n      sumsq\n      meansq\n      statistic\n      p.value\n    \n  \n  \n    four_regions\n3.000\n2,743.042\n914.347\n33.680\n0.000\n    Residuals\n68.000\n1,846.077\n27.148\nNA\nNA\n  \n  \n  \n\n\n\n\n \n\nRecall from Lesson 5 (SLR: More inference + Evaluation):\n\nanova() with one model name will compare the model (model_WR) to the intercept model"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-1-simple-linear-regressions-analysis-3",
+    "href": "slides/13_Purposeful_Selection.html#step-1-simple-linear-regressions-analysis-3",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 1: Simple linear regressions / analysis",
+    "text": "Step 1: Simple linear regressions / analysis\n\nIf we do a good job visualizing the relationship between our outcome and each covariate, then we can proceed to a streamlined version of the F-test for each relationship\nFirst, I will select the variables that we are considering for model selection:\n\n\ngapm2 = gapm_sub %&gt;% select(LifeExpectancyYrs, CO2emissions, FoodSupplykcPPD, \n                            IncomePP, FemaleLiteracyRate, WaterSourcePrct, \n                            four_regions, members_oecd_g77)\n\n\nWe need to make sure our dataset only contains the variables we are considering for the model:\n\n\ngapm3 = gapm2 %&gt;% select(-LifeExpectancyYrs)"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-1-simple-linear-regressions-analysis-4",
+    "href": "slides/13_Purposeful_Selection.html#step-1-simple-linear-regressions-analysis-4",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 1: Simple linear regressions / analysis",
+    "text": "Step 1: Simple linear regressions / analysis\n\nNow I can run the lapply() function, which allows me to run the same function multiple times over all the columns in gapm3\nFor each covariate I am running: lm(gapm2$LifeExpectancyYrs ~ x) %&gt;% anova()\n\nSo I am fitting the simple linear regression and printing the ANOVA table with F-test (comparing model with a without the covariate)\n\n\n\nlapply( gapm3, function(x) lm(gapm2$LifeExpectancyYrs ~ x) %&gt;% anova() )\n\n$CO2emissions\nAnalysis of Variance Table\n\nResponse: gapm2$LifeExpectancyYrs\n          Df Sum Sq Mean Sq F value   Pr(&gt;F)   \nx          1  452.3  452.31  7.6536 0.007241 **\nResiduals 70 4136.8   59.10                    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n$FoodSupplykcPPD\nAnalysis of Variance Table\n\nResponse: gapm2$LifeExpectancyYrs\n          Df Sum Sq Mean Sq F value    Pr(&gt;F)    \nx          1 1893.4 1893.44  49.168 1.188e-09 ***\nResiduals 70 2695.7   38.51                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n$IncomePP\nAnalysis of Variance Table\n\nResponse: gapm2$LifeExpectancyYrs\n          Df Sum Sq Mean Sq F value    Pr(&gt;F)    \nx          1 1220.3 1220.34  25.358 3.557e-06 ***\nResiduals 70 3368.8   48.13                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n$FemaleLiteracyRate\nAnalysis of Variance Table\n\nResponse: gapm2$LifeExpectancyYrs\n          Df Sum Sq Mean Sq F value    Pr(&gt;F)    \nx          1 1934.2 1934.24  50.999 6.895e-10 ***\nResiduals 70 2654.9   37.93                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n$WaterSourcePrct\nAnalysis of Variance Table\n\nResponse: gapm2$LifeExpectancyYrs\n          Df Sum Sq Mean Sq F value    Pr(&gt;F)    \nx          1 2988.2 2988.20  130.66 &lt; 2.2e-16 ***\nResiduals 70 1600.9   22.87                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n$four_regions\nAnalysis of Variance Table\n\nResponse: gapm2$LifeExpectancyYrs\n          Df Sum Sq Mean Sq F value    Pr(&gt;F)    \nx          3 2743.0  914.35   33.68 1.858e-13 ***\nResiduals 68 1846.1   27.15                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n$members_oecd_g77\nAnalysis of Variance Table\n\nResponse: gapm2$LifeExpectancyYrs\n          Df Sum Sq Mean Sq F value    Pr(&gt;F)    \nx          2 1103.7  551.85  10.925 7.553e-05 ***\nResiduals 69 3485.4   50.51                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\nWe can scroll through the output to see the ANOVA table for each covariate"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-1-simple-linear-regressions-analysis-5",
+    "href": "slides/13_Purposeful_Selection.html#step-1-simple-linear-regressions-analysis-5",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 1: Simple linear regressions / analysis",
+    "text": "Step 1: Simple linear regressions / analysis\n\nWe can also filter the ANOVA table to just show the p-value for each F-test\n\n\nsapply( gapm3, function(x) anova( lm(gapm2$LifeExpectancyYrs ~ x) )$`Pr(&gt;F)` )\n\n     CO2emissions FoodSupplykcPPD     IncomePP FemaleLiteracyRate\n[1,]  0.007241207    1.187753e-09 3.557341e-06       6.894997e-10\n[2,]           NA              NA           NA                 NA\n     WaterSourcePrct four_regions members_oecd_g77\n[1,]    1.148644e-17 1.857818e-13      7.55261e-05\n[2,]              NA           NA               NA\n\n\n\nRow 1 is the p-value for the F-test\n\nThis will help us in Step 2"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-2-preliminary-variable-selection-1",
+    "href": "slides/13_Purposeful_Selection.html#step-2-preliminary-variable-selection-1",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 2: Preliminary variable selection",
+    "text": "Step 2: Preliminary variable selection\n\nFrom the previous p-values from the F-test on each covariate’s SLR\n\nDecision: we keep all the covariates since they all have a p-value &lt; 0.25\n\n\n\nsapply( gapm3, function(x) anova( lm(gapm2$LifeExpectancyYrs ~ x) )$`Pr(&gt;F)` )\n\n     CO2emissions FoodSupplykcPPD     IncomePP FemaleLiteracyRate\n[1,]  0.007241207    1.187753e-09 3.557341e-06       6.894997e-10\n[2,]           NA              NA           NA                 NA\n     WaterSourcePrct four_regions members_oecd_g77\n[1,]    1.148644e-17 1.857818e-13      7.55261e-05\n[2,]              NA           NA               NA"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-2-preliminary-variable-selection-2",
+    "href": "slides/13_Purposeful_Selection.html#step-2-preliminary-variable-selection-2",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 2: Preliminary variable selection",
+    "text": "Step 2: Preliminary variable selection\n\nFit an initial model including any independent variable with p-value &lt; 0.25 and clinically important variables\n\n\ninit_model = lm(LifeExpectancyYrs ~ FemaleLiteracyRate + CO2emissions + IncomePP +\n               four_regions + WaterSourcePrct + FoodSupplykcPPD + members_oecd_g77, \n                 data = gapm2)\ntidy(init_model, conf.int = T) %&gt;% gt() %&gt;% tab_options(table.font.size = 30) %&gt;% \n  fmt_number(decimals = 4)\n\n\n\n\n\n  \n    \n    \n      term\n      estimate\n      std.error\n      statistic\n      p.value\n      conf.low\n      conf.high\n    \n  \n  \n    (Intercept)\n37.5560\n4.4083\n8.5194\n0.0000\n28.7410\n46.3710\n    FemaleLiteracyRate\n0.0020\n0.0352\n0.0580\n0.9539\n−0.0684\n0.0725\n    CO2emissions\n−0.2860\n0.1340\n−2.1344\n0.0368\n−0.5539\n−0.0181\n    IncomePP\n0.0002\n0.0001\n2.4133\n0.0188\n0.0000\n0.0003\n    four_regionsAmericas\n9.8963\n2.0031\n4.9405\n0.0000\n5.8909\n13.9017\n    four_regionsAsia\n5.7849\n1.5993\n3.6172\n0.0006\n2.5870\n8.9829\n    four_regionsEurope\n7.1421\n2.6994\n2.6458\n0.0104\n1.7442\n12.5399\n    WaterSourcePrct\n0.1377\n0.0658\n2.0928\n0.0405\n0.0061\n0.2693\n    FoodSupplykcPPD\n0.0052\n0.0021\n2.4961\n0.0153\n0.0010\n0.0093\n    members_oecd_g77oecd\n−0.3317\n2.5476\n−0.1302\n0.8968\n−5.4259\n4.7625\n    members_oecd_g77others\n0.3341\n2.2986\n0.1453\n0.8849\n−4.2622\n4.9304"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-2-preliminary-variable-selection-3",
+    "href": "slides/13_Purposeful_Selection.html#step-2-preliminary-variable-selection-3",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 2: Preliminary variable selection",
+    "text": "Step 2: Preliminary variable selection\n\n\n\nThis is where we start identifying covariates that we might remove\n\n \n\nI would start by using the p-value to guide me towards specific variables\n\nFemale literacy rate, but that’s our main covariate\nmembers_oecd_g77\nMaybe water source percent?\n\n\n \n\nSome people will say you can use the p-value alone\n\nI like to double check that those variables do not have a large effect on the other coefficients\n\n\n\n\n\n\n\n\n\n  \n    \n    \n      term\n      estimate\n      std.error\n      statistic\n      p.value\n    \n  \n  \n    (Intercept)\n37.5560\n4.4083\n8.5194\n0.0000\n    FemaleLiteracyRate\n0.0020\n0.0352\n0.0580\n0.9539\n    CO2emissions\n−0.2860\n0.1340\n−2.1344\n0.0368\n    IncomePP\n0.0002\n0.0001\n2.4133\n0.0188\n    four_regionsAmericas\n9.8963\n2.0031\n4.9405\n0.0000\n    four_regionsAsia\n5.7849\n1.5993\n3.6172\n0.0006\n    four_regionsEurope\n7.1421\n2.6994\n2.6458\n0.0104\n    WaterSourcePrct\n0.1377\n0.0658\n2.0928\n0.0405\n    FoodSupplykcPPD\n0.0052\n0.0021\n2.4961\n0.0153\n    members_oecd_g77oecd\n−0.3317\n2.5476\n−0.1302\n0.8968\n    members_oecd_g77others\n0.3341\n2.2986\n0.1453\n0.8849"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-3-assess-change-in-coefficient",
+    "href": "slides/13_Purposeful_Selection.html#step-3-assess-change-in-coefficient",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 3: Assess change in coefficient",
+    "text": "Step 3: Assess change in coefficient\n\n\n\nThis is where we start identifying covariates that we might remove\n\n \n\nI would start by using the p-value to guide me towards specific variables\n\nFemale literacy rate, but that’s our main covariate\nmembers_oecd_g77\nMaybe water source percent?\n\n\n \n\nSome people will say you can use the p-value alone\n\nI like to double check that those variables do not have a large effect on the other coefficients\n\n\n\n\n\n\n\n\n\n  \n    \n    \n      term\n      estimate\n      std.error\n      statistic\n      p.value\n    \n  \n  \n    (Intercept)\n37.5560\n4.4083\n8.5194\n0.0000\n    FemaleLiteracyRate\n0.0020\n0.0352\n0.0580\n0.9539\n    CO2emissions\n−0.2860\n0.1340\n−2.1344\n0.0368\n    IncomePP\n0.0002\n0.0001\n2.4133\n0.0188\n    four_regionsAmericas\n9.8963\n2.0031\n4.9405\n0.0000\n    four_regionsAsia\n5.7849\n1.5993\n3.6172\n0.0006\n    four_regionsEurope\n7.1421\n2.6994\n2.6458\n0.0104\n    WaterSourcePrct\n0.1377\n0.0658\n2.0928\n0.0405\n    FoodSupplykcPPD\n0.0052\n0.0021\n2.4961\n0.0153\n    members_oecd_g77oecd\n−0.3317\n2.5476\n−0.1302\n0.8968\n    members_oecd_g77others\n0.3341\n2.2986\n0.1453\n0.8849"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-2-preliminary-variable-selection-4",
+    "href": "slides/13_Purposeful_Selection.html#step-2-preliminary-variable-selection-4",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 2: Preliminary variable selection",
+    "text": "Step 2: Preliminary variable selection\n\nVery similar to the process we used when looking at confounders\n\n \n\nOne variable at a time, we run the multivariable model with and without the variable\n\nWe look at the p-value of the F-test for the coefficients of said variable\nWe look at the percent change for the coefficient (\\(\\Delta\\%\\)) of our explanatory variable\n\n\n \n\nGeneral rule: We can remove a variable if…\n\np-value &gt; 0.05 for the F-test of its own coefficients\nAND change in coefficient (\\(\\Delta\\%\\)) of our explanatory variable is &lt; 10%"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-2-preliminary-variable-selection-5",
+    "href": "slides/13_Purposeful_Selection.html#step-2-preliminary-variable-selection-5",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 2: Preliminary variable selection",
+    "text": "Step 2: Preliminary variable selection\n\nLet’s try this out on members_oecd_g77\n\n\n\nDisplay the ANOVA table with F-statistic and p-value\nmodel_full = init_model\nmodel_red = lm(LifeExpectancyYrs ~ FemaleLiteracyRate + CO2emissions + IncomePP +\n               four_regions + WaterSourcePrct + FoodSupplykcPPD, \n                 data = gapm2)\nanova(model_full, model_red) %&gt;% tidy() %&gt;% \n  gt() %&gt;% tab_options(table.font.size = 35) %&gt;% fmt_number(decimals = 3)\n\n\n\n\n\n\n  \n    \n    \n      term\n      df.residual\n      rss\n      df\n      sumsq\n      statistic\n      p.value\n    \n  \n  \n    LifeExpectancyYrs ~ FemaleLiteracyRate + CO2emissions + IncomePP + four_regions + WaterSourcePrct + FoodSupplykcPPD + members_oecd_g77\n61.000\n999.201\nNA\nNA\nNA\nNA\n    LifeExpectancyYrs ~ FemaleLiteracyRate + CO2emissions + IncomePP + four_regions + WaterSourcePrct + FoodSupplykcPPD\n63.000\n1,000.988\n−2.000\n−1.787\n0.055\n0.947\n  \n  \n  \n\n\n\n\n\n\\(\\widehat\\beta_{FLR, full} = 0.002\\), \\(\\widehat\\beta_{FLR, red} = 0.0036\\)\n\n\\[\n\\Delta\\% = 100\\% \\cdot \\frac{\\widehat\\beta_{FLR, full} - \\widehat\\beta_{FLR, red}}{\\widehat\\beta_{FLR, full}} = 100\\% \\cdot \\frac{0.002 - 0.0036}{0.002} = -74.41\\%\n\\] - Based off the percent change, I would keep this in the model"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-2-preliminary-variable-selection-6",
+    "href": "slides/13_Purposeful_Selection.html#step-2-preliminary-variable-selection-6",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 2: Preliminary variable selection",
+    "text": "Step 2: Preliminary variable selection\n\nLet’s try this out on water source percent\n\n\n\nDisplay the ANOVA table with F-statistic and p-value\nmodel_full = init_model\nmodel_red = lm(LifeExpectancyYrs ~ FemaleLiteracyRate + CO2emissions + IncomePP +\n               four_regions + members_oecd_g77 + FoodSupplykcPPD, \n                 data = gapm2)\nanova(model_full, model_red) %&gt;% tidy() %&gt;% \n  gt() %&gt;% tab_options(table.font.size = 35) %&gt;% fmt_number(decimals = 3)\n\n\n\n\n\n\n  \n    \n    \n      term\n      df.residual\n      rss\n      df\n      sumsq\n      statistic\n      p.value\n    \n  \n  \n    LifeExpectancyYrs ~ FemaleLiteracyRate + CO2emissions + IncomePP + four_regions + WaterSourcePrct + FoodSupplykcPPD + members_oecd_g77\n61.000\n999.201\nNA\nNA\nNA\nNA\n    LifeExpectancyYrs ~ FemaleLiteracyRate + CO2emissions + IncomePP + four_regions + members_oecd_g77 + FoodSupplykcPPD\n62.000\n1,070.944\n−1.000\n−71.744\n4.380\n0.041\n  \n  \n  \n\n\n\n\n\n\\(\\widehat\\beta_{FLR, full} = 0.002\\), \\(\\widehat\\beta_{FLR, red} = 0.034\\)\n\n\\[\n\\Delta\\% = 100\\% \\cdot \\frac{\\widehat\\beta_{FLR, full} - \\widehat\\beta_{FLR, red}}{\\widehat\\beta_{FLR, full}} = 100\\% \\cdot \\frac{0.002 - 0.034}{0.002} = -1561.06\\%\n\\] - Based off the percent change, I would keep this in the model"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-3-assess-change-in-coefficient-1",
+    "href": "slides/13_Purposeful_Selection.html#step-3-assess-change-in-coefficient-1",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 3: Assess change in coefficient",
+    "text": "Step 3: Assess change in coefficient\n\nVery similar to the process we used when looking at confounders\n\n \n\nOne variable at a time, we run the multivariable model with and without the variable\n\nWe look at the p-value of the F-test for the coefficients of said variable\nWe look at the percent change for the coefficient (\\(\\Delta\\%\\)) of our explanatory variable\n\n\n \n\nGeneral rule: We can remove a variable if…\n\np-value &gt; 0.05 for the F-test of its own coefficients\nAND change in coefficient (\\(\\Delta\\%\\)) of our explanatory variable is &lt; 10%"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-3-assess-change-in-coefficient-2",
+    "href": "slides/13_Purposeful_Selection.html#step-3-assess-change-in-coefficient-2",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 3: Assess change in coefficient",
+    "text": "Step 3: Assess change in coefficient\n\nLet’s try this out on members_oecd_g77\n\n\n\nDisplay the ANOVA table with F-statistic and p-value\nmodel_full = init_model\nmodel_red = lm(LifeExpectancyYrs ~ FemaleLiteracyRate + CO2emissions + IncomePP +\n               four_regions + WaterSourcePrct + FoodSupplykcPPD, \n                 data = gapm2)\nanova(model_full, model_red) %&gt;% tidy() %&gt;% \n  gt() %&gt;% tab_options(table.font.size = 35) %&gt;% fmt_number(decimals = 3)\n\n\n\n\n\n\n  \n    \n    \n      term\n      df.residual\n      rss\n      df\n      sumsq\n      statistic\n      p.value\n    \n  \n  \n    LifeExpectancyYrs ~ FemaleLiteracyRate + CO2emissions + IncomePP + four_regions + WaterSourcePrct + FoodSupplykcPPD + members_oecd_g77\n61.000\n999.201\nNA\nNA\nNA\nNA\n    LifeExpectancyYrs ~ FemaleLiteracyRate + CO2emissions + IncomePP + four_regions + WaterSourcePrct + FoodSupplykcPPD\n63.000\n1,000.988\n−2.000\n−1.787\n0.055\n0.947\n  \n  \n  \n\n\n\n\n\n\\(\\widehat\\beta_{FLR, full} = 0.002\\), \\(\\widehat\\beta_{FLR, red} = 0.0036\\)\n\n\\[\n\\Delta\\% = 100\\% \\cdot \\frac{\\widehat\\beta_{FLR, full} - \\widehat\\beta_{FLR, red}}{\\widehat\\beta_{FLR, full}} = 100\\% \\cdot \\frac{0.002 - 0.0036}{0.002} = -74.41\\%\n\\]\n\nBased off the percent change, I would keep this in the model"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-3-assess-change-in-coefficient-3",
+    "href": "slides/13_Purposeful_Selection.html#step-3-assess-change-in-coefficient-3",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 3: Assess change in coefficient",
+    "text": "Step 3: Assess change in coefficient\n\nLet’s try this out on water source percent (even though the p-value was &lt; 0.05)\n\n\n\nDisplay the ANOVA table with F-statistic and p-value\nmodel_full = init_model\nmodel_red = lm(LifeExpectancyYrs ~ FemaleLiteracyRate + CO2emissions + IncomePP +\n               four_regions + members_oecd_g77 + FoodSupplykcPPD, \n                 data = gapm2)\nanova(model_full, model_red) %&gt;% tidy() %&gt;% \n  gt() %&gt;% tab_options(table.font.size = 35) %&gt;% fmt_number(decimals = 3)\n\n\n\n\n\n\n  \n    \n    \n      term\n      df.residual\n      rss\n      df\n      sumsq\n      statistic\n      p.value\n    \n  \n  \n    LifeExpectancyYrs ~ FemaleLiteracyRate + CO2emissions + IncomePP + four_regions + WaterSourcePrct + FoodSupplykcPPD + members_oecd_g77\n61.000\n999.201\nNA\nNA\nNA\nNA\n    LifeExpectancyYrs ~ FemaleLiteracyRate + CO2emissions + IncomePP + four_regions + members_oecd_g77 + FoodSupplykcPPD\n62.000\n1,070.944\n−1.000\n−71.744\n4.380\n0.041\n  \n  \n  \n\n\n\n\n\n\\(\\widehat\\beta_{FLR, full} = 0.002\\), \\(\\widehat\\beta_{FLR, red} = 0.034\\)\n\n\\[\n\\Delta\\% = 100\\% \\cdot \\frac{\\widehat\\beta_{FLR, full} - \\widehat\\beta_{FLR, red}}{\\widehat\\beta_{FLR, full}} = 100\\% \\cdot \\frac{0.002 - 0.034}{0.002} = -1561.06\\%\n\\]\n\nBased off the percent change (and p-value), I would keep this in the model"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-3-assess-change-in-coefficient-4",
+    "href": "slides/13_Purposeful_Selection.html#step-3-assess-change-in-coefficient-4",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 3: Assess change in coefficient",
+    "text": "Step 3: Assess change in coefficient\n\nAt the end of this step, we have a preliminary main effects model\nWhere the variables are excluded that met the following criteria:\n\nP-value &gt; 0.05 for the F-test of its own coefficients\nChange in coefficient (\\(\\Delta\\%\\)) of our explanatory variable is &lt; 10%\n\nIn our example, the preliminary main effects model (end of Step 3) was the same as the intiial model (end of Step 2)"
+  },
+  {
+    "objectID": "labs/Lab_04_instructions.html",
+    "href": "labs/Lab_04_instructions.html",
+    "title": "Lab 4 Instructions",
+    "section": "",
+    "text": "IMPORTANT TO READ\n\n\n\n\nPlease do not delete the rubric from your .qmd file. I will use it to circle the grades!\nThere is an instructions file and a file for you to edit and turn in. Please only work in the latter file!!"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-5-check-for-interactions",
+    "href": "slides/13_Purposeful_Selection.html#step-5-check-for-interactions",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 5: Check for interactions",
+    "text": "Step 5: Check for interactions\n\nCreate a list of interaction terms from variables in the “main effects model” that has clinical plausibility\nAdd the interaction variables, one at a time, to the main effects model, and assess the significance using a likelihood ratio test or Wald test\n\nMay keep interaction terms with p-value &lt; 0.05\n\nKeep the main effects untouched, only simplify the interaction terms – locked!\nUse methods from Step 2 (comparing model with all interactions to a smaller model with interactions) to determine which interactions to keep\nThe model by the end of Step 6 is called the preliminary final model"
+  },
+  {
+    "objectID": "slides/13_Purposeful_Selection.html#step-6-assess-model-fit",
+    "href": "slides/13_Purposeful_Selection.html#step-6-assess-model-fit",
+    "title": "Lesson 13: Purposeful model selection",
+    "section": "Step 6: Assess model fit",
+    "text": "Step 6: Assess model fit\n\nAssess the adequacy of the model and check its fit\nMethods will be discussed later class\nIf the model is adequate and fits well, then it is the Final model\n\n\n\nPurposeful Selection"
   }
 ]

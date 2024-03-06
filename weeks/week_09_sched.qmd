@@ -63,7 +63,25 @@ editor_options:
 
 ### Wednesday 3/6
 
--   Revisit overfitting?
+-   Is there going to be a specific strategy/type of model selection we're supposed to use for the lab/final project? Will that be the focus of Lab 4?
+
+-   Lab 3: new formatting was confusing for some
+
+    -   I am sorry that I did not communicate the new formatting in multiple areas
+
+    -   Lab 4 will follow the same format
+
+        -   The course website will contain thorough, guided instructions
+
+        -   The file that you will download and edit will only contain the direct tasks that I want you to complete.
+
+-   Quiz 3 info
+
+    -   Will cover Lesson 10 - 11: categorical covariates to interactions
+
+    -   I'm thinking this one will be a litter shorter since there's less material
+
+    -   Will still have the 50 min for the quiz
 
 ## Class Exit Tickets
 
@@ -85,7 +103,7 @@ g=3
 
 A 10% difference can also indicate an interaction, but we would need to see the difference when we include the interaction. I think I was specifically talking about including variables, which typically means I am only including their main effects. With main effects, we can test for confounding, but not interactions. That's all! We can separately test for interactions using the same 10% criterion.
 
-### 2. "Any variables not selected for the final model have still been adjusted for, since they had a chance to be in the model" How are they adjusted for when they aren't? 
+### 2. "Any variables not selected for the final model have still been adjusted for, since they had a chance to be in the model" How are they adjusted for when they aren't?
 
 I feel your confusion. These variables have not been explicitly adjusted for in the model, more implicitly. If a variable is not selected that means it does not predict our outcome well and/or it does not affect other variables' relationship with the outcome. That means we tried to adjust for it, but it has no effect, so we have technically adjusted for something that does not change our model.
 

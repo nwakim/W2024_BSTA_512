@@ -157,6 +157,23 @@ Suppose we have $p = 30$ covariates (in the true model) and n = 50 observations.
 :::
 :::
 
+## Some important definitions
+
+-   **Model selection**: picking the "best" model from a set of possible models
+
+    -   Models will have the same outcome, but typically differ by the covariates that are included, their transformations, and their interactions
+    
+ 
+    
+-   **Model selection strategies**: a process or framework that helps us pick our "best" model
+
+    -   These strategies often differ by the approach and criteria used to the determine the "best" model
+    
+ 
+    
+-   **Overfitting**: result of fitting a model so closely to our *particular* sample data that it cannot be generalized to other samples (or the population)
+
+
 ## Model Selection basics (slide adjusted from Jodi Lapidus)
 
 -   "Because models always fall far short of the complex reality under study, there are no best or optimal strategies for modeling."

@@ -38,7 +38,7 @@ library(gtsummary)
 library(here)
 if(!require(lubridate)) { install.packages("lubridate"); library(lubridate) }
 #load("~/Library/CloudStorage/OneDrive-OregonHealth&ScienceUniversity/Teaching/Datasets/Implicit_anti_fat_bias/Data/Data_2021/iat_data.rda")
-load("~/Library/CloudStorage/OneDrive-OregonHealth&ScienceUniversity/Teaching/Datasets/Implicit_anti_fat_bias/Data/Data_2021/iat_data_lab3.rda")
+load("/Users/wakim/Library/CloudStorage/OneDrive-OregonHealth&ScienceUniversity/Projects/Datasets/Implicit_anti_fat_bias/Data/Data_2021/iat_data_lab3.rda")
 ```
 
 ## Directions

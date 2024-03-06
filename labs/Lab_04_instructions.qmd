@@ -1,0 +1,42 @@
+---
+title: "Lab 4 Instructions"
+author: "Nicky Wakim"
+subtitle: "BSTA 512/612"
+description: "Due: March 14, 2024 at 11pm"
+date-modified: "today"
+date: "3/14/2024"
+categories: [""]
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+    self-contained: true
+    number-sections: true
+    number-depth: 4
+  pdf: default 
+editor_options: 
+  chunk_output_type: console
+---
+
+::: callout-warning
+## IMPORTANT TO READ
+
+-   Please do not delete the rubric from your `.qmd` file. I will use it to circle the grades!
+
+-   There is an instructions file and a file for you to edit and turn in. Please only work in the latter file!!
+:::
+
+```{r}
+#| message: false
+#| echo: false
+
+# PLEASE DO NOT REMOVE THIS CODE CHUNK!!!
+### ADD YOUR LIBRARIES HERE!!! ####
+
+library(tidyverse)
+library(gtsummary)
+library(here)
+if(!require(lubridate)) { install.packages("lubridate"); library(lubridate) }
+#load("~/Library/CloudStorage/OneDrive-OregonHealth&ScienceUniversity/Teaching/Datasets/Implicit_anti_fat_bias/Data/Data_2021/iat_data.rda")
+load("/Users/wakim/Library/CloudStorage/OneDrive-OregonHealth&ScienceUniversity/Projects/Datasets/Implicit_anti_fat_bias/Data/Data_2021/iat_data_lab3.rda")
+```
