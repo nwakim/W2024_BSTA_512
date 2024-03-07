@@ -248,6 +248,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#difference-between-stepwise-and-change-in-estimate-approach" id="toc-difference-between-stepwise-and-change-in-estimate-approach" class="nav-link" data-scroll-target="#difference-between-stepwise-and-change-in-estimate-approach">3. Difference between stepwise and change in estimate approach?</a></li>
   <li><a href="#how-does-having-fewer-covariates-cause-a-more-biased-estimate-and-what-does-it-mean-for-widehatbeta-to-be-biased-for-beta" id="toc-how-does-having-fewer-covariates-cause-a-more-biased-estimate-and-what-does-it-mean-for-widehatbeta-to-be-biased-for-beta" class="nav-link" data-scroll-target="#how-does-having-fewer-covariates-cause-a-more-biased-estimate-and-what-does-it-mean-for-widehatbeta-to-be-biased-for-beta">4. How does having fewer covariates cause a more biased estimate? (and what does it mean for <span class="math inline">\(\widehat\beta\)</span> to be biased for <span class="math inline">\(\beta\)</span>?)</a></li>
   <li><a href="#all-the-new-approaches-for-model-selection" id="toc-all-the-new-approaches-for-model-selection" class="nav-link" data-scroll-target="#all-the-new-approaches-for-model-selection">5. All the new approaches for model selection!</a></li>
+  <li><a href="#assessing-change-in-coefficients" id="toc-assessing-change-in-coefficients" class="nav-link" data-scroll-target="#assessing-change-in-coefficients">6. Assessing change in coefficients</a></li>
+  <li><a href="#general-feelings-of-uncertainty-when-it-comes-to-picking-a-model-based-on-some-of-these-more-subjective-measures" id="toc-general-feelings-of-uncertainty-when-it-comes-to-picking-a-model-based-on-some-of-these-more-subjective-measures" class="nav-link" data-scroll-target="#general-feelings-of-uncertainty-when-it-comes-to-picking-a-model-based-on-some-of-these-more-subjective-measures">7. General feelings of uncertainty when it comes to picking a model based on some of these more subjective measures</a></li>
+  <li><a href="#all-of-the-different-f-tests-and-p-values-we-are-using-in-the-early-steps-of-model-building" id="toc-all-of-the-different-f-tests-and-p-values-we-are-using-in-the-early-steps-of-model-building" class="nav-link" data-scroll-target="#all-of-the-different-f-tests-and-p-values-we-are-using-in-the-early-steps-of-model-building">8. All of the different F-tests and p-values we are using in the early steps of model building</a></li>
+  <li><a href="#why-didnt-we-use-those-packages-earlier" id="toc-why-didnt-we-use-those-packages-earlier" class="nav-link" data-scroll-target="#why-didnt-we-use-those-packages-earlier">9. Why didn’t we use those packages earlier?</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -347,14 +351,15 @@ Room Locations for the week
 <td>Model selection 1</td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides/12_Model_selection.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
 <td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/12_Model_selection.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F12%5FModel%5Fselection%2Emp4&amp;referrer=StreamWebApp%2EWeb&amp;referrerScenario=AddressBarCopied%2Eview"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></td>
+<td style="text-align: center;"><p><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F12%5FModel%5Fselection%2Emp4&amp;referrer=StreamWebApp%2EWeb&amp;referrerScenario=AddressBarCopied%2Eview"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></p>
+<p><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F12%5FModel%5Fselection%5F2%2Emp4&amp;referrer=StreamWebApp%2EWeb&amp;referrerScenario=AddressBarCopied%2Eview"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></p></td>
 </tr>
 <tr class="odd">
 <td>13</td>
-<td>Purposeful Selection</td>
+<td>Purposeful Model Selection</td>
 <td style="text-align: center;"><span style="color:#49A3D1;"><a href="../slides/13_Purposeful_Selection.html"><iconify-icon inline="" icon="ri:slideshow-fill" style="font-size: 30px;"></iconify-icon></a></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></span></td>
-<td style="text-align: center;"><span style="color:#f8f5f0;"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="../slides_annotated/13_Purposeful_selection.pdf"><iconify-icon inline="" icon="pepicons-pop:pen-circle-filled" style="font-size: 29px;"></iconify-icon></a></span></td>
+<td style="text-align: center;"><span style="color:#f8f5f0;"><a href="https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F13%5FPurposeful%5Fselection%2Emp4&amp;referrer=StreamWebApp%2EWeb&amp;referrerScenario=AddressBarCopied%2Eview"><iconify-icon inline="" icon="mdi:video" style="font-size: 34px;"></iconify-icon></a></span></td>
 </tr>
 </tbody>
 </table>
@@ -447,6 +452,44 @@ Room Locations for the week
 <section id="all-the-new-approaches-for-model-selection" class="level3">
 <h3 class="anchored" data-anchor-id="all-the-new-approaches-for-model-selection">5. All the new approaches for model selection!</h3>
 <p>Just to be clear, the main intention for the overview was that you can identify and recognize some of the key characteristics of different model selection strategies. We can’t cover all of them in detail, but I just want you to know what’s out there, and what other people might use.</p>
+</section>
+<section id="assessing-change-in-coefficients" class="level3">
+<h3 class="anchored" data-anchor-id="assessing-change-in-coefficients">6. Assessing change in coefficients</h3>
+<p>I highly recommend going back to the slides with interactions (effect modifiers) and confounders (<a href="https://nwakim.github.io/W2024_BSTA_512/slides_annotated/11_Interactions_2.pdf">Lesson 11.2: Interactions continued</a>). On slide 18, we get into the change in coefficients. This is just one way to measure if a variable might be important in our model.</p>
+</section>
+<section id="general-feelings-of-uncertainty-when-it-comes-to-picking-a-model-based-on-some-of-these-more-subjective-measures" class="level3">
+<h3 class="anchored" data-anchor-id="general-feelings-of-uncertainty-when-it-comes-to-picking-a-model-based-on-some-of-these-more-subjective-measures">7. General feelings of uncertainty when it comes to picking a model based on some of these more subjective measures</h3>
+<p>Fair enough! It takes time to build that trust in your instincts when building a model. This is mostly why there are a few concrete rules within purposeful model selection. I don’t think your model can go horribly wrong in the subjective choices, but sticking with the more concrete rules (when there are some) will be important.</p>
+</section>
+<section id="all-of-the-different-f-tests-and-p-values-we-are-using-in-the-early-steps-of-model-building" class="level3">
+<h3 class="anchored" data-anchor-id="all-of-the-different-f-tests-and-p-values-we-are-using-in-the-early-steps-of-model-building">8. All of the different F-tests and p-values we are using in the early steps of model building</h3>
+<p>Yeah… definitely hard to keep organized when we’re seeing different uses so close together</p>
+<ul>
+<li><p>In step 2, we use the F-test to see if a single variable (potentially with many coeffiicents) explains enough variation in our outcome</p>
+<ul>
+<li><p>This is the F-test in simple linear regression with</p>
+<ul>
+<li><p>Reduced / null model: <span class="math inline">\(Y = \beta_0 + \epsilon\)</span></p></li>
+<li><p>Full / alternative model: <span class="math inline">\(Y = \beta_0 + \beta_1 X + \epsilon\)</span></p></li>
+<li><p>This will be different for multi-level covariates</p></li>
+<li><p>We can use <code>anova( full_model )</code> to get the F-statistic and p-value</p></li>
+</ul></li>
+</ul></li>
+<li><p>In step 3, we use the F-test to see if a single variable (potentially with many coeffiicents) explains enough variation in our outcome, <em>given the other variables in the model</em></p>
+<ul>
+<li><p>This is the F-test in simple linear regression with</p>
+<ul>
+<li><p>Reduced / null model: <span class="math inline">\(Y = \beta_0 + \beta_2 X_2 + \beta_3 X_3 + \beta_4 X_4 + \epsilon\)</span></p></li>
+<li><p>Full / alternative model: <span class="math inline">\(Y = \beta_0 + \beta_1 X + \beta_2 X_2 + \beta_3 X_3 + \beta_4 X_4 + \epsilon\)</span></p></li>
+<li><p>This will be different for multi-level covariates: more coefficients removed between full and reduced</p></li>
+<li><p>We can use <code>anova( full_model , reduced_model )</code> to get the F-statistic and p-value</p></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="why-didnt-we-use-those-packages-earlier" class="level3">
+<h3 class="anchored" data-anchor-id="why-didnt-we-use-those-packages-earlier">9. Why didn’t we use those packages earlier?</h3>
+<p>You got me! Partially because I wanted us to practice plotting in <code>ggplot</code> and be able to create more detailed plots. I think those functions (<code>skim()</code> and <code>ggpairs()</code>) super helpful in big picture, but if we don’t know what to look for or identify oversights in the output, then we can miss important information about the data. More detailed plots, and more practice with variable types (like making factors) is needed to approach <code>skim()</code> and <code>ggpairs()</code>.</p>
 
 
 </section>

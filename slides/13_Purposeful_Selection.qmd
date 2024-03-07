@@ -105,21 +105,16 @@ gapm2 = gapm %>% select(-Longitude, -Latitude, -eight_regions, -six_regions, -ge
 
 # Learning Objectives
 
-1.    Understand the overall steps for purposeful selection as a model building strategy
+1.  Understand the overall steps for purposeful selection as a model building strategy
 
-2.    Apply purposeful selection to a dataset using R
+2.  Apply purposeful selection to a dataset using R
 
-3.    Use different approaches to assess the linear scale of continuous variables in
-logistic regression
+3.  Use different approaches to assess the linear scale of continuous variables in logistic regression
 
 ## Regression analysis process
 
 ::: box
-![](images/arrow2.png){.absolute top="13.5%" right="62.1%" width="155"}
-![](images/arrow2.png){.absolute top="13.5%" right="28.4%"
-width="155"}![](images/arrow_back4.png){.absolute top="7.5%"
-right="30.5%" width="820"} ![](images/arrow_down.png){.absolute
-top="60.5%" right="48%" width="85"}
+![](images/arrow2.png){.absolute top="13.5%" right="62.1%" width="155"} ![](images/arrow2.png){.absolute top="13.5%" right="28.4%" width="155"}![](images/arrow_back4.png){.absolute top="7.5%" right="30.5%" width="820"} ![](images/arrow_down.png){.absolute top="60.5%" right="48%" width="85"}
 
 ::: columns
 ::: {.column width="30%"}
@@ -205,18 +200,15 @@ Model Use (Inference)
 :::
 :::
 
-
 # Learning Objectives
 
 ::: lob
-1.    Understand the overall steps for purposeful selection as a model building strategy
+1.  Understand the overall steps for purposeful selection as a model building strategy
 :::
 
-2.    Apply purposeful selection to a dataset using R
+2.  Apply purposeful selection to a dataset using R
 
-3.    Use different approaches to assess the linear scale of continuous variables in
-logistic regression
-
+3.  Use different approaches to assess the linear scale of continuous variables in logistic regression
 
 ## 
 
@@ -230,7 +222,7 @@ logistic regression
 
 ::: {.column width="60%"}
 ::: qt
-[ "Successful modeling of a complex data set is [**part science**]{style="color:#FF8021;"}, [**part statistical methods**]{style="color:#34AC8B;"}, and [**part experience and common sense**]{style="color:#4FADF3;"}." ]{style="font-size:60px;"}
+["Successful modeling of a complex data set is [**part science**]{style="color:#FF8021;"}, [**part statistical methods**]{style="color:#34AC8B;"}, and [**part experience and common sense**]{style="color:#4FADF3;"}."]{style="font-size:60px;"}
 :::
 
  
@@ -323,31 +315,29 @@ Check for interactions
 
 Assess model fit
 :::
-
 :::
 
 # Learning Objectives
 
-1.    Understand the overall steps for purposeful selection as a model building strategy
+1.  Understand the overall steps for purposeful selection as a model building strategy
 
 ::: lob
-2.    Apply purposeful selection to a dataset using R
+2.  Apply purposeful selection to a dataset using R
 :::
 
-3.    Use different approaches to assess the linear scale of continuous variables in
-logistic regression
-
+3.  Use different approaches to assess the linear scale of continuous variables in logistic regression
 
 ## Pre-step: Exploratory data analysis
 
--   Things we have been doing over the quarter in class and in our project 
+-   Things we have been doing over the quarter in class and in our project
+
 -   I will not discuss some of the methods mentioned in our lab and data management class
 
     -   I am only going to introduce additional exploratory functions
 
  
 
-A few things we can do: 
+A few things we can do:
 
 -   Check the data
 -   Study your variables
@@ -382,6 +372,7 @@ A few things we can do:
 -   Look at a summary for the raw data
 
 -   Typical use:
+
 ```{r}
 #| echo: true
 #| output: false
@@ -406,6 +397,7 @@ skim(gapm)
 -   Look at a summary for the raw data
 
 -   Typical use:
+
 ```{r}
 #| echo: true
 #| output: false
@@ -416,6 +408,7 @@ skim(gapm)
 -   [Some `skim()` help](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html)
 
 -   Note that `skim(gapm)` looks different because I had to create factors
+
 -   I am breaking down the `skim()` function into the categorical and continuous variables only because I want to show them on the slides
 :::
 
@@ -453,7 +446,8 @@ skim(gapm_sub1) %>% yank("numeric")
     -   Minimums and maximums
 
 -   Can also look at visuals
-    -   Continuous variables: histograms (in `skimr() a little)
+
+    -   Continuous variables: histograms (in \`skimr() a little)
     -   Categorical variables: frequency plots
 
 ## Pre-step: Exploratory data analysis: Study your variables {.smaller}
@@ -475,7 +469,7 @@ hist.data.frame(gapm %>% select(-Longitude, -Latitude, -eight_regions, -six_regi
 
  
 
--   Unfortunately, we don’t have time to discuss missing data more thoroughly  
+-   Unfortunately, we don’t have time to discuss missing data more thoroughly\
 -   I will try to cover this topic more thoroughly in BSTA 513
 
  
@@ -502,21 +496,22 @@ gapm2 %>% ggpairs() # gapm2 is a new dataset with some variables selected
     -   Helps us see the data we throw it into regression that makes assumptions (like our LINE assumptions)
 
     -   `ggpairs()` can be a quick way to do it
+
     -   `ggplot()` can make each plot
-    
-          -   `+ geom_boxplot()` to make boxplots by groups for categorical covariates
-          -   `+ geom_jitter() + stat_summary()` to make non-overlaping points with group means for categorical covariates
-          -   `+ geom_point()` to make scatterplots for continuous covariates
-      
--   We need to run **simple linear regression** 
+
+        -   `+ geom_boxplot()` to make boxplots by groups for categorical covariates
+        -   `+ geom_jitter() + stat_summary()` to make non-overlaping points with group means for categorical covariates
+        -   `+ geom_point()` to make scatterplots for continuous covariates
+
+-   We need to run **simple linear regression**
 
     -   We're calling regression with multi-level categories "simple" even though there are multiple coefficients
-    
+
 ## Step 1: Simple linear regressions / analysis
 
 -   Let's think back to our Gapminder dataset
 
--   Always good to start with our main relationship: life expectancy vs. female literacy rate 
+-   Always good to start with our main relationship: life expectancy vs. female literacy rate
 
     -   *Throwback to Lesson 3 SLR when we first visualized and ran `lm()` for this relationship*
 
@@ -613,6 +608,7 @@ anova(model_WR) %>% tidy() %>% gt() %>%
 -   If we do a good job visualizing the relationship between our outcome and each covariate, then we can proceed to a streamlined version of the F-test for each relationship
 
 -   First, I will select the variables that we are considering for model selection:
+
 ```{r}
 #| echo: true
 
@@ -635,7 +631,7 @@ gapm3 = gapm2 %>% select(-LifeExpectancyYrs)
 -   For each covariate I am running: `lm(gapm2$LifeExpectancyYrs ~ x) %>% anova()`
 
     -   So I am fitting the simple linear regression and printing the ANOVA table with F-test (comparing model with a without the covariate)
-    
+
 ```{r}
 #| echo: true
 lapply( gapm3, function(x) lm(gapm2$LifeExpectancyYrs ~ x) %>% anova() )
@@ -658,7 +654,7 @@ sapply( gapm3, function(x) anova( lm(gapm2$LifeExpectancyYrs ~ x) )$`Pr(>F)` )
 
 ## Step 2: Preliminary variable selection
 
--   Identify candidates for your first multivariable model by performing an F-test on each covariate's SLR 
+-   Identify candidates for your first multivariable model by performing an F-test on each covariate's SLR
 
     -   Using p-values from previous slide
     -   If the p-value of the test is less than 0.25, then consider the variable a candidate
@@ -668,7 +664,7 @@ sapply( gapm3, function(x) anova( lm(gapm2$LifeExpectancyYrs ~ x) )$`Pr(>F)` )
 -   Candidates for first multivariable model
 
     -   All clinically important variables (regardless of p-value)
-    -   Variables with univariate test with p-value < 0.25
+    -   Variables with univariate test with p-value \< 0.25
 
  
 
@@ -678,8 +674,8 @@ sapply( gapm3, function(x) anova( lm(gapm2$LifeExpectancyYrs ~ x) )$`Pr(>F)` )
 
 -   From the previous p-values from the F-test on each covariate's SLR
 
-    -   Decision: we keep all the covariates since they all have a p-value < 0.25
-    
+    -   Decision: we keep all the covariates since they all have a p-value \< 0.25
+
 ```{r}
 #| echo: true
 sapply( gapm3, function(x) anova( lm(gapm2$LifeExpectancyYrs ~ x) )$`Pr(>F)` )
@@ -687,7 +683,7 @@ sapply( gapm3, function(x) anova( lm(gapm2$LifeExpectancyYrs ~ x) )$`Pr(>F)` )
 
 ## Step 2: Preliminary variable selection
 
--   Fit an **initial model** including any independent variable with p-value < 0.25 and clinically important variables
+-   Fit an **initial model** including any independent variable with p-value \< 0.25 and clinically important variables
 
 ```{r}
 #| echo: true
@@ -702,7 +698,6 @@ tidy(init_model, conf.int = T) %>% gt() %>% tab_options(table.font.size = 30) %>
 ## Step 3: Assess change in coefficient
 
 ::: columns
-
 ::: {.column width="48%"}
 -   This is where we start identifying covariates that we might remove
 
@@ -713,7 +708,7 @@ tidy(init_model, conf.int = T) %>% gt() %>% tab_options(table.font.size = 30) %>
     -   Female literacy rate, but that's our main covariate
     -   `members_oecd_g77`
     -   Maybe water source percent?
-    
+
  
 
 -   Some people will say you can use the p-value alone
@@ -727,7 +722,6 @@ tidy(init_model) %>% gt() %>% tab_options(table.font.size = 33) %>%
   fmt_number(decimals = 4)
 ```
 :::
-
 :::
 
 ## Step 3: Assess change in coefficient
@@ -740,14 +734,14 @@ tidy(init_model) %>% gt() %>% tab_options(table.font.size = 33) %>%
 
     -   We look at the p-value of the F-test for the coefficients of said variable
     -   We look at the percent change for the coefficient ($\Delta\%$) of our explanatory variable
-    
+
  
 
 -   General rule: We can remove a variable if...
 
-    -   p-value > 0.05 for the F-test of its own coefficients
-    -   AND change in coefficient ($\Delta\%$) of our explanatory variable is < 10%
-    
+    -   p-value \> 0.05 for the F-test of its own coefficients
+    -   AND change in coefficient ($\Delta\%$) of our explanatory variable is \< 10%
+
 ## Step 3: Assess change in coefficient
 
 -   Let's try this out on `members_oecd_g77`
@@ -787,7 +781,7 @@ $$
 
 ## Step 3: Assess change in coefficient
 
--   Let's try this out on water source percent (even though the p-value was < 0.05)
+-   Let's try this out on water source percent (even though the p-value was \< 0.05)
 
 ```{r}
 #| echo: true
@@ -824,30 +818,49 @@ $$
 
 ## Poll Everywhere Question 5
 
-
-
 ## Step 3: Assess change in coefficient
 
 -   At the end of this step, we have a **preliminary main effects model**
 
 -   Where the variables are excluded that met the following criteria:
 
-    -   P-value > 0.05 for the F-test of its own coefficients
-    -   Change in coefficient ($\Delta\%$) of our explanatory variable is < 10%
-    
+    -   P-value \> 0.05 for the F-test of its own coefficients
+    -   Change in coefficient ($\Delta\%$) of our explanatory variable is \< 10%
+
 -   In our example, the **preliminary main effects model** (end of Step 3) was the same as the **intiial model** (end of Step 2)
 
-# Remaining slides under construction
+## Recap of Steps 1-3
+
+-   Pre-step: Exploratory data analysis
+
+-   Step 1: Simple linear regressions / analysis
+
+    -   Look at each covariate with outcome
+
+    -   Perform SLR for each covariate
+
+-   Step 2: Preliminary variable selection
+
+    -   From SLR, decide which variables go into the initial model
+
+    -   Use F-test to see if each covariate (on its own) explains enough variation in outcome
+
+-   Step 3: Assess change in coefficients
+
+    -   From the initial model at end of step 2, we take a variable out of the model if:
+
+        -   P-value \> 0.05 for the F-test of its own coefficients
+
+        -   Change in coefficient ($\Delta\%$) of our explanatory variable is \< 10%
 
 # Learning Objectives
 
-1.    Understand the overall steps for purposeful selection as a model building strategy
+1.  Understand the overall steps for purposeful selection as a model building strategy
 
-2.    Apply purposeful selection to a dataset using R
+2.  Apply purposeful selection to a dataset using R
 
 ::: lob
-3.    Use different approaches to assess the linear scale of continuous variables in
-logistic regression
+3.  Use different approaches to assess the linear scale of continuous variables in logistic regression
 :::
 
 ## Step 4: Assess scale for continuous variables
@@ -860,12 +873,12 @@ logistic regression
     -   Residual plots (can be used in SLR) does not help us in MLR
     -   Each term in MLR model needs to have linearity with outcome
 
--   Three methods/approaches to address the violation of linearity assumption: 
+-   Three methods/approaches to address the violation of linearity assumption:
 
     -   Approach 1: Quantile method/Indicator variables
     -   Approach 2: Fractional Polynomials
     -   Approach 3: Spline functions
-    
+
 -   For our class, only implement **Approach 2 or 3**
 
 -   Model at the end of Step 4 is the **main effects model**
@@ -907,7 +920,7 @@ autoplot(model_full) + theme(text=element_text(size=14))
     -   Income
     -   Female Literacy Rate
     -   Water source percent
-    
+
 -   Plot each of these agains the outcome, life expectancy
 
 ## Step 4: Assess scale for continuous variables: Smoothed scatterplots
@@ -979,12 +992,12 @@ grid.arrange(CO2, FS, Income, nrow=1)
 
 ## Step 4: Assess scale for continuous variables
 
--   Three methods/approaches to address the violation of linearity assumption: 
+-   Three methods/approaches to address the violation of linearity assumption:
 
     -   Approach 1: Quantile method/Indicator variables
     -   Approach 2: Fractional Polynomials
     -   Approach 3: Spline functions
-    
+
 ## Step 4: Approach 1: Quantile method/Indicator variables
 
 -   Split a continuous variable into its quartiles
@@ -996,9 +1009,9 @@ grid.arrange(CO2, FS, Income, nrow=1)
 -   Disadvantages:
 
     -   Takes some time to create new variables, especially with multiple continuous covariates
-  
+
     -   Start with quartiles, but might be more appropriate to use different splits
-    
+
         -   No set rules on this
 
 -   Advantage: graphical and visually helps
@@ -1042,14 +1055,13 @@ grid.arrange(CO2, Income, nrow=1)
 
 # Learning Objectives
 
-1.    Understand the overall steps for purposeful selection as a model building strategy
+1.  Understand the overall steps for purposeful selection as a model building strategy
 
 ::: lob
-2.    Apply purposeful selection to a dataset using R
+2.  Apply purposeful selection to a dataset using R
 :::
 
-3.    Use different approaches to assess the linear scale of continuous variables in
-logistic regression
+3.  Use different approaches to assess the linear scale of continuous variables in logistic regression
 
 ## Step 5: Check for interactions
 
@@ -1057,23 +1069,22 @@ logistic regression
 
 -   Add the interaction variables, one at a time, to the main effects model, and assess the significance using a likelihood ratio test or Wald test
 
-    -   May keep interaction terms with p-value < 0.05 
+    -   May keep interaction terms with p-value \< 0.05
 
 -   Keep the main effects untouched, only simplify the interaction terms – locked!
 
 -   Use methods from Step 2 (comparing model with all interactions to a smaller model with interactions) to determine which interactions to keep
 
--   The model by the end of Step 6 is called  the preliminary final model 
-
+-   The model by the end of Step 6 is called the preliminary final model
 
 ## Step 6: Assess model fit
 
 -   Assess the adequacy of the model and check its fit
 
--   Methods will be discussed later class 
+-   Methods will be discussed later class
 
 -   If the model is adequate and fits well, then it is the Final model
 
 ## Next time
 
--   More details on steps 4-6 on Monday before quiz! 
+-   More details on steps 4-6 on Monday before quiz!
