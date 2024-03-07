@@ -29,7 +29,10 @@ Here is a list of the major resources that have been mentioned in class:
 
 ### Extra materials for the class
 
+-   [Table for summary of hypothesis tests](/extra_resources/Summary_Hypothesis_Tests.pdf)
+
 -   [Coefficient interpretations](/extra_resources/Coefficient_interp.qmd)
+
 -   [LaTeX in `.qmd` formatting](/extra_resources/Latex_qmd_formatting.qmd) by Ariel
 
 ### Course sites
