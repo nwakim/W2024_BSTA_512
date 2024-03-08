@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Your name here!!">
 <meta name="dcterms.date" content="2024-03-14">
-<meta name="description" content="Due: Thursday March 14, 2024">
+<meta name="description" content="Due: March 14, 2024 at 11pm">
 
 <title>Linear Models - Lab 4</title>
 <style>
@@ -4550,6 +4551,12 @@ vertical-align: -.125em;
  <span class="menu-text">Resources</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quizzes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quizzes</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -4565,6 +4572,12 @@ vertical-align: -.125em;
   <div class="sidebar-item-container"> 
   <a href="../schedule.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Weekly Pages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lessons.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lessons</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4593,8 +4606,27 @@ vertical-align: -.125em;
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Lab_04.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#directions" id="toc-directions" class="nav-link active" data-scroll-target="#directions"><span class="header-section-number">1</span> Directions</a>
+  <ul class="collapse">
+  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose"><span class="header-section-number">1.1</span> Purpose</a></li>
+  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading"><span class="header-section-number">1.2</span> Grading</a></li>
+  </ul></li>
+  <li><a href="#lab-activities" id="toc-lab-activities" class="nav-link" data-scroll-target="#lab-activities"><span class="header-section-number">2</span> Lab activities</a>
+  <ul class="collapse">
+  <li><a href="#restate-your-research-question" id="toc-restate-your-research-question" class="nav-link" data-scroll-target="#restate-your-research-question"><span class="header-section-number">2.1</span> Restate your research question</a></li>
+  <li><a href="#step-1-simple-linear-regressions-analysis" id="toc-step-1-simple-linear-regressions-analysis" class="nav-link" data-scroll-target="#step-1-simple-linear-regressions-analysis"><span class="header-section-number">2.2</span> Step 1: Simple linear regressions / analysis</a></li>
+  <li><a href="#step-2-preliminary-variable-selection" id="toc-step-2-preliminary-variable-selection" class="nav-link" data-scroll-target="#step-2-preliminary-variable-selection"><span class="header-section-number">2.3</span> Step 2: Preliminary variable selection</a></li>
+  <li><a href="#step-3-assess-change-in-coefficient" id="toc-step-3-assess-change-in-coefficient" class="nav-link" data-scroll-target="#step-3-assess-change-in-coefficient"><span class="header-section-number">2.4</span> Step 3: Assess change in coefficient</a></li>
+  <li><a href="#step-4-assess-scale-for-continuous-variables" id="toc-step-4-assess-scale-for-continuous-variables" class="nav-link" data-scroll-target="#step-4-assess-scale-for-continuous-variables"><span class="header-section-number">2.5</span> Step 4: Assess scale for continuous variables</a></li>
+  <li><a href="#step-5-check-for-interactions" id="toc-step-5-check-for-interactions" class="nav-link" data-scroll-target="#step-5-check-for-interactions"><span class="header-section-number">2.6</span> Step 5: Check for interactions</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -4606,13 +4638,19 @@ vertical-align: -.125em;
 
 <div>
   <div class="description">
-    Due: Thursday March 14, 2024
+    Due: March 14, 2024 at 11pm
   </div>
 </div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Your name here!! </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
@@ -4624,7 +4662,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">December 21, 2024</p>
+      <p class="date-modified">March 7, 2024</p>
     </div>
   </div>
     
@@ -4633,8 +4671,185 @@ vertical-align: -.125em;
 
 </header>
 
+<section id="directions" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="directions"><span class="header-section-number">1</span> Directions</h2>
+<p>Please turn in your <code>.html</code> file <a href="https://sakai.ohsu.edu/portal/site/BSTA-512-1-AB-W24/tool/961ec5ef-d7f9-4518-be16-25f7af3d6be4?panel=Main">on Sakai.</a> Please let me know if you greatly prefer to submit a physical copy.</p>
+<p><a href="https://github.com/nwakim/W2024_BSTA_512/blob/main/labs/Lab_04.qmd">You can download the <code>.qmd</code> file for this lab here.</a></p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is the <strong>instructions</strong> file. The link above will take you to the <strong>editing</strong> file where you can add your work and turn it in!! Please do not remove anything from the editing file!!</p>
+</div>
+</div>
+<section id="purpose" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="purpose"><span class="header-section-number">1.1</span> Purpose</h3>
+<p>The main purpose of this lab is to perform model selection, identify one or more potential final models, and start our interpretation of our main relationship.</p>
+</section>
+<section id="grading" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="grading"><span class="header-section-number">1.2</span> Grading</h3>
+<p><strong>This lab is graded out of 12 points.</strong> Nicky will use the following rubric to assign grades.</p>
+<section id="rubric" class="level4" data-number="1.2.1">
+<h4 data-number="1.2.1" class="anchored" data-anchor-id="rubric"><span class="header-section-number">1.2.1</span> Rubric</h4>
+<table class="table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>4 points</th>
+<th>3 points</th>
+<th>2 points</th>
+<th>1 point</th>
+<th>0 points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Formatting</td>
+<td>Lab submitted on Sakai with <code>.html</code> file. Answers are written in complete sentences with no major grammatical nor spelling errors. With little editing, the answer can be incorporated into the project report.</td>
+<td>Lab submitted on Sakai with <code>.html</code> file. Answers are written in complete sentences with grammatical or spelling errors. With editing, the answer can be incorporated into the project report.</td>
+<td>Lab submitted on Sakai with <code>.html</code> file. Answers are written in complete sentences with major grammatical or spelling errors. With major editing, the answer can be incorporated into the project report.</td>
+<td>Lab submitted on Sakai with <code>.html</code> file. Answers are bulletted or do not use complete sentences.</td>
+<td>Lab <em>not</em> submitted on Sakai with <code>.html</code> file.</td>
+</tr>
+<tr class="even">
+<td>Code/Work</td>
+<td>All tasks are directly followed or answered. This includes all the needed code, in code chunks, with the requested output.</td>
+<td>All tasks are directly followed or answered. This includes all the needed code, in code chunks, with the requested output. In a few tasks, the code syntax or output is not quite right.</td>
+<td>Most tasks are directly followed or answered. This includes all the needed code, in code chunks, with the requested output.</td>
+<td>Some tasks are directly followed or answered.This includes all the needed code, in code chunks, with the requested output. In a few tasks, the code syntax or output is not quite right.</td>
+<td>More than a quarter of the tasks are not completed properly.</td>
+</tr>
+<tr class="odd">
+<td>Reasoning*</td>
+<td>Answers demonstrate understanding of research context and investigation of the data. Answers are thoughtful and can be easily integrated into the final report.</td>
+<td>Answers demonstrate understanding of research context and investigation of the data. Answers are thoughtful, but lack the clarity needed to easily integrate into the final report.</td>
+<td>Answers demonstrate some understanding of research context and investigation of the data. Answers are fairly thoughtful, but lack connection to the research.</td>
+<td>Answers demonstrate some understanding of research context and investigation of the data. Answers seem rushed and with minimal thought.</td>
+<td>Answers lack understanding of research context and investigation of the data. Answers seem rushed and without thought.</td>
+</tr>
+</tbody>
+</table>
+<p>*Applies to questions with reasoning</p>
+</section>
+</section>
+</section>
+<section id="lab-activities" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="lab-activities"><span class="header-section-number">2</span> Lab activities</h2>
+<p>Before starting this lab, you should go back to Lab 2, save a new <code>.rda</code> file that contains all the new variables from that Lab. Then you can load it here!</p>
+<section id="restate-your-research-question" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="restate-your-research-question"><span class="header-section-number">2.1</span> Restate your research question</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please restate your research question below using the provided format. It’s repetitive, but it helps me contextualize my feedback as I look through your lab.</p>
+</div>
+</div>
+</section>
+<section id="step-1-simple-linear-regressions-analysis" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="step-1-simple-linear-regressions-analysis"><span class="header-section-number">2.2</span> Step 1: Simple linear regressions / analysis</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tasks
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Run a simple linear regression model for each covariate against the IAT score (outcome).</li>
+<li>Display results from the test if each covariate explains enough variation of the outcome. This may be from three options in the instructions: <code>summary()/anova()</code> only, <code>lapply()</code>, or <code>sapply()</code></li>
+</ol>
+<p>Interpretation of the results will be in the next step.</p>
+</div>
+</div>
+</section>
+<section id="step-2-preliminary-variable-selection" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="step-2-preliminary-variable-selection"><span class="header-section-number">2.3</span> Step 2: Preliminary variable selection</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tasks
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Decide which covariates will be included in the initial model and list them.</li>
+<li>Run the initial model and display the regression table.</li>
+</ol>
+<p>No need to write out the model, but you may <em>in addition</em> to the list.</p>
+</div>
+</div>
+</section>
+<section id="step-3-assess-change-in-coefficient" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="step-3-assess-change-in-coefficient"><span class="header-section-number">2.4</span> Step 3: Assess change in coefficient</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tasks
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remove variables from the initial model based on your common sense, change in coefficient, and/or p-values of the F-tests.</p>
+<p><strong>You do NOT need to show all your work here.</strong> You just need to include:</p>
+<ol type="1">
+<li>A brief explanation of what variables were dropped and why (a sentence per variable), and</li>
+<li>An example of your process with one variable is enough (including code that you ran)</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="step-4-assess-scale-for-continuous-variables" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="step-4-assess-scale-for-continuous-variables"><span class="header-section-number">2.5</span> Step 4: Assess scale for continuous variables</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tasks
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No tasks here! If you want to try out what I did above, you can!</p>
+</div>
+</div>
+</section>
+<section id="step-5-check-for-interactions" class="level3" data-number="2.6">
+<h3 data-number="2.6" class="anchored" data-anchor-id="step-5-check-for-interactions"><span class="header-section-number">2.6</span> Step 5: Check for interactions</h3>
+<p>Task will be added shortly.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

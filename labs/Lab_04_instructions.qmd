@@ -18,6 +18,12 @@ editor_options:
   chunk_output_type: console
 ---
 
+::: callout-caution
+
+This page is still technically under construction, but everything through Step 4 is ready!! (3/7/2024)
+
+:::
+
 ::: callout-warning
 ## IMPORTANT TO READ
 
@@ -37,15 +43,18 @@ library(tidyverse)
 library(gtsummary)
 library(here)
 if(!require(lubridate)) { install.packages("lubridate"); library(lubridate) }
-#load("~/Library/CloudStorage/OneDrive-OregonHealth&ScienceUniversity/Teaching/Datasets/Implicit_anti_fat_bias/Data/Data_2021/iat_data.rda")
-load("/Users/wakim/Library/CloudStorage/OneDrive-OregonHealth&ScienceUniversity/Projects/Datasets/Implicit_anti_fat_bias/Data/Data_2021/iat_data_lab3.rda")
+```
+
+```{r}
+load("~/Library/CloudStorage/OneDrive-OregonHealth&ScienceUniversity/Teaching/Classes/W2024_BSTA_512_612/Project_grading/Some_work/Lab_4_data.rda")
+iat = iat_3
 ```
 
 ## Directions
 
 Please turn in your `.html` file [on Sakai.](https://sakai.ohsu.edu/portal/site/BSTA-512-1-AB-W24/tool/961ec5ef-d7f9-4518-be16-25f7af3d6be4?panel=Main) Please let me know if you greatly prefer to submit a physical copy.
 
-[You can download the `.qmd` file for this lab here.](https://github.com/nwakim/W2024_BSTA_512/blob/main/labs/Lab_03.qmd)
+[You can download the `.qmd` file for this lab here.](https://github.com/nwakim/W2024_BSTA_512/blob/main/labs/Lab_04.qmd)
 
 ::: callout-caution
 This is the **instructions** file. The link above will take you to the **editing** file where you can add your work and turn it in!! Please do not remove anything from the editing file!!
@@ -139,9 +148,136 @@ No need to write out the model, but you may *in addition* to the list.
 
 Now that all the selected variables are in one initial model, we can start considering the effect of each variable (outside of our main research question). 
 
-Remember our general rule: We can remove a variable if (1) p-value \> 0.05 for the F-test to include or exclude the variable and (2) change in coefficient ($\Delta\%$) of our explanatory variable is \< 10%. 
+Remember our general rule: We can remove a variable if (1) p-value \> 0.05 for the F-test to include or exclude the variable and (2) change in coefficient ($\Delta\%$) of our explanatory variable is \< 10%. *Please remember that the p-values for the F-test for a multi-level categorical variable must be calculated by creating a reduced and full model.* 
 
-Since our sample size is quite large, most of the p-values will be quite small. 
+It might be helpful to copy your list of covariates here and make note of the ones that you are removing. It was hard for me to keep track of all the variables when our dataset contains sooo many categorical covariates, and the regression table is so long. 
+
+Since our sample size is quite large, most (if not all) of the F-tests will conclude that the variable should be kept in the model. At this point, I advise that you turn to some common sense and the change in coefficients. 
+
+1.    For **common sense**, you may notice that some of your covariates are essentially measuring the same thing. If there is clinical relevance to having both in the model, then keep them in, but if not, you will have to decide which is more interpretable/relevant/aligned with your research question. For example, if you chose variables involving attitudes and beliefs that are measuring similar things, then you might exclude one. There are measurements like "I am ..." with relative weight groups and "Compared to most..." with relative weight groups. These two might capture a lot of the same information, so we may chose one. (Additionally, this might create issues with multicollinearity, which we will discuss on the last day, so just keep that in mind!) Another example is if you used gender identity, this might be a good time to throw out sex assigned at birth. Remember, my reasoning for using SAB was that (1) lab work has been extensive and I wanted to give you an option to avoid multi-selection variables, and (2) it *might* capture some of the differences around fat attitudes tied with gender. If you included gender identity in your work, then sex assigned at birth could be superfluous. 
+
+2.    For **change in coefficients**, focus on the variable of your research question. Does the removal of variables change the coefficients for your explanatory variable? Remember what we discussed with change in coefficients when our explanatory variable is a multi-level categorical variable (Lesson 11.2 Interactions continued slides 26-28). You may find these changes small, which tracks with a lot of our plots in Lab 3. Nothing seemed to have such a big effect on IAT score, and as a consequence it's hard to see big changes for a potential confounder.
+
+Note that I put common sense first. The change in coefficients may not be very large, and may lead you to think we don't need a lot of the variables in our model. However, I would let common sense override the change in coefficients if your reasoning is well justified. 
+
+psst... There might be some code in Step 4 that might help you get started in this step. 
+
+::: callout-important
+#### Tasks
+
+Remove variables from the initial model based on your common sense, change in coefficient, and/or p-values of the F-tests.
+
+**You do NOT need to show all your work here.** You just need to include: 
+
+1.    A brief explanation of what variables were dropped and why (a sentence per variable), and
+2.    An example of your process with one variable is enough (including code that you ran)
+:::
+
+### Step 4: Assess scale for continuous variables
+
+There is one variable in our model (unless you removed it) that is continuous: age. We need to assess the scale for age. **In this step we will have ZERO delivarables.** To save you time, I will walk you through my thought process, and why I determined age is fine as is. If you still want to try something else out with age, then you can!
+
+First, we can start with a scatterplot of IAT score and age. Your plot may look a little different than mine. 
+
+```{r}
+#| fig-width: 6
+#| fig-height: 4
+#| fig-align: center 
+
+ggplot(data = iat, aes(x = age, y = IAT_score)) +
+  geom_point(size = 0.8) + geom_smooth() + xlim(0, 111)
+```
+
+In the above scatterplot, it looks like the relationship is mostly linear (and increasing) until we get to approximately 90 years old. At that point IAT score decreases with age. Let's say we 100% believe there is suddenly more responders around 110 years old than 90-100 year olds. I'm already skeptical of this since we did a quality control in Lab 3. We'll play it out because it's not worth making judgement calls on what we consider "admissable" data. 
+
+We could do quantiles, splines, or polynomials, but those approaches will either make more categorical variables or make the relationship between age and IAT score harder to interpret. We have a pretty linear relationship up until the higher ages!
+
+I wanted to investigate the linearity a little more so I created an indicator for individuals who are 100 years or older:
+
+```{r}
+iat1 = iat %>% mutate(ind_age_100 = ifelse(age > 100, "TRUE", "FALSE"))
+```
+
+Now I can see if the linearity differs between the two groups of ages:
+
+```{r}
+#| warning: false
+ggplot(iat1, aes(x = age, y = IAT_score, color = ind_age_100)) +
+  geom_point(size = 0.8) + geom_smooth(method = "lm")
+```
+
+I am happy to see that both groups' IAT score are increasing with age. It actually looks like my indicator might be a confounder... In that case, we only need to include the indicator in the model so that the relationship between age and IAT is adjusted for the indicator. I can test to see if the indicator is a big enough confoudner using the change in coefficient of age and my explanatory variable.
+
+Here's the model without the indicator:
+```{r}
+prelim_model = lm(IAT_score ~ iam_unordered + identfat + comptomost + 
+                  ind_m + ind_f + ind_tmm + ind_twf + ind_gqnc + 
+                    ind_other +
+                  race + 
+                  ethn +
+                  edu_14_f +
+                  age, data = iat1)
+```
+
+And we'll take a look at the coefficients for the model:
+
+```{r}
+prelim_model$coefficients[c(2:6, 46)] # by using c(2:6, 46) I am telling R to 
+                                      # only print certain variables' coefficients
+```
+
+Then we can run the model with the indicator, then look at the coefficients:
+
+```{r}
+prelim_model2 = lm(IAT_score ~ iam_unordered + identfat + comptomost + 
+                  ind_m + ind_f + ind_tmm + ind_twf + ind_gqnc + ind_other +
+                  race + 
+                  ethn +
+                  edu_14_f +
+                  age + ind_age_100, 
+                 data = iat1)
+prelim_model2$coefficients[c(2:6, 46)] # by using c(2:6, 46) I am telling R to 
+                                       # only print certain variables' coefficients
+```
+
+We can check the % change in the coefficients between the models.
+
+Recall, 
+$$
+\Delta\% = 100\% \cdot \frac{\widehat\beta_{FLR, full} - \widehat\beta_{FLR, red}}{\widehat\beta_{FLR, full}}
+$$
+Here's how I quickly do it with the coefficients:
+
+```{r}
+100 * ( prelim_model2$coefficients[c(2:6, 46)] - prelim_model$coefficients[c(2:6, 46)] ) /
+  prelim_model2$coefficients[c(2:6, 46)]
+```
+
+Based on %'s above, it doesn't look like the indicator makes much of a difference in my model. It is likely because there are only 29 individuals over the age of 100 and 201,031 individuals under the age of 100 (In my dataset). Those 29 individuals will not have a big impact on the linear relationship between age and IAT, even though the first smoothed scatterplot made it look like it does. 
+
+To bring this point home, I can plot age and IAT with and without the individuals that are 100 years or older.
+
+```{r}
+#| message: false
+
+ggplot(iat1, aes(x = age, y = IAT_score)) +
+  geom_point() + geom_smooth(method = "lm") + xlim(0, 111) +
+  labs(title = "With individuals 100 years or older")
+ggplot(iat1 %>% filter(age < 100), aes(x = age, y = IAT_score)) +
+  geom_point() + geom_smooth(method = "lm") + xlim(0, 111) +
+  labs(title = "Without individuals 100 years or older")
+```
+
+I see no difference. Thus, I think it's okay to leave age as is!!
+
+::: callout-important
+#### Tasks
+
+No tasks here! If you want to try out what I did above, you can!
+:::
+
+### Step 5: Check for interactions
+
 
 
 
