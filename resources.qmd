@@ -9,6 +9,8 @@ format:
   pdf: default
 editor_options: 
   chunk_output_type: console
+execute:
+  freeze: auto  # re-render only when source changes
 ---
 
 ```{css, echo=FALSE}
@@ -38,7 +40,7 @@ Here is a list of the major resources that have been mentioned in class:
 ### Course sites
 
 | Resource                           | Link                                                                                                             | Class Mentioned |
-|------------------------------------|------------------------------------------------------------------------------------------------------------------|-----------------|
+|--------------|--------------------------------------------|--------------|
 | Meike's 511 Website                | [[{{< iconify ph link-fill size=29px >}}](https://niederhausen.github.io/BSTA_511_F23/)]{style="color:#f8f5f0;"} | Review          |
 | Jessica's R programming class site | [[{{< iconify ph link-fill size=29px >}}](https://sph-r-programming-2022.netlify.app/)]{style="color:#f8f5f0;"}  | Data Management |
 |                                    | [{{< iconify ph link-fill size=29px >}}]{style="color:#f8f5f0;"}                                                 |                 |
@@ -46,7 +48,7 @@ Here is a list of the major resources that have been mentioned in class:
 ### R coding
 
 | Resource                                   | Link                                                                                                                                                                           | Class Mentioned |
-|--------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
+|-------------|----------------------------------------------|-------------|
 | `ggplot` histograms                        | [[{{< iconify ph link-fill size=29px >}}](https://www.sharpsightlabs.com/blog/histogram-r-ggplot2/)]{style="color:#f8f5f0;"}                                                   | Review          |
 | Probability distributions and their R code | [[{{< iconify ph link-fill size=29px >}}](https://www.stat.umn.edu/geyer/5101/examp/rlook.html)]{style="color:#f8f5f0;"}                                                       | Review          |
 | Various hypothesis tests and their R code  | [[{{< iconify ph link-fill size=29px >}}](https://stats.oarc.ucla.edu/r/whatstat/what-statistical-analysis-should-i-usestatistical-analyses-using-r/)]{style="color:#f8f5f0;"} | Review          |
@@ -56,6 +58,6 @@ Here is a list of the major resources that have been mentioned in class:
 ### Academic Help
 
 | Resource                          | Link                                                                                                                   | Class Mentioned |
-|-----------------------------------|------------------------------------------------------------------------------------------------------------------------|-----------------|
+|--------------|--------------------------------------------|--------------|
 | Student Academic Support Services | [[{{< iconify ph link-fill size=29px >}}](https://sakai.ohsu.edu/portal/site/Student_Support)]{style="color:#f8f5f0;"} | Intro           |
 |                                   | [{{< iconify ph link-fill size=29px >}}]{style="color:#f8f5f0;"}                                                       |                 |

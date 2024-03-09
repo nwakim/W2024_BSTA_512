@@ -13,14 +13,17 @@ format:
     self-contained: true
     number-sections: true
     number-depth: 4
+    code-annotations: hover
   pdf: default 
 editor_options: 
   chunk_output_type: console
+execute:
+  freeze: auto  # re-render only when source changes
 ---
 
 ::: callout-caution
 
-This page is still technically under construction, but everything through Step 4 is ready!! (3/7/2024)
+Read to go ! (3/8/2024)
 
 :::
 
@@ -43,6 +46,9 @@ library(tidyverse)
 library(gtsummary)
 library(here)
 if(!require(lubridate)) { install.packages("lubridate"); library(lubridate) }
+if(!require(sjPlot)) { install.packages("sjPlot"); library(sjPlot) }
+if(!require(sjlabelled)) { install.packages("sjlabelled"); library(sjlabelled) }
+if(!require(sjmisc)) { install.packages("sjmisc"); library(sjmisc) }
 ```
 
 ```{r}
@@ -255,7 +261,7 @@ Here's how I quickly do it with the coefficients:
 
 Based on %'s above, it doesn't look like the indicator makes much of a difference in my model. It is likely because there are only 29 individuals over the age of 100 and 201,031 individuals under the age of 100 (In my dataset). Those 29 individuals will not have a big impact on the linear relationship between age and IAT, even though the first smoothed scatterplot made it look like it does. 
 
-To bring this point home, I can plot age and IAT with and without the individuals that are 100 years or older.
+To bring this point home, I can plot age and IAT with and without the individuals that are 100 years or older. Let me know if you find a better way to overlay these plots! (I have been a little stressed on time, and couldn't find a quick answer.)
 
 ```{r}
 #| message: false
@@ -278,11 +284,102 @@ No tasks here! If you want to try out what I did above, you can!
 
 ### Step 5: Check for interactions
 
+Now we're going to check if there are any interactions. I will walk you through a streamlined way to check for interactions between your explanatory variable and all the other variables in the model. 
+
+First, I want you to revisit your work in Lab 3. Remind yourself of the variables that you identified as possible effect modifiers.
+
+As you check for interactions, don't forget to make your decisions **based on your discussion/hypotheses in Lab 3**. Always prioritize investigation of interactions that are justified clinically before investigating interactions only based on statistical significance. 
+
+```{r}
+vars = names(model.frame(prelim_model))[-1] # <1>
+
+.env <- environment()
+interactions <- combn(vars, 2, function(x) paste(x, collapse=" * ")) %>% # <2>
+    grep(., pattern = "iam_unordered", value = T) # <3>
+```
+
+1.  Create a vector of the variable names that are in your preliminary model. Note I use `[-1]` to remove `IAT_score` from my list. Please make sure to change `prelim_model` to the name of your model at this point. 
+2.  Here we are just combining all our covariates into interactions that R can understand. This makes it so we don't have to write it all ourselves. 
+3.  Make sure to change the `pattern = "iam_unordered"` to be `pattern =` to your explanatory variable.
+
+Now that we've created the set up for all the possible interactions, we can run them through the `lm()` function and see the summary of the models. In the following code I use the `lappy()` function to fit an individual model for the main effects + each interaction listed in `interactions`. 
+
+::: callout-note
+Please note that this code takes a while to run. Once you run it and take note of the results, you can comment out or add `#| eval: false` to prevent it from running every time you render. You don't need to show the results for this in your submitted work, but I want to see the code, and read about your decisions about from results. 
+:::
+
+```{r}
+#| eval: false
+
+summary = lapply(interactions,
+             function(int) summary(lm(reformulate(c(vars, int), "IAT_score", env=.env),
+                                      data = iat, family = binomial)))
+summary
+```
+
+You can alse go straight to using the `anova()` function to compare the preliminary model.
+```{r}
+anova_res = lapply(interactions,
+             function(int) anova(lm(reformulate(c(vars, int), "IAT_score", env=.env),
+                                      data = iat, family = binomial),
+                                 prelim_model)) # <1>
+anova_res[1]
+```
+
+1.  You will to change this name for the preliminary model if you called it something different. 
+
+::: callout-important
+#### Tasks
+
+Using your discussion in Lab 3 and the results from the F-test on interactions:
+
+1.    Create a list of the interactions that you will include in your model.
+2.    Run the preliminary final model that includes the main effects and interactions.
+:::
+
+### Step 6: Assess model fit
+
+At this point we may want to compare different models. While Steps 1-5 have been directing us towards a single model, you may have been interested in other models along the way. Maybe there were some interactions that you thought were interesting, but didn't think of before. Maybe you would like to combine different groups for categorical variables. 
+
+If you are completely happy with your model, then you don't have to do this step. 
+
+You might create a table like such:
+```{r}
+sum = summary(prelim_model)
+model_fit_stats = data.frame(Model = "Preliminary main effects model", Adjusted_R_sq = sum$adj.r.squared, AIC = AIC(prelim_model), BIC = BIC(prelim_model))
+
+model_fit_stats
+```
+
+::: callout-important
+#### Tasks
+
+**Optional:** Create a table that displays some fo the model fit statistics to compare preliminary final models.
+:::
+
+### Create a forest plot of your coefficient estimates
+
+It's often helpful to have a visualization of coefficient estimates. Forest plots are a nice way to show all the values together. Below I have started a forest plot using my `prelim_model`. You can make the plot with your final model. 
+
+I used the `plot_model()` function to make the plot, and [here's a site](https://cran.r-project.org/web/packages/sjPlot/vignettes/plot_model_estimates.html) that discusses some of it's capabilities. The below plot is just a starting point!! You'll need to clean up the variables, title, etc.
+
+You may use another function to make the plots. I chose this one since it can handle the model as input. 
+```{r}
+#| fig-height: 9
+#| fig-width: 5
+#| fig-align: center
+
+plot_model(prelim_model, show.values = TRUE, value.offset = 0.3) + ylim(-0.25, 0.25)
+```
+
+Here are some other packages for forest plots:
+
+-   https://cran.r-project.org/web/packages/forestploter/vignettes/forestploter-intro.html
+-   https://larmarange.github.io/ggstats/articles/ggcoef_model.html
 
 
+::: callout-important
+#### Tasks
 
-
-
-
-
-
+Create a forest plot to visualize the coefficient estimates. 
+:::

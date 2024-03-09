@@ -1077,6 +1077,23 @@ grid.arrange(CO2, Income, nrow=1)
 
 -   The model by the end of Step 6 is called the preliminary final model
 
+## Step 5: Check for interactions
+
+```{r}
+# 
+# vars = c("age", "height", "priorfrac", "momfrac", "armassist", "raterisk2")
+# 
+# res = lapply(1:2, 
+#              function(n) {.env <- environment()
+#                             cb <- combn(c("age", "height", "priorfrac", "momfrac", "armassist", # Change to your covariates
+#                                           "raterisk2"), n, function(x) paste(x, collapse=" * "))
+#                             lapply(cb, function(cb) summary(glm(reformulate(c(vars, cb), "fracture", # Change to your outcome
+#                                                                     env=.env), data = glow2, # CHange to your dataset
+#                                                         family = binomial)))
+#                             })
+# res[[2]]
+```
+
 ## Step 6: Assess model fit
 
 -   Assess the adequacy of the model and check its fit

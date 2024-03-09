@@ -454,7 +454,8 @@ Prediction
 
 -   The following model fit statistics combine information about the SSE, the number of parameters in the model, and the sample size
 
--   For these fit statistics, smaller values indicate better model fit!
+-   For Mallow's Cp, AIC, and BIC: **smaller** values indicate better model fit!
+-   For Adjusted R-squared: **larger** values indicate better model fit!
 
 | Fit statistic                        | Equation                                                                              | R code                                                                             |
 |-------------------------------|----------------------------------------|--|

@@ -112,7 +112,31 @@ No tasks here! If you want to try out what I did above, you can!
 
 ### Step 5: Check for interactions
 
-Task will be added shortly.
+::: callout-important
+#### Tasks
+
+Using your discussion in Lab 3 and the results from the F-test on interactions:
+
+1.    Create a list of the interactions that you will include in your model.
+2.    Run the preliminary final model that includes the main effects and interactions.
+:::
+
+### Step 6: Assess model fit
+
+::: callout-important
+#### Tasks
+
+**Optional:** Create a table that displays some fo the model fit statistics to compare preliminary final models.
+:::
+
+### Create a forest plot of your coefficient estimates
+
+::: callout-important
+#### Tasks
+
+Create a forest plot to visualize the coefficient estimates. 
+:::
+
 
 
 
