@@ -31,7 +31,7 @@ editor_options:
 ## Resources
 
 | Chapter | Topic                                        |                                Slides                                 |                                  Annotated Slides                                  |                           Recording                           |
-|--------------|--------------|:------------:|:----------------:|:------------:|
+|---------------|---------------|:-------------:|:-------------:|:-------------:|
 | 15      | Model Evaluation and Diagnostics 1           | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 16      | Model Evaluation and Diagnostics 2?          | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
 | 17      | Multicollinearity / Weighted least squares?? | [{{< iconify ri slideshow-fill size=30px >}}]{style="color:#f8f5f0;"} | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"} | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"} |
@@ -43,6 +43,8 @@ editor_options:
 ### Monday 3/11
 
 -   Correction in Model selection slides: larger adjusted R-squared is better!!
+-   My office hours will be changed from 11:30am - 1pm **to 11am - 12:30pm**
+    -   Office hours on 3/14 are 11am - 12:30pm
 
 ## Class Exit Tickets
 
