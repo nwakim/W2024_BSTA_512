@@ -24,7 +24,7 @@ editor_options:
 ## Labs
 
 | Lab                                    | Due Date | Topics                                                            |
-|----------------------------------------|----------|-------------------------------------------------------------------|
+|---------------------|---------------|-------------------------------------|
 | [Lab 1](/labs/Lab_01.qmd)              | 1/18     | Exploring the question                                            |
 | [Lab 2](/labs/Lab_02.qmd)              | 2/8      | Exploring the data                                                |
 | [Lab 3](/labs/Lab_03_work.qmd)         | 3/3      | A little more data exploration + Fitting and interpreting a model |
@@ -54,5 +54,9 @@ If you are interested in sources that discuss the social complexities of anti-fa
 -   Book: Fearing the Black Body: The Racial Origins of Fat Phobia
 
     -   Multnomah County Library has unlimited loans for the audiobook
+
+-   Blog: [Dances with Fat](https://danceswithfat.org/)
+
+    -   You can subscribe to Ragen's weekly newsletter for free
 
 If you have additional sources that you would like to share, please send them to me!

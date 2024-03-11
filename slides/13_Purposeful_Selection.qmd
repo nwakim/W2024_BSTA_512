@@ -64,7 +64,8 @@ gapm_sub1 <- gapm %>% # called it gapm2_sub3 to be consistent with Day 7 notes
                                 levels = c("Low income", 
                                            "Lower middle income", 
                                            "Upper middle income", 
-                                           "High income")), 
+                                           "High income")) %>%
+                            relevel(ref = "Low income"), 
          income_levels2 = relevel(factor(income_levels, 
                                 levels = c("Low income", 
                                            "Lower middle income", 
@@ -827,8 +828,19 @@ $$
     -   P-value \> 0.05 for the F-test of its own coefficients
     -   Change in coefficient ($\Delta\%$) of our explanatory variable is \< 10%
 
--   In our example, the **preliminary main effects model** (end of Step 3) was the same as the **intiial model** (end of Step 2)
+-   In our example, the **preliminary main effects model** (end of Step 3) was the same as the **initial model** (end of Step 2)
 
+-   Preliminary main effects model includes:
+
+    -   FemaleLiteracyRate
+    -   CO2emissions
+    -   IncomePP
+    -   four_regions
+    -   members_oecd_g77
+    -   FoodSupplykcPPD
+    -   WaterSupplePct
+    
+    
 ## Recap of Steps 1-3
 
 -   Pre-step: Exploratory data analysis
@@ -845,6 +857,8 @@ $$
 
     -   Use F-test to see if each covariate (on its own) explains enough variation in outcome
 
+    -   End with **initial model**
+        
 -   Step 3: Assess change in coefficients
 
     -   From the initial model at end of step 2, we take a variable out of the model if:
@@ -852,6 +866,8 @@ $$
         -   P-value \> 0.05 for the F-test of its own coefficients
 
         -   Change in coefficient ($\Delta\%$) of our explanatory variable is \< 10%
+        
+    -   End with **preliminary main effects model**
 
 # Learning Objectives
 
@@ -875,15 +891,17 @@ $$
 
 -   Three methods/approaches to address the violation of linearity assumption:
 
-    -   Approach 1: Quantile method/Indicator variables
-    -   Approach 2: Fractional Polynomials
-    -   Approach 3: Spline functions
+    -   **Approach 1:** Categorize continuous variable
+    -   **Approach 2:** Fractional Polynomials
+    -   **Approach 3:** Spline functions
+    
+-   Approach will depend on the covariate!!
 
--   For our class, only implement **Approach 2 or 3**
+-   For our class, only implement **Approach 1 or 2**
 
 -   Model at the end of Step 4 is the **main effects model**
 
-## Step 4: Assess scale for continuous variables
+## Step 4: Assess scale for continuous variables {visibility="hidden"}
 
 ```{r}
 #| echo: true
@@ -899,17 +917,21 @@ autoplot(model_full) + theme(text=element_text(size=14))
 
 ## Step 4: Assess scale for continuous variables: Smoothed scatterplots
 
--   **Only checking linearity**, not addressing linearity issues
+-   Smoother scatterplots **only check linearity**, not addressing linearity issues
+
+ 
 
 -   Can also identify extreme observations
 
-    -   Which can influence the assessment of linearity when using fractional polynomials or spline functions
+    -   Again, just want to flag these values 
 
--   Plot the observed and smoothed values of outcome vs. continuous variable
+    -   Can influence the assessment of linearity when using fractional polynomials or spline functions
+
+ 
 
 -   Helps us decide if the continuous variable can stay **as is** in the model
 
-    -   Problem: if not linear, then we need to represent the variable in a new way (Approaches 2-4)
+    -   **Problem:** if not linear, then we need to represent the variable in a new way (Approaches 1-3)
 
 ## Step 4: Assess scale for continuous variables: Smoothed scatterplots
 
@@ -932,6 +954,13 @@ autoplot(model_full) + theme(text=element_text(size=14))
 
 gapm2 %>% select(where(is.numeric)) %>% 
   relocate(LifeExpectancyYrs, .after = last_col()) %>% ggpairs()
+
+```
+
+```{r}
+#| echo: false
+
+gapm2 = gapm_sub 
 ```
 
 ## Step 4: Assess scale for continuous variables: Smoothed scatterplots
@@ -994,18 +1023,32 @@ grid.arrange(CO2, FS, Income, nrow=1)
 
 -   Three methods/approaches to address the violation of linearity assumption:
 
-    -   Approach 1: Quantile method/Indicator variables
-    -   Approach 2: Fractional Polynomials
-    -   Approach 3: Spline functions
+     
 
-## Step 4: Approach 1: Quantile method/Indicator variables
+    -   **Approach 1:** Categorize continuous variable
 
--   Split a continuous variable into its quartiles
+     
 
-    -   Create dummy variables corresponding to each quartile
-    -   Fit logistic regression with the dummy variables
-    -   Plot quartile midpoints vs. coefficient estimates for the respective dummy variables
+    -   **Approach 2:** Fractional Polynomials
+    
+     
 
+    -   **Approach 3:** Spline functions
+    
+
+
+## Step 4: Approach 1: Categorize continuous variable
+
+-   Categorize continuous variables
+
+    -   Percentiles, quartiles, quantiles
+    
+        -   Create indicator variables corresponding to each quartile
+        
+    -   Meaningful thresholds
+    
+        -   Example: [income level groups](https://www.gapminder.org/fw/income-levels/) discussed by Gapminder
+        
 -   Disadvantages:
 
     -   Takes some time to create new variables, especially with multiple continuous covariates
@@ -1016,42 +1059,279 @@ grid.arrange(CO2, FS, Income, nrow=1)
 
 -   Advantage: graphical and visually helps
 
-## Step 4: Approach 1: Quantile method/Indicator variables
+## Step 4: Approach 1: Categorize continuous variable
 
+::: columns
+::: column
+-   For income, I would use [Gapminder's income level groups](https://www.gapminder.org/fw/income-levels/) 
+
+    -   Discussed in Lesson 10 Categorical Covariates (slide 43)
+
+ 
+
+-   Experts in the field have developed these income groups
+
+    -   I think this is best solution for income (that was not meeting linearity as a continuous variable)
+:::
+
+::: column
+```{r fig.height=9, fig.width=8, warning=F, fig.align='center'}
+#| echo: false
+level_order <- c("Low income", "Lower middle income", 
+                 "Upper middle income", "High income") 
+ggplot(gapm2, aes(x = factor(income_levels1, level = level_order), y = LifeExpectancyYrs)) +
+  geom_jitter(size = 1, alpha = .6, width = 0.2) +
+  stat_summary(fun = mean, geom = "point", size = 8, shape = 18) +
+  labs(x = "Income levels", 
+       y = "Country life expectancy (years)",
+       title = "Life expectancy vs. income levels",
+       caption = "Diamonds = Income level averages") +
+  theme(axis.title = element_text(size = 20), 
+        axis.text = element_text(size = 20), 
+        title = element_text(size = 20)) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 10))
+```
+:::
+:::
+
+## Step 4: Approach 1: Categorize continuous variable
+
+::: columns
+::: {.column width="40%"} 
+-   Let's still try it out with CO2 Emissions (kt)
+
+-   I have plotted the quartile lines of food supply with red lines
+:::
+
+::: {.column width="60%"} 
 ```{r}
 #| echo: true
 #| code-fold: true
 #| code-summary: "Take a look at the quartiles within the scatterplot"
-#| fig-width: 10
-#| fig-height: 3.5
+#| fig-width: 12
+#| fig-height: 8
 #| fig-align: center
 
 vline_coordinates= data.frame(Quantile_Name=names(quantile(gapm2$CO2emissions)),
                           quantile_values=as.numeric(quantile(gapm2$CO2emissions)))
 
-CO2 = ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = CO2emissions)) + 
-  geom_point(size = 1) +
+ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = CO2emissions)) + 
+  geom_point(size = 3) +
   #geom_smooth(se=F) + 
   labs(x = "CO2 Emissions (kt)", y = "Life Expectancy (yrs)") +
   geom_vline(data = vline_coordinates, aes(xintercept = quantile_values), 
-             color = "red", linetype = "dashed", size = .9)
+             color = "red", linetype = "dashed", size = 2) +
+    theme(axis.title = element_text(size = 25), 
+        axis.text = element_text(size = 25), 
+        title = element_text(size = 25))
+  
+```
 
+```{r}
+#| echo: false
+#| eval: false
+#| 
 vline_coordinates= data.frame(Quantile_Name=names(quantile(gapm2$IncomePP)),
                           quantile_values=as.numeric(quantile(gapm2$IncomePP)))
 
-Income = ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = IncomePP)) + 
+Income = ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = IncomePP)) +
   geom_point(size = 1) +
-  #geom_smooth(se=F) + 
+  #geom_smooth(se=F) +
   labs(x = "Income (GDP per capita)", y = "Life Expectancy (yrs)")  +
-  geom_vline(data = vline_coordinates, aes(xintercept = quantile_values), 
+  geom_vline(data = vline_coordinates, aes(xintercept = quantile_values),
              color = "red", linetype = "dashed", size = .9)
 
 grid.arrange(CO2, Income, nrow=1)
 ```
+:::
+
+:::
+
+## Step 4: Approach 1: Categorize continuous variable
+
+-   Let's make the quartiles for CO2 emissions:
+
+```{r}
+#| echo: true
+library(dvmisc)
+gapm2 = gapm2 %>% 
+  mutate(CO2_q = quant_groups(CO2emissions, groups = 4) %>% factor())
+```
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Take a look at the quartile means within the scatterplot"
+#| fig-width: 12
+#| fig-height: 8
+#| fig-align: center
+
+
+ggplot(data = gapm2, aes(y = LifeExpectancyYrs, x = CO2_q)) + 
+  # geom_point(size = 3, aes(y = LifeExpectancyYrs, x = CO2emissions)) +
+  stat_summary(fun = mean, geom = "point", size = 8, shape = 18) +
+  #geom_smooth(se=F) + 
+  labs(x = "CO2 Emissions (kt)", y = "Life Expectancy (yrs)") +
+    theme(axis.title = element_text(size = 25), 
+        axis.text = element_text(size = 25), 
+        title = element_text(size = 25))
+```
+
+## Step 4: Approach 1: Categorize continuous variable
+
+::: columns
+::: {.column width="45%"}
+
+ 
+
+-   Let's fit a new model with the two new representations for income and CO2 emissions
+
+ 
+
+-   Remember, this is the **main effects model** if we decide to make CO2 into quartiles
+
+```{r}
+main_eff_model = lm(LifeExpectancyYrs ~ FemaleLiteracyRate + CO2_q + income_levels1 +
+               four_regions + WaterSourcePrct + FoodSupplykcPPD + members_oecd_g77, 
+                 data = gapm2)
+```
+:::
+
+::: {.column width="55%"}
+```{r}
+tidy(main_eff_model) %>% gt() %>% tab_options(table.font.size = 33) %>%  
+  fmt_number(decimals = 3)
+```
+:::
+:::
 
 ## Step 4: Approach 2: Fractional Polynomials
 
+-   Main concepts and transformations presented in Lesson 7 SLR: Model Evaluation and Diagnostics (slide 33 on)
+
+-   Idea: test many transformations of a continuous covariate
+
+    -   [Based on Royston and Altman, Applied Statistics, 1994](https://www.jstor.org/stable/2986270)
+
+ 
+
+-   Recall Tukey's transformation (power) ladder
+
+    -   And can use `R`'s `gladder()` to see the transformations
+
+| Power p | -3              | -2              | -1            | -1/2                 | 0         | 1/2        | 1   | 2     | 3     |
+|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+|         | $\frac{1}{x^3}$ | $\frac{1}{x^2}$ | $\frac{1}{x}$ | $\frac{1}{\sqrt{x}}$ | $\log(x)$ | $\sqrt{x}$ | $x$ | $x^2$ | $x^3$ |
+
+ 
+
+-   We can run through each and test different models, or use the approach from Lesson 7
+
+-   There is also a package we can use!
+
+    -   [mfp package in R](https://cran.r-project.org/web/packages/mfp/mfp.pdf) contains the fp() function
+
+## Step 4: Approach 2: Fractional Polynomials
+
+```{r}
+#| echo: true
+
+library(mfp)
+
+fp_model_CO2 = mfp(LifeExpectancyYrs ~ FemaleLiteracyRate + 
+                     fp(CO2emissions, df = 4) + income_levels1 + four_regions +
+                     WaterSourcePrct + FoodSupplykcPPD + members_oecd_g77,
+               data = gapm2, family = "gaussian")
+
+fp_model_CO2$fptable %>% gt(rownames_to_stub = T) %>% tab_options(table.font.size = 24)
+```
+
+## Step 4: Approach 2: Fractional Polynomials
+
+::: columns
+::: column
+```{r}
+#| echo: false
+
+library(mfp)
+
+fp_model_CO2 = mfp(LifeExpectancyYrs ~ FemaleLiteracyRate + 
+                     fp(CO2emissions, df = 4) + income_levels1 + four_regions +
+                     WaterSourcePrct + FoodSupplykcPPD + members_oecd_g77,
+               data = gapm2, family = "gaussian")
+
+fp_model_CO2$fptable %>% gt(rownames_to_stub = T) %>% tab_options(table.font.size = 24)
+```
+:::
+
+::: column 
+
+-   Conclusion from fractional polynomial is that CO2 does not need to be transformed
+
+-   A little counter-intuitive to what we saw in quartiles
+
+-   Thus, I think leaving CO2 emissions as quartiles is best!
+:::
+
+:::
+
 ## Step 4: Approach 3: Spline functions
+
+-   Spline function is to fit a series of smooth curves that joined at specific points (called knots)
+
+::: columns
+::: column 
+![](13_Purposeful_selection/spline1.png){fig-align="center"}
+:::
+
+::: column 
+![](13_Purposeful_selection/spline2.png){fig-align="center"}
+:::
+:::
+
+## Step 4: Approach 3: Spline functions
+
+-   Need to specify knots for spline functions
+
+    -   More knots are flexible, but requires more parameters to estimate
+    -   In most applications three to five knots are sufficient
+
+ 
+
+-   Within our class, fractional polynomials will be sufficient
+
+ 
+
+-   If you think this is cool, I highly suggest you look into Functional Data Analysis (FDA) or Functional Regression
+
+    -   Jeffrey Morris is a big name in that field
+
+ 
+
+-   In R there are a few options to incorporate splines
+
+    -   `pspline( )`: [More information](https://cran.r-project.org/web/packages/survival/vignettes/splines.pdf) 
+
+    -   `smoothHR()`: [More information](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3876718/) 
+
+## Step 4 Conclusion: main effects model
+
+::: columns
+::: {.column width="40%"}
+-   We concluded that we will use:
+
+    -   Income levels (categorical) that Gapminder created
+    -   Quartiles for CO2 Emissions
+:::
+
+::: {.column width="60%"}
+```{r}
+tidy(main_eff_model) %>% gt() %>% tab_options(table.font.size = 33) %>%  
+  fmt_number(decimals = 3)
+```
+:::
+:::
+
 
 # Learning Objectives
 
@@ -1067,41 +1347,103 @@ grid.arrange(CO2, Income, nrow=1)
 
 -   Create a list of interaction terms from variables in the "main effects model" that has clinical plausibility
 
+ 
+
 -   Add the interaction variables, one at a time, to the main effects model, and assess the significance using a likelihood ratio test or Wald test
 
-    -   May keep interaction terms with p-value \< 0.05
+    -   May keep interaction terms with p-value \< 0.10 (or 0.05)
 
--   Keep the main effects untouched, only simplify the interaction terms – locked!
+ 
+
+-   Keep the main effects untouched, only simplify the interaction terms
+
+ 
 
 -   Use methods from Step 2 (comparing model with all interactions to a smaller model with interactions) to determine which interactions to keep
 
--   The model by the end of Step 6 is called the preliminary final model
+ 
+
+-   The model by the end of Step 5 is called the **preliminary final model**
 
 ## Step 5: Check for interactions
 
 ```{r}
-# 
-# vars = c("age", "height", "priorfrac", "momfrac", "armassist", "raterisk2")
-# 
-# res = lapply(1:2, 
-#              function(n) {.env <- environment()
-#                             cb <- combn(c("age", "height", "priorfrac", "momfrac", "armassist", # Change to your covariates
-#                                           "raterisk2"), n, function(x) paste(x, collapse=" * "))
-#                             lapply(cb, function(cb) summary(glm(reformulate(c(vars, cb), "fracture", # Change to your outcome
-#                                                                     env=.env), data = glow2, # CHange to your dataset
-#                                                         family = binomial)))
-#                             })
-# res[[2]]
+#| echo: true
+vars = names(model.frame(main_eff_model))[-1] 
+
+interactions = combn(vars, 2, function(x) paste(x, collapse=" * ")) %>% 
+    grep(., pattern = "FemaleLiteracyRate", value = T) 
 ```
+
+```{r}
+#| echo: true
+
+MLRs = lapply(interactions, function(int)
+  lm(reformulate(c(vars, int), "LifeExpectancyYrs"), data = gapm2))
+```
+
+## Step 5: Check for interactions {.smaller}
+
+::: columns
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| eval: false
+
+MLRs[[1]] %>% tidy() %>% gt() %>%
+  tab_options(table.font.size = 33) %>%
+  fmt_number(decimals = 3)
+```
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+MLRs[[1]] %>% tidy() %>%  gt() %>% tab_options(table.font.size = 33) %>% fmt_number(decimals = 3)
+```
+:::
+:::
+
+## Step 5: Check for interactions
+
+You can alse go straight to using the `anova()` function to compare the preliminary model.
+
+```{r}
+#| echo: true
+anova_res = lapply(interactions,
+            function(int) anova(lm(reformulate(c(vars, int), "LifeExpectancyYrs"),
+                                    data = gapm2), main_eff_model)) 
+anova_res[[1]] %>% tidy() %>% 
+  gt() %>% tab_options(table.font.size = 35) %>% fmt_number(decimals = 3)
+```
+
+## Step 5: Check for interactions
+
+-   I went through all the ANOVA tables, and found the following significant interactions:
+
+    -   None!
+
+
+```{r}
+#| echo: true
+anova_res
+```
+
+-   **Think about it:** does that track with what we saw in our interactions lecture?
 
 ## Step 6: Assess model fit
 
 -   Assess the adequacy of the model and check its fit
 
--   Methods will be discussed later class
+ 
 
--   If the model is adequate and fits well, then it is the Final model
+-   Methods will be discussed next class
 
-## Next time
+    -   Combination of diagnostics and model fit statistics!
 
--   More details on steps 4-6 on Monday before quiz!
+ 
+
+-   If the model is adequate and fits well, then it is the **Final model**
+
+

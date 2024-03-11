@@ -313,7 +313,7 @@ Please note that this code takes a while to run. Once you run it and take note o
 
 summary = lapply(interactions,
              function(int) summary(lm(reformulate(c(vars, int), "IAT_score", env=.env),
-                                      data = iat, family = binomial)))
+                                      data = iat)))
 summary
 ```
 
@@ -321,7 +321,7 @@ You can alse go straight to using the `anova()` function to compare the prelimin
 ```{r}
 anova_res = lapply(interactions,
              function(int) anova(lm(reformulate(c(vars, int), "IAT_score", env=.env),
-                                      data = iat, family = binomial),
+                                      data = iat),
                                  prelim_model)) # <1>
 anova_res[1]
 ```
