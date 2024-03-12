@@ -1,0 +1,28 @@
+---
+title: "Project Template: Title here"
+subtitle: "BSTA 512/612"
+author: "Your name here"
+description: "Due: Thursday March 21, 2024 at 11pm"
+date-modified: "today"
+format: 
+  html:
+    link-external-newwindow: true
+    toc: true
+    self-contained: true
+    execute:
+      echo: false
+editor_options: 
+  chunk_output_type: console
+---
+
+## Introduction
+
+## Statistical Methods
+
+## Results
+
+## Discussion 
+
+## Conclusion
+
+## References

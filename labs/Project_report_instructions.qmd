@@ -17,12 +17,20 @@ editor_options:
 ---
 
 ::: callout-important
-**THIS PAGE IS UNDER CONSTRUCTION!!**
+**You can start using these instructions!! I just need to update the rubric! (3/12/2024)**
 :::
 
 ------------------------------------------------------------------------
 
 ## Directions
+
+::: callout-important
+## Project template
+
+You *may* use [this project template](/labs/Project_template.qmd) to get started on the report. It is your responsibility to meet the formatting guidelines below!!
+
+DO NOT USE SITE PAGE ("Project Report Instructions", current page) as your template!!
+:::
 
 ### Purpose
 
@@ -31,14 +39,16 @@ Project reports serve as a great way to communicate the knowledge learned in a s
 ### Formatting guide
 
 -   The report will be written in Quarto. Turn in both the `qmd` and `html` files
-    -   No code should appear in the `html` document
+    -   **No code** should appear in the `html` document
         -   This means all R code chunks should have `#| echo: false`
+        -   This also means warnings and messages should be turned off
 -   The report should be 10 - 14 paragraphs long
 -   Tables and figures should NOT have variable names as they appear in the data frame
     -   Variable names should be understood by a reader
     -   Variable names should be written in full words
     -   Include a title or caption for all figures
     -   Figure and tables appear on same page or close to same page where they are first referenced
+    -   Tables and figures are an appropriate size in the html - Nicky is able to read all words in figures and tables
 -   Writing, spelling, and grammar should be admissable
     -   This means I can generally follow your thought/what you are trying to communicate
     -   Some spelling and grammar mistakes are allowed
@@ -57,18 +67,23 @@ You can save tables and figures from labs or separate files, then load them in t
 
 -   Save R objects in analyses file:
     -   Suppose you named the Table 1 as `table1`
-
     -   `save(table1, file = "table1.Rdata")`
 -   Load R objects in report file: `load(file = "table1.Rdata")`
 :::
 
 ### Examples of reports
 
-The following are examples of reports from BSTA 513 with the feedback that I gave them. Please note that 513 uses a different type of outcome than our class. These examples are meant to help guide you with the formatting and some appropriate content.
+The following are examples of reports from BSTA 513 with the feedback that I gave them.
 
--   Report 1 html with my feedback in PDF
+Please note that 513 uses a different type of outcome than our class. These examples are meant to help guide you with the formatting and some appropriate content.
 
--   Report 2 html with my feedback in PDF
+Also note that these were converted to PDFs so I could write in feedback. Some of the tables and figure sizes were distorted. They need to be legible in the `html`.
+
+-   Report 1 with my feedback
+
+-   Report 2 with my feedback
+
+The above reports have code showing in their `html`. Remember that I am asking you to **hide** all code, warnings, and messages.
 
 ### Grading
 
