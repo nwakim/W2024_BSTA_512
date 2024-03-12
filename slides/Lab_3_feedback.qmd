@@ -130,9 +130,9 @@ iat_new = iat_old %>% # iat_old should not have any NA's in genderIdentity
 
     -   Data showed the opposite: higher education, higher mean IAT score
 
-    -   We can think about people's perception of controllability of weight, maybe it's link to perceived laziness
+    -   We can think about people's perception of controllability of weight: do people assume certain behaviors about fat people?
 
-        -   Which contradicts a lot of people's perceptions on the dedication and hard work needed higher education
+        -   Does that align with or go against people's assumptions about behavior needed for higher education?
 
         -   We also need to think about how education might be linked to socio-economic status, and how that might change what food is affordable
 

@@ -4810,7 +4810,7 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">March 9, 2024</p>
+      <p class="date-modified">March 11, 2024</p>
     </div>
   </div>
     
@@ -5186,15 +5186,15 @@ Tasks
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-13" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="1" data-code-cell="annotated-cell-13" data-code-annotation="1">Create a vector of the variable names that are in your preliminary model. Note I use <code>[-1]</code> to remove <code>IAT_score</code> from my list. Please make sure to change <code>prelim_model</code> to the name of your model at this point.</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-13" data-code-lines="1">Create a vector of the variable names that are in your preliminary model. Note I use <code>[-1]</code> to remove <code>IAT_score</code> from my list. Please make sure to change <code>prelim_model</code> to the name of your model at this point.</span>
 </dd>
 <dt data-target-cell="annotated-cell-13" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="4" data-code-cell="annotated-cell-13" data-code-annotation="2">Here we are just combining all our covariates into interactions that R can understand. This makes it so we don’t have to write it all ourselves.</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-13" data-code-lines="4">Here we are just combining all our covariates into interactions that R can understand. This makes it so we don’t have to write it all ourselves.</span>
 </dd>
 <dt data-target-cell="annotated-cell-13" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-lines="5" data-code-cell="annotated-cell-13" data-code-annotation="3">Make sure to change the <code>pattern = &quot;iam_unordered&quot;</code> to be <code>pattern =</code> to your explanatory variable.</span>
+<span data-code-annotation="3" data-code-cell="annotated-cell-13" data-code-lines="5">Make sure to change the <code>pattern = &quot;iam_unordered&quot;</code> to be <code>pattern =</code> to your explanatory variable.</span>
 </dd>
 </dl>
 </div>
@@ -5216,21 +5216,21 @@ Note
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>summary <span class="ot">=</span> <span class="fu">lapply</span>(interactions,</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>             <span class="cf">function</span>(int) <span class="fu">summary</span>(<span class="fu">lm</span>(<span class="fu">reformulate</span>(<span class="fu">c</span>(vars, int), <span class="st">&quot;IAT_score&quot;</span>, <span class="at">env=</span>.env),</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">data =</span> iat, <span class="at">family =</span> binomial)))</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">data =</span> iat)))</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can alse go straight to using the <code>anova()</code> function to compare the preliminary model.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="annotated-cell-15"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-15-1"><a href="#annotated-cell-15-1" aria-hidden="true" tabindex="-1"></a>anova_res <span class="ot">=</span> <span class="fu">lapply</span>(interactions,</span>
 <span id="annotated-cell-15-2"><a href="#annotated-cell-15-2" aria-hidden="true" tabindex="-1"></a>             <span class="cf">function</span>(int) <span class="fu">anova</span>(<span class="fu">lm</span>(<span class="fu">reformulate</span>(<span class="fu">c</span>(vars, int), <span class="st">&quot;IAT_score&quot;</span>, <span class="at">env=</span>.env),</span>
-<span id="annotated-cell-15-3"><a href="#annotated-cell-15-3" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">data =</span> iat, <span class="at">family =</span> binomial),</span>
+<span id="annotated-cell-15-3"><a href="#annotated-cell-15-3" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">data =</span> iat),</span>
 <button class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="1">1</button><span id="annotated-cell-15-4" class="code-annotation-target"><a href="#annotated-cell-15-4" aria-hidden="true" tabindex="-1"></a>                                 prelim_model))</span>
 <span id="annotated-cell-15-5"><a href="#annotated-cell-15-5" aria-hidden="true" tabindex="-1"></a>anova_res[<span class="dv">1</span>]</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-15" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="4" data-code-cell="annotated-cell-15" data-code-annotation="1">You will to change this name for the preliminary model if you called it something different.</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-15" data-code-lines="4">You will to change this name for the preliminary model if you called it something different.</span>
 </dd>
 </dl>
 </div>
