@@ -451,7 +451,7 @@ Nicky Wakim
 <li><p>If you are trying pinpoint one group and make it mutually exclusive, we need to take extra steps</p></li>
 <li><p>Someone wanted to identify three groups:</p>
 <ul>
-<li>Identifies as trans man, trans woman, genderqueer/non-conforming, and/or other</li>
+<li>Identifies as trans man, trans woman, genderqueer/non-conforming, and/or different identity</li>
 <li>Identifies as man only</li>
 <li>Identifies as woman only</li>
 </ul></li>
@@ -478,7 +478,7 @@ Nicky Wakim
 <span id="cb1-4"><a href="#cb1-4"></a>         <span class="at">ind_tmm =</span> <span class="fu">grepl</span>(<span class="dv">3</span>, genderIdentity),</span>
 <span id="cb1-5"><a href="#cb1-5"></a>         <span class="at">ind_twf =</span> <span class="fu">grepl</span>(<span class="dv">4</span>, genderIdentity),</span>
 <span id="cb1-6"><a href="#cb1-6"></a>         <span class="at">ind_gqnc =</span> <span class="fu">grepl</span>(<span class="dv">5</span>, genderIdentity),</span>
-<span id="cb1-7"><a href="#cb1-7"></a>         <span class="at">ind_other =</span> <span class="fu">grepl</span>(<span class="dv">6</span>, genderIdentity))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7"></a>         <span class="at">ind_diff =</span> <span class="fu">grepl</span>(<span class="dv">6</span>, genderIdentity))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Create mutually exclusive groups: lose some information on the individual</li>
@@ -489,14 +489,14 @@ Nicky Wakim
 <span id="cb2-3"><a href="#cb2-3"></a>                               <span class="st">"[1]"</span> <span class="sc">~</span> <span class="st">"Male/Man only"</span>,</span>
 <span id="cb2-4"><a href="#cb2-4"></a>                               <span class="st">"[2]"</span> <span class="sc">~</span> <span class="st">"Female/Woman only"</span>,</span>
 <span id="cb2-5"><a href="#cb2-5"></a>                               <span class="at">.default =</span> <span class="st">"Trans male/man, trans female/woman, </span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="st">                               genderqueer/non-conforming, or other"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="st">                               genderqueer/non-conforming, or differnt identity"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p>Example : if someone identifies as a man and a trans man, their data are like:</p>
 <ul>
 <li><span class="math inline">\(I(Gender = \text{Male/Man only}) = 0\)</span></li>
 <li><span class="math inline">\(I(Gender = \text{Female/Woman only}) = 0\)</span></li>
-<li><span class="math inline">\(I(Gender = \text{Trans male/man, trans female/woman, genderqueer/non-conforming, or other}) = 1\)</span></li>
+<li><span class="math inline">\(I(Gender = \text{Trans male/man, trans female/woman, genderqueer/non-conforming, or different identity}) = 1\)</span></li>
 </ul></li>
 </ul>
 </section>

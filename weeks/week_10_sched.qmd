@@ -54,6 +54,14 @@ editor_options:
 -   My office hours will be changed from 11:30am - 1pm **to 11am - 12:30pm**
     -   Office hours on 3/14 are 11am - 12:30pm
 
+### Wednesday 3/13
+
+-   Lab 3 feedback
+
+    -   Sorry for using "Other" instead of "A different identity" which was exactly what I was saying NOT to do
+
+    -   I should have looked more closely at the codebook before making those slides
+
 ## Class Exit Tickets
 
 [{{< iconify healthicons health-worker-form-negative size=30px >}}]{style="color:#f8f5f0;"} Monday (3/11)

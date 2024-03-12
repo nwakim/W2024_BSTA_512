@@ -67,7 +67,7 @@ execute:
 
 -   Someone wanted to identify three groups:
 
-    -   Identifies as trans man, trans woman, genderqueer/non-conforming, and/or other
+    -   Identifies as trans man, trans woman, genderqueer/non-conforming, and/or different identity
     -   Identifies as man only
     -   Identifies as woman only
 
@@ -94,7 +94,7 @@ iat_new = iat_old %>%
          ind_tmm = grepl(3, genderIdentity),
          ind_twf = grepl(4, genderIdentity),
          ind_gqnc = grepl(5, genderIdentity),
-         ind_other = grepl(6, genderIdentity))
+         ind_diff = grepl(6, genderIdentity))
 ```
 
 -   Create mutually exclusive groups: lose some information on the individual
@@ -107,14 +107,14 @@ iat_new = iat_old %>% # iat_old should not have any NA's in genderIdentity
                                "[1]" ~ "Male/Man only",
                                "[2]" ~ "Female/Woman only",
                                .default = "Trans male/man, trans female/woman, 
-                               genderqueer/non-conforming, or other"))
+                               genderqueer/non-conforming, or differnt identity"))
 ```
 
 -   Example : if someone identifies as a man and a trans man, their data are like:
 
     -   $I(Gender = \text{Male/Man only}) = 0$
     -   $I(Gender = \text{Female/Woman only}) = 0$
-    -   $I(Gender = \text{Trans male/man, trans female/woman, genderqueer/non-conforming, or other}) = 1$
+    -   $I(Gender = \text{Trans male/man, trans female/woman, genderqueer/non-conforming, or different identity}) = 1$
 
 ## About confounders and effect modifiers
 
