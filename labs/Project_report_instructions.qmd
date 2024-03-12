@@ -2,12 +2,15 @@
 title: "Project Report Instructions"
 subtitle: "BSTA 512/612"
 description: "Due: Thursday March 21, 2024"
-date-modified: "12/21/2024"
-categories: [""]
+date-modified: "today"
 format: 
   html:
     link-external-newwindow: true
     toc: true
+    self-contained: true
+    number-sections: true
+    number-depth: 4
+    number-offset: -1
   pdf: default 
 editor_options: 
   chunk_output_type: console
@@ -19,54 +22,164 @@ editor_options:
 
 ------------------------------------------------------------------------
 
--   The report will be written in RMarkdown. Turn in both the Rmd and html files.
-    -   Make sure the html file includes a table of contents
--   The report should be 2000-3000 words long
--   This is a separate file from the analyses file
-    -   Note: you can save tables and figures in the analyses file and then load them in the report
-        -   Save R objects in analyses file:
-            -   Suppose you named the Table 1 as table1
+## Directions
 
-            -   save(table1, file = "table1.Rdata")
-        -   Load R objects in report file: • load(file = "table1.Rdata")
+### Purpose
+
+Project reports serve as a great way to communicate the knowledge learned in a statistics class and connect it to context within research. It is important that we can take a step back from the numbers and analysis to see what questions linear regression can help us answer.
+
+### Formatting guide
+
+-   The report will be written in Quarto. Turn in both the `qmd` and `html` files
+    -   No code should appear in the `html` document
+        -   This means all R code chunks should have `#| echo: false`
+-   The report should be 10 - 14 paragraphs long
+-   Tables and figures should NOT have variable names as they appear in the data frame
+    -   Variable names should be understood by a reader
+    -   Variable names should be written in full words
+    -   Include a title or caption for all figures
+    -   Figure and tables appear on same page or close to same page where they are first referenced
+-   Writing, spelling, and grammar should be admissable
+    -   This means I can generally follow your thought/what you are trying to communicate
+    -   Some spelling and grammar mistakes are allowed
+        -   I will not take off points if there are a few sprinkled in
+        -   If *every or close to every* sentence has mistakes, then I will take off
+-   Sectioning of the report
+    -   Main sections that were required: Introduction, Statistical Methods, Results, Discussion, Conclusion, and References
+    -   Other sections that might help group specific methods or results
+-   Title information at the top of the `html`
+    -   This includes the title itself, your name, and the date
+
+::: callout-note
+#### The project report is a separate file from the labs
+
+You can save tables and figures from labs or separate files, then load them in the report
+
+-   Save R objects in analyses file:
+    -   Suppose you named the Table 1 as `table1`
+
+    -   `save(table1, file = "table1.Rdata")`
+-   Load R objects in report file: `load(file = "table1.Rdata")`
+:::
+
+### Examples of reports
+
+The following are examples of reports from BSTA 513 with the feedback that I gave them. Please note that 513 uses a different type of outcome than our class. These examples are meant to help guide you with the formatting and some appropriate content.
+
+-   Report 1 html with my feedback in PDF
+
+-   Report 2 html with my feedback in PDF
+
+### Grading
+
+The project report is out of 40 points. Note that the Statistical Methods and Results sections are graded on an 8-point scale, while all other components are graded on a 4-point scale.
+
+#### Rubric
+
+|                           | 4 points                                                                                                                                                                                                        | 3 points                                                                                                                                                                                       | 2 points                                                                                                                                                                                                   | 1 point                                                                                                                                                                                  | 0 points                                                                                                               |
+|------------|------------|------------|------------|------------|------------|
+| Formatting                | Lab submitted on Sakai with `.html` file. Answers are written in complete sentences with no major grammatical nor spelling errors. With little editing, the answer can be incorporated into the project report. | Lab submitted on Sakai with `.html` file. Answers are written in complete sentences with grammatical or spelling errors. With editing, the answer can be incorporated into the project report. | Lab submitted on Sakai with `.html` file. Answers are written in complete sentences with major grammatical or spelling errors. With major editing, the answer can be incorporated into the project report. | Lab submitted on Sakai with `.html` file. Answers are bulletted or do not use complete sentences.                                                                                        | Lab *not* submitted on Sakai with `.html` file.                                                                        |
+| Code/Work                 | All tasks are directly followed or answered. This includes all the needed code, in code chunks, with the requested output.                                                                                      | All tasks are directly followed or answered. This includes all the needed code, in code chunks, with the requested output. In a few tasks, the code syntax or output is not quite right.       | Most tasks are directly followed or answered. This includes all the needed code, in code chunks, with the requested output.                                                                                | Some tasks are directly followed or answered.This includes all the needed code, in code chunks, with the requested output. In a few tasks, the code syntax or output is not quite right. | More than a quarter of the tasks are not completed properly.                                                           |
+| Reasoning\*               | Answers demonstrate understanding of research context and investigation of the data. Answers are thoughtful and can be easily integrated into the final report.                                                 | Answers demonstrate understanding of research context and investigation of the data. Answers are thoughtful, but lack the clarity needed to easily integrate into the final report.            | Answers demonstrate some understanding of research context and investigation of the data. Answers are fairly thoughtful, but lack connection to the research.                                              | Answers demonstrate some understanding of research context and investigation of the data. Answers seem rushed and with minimal thought.                                                  | Answers lack understanding of research context and investigation of the data. Answers seem rushed and without thought. |
+| Introduction              |                                                                                                                                                                                                                 |                                                                                                                                                                                                |                                                                                                                                                                                                            |                                                                                                                                                                                          |                                                                                                                        |
+| Methods (8 points)        |                                                                                                                                                                                                                 |                                                                                                                                                                                                |                                                                                                                                                                                                            |                                                                                                                                                                                          |                                                                                                                        |
+| Results (8 points)        |                                                                                                                                                                                                                 |                                                                                                                                                                                                |                                                                                                                                                                                                            |                                                                                                                                                                                          |                                                                                                                        |
+| Discussion                |                                                                                                                                                                                                                 |                                                                                                                                                                                                |                                                                                                                                                                                                            |                                                                                                                                                                                          |                                                                                                                        |
+| Conclusion and References |                                                                                                                                                                                                                 |                                                                                                                                                                                                |                                                                                                                                                                                                            |                                                                                                                                                                                          |                                                                                                                        |
 
 ## Sections
 
+### Title
+
+-   **Purpose:** Create an identifiable name for your research project that includes the main research question's variables and gives some context to the analysis or results
+
 ### Introduction
 
--   Length: 1-2 paragraphs
--   Introduce the research question and why it is important to study
--   This section is non-technical. By reading just the introduction and conclusion, someone without a technical background should have an idea of what they study was about, why it is important, and what the main results are
+-   **Length: 1-2 paragraphs**
+-   **Purpose:** Introduce the research question and why it is important to study
+-   This section is non-technical.
+    -   By reading just the introduction and conclusion, someone without a technical background should have an idea of what they study was about, why it is important, and what the main results are
+-   You may start with the introduction written in Lab 1, but you should edit it and make sure it flows into your report well!
+-   Should contain some references
 
 ### Statistical Methods
 
--   Length: at least 3 paragraphs
--   Describe the analyses that were conducted and methods used to select variables and check diagnostics.
--   This includes a description of analyses for Table 1 and what statistics were used to summarize the variables
+-   **Length: 3-5 paragraphs**
+-   **Purpose:** Describe the analyses that were conducted and methods used to select variables and check diagnostics
+-   **Important to keep in mind:** methods typically describe your approach and process, not the results of that process
+    -   For example: I might say "We investigated the linearity of each continuous covariate visually. If continuous variables were not linear, then we divided the variable into categories using existing guidelines from \<insert reference here\> or creating quartiles."
+        -   In the methods section, I would NOT say: "We investigated the linearity of each continuous covariate visually. We found that age was not linearly related to IAT scores. Thus, we categorized age into the following groups: \_\_\_, \_\_\_\_, \_\_\_\_, \_\_\_\_, and \_\_\_\_."
+            -   The last two sentences about age would be more appropriate in the Results section
+-   **Some important methods to discuss** (You may divide these into your sections, not necessarily with these names)
+    -   General approach to the dataset
+        -   3-5 sentences
+        -   Did you need to do any quality control?
+        -   Missing data: we performed complete case analysis
+            -   1 sentence
+            -   Can be included in the Exploratory data analysis section
+    -   Variables and variable creation
+        -   This includes a description of analyses for Table 1 and what statistics were used to summarize the variables
+            -   More on creation of Table 1, not discussing the results of Table 1
+        -   Includes (not required)
+            -   Indicators for gender identity or race
+            -   Creating BMI
+            -   Categorizing a continuous variable (even if performed in model selection)
+            -   Using scoring for an ordered categorical variable (that is not your explanatory variable)
+        -   1-2 sentences per variable
+    -   Model building: we performed purposeful selection
+        -   3-5 sentences
+        -   Includes
+            -   Describe purposeful selection: combining existing literature, clinical significance, and analysis
+            -   How did you build the model? Describe the process
+            -   Did you consider confounders and effect modifiers?
+    -   Model diagnostics
+        -   2-5 sentences
+        -   Includes
+            -   Process of investigating model diagnostics
+            -   By the time you build the model, LINE assumptions should be met
+            -   If assumptions were not met, what process did you use to fix it?
 
 ### Results
 
--   Length: at least 3 paragraphs
--   Include a brief description of the sample’s characteristics
--   Interpret the model coefficients in the context of the research question.
+-   **Length: \~3 paragraphs**
+-   **Purpose:** Relay the results from our sample's analysis typically focusing on the numbers and interpretations
+-   Some important results to discuss (also could be sections)
+    -   Sample data set statistics (Table 1)
+        -   3-5 sentences
+        -   Include a brief description of the sample’s characteristics
+        -   Table 1 should be referenced and appear here!
+    -   Final model
+        -   Describe final model (or models if comparing a few)
+            -   What variables were included in your final model?
+            -   What interactions with your explanatory variable did you include?
+    -   Interpret the model coefficients in the context of the research question
+        -   1-2 paragraphs
+    -   Results of model diagnostics if there is anything worth noting
 -   Tables & figures
-    -   Table 1 summarizing participant characteristics both overall and stratified by your primary independent variable
-    -   Table 2 with regression results
-        -   Can also be a forest plot
-    -   1-3 figures that you think are helpful in understanding the results
+    -   The following are required tables or figures
+        -   Table 1 summarizing participant characteristics both **overall** and **stratified by your primary independent variable**
+        -   Table or figure with regression results
+            -   Can be a forest plot
+    -   **1-3 figures that you think are helpful in understanding the results, for example**
+        -   DAG explaining connection between variables (if you did this)
+        -   Table or figure to compare model fit statistics (if you did this)
+        -   Table or figure for unadjusted relationship between outcome and explanatory variables
 
 ### Discussion
 
--   Length: 2-3 paragraphs
--   Discuss the results. See the paper cited above as an example.
--   Include a paragraph on the limitations of the results
+-   **Length: 2-3 paragraphs**
+-   **Purpose:** Discuss the results and give them context outside of the sample and its analysis
+-   Some important things to include
+    -   Include a paragraph on the limitations of the results
+    -   Any overarching trends that are worth noting?
+-   Should contain some references
 
 ### Conclusion
 
--   Length: 1 paragraph
--   Describe the main conclusions to a non-technical audience
+-   **Length: 1 short paragraph (more like \~3 sentences)**
+-   **Purpose:** Describe the main conclusions to a non-technical audience
 
 ### References
 
--   If you cited any papers or websites, include their references here.
--   Note: it is not required to do a literature search
+-   Include your references here!
+-   You introduction should have references, especially when discussing the social science behind the analysis
