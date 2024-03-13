@@ -1430,6 +1430,8 @@ anova_res[[1]] %>% tidy() %>%
 anova_res
 ```
 
+ 
+
 -   **Think about it:** does that track with what we saw in our interactions lecture?
 
 ## Step 6: Assess model fit
@@ -1441,9 +1443,81 @@ anova_res
 -   Methods will be discussed next class
 
     -   Combination of diagnostics and model fit statistics!
+    
+    -   Look at model fit statistics in this lesson
+    
+    -   Look at diagnostics in Lesson 14: MLR Diagnostics
 
  
 
 -   If the model is adequate and fits well, then it is the **Final model**
 
+## Step 6: Assess model fit
+
+```{r}
+final_model = main_eff_model
+prelim_me_model = model_full
+save(final_model, prelim_me_model, gapm2, file = "./14_MLR_Diagnostics/final_mod.rda")
+```
+
+-   Our **final model** contains
+
+    -   Female Literacy Rate `FLR`
+    -   CO2 Emissions in quartiles `CO2_q`
+    -   Income levels in groups assigned by Gapminder `income_levels`
+    -   World regions `four_regions`
+    -   Membership of global and economic groups `members_oecd_g77`
+    
+        -   OECD: Organization for Economic Co-operation and Development
+        -   G77: Group of 77
+        -   Other
+        
+    -   Food Supply `FoodSupplykcPPD`
+    -   Clean Water Supply `WaterSupplePct`
+    
+## Step 6: Assess model fit: Model fit statistics
+
+-   Way I did it in the lab instructions
+```{r}
+#| echo: true
+
+sum_fm = summary(final_model)
+model_fit_stats = data.frame(Model = "Final model", 
+                             Adjusted_R_sq = sum_fm$adj.r.squared, 
+                             AIC = AIC(final_model), BIC = BIC(final_model))
+
+model_fit_stats %>% gt() %>% 
+  tab_options(table.font.size = 35) %>% fmt_number(decimals = 3)
+```
+
+-   Another (maybe faster?) way to do it (`glance()` in `broom` package)
+
+```{r}
+#| echo: true
+glance(final_model) %>% mutate(Model = "Final model") %>%
+  select(Model, adj.r.squared, AIC, BIC) %>% gt() %>% 
+  tab_options(table.font.size = 35) %>% fmt_number(decimals = 3)
+```
+
+
+## Step 6: Assess model fit: Comparing model fits
+
+-   Remember the preliminary main effects model (at end of Step 3): same as final model but the continuous varaibles, income and CO2 emissions, were not categorized
+
+-   We can compare model fit statistics of the preliminary main effects model and the final model
+
+```{r}
+#| echo: true
+fm_glance = glance(final_model) %>% mutate(Model = "Final model") %>%
+  select(Model, `Adj R-squared` = adj.r.squared, AIC, BIC) 
+pmem_glance = glance(prelim_me_model) %>% 
+  mutate(Model = "Preliminary main effects model") %>%
+  select(Model, `Adj R-squared` = adj.r.squared, AIC, BIC) 
+rbind(fm_glance, pmem_glance) %>% gt() %>% 
+  tab_options(table.font.size = 35) %>% fmt_number(decimals = 3)
+```
+
+-   Remember, adjusted $R^2$, AIC, and BIC penalize models for more coefficients
+
+-   Preliminary main effects model: better fit statistics, but violates linearity assumption
 

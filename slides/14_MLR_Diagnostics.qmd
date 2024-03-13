@@ -1,0 +1,817 @@
+---
+title: "Lesson 14: MLR Model Diagnostics"
+author: "Nicky Wakim"
+title-slide-attributes:
+    data-background-color: "#213c96"
+date: "3/13/2024"
+categories: ["Week 10"]
+format: 
+  revealjs:
+    theme: [default, simple_NW.scss]
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1955
+    height: 1100
+    footer: "Lesson 14: MLR Diagnostics"
+    html-math-method: mathjax
+    highlight-style: ayu
+execute:
+  echo: true
+  freeze: auto  # re-render only when source changes
+---
+
+```{r}
+#| label: "setup" 
+#| include: false
+#| message: false
+#| warning: false
+
+library(tidyverse)    
+library(openintro)
+library(janitor)
+library(rstatix)
+library(knitr)
+library(gtsummary)
+library(moderndive)
+library(gt)
+library(broom) 
+library(here) 
+library(pwr) 
+library(gridExtra)   # grid.arrange()
+library(readxl)
+library(describedata) # gladder()
+library(gridExtra)   # grid.arrange()
+library(ggfortify)  # autoplot(model)
+library(gtsummary)
+
+knitr::opts_chunk$set(echo = TRUE,
+                      message = FALSE, warning = FALSE)
+load("./14_MLR_Diagnostics/final_mod.rda")
+gapm <- read_csv("data/lifeexp_femlit_2011.csv")
+
+```
+
+# Learning Objectives
+
+1.  Apply tools from SLR (Lesson 6: SLR Diagnostics) in MLR to **evaluate LINE assumptions**, including residual plots and QQ-plots
+
+2.  Apply tools involving standardized residuals, leverage, and Cook's distance from SLR (Lesson 7: SLR Diagnostics 2) in MLR to **flag potentially influential points**
+
+3.  Use Variance Inflation Factor (VIF) and it's general form to **detect and correct multicollinearity** 
+
+## Regression analysis process
+
+::: box
+![](images/arrow2.png){.absolute top="13.5%" right="62.1%" width="155"} ![](images/arrow2.png){.absolute top="13.5%" right="28.4%" width="155"}![](images/arrow_back4.png){.absolute top="7.5%" right="30.5%" width="820"} ![](images/arrow_down.png){.absolute top="60.5%" right="48%" width="85"}
+
+::: columns
+::: {.column width="30%"}
+::: RAP1
+::: RAP1-title
+Model Selection
+:::
+
+::: RAP1-cont
+-   Building a model
+
+-   Selecting variables
+
+-   Prediction vs interpretation
+
+-   Comparing potential models
+:::
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="30%"}
+::: RAP2
+::: RAP2-title
+Model Fitting
+:::
+
+::: RAP2-cont
+-   Find best fit line
+
+-   Using OLS in this class
+
+-   Parameter estimation
+
+-   Categorical covariates
+
+-   Interactions
+:::
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="30%"}
+::: RAP3
+::: RAP3-title
+Model Evaluation
+:::
+
+::: RAP3-cont
+-   Evaluation of model fit
+-   Testing model assumptions
+-   Residuals
+-   Transformations
+-   Influential points
+-   Multicollinearity
+:::
+:::
+:::
+:::
+:::
+
+::: RAP4
+::: RAP4-title
+Model Use (Inference)
+:::
+
+::: RAP4-cont
+::: columns
+::: {.column width="50%"}
+-   Inference for coefficients
+-   Hypothesis testing for coefficients
+:::
+
+::: {.column width="50%"}
+-   Inference for expected $Y$ given $X$
+-   Prediction of new $Y$ given $X$
+:::
+:::
+:::
+:::
+
+## Let's remind ourselves of the final model
+
+::: columns
+::: {.column width="40%"}
+-   Our **final model** contains
+
+    -   Female Literacy Rate `FLR`
+    -   CO2 Emissions in quartiles `CO2_q`
+    -   Income levels in groups assigned by Gapminder `income_levels1`
+    -   World regions `four_regions`
+    -   Membership of global and economic groups `members_oecd_g77`
+    -   Food Supply `FoodSupplykcPPD`
+    -   Clean Water Supply `WaterSupplePct`
+:::
+
+::: {.column width="60%"}
+```{r}
+#| code-fold: true
+#| code-summary: "Display regression table for final model"
+tidy(final_model) %>% gt() %>% tab_options(table.font.size = 32) %>%  
+  fmt_number(decimals = 3)
+```
+:::
+:::
+
+## It's a lot to visualize
+
+-   Part of the reason why we discussed model diagnostics in SLR was so that we could have accompanying visuals to help us understand
+
+ 
+
+-   With 7 variables in out final model, it is hard to visualize outliers and influential points
+
+ 
+
+-   I highly encourage you revisit Lesson 6 and 7 (SLR Diagnostics) to help understand these notes
+
+
+## Remember our friend `augment()`? 
+
+-   Run `final_model` through `augment()` (`final_model` is input)
+
+    -   So we assigned `final_model` as the output of the `lm()` function
+
+-   Will give us values about each observation in the context of the fitted regression model
+
+    -   cook's distance (`.cooksd`), fitted value (`.fitted`, $\widehat{Y}_i$), leverage (`.hat`), residual (`.resid`), standardized residuals (`.std.resid`)
+
+```{r}
+aug = augment(final_model)
+head(aug) %>% relocate(.fitted, .resid, .std.resid, .hat, .cooksd, .after = LifeExpectancyYrs)
+```
+
+[RDocumentation on the `augment()` function.](https://www.rdocumentation.org/packages/broom/versions/1.0.4/topics/augment.lm)
+
+# Learning Objectives
+
+::: lob
+1.  Apply tools from SLR (Lesson 6: SLR Diagnostics) in MLR to **evaluate LINE assumptions**, including residual plots and QQ-plots
+:::
+
+2.  Apply tools involving standardized residuals, leverage, and Cook's distance from SLR (Lesson 7: SLR Diagnostics 2) in MLR to **flag potentially influential points**
+
+3.  Use Variance Inflation Factor (VIF) and it's general form to **detect and correct multicollinearity** 
+
+## Summary of the assumptions and their diagnostic tool
+
++----------------------+--------------------------------------------------------------+--------------------------------+
+| Assumption           | What needs to hold?                                          | Diagnostic tool                |
++:=====================+:=============================================================+:===============================+
+| Linearity            | -   Relationship between **each** $X$ and $Y$ is linear      | -   Scatterplot of $Y$ vs. $X$ |
+|                      |                                                              |                                |
+| $\text{}$            |                                                              | $\text{}$                      |
++----------------------+--------------------------------------------------------------+--------------------------------+
+| Independence         | -   Observations are independent from each other             | -   Study design               |
+|                      |                                                              |                                |
+| $\text{}$            |                                                              | $\text{}$                      |
++----------------------+--------------------------------------------------------------+--------------------------------+
+| Normality            | -   Residuals (and thus $Y|X_1, X_2, ..., X_p$)              | -   QQ plot of residuals       |
+|                      |                                                              |                                |
+|                      |     are normally distributed                                 | -   Distribution of residuals  |
++----------------------+--------------------------------------------------------------+--------------------------------+
+| Equality of variance | -   Variance of residuals (and thus $Y|X_1, X_2, ..., X_p$)  | -   Residual plot              |
+|                      |                                                              |                                |
+|                      |     is same across fitted values (homoscedasticity)          | $\text{}$                      |
++----------------------+--------------------------------------------------------------+--------------------------------+
+
+## `autoplot()` to examine equality of variance and Normality
+
+::: columns
+
+::: {.column width="60%"}
+```{r}
+#| fig-width: 12
+#| fig-height: 9
+#| fig-align: center
+
+library(ggfortify)
+autoplot(final_model) + theme(text=element_text(size=20))
+```
+:::
+
+::: {.column width="40%"}
+
+:::
+:::
+
+## `autoplot()` to examine equality of variance and Normality
+
+::: columns
+
+::: {.column width="60%"}
+```{r}
+#| fig-width: 12
+#| fig-height: 9
+#| fig-align: center
+
+library(ggfortify)
+autoplot(final_model) + theme(text=element_text(size=20))
+```
+:::
+
+::: {.column width="40%"}
+Looks like 3 obs are flagged:
+
+-   17: Cote d'Ivoire
+-   59: South Africa
+-   61: Kingdom of Eswatini (formerly Swaziland in 2011)
+
+Without them, QQ-plot and residual plot look good
+
+-   Points on QQ-plot are close to identity line
+-   Residuals have pretty consistent spread across fitted values
+
+But don't take them out!!!
+
+-   Instead, discuss what may be missing in our regression model that is not capturing the characteristics of these countries
+:::
+:::
+
+## Poll Everywhere Question 1 
+
+# Learning Objectives
+
+1.  Apply tools from SLR (Lesson 6: SLR Diagnostics) in MLR to **evaluate LINE assumptions**, including residual plots and QQ-plots
+
+::: lob
+2.  Apply tools involving standardized residuals, leverage, and Cook's distance from SLR (Lesson 7: SLR Diagnostics 2) in MLR to **flag potentially influential points**
+:::
+
+3.  Use Variance Inflation Factor (VIF) and it's general form to **detect and correct multicollinearity** 
+
+## Identifying outliers
+
+::: columns
+::: {.column width="37%"}
+::: theorem
+::: thm-title
+Internally standardized residual
+:::
+
+::: thm-cont
+$$
+r_i = \frac{\widehat\epsilon_i}{\sqrt{\widehat\sigma^2(1-h_{ii})}}
+$$
+:::
+:::
+:::
+
+::: {.column width="63%"}
+-   We flag an observation if the standardized residual is "large"
+
+    -   Different sources will define "large" differently
+
+    -   PennState site uses $|r_i| > 3$
+
+    -   `autoplot()` shows the 3 observations with the highest standardized residuals
+
+    -   Other sources use $|r_i| > 2$, which is a little more conservative
+:::
+:::
+
+::: columns
+::: {.column width="55%"}
+ 
+
+```{r}
+#| fig-height: 4.5
+#| fig-width: 7
+#| fig-align: center
+#| eval: false
+ggplot(data = aug) + 
+  geom_histogram(aes(x = .std.resid))
+```
+:::
+
+::: {.column width="45%"}
+```{r}
+#| fig-height: 5
+#| fig-width: 7.5
+#| fig-align: center
+#| echo: false
+
+ggplot(data = aug) + 
+  geom_histogram(aes(x = .std.resid))  +
+    theme(axis.title = element_text(size = 30), 
+        axis.text = element_text(size = 25))  
+```
+:::
+:::
+
+## Countries that are outliers ($|r_i| > 2$)
+
+-   We can identify the countries that are outliers
+
+```{r}
+#| echo: false
+
+aug = aug %>%
+  mutate(country = gapm2$country) %>% relocate(country)
+```
+
+```{r}
+aug %>% relocate(.std.resid, .after = country) %>%
+  filter(abs(.std.resid) > 2) %>% arrange(desc(abs(.std.resid)))
+```
+
+## Leverage $h_i$
+
+-   Values of leverage are: $0 \leq h_i \leq 1$
+-   We flag an observation if the leverage is "high"
+
+    -   **Only good for SLR:** Some textbooks use $h_i > 4/n$ where $n$ = sample size
+
+    -   **Only good for SLR:** Some people suggest $h_i > 6/n$
+
+    -   **Works for MLR:** $h_i > 3p/n$ where $p$ = number of regression coefficients
+
+```{r}
+aug = aug %>% relocate(.hat, .after = FemaleLiteracyRate)
+aug %>% arrange(desc(.hat))
+```
+
+## Countries with high leverage ($h_i > 3p/n$)
+
+-   We can look at the countries that have high leverage: there are NONE
+
+```{r}
+#| echo: false
+
+# names(gapm)
+# names(aug)
+gapm = gapm %>% mutate(.rownames = 1:n() %>% as.character())
+```
+
+```{r}
+n = nrow(gapm2); p = length(final_model$coefficients) - 1
+aug %>% 
+  filter(.hat > 3*p/n) %>%
+  arrange(desc(.hat))
+```
+
+## Identifying points with high Cook's distance
+
+::: columns
+::: column
+The Cook's distance for the $i^{th}$ observation is
+
+$$d_i = \frac{h_i}{2(1-h_i)} \cdot r_i^2$$ where $h_i$ is the leverage and $r_i$ is the studentized residual
+:::
+
+::: column
+-   Another rule for Cook's distance that is not strict:
+    -   Investigate observations that have $d_i > 1$
+-   Cook's distance values are already in the augment tibble: `.cooksd`
+:::
+:::
+
+-   No countries with high Cook's distance
+```{r}
+aug = aug %>% relocate(.cooksd, .after = country)
+aug %>% arrange(desc(.cooksd)) %>% filter(.cooksd > 1)
+```
+
+## Plotting Cook's Distance
+
+```{r fig.height=4}
+#| fig-align: center
+#| fig-width: 7
+
+# plot(model) shows figures similar to autoplot()
+# adds on Cook's distance though
+plot(final_model, which = 4)
+```
+
+## How do we deal with influential points?
+
+-   If an observation is influential, we can **check data errors**:
+
+    -   Was there a data entry or collection problem?
+
+    -   If you have reason to believe that the observation does not hold within the population (or gives you cause to redefine your population)
+
+-   If an observation is influential, we can **check our model**:
+
+    -   Did you leave out any important predictors?
+
+    -   Should you consider adding some interaction terms?
+
+    -   Is there any nonlinearity that needs to be modeled?
+
+-   Basically, deleting an observation should be justified outside of the numbers!
+
+    -   If it's an honest data point, then it's giving us important information!
+    
+-   **Means we will need to discuss the limitations of our model**
+
+    -   For example: Think about measurements that might help explain life expectancy that are NOT in our model
+
+-   [A really well thought out explanation from StackExchange](https://stats.stackexchange.com/questions/81058/how-to-handle-leverage-values)
+
+## Poll Everywhere Question 2
+
+## When we have detected problems in our model...
+
+-   We have talked about influential points
+-   We have talked about identifying issues with our LINE assumptions
+
+ 
+
+What are our options once we have identified issues in our linear regression model?
+
+-   Are we missing a crucial measure in our dataset?
+
+-   Try a transformation if there is an issue with linearity or normality
+
+    -   Addressed in model selection 
+
+-   Try a weighted least squares approach if unequal variance (oof, not enough time for us to get to)
+
+-   Try a robust estimation procedure if we have a lot of outlier issues (outside scope of class)
+
+# Learning Objectives
+
+1.  Apply tools from SLR (Lesson 6: SLR Diagnostics) in MLR to **evaluate LINE assumptions**, including residual plots and QQ-plots
+
+2.  Apply tools involving standardized residuals, leverage, and Cook's distance from SLR (Lesson 7: SLR Diagnostics 2) in MLR to **flag potentially influential points**
+
+::: lob
+3.  Use Variance Inflation Factor (VIF) and it's general form to **detect and correct multicollinearity** 
+:::
+
+## What is multicollinearity? (adapted from parts of [STAT 501 page](https://online.stat.psu.edu/stat501/lesson/12))
+
+So far, we've been ignoring something very important: multicollinearity
+
+::: columns
+::: {.column width="5%"}
+
+:::
+
+::: {.column width="80%"}
+::: definition
+::: def-title
+Multicollinearity
+:::
+::: def-cont
+Two or more covariates in a multivariable regression model are *highly* correlated
+:::
+:::
+:::
+
+::: {.column width="10%"}
+
+:::
+
+:::
+
+-   Types of multicollinearity
+
+    -   **Structural multicollinearity**
+    
+        -   Mathematical artifact caused by creating new covariates from other covariates
+        -   For example: If we have age, and decide to transform age to include age-squared
+        
+            -   Then we have age and age-squared in the model: age-squared is perfectly predicted by age!
+        
+    -   **Data-based multicollinearity**
+    
+        -   Result of a poorly designed experiment, reliance on purely observational data, or the inability to manipulate the system on which the data are collected.
+
+## Poll Everywhere Question 3
+
+
+
+## Why is multicollinearity a problem?
+
+In linear regression...
+
+-   Estimated regression coefficient of any one variable **depends on other predictors included in the model**
+
+    -   Not necessarily bad, but a big change might be an issue
+
+-   Hypothesis tests for any coefficient may yield different conclusions **depending on other predictors included in the model**
+
+-   Marginal contribution of any one predictor variable in reducing the error sum of squares **depends on other predictors included in the model**
+
+ 
+
+When there is multicollinearity in our model:
+
+-   **Precision** of the estimated regression coefficients or correlated covariates **decreases a lot**
+
+    -   Basically, **standard error increases and confidence intervals get wider**, which means we're not as confident in our estimate anymore
+    
+    -   Because highly correlated covariates are not adding much more information, but are constraining our model more
+
+## Did you notice anything about all the consequences of multicollinearity?
+
+-   All consequences relate to estimating a regression coefficient **precisely**
+
+    -   Recall that precision is linked to analysis **goals of association and interpretability** 
+    -   See Lesson 12: Model Selection
+    
+ 
+    
+-   Multicollinearity is *not really an issue* when our **goal is prediction**
+
+    -   Highly correlated covariates/predictors will not hurt our prediction of an outcome
+    
+## How do we detect multicollinearity?
+
+::: columns
+::: {.column width="50%"}
+-   **Variance inflation factors (VIF):** quantifies how much the variance of the estimated coefficient for covariate $k$ increases
+
+    -   Increases: from SLR with only covariate $k$ to MLR with all other covariates
+
+ 
+
+-   General rule of thumb
+
+    -   $4 < VIF < 10$: Warrent investigation (but most people aren't investigating this...)
+    -   $VIF > 10$: Requires correction
+        
+        -   Influencing regression coefficient estimates
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="40%"}
+::: proof1
+::: proof-title
+VIF
+:::
+::: proof-cont
+$$
+VIF = \dfrac{1}{1-R_k^2}
+$$
+
+$R_k^2$ is the $R^2$-value obtained by regressing the $k^{th}$ covariate/predictor on the remaining predictors
+:::
+:::
+
+:::
+:::
+
+## Let's apply it to our final model
+
+-   Naive way to calculate this:
+```{r}
+library(rms)
+rms::vif(final_model)
+```
+
+-   All $VIF < 10$
+
+-   Problem: multi-level covariates (CO2 Emissions and income level) have different VIF's even though they should be considered one variable
+
+## Let's apply it to our final model *correctly* (1/2)
+
+-   Calculate the GVIF and, more importantly, the $GVIF^{1/(2\cdot df)}$
+-   GVIF is the $R^2$-value for regressing a covariate's group indicators on the remaining covariates
+    -   Captures the correlation between covariates better
+    
+-   $GVIF^{1/(2\cdot df)}$ helps standardize GVIF based on how many levels each categorical covariate has
+
+    -   I'll refer to this as df-corrected GVIF or standardized GVIF
+  
+    -   If continuous covariate, $GVIF^{1/(2\cdot df)} = \sqrt{GVIF}$
+
+```{r}
+library(car)
+car::vif(final_model)
+```
+
+
+## Let's apply it to our final model *correctly* (2/2)
+
+-   If continuous covariate, $GVIF^{1/(2\cdot df)} = \sqrt{GVIF}$
+
+-   So we can square $GVIF^{1/(2\cdot df)}$ and set VIF rules
+
+-   OR: we can correct any $GVIF^{1/(2\cdot df)} > \sqrt{10} = 3.162$
+
+```{r}
+car::vif(final_model)
+```
+
+-   All of these covariates are okay! No multicollinearity to correct in this dataset!
+
+## But what if we do need to make corrections for multicollinearity?
+
+-   We have been dealing with **data-based multicollinearity** in our example
+
+-   If we had issues with multicollinearity, then what are our options?
+
+    -   Remove the variable(s) with large VIF
+    
+    -   Use expert knowledge in the field to decide
+    
+-   If one variable has a large VIF, then there is usually another one or more variables with large VIFs
+
+    -   Basically, all the covariates that are correlated will have large VIFs
+    
+-   Example: our two largest GVIFs were for world region and income levels
+
+    -   Hypothetical: their $GVIF^{1/(2\cdot df)} > 3.162$
+    
+    -   Remove one of them 
+    
+    -   I'm no expert, but from more of a data equity lens, there's a lot of generalizations made about world regions 
+    
+        -   I think relying on the income level of a country might give us more information as well
+        
+## What about structural multicollinearity?
+
+-   **Structural multicollinearity**
+    
+    -   Mathematical artifact caused by creating new covariates from other covariates
+    
+ 
+
+-   For example: If we have age, and decide to transform age to include age-squared
+        
+    -   Then we have age and age-squared in the model: age-squared is perfectly predicted by age!
+    
+    -   By having the untransformed and transformed covariate in the model, they are inherently correlated!
+    
+ 
+
+-   **Best practice to reduce the correlation: center you covariate**
+
+    -   By centering age, we no longer have a one-to-one connection between age and age-squared
+    
+    -   If centered at 40yo: a 35 yo and a 45 yo will both have centered age of 5, and age-squared of 25
+
+ 
+
+-   [Check out the Penn State site](https://online.stat.psu.edu/stat501/lesson/12/12.6) for a work through of an example with VIFs 
+
+## Summary of multicollinearity
+
+-   Correlated covariates/predictors will hurt our model's precision and interpretations of coefficients
+
+ 
+
+-   We need to check for multicollinearity by using VIFs or GVIFs
+
+ 
+
+-   If $VIF > 10$ or $GVIF^{1/(2\cdot df)} > 3.162$, we need to do something about the covariates
+
+    -   Data based: remove one the of correlated variables
+    
+    -   Structural based: centering usually fixes it
+
+## Regression analysis process
+
+::: box
+![](images/arrow2.png){.absolute top="13.5%" right="62.1%" width="155"} ![](images/arrow2.png){.absolute top="13.5%" right="28.4%" width="155"}![](images/arrow_back4.png){.absolute top="7.5%" right="30.5%" width="820"} ![](images/arrow_down.png){.absolute top="60.5%" right="48%" width="85"}
+
+::: columns
+::: {.column width="30%"}
+::: RAP1
+::: RAP1-title
+Model Selection
+:::
+
+::: RAP1-cont
+-   Building a model
+
+-   Selecting variables
+
+-   Prediction vs interpretation
+
+-   Comparing potential models
+:::
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="30%"}
+::: RAP2
+::: RAP2-title
+Model Fitting
+:::
+
+::: RAP2-cont
+-   Find best fit line
+
+-   Using OLS in this class
+
+-   Parameter estimation
+
+-   Categorical covariates
+
+-   Interactions
+:::
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="30%"}
+::: RAP3
+::: RAP3-title
+Model Evaluation
+:::
+
+::: RAP3-cont
+-   Evaluation of model fit
+-   Testing model assumptions
+-   Residuals
+-   Transformations
+-   Influential points
+-   Multicollinearity
+:::
+:::
+:::
+:::
+:::
+
+::: RAP4
+::: RAP4-title
+Model Use (Inference)
+:::
+
+::: RAP4-cont
+::: columns
+::: {.column width="50%"}
+-   Inference for coefficients
+-   Hypothesis testing for coefficients
+:::
+
+::: {.column width="50%"}
+-   Inference for expected $Y$ given $X$
+-   Prediction of new $Y$ given $X$
+:::
+:::
+:::
+:::
