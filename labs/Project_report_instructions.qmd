@@ -79,9 +79,9 @@ Please note that 513 uses a different type of outcome than our class. These exam
 
 Also note that these were converted to PDFs so I could write in feedback. Some of the tables and figure sizes were distorted. They need to be legible in the `html`.
 
--   Report 1 with my feedback
+-   [Report 1 with my feedback](https://ohsuitg-my.sharepoint.com/:b:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W2024_BSTA_512_612/Student_files/Project_examples/Group_09_Report.pdf?csf=1&web=1&e=54lAbD)
 
--   Report 2 with my feedback
+-   [Report 2 with my feedback](https://ohsuitg-my.sharepoint.com/:b:/r/personal/wakim_ohsu_edu/Documents/Teaching/Classes/W2024_BSTA_512_612/Student_files/Project_examples/Group_07_Report.pdf?csf=1&web=1&e=uWHgnB)
 
 The above reports have code showing in their `html`. Remember that I am asking you to **hide** all code, warnings, and messages.
 
