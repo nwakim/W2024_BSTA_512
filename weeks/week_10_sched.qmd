@@ -39,9 +39,9 @@ editor_options:
 |         |                            |                                                                                                              |                                                                                                                                      |                                                                                                                                                                                                                                                                                                                                                                                                |
 |         |                            |                                                                                                              |                                                                                                                                      | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F13%5FPurposeful%5Fselection%5F2%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"} |
 |         |                            |                                                                                                              |                                                                                                                                      |                                                                                                                                                                                                                                                                                                                                                                                                |
-|         |                            |                                                                                                              |                                                                                                                                      | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                                                                                                                                                                                                  |
+|         |                            |                                                                                                              |                                                                                                                                      | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F13%5FPurposeful%5Fselection%5F3%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"} |
 +---------+----------------------------+--------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 14      | MLR Diagnostics            | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/14_MLR_Diagnostics.qmd)]{style="color:#f8f5f0;"}      | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/14_MLR_Diagnostics.pdf)]{style="color:#f8f5f0;"}       | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                                                                                                                                                                                                  |
+| 14      | MLR Diagnostics            | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/14_MLR_Diagnostics.qmd)]{style="color:#f8f5f0;"}      | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/14_MLR_Diagnostics.pdf)]{style="color:#f8f5f0;"}       | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F14%5FMLR%5FDiagnostics%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"}          |
 +---------+----------------------------+--------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ## On the Horizon
@@ -57,23 +57,15 @@ editor_options:
 ### Wednesday 3/13
 
 -   Last lecture!!!
-
 -   Quiz will be returned on Monday
-
 -   Lab 3 feedback slides
-
     -   Sorry for using "Other" instead of "A different identity" which was exactly what I was saying NOT to do
 
     -   I should have looked more closely at the codebook before making those slides
-
 -   My Thursday office hours will be changed from 11:30am - 1pm **to 11am - 12:30pm**
-
     -   Office hours on 3/14 are 11am - 12:30pm
-
 -   Lab 4 feedback: aiming to give it back to you by Sunday evening
-
 -   Project report instructions are up!
-
     -   Need to update rubric
 
     -   May need to alter the figure requirement for the forest plot / coefficient estimate table
