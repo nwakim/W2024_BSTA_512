@@ -38,8 +38,10 @@ editor_options:
 | 13      | Purposeful Model Selection | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/13_Purposeful_Selection.qmd)]{style="color:#49A3D1;"} | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/13_Purposeful_selection_.pdf)]{style="color:#f8f5f0;"} | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F13%5FPurposeful%5Fselection%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"}     |
 |         |                            |                                                                                                              |                                                                                                                                      |                                                                                                                                                                                                                                                                                                                                                                                                |
 |         |                            |                                                                                                              |                                                                                                                                      | [[{{< iconify mdi video size=34px >}}](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2F13%5FPurposeful%5Fselection%5F2%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)]{style="color:#f8f5f0;"} |
+|         |                            |                                                                                                              |                                                                                                                                      |                                                                                                                                                                                                                                                                                                                                                                                                |
+|         |                            |                                                                                                              |                                                                                                                                      | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                                                                                                                                                                                                  |
 +---------+----------------------------+--------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 14      | MLR Diagnostics            | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/14_MLR_Diagnostics.qmd)]{style="color:#f8f5f0;"}      | [{{< iconify pepicons-pop pen-circle-filled size=29px >}}]{style="color:#f8f5f0;"}                                                   | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                                                                                                                                                                                                  |
+| 14      | MLR Diagnostics            | [[{{< iconify ri slideshow-fill size=30px >}}](/slides/14_MLR_Diagnostics.qmd)]{style="color:#f8f5f0;"}      | [[{{< iconify pepicons-pop pen-circle-filled size=29px >}}](/slides_annotated/14_MLR_Diagnostics.pdf)]{style="color:#f8f5f0;"}       | [{{< iconify mdi video size=34px >}}]{style="color:#f8f5f0;"}                                                                                                                                                                                                                                                                                                                                  |
 +---------+----------------------------+--------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ## On the Horizon
@@ -84,10 +86,95 @@ editor_options:
 
 ## Muddiest Points
 
-This will be filled in with your Exit Ticket responses.
+### 1. What models or values are we comparing in VIF?
+
+Mmm good question! VIFs work for continuous and binary variables. So if your model only has continuous or binary covariates, then the VIFs and GVIFs are the same, and you can use either. The GVIFs are needed for multi-level covariates.
+
+### 2. Still a little confused on the context of when we use a centered value vs not in our model.
+
+You can always center a value! There are two scenarios where centering is really helpful:
+
+1.  When we have an interaction. Centering makes coefficients more interpretable
+
+2.  When we have a transformation of the variable. Centering avoids issues with multicollinearity.
+
+### 3. What is the difference between multicollinearity vs confounding vs effect modification?
+
+[Here's a pretty good video about the differences!](https://www.youtube.com/watch?v=4z39VgDgCVI&ab_channel=MarinStatsLectures-RProgramming%26Statistics) About 8 minutes long, but easily played at 1.25/1.5 speed.
+
+### 4. Why we would have both age and age squared in a model
 
 ```{r}
 #| echo: false
+#| warning: false
+#| message: false
 
-g=3
+
+library(broom)
+library(ggplot2)
+library(gt)
+library(tidyverse)
+age = runif(500, 18, 80)
+y = rnorm(500, -10 + 0.5*age + 0.6*age^2, 100)
+
+df = data.frame(y=y, age=age, age_sq = age^2, 
+                age_c = age - mean(age), 
+                age_c_sq = (age - mean(age))^2)
 ```
+
+We would only have age and age-squared if we noticed the relationship between age and our outcome was not linear. For example, our plot could look like this:
+
+```{r}
+#| warning: false
+#| message: false
+#| fig-width: 6
+#| fig-height: 4
+#| fig-align: center
+
+ggplot(df, aes(x = age, y = y)) + geom_point() + geom_smooth()
+```
+
+And let's say we see the following plot for age-squared:
+
+```{r}
+#| warning: false
+#| message: false
+#| fig-width: 6
+#| fig-height: 4
+#| fig-align: center
+ggplot(df, aes(x = age_sq, y = y)) + geom_point() + geom_smooth()
+```
+
+Then we would make the transformation of age for our model. When we include age-squared in the model, we still need to include age. We can run the model with both:
+
+```{r}
+mod = lm(y ~ age + age_sq, data = df)
+```
+
+And we can look at the regression table. Notice that the standard error of age and age-squared's coefficients are okay, but the intercept's standard error is really big.
+```{r}
+tidy(mod, conf.int = T) %>% gt() %>% fmt_number(decimals = 2)
+```
+
+We can also look at the VIF:
+```{r}
+rms::vif(mod)
+car::vif(mod) # will only give us GVIF if there is a multi-level covariate in the model
+```
+
+The VIFs are really big, so centering age will help the multicolinearity of the model.
+
+```{r}
+mod2 = lm(y ~ age_c + age_c_sq, data = df)
+```
+
+Where `age_c` is age centered at the mean, and `age_c_sq` is the centered age squared.
+```{r}
+tidy(mod2, conf.int = T) %>% gt() %>% fmt_number(decimals = 2)
+```
+
+```{r}
+car::vif(mod2) # will only give us GVIF if there is a multi-level covariate in the model
+```
+
+Yay! The VIFs are much better now! And the intercept and age coefficient estimate have better standard error!
