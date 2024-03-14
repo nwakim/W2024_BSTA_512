@@ -152,11 +152,13 @@ mod = lm(y ~ age + age_sq, data = df)
 ```
 
 And we can look at the regression table. Notice that the standard error of age and age-squared's coefficients are okay, but the intercept's standard error is really big.
+
 ```{r}
 tidy(mod, conf.int = T) %>% gt() %>% fmt_number(decimals = 2)
 ```
 
 We can also look at the VIF:
+
 ```{r}
 rms::vif(mod)
 car::vif(mod) # will only give us GVIF if there is a multi-level covariate in the model
@@ -169,6 +171,7 @@ mod2 = lm(y ~ age_c + age_c_sq, data = df)
 ```
 
 Where `age_c` is age centered at the mean, and `age_c_sq` is the centered age squared.
+
 ```{r}
 tidy(mod2, conf.int = T) %>% gt() %>% fmt_number(decimals = 2)
 ```
