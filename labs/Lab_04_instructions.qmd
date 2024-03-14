@@ -52,6 +52,7 @@ if(!require(sjmisc)) { install.packages("sjmisc"); library(sjmisc) }
 ```
 
 ```{r}
+#| echo: false
 load("~/Library/CloudStorage/OneDrive-OregonHealth&ScienceUniversity/Teaching/Classes/W2024_BSTA_512_612/Project_grading/Some_work/Lab_4_data.rda")
 iat = iat_3
 ```
