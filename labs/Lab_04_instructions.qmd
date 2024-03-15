@@ -11,6 +11,7 @@ format:
     link-external-newwindow: true
     toc: true
     self-contained: true
+    embed-resources: true
     number-sections: true
     number-depth: 4
     code-annotations: hover
@@ -325,6 +326,8 @@ anova_res = lapply(interactions,
                                       data = iat),
                                  prelim_model)) # <1>
 anova_res[1]
+g = anova_res[[1]]
+g$F
 ```
 
 1.  You will to change this name for the preliminary model if you called it something different. 
