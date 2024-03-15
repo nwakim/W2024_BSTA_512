@@ -17,7 +17,7 @@ editor_options:
 ---
 
 ::: callout-important
-**You can start using these instructions!! I just need to update the rubric! (3/12/2024)**
+**Instructions and rubric are completely done! (3/15/2024)**
 :::
 
 ------------------------------------------------------------------------
@@ -201,6 +201,7 @@ The project report is out of 36 points. Note that the Statistical Methods and Re
         -   Table 1 summarizing participant characteristics both **overall** and **stratified by your primary independent variable**
         -   Table or figure with regression results
             -   Can be a forest plot
+            -   If you have A LOT of coefficient estimates, the forest plot may not work well!
     -   **1-3 figures that you think are helpful in understanding the results, for example**
         -   DAG explaining connection between variables (if you did this)
         -   Table or figure to compare model fit statistics (if you did this)
