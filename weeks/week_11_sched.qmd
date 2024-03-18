@@ -34,6 +34,8 @@ editor_options:
 
 -   [SLIDES: Lab 4 feedback and some help on Project Report!!](/slides/Lab4_PR.qmd)
 
+    -   [Recording](https://ohsuitg-my.sharepoint.com/personal/wakim_ohsu_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fwakim%5Fohsu%5Fedu%2FDocuments%2FTeaching%2FClasses%2FW2024%5FBSTA%5F512%5F612%2FStudent%5Ffiles%2FRecordings%2FLab%5F04%5FProj%5Fhelp%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview): I finally turn on my screen at around minute 7!
+
 ## Announcements
 
 ```{r}

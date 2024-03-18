@@ -217,7 +217,7 @@ The project report is out of 36 points. Note that the Statistical Methods and Re
         -   You don't need to hit all the limitations, but think about the big ones (generalizability? independence of samples? large sample size vs. clinical significance? the way we handled variables?)
     -   After limitations, discuss the positive parts of the results
         -   What can we do with these results? What impact can it have?
-    -   Any overarching trends that are worth noting?
+    -   Any overarching trends that are worth noting? [@Giebel2024]
 -   Should contain some references
 
 ### Conclusion
@@ -230,10 +230,6 @@ The project report is out of 36 points. Note that the Statistical Methods and Re
 -   Include your references here!
 -   You introduction should have references, especially when discussing the social science behind the analysis
 -   You must reference the IAT data source!!
-
-[@Giebel2024]
-
-### refereces 2
 
 ::: ref
 :::
