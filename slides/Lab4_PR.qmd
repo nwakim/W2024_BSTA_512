@@ -1,0 +1,74 @@
+---
+title: "Some words on Lab 4 + help with coefficients"
+author: "Nicky Wakim"
+title-slide-attributes:
+    data-background-color: "#213c96"
+date: "03/18/2024"
+categories: ["Week 10"]
+format: 
+  revealjs:
+    theme: [default, simple_NW.scss]
+    chalkboard: true
+    slide-number: true
+    show-slide-number: all
+    width: 1955
+    height: 1100
+    footer: Quiz and Lab 2
+    html-math-method: mathjax
+    highlight-style: ayu
+execute:
+  echo: true
+  freeze: auto  # re-render only when source changes
+---
+
+# Lab 4
+
+## Overall
+
+-   Interactions: Limit to 1-2 interactions!!
+
+    -   With large sample size, many will come up significant
+    -   Make choice based on your visualizations and previous research
+
+-   When deciding on what covariates to leave in or take out of a model:
+  
+    -   If the covariate is categorical with more than 2 levels, you MUST use F-test!!
+    
+-   Check you HTML document in the report!!
+
+    -   Make sure things look good: proportions and font size should make sense
+    -   Tables and figures should look good!
+    
+    
+-   When looking at % change:
+
+    -   Some only looked at model with explanatory variable and variable in question
+    
+    -   Need to use the model with all other variables as well!!
+
+# Project Report
+
+## Table 1
+
+[Good page on creating a Table 1](https://cran.r-project.org/web/packages/table1/vignettes/table1-examples.html)
+
+## Displaying coefficients
+
+[Helpful source for plotting predictions for variables that are part of interactions!](https://strengejacke.github.io/ggeffects/articles/introduction_plotmethod.html)
+
+-   I would make a table or forest plot for the main effects of my model
+
+    -   Then make a plot showing the interactions
+    
+-   Let's look at it together?
+
+```{r}
+#| eval: false
+library(ggeffects)
+dat <- predict_response(final_model, terms = c("identfat", "comptomost"))
+plot(dat)
+
+```
+
+See recording for results
+

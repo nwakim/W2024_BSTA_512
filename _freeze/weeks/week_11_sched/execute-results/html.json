@@ -1,7 +1,7 @@
 {
-  "hash": "b52fcb6e0fda597ff9ff095062627e70",
+  "hash": "e99eace0632391e06c4ab0b55430d9c4",
   "result": {
-    "markdown": "---\ntitle: \"Week 11\"\ndescription: \"Spill-Over Week\"\ndate: \"3/18/2024\"\ndate-modified: \"12/11/2023\"\ncategories: [\"\"]\nformat: \n  html:\n    link-external-newwindow: true\n    toc: true\neditor_options: \n  chunk_output_type: console\n---\n\n::: {.cell}\n<style type=\"text/css\">\n.title{\n  font-size: 40px;\n  color: #213c96;\n  background-color: #fff;\n  padding: 10px;\n}\n\n.description{\n  font-size: 20px;\n  color: #fff;\n  background-color: #213c96;\n  padding: 10px;\n}\n</style>\n:::\n\n\n## Monday 3/18\n\n-   Meet in 3A001 for in-person project report help!\n\n## Announcements\n\n\n::: {.cell}\n\n:::",
+    "markdown": "---\ntitle: \"Week 11\"\ndescription: \"Spill-Over Week\"\ndate: \"3/18/2024\"\ndate-modified: \"12/11/2023\"\ncategories: [\"\"]\nformat: \n  html:\n    link-external-newwindow: true\n    toc: true\neditor_options: \n  chunk_output_type: console\n---\n\n::: {.cell}\n<style type=\"text/css\">\n.title{\n  font-size: 40px;\n  color: #213c96;\n  background-color: #fff;\n  padding: 10px;\n}\n\n.description{\n  font-size: 20px;\n  color: #fff;\n  background-color: #213c96;\n  padding: 10px;\n}\n</style>\n:::\n\n\n## Monday 3/18\n\n-   Meet in 3A001 for in-person project report help!\n\n-   [SLIDES: Lab 4 feedback and some help on Project Report!!](/slides/Lab4_PR.qmd)\n\n## Announcements\n\n\n::: {.cell}\n\n:::",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

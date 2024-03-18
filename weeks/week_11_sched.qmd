@@ -32,6 +32,8 @@ editor_options:
 
 -   Meet in 3A001 for in-person project report help!
 
+-   [SLIDES: Lab 4 feedback and some help on Project Report!!](/slides/Lab4_PR.qmd)
+
 ## Announcements
 
 ```{r}
