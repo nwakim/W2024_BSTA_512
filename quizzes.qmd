@@ -12,10 +12,10 @@ editor_options:
 ---
 
 | Quiz | Answer key                                                                                                 |
-|------------------------|------------------------------------------------|
-| 1    | [[{{< iconify ph key-fill size=29px >}}](/quizzes/Quiz_01_Key_BSTA_512_W2024.pdf)]{style="color:#f8f5f0;"} |
+|------------------------|-----------------------------------------------|
+| 1    | [[{{< iconify ph key-fill size=29px >}}](/quizzes/Quiz_02_BSTA_512_W2024_key.pdf)]{style="color:#f8f5f0;"} |
 | 2    | [[{{< iconify ph key-fill size=29px >}}](/quizzes/Quiz_02_BSTA_512_W2024_key.pdf)]{style="color:#f8f5f0;"} |
-| 3    | [{{< iconify icon-park-twotone file-code size=29px >}}]{style="color:#f8f5f0;"}                            |
+| 3    | [[{{< iconify ph key-fill size=29px >}}](/quizzes/Quiz_03_key_BSTA_512_W2024.pdf)]{style="color:#f8f5f0;"} |
 
 ### Quiz 3 Information
 

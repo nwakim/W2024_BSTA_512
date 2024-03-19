@@ -231,5 +231,3 @@ The project report is out of 36 points. Note that the Statistical Methods and Re
 -   You introduction should have references, especially when discussing the social science behind the analysis
 -   You must reference the IAT data source!!
 
-::: ref
-:::
