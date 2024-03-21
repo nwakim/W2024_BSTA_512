@@ -8577,9 +8577,9 @@
   {
     "objectID": "slides/05_SLR_Eval.html",
     "href": "slides/05_SLR_Eval.html",
-    "title": "SLR: Model Evaluation",
+    "title": "SLR: More inference + Evaluation",
     "section": "",
-    "text": "ANOVA table\nExplained and unexplained variation\nF test"
+    "text": "Identify different sources of variation in an Analysis of Variance (ANOVA) table\nUsing the F-test, determine if there is enough evidence that population slope \\(\\beta_1\\) is not 0\nCalculate and interpret the coefficient of determination\nDescribe the model assumptions made in linear regression using ordinary least squares\n\n\n\n\n\nLesson 1 of SLR:\n\nFit regression line\nCalculate slope & intercept\nInterpret slope & intercept\n\nLesson 2 of SLR:\n\nEstimate variance of the residuals\nInference for slope & intercept: CI, p-value\nConfidence bands of regression line for mean value of Y|X\n\n\n\n\n\n\n\n\n\n\n\n\\[\\begin{aligned}\n\\widehat{Y} &= \\widehat\\beta_0 + \\widehat\\beta_1 \\cdot X\\\\\n\\widehat{\\text{life expectancy}} &= 50.9 + 0.232 \\cdot \\text{female literacy rate}\n\\end{aligned}\\]\n\n\n\n\n  \n\n\n\n\nModel Selection\n\n\n\nBuilding a model\nSelecting variables\nPrediction vs interpretation\nComparing potential models\n\n\n\n\n\n\n\n\nModel Fitting\n\n\n\nFind best fit line\nUsing OLS in this class\nParameter estimation\nCategorical covariates\nInteractions\n\n\n\n\n\n\n\n\nModel Evaluation\n\n\n\nEvaluation of model fit\nTesting model assumptions\nResiduals\nTransformations\nInfluential points\nMulticollinearity\n\n\n\n\n\n\n\n\nModel Use (Inference)\n\n\n\n\n\nInference for coefficients\nHypothesis testing for coefficients\n\n\n\nInference for expected \\(Y\\) given \\(X\\)\nPrediction of new \\(Y\\) given \\(X\\)"
   },
   {
     "objectID": "slides/05_SLR_Eval.html#topics",
@@ -9510,7 +9510,7 @@
     "href": "slides/05_SLR_Eval.html#explained-vs.-unexplained-variation",
     "title": "SLR: More inference + Evaluation",
     "section": "Explained vs. Unexplained Variation",
-    "text": "Explained vs. Unexplained Variation\n\n\\[ \\begin{aligned}\nY_i - \\overline{Y} & = (Y_i - \\hat{Y}_i) + (\\hat{Y}_i- \\overline{Y})\\\\\n\\text{Total unexplained variation} & = \\text{Residual variation after regression} + \\text{Variation explained by regression}\n\\end{aligned}\\]"
+    "text": "Explained vs. Unexplained Variation\n\n\n\n\n\n\n\n\n\n\\[ \\begin{aligned}\nY_i - \\overline{Y} & = (Y_i - \\hat{Y}_i) + (\\hat{Y}_i- \\overline{Y})\\\\\n\\text{Total unexplained variation} & = \\text{Residual variation after regression} + \\text{Variation explained by regression}\n\\end{aligned}\\]"
   },
   {
     "objectID": "slides/05_SLR_Eval.html#what-is-the-f-statistic-testing",
@@ -9607,15 +9607,15 @@
     "objectID": "slides/05_SLR_Eval.html#so-far-in-our-regression-example",
     "href": "slides/05_SLR_Eval.html#so-far-in-our-regression-example",
     "title": "SLR: More inference + Evaluation",
-    "section": "So far in our regression example…",
-    "text": "So far in our regression example…\n\n\nLesson 1 of SLR:\n\nFit regression line\nCalculate slope & intercept\nInterpret slope & intercept\n\nLesson 2 of SLR:\n\nEstimate variance of the residuals\nInference for slope & intercept: CI, p-value\nConfidence bands of regression line for mean value of Y|X\n\n\n\n\n\n\n\n\n\n\n\n\\[\\begin{aligned}\n\\widehat{Y} &= \\widehat\\beta_0 + \\widehat\\beta_1 \\cdot X\\\\\n\\widehat{\\text{life expectancy}} &= 50.9 + 0.232 \\cdot \\text{female literacy rate}\n\\end{aligned}\\]"
+    "section": "",
+    "text": "Lesson 1 of SLR:\n\nFit regression line\nCalculate slope & intercept\nInterpret slope & intercept\n\nLesson 2 of SLR:\n\nEstimate variance of the residuals\nInference for slope & intercept: CI, p-value\nConfidence bands of regression line for mean value of Y|X\n\n\n\n\n\n\n\n\n\n\n\n\\[\\begin{aligned}\n\\widehat{Y} &= \\widehat\\beta_0 + \\widehat\\beta_1 \\cdot X\\\\\n\\widehat{\\text{life expectancy}} &= 50.9 + 0.232 \\cdot \\text{female literacy rate}\n\\end{aligned}\\]"
   },
   {
     "objectID": "slides/05_SLR_Eval.html#lets-revisit-the-regression-analysis-process",
     "href": "slides/05_SLR_Eval.html#lets-revisit-the-regression-analysis-process",
     "title": "SLR: More inference + Evaluation",
-    "section": "Let’s revisit the regression analysis process",
-    "text": "Let’s revisit the regression analysis process\n\n  \n\n\n\n\nModel Selection\n\n\n\nBuilding a model\nSelecting variables\nPrediction vs interpretation\nComparing potential models\n\n\n\n\n\n\n\n\nModel Fitting\n\n\n\nFind best fit line\nUsing OLS in this class\nParameter estimation\nCategorical covariates\nInteractions\n\n\n\n\n\n\n\n\nModel Evaluation\n\n\n\nEvaluation of model fit\nTesting model assumptions\nResiduals\nTransformations\nInfluential points\nMulticollinearity\n\n\n\n\n\n\n\n\nModel Use (Inference)\n\n\n\n\n\nInference for coefficients\nHypothesis testing for coefficients\n\n\n\nInference for expected \\(Y\\) given \\(X\\)\nPrediction of new \\(Y\\) given \\(X\\)"
+    "section": "",
+    "text": "Model Selection\n\n\n\nBuilding a model\nSelecting variables\nPrediction vs interpretation\nComparing potential models\n\n\n\n\n\n\n\n\nModel Fitting\n\n\n\nFind best fit line\nUsing OLS in this class\nParameter estimation\nCategorical covariates\nInteractions\n\n\n\n\n\n\n\n\nModel Evaluation\n\n\n\nEvaluation of model fit\nTesting model assumptions\nResiduals\nTransformations\nInfluential points\nMulticollinearity\n\n\n\n\n\n\n\n\nModel Use (Inference)\n\n\n\n\n\nInference for coefficients\nHypothesis testing for coefficients\n\n\n\nInference for expected \\(Y\\) given \\(X\\)\nPrediction of new \\(Y\\) given \\(X\\)"
   },
   {
     "objectID": "slides/05_SLR_Eval.html#quickly-go-over-our-estimates-from-last-class",
@@ -9860,7 +9860,7 @@
     "href": "slides/05_SLR_Eval.html#anscombes-quartet",
     "title": "SLR: More inference + Evaluation",
     "section": "Anscombe’s Quartet",
-    "text": "Anscombe’s Quartet\n\n\n\nSLR 3"
+    "text": "Anscombe’s Quartet"
   },
   {
     "objectID": "slides/05_SLR_Eval.html#more-on-the-equation",

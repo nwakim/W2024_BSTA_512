@@ -28,7 +28,7 @@ bibliography: references.bib
 ::: callout-important
 ## Project template
 
-You *may* use [this project template](/labs/Project_template.qmd) to get started on the report. It is your responsibility to meet the formatting guidelines below!!
+You *may* use [this project template](https://github.com/nwakim/W2024_BSTA_512/blob/main/labs/Project_template.qmd) to get started on the report. It is your responsibility to meet the formatting guidelines below!!
 
 DO NOT USE SITE PAGE ("Project Report Instructions", current page) as your template!!
 :::
@@ -230,4 +230,3 @@ The project report is out of 36 points. Note that the Statistical Methods and Re
 -   Include your references here!
 -   You introduction should have references, especially when discussing the social science behind the analysis
 -   You must reference the IAT data source!!
-
