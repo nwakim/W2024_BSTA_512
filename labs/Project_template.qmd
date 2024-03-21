@@ -11,6 +11,8 @@ format:
     self-contained: true
     execute:
       echo: false
+      warning: false
+      message: false
 editor_options: 
   chunk_output_type: console
 ---
@@ -21,7 +23,7 @@ editor_options:
 
 ## Results
 
-## Discussion 
+## Discussion
 
 ## Conclusion
 

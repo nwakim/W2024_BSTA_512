@@ -1,7 +1,7 @@
 {
-  "hash": "233efe5fe21ecbfb03b5eddc1a46ef97",
+  "hash": "ac604685c5bd64198989336e27de08bd",
   "result": {
-    "markdown": "---\ntitle: \"Project Template: Title here\"\nsubtitle: \"BSTA 512/612\"\nauthot: \"Your name here\"\ndescription: \"Due: Thursday March 21, 2024\"\ndate-modified: \"today\"\nformat: \n  html:\n    link-external-newwindow: true\n    toc: true\n    self-contained: true\n    execute:\n      echo: false\neditor_options: \n  chunk_output_type: console\n---\n\n\n## Introduction\n\n## Statistical Methods\n\n## Results\n\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n```\n[1] 3\n```\n:::\n:::\n\n\n## Discussion \n\n## Conclusion\n\n## References\n",
+    "markdown": "---\ntitle: \"Project Template: Title here\"\nsubtitle: \"BSTA 512/612\"\nauthor: \"Your name here\"\ndescription: \"Due: Thursday March 21, 2024 at 11pm\"\ndate-modified: \"today\"\nformat: \n  html:\n    link-external-newwindow: true\n    toc: true\n    self-contained: true\n    execute:\n      echo: false\n      warning: false\n      message: false\neditor_options: \n  chunk_output_type: console\n---\n\n\n## Introduction\n\n\n::: {.cell}\n\n:::\n\n\n## Statistical Methods\n\n## Results\n\n## Discussion\n\n## Conclusion\n\n## References\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
